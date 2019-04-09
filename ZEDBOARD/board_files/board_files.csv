@@ -1,0 +1,5 @@
+CSV_VERSION=1.2
+#Comment:-do not change matrix position or remove CSV_VERSION:
+ID  , PRODID          ,PARTNAME         ,BOARDNAME                          ,SHORTNAME    ,ZYNQFLASHTYP ,FPGAFLASHTYP
+1   , ZYNQ720-03-1cf   ,xc7z020clg484-1  ,em.avnet.com:zed:part0:1.4     ,zed   ,qspi_single  ,s25fl256sxxxxxx0-spi-x1_x2_x4|SPIx4|32
+2   , ZYNQ730-03-1sbg   ,xc7z030sbg485-1  ,em.avnet.com:PICOBOARDCUSTOM:part0:1.1     ,PICOBOARDCUSTOM   ,qspi_single  ,s25fl256sxxxxxx0-spi-x1_x2_x4|SPIx4|32

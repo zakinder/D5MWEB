@@ -1,0 +1,8 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]V:\debug\zynq_soc\d5mweb\ZEDBOARD\workspace\sdk\fsbl\Debug\fsbl.elf
+	V:\debug\zynq_soc\d5mweb\ZEDBOARD\workspace\sdk\ZEDBOARD_hw_platform_0\zynq_soc_wrapper.bit
+	V:\debug\zynq_soc\d5mweb\ZEDBOARD\workspace\sdk\vfpWebCamera\Debug\vfpWebCamera.elf
+	[load = 0x7200000]V:\zynq_soc\d5mweb\ZEDBOARD\http\image.mfs
+}

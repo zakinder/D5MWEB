@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="videoProcess_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="commonpackage" />
+            <top_module name="constantspackage" />
+            <top_module name="fixed_float_types" />
+            <top_module name="fixed_pkg" />
+            <top_module name="float_pkg" />
+            <top_module name="portspackage" />
+            <top_module name="videoProcess_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1000000000fs"></ZoomStartTime>
+      <ZoomEndTime time="1000041563fs"></ZoomEndTime>
+      <Cursor1Time time="20599992000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="169"></NameColumnWidth>
+      <ValueColumnWidth column_width="171"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="81" />
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/pixclk" type="logic">
+      <obj_property name="ElementShortName">pixclk</obj_property>
+      <obj_property name="ObjectShortName">pixclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/ifval" type="logic">
+      <obj_property name="ElementShortName">ifval</obj_property>
+      <obj_property name="ObjectShortName">ifval</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/ilval" type="logic">
+      <obj_property name="ElementShortName">ilval</obj_property>
+      <obj_property name="ObjectShortName">ilval</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/idata" type="array">
+      <obj_property name="ElementShortName">idata[11:0]</obj_property>
+      <obj_property name="ObjectShortName">idata[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_m_axis_aclk" type="logic">
+      <obj_property name="ElementShortName">rgb_m_axis_aclk</obj_property>
+      <obj_property name="ObjectShortName">rgb_m_axis_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_m_axis_aresetn" type="logic">
+      <obj_property name="ElementShortName">rgb_m_axis_aresetn</obj_property>
+      <obj_property name="ObjectShortName">rgb_m_axis_aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_m_axis_tready" type="logic">
+      <obj_property name="ElementShortName">rgb_m_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">rgb_m_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_s_axis_aclk" type="logic">
+      <obj_property name="ElementShortName">rgb_s_axis_aclk</obj_property>
+      <obj_property name="ObjectShortName">rgb_s_axis_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_s_axis_aresetn" type="logic">
+      <obj_property name="ElementShortName">rgb_s_axis_aresetn</obj_property>
+      <obj_property name="ObjectShortName">rgb_s_axis_aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_s_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">rgb_s_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">rgb_s_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_s_axis_tuser" type="logic">
+      <obj_property name="ElementShortName">rgb_s_axis_tuser</obj_property>
+      <obj_property name="ObjectShortName">rgb_s_axis_tuser</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_s_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">rgb_s_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">rgb_s_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_s_axis_tdata" type="array">
+      <obj_property name="ElementShortName">rgb_s_axis_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb_s_axis_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_aclk" type="logic">
+      <obj_property name="ElementShortName">m_axis_mm2s_aclk</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_aresetn" type="logic">
+      <obj_property name="ElementShortName">m_axis_mm2s_aresetn</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tready" type="logic">
+      <obj_property name="ElementShortName">m_axis_mm2s_tready</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_aclk" type="logic">
+      <obj_property name="ElementShortName">config_axis_aclk</obj_property>
+      <obj_property name="ObjectShortName">config_axis_aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_aresetn" type="logic">
+      <obj_property name="ElementShortName">config_axis_aresetn</obj_property>
+      <obj_property name="ObjectShortName">config_axis_aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_awaddr" type="array">
+      <obj_property name="ElementShortName">config_axis_awaddr[6:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_awaddr[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_awprot" type="array">
+      <obj_property name="ElementShortName">config_axis_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_awvalid" type="logic">
+      <obj_property name="ElementShortName">config_axis_awvalid</obj_property>
+      <obj_property name="ObjectShortName">config_axis_awvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_wdata" type="array">
+      <obj_property name="ElementShortName">config_axis_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_wstrb" type="array">
+      <obj_property name="ElementShortName">config_axis_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_wvalid" type="logic">
+      <obj_property name="ElementShortName">config_axis_wvalid</obj_property>
+      <obj_property name="ObjectShortName">config_axis_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_bready" type="logic">
+      <obj_property name="ElementShortName">config_axis_bready</obj_property>
+      <obj_property name="ObjectShortName">config_axis_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_araddr" type="array">
+      <obj_property name="ElementShortName">config_axis_araddr[6:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_araddr[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_arprot" type="array">
+      <obj_property name="ElementShortName">config_axis_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_arvalid" type="logic">
+      <obj_property name="ElementShortName">config_axis_arvalid</obj_property>
+      <obj_property name="ObjectShortName">config_axis_arvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_rready" type="logic">
+      <obj_property name="ElementShortName">config_axis_rready</obj_property>
+      <obj_property name="ObjectShortName">config_axis_rready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_m_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">rgb_m_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">rgb_m_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_m_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">rgb_m_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">rgb_m_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_m_axis_tuser" type="logic">
+      <obj_property name="ElementShortName">rgb_m_axis_tuser</obj_property>
+      <obj_property name="ObjectShortName">rgb_m_axis_tuser</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_m_axis_tdata" type="array">
+      <obj_property name="ElementShortName">rgb_m_axis_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rgb_m_axis_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb_s_axis_tready" type="logic">
+      <obj_property name="ElementShortName">rgb_s_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">rgb_s_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tvalid" type="logic">
+      <obj_property name="ElementShortName">m_axis_mm2s_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tuser" type="logic">
+      <obj_property name="ElementShortName">m_axis_mm2s_tuser</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tuser</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tlast" type="logic">
+      <obj_property name="ElementShortName">m_axis_mm2s_tlast</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tdata" type="array">
+      <obj_property name="ElementShortName">m_axis_mm2s_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tkeep" type="array">
+      <obj_property name="ElementShortName">m_axis_mm2s_tkeep[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tkeep[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tstrb" type="array">
+      <obj_property name="ElementShortName">m_axis_mm2s_tstrb[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tstrb[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tid" type="array">
+      <obj_property name="ElementShortName">m_axis_mm2s_tid[0:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tid[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/m_axis_mm2s_tdest" type="array">
+      <obj_property name="ElementShortName">m_axis_mm2s_tdest[0:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_mm2s_tdest[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_awready" type="logic">
+      <obj_property name="ElementShortName">config_axis_awready</obj_property>
+      <obj_property name="ObjectShortName">config_axis_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_wready" type="logic">
+      <obj_property name="ElementShortName">config_axis_wready</obj_property>
+      <obj_property name="ObjectShortName">config_axis_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_bresp" type="array">
+      <obj_property name="ElementShortName">config_axis_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_bvalid" type="logic">
+      <obj_property name="ElementShortName">config_axis_bvalid</obj_property>
+      <obj_property name="ObjectShortName">config_axis_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_arready" type="logic">
+      <obj_property name="ElementShortName">config_axis_arready</obj_property>
+      <obj_property name="ObjectShortName">config_axis_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_rdata" type="array">
+      <obj_property name="ElementShortName">config_axis_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_rresp" type="array">
+      <obj_property name="ElementShortName">config_axis_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">config_axis_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/config_axis_rvalid" type="logic">
+      <obj_property name="ElementShortName">config_axis_rvalid</obj_property>
+      <obj_property name="ObjectShortName">config_axis_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rx_axis_tready" type="logic">
+      <obj_property name="ElementShortName">rx_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">rx_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rx_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">rx_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">rx_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rx_axis_tuser" type="logic">
+      <obj_property name="ElementShortName">rx_axis_tuser</obj_property>
+      <obj_property name="ObjectShortName">rx_axis_tuser</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rx_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">rx_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">rx_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rx_axis_tdata" type="array">
+      <obj_property name="ElementShortName">rx_axis_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_axis_tdata[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/aBusSelect" type="array">
+      <obj_property name="ElementShortName">aBusSelect[31:0]</obj_property>
+      <obj_property name="ObjectShortName">aBusSelect[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/videoChannel" type="array">
+      <obj_property name="ElementShortName">videoChannel[31:0]</obj_property>
+      <obj_property name="ObjectShortName">videoChannel[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/dChannel" type="array">
+      <obj_property name="ElementShortName">dChannel[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dChannel[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/cChannel" type="array">
+      <obj_property name="ElementShortName">cChannel[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cChannel[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/fifoStatus" type="array">
+      <obj_property name="ElementShortName">fifoStatus[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fifoStatus[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/en1pvalid" type="logic">
+      <obj_property name="ElementShortName">en1pvalid</obj_property>
+      <obj_property name="ObjectShortName">en1pvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/en2pvalid" type="logic">
+      <obj_property name="ElementShortName">en2pvalid</obj_property>
+      <obj_property name="ObjectShortName">en2pvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/seconds" type="array">
+      <obj_property name="ElementShortName">seconds[5:0]</obj_property>
+      <obj_property name="ObjectShortName">seconds[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/minutes" type="array">
+      <obj_property name="ElementShortName">minutes[5:0]</obj_property>
+      <obj_property name="ObjectShortName">minutes[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/hours" type="array">
+      <obj_property name="ElementShortName">hours[4:0]</obj_property>
+      <obj_property name="ObjectShortName">hours[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/vTap0x" type="array">
+      <obj_property name="ElementShortName">vTap0x[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vTap0x[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/vTap1x" type="array">
+      <obj_property name="ElementShortName">vTap1x[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vTap1x[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/vTap2x" type="array">
+      <obj_property name="ElementShortName">vTap2x[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vTap2x[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/pData" type="array">
+      <obj_property name="ElementShortName">pData[11:0]</obj_property>
+      <obj_property name="ObjectShortName">pData[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/endOfFrame" type="logic">
+      <obj_property name="ElementShortName">endOfFrame</obj_property>
+      <obj_property name="ObjectShortName">endOfFrame</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/threshold" type="array">
+      <obj_property name="ElementShortName">threshold[15:0]</obj_property>
+      <obj_property name="ObjectShortName">threshold[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/gridLockDatao" type="array">
+      <obj_property name="ElementShortName">gridLockDatao[31:0]</obj_property>
+      <obj_property name="ObjectShortName">gridLockDatao[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/gridDataRdEn" type="logic">
+      <obj_property name="ElementShortName">gridDataRdEn</obj_property>
+      <obj_property name="ObjectShortName">gridDataRdEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgb" type="array">
+      <obj_property name="ElementShortName">rgb</obj_property>
+      <obj_property name="ObjectShortName">rgb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/ycbcr" type="array">
+      <obj_property name="ElementShortName">ycbcr</obj_property>
+      <obj_property name="ObjectShortName">ycbcr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/dCord" type="array">
+      <obj_property name="ElementShortName">dCord</obj_property>
+      <obj_property name="ObjectShortName">dCord</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/txCord" type="array">
+      <obj_property name="ElementShortName">txCord</obj_property>
+      <obj_property name="ObjectShortName">txCord</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/kls" type="array">
+      <obj_property name="ElementShortName">kls</obj_property>
+      <obj_property name="ObjectShortName">kls</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/als" type="array">
+      <obj_property name="ElementShortName">als</obj_property>
+      <obj_property name="ObjectShortName">als</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/rgbCoord" type="array">
+      <obj_property name="ElementShortName">rgbCoord</obj_property>
+      <obj_property name="ObjectShortName">rgbCoord</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/pRegion" type="array">
+      <obj_property name="ElementShortName">pRegion</obj_property>
+      <obj_property name="ObjectShortName">pRegion</obj_property>
+   </wvobject>
+</wave_config>

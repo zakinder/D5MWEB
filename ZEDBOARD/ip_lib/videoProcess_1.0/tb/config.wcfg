@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="videoProcess_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="commonpackage" />
+            <top_module name="constantspackage" />
+            <top_module name="fixed_float_types" />
+            <top_module name="fixed_pkg" />
+            <top_module name="float_pkg" />
+            <top_module name="portspackage" />
+            <top_module name="videoProcess_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1000000000fs"></ZoomStartTime>
+      <ZoomEndTime time="9297744688fs"></ZoomEndTime>
+      <Cursor1Time time="8416784000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="169"></NameColumnWidth>
+      <ValueColumnWidth column_width="171"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="85" />
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/seconds" type="array">
+      <obj_property name="ElementShortName">seconds[5:0]</obj_property>
+      <obj_property name="ObjectShortName">seconds[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/minutes" type="array">
+      <obj_property name="ElementShortName">minutes[5:0]</obj_property>
+      <obj_property name="ObjectShortName">minutes[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/hours" type="array">
+      <obj_property name="ElementShortName">hours[4:0]</obj_property>
+      <obj_property name="ObjectShortName">hours[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/fifoStatus" type="array">
+      <obj_property name="ElementShortName">fifoStatus[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fifoStatus[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/gridLockDatao" type="array">
+      <obj_property name="ElementShortName">gridLockDatao[31:0]</obj_property>
+      <obj_property name="ObjectShortName">gridLockDatao[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_ACLK" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_ARESETN" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARESETN</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARESETN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_AWADDR" type="array">
+      <obj_property name="ElementShortName">S_AXI_AWADDR[6:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWADDR[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_AWPROT" type="array">
+      <obj_property name="ElementShortName">S_AXI_AWPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_AWVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_AWVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_WDATA" type="array">
+      <obj_property name="ElementShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_WSTRB" type="array">
+      <obj_property name="ElementShortName">S_AXI_WSTRB[3:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WSTRB[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_WVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_WVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_BREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_BREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_ARADDR" type="array">
+      <obj_property name="ElementShortName">S_AXI_ARADDR[6:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARADDR[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_ARPROT" type="array">
+      <obj_property name="ElementShortName">S_AXI_ARPROT[2:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARPROT[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_ARVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_RREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_RREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/rgbCoord" type="array">
+      <obj_property name="ElementShortName">rgbCoord</obj_property>
+      <obj_property name="ObjectShortName">rgbCoord</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/aBusSelect" type="array">
+      <obj_property name="ElementShortName">aBusSelect[31:0]</obj_property>
+      <obj_property name="ObjectShortName">aBusSelect[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/threshold" type="array">
+      <obj_property name="ElementShortName">threshold[15:0]</obj_property>
+      <obj_property name="ObjectShortName">threshold[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/videoChannel" type="array">
+      <obj_property name="ElementShortName">videoChannel[31:0]</obj_property>
+      <obj_property name="ObjectShortName">videoChannel[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/dChannel" type="array">
+      <obj_property name="ElementShortName">dChannel[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dChannel[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/cChannel" type="array">
+      <obj_property name="ElementShortName">cChannel[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cChannel[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/pRegion" type="array">
+      <obj_property name="ElementShortName">pRegion</obj_property>
+      <obj_property name="ObjectShortName">pRegion</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/als" type="array">
+      <obj_property name="ElementShortName">als</obj_property>
+      <obj_property name="ObjectShortName">als</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/kls" type="array">
+      <obj_property name="ElementShortName">kls</obj_property>
+      <obj_property name="ObjectShortName">kls</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/gridDataRdEn" type="logic">
+      <obj_property name="ElementShortName">gridDataRdEn</obj_property>
+      <obj_property name="ObjectShortName">gridDataRdEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_AWREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_AWREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_WREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_WREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_BRESP" type="array">
+      <obj_property name="ElementShortName">S_AXI_BRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_BVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_BVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_BVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_ARREADY" type="logic">
+      <obj_property name="ElementShortName">S_AXI_ARREADY</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_RDATA" type="array">
+      <obj_property name="ElementShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_RRESP" type="array">
+      <obj_property name="ElementShortName">S_AXI_RRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/S_AXI_RVALID" type="logic">
+      <obj_property name="ElementShortName">S_AXI_RVALID</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RVALID</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_awaddr" type="array">
+      <obj_property name="ElementShortName">axi_awaddr[6:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awaddr[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_awready" type="logic">
+      <obj_property name="ElementShortName">axi_awready</obj_property>
+      <obj_property name="ObjectShortName">axi_awready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_wready" type="logic">
+      <obj_property name="ElementShortName">axi_wready</obj_property>
+      <obj_property name="ObjectShortName">axi_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_bresp" type="array">
+      <obj_property name="ElementShortName">axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_bvalid" type="logic">
+      <obj_property name="ElementShortName">axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_araddr" type="array">
+      <obj_property name="ElementShortName">axi_araddr[6:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_araddr[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_arready" type="logic">
+      <obj_property name="ElementShortName">axi_arready</obj_property>
+      <obj_property name="ObjectShortName">axi_arready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_rdata" type="array">
+      <obj_property name="ElementShortName">axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_rresp" type="array">
+      <obj_property name="ElementShortName">axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/axi_rvalid" type="logic">
+      <obj_property name="ElementShortName">axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister1" type="array">
+      <obj_property name="ElementShortName">configRegister1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister2" type="array">
+      <obj_property name="ElementShortName">configRegister2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister3" type="array">
+      <obj_property name="ElementShortName">configRegister3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister4" type="array">
+      <obj_property name="ElementShortName">configRegister4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister5" type="array">
+      <obj_property name="ElementShortName">configRegister5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister5[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister6" type="array">
+      <obj_property name="ElementShortName">configRegister6[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister6[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister7" type="array">
+      <obj_property name="ElementShortName">configRegister7[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister7[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister8" type="array">
+      <obj_property name="ElementShortName">configRegister8[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister8[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister9" type="array">
+      <obj_property name="ElementShortName">configRegister9[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister9[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister10" type="array">
+      <obj_property name="ElementShortName">configRegister10[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister10[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister11" type="array">
+      <obj_property name="ElementShortName">configRegister11[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister11[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister12" type="array">
+      <obj_property name="ElementShortName">configRegister12[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister12[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister13" type="array">
+      <obj_property name="ElementShortName">configRegister13[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister13[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister14" type="array">
+      <obj_property name="ElementShortName">configRegister14[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister14[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister15" type="array">
+      <obj_property name="ElementShortName">configRegister15[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister15[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister16" type="array">
+      <obj_property name="ElementShortName">configRegister16[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister16[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister17" type="array">
+      <obj_property name="ElementShortName">configRegister17[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister17[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister18" type="array">
+      <obj_property name="ElementShortName">configRegister18[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister18[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister19" type="array">
+      <obj_property name="ElementShortName">configRegister19[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister19[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister20" type="array">
+      <obj_property name="ElementShortName">configRegister20[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister20[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister21" type="array">
+      <obj_property name="ElementShortName">configRegister21[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister21[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister22" type="array">
+      <obj_property name="ElementShortName">configRegister22[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister22[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister23" type="array">
+      <obj_property name="ElementShortName">configRegister23[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister23[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister24" type="array">
+      <obj_property name="ElementShortName">configRegister24[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister24[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister25" type="array">
+      <obj_property name="ElementShortName">configRegister25[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister25[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister26" type="array">
+      <obj_property name="ElementShortName">configRegister26[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister26[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister27" type="array">
+      <obj_property name="ElementShortName">configRegister27[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister27[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister28" type="array">
+      <obj_property name="ElementShortName">configRegister28[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister28[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister29" type="array">
+      <obj_property name="ElementShortName">configRegister29[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister29[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister30" type="array">
+      <obj_property name="ElementShortName">configRegister30[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister30[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister31" type="array">
+      <obj_property name="ElementShortName">configRegister31[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister31[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/configRegister32" type="array">
+      <obj_property name="ElementShortName">configRegister32[31:0]</obj_property>
+      <obj_property name="ObjectShortName">configRegister32[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/slv_reg_rden" type="logic">
+      <obj_property name="ElementShortName">slv_reg_rden</obj_property>
+      <obj_property name="ObjectShortName">slv_reg_rden</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/gridDataRd" type="logic">
+      <obj_property name="ElementShortName">gridDataRd</obj_property>
+      <obj_property name="ObjectShortName">gridDataRd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/gridDataRdPulse" type="logic">
+      <obj_property name="ElementShortName">gridDataRdPulse</obj_property>
+      <obj_property name="ObjectShortName">gridDataRdPulse</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/slv_reg_wren" type="logic">
+      <obj_property name="ElementShortName">slv_reg_wren</obj_property>
+      <obj_property name="ObjectShortName">slv_reg_wren</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/reg_data_out" type="array">
+      <obj_property name="ElementShortName">reg_data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_data_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/byte_index" type="other">
+      <obj_property name="ElementShortName">byte_index</obj_property>
+      <obj_property name="ObjectShortName">byte_index</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/d5m_camera_inst/mod9_inst/aw_en" type="logic">
+      <obj_property name="ElementShortName">aw_en</obj_property>
+      <obj_property name="ObjectShortName">aw_en</obj_property>
+   </wvobject>
+</wave_config>
