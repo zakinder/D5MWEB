@@ -19,11 +19,10 @@ package constantspackage is
     constant mm2s_aclk                 : real    := 150.00e6;
     constant maxis_aclk                : real    := 150.00e6;
     constant saxis_aclk                : real    := 150.00e6;
-    --constant line_hight                : integer := 5;
+    --constant line_hight              : integer := 5;
     -------------------------------------------------------------------------
     -- videoProcess constants
     -------------------------------------------------------------------------
-
      constant C_rgb_m_axis_TDATA_WIDTH  : integer := 16;
      constant C_rgb_m_axis_START_COUNT  : integer := 32;
      constant C_rgb_s_axis_TDATA_WIDTH  : integer := 16;
@@ -38,7 +37,6 @@ package constantspackage is
      constant i_full_range              : boolean := FALSE;
      constant conf_data_width           : integer := 32;
      constant conf_addr_width           : integer := 4;
-
     -------------------------------------------------------------------------
     constant C_S_AXI_DATA_WIDTH        : integer := 32;
     constant rgb_msb                   : integer := 12;

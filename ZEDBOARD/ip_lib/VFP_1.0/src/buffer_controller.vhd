@@ -61,13 +61,11 @@ end component;
     signal tap2_data   : std_logic_vector(p_data_width downto 0) := (others => '0');
     signal tap3_data   : std_logic_vector(p_data_width downto 0) := (others => '0');
 begin
-
     process (aclk) begin
         if (rising_edge(aclk)) then
             write_s <=i_enable;
         end if;
     end process;
-
     process (aclk) begin
     if (rising_edge(aclk) ) then
         if (write_p = '1') then
@@ -79,14 +77,11 @@ begin
         end if;
     end if;
     end process;
-    
-    
     write_p   <= '1' when (write_s ='1' and i_enable ='0') else '0';
     wrchx0_io <= '1' when (write_chs = 0 and i_enable ='1')  else '0';
     wrchx1_io <= '1' when (write_chs = 1 and i_enable ='1')  else '0';
     wrchx2_io <= '1' when (write_chs = 2 and i_enable ='1')  else '0';
     wrchx3_io <= '1' when (write_chs = 3 and i_enable ='1')  else '0';
-    
     process (aclk) begin
         if (rising_edge(aclk) ) then
             w1rchx0_io<=wrchx0_io;

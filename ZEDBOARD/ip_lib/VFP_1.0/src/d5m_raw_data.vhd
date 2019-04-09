@@ -34,14 +34,7 @@ architecture arch_imp of d5m_raw_data is
     signal ilvalSync4     : std_logic :=lo;
     signal ifvalSync1     : std_logic :=lo;
     signal ifvalSync2     : std_logic :=lo;
-    signal ifvalSync3     : std_logic :=lo;
-    signal ifvalSync4     : std_logic :=lo;
-    signal pFullSync1     : std_logic :=lo;
-    signal pFullSync2     : std_logic :=lo;
-    signal pFullSync3     : std_logic :=lo;
-    signal pFullSync4     : std_logic :=lo;
-    signal EndOfLine      : std_logic :=lo;
-    signal pFull          : std_logic :=lo;
+    signal endOfLine      : std_logic :=lo;
     ----
     signal rVdata         : std_logic_vector(11 downto 0):= (others => lo);
     signal rLine          : std_logic :=lo;
@@ -49,15 +42,14 @@ architecture arch_imp of d5m_raw_data is
     signal d5mStates : d5mSt; 
     signal cordx          : integer :=zero;
     signal cordy          : integer :=zero;
-	signal imgWidth       : integer := 3071; --set default max
-    --- SIDES : img_width is dynamic therefore need to set max for max resolution of screen
+	signal imgWidth       : integer := 3071;
     type plineRam is array (0 to img_width) of std_logic_vector (11 downto 0);
     signal d5mLine        : plineRam := (others => (others => lo));
 begin
 -----------------------------------------------------------------------------------------
 --pixclk
 -----------------------------------------------------------------------------------------
-EndOfLine <= hi when (pLineSyn = hi and ilval = lo) else lo;
+endOfLine <= hi when (pLineSyn = hi and ilval = lo) else lo;
 d5mDataSyncP: process(pixclk) begin
     if rising_edge(pixclk) then
         pLine       <= ilval;
@@ -65,12 +57,10 @@ d5mDataSyncP: process(pixclk) begin
         pFrame      <= ifval;
         if (pFrame = hi and pLine = hi) then
             pDataWrAddress  <= pDataWrAddress + one;
-			pFull           <= lo;
         else
             pDataWrAddress <= zero;
-			pFull          <= hi;--ram is full
         end if;
-        if (EndOfLine = hi) then
+        if (endOfLine = hi) then
             imgWidth  <= pDataWrAddress;
         else
             imgWidth  <= imgWidth;
@@ -85,18 +75,12 @@ cdcSignals: process (m_axis_aclk) begin
         ilvalSync2  <= ilvalSync1;
 		ifvalSync1  <= ifval;
         ifvalSync2  <= ifvalSync1;
-		pFullSync1  <= pFull;
-		pFullSync2  <= pFullSync1;
     end if;
 end process cdcSignals;
 edgeDetect: process (m_axis_aclk) begin
     if rising_edge(m_axis_aclk) then
-        pFullSync3  <= pFullSync2;
-        pFullSync4  <= pFullSync3;
         ilvalSync3  <= ilvalSync2;
         ilvalSync4  <= ilvalSync3;
-		ifvalSync3  <= ifvalSync2;
-        ifvalSync4  <= ifvalSync3;
     end if;
 end process edgeDetect;
 pSol <= hi when (ilvalSync4 = lo and ilvalSync2 = hi) else lo;--risingEdge Detect

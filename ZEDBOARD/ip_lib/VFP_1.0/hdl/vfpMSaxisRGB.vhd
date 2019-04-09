@@ -56,12 +56,10 @@ architecture arch_imp of videoProcess_v1_0_rgb_m_axis is
     signal tx_axis_tuser     : std_logic;
     signal tx_axis_tready    : std_logic;
 	signal pEofs1            : std_logic :=lo;
-
     signal tx_axis_tdata     : std_logic_vector(s_data_width-1 downto 0);
     type video_io_state is (VIDEO_SET_RESET,VIDEO_SOF_OFF,VIDEO_SOF_ON,VIDEO_END_OF_LINE);
     signal VIDEO_STATES      : video_io_state; 
 begin
-
 process (m_axis_mm2s_aclk) begin
     if rising_edge(m_axis_mm2s_aclk) then
             mpeg42XBR  <= not(mpeg42XBR) and color_valid;
@@ -86,15 +84,12 @@ process (m_axis_mm2s_aclk) begin
             tx_axis_tvalid <= lo;
             tx_axis_tdata  <= (others => lo);    
             axis_sof       <= lo;
-
         if (iSof = '1') then
             VIDEO_STATES <= VIDEO_SOF_OFF;
         else
             VIDEO_STATES <= VIDEO_SET_RESET;
         end if;
-
         when VIDEO_SOF_OFF =>
-
         if (color_valid = hi) then
             VIDEO_STATES <= VIDEO_SOF_ON;
             axis_sof     <= hi;
@@ -124,7 +119,6 @@ process (m_axis_mm2s_aclk) begin
                     tx_axis_tdata  <= (mpeg42XCR & mpeg444Y);
                 end if;
             end if;
-            
         if (color_valid = hi) then
             tx_axis_tlast  <= lo;
             VIDEO_STATES <= VIDEO_SOF_ON;

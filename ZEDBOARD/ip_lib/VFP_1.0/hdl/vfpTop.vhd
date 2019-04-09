@@ -164,11 +164,11 @@ port map(
     rst_l               => m_axis_mm2s_aresetn,
     iRgbSet             => rgbSet,
     --cpu side in
-	iEdgeType           => edgeType,
+    iEdgeType           => edgeType,
     iPoiRegion          => pRegion,
     iThreshold          => threshold,
-	iKls                => kls,
-	iAls                => als,
+    iKls                => kls,
+    iAls                => als,
     iRgbCoord           => rgbCoord,
     --to cpu
     oFifoStatus         => fifoStatus,
@@ -182,7 +182,7 @@ videoSelect_inst: videoSelect
 port map(
     clk                 => m_axis_mm2s_aclk,              
     rst_l               => m_axis_mm2s_aresetn,
-	videoChannel        => videoChannel,
+    videoChannel        => videoChannel,
     cRgbOsharp          => cRgbOsharp,
     dChannel            => dChannel,
     cChannel            => cChannel,
@@ -278,7 +278,7 @@ port map(
     pRegion              => pRegion,
     fifoStatus           => fifoStatus,
     gridLockDatao        => gridLockDatao,
-	kls                  => kls,
+    kls                  => kls,
     als                  => als,
     S_AXI_ACLK           => vfpconfig_aclk,
     S_AXI_ARESETN        => vfpconfig_aresetn,
