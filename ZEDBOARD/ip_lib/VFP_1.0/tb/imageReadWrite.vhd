@@ -38,7 +38,7 @@ architecture Behavioral of imageReadWrite is
     constant img_height                  : integer := 128;
     -------------------------------------------------------------------------
 	
-    constant proj_fol  : string := "Z:/Documents/GitHub/D5MWEB/ZEDBOARD/doc/images";
+    constant proj_fol  : string := "Z:/ipManager/ip_user_files/VFP_1.0";
     constant bacslash  : string := "\";
     constant readbmp   : string := input_file&".bmp";
     constant writbmp   : string := proj_fol&bacslash&test&bacslash&output_file&".bmp";

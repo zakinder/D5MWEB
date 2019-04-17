@@ -1,4 +1,4 @@
-// LAST TESTED : 02/08/2018
+// LAST TESTED : 04/15/2019
 #include <xil_types.h>
 #include <stdio.h>
 #include <xil_io.h>
@@ -7,36 +7,37 @@
 #include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
 #include "../HDMI_DISPLAY/hdmi_display.h"
 #include "../I2C_D5M/i2c_d5m.h"
+#include <sleep.h>
 hdmi_display_start pvideo;
 videoStreamInit pStream;
 sobelInit psobel;
 sobelInit pprewitt;
 colorInit pcolor;
 void d5mInit(){
-    pvideo.uBaseAddr_IIC_HdmiOut = XPAR_HDMI_OUTPUT_HDMI_IIC_BASEADDR;
+    pvideo.uBaseAddr_IIC_HdmiOut        = XPAR_HDMI_OUTPUT_HDMI_IIC_BASEADDR;
     pvideo.uDeviceId_VTC_HdmioGenerator = XPAR_VIDEO_PIPELINE_TIMMING_CONTROLELR_DEVICE_ID;
-    pvideo.uDeviceId_VDMA_HdmiDisplay = XPAR_AXIVDMA_0_DEVICE_ID;
-    pvideo.video_address = VIDEO_BASEADDR0;
-    pvideo.uNumFrames_HdmiDisplay = XPAR_AXIVDMA_0_NUM_FSTORES;
-    pvideo.hdmio_resolution = VIDEO_RESOLUTION_1080P;
-    pvideo.hdmio_width_Stride  = SCREEN_WIDTH_HORIZONTAL*2;
-    pvideo.hdmio_height = SCREEN_HEIGHT_VERTICAL;
+    pvideo.uDeviceId_VDMA_HdmiDisplay   = XPAR_AXIVDMA_0_DEVICE_ID;
+    pvideo.video_address                = VIDEO_BASEADDR0;
+    pvideo.uNumFrames_HdmiDisplay       = XPAR_AXIVDMA_0_NUM_FSTORES;
+    pvideo.hdmio_resolution             = VIDEO_RESOLUTION_1080P;
+    pvideo.hdmio_width_Stride           = SCREEN_WIDTH_HORIZONTAL*2;
+    pvideo.hdmio_height                 = SCREEN_HEIGHT_VERTICAL;
     pvideo.time = (((0x0000ff & D5M_mReadReg(D5M_BASE,r_hour_reg_62))<<16)|((D5M_mReadReg(D5M_BASE,r_min_reg_61) & 0x0000ff)<<8)|(0x0000ff & D5M_mReadReg(D5M_BASE,r_sec_reg_60)));
-    pvideo.exposer  = 0;
-    pvideo.brightness = 0;
-    pvideo.pixelvalue = 0;
-    pvideo.sec = D5M_mReadReg(D5M_BASE,r_sec_reg_60);
-    pvideo.min = D5M_mReadReg(D5M_BASE,r_min_reg_61);
-    pvideo.hr  = D5M_mReadReg(D5M_BASE,r_hour_reg_62);
+    pvideo.exposer           = 0;
+    pvideo.brightness        = 0;
+    pvideo.pixelvalue        = 0;
+    pvideo.sec               = D5M_mReadReg(D5M_BASE,r_sec_reg_60);
+    pvideo.min               = D5M_mReadReg(D5M_BASE,r_min_reg_61);
+    pvideo.hr                = D5M_mReadReg(D5M_BASE,r_hour_reg_62);
     pStream.fDbusSelect      = 0x0004;
     pStream.fThreshold       = 0x0007;
     pStream.fVideoType       = fSharp;
-    pStream.fRgbCoordRL       = 0x001E;//1E=30
-    pStream.fRgbCoordRH       = 0x00E6;//E6=230
-    pStream.fRgbCoordGL       = 0x001E;//1E=30
-    pStream.fRgbCoordGH       = 0x0096;//E6=230
-    pStream.fRgbCoordBL       = 0x001E;//1E=30
-    pStream.fRgbCoordBH       = 0x0096;//96=150
+    pStream.fRgbCoordRL      = 0x001E;//1E=30
+    pStream.fRgbCoordRH      = 0x00E6;//E6=230
+    pStream.fRgbCoordGL      = 0x001E;//1E=30
+    pStream.fRgbCoordGH      = 0x0096;//E6=230
+    pStream.fRgbCoordBL      = 0x001E;//1E=30
+    pStream.fRgbCoordBH      = 0x0096;//96=150
     pStream.fPointInterest   = 0x0064;
     pStream.fFifoFixedValue  = 0x0004;
     pStream.d5mExposer       = 0x0190;//400
@@ -49,17 +50,17 @@ void d5mInit(){
     //  [+1 +2 +1]
     //  [+0 +0 +0]
     //  [-1 -2 -1]
-                      //  GY  GX
-    psobel.K1= 0x01FF;//  +1  -1
-    psobel.K2= 0x0200;//  +2  +0
-    psobel.K3= 0x0101;//  +1  -1
-    psobel.K4= 0x00FE;//  +0  -2
-    psobel.K5= 0x0000;//  +0  +0
-    psobel.K6= 0x0002;//  +0  +2
-    psobel.K7= 0xFFFF;//  -1  -1
-    psobel.K8= 0xFE00;//  -2  +0
-    psobel.K9= 0xFF01;//  -1  +1
-    psobel.Kc= 0x0001;
+                       //  GY  GX
+    psobel.K1 = 0x01FF;//  +1  -1
+    psobel.K2 = 0x0200;//  +2  +0
+    psobel.K3 = 0x0101;//  +1  -1
+    psobel.K4 = 0x00FE;//  +0  -2
+    psobel.K5 = 0x0000;//  +0  +0
+    psobel.K6 = 0x0002;//  +0  +2
+    psobel.K7 = 0xFFFF;//  -1  -1
+    psobel.K8 = 0xFE00;//  -2  +0
+    psobel.K9 = 0xFF01;//  -1  +1
+    psobel.Kc = 0x0001;
     //  GX
     //  [+1 +0 -1]
     //  [+1 +0 -1]
@@ -69,26 +70,26 @@ void d5mInit(){
     //  [+0 +0 +0]
     //  [-1 -1 -1]
                         //  GY  GX
-    pprewitt.K1= 0x01FF;//  +1  -1
-    pprewitt.K2= 0x0100;//  +1  +0
-    pprewitt.K3= 0x0101;//  +1  -1
-    pprewitt.K4= 0x00FF;//  +0  -1
-    pprewitt.K5= 0x0000;//  +0  +0
-    pprewitt.K6= 0x0001;//  +0  -1
-    pprewitt.K7= 0xFFFF;//  -1  -1
-    pprewitt.K8= 0xFF00;//  -1  +0
-    pprewitt.K9= 0xFF01;//  -1  +1
-    pprewitt.Kc= 0x0001;
-    pcolor.K1= 0x000B;//   1.375 0000 1011 4:-3 0000 1=1  011=0 + 2^2 + 2^4 = (0.25) + 0.125 = 0.375 ==1.375
-    pcolor.K2= 0x00FE;//  -0.250 1111 1110
-    pcolor.K3= 0x00FF;//  -0.125 1111 1111
-    pcolor.K4= 0x00FF;//  -0.125
-    pcolor.K5= 0x000B;//   1.375
-    pcolor.K6= 0x00FE;//  -0.250
-    pcolor.K7= 0x00FE;//  -0.250
-    pcolor.K8= 0x00FF;//  -0.125
-    pcolor.K9= 0x000B;//   1.375
-    pcolor.Kc= 0x0001;//1 for write and read else read time
+    pprewitt.K1 = 0x01FF;//  +1  -1
+    pprewitt.K2 = 0x0100;//  +1  +0
+    pprewitt.K3 = 0x0101;//  +1  -1
+    pprewitt.K4 = 0x00FF;//  +0  -1
+    pprewitt.K5 = 0x0000;//  +0  +0
+    pprewitt.K6 = 0x0001;//  +0  -1
+    pprewitt.K7 = 0xFFFF;//  -1  -1
+    pprewitt.K8 = 0xFF00;//  -1  +0
+    pprewitt.K9 = 0xFF01;//  -1  +1
+    pprewitt.Kc = 0x0001;
+    pcolor.K1   = 0x000B;//   1.375 0000 1011 4:-3 0000 1=1  011=0 + 2^2 + 2^4 = (0.25) + 0.125 = 0.375 ==1.375
+    pcolor.K2   = 0x00FE;//  -0.250 1111 1110
+    pcolor.K3   = 0x00FF;//  -0.125 1111 1111
+    pcolor.K4   = 0x00FF;//  -0.125
+    pcolor.K5   = 0x000B;//   1.375
+    pcolor.K6   = 0x00FE;//  -0.250
+    pcolor.K7   = 0x00FE;//  -0.250
+    pcolor.K8   = 0x00FF;//  -0.125
+    pcolor.K9   = 0x000B;//   1.375
+    pcolor.Kc   = 0x0001;//1 for write and read else read time
     }
 void d5mInitCall(){
     //buffer_vdma_hdmi(&pvideo);
@@ -175,6 +176,8 @@ void color_correction(u16 videoType)
 void point_Interest(u16 videoType)
 {
     D5M_mWriteReg(D5M_BASE,w_pointinterest_reg_31,videoType);
+    pStream.fPointInterest = D5M_mReadReg(D5M_BASE,r_pointinterest_reg_31);
+    printf("pStream.fPointInterest %d\n\r",(unsigned) (pStream.fPointInterest));
 }
 void pointInterestFixed()
 {
@@ -183,12 +186,13 @@ void pointInterestFixed()
 void ReadDataByte(u16 Value)
 {
 	D5M_mWriteReg(D5M_BASE,w_gridlockaddress_reg_36,(Value | 0x00010000));
-    printf("%d %d %d\n\r",(unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff),((unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff00)>>8),(unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff0000)>>16);
+    u16 AdrValue = D5M_mReadReg(D5M_BASE,r_readaddress_reg_36);
+    printf("%d %d %d %d\n\r",(unsigned) AdrValue ,(unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff),((unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff00)>>8),(unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff0000)>>16);
 }
 void fifoStatus()
 {
     pvideo.fifoEmptyh  = D5M_mReadReg(D5M_BASE,r_fifoemptyh_reg_40);
-    pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_41);
+    pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_39);
     pvideo.cpuGridCont = D5M_mReadReg(D5M_BASE,r_cpugridcont_reg_42);
     printf("pvideo.fifoEmptyh %d\n\r",(unsigned) (pvideo.fifoEmptyh));
     printf("pvideo.fifoFullh %d\n\r",(unsigned) (pvideo.fifoFullh));
@@ -197,7 +201,7 @@ void fifoStatus()
 void readGDataContinueMode()
 {
     D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,1);
-    pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_41);
+    pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_39);
     if (pvideo.fifoFullh == 0x1) {
         readGData(0x1);
     }else{
@@ -209,7 +213,7 @@ void readGDataContinueMode()
 void readGDataStopMode()
 {
     gridlock(0x1);
-    pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_41);
+    pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_39);
     if (pvideo.fifoFullh == 0x1) {
         readGData(0x0);
     }else{
@@ -241,6 +245,44 @@ void gridlock(u16 valueIn)
 {
 	D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,valueIn);
 }
+
+void enState()
+{
+    D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,0x1);//enState
+    D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,0x0);//disableState
+    usleep(1);
+}
+void setState()
+{
+    pvideo.fifoEmptyh  = D5M_mReadReg(D5M_BASE,r_fifoemptyh_reg_40);
+    D5M_mWriteReg(D5M_BASE,w_cpuackgoagain_reg_33,pvideo.fifoEmptyh);
+}
+/*****************************************************************************************************************/
+void readFifo()
+{
+    int i = 0;
+    enState();
+    pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_39);
+    if (pvideo.fifoFullh == 0x1) {
+        pvideo.cpuGridCont = D5M_mReadReg(D5M_BASE,r_cpugridcont_reg_42);
+        printf("Address Red Green Blue\n\r");
+        while ((D5M_mReadReg(D5M_BASE,r_fifoemptyh_reg_40)) != 0x1)
+        {
+          ReadDataByte(i);
+          i++;
+        }
+        setState();//autoset on
+        printf("pvideo.fifoEmptyh %d\n\r",(unsigned) (pvideo.fifoEmptyh));
+        printf("pvideo.fifoEmptyh %d\n\r",(unsigned) (pvideo.fifoEmptyh));
+        printf("pvideo.cpuGridCont %d\n\r",(unsigned) (pvideo.cpuGridCont));
+    }
+}
+
+void enableNextRead(u16 eValue)
+{
+  D5M_mWriteReg(D5M_BASE,w_cpuackgoagain_reg_33,eValue);	
+}
+/*****************************************************************************************************************/
 void edgeType(u16 edgeTypeValue)
 {
     if (edgeTypeValue == 1) {

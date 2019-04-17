@@ -47,4 +47,6 @@ u16 rColorFilterA23();
 u16 rColorFilterA31();
 u16 rColorFilterA32();
 u16 rColorFilterA33();
+void readFifo();
+void enableNextRead(u16 eValue);
 #endif // __CHANNEL_H__

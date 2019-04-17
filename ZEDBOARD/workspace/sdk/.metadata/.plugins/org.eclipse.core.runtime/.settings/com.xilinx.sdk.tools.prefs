@@ -1,0 +1,16 @@
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.bss=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.data=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.data1=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.fixup=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.rodata=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.rodata1=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.sbss=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.sbss2=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.sdata=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.sdata2=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:.text=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:heap=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:heap-size=8192
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:stack=ps7_ddr_0
+com.xilinx.sdk.linkgen.prefs.vfpWebCamera\:stack-size=8192
+eclipse.preferences.version=1

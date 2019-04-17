@@ -1,4 +1,4 @@
---01062019 [01-06-2019]
+--04112019 [04-11-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -12,7 +12,7 @@ port (
     resetn         : in std_logic);
 end dut_frameProcess;
 architecture arch_imp of dut_frameProcess is
-constant img_width                 : integer := 512;--row[1 to x]
+constant img_width                 : integer := 128;--row[1 to x]
 component imageRead is
 generic (
     i_data_width  : integer := 8;
@@ -40,6 +40,9 @@ port (
     pixclk        : in  std_logic;
     iRgb          : in channel);
 end component imageWrite;
+    constant FIFO_ADDR_WIDTH :integer := 13;
+    signal wrAddress        : std_logic_vector (13 downto 0);
+    signal wrAddrsGlCtr     : integer := 0;
     signal startFrame       : std_logic :='1';
     signal fifoStatus       : std_logic_vector(31 downto 0);    
     signal videoChannel     : std_logic_vector(31 downto 0):=x"00000006";--configRegister5
@@ -48,7 +51,7 @@ end component imageWrite;
     signal cRgbOsharp       : std_logic_vector(31 downto 0):=x"00000000";
     signal gridLockDatao    : std_logic_vector(31 downto 0);
     signal endOfFrame       : std_logic;
-    signal threshold        : std_logic_vector(15 downto 0) :=x"006E";
+    signal threshold        : std_logic_vector(15 downto 0) :=x"0007";
     signal rgb              : channel;
     signal rgbio            : channel;
     signal dCord            : coord;
@@ -58,6 +61,7 @@ end component imageWrite;
     signal rgbCoord         : region;
     signal pRegion          : poi;
     signal soble            : channel;
+    signal rgbRemix         : channel;
     signal rgbDetect        : channel;
     signal rgbPoi           : channel;
     signal hsv              : channel;
@@ -82,7 +86,7 @@ WRITEIMAGE1: imageWrite
     i_data_width       => 8,
     img_width          => img_width,
     img_height         => img_width,
-    test               => "test1",
+    test               => "tb",
     output_file        => "soble")
     port map (                  
     pixclk             => clk,
@@ -92,17 +96,17 @@ WRITEIMAGE2: imageWrite
     i_data_width       => 8,
     img_width          => img_width,
     img_height         => img_width,
-    test               => "test1",
-    output_file        => "blur1x")
+    test               => "tb",
+    output_file        => "rgbRemix")
     port map (                  
     pixclk             => clk,
-    iRgb               => blur1x);
+    iRgb               => rgbRemix);
 WRITEIMAGE3: imageWrite
     generic map (
     i_data_width       => 8,
     img_width          => img_width,
     img_height         => img_width,
-    test               => "test1",
+    test               => "tb",
     output_file        => "rgbcorrected")
     port map (                  
     pixclk             => clk,
@@ -112,7 +116,7 @@ WRITEIMAGE4: imageWrite
     i_data_width       => 8,
     img_width          => img_width,
     img_height         => img_width,
-    test               => "test1",
+    test               => "tb",
     output_file        => "hsv")
     port map (                  
     pixclk             => clk,
@@ -122,7 +126,7 @@ WRITEIMAGE5: imageWrite
     i_data_width       => 8,
     img_width          => img_width,
     img_height         => img_width,
-    test               => "test1",
+    test               => "tb",
     output_file        => "sharp")
     port map (                  
     pixclk             => clk,
@@ -132,7 +136,7 @@ WRITEIMAGE6: imageWrite
     i_data_width       => 8,
     img_width          => img_width,
     img_height         => img_width,
-    test               => "test1",
+    test               => "tb",
     output_file        => "ycbcr")
     port map (                  
     pixclk             => clk,
@@ -197,6 +201,7 @@ port map(
     blur4x                <= frameData.blur4x;
     rgbCorrect            <= frameData.rgbCorrect;
     soble                 <= frameData.soble;
+    rgbRemix              <= frameData.rgbRemix;
     rgbDetect             <= frameData.rgbDetect;
     rgbPoi                <= frameData.rgbPoi;
     rgbSum                <= frameData.rgbSum;
@@ -234,10 +239,27 @@ port map(
     pRegion.pointInterest   <= 10;--set the point
     pRegion.deltaConfig     <= 0;--set the point delta
     pRegion.cpuAckGoAgain   <= '0';
-    pRegion.cpuWgridLock    <= '0';
+    pRegion.cpuWgridLock    <= '1';
     pRegion.cpuAckoffFrame  <= '0';
-    pRegion.fifoReadAddress <= (others => '0');--fifo read address location upto cpuGridCont[Max-Locations]
-    pRegion.fifoReadEnable  <= '0';--fifo read enable
+    pRegion.fifoReadAddress <= wrAddress;--fifo read address location upto cpuGridCont[Max-Locations]
+    --pRegion.fifoReadEnable  <= fifoStatus(2);--fifo read enable
     pRegion.clearFifoData   <= '0';--clear the fifo
+    
+    -----------------------------------------------------------
+    GlEnablePointer: process (clk)begin
+        if rising_edge(clk) then
+            if (fifoStatus(2) = '1') then
+                pRegion.fifoReadEnable  <= '1';
+                wrAddrsGlCtr <= wrAddrsGlCtr + 1;
+            else
+                pRegion.fifoReadEnable <= '0';
+                wrAddrsGlCtr  <=  0;
+            end if;
+            
+        end if;
+    end process GlEnablePointer;
+    -----------------------------------------------------------
+    wrAddress     <= std_logic_vector(to_unsigned(wrAddrsGlCtr,14));
+    -----------------------------------------------------------
 ---------------------------------------------------------------------------------
 end arch_imp;

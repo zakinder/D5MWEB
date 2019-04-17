@@ -19,7 +19,7 @@ entity imageWrite is
 end imageWrite;
 architecture Behavioral of imageWrite is
     -------------------------------------------------------------------------
-    constant proj_fol  : string := "Z:/Documents/GitHub/D5MWEB/ZEDBOARD/doc/images";
+    constant proj_fol  : string := "Z:/ipManager/ip_user_files/VFP_1.0";
     constant bacslash  : string := "\";
     constant writbmp   : string := proj_fol&bacslash&test&bacslash&output_file&".bmp";
     constant writbmp1  : string := proj_fol&bacslash&test&bacslash&output_file&".txt";

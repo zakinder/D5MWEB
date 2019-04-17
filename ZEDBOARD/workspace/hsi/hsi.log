@@ -1,0 +1,468 @@
+#-----------------------------------------------------------
+# hsi v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# 
+# Start of session at: Mon Apr 15 23:39:37 2019
+# Process ID: 5604
+# Current directory: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/workspace/hsi
+# Command line: hsi.exe -source Z:/Documents/GitHub/D5MWEB/ZEDBOARD/scripts/script_hsi.tcl -tclargs --sw_list {{id appname steps OS-Name UART data01_file data01_load data01_offset data02_file data02_load data02_offset} {0 zynq_fsbl FSBL standalone NA NA NA NA NA NA NA} {2 hello_world 0 standalone NA NA NA NA NA NA NA} {3 u-boot 1 petalinux NA NA NA NA NA NA NA}} --lib Z:/Documents/GitHub/D5MWEB/ZEDBOARD/sw_lib --vivrun -mode tcl
+# Log file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/workspace/hsi/hsi.log
+# Journal file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/workspace/hsi\hsi.jou
+#-----------------------------------------------------------
+start_gui
+invalid command name "common::start_gui"
+source Z:/Documents/GitHub/D5MWEB/ZEDBOARD/scripts/script_hsi.tcl
+# namespace eval ZQ {
+#   namespace eval HSI {
+#     # -----------------------------------------
+#     # ZQ HSI variablen declaration
+#     # -----------------------------------------
+#     variable HDF_NAME
+#     variable LIB_PATH
+#     variable SW_APPLIST
+#     # -----------------------------------------
+#     # finished ZQ HSI variablen declaration
+#     # -----------------------------------------
+#     # -----------------------------------------
+#     # hsi hw functions
+#     # -----------------------------------------
+#     # -----------------------------------------
+#     # --open_project: 
+#     proc open_project {} {
+#       if {[catch {set ZQ::HSI::HDF_NAME [glob -join -dir [pwd] *.hdf]} result]} { puts "Error:(ZQ) Script (ZQ::HSI::hsi_open_project) failed: $result."; return -code error}
+#       #todo: eventuell mal extra verzeichnis erstellen, wie sdk
+#       open_hw_design ${ZQ::HSI::HDF_NAME}
+#     }
+#     # -----------------------------------------
+#     # --set_repopath: 
+#     proc set_repopath {} {
+#       set_repo_path ${ZQ::HSI::LIB_PATH}
+#     } 
+#     # -----------------------------------------
+#     # --close_project: 
+#     proc close_project {} {
+#       close_hw_design [current_hw_design]
+#     }  
+#     # -----------------------------------------
+#     # --get_processors:
+#     proc get_processors {PROCESSOR_ID} {
+#       set proc [get_cells  -filter {IP_TYPE==PROCESSOR}]
+#       if {[llength $proc] == 0} {
+#         return -code error "Error:(ZQ) No Processor found in design ${ZQ::HSI::HDF_NAME}";
+#       } else {
+#         if {[llength $proc] > 1} {
+#           puts "Info:(ZQ) Multiple Processors found."
+#         }
+#         if {[llength $proc] > $PROCESSOR_ID} {
+#           puts "Info:(ZQ)  Processor [lindex $proc $PROCESSOR_ID] is used."
+#           return [lindex $proc $PROCESSOR_ID]
+#         } else {
+#           return -code error "Error:(ZQ) No Processor ID $PROCESSOR_ID not found in design ${ZQ::HSI::HDF_NAME}";
+#         }
+#       }
+#     }
+#     # -----------------------------------------
+#     # finished hw functions
+#     # -----------------------------------------
+#     # -----------------------------------------
+#     # hsi sw functions
+#     # -----------------------------------------
+#     # -----------------------------------------
+#     # --create_sw_project: 
+#     proc create_sw_project {app_name os uart} {
+#       set cpu [get_processors 0]
+#       set hwdesign [current_hw_design]
+#       set swdesign [hsi::create_sw_design system -proc $cpu -app $app_name -os $os]
+#       set os [hsi::get_os]
+#       if {$uart ne "NA"} {
+#         #workaround to change uart -> currently generate_app will delete bsp and write default one
+#         generate_app -hw $hwdesign -sw $swdesign -app $app_name -proc $cpu -dir $app_name -os $os
+#         hsi::close_sw_design $swdesign
+#         hsi::open_sw_design ${app_name}/${app_name}_bsp/system.mss
+#         #reset old variables
+#         set swdesign [get_sw_designs]
+#         set os [hsi::get_os]
+#         #set uart properties
+#         common::set_property CONFIG.stdin $uart $os
+#         common::set_property CONFIG.stdout $uart $os
+#         #generate bsp
+#         hsi::generate_bsp -dir ${app_name}/${app_name}_bsp/ -compile
+#         cd ${app_name}
+#         set result ""
+#         #run make
+#         if {[catch {set result [eval exec make]}]} {puts "Info:(ZQ) $result"}
+#         cd ..
+#       } else {
+#         generate_app -hw $hwdesign -sw $swdesign -app $app_name -proc $cpu -os $os -dir $app_name -verbose -compile
+#       }
+#       close_sw_design $swdesign
+#     }  
+#     # -----------------------------------------
+#     # --create_devicetree_project: 
+#     proc create_devicetree_project {app_name os} {
+#       set cpu [get_processors 0]
+#       set hwdesign [current_hw_design]
+#       set swdesign [hsi::create_sw_design $app_name -proc $cpu -os $os]
+#       generate_target -dir $app_name
+#       close_sw_design $swdesign
+#     }  
+#     # -----------------------------------------
+#     # finished sw functions
+#     # -----------------------------------------
+#     # -----------------------------------------
+#     # hsi run functions
+#     # -----------------------------------------
+#     # -----------------------------------------
+#     # --run_sw_apps: 
+#     proc run_sw_apps {} {
+#       #search and generate fsbl and device tree
+#       foreach sw_applist_line ${ZQ::HSI::SW_APPLIST} {
+#         #generate fsbl only
+#         if {[lindex $sw_applist_line 2] eq "FSBL" } {
+#           set name [lindex $sw_applist_line 1]
+#           set os [lindex $sw_applist_line 3]
+#           set uart [lindex $sw_applist_line 4]
+#           puts "Info:(ZQ) generate FSBL: $name os: $os Uart: $uart"
+#           create_sw_project $name $os $uart
+#         }
+#         #generate device tree only
+#         if {[lindex $sw_applist_line 2] eq "DTS" } {
+#           set name [lindex $sw_applist_line 1]
+#           set os [lindex $sw_applist_line 3]
+#           puts "Info:(ZQ) generate Device-Tree: $name os: $os"
+#           create_devicetree_project $name $os
+#         }
+#       }
+#       #search and generate software apps
+#       foreach sw_applist_line ${ZQ::HSI::SW_APPLIST} {
+#         #generate *.bin only if app_list.csv->steps=0(generate all) or steps=3(*.elf only )
+#         if {[lindex $sw_applist_line 2] == 0 || [lindex $sw_applist_line 2] == 3} {
+#           set name [lindex $sw_applist_line 1]
+#           set os [lindex $sw_applist_line 3]
+#           set uart [lindex $sw_applist_line 4]
+#           puts "Info:(ZQ) generate app: $name os: $os Uart: $uart"
+#           create_sw_project $name $os $uart
+#         }
+#       }
+#     }
+#     # -----------------------------------------
+#     # --debug_sw_app_list:
+#     proc debug_sw_app_list {} {
+#       set ZQ::HSI::SW_APPLIST [list]
+#       foreach lpath ${ZQ::HSI::LIB_PATH} {
+#         if {[file exists  ${lpath}/apps_list.csv]} { 
+#           puts "Info:(ZQ) Read Software list from ${lpath}/apps_list.csv"
+#           set fp [open "${lpath}/apps_list.csv" r]
+#           set file_data [read $fp]
+#           close $fp
+#           set data [split $file_data "\n"]
+#           # set fsbl_name ""
+#           foreach line $data {
+#             #  check file version ignore comments and empty lines
+#             if {[string match *#* $line] != 1 && [string match *CSV_VERSION* $line] } {
+#               #remove spaces
+#               set line [string map {" " ""} $line]
+#               #remove tabs
+#               set line [string map {"\t" ""} $line]
+#               #check version
+#               set tmp [split $line "="]
+#               #version is ignored for debug only
+#             } elseif {[string match *#* $line] != 1 && [string length $line] > 0} {
+#               #remove spaces
+#               set line [string map {" " ""} $line]
+#               #remove tabs
+#               set line [string map {"\t" ""} $line]
+#               #splitt and append
+#               set tmp [split $line ","]
+#               lappend ZQ::HSI::SW_APPLIST $tmp
+#             }
+#           }
+#         }
+#       }
+#       puts "------------------------------------------"
+#     }
+#     # -----------------------------------------
+#     # --run_all:
+#     proc run_all {} {
+#       #todo: run all als option und hsi auch über batch separat startbar
+#       puts "Info:(ZQ) HSI...run all..."
+#       if {[catch {open_project} result]} { puts "Error:(ZQ) Script (ZQ::HSI::open_project) failed: $result.";  return -code error}
+#       if {[catch {set_repopath} result]} { puts "Error:(ZQ) Script (ZQ::HSI::set_repopath) failed: $result.";  return -code error}
+#       # ---------------------------------------------
+#       if {[catch {run_sw_apps} result]} { puts "Error:(ZQ) Script (ZQ::HSI::run_sw_apps) failed: $result.";  return -code error}
+#       # ---------------------------------------------
+#       if {[catch {close_project} result]} { puts "Error:(ZQ) Script (ZQ::HSI::close_project) failed: $result.";  return -code error}
+#     }
+#     # -----------------------------------------
+#     # --return_option: 
+#     proc return_option {option argc argv} {
+#       if { $argc <= [expr $option + 1]} { 
+#         return -code error "Error:(ZQ) Read parameter failed"
+#       } else {  
+#         puts "Info:(ZQ) Parameter Option Value: [lindex $argv [expr $option + 1]]"
+#         return [lindex $argv [expr $option + 1]]
+#       }
+#     }    
+#     # -----------------------------------------
+#     # --hsi_main: 
+#     proc hsi_main {} {
+#       global argc
+#       global argv
+#       set tmp_argc 0
+#       set tmp_argv 0
+#       if {$argc >= 1 } {
+#         set tmp_argv [lindex $argv 0]
+#         set tmp_argc [llength $tmp_argv]
+#       }
+#       set vivrun false
+#       variable SW_APPLIST 
+#       variable LIB_PATH 
+#       for {set option 0} {$option < $tmp_argc} {incr option} {
+#         puts "Info:(ZQ) Parameter Index: $option"
+#         puts "Info:(ZQ) Parameter Option: [lindex $tmp_argv $option]"
+#         switch [lindex $tmp_argv $option] {
+#           "--sw_list"	        { set SW_APPLIST [return_option $option $tmp_argc $tmp_argv];incr option }    
+#           "--lib"	            { set LIB_PATH [return_option $option $tmp_argc $tmp_argv];incr option }    
+#           "--vivrun"		      { set vivrun true }
+#           default             { puts "" }
+#         }
+#       }
+#       if {$vivrun==true} {
+#         if {[catch {run_all} result]} { puts "Error:(ZQ) Script (ZQ::HSI::run_all) failed: $result."; exit}
+#         exit
+#       }
+#     }
+#     # -----------------------------------------
+#     # finished run functions
+#     # -----------------------------------------
+#     # -----------------------------------------
+#     # hsi run scripts
+#     # -----------------------------------------
+#     if {[catch {hsi_main} result]} { puts "Error:(ZQ) Script (ZQ::HSI::hsi_main) failed: $result."; exit}
+#     # -----------------------------------------
+#     # finished hsi run scripts
+#     # -----------------------------------------
+#   # -----------------------------------------
+#   }
+#  puts "Info: Load HSI scripts finished"
+# }
+Info:(ZQ) Parameter Index: 0
+Info:(ZQ) Parameter Option: --sw_list
+Info:(ZQ) Parameter Option Value: {id appname steps OS-Name UART data01_file data01_load data01_offset data02_file data02_load data02_offset} {0 zynq_fsbl FSBL standalone NA NA NA NA NA NA NA} {2 hello_world 0 standalone NA NA NA NA NA NA NA} {3 u-boot 1 petalinux NA NA NA NA NA NA NA}
+Info:(ZQ) Parameter Index: 2
+Info:(ZQ) Parameter Option: --lib
+Info:(ZQ) Parameter Option Value: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/sw_lib
+Info:(ZQ) Parameter Index: 4
+Info:(ZQ) Parameter Option: --vivrun
+Info:(ZQ) HSI...run all...
+INFO: [Hsi 55-1698] elapsed time for repository loading 1 seconds
+Info:(ZQ) generate FSBL: zynq_fsbl os: standalone Uart: NA
+Info:(ZQ) Multiple Processors found.
+Info:(ZQ)  Processor ps7_cortexa9_0 is used.
+"Running Make include in ps7_cortexa9_0/libsrc/axivdma_v6_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/iic_v3_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_7/src"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_2/src"
+"Running Make include in ps7_cortexa9_0/libsrc/Sine_v1_0/src"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/VFP_v1_0/src"
+"Running Make include in ps7_cortexa9_0/libsrc/vtc_v7_2/src"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+"Running Make include in ps7_cortexa9_0/libsrc/xilffs_v3_6/src"
+"Running Make include in ps7_cortexa9_0/libsrc/xilrsa_v1_3/src"
+"Running Make libs in ps7_cortexa9_0/libsrc/axivdma_v6_3/src"
+"Compiling axivdma"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_4/src"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_4/src"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+"Compiling gpio"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/iic_v3_4/src"
+"Compiling iic"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_7/src"
+"Compiling scugic"
+xscugic_g.c:53:2: warning: missing initializer for field 'HandlerTable' of 'XScuGic_Config {aka struct <anonymous>}' [-Wmissing-field-initializers]
+  }
+  ^
+In file included from xscugic_g.c:41:0:
+xscugic.h:218:27: note: 'HandlerTable' declared here
+  XScuGic_VectorTableEntry HandlerTable[XSCUGIC_MAX_NUM_INTR_INPUTS];/**<
+                           ^~~~~~~~~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_2/src"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/Sine_v1_0/src"
+"Compiling Sine..."
+Sine_selftest.c: In function 'SINE_Reg_SelfTest':
+Sine_selftest.c:52:53: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( SINE_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                     ^~
+Sine_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_3/src"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_4/src"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/VFP_v1_0/src"
+"Compiling VFP..."
+VFP_selftest.c: In function 'VFP_Reg_SelfTest':
+VFP_selftest.c:52:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( VFP_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                    ^~
+VFP_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/vtc_v7_2/src"
+"Compiling video timing controller"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+"Compiling xadcps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xilffs_v3_6/src"
+"Compiling XilFFs Library"
+diskio.c:135:11: warning: 'ExtCsd' defined but not used [-Wunused-variable]
+ static u8 ExtCsd[512] __attribute__ ((aligned(32)));
+           ^~~~~~
+ff.c: In function 'find_volume':
+ff.c:2610:4: warning: dereferencing type-punned pointer will break strict-aliasing rules [-Wstrict-aliasing]
+    && (LD_DWORD(fs->win+FSI_LeadSig) == 0x41615252U)
+    ^~
+"Running Make libs in ps7_cortexa9_0/libsrc/xilrsa_v1_3/src"
+'Finished building libraries'
+generate_target: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 130.117 ; gain = 4.066
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c fsbl_hooks.c -o fsbl_hooks.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c image_mover.c -o image_mover.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c main.c -o main.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c md5.c -o md5.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c nand.c -o nand.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c nor.c -o nor.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c pcap.c -o pcap.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c ps7_init.c -o ps7_init.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c qspi.c -o qspi.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c rsa.c -o rsa.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c sd.c -o sd.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c fsbl_handoff.S -o fsbl_handoff.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -o executable.elf  fsbl_hooks.o  image_mover.o  main.o  md5.o  nand.o  nor.o  pcap.o  ps7_init.o  qspi.o  rsa.o  sd.o  fsbl_handoff.o -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec  -lrsa -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lrsa,-lxil,-lgcc,-lc,--end-group  -Wl,--gc-sections -Lzynq_fsbl_bsp/ps7_cortexa9_0/lib -L./ -Tlscript.ld
+generate_app: Time (s): cpu = 00:00:09 ; elapsed = 00:02:15 . Memory (MB): peak = 130.117 ; gain = 4.066
+Info:(ZQ) generate app: hello_world os: standalone Uart: NA
+Info:(ZQ) Multiple Processors found.
+Info:(ZQ)  Processor ps7_cortexa9_0 is used.
+"Running Make include in ps7_cortexa9_0/libsrc/axivdma_v6_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/iic_v3_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_7/src"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_2/src"
+"Running Make include in ps7_cortexa9_0/libsrc/Sine_v1_0/src"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_3/src"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_4/src"
+"Running Make include in ps7_cortexa9_0/libsrc/VFP_v1_0/src"
+"Running Make include in ps7_cortexa9_0/libsrc/vtc_v7_2/src"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+"Running Make libs in ps7_cortexa9_0/libsrc/axivdma_v6_3/src"
+"Compiling axivdma"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_4/src"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_4/src"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_3/src"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_4/src"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpio_v4_3/src"
+"Compiling gpio"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_3/src"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/iic_v3_4/src"
+"Compiling iic"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_7/src"
+"Compiling scugic"
+xscugic_g.c:53:2: warning: missing initializer for field 'HandlerTable' of 'XScuGic_Config {aka struct <anonymous>}' [-Wmissing-field-initializers]
+  }
+  ^
+In file included from xscugic_g.c:41:0:
+xscugic.h:218:27: note: 'HandlerTable' declared here
+  XScuGic_VectorTableEntry HandlerTable[XSCUGIC_MAX_NUM_INTR_INPUTS];/**<
+                           ^~~~~~~~~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_2/src"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/Sine_v1_0/src"
+"Compiling Sine..."
+Sine_selftest.c: In function 'SINE_Reg_SelfTest':
+Sine_selftest.c:52:53: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( SINE_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                     ^~
+Sine_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_3/src"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_4/src"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/VFP_v1_0/src"
+"Compiling VFP..."
+VFP_selftest.c: In function 'VFP_Reg_SelfTest':
+VFP_selftest.c:52:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if ( VFP_mReadReg (baseaddr, read_loop_index*4) != (read_loop_index+1)*READ_WRITE_MUL_FACTOR){
+                                                    ^~
+VFP_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
+  int Index;
+      ^~~~~
+"Running Make libs in ps7_cortexa9_0/libsrc/vtc_v7_2/src"
+"Compiling video timing controller"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+"Compiling xadcps"
+'Finished building libraries'
+arm-none-eabi-gcc -MMD -MP     -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c helloworld.c -o helloworld.o -Ihello_world_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -MMD -MP     -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c platform.c -o platform.o -Ihello_world_bsp/ps7_cortexa9_0/include -I.
+arm-none-eabi-gcc -o executable.elf  helloworld.o  platform.o  -MMD -MP     -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,--start-group,-lxil,-lgcc,-lc,--end-group  -Wl,--gc-sections -Lhello_world_bsp/ps7_cortexa9_0/lib -Tlscript.ld
+generate_app: Time (s): cpu = 00:00:00 ; elapsed = 00:01:53 . Memory (MB): peak = 130.117 ; gain = 0.000
+INFO: [Common 17-206] Exiting hsi at Mon Apr 15 23:43:53 2019...

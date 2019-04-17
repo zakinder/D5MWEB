@@ -1,0 +1,71 @@
+
+*** Running vivado
+    with args -log zynq_soc_DIP_SWITCHES_8BITS_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_DIP_SWITCHES_8BITS_0.tcl
+
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source zynq_soc_DIP_SWITCHES_8BITS_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 272.387 ; gain = 47.250
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:16 . Memory (MB): peak = 383.254 ; gain = 80.109
+INFO: [Synth 8-638] synthesizing module 'zynq_soc_DIP_SWITCHES_8BITS_0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/synth/zynq_soc_DIP_SWITCHES_8BITS_0.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'axi_gpio' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/cb07/hdl/axi_gpio_v2_0_vh_rfs.vhd:1257]
+INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-638] synthesizing module 'slave_attachment' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-638] synthesizing module 'address_decoder' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-638] synthesizing module 'pselect_f' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f' (1#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized0' (1#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized1' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized1' (1#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized2' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized2' (1#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'address_decoder' (2#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-256] done synthesizing module 'slave_attachment' (3#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (4#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-638] synthesizing module 'GPIO_Core' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/cb07/hdl/axi_gpio_v2_0_vh_rfs.vhd:177]
+INFO: [Synth 8-638] synthesizing module 'cdc_sync' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (5#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'GPIO_Core' (6#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/cb07/hdl/axi_gpio_v2_0_vh_rfs.vhd:177]
+INFO: [Synth 8-256] done synthesizing module 'axi_gpio' (7#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/cb07/hdl/axi_gpio_v2_0_vh_rfs.vhd:1257]
+INFO: [Synth 8-256] done synthesizing module 'zynq_soc_DIP_SWITCHES_8BITS_0' (8#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/synth/zynq_soc_DIP_SWITCHES_8BITS_0.vhd:84]
+Finished RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:24 . Memory (MB): peak = 425.582 ; gain = 122.438
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 425.582 ; gain = 122.438
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.283 . Memory (MB): peak = 745.742 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:48 ; elapsed = 00:01:12 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:48 ; elapsed = 00:01:12 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:48 ; elapsed = 00:01:12 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:49 ; elapsed = 00:01:14 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:01:16 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:24 ; elapsed = 00:01:58 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Timing Optimization : Time (s): cpu = 00:01:25 ; elapsed = 00:01:58 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Technology Mapping : Time (s): cpu = 00:01:25 ; elapsed = 00:01:59 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished IO Insertion : Time (s): cpu = 00:01:27 ; elapsed = 00:02:01 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:27 ; elapsed = 00:02:01 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:27 ; elapsed = 00:02:01 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:27 ; elapsed = 00:02:01 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:27 ; elapsed = 00:02:01 . Memory (MB): peak = 745.742 ; gain = 442.598
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:27 ; elapsed = 00:02:01 . Memory (MB): peak = 745.742 ; gain = 442.598
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     2|
+|2     |LUT2 |     5|
+|3     |LUT3 |     4|
+|4     |LUT4 |    11|
+|5     |LUT5 |    11|
+|6     |LUT6 |    14|
+|7     |FDR  |    32|
+|8     |FDRE |    61|
+|9     |FDSE |     8|
++------+-----+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:27 ; elapsed = 00:02:01 . Memory (MB): peak = 745.742 ; gain = 442.598
+synth_design: Time (s): cpu = 00:01:32 ; elapsed = 00:02:17 . Memory (MB): peak = 745.742 ; gain = 449.691
+write_checkpoint: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 745.742 ; gain = 0.000

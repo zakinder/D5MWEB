@@ -1,4 +1,4 @@
-// LAST TESTED : 02/08/2018
+// LAST TESTED : 04/15/2019
 #include "menu_calls.h"
 #include <stdio.h>
 #include <xil_io.h>
@@ -185,35 +185,28 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case cmds_gridpoint:
             /*****************************************************************************************************************/
-            fifoStatus();
-        	printf("Enter cmds_gridpoint\n");
-            menu_print_prompt();
-            value = uart_prompt_io();
-            point_Interest(value);
-            current_state = mainmenu;
-            break;
+            printf("Enter x,y location point\n");
+            cmd_status_value = enter_value_or_quit("null",cmds_gridpoint);point_Interest(cmd_status_value);readFifo();
+            cmd_status_substate = enter_value_or_quit("cmds_gridpoint",cmds_gridpoint);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case cmds_griddelta:
             /*****************************************************************************************************************/
-        	printf("Enter cmds_gridpoint\n");
+            printf("Enter x,y location point\n");
             menu_print_prompt();
             value = uart_prompt_io();
             point_Interest(value);
-        	fifoStatus();
-        	readGDataStopMode();
-        	fifoStatus();
+            readFifo();
+            printf("Done with readFifov2\n");
             current_state = mainmenu;
             break;
             /*****************************************************************************************************************/
         case cmds_fifomode:
             /*****************************************************************************************************************/
-        	printf("Enter cmds_gridpoint\n");
+            fifoStatus();
+            printf("Enter '1' enableNextRead\n");
             menu_print_prompt();
             value = uart_prompt_io();
-            point_Interest(value);
-        	fifoStatus();
-        	readGDataContinueMode();
-        	fifoStatus();
+            enableNextRead(value);
             current_state = mainmenu;
             break;
             /*****************************************************************************************************************/
@@ -308,11 +301,12 @@ void menu_calls(ON_OFF) {
             	ReadDataByte(i);
             }
             cmd_status_substate = enter_value_or_quit("cmds_readfifo",cmds_readfifo);current_state = cmd_status_substate;break;
-//        case cmds_readfifo:
-//            /*****************************************************************************************************************/
-//        	frameReadData();
-//            cmd_status_substate = enter_value_or_quit("cmds_readfifo",cmds_readfifo);current_state = cmd_status_substate;break;
+        case cmds_readfifo:
             /*****************************************************************************************************************/
+        	//frameReadData();
+            printf("keyArrowSelect test\n");
+            keyArrowSelect();
+            cmd_status_substate = enter_value_or_quit("cmds_readfifo",cmds_readfifo);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case vga:
             /*****************************************************************************************************************/
@@ -465,8 +459,8 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case threshold:
             /*****************************************************************************************************************/
-        	th_set=0x00000000;
-        	cmd_status_value=0x00000000;
+        	th_set = 0x00000000;
+        	cmd_status_value = 0x00000000;
             printf("Current State : threshold\n");
             cmd_status_value = enter_value_or_quit("null",threshold);
             th_set  = (((cmd_status_value & 0x000000ff)<<16) | 0x0000E61E);
@@ -479,7 +473,7 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
             pvideo.sec = D5M_mReadReg(D5M_BASE,r_sec_reg_60);
             pvideo.min = D5M_mReadReg(D5M_BASE,r_min_reg_61);
-            pvideo.hr = D5M_mReadReg(D5M_BASE,r_hour_reg_62);
+            pvideo.hr  = D5M_mReadReg(D5M_BASE,r_hour_reg_62);
             printf("%d:%d:%d\n\r",(unsigned) pvideo.hr,(unsigned) pvideo.min,(unsigned) pvideo.sec);
             system_time=(((0x0000ff& D5M_mReadReg(D5M_BASE,r_hour_reg_62))<<16)|((D5M_mReadReg(D5M_BASE,r_min_reg_61) & 0x0000ff)<<8)|(0x0000ff & D5M_mReadReg(D5M_BASE,r_sec_reg_60)));
             pvideo.time = (((0x0000ff& D5M_mReadReg(D5M_BASE,r_hour_reg_62))<<16)|((D5M_mReadReg(D5M_BASE,r_min_reg_61) & 0x0000ff)<<8)|(0x0000ff & D5M_mReadReg(D5M_BASE,r_sec_reg_60)));

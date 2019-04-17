@@ -1,0 +1,14 @@
+
+*** Running vivado
+    with args -log zynq_soc_GND_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_GND_0.tcl
+
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source zynq_soc_GND_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 272.410 ; gain = 47.277
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP zynq_soc_GND_0, cache-ID = 8edbcc816eadb89b.
+config_ip_cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 293.598 ; gain = 0.000

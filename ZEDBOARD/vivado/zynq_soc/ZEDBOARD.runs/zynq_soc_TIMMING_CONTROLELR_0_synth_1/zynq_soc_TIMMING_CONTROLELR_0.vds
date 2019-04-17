@@ -1,0 +1,66 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Mon Apr 15 22:58:27 2019
+# Process ID: 8904
+# Current directory: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_TIMMING_CONTROLELR_0_synth_1
+# Command line: vivado.exe -log zynq_soc_TIMMING_CONTROLELR_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_TIMMING_CONTROLELR_0.tcl
+# Log file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_TIMMING_CONTROLELR_0_synth_1/zynq_soc_TIMMING_CONTROLELR_0.vds
+# Journal file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_TIMMING_CONTROLELR_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source zynq_soc_TIMMING_CONTROLELR_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 272.543 ; gain = 47.250
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:17 . Memory (MB): peak = 375.668 ; gain = 81.375
+INFO: [Synth 8-638] synthesizing module 'zynq_soc_TIMMING_CONTROLELR_0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_TIMMING_CONTROLELR_0/synth/zynq_soc_TIMMING_CONTROLELR_0.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-638] synthesizing module 'slave_attachment' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-638] synthesizing module 'address_decoder' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-638] synthesizing module 'pselect_f' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f' (1#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized0' (1#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
+INFO: [Synth 8-256] done synthesizing module 'address_decoder' (2#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
+INFO: [Synth 8-256] done synthesizing module 'slave_attachment' (3#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
+INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (4#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/0ba0/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
+INFO: [Synth 8-256] done synthesizing module 'zynq_soc_TIMMING_CONTROLELR_0' (11#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_TIMMING_CONTROLELR_0/synth/zynq_soc_TIMMING_CONTROLELR_0.vhd:96]
+Finished RTL Elaboration : Time (s): cpu = 00:00:33 ; elapsed = 00:00:47 . Memory (MB): peak = 537.703 ; gain = 243.410
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:34 ; elapsed = 00:00:53 . Memory (MB): peak = 537.703 ; gain = 243.410
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.249 . Memory (MB): peak = 775.922 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:01:11 ; elapsed = 00:01:45 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:11 ; elapsed = 00:01:45 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:11 ; elapsed = 00:01:46 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:24 ; elapsed = 00:02:01 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:39 ; elapsed = 00:02:18 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:07 ; elapsed = 00:02:48 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Timing Optimization : Time (s): cpu = 00:02:11 ; elapsed = 00:02:51 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Technology Mapping : Time (s): cpu = 00:02:16 ; elapsed = 00:02:57 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished IO Insertion : Time (s): cpu = 00:02:18 ; elapsed = 00:02:59 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:18 ; elapsed = 00:02:59 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:19 ; elapsed = 00:03:00 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:19 ; elapsed = 00:03:00 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:19 ; elapsed = 00:03:00 . Memory (MB): peak = 775.922 ; gain = 481.629
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:19 ; elapsed = 00:03:00 . Memory (MB): peak = 775.922 ; gain = 481.629
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    31|
+|2     |LUT1   |    84|
+|3     |LUT2   |    47|
+|4     |LUT3   |   540|
+|5     |LUT4   |    78|
+|6     |LUT5   |    99|
+|7     |LUT6   |   424|
+|8     |MUXF7  |   134|
+|9     |SRL16E |     6|
+|10    |FDRE   |  2736|
+|11    |FDSE   |   188|
++------+-------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:19 ; elapsed = 00:03:00 . Memory (MB): peak = 775.922 ; gain = 481.629
+synth_design: Time (s): cpu = 00:02:27 ; elapsed = 00:03:15 . Memory (MB): peak = 775.922 ; gain = 482.184
+write_checkpoint: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 775.922 ; gain = 0.000
+config_ip_cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 775.922 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 775.922 ; gain = 0.000
