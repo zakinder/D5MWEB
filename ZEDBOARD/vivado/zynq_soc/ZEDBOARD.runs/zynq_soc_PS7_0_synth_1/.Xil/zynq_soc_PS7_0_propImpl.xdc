@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc rfile:../../../ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc id:1 order:EARLY scoped_inst:inst} [current_design]
+set_property SRC_FILE_INFO {cfile:z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc rfile:../../../ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc id:1 order:EARLY scoped_inst:inst} [current_design]
 set_property src_info {type:SCOPED_XDC file:1 line:21 export:INPUT save:INPUT read:READ} [current_design]
 set_input_jitter clk_fpga_0 0.21
 set_property src_info {type:SCOPED_XDC file:1 line:24 export:INPUT save:INPUT read:READ} [current_design]

@@ -34,6 +34,24 @@ struct struct_hdmi_display_start
    Xuint8 fifoEmptyh;
    Xuint8 fifoFullh;
    Xuint16 cpuGridCont;
+   
+   
+   
+   Xuint16 fRgbCoordRL;
+   Xuint16 fRgbCoordRH;
+   
+   Xuint16 fRgbCoordGL;
+   Xuint16 fRgbCoordGH;
+   
+   Xuint16 fRgbCoordBL;
+   Xuint16 fRgbCoordBH;
+
+   
+   
+   
+   
+   
+   
 };
 typedef struct struct_hdmi_display_start hdmi_display_start;
 

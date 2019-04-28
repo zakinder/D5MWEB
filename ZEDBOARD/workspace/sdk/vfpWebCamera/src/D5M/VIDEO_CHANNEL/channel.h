@@ -48,6 +48,6 @@ u16 rColorFilterA31();
 u16 rColorFilterA32();
 u16 rColorFilterA33();
 void readFifo();
-void readFifov2();
 void enableNextRead(u16 eValue);
+void colorDetectRange(u16 fRgbCoordRL,u16 fRgbCoordRH,u16 fRgbCoordGL,u16 fRgbCoordGH,u16 fRgbCoordBL,u16 fRgbCoordBH);
 #endif // __CHANNEL_H__

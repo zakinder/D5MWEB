@@ -2,11 +2,11 @@
 # Webtalk v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # 
-# Start of session at: Mon Apr 15 23:56:06 2019
-# Process ID: 2940
-# Current directory: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/workspace/sdk/webtalk
+# Start of session at: Sat Apr 27 19:54:26 2019
+# Process ID: 2604
+# Current directory: Z:/ZEDBOARD/workspace/sdk/webtalk
 # Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
-# Log file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/workspace/sdk/webtalk/webtalk.log
-# Journal file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/workspace/sdk/webtalk\webtalk.jou
+# Log file: Z:/ZEDBOARD/workspace/sdk/webtalk/webtalk.log
+# Journal file: Z:/ZEDBOARD/workspace/sdk/webtalk\webtalk.jou
 #-----------------------------------------------------------
 source sdk_webtalk.tcl

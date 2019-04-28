@@ -2,6 +2,7 @@
 *** Running vivado
     with args -log zynq_soc_VCC_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_VCC_0.tcl
 
+WARNING: Default location for XILINX_VIVADO_HLS not found: 
 
 ****** Vivado v2017.2 (64-bit)
   **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
@@ -10,4 +11,3 @@
 
 source zynq_soc_VCC_0.tcl -notrace
 INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP zynq_soc_VCC_0, cache-ID = 0b2116452830d49b.
-config_ip_cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 294.629 ; gain = 2.059

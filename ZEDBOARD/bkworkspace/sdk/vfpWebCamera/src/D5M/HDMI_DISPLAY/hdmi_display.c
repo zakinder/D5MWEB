@@ -322,7 +322,7 @@ void clear_colorBars()
 }
 int colorBars(Xuint32 offset)
 {
-	   Xuint16 frames, row, col;
+   Xuint16 frames, row, col;
    Xuint16 cbar, pixel;
    volatile Xuint16 *pStorageMem = (Xuint16 *) srcBufferx1;
    for ( frames = 0; frames < 1; frames++ )

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.2_sdx (64-bit)
+# SW Build 1972098 on Wed Aug 23 11:34:46 MDT 2017
+# IP Build 1971916 on Wed Aug 23 13:11:02 MDT 2017
+# Start of session at: Thu Apr 25 19:23:06 2019
+# Process ID: 2604
+# Current directory: z:/zedboard/doc/ipmanager/managed_ip_project/managed_ip_project1.tmp/vfp_v1_0_v1_0_project/VFP_v1_0_v1_0_project.sim/sim_1/behav
+# Command line: wbtcv.exe -mode batch -source z:/zedboard/doc/ipmanager/managed_ip_project/managed_ip_project1.tmp/vfp_v1_0_v1_0_project/VFP_v1_0_v1_0_project.sim/sim_1/behav/xsim.dir/videoProcess_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: z:/zedboard/doc/ipmanager/managed_ip_project/managed_ip_project1.tmp/vfp_v1_0_v1_0_project/VFP_v1_0_v1_0_project.sim/sim_1/behav/webtalk.log
+# Journal file: z:/zedboard/doc/ipmanager/managed_ip_project/managed_ip_project1.tmp/vfp_v1_0_v1_0_project/VFP_v1_0_v1_0_project.sim/sim_1/behav\webtalk.jou
+#-----------------------------------------------------------
+source z:/zedboard/doc/ipmanager/managed_ip_project/managed_ip_project1.tmp/vfp_v1_0_v1_0_project/VFP_v1_0_v1_0_project.sim/sim_1/behav/xsim.dir/videoProcess_tb_behav/webtalk/xsim_webtalk.tcl -notrace

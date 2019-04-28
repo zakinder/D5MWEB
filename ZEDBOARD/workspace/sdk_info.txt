@@ -1,1 +1,1 @@
-SDK Data used from  Z:/Documents/GitHub/D5MWEB/ZEDBOARD/prebuilt/hardware/zed
+SDK Data used from  Z:/ZEDBOARD/prebuilt/hardware/zed

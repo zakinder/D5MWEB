@@ -2,11 +2,11 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Mon Apr 15 23:02:44 2019
-# Process ID: 2368
-# Current directory: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_GND_0_synth_1
+# Start of session at: Sat Apr 27 19:17:16 2019
+# Process ID: 11020
+# Current directory: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_GND_0_synth_1
 # Command line: vivado.exe -log zynq_soc_GND_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_GND_0.tcl
-# Log file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_GND_0_synth_1/zynq_soc_GND_0.vds
-# Journal file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_GND_0_synth_1\vivado.jou
+# Log file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_GND_0_synth_1/zynq_soc_GND_0.vds
+# Journal file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_GND_0_synth_1\vivado.jou
 #-----------------------------------------------------------
 source zynq_soc_GND_0.tcl -notrace

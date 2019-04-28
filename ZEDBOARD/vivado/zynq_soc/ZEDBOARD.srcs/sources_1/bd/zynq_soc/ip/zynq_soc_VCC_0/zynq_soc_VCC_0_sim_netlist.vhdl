@@ -1,8 +1,8 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
--- Date        : Mon Apr 15 23:02:09 2019
--- Host        : MARS running 64-bit major release  (build 9200)
+-- Date        : Sat Apr 27 19:15:38 2019
+-- Host        : BLACKHOLE running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim -rename_top zynq_soc_VCC_0 -prefix
 --               zynq_soc_VCC_0_ zynq_soc_VCC_1_sim_netlist.vhdl
 -- Design      : zynq_soc_VCC_1

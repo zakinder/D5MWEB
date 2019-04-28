@@ -2,109 +2,109 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Mon Apr 15 23:04:42 2019
-# Process ID: 2940
-# Current directory: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_xbar_1_synth_1
+# Start of session at: Sat Apr 27 19:15:46 2019
+# Process ID: 9972
+# Current directory: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_xbar_1_synth_1
 # Command line: vivado.exe -log zynq_soc_xbar_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_xbar_1.tcl
-# Log file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_xbar_1_synth_1/zynq_soc_xbar_1.vds
-# Journal file: Z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_xbar_1_synth_1\vivado.jou
+# Log file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_xbar_1_synth_1/zynq_soc_xbar_1.vds
+# Journal file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_xbar_1_synth_1\vivado.jou
 #-----------------------------------------------------------
 source zynq_soc_xbar_1.tcl -notrace
-Starting RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:26 . Memory (MB): peak = 390.621 ; gain = 83.414
-INFO: [Synth 8-638] synthesizing module 'zynq_soc_xbar_1' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_xbar_1/synth/zynq_soc_xbar_1.v:59]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_axi_crossbar' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4882]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_crossbar' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:2239]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_si_transactor' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3798]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_decoder' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
-INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
-INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_carry_and' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:62]
-INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_carry_and' (1#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:62]
-INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' (2#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_decoder' (3#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
-INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
-INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_ndeep_srl' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:1135]
+Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 389.867 ; gain = 83.145
+INFO: [Synth 8-638] synthesizing module 'zynq_soc_xbar_1' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_xbar_1/synth/zynq_soc_xbar_1.v:59]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_axi_crossbar' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4882]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_crossbar' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:2239]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_si_transactor' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3798]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_decoder' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_carry_and' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_carry_and' (1#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' (2#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_decoder' (3#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_ndeep_srl' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:1135]
 INFO: [Synth 8-638] synthesizing module 'SRLC32E' [C:/Xilinx/Vivado/2017.2/scripts/rt/data/unisim_comp.v:43823]
 INFO: [Synth 8-256] done synthesizing module 'SRLC32E' (4#1) [C:/Xilinx/Vivado/2017.2/scripts/rt/data/unisim_comp.v:43823]
-INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_ndeep_srl' (5#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:1135]
-INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo' (6#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
-INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' (7#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_si_transactor' (8#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3798]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_si_transactor__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3798]
-INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized0' (8#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_si_transactor__parameterized0' (8#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3798]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_splitter' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_splitter' (9#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_wdata_router' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4734]
-INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
-INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo' (10#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_wdata_router' (11#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4734]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized0' (11#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized1' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized1' (11#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
-INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
-INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_ndeep_srl__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:1135]
-INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_ndeep_srl__parameterized0' (11#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:1135]
-INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo__parameterized0' (11#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_wdata_mux' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4559]
-INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
-INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo__parameterized0' (11#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
-INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized1' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized1' (11#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_wdata_mux' (12#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4559]
-INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axi_register_slice' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:791]
-INFO: [Synth 8-638] synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/7e3a/hdl/axi_infrastructure_v1_1_vl_rfs.v:60]
-INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' (13#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/7e3a/hdl/axi_infrastructure_v1_1_vl_rfs.v:60]
-INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice' (14#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
-INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized0' (14#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
-INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized1' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized1' (14#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
-INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized2' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized2' (14#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
-INFO: [Synth 8-638] synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/7e3a/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
-INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' (15#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/7e3a/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
-INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axi_register_slice' (16#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:791]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized2' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized2' (16#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
-INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo__parameterized1' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
-INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo__parameterized1' (16#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_wdata_mux__parameterized0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4559]
-INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo__parameterized1' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
-INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo__parameterized1' (16#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_wdata_mux__parameterized0' (16#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4559]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_decerr_slave' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_decerr_slave' (17#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
-INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_arbiter' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:423]
-INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized2' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized2' (17#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized3' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized3' (17#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_arbiter' (18#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:423]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_crossbar' (19#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:2239]
-INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_axi_crossbar' (20#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4882]
-INFO: [Synth 8-256] done synthesizing module 'zynq_soc_xbar_1' (21#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_xbar_1/synth/zynq_soc_xbar_1.v:59]
-Finished RTL Elaboration : Time (s): cpu = 00:00:30 ; elapsed = 00:00:48 . Memory (MB): peak = 515.504 ; gain = 208.297
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:51 . Memory (MB): peak = 515.504 ; gain = 208.297
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_ndeep_srl' (5#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:1135]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo' (6#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' (7#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_si_transactor' (8#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3798]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_si_transactor__parameterized0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3798]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized0' (8#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_si_transactor__parameterized0' (8#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3798]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_splitter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_splitter' (9#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_wdata_router' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4734]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo' (10#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_wdata_router' (11#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4734]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized0' (11#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized1' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized1' (11#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo__parameterized0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_ndeep_srl__parameterized0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:1135]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_ndeep_srl__parameterized0' (11#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:1135]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo__parameterized0' (11#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_wdata_mux' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4559]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo__parameterized0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo__parameterized0' (11#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized1' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized1' (11#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_wdata_mux' (12#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4559]
+INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axi_register_slice' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:791]
+INFO: [Synth 8-638] synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/7e3a/hdl/axi_infrastructure_v1_1_vl_rfs.v:60]
+INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_axi2vector' (13#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/7e3a/hdl/axi_infrastructure_v1_1_vl_rfs.v:60]
+INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice' (14#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized0' (14#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized1' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized1' (14#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized2' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axic_register_slice__parameterized2' (14#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-638] synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/7e3a/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
+INFO: [Synth 8-256] done synthesizing module 'axi_infrastructure_v1_1_0_vector2axi' (15#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/7e3a/hdl/axi_infrastructure_v1_1_vl_rfs.v:474]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_13_axi_register_slice' (16#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/55c0/hdl/axi_register_slice_v2_1_vl_rfs.v:791]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized2' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_decoder__parameterized2' (16#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo__parameterized1' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_srl_fifo__parameterized1' (16#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:698]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_wdata_mux__parameterized0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4559]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo__parameterized1' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_12_axic_reg_srl_fifo__parameterized1' (16#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/95b9/hdl/axi_data_fifo_v2_1_vl_rfs.v:889]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_wdata_mux__parameterized0' (16#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4559]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_decerr_slave' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_decerr_slave' (17#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_14_addr_arbiter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:423]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized2' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized2' (17#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized3' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized3' (17#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f9c1/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_addr_arbiter' (18#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:423]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_crossbar' (19#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:2239]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_14_axi_crossbar' (20#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/f582/hdl/axi_crossbar_v2_1_vl_rfs.v:4882]
+INFO: [Synth 8-256] done synthesizing module 'zynq_soc_xbar_1' (21#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_xbar_1/synth/zynq_soc_xbar_1.v:59]
+Finished RTL Elaboration : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 514.770 ; gain = 208.047
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 514.770 ; gain = 208.047
 INFO: [Device 21-403] Loading part xc7z020clg484-1
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.247 . Memory (MB): peak = 764.102 ; gain = 0.000
-Finished Constraint Validation : Time (s): cpu = 00:00:59 ; elapsed = 00:01:30 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:59 ; elapsed = 00:01:30 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:01:30 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:02 ; elapsed = 00:01:33 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:01:39 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:35 ; elapsed = 00:02:08 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Timing Optimization : Time (s): cpu = 00:01:37 ; elapsed = 00:02:11 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Technology Mapping : Time (s): cpu = 00:01:39 ; elapsed = 00:02:12 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished IO Insertion : Time (s): cpu = 00:01:41 ; elapsed = 00:02:14 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:41 ; elapsed = 00:02:14 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:41 ; elapsed = 00:02:14 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:41 ; elapsed = 00:02:14 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:41 ; elapsed = 00:02:15 . Memory (MB): peak = 764.102 ; gain = 456.895
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:41 ; elapsed = 00:02:15 . Memory (MB): peak = 764.102 ; gain = 456.895
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.107 . Memory (MB): peak = 759.961 ; gain = 1.000
+Finished Constraint Validation : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:27 ; elapsed = 00:01:32 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Timing Optimization : Time (s): cpu = 00:01:29 ; elapsed = 00:01:34 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Technology Mapping : Time (s): cpu = 00:01:30 ; elapsed = 00:01:35 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished IO Insertion : Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 759.961 ; gain = 453.238
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 759.961 ; gain = 453.238
 
 Report Cell Usage: 
 +------+--------+------+
@@ -120,7 +120,5 @@ Report Cell Usage:
 |8     |FDRE    |   342|
 |9     |FDSE    |    12|
 +------+--------+------+
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:41 ; elapsed = 00:02:15 . Memory (MB): peak = 764.102 ; gain = 456.895
-synth_design: Time (s): cpu = 00:01:46 ; elapsed = 00:02:25 . Memory (MB): peak = 764.102 ; gain = 461.523
-write_checkpoint: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 764.102 ; gain = 0.000
-write_checkpoint: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 764.102 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:31 ; elapsed = 00:01:37 . Memory (MB): peak = 759.961 ; gain = 453.238
+synth_design: Time (s): cpu = 00:01:35 ; elapsed = 00:01:41 . Memory (MB): peak = 759.961 ; gain = 458.371

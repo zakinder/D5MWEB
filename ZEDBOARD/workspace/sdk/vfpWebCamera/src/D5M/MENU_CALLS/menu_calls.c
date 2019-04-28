@@ -9,6 +9,10 @@
 #include "../VIDEO_CHANNEL/channel.h"
 hdmi_display_start pvideo;
 d5m_rreg d5m_rreg_ptr;
+//unused functions
+//sd_card();
+//open cases
+//sobel(), prewitt() colorgains() ycbcrSelect() colorCorrection() edgeThreshold()
 void menu_calls(ON_OFF) {
     int menu_calls_enable = ON_OFF;
     unsigned int uart_io;
@@ -34,8 +38,8 @@ void menu_calls(ON_OFF) {
         switch (current_state)
         {
         case mainmenu:
-            temp1Register =0x00000000;
-            temp2Register =0x00000000;
+            temp1Register = 0x00000000;
+            temp2Register = 0x00000000;
             //exposerCompansate();
             cmds_menu();
             current_state = menu_select;
@@ -128,7 +132,6 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case hsv:
             /*****************************************************************************************************************/
-        	sd_card();
         	videoFeatureSelect(6);
             cmd_status_substate = enter_value_or_quit("hsv",hsv);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
@@ -157,6 +160,48 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         	//videoFeatureSelect(12);
             //cmd_status_substate = enter_value_or_quit("parttern5",parttern5);current_state = cmd_status_substate;break;
+        case vga:
+            /*****************************************************************************************************************/
+            d5m_config2();
+            camerarUpdate();
+        	cmd_status_substate = enter_value_or_quit("vga",vga);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case hdmi:
+            /*****************************************************************************************************************/
+        	camera_hdmi_config();
+            cmd_status_substate = enter_value_or_quit("hdmi",hdmi);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case fullhdmi:
+            /*****************************************************************************************************************/
+        	camera_set_registers();
+            cmd_status_substate = enter_value_or_quit("fullhdmi",fullhdmi);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case cmds_gridpoint:
+            /*****************************************************************************************************************/
+            printf("Enter x,y location point\n");
+            cmd_status_value = enter_value_or_quit("null",cmds_gridpoint);point_Interest(cmd_status_value);readFifo();
+            cmd_status_substate = enter_value_or_quit("cmds_gridpoint",cmds_gridpoint);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case cmds_griddelta:
+            /*****************************************************************************************************************/
+            printf("Enter x,y location point\n");
+            menu_print_prompt();
+            value = uart_prompt_io();
+            point_Interest(value);
+            readFifo();
+            printf("Done with readFifov2\n");
+            current_state = mainmenu;
+            break;
+            /*****************************************************************************************************************/
+        case cmds_fifomode:
+            /*****************************************************************************************************************/
+            fifoStatus();
+            printf("Enter '1' enableNextRead\n");
+            menu_print_prompt();
+            value = uart_prompt_io();
+            enableNextRead(value);
+            current_state = mainmenu;
+            break;
         case cmds_printpixel:
             /*****************************************************************************************************************/
             printf("Enter row Address\n");
@@ -183,39 +228,6 @@ void menu_calls(ON_OFF) {
             }
             cmd_status_substate = enter_value_or_quit("cmds_printpixel",cmds_printpixel);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
-        case cmds_gridpoint:
-            /*****************************************************************************************************************/
-            printf("Enter x,y location point\n");
-            menu_print_prompt();
-            value = uart_prompt_io();
-            point_Interest(value);
-            fifoStatus();
-            readFifo();
-            printf("Done with readFifo\n");
-            current_state = mainmenu;
-            break;
-            /*****************************************************************************************************************/
-        case cmds_griddelta:
-            /*****************************************************************************************************************/
-            printf("Enter x,y location point\n");
-            menu_print_prompt();
-            value = uart_prompt_io();
-            point_Interest(value);
-            fifoStatus();
-            readFifov2();
-            printf("Done with readFifov2\n");
-            current_state = mainmenu;
-            break;
-            /*****************************************************************************************************************/
-        case cmds_fifomode:
-            /*****************************************************************************************************************/
-            fifoStatus();
-            printf("Enter '1' enableNextRead\n");
-            menu_print_prompt();
-            value = uart_prompt_io();
-            enableNextRead(value);
-            current_state = mainmenu;
-            break;
             /*****************************************************************************************************************/
         case parttern5: // need to be decoded at terminal for colorgain*** and replace back to parttern5
             /*****************************************************************************************************************/
@@ -315,11 +327,6 @@ void menu_calls(ON_OFF) {
 //            keyArrowSelect();
 //            cmd_status_substate = enter_value_or_quit("cmds_readfifo",cmds_readfifo);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
-        case vga:
-            /*****************************************************************************************************************/
-            d5m_config2();
-            camerarUpdate();
-        	cmd_status_substate = enter_value_or_quit("vga",vga);current_state = cmd_status_substate;break;
         case cmds_updated5m:
             /*****************************************************************************************************************/
             D5mReg(&d5m_rreg_ptr);
@@ -376,22 +383,6 @@ void menu_calls(ON_OFF) {
                     break;
                 }
             }else {current_state = mainmenu;break;}
-            /*****************************************************************************************************************/
-            /*****************************************************************************************************************/
-        case hdmi:
-            /*****************************************************************************************************************/
-            printf("Current State : camera_exposer\n");
-            camera_hdmi_config();
-            current_state = mainmenu;
-            break;
-            /*****************************************************************************************************************/
-        case fullhdmi:
-            /*****************************************************************************************************************/
-            printf("Current State : camera_exposer\n");
-            camera_set_registers();
-            current_state = mainmenu;
-            break;
-            /*****************************************************************************************************************/
         case cmds_videochannel:
             /*****************************************************************************************************************/
             printf("Enter edgeType Value\n");
@@ -436,7 +427,7 @@ void menu_calls(ON_OFF) {
             	videoFeatureSelect(temp2Register);
             	current_state = cmds_videochannel;break;}
             /*****************************************************************************************************************/
-        case coord:
+        case coord: //new case name: colorDetectRange
             /*****************************************************************************************************************/
             printf("Enter w_rh value\n");
             menu_print_prompt();
@@ -456,12 +447,9 @@ void menu_calls(ON_OFF) {
             printf("Enter w_bl value\n");
             menu_print_prompt();
             w_bl = uart_prompt_io();
-        	D5M_mWriteReg(D5M_BASE,w_rh_reg_50,w_rh);
-        	D5M_mWriteReg(D5M_BASE,w_rl_reg_51,w_rl);
-        	D5M_mWriteReg(D5M_BASE,w_gh_reg_52,w_gh);
-        	D5M_mWriteReg(D5M_BASE,w_gl_reg_53,w_gl);
-        	D5M_mWriteReg(D5M_BASE,w_bh_reg_54,w_bh);
-        	D5M_mWriteReg(D5M_BASE,w_bl_reg_55,w_bl);
+            //---------------------
+            colorDetectRange(w_rh,w_rl,w_gh,w_gl,w_bh,w_bl);
+            //---------------------
             cmd_status_substate = enter_value_or_quit("coord",coord);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case threshold:

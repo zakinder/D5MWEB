@@ -2,9 +2,9 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="zynq_soc" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1555394228"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1555394228"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1555394228"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1556417640"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1556417640"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1556417640"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\zynq_soc_CLK_GEN_148MHZ_0\zynq_soc_CLK_GEN_148MHZ_0.xci" Type="IP">
         <Instance HierarchyPath="CLK_GEN_148MHZ"/>

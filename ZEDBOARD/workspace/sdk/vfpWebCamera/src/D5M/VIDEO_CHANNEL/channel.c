@@ -14,6 +14,7 @@ sobelInit psobel;
 sobelInit pprewitt;
 colorInit pcolor;
 void d5mInit(){
+    //DEFAULT CONFIGURABLE
     pvideo.uBaseAddr_IIC_HdmiOut        = XPAR_HDMI_OUTPUT_HDMI_IIC_BASEADDR;
     pvideo.uDeviceId_VTC_HdmioGenerator = XPAR_VIDEO_PIPELINE_TIMMING_CONTROLELR_DEVICE_ID;
     pvideo.uDeviceId_VDMA_HdmiDisplay   = XPAR_AXIVDMA_0_DEVICE_ID;
@@ -29,6 +30,13 @@ void d5mInit(){
     pvideo.sec               = D5M_mReadReg(D5M_BASE,r_sec_reg_60);
     pvideo.min               = D5M_mReadReg(D5M_BASE,r_min_reg_61);
     pvideo.hr                = D5M_mReadReg(D5M_BASE,r_hour_reg_62);
+    pvideo.fRgbCoordRL       = 0x001E;//1E=30
+    pvideo.fRgbCoordRH       = 0x00E6;//E6=230
+    pvideo.fRgbCoordGL       = 0x001E;//1E=30
+    pvideo.fRgbCoordGH       = 0x0096;//E6=230
+    pvideo.fRgbCoordBL       = 0x001E;//1E=30
+    pvideo.fRgbCoordBH       = 0x0096;//96=150
+    //DEFAULT ALREADY CONFIG
     pStream.fDbusSelect      = 0x0004;
     pStream.fThreshold       = 0x0007;
     pStream.fVideoType       = fSharp;
@@ -187,7 +195,6 @@ void ReadDataByte(u16 Value)
 {
 	D5M_mWriteReg(D5M_BASE,w_gridlockaddress_reg_36,(Value | 0x00010000));
     u16 AdrValue = D5M_mReadReg(D5M_BASE,r_readaddress_reg_36);
-    printf("Address Red Green Blue\n\r");
     printf("%d %d %d %d\n\r",(unsigned) AdrValue ,(unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff),((unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff00)>>8),(unsigned) ((D5M_mReadReg(D5M_BASE,r_gridlockdatai_reg_38)) & 0xff0000)>>16);
 }
 void fifoStatus()
@@ -203,12 +210,15 @@ void readGDataContinueMode()
 {
     D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,1);
     pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_39);
-    if (pvideo.fifoFullh == 0x1) {
+    if (pvideo.fifoFullh == 0x1) 
+    {
         readGData(0x1);
-    }else{
-    printf("pvideo.fifoEmptyh %d\n\r",(unsigned) (pvideo.fifoEmptyh));
-    printf("pvideo.fifoFullh %d\n\r",(unsigned) (pvideo.fifoFullh));
-    printf("pvideo.cpuGridCont %d\n\r",(unsigned) (pvideo.cpuGridCont));
+    }
+    else
+    {
+        printf("pvideo.fifoEmptyh %d\n\r",(unsigned) (pvideo.fifoEmptyh));
+        printf("pvideo.fifoFullh %d\n\r",(unsigned) (pvideo.fifoFullh));
+        printf("pvideo.cpuGridCont %d\n\r",(unsigned) (pvideo.cpuGridCont));
     }
 }
 void readGDataStopMode()
@@ -246,43 +256,36 @@ void gridlock(u16 valueIn)
 {
 	D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,valueIn);
 }
+void enState()
+{
+    D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,0x1);//enState
+    D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,0x0);//disableState
+    usleep(1);
+}
+void setState()
+{
+    pvideo.fifoEmptyh  = D5M_mReadReg(D5M_BASE,r_fifoemptyh_reg_40);
+    D5M_mWriteReg(D5M_BASE,w_gridlockaddress_reg_36,(0x00000000));//disable read Enable.set address to 0
+    D5M_mWriteReg(D5M_BASE,w_cpuackgoagain_reg_33,pvideo.fifoEmptyh);
+}
 /*****************************************************************************************************************/
 void readFifo()
 {
     int i = 0;
-    D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,0x1);//enState
-    usleep(1);
+    enState();
     pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_39);
-    printf("pvideo.fifoFullh %d\n\r",(unsigned) (pvideo.fifoFullh));
     if (pvideo.fifoFullh == 0x1) {
         pvideo.cpuGridCont = D5M_mReadReg(D5M_BASE,r_cpugridcont_reg_42);
-        printf("pvideo.cpuGridCont %d\n\r",(unsigned) (pvideo.cpuGridCont));
-        while (i <= pvideo.cpuGridCont)
-            {
-                ReadDataByte(i);
-                i++;
-            }
-        pvideo.fifoEmptyh  = D5M_mReadReg(D5M_BASE,r_fifoemptyh_reg_40);
-        printf("pvideo.fifoEmptyh %d\n\r",(unsigned) (pvideo.fifoEmptyh));
-    }
-}
-void readFifov2()
-{
-    int i = 0;
-    D5M_mWriteReg(D5M_BASE,w_cpuwgridlock_reg_34,0x1);//enState
-    usleep(1);
-    pvideo.fifoFullh   = D5M_mReadReg(D5M_BASE,r_fifofullh_reg_39);
-    printf("pvideo.fifoFullh %d\n\r",(unsigned) (pvideo.fifoFullh));
-    if (pvideo.fifoFullh == 0x1) {
-        pvideo.cpuGridCont = D5M_mReadReg(D5M_BASE,r_cpugridcont_reg_42);
-        printf("pvideo.cpuGridCont %d\n\r",(unsigned) (pvideo.cpuGridCont));
+        printf("Address Red Green Blue\n\r");
         while ((D5M_mReadReg(D5M_BASE,r_fifoemptyh_reg_40)) != 0x1)
         {
           ReadDataByte(i);
           i++;
         }
-        pvideo.fifoEmptyh  = D5M_mReadReg(D5M_BASE,r_fifoemptyh_reg_40);
+        setState();//autoset on
         printf("pvideo.fifoEmptyh %d\n\r",(unsigned) (pvideo.fifoEmptyh));
+        printf("pvideo.fifoEmptyh %d\n\r",(unsigned) (pvideo.fifoEmptyh));
+        printf("pvideo.cpuGridCont %d\n\r",(unsigned) (pvideo.cpuGridCont));
     }
 }
 void enableNextRead(u16 eValue)
@@ -321,6 +324,15 @@ void selected_channel()
     edgeThreshold(pStream.fThreshold);
     prewitt();
     videoFeatureSelect(pStream.fVideoType);
+}
+void colorDetectRange(u16 fRgbCoordRL,u16 fRgbCoordRH,u16 fRgbCoordGL,u16 fRgbCoordGH,u16 fRgbCoordBL,u16 fRgbCoordBH)
+{
+    D5M_mWriteReg(D5M_BASE,w_rh_reg_50,fRgbCoordRL);//cord
+    D5M_mWriteReg(D5M_BASE,w_rl_reg_51,fRgbCoordRH);//cord
+    D5M_mWriteReg(D5M_BASE,w_gh_reg_52,fRgbCoordGL);//cord
+    D5M_mWriteReg(D5M_BASE,w_gl_reg_53,fRgbCoordGH);//cord
+    D5M_mWriteReg(D5M_BASE,w_bh_reg_54,fRgbCoordBL);//cord
+    D5M_mWriteReg(D5M_BASE,w_bl_reg_55,fRgbCoordBH);//cord
 }
 void sobel()
 {
@@ -404,14 +416,14 @@ void prewitt()
 }
 void computeBrightness() {
     u32 address = VIDEO_BASEADDR0;
-    pvideo.brightness =0;
+    pvideo.brightness = 0;
     int buffer_error_colms = 8;
     int x,y;
       for ( y = 8; y < SCREEN_HEIGHT_VERTICAL; y++ )
       {
          for ( x = 0; x < SCREEN_WIDTH_HORIZONTAL*2; x++ )
          {
-                pvideo.pixelvalue = (Xil_In16(address) & 0xffff);
+            pvideo.pixelvalue = (Xil_In16(address) & 0xffff);
             address = address + 0x2;
             if(y>buffer_error_colms)
             {

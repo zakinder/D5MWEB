@@ -2,6 +2,7 @@
 *** Running vivado
     with args -log zynq_soc_rst_PS7_150M_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_rst_PS7_150M_0.tcl
 
+WARNING: Default location for XILINX_VIVADO_HLS not found: 
 
 ****** Vivado v2017.2 (64-bit)
   **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
@@ -9,40 +10,39 @@
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
 source zynq_soc_rst_PS7_150M_0.tcl -notrace
-create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 272.465 ; gain = 47.273
-Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 374.156 ; gain = 80.504
-INFO: [Synth 8-638] synthesizing module 'zynq_soc_rst_PS7_150M_0' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/synth/zynq_soc_rst_PS7_150M_0.vhd:74]
-INFO: [Synth 8-638] synthesizing module 'proc_sys_reset' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
-INFO: [Synth 8-638] synthesizing module 'lpf' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 374.238 ; gain = 80.176
+INFO: [Synth 8-638] synthesizing module 'zynq_soc_rst_PS7_150M_0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/synth/zynq_soc_rst_PS7_150M_0.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'proc_sys_reset' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+INFO: [Synth 8-638] synthesizing module 'lpf' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
 INFO: [Synth 8-638] synthesizing module 'SRL16' [C:/Xilinx/Vivado/2017.2/scripts/rt/data/unisim_comp.v:43657]
 INFO: [Synth 8-256] done synthesizing module 'SRL16' (1#1) [C:/Xilinx/Vivado/2017.2/scripts/rt/data/unisim_comp.v:43657]
-INFO: [Synth 8-638] synthesizing module 'cdc_sync' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
-INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (2#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
-INFO: [Synth 8-256] done synthesizing module 'lpf' (3#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
-INFO: [Synth 8-638] synthesizing module 'sequence_psr' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
-INFO: [Synth 8-638] synthesizing module 'upcnt_n' [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
-INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (4#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
-INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (5#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
-INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (6#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
-INFO: [Synth 8-256] done synthesizing module 'zynq_soc_rst_PS7_150M_0' (7#1) [z:/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/synth/zynq_soc_rst_PS7_150M_0.vhd:74]
-Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:22 . Memory (MB): peak = 415.488 ; gain = 121.836
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:24 . Memory (MB): peak = 415.488 ; gain = 121.836
+INFO: [Synth 8-638] synthesizing module 'cdc_sync' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (2#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/52cb/hdl/lib_cdc_v1_0_rfs.vhd:106]
+INFO: [Synth 8-256] done synthesizing module 'lpf' (3#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:816]
+INFO: [Synth 8-638] synthesizing module 'sequence_psr' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-638] synthesizing module 'upcnt_n' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'upcnt_n' (4#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:125]
+INFO: [Synth 8-256] done synthesizing module 'sequence_psr' (5#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:301]
+INFO: [Synth 8-256] done synthesizing module 'proc_sys_reset' (6#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/5db7/hdl/proc_sys_reset_v5_0_vh_rfs.vhd:1323]
+INFO: [Synth 8-256] done synthesizing module 'zynq_soc_rst_PS7_150M_0' (7#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/synth/zynq_soc_rst_PS7_150M_0.vhd:74]
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 415.316 ; gain = 121.254
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 415.316 ; gain = 121.254
 INFO: [Device 21-403] Loading part xc7z020clg484-1
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.147 . Memory (MB): peak = 735.695 ; gain = 0.000
-Finished Constraint Validation : Time (s): cpu = 00:00:47 ; elapsed = 00:01:10 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:47 ; elapsed = 00:01:10 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:01:10 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:47 ; elapsed = 00:01:11 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:01:13 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:22 ; elapsed = 00:01:56 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Timing Optimization : Time (s): cpu = 00:01:22 ; elapsed = 00:01:56 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Technology Mapping : Time (s): cpu = 00:01:22 ; elapsed = 00:01:56 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished IO Insertion : Time (s): cpu = 00:01:24 ; elapsed = 00:01:58 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:24 ; elapsed = 00:01:58 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:24 ; elapsed = 00:01:58 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:24 ; elapsed = 00:01:58 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:24 ; elapsed = 00:01:58 . Memory (MB): peak = 735.695 ; gain = 442.043
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:24 ; elapsed = 00:01:58 . Memory (MB): peak = 735.695 ; gain = 442.043
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 735.805 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:01:05 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Timing Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:01:05 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:05 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:01:07 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:00 ; elapsed = 00:01:07 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:00 ; elapsed = 00:01:07 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:00 ; elapsed = 00:01:07 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:00 ; elapsed = 00:01:07 . Memory (MB): peak = 735.805 ; gain = 441.742
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:00 ; elapsed = 00:01:07 . Memory (MB): peak = 735.805 ; gain = 441.742
 
 Report Cell Usage: 
 +------+------+------+
@@ -59,8 +59,5 @@ Report Cell Usage:
 |9     |FDRE  |    28|
 |10    |FDSE  |     4|
 +------+------+------+
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:24 ; elapsed = 00:01:59 . Memory (MB): peak = 735.695 ; gain = 442.043
-synth_design: Time (s): cpu = 00:01:28 ; elapsed = 00:02:12 . Memory (MB): peak = 735.695 ; gain = 442.043
-write_checkpoint: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 735.695 ; gain = 0.000
-config_ip_cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 735.695 ; gain = 0.000
-write_checkpoint: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 735.695 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:00 ; elapsed = 00:01:07 . Memory (MB): peak = 735.805 ; gain = 441.742
+synth_design: Time (s): cpu = 00:01:04 ; elapsed = 00:01:11 . Memory (MB): peak = 735.805 ; gain = 442.988
