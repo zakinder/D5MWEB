@@ -7,7 +7,8 @@
 #include "../UART/uartio.h"
 #include "../UART/utilities.h"
 #include "../VIDEO_CHANNEL/channel.h"
-hdmi_display_start pvideo;
+#include "../HDMI_DISPLAY/hdmi_display.h"
+//hdmi_display_start pvideo;
 d5m_rreg d5m_rreg_ptr;
 //unused functions
 //sd_card();
@@ -117,43 +118,43 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case rgb:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(7);
+        	videoFeatureSelect(wRgb);
             cmd_status_substate = enter_value_or_quit("rgb",rgb);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case sharp:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(4);
+        	videoFeatureSelect(wSharp);
             cmd_status_substate = enter_value_or_quit("sharp",sharp);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case blur:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(5);
+        	videoFeatureSelect(wBlurv1);
             cmd_status_substate = enter_value_or_quit("blur",blur);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case hsv:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(6);
+        	videoFeatureSelect(wHsv);
             cmd_status_substate = enter_value_or_quit("hsv",hsv);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
             /*****************************************************************************************************************/
         case parttern1:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(8);
+        	videoFeatureSelect(wTestPatternV1);
             cmd_status_substate = enter_value_or_quit("parttern1",parttern1);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case parttern2:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(9);
+        	videoFeatureSelect(wTestPatternV2);
             cmd_status_substate = enter_value_or_quit("parttern2",parttern2);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case parttern3:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(10);
+        	videoFeatureSelect(wTestPatternV3);
             cmd_status_substate = enter_value_or_quit("parttern3",parttern3);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case parttern4:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(11);
+        	videoFeatureSelect(wTestPatternV4);
             cmd_status_substate = enter_value_or_quit("parttern4",parttern4);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         //case parttern5:

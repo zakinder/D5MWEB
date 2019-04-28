@@ -69,7 +69,7 @@ begin
     frameSize.rht  <= 1920;
     frameSize.top  <= 5;
     frameSize.bot  <= 1080;
-    --point_Interest <= pRegion.pointInterest;
+    point_Interest <= pRegion.pointInterest;
     oGridLocation  <= GlEnable;
     fifoStatus     <= "00000000" & gridContMax & "00000" & fifoIsFull & fifoIsEmpty & fifoIsFull;
     gridLockDatao  <= x"00" & rdData;
@@ -117,7 +117,6 @@ begin
         --CHECK
             fifoIsFull   <= hi;--Full
             fifoIsEmpty  <= lo;
-            --gridContMax  <= "000" & wrAddr;
             gridContMax <= std_logic_vector(resize(unsigned(wrAddr), gridContMax'length));
             --ReadDone Pulse
             if (rdDone = hi) then

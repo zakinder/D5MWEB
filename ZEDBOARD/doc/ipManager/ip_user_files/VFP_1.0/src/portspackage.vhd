@@ -138,6 +138,25 @@ port (
     taps1x                      : out std_logic_vector(p_data_width downto 0);
     taps2x                      : out std_logic_vector(p_data_width downto 0));
 end component buffer_controller;
+component squareRootTop is
+port ( 
+    clk            : in std_logic;
+    ivalid         : in std_logic;
+    idata          : in std_logic_vector(31 downto 0);
+    ovalid         : out std_logic;
+    odata          : out std_logic_vector(31 downto 0));
+end component squareRootTop;
+component sharpMac is
+port (                
+    clk         : in std_logic;
+    rst_l       : in std_logic;
+    vTap0x      : in std_logic_vector(7 downto 0);
+    vTap1x      : in std_logic_vector(7 downto 0);
+    vTap2x      : in std_logic_vector(7 downto 0);
+    kls         : in coefficient;  
+    endOfFrame  : in std_logic;     
+    DataO       : out std_logic_vector(7 downto 0));
+end component sharpMac;
 component dataTaps is
 generic (
     img_width                   : integer := 4096;

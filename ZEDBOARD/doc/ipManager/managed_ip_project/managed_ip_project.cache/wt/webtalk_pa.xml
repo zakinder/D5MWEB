@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sat Apr 27 18:32:56 2019">
+<application name="pa" timeStamp="Sat Apr 27 22:38:04 2019">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="1dc88980d92d4610aab5b4bec9b84b8d" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -18,6 +18,7 @@ This means code written to parse this file will need to be revisited each subseq
 </item>
 <item name="Java Command Handlers">
 <property name="CloseProject" value="2" type="JavaHandler"/>
+<property name="CustomizeCore" value="1" type="JavaHandler"/>
 <property name="EditInIPPackagerHandler" value="4" type="JavaHandler"/>
 <property name="EditSimulationSets" value="2" type="JavaHandler"/>
 <property name="IPPackagerHandler" value="1" type="JavaHandler"/>
@@ -28,10 +29,10 @@ This means code written to parse this file will need to be revisited each subseq
 </item>
 <item name="Gui Resources Info">
 <property name="BaseDialog_CANCEL" value="1" type="GuiResourceData"/>
-<property name="BaseDialog_OK" value="3" type="GuiResourceData"/>
-<property name="CoreTreeTablePanel_CORE_TREE_TABLE" value="12" type="GuiResourceData"/>
+<property name="BaseDialog_OK" value="4" type="GuiResourceData"/>
+<property name="CoreTreeTablePanel_CORE_TREE_TABLE" value="15" type="GuiResourceData"/>
 <property name="EditIPProjectNameChooser_CHOOSE_PROJECT_LOCATION" value="1" type="GuiResourceData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="4" type="GuiResourceData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="5" type="GuiResourceData"/>
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="1" type="GuiResourceData"/>
 <property name="GettingStartedView_OPEN_PROJECT" value="2" type="GuiResourceData"/>
 <property name="MainMenuMgr_RUN" value="4" type="GuiResourceData"/>
@@ -48,6 +49,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PackagerStepContentPanel_MESSAGES" value="2" type="GuiResourceData"/>
 <property name="PackagerStepsPanel_PACKAGER_STEPS_LIST" value="1" type="GuiResourceData"/>
 <property name="ProgressDialog_CANCEL" value="1" type="GuiResourceData"/>
+<property name="SimpleOutputProductDialog_CLOSE_DIALOG_UNSAVED_CHANGES_WILL" value="1" type="GuiResourceData"/>
 <property name="SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS" value="4" type="GuiResourceData"/>
 <property name="SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT" value="1" type="GuiResourceData"/>
 <property name="SrcChooserPanel_MAKE_LOCAL_COPY_OF_THESE_SOURCES_INTO" value="1" type="GuiResourceData"/>
@@ -55,9 +57,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="TaskBanner_CLOSE" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="30" type="GuiMode"/>
+<property name="GuiMode" value="32" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="17" type="TclMode"/>
+<property name="TclMode" value="19" type="TclMode"/>
 </item>
 </section>
 </application>

@@ -20,34 +20,6 @@ port (
     oRgb          : out channel);
 end entity;
 architecture arch of sharpFilter is
-component buffer_controller is
-generic (
-    img_width    : integer := 4096;
-    adwr_width   : integer := 15;
-    p_data_width : integer := 11;
-    addr_width   : integer := 11);
-port (           
-    aclk         : in std_logic;
-    i_enable     : in std_logic;
-    i_data       : in std_logic_vector(p_data_width downto 0);
-    i_wadd       : in std_logic_vector(adwr_width downto 0);
-    i_radd       : in std_logic_vector(adwr_width downto 0);
-    en_datao     : out std_logic;
-    taps0x       : out std_logic_vector(p_data_width downto 0);
-    taps1x       : out std_logic_vector(p_data_width downto 0);
-    taps2x       : out std_logic_vector(p_data_width downto 0));
-end component buffer_controller;
-component sharpMac is
-port (                
-    clk         : in std_logic;
-    rst_l       : in std_logic;
-    vTap0x      : in std_logic_vector(7 downto 0);
-    vTap1x      : in std_logic_vector(7 downto 0);
-    vTap2x      : in std_logic_vector(7 downto 0);
-    kls         : in coefficient;  
-    endOfFrame  : in std_logic;     
-    DataO       : out std_logic_vector(7 downto 0));
-end component sharpMac;
 ---------------------------------------------------------------------------------
     signal vTapRGB0x        : std_logic_vector(23 downto 0) := (others => '0');
     signal vTapRGB1x        : std_logic_vector(23 downto 0) := (others => '0');

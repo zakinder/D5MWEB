@@ -18,7 +18,7 @@
 #endif
 #define D5MBASE XPAR_PS_VIDEO_D5M_VIDEOPROCESS_CONFIG_AXIS_BASEADDR
 
-hdmi_display_start pvideo;
+//hdmi_display_start pvideo;
 void print_headers();
 int start_applications();
 int transfer_data();

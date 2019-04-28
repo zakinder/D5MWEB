@@ -1,75 +1,97 @@
 // LAST TESTED : 02/05/2018
 #ifndef __SYSTEM_CONFIG_HEADER_H__
 #define __SYSTEM_CONFIG_HEADER_H__
-#include <xparameters.h>
+#include <xaxivdma.h>
 #include <xbasic_types.h>
+#include <xvtc.h>
+#include "../HDMI_IIC/zed_iic.h"
 //OFFSETS
-#define w_abusselect_reg_3         12
-#define w_threshold_reg_4          16
-#define w_videochannel_reg_5       20
-#define w_dchannel_reg_6           24
-#define w_cchannel_reg_7           28
-#define w_kernel_1_reg_08          32
-#define w_kernel_2_reg_09          36
-#define w_kernel_3_reg_10          40
-#define w_kernel_4_reg_11          44
-#define w_kernel_5_reg_12          48
-#define w_kernel_6_reg_13          52
-#define w_kernel_7_reg_14          56
-#define w_kernel_8_reg_15          60
-#define w_kernel_9_reg_16          64
-#define w_kernalconfig_reg_17      68
-#define w_a11fl_reg_21             84
-#define w_a12fl_reg_22             88
-#define w_a13fl_reg_23             92
-#define w_a21fl_reg_24             96
-#define w_a22fl_reg_25             100
-#define w_a23fl_reg_26             104
-#define w_a31fl_reg_27             108
-#define w_a32fl_reg_28             112
-#define w_a33fl_reg_29             116
-#define w_aconfig_reg_30           120
-#define w_pointinterest_reg_31     124
-#define w_deltaconfig_reg_32       128
-#define w_cpuackgoagain_reg_33     132
-#define w_cpuwgridlock_reg_34      136
-#define w_cpuackoffframe_reg_35    140
-#define w_gridlockaddress_reg_36   144
-#define w_clearfifodata_reg_37     148
-#define r_pointinterest_reg_31     124
-#define r_readaddress_reg_36       144
-#define r_gridlockdatai_reg_38     152
-#define r_fifofullh_reg_39         156
-#define r_fifoemptyh_reg_40        160
-#define r_fifofullh_reg_41         164
-#define r_cpugridcont_reg_42       168
-#define w_rh_reg_50                200
-#define w_rl_reg_51                204
-#define w_gh_reg_52                208
-#define w_gl_reg_53                212
-#define w_bh_reg_54                216
-#define w_bl_reg_55                220
-#define r_sec_reg_60               240
-#define r_min_reg_61               244
-#define r_hour_reg_62              248
-#define r_revisionnumber_reg_63    252
-//-----------------------------------
-#define SCREEN_WIDTH_HORIZONTAL 1920
-#define SCREEN_HEIGHT_VERTICAL 1080
-#define VIDEO_RESOLUTION_VGA       0
-#define VIDEO_RESOLUTION_480P      1
-#define VIDEO_RESOLUTION_576P      2
-#define VIDEO_RESOLUTION_SVGA      3
-#define VIDEO_RESOLUTION_XGA       4
-#define VIDEO_RESOLUTION_720P      5
-#define VIDEO_RESOLUTION_SXGA      6
-#define VIDEO_RESOLUTION_1080P     7
-#define VIDEO_RESOLUTION_UXGA      8
-#define NUM_VIDEO_RESOLUTIONS      9
-#define ADV7511_ADDR 0x72
-#define H_STRIDE 3840
-#define H_ACTIVE 1920
-#define V_ACTIVE 1080
+#define wSobel                      0
+#define wSobelRgbDetect             1
+#define wSobelRgbPoi                2
+#define wHsvRgbPoi                  3
+#define wSharp                      4
+#define wBlurv1                     5
+#define wBlurv2                     6
+#define wBlurv3                     7
+#define wBlurv4                     8
+#define wHsv                        9
+#define wRgb                        10
+#define wRgbRemix                   11
+#define wTestPatternV1              12
+#define wTestPatternV2              13
+#define wTestPatternV3              14
+#define wTestPatternV4              15
+#define wTestPatternV5              16
+#define wRgbCorrect                 17
+#define w_oRgbOsharp_reg_0          0//open
+#define w_oEdgeType_reg_1           4//open
+#define reg_2                       8//open
+#define w_abusselect_reg_3          12
+#define w_threshold_reg_4           16
+#define w_videochannel_reg_5        20
+#define w_dchannel_reg_6            24
+#define w_cchannel_reg_7            28
+#define w_kernel_1_reg_08           32
+#define w_kernel_2_reg_09           36
+#define w_kernel_3_reg_10           40
+#define w_kernel_4_reg_11           44
+#define w_kernel_5_reg_12           48
+#define w_kernel_6_reg_13           52
+#define w_kernel_7_reg_14           56
+#define w_kernel_8_reg_15           60
+#define w_kernel_9_reg_16           64
+#define w_kernalconfig_reg_17       68
+#define w_a11fl_reg_21              84
+#define w_a12fl_reg_22              88
+#define w_a13fl_reg_23              92
+#define w_a21fl_reg_24              96
+#define w_a22fl_reg_25              100
+#define w_a23fl_reg_26              104
+#define w_a31fl_reg_27              108
+#define w_a32fl_reg_28              112
+#define w_a33fl_reg_29              116
+#define w_aconfig_reg_30            120
+#define w_pointinterest_reg_31      124
+#define w_deltaconfig_reg_32        128
+#define w_cpuackgoagain_reg_33      132
+#define w_cpuwgridlock_reg_34       136
+#define w_cpuackoffframe_reg_35     140
+#define w_gridlockaddress_reg_36    144
+#define w_clearfifodata_reg_37      148
+#define r_pointinterest_reg_31      124
+#define r_readaddress_reg_36        144
+#define r_gridlockdatai_reg_38      152
+#define r_fifofullh_reg_39          156
+#define r_fifoemptyh_reg_40         160
+#define r_fifofullh_reg_41          164
+#define r_cpugridcont_reg_42        168
+#define w_rh_reg_50                 200
+#define w_rl_reg_51                 204
+#define w_gh_reg_52                 208
+#define w_gl_reg_53                 212
+#define w_bh_reg_54                 216
+#define w_bl_reg_55                 220
+#define r_sec_reg_60                240
+#define r_min_reg_61                244
+#define r_hour_reg_62               248
+#define r_revisionnumber_reg_63     252
+#define SCREEN_WIDTH_HORIZONTAL     1920
+#define SCREEN_HEIGHT_VERTICAL      1080
+#define VIDEO_RESOLUTION_VGA        0
+#define VIDEO_RESOLUTION_480P       1
+#define VIDEO_RESOLUTION_576P       2
+#define VIDEO_RESOLUTION_SVGA       3
+#define VIDEO_RESOLUTION_XGA        4
+#define VIDEO_RESOLUTION_720P       5
+#define VIDEO_RESOLUTION_SXGA       6
+#define VIDEO_RESOLUTION_1080P      7
+#define VIDEO_RESOLUTION_UXGA       8
+#define NUM_VIDEO_RESOLUTIONS       9
+#define ADV7511_ADDR                0x72
+#define H_STRIDE                    3840
+#define H_ACTIVE                    1920
+#define V_ACTIVE                    1080
 typedef unsigned char un8bits;//Unsign 8 bits
 typedef char sn8bits;//Sign 8 bits
 typedef unsigned short un16bits;//Unsign 16 bits
@@ -102,6 +124,8 @@ struct videoStreamStruct
    Xuint16 fRgbCoordBH;
 };
 typedef struct videoStreamStruct videoStreamInit;
+
+videoStreamInit pStream;
 struct kernelStruct
 {
    Xuint16 K1;
@@ -116,5 +140,47 @@ struct kernelStruct
    Xuint16 Kc;
 };
 typedef struct kernelStruct sobelInit;
+sobelInit pprewitt;
+sobelInit psobel;
 typedef struct kernelStruct colorInit;
+colorInit pcolor;
+struct struct_hdmi_display_start
+{
+   Xuint32 uBaseAddr_IIC_HdmiOut;
+   Xuint32 uBaseAddr_CFA;
+   Xuint32 uDeviceId_VTC_HdmioGenerator;
+   Xuint32 uDeviceId_VDMA_HdmiDisplay;
+   Xuint32 uNumFrames_HdmiDisplay;
+   zed_iic_t hdmi_out_iic;
+   XVtc vtc_hdmio_generator;
+   XAxiVdma vdma_hdmi;
+   XAxiVdma_DmaSetup vdmacfg_hdmi_read;
+   XAxiVdma_DmaSetup vdmacfg_hdmi_write;
+   Xuint32 bVerbose;
+   // HDMI Output settings
+   Xuint32 hdmio_width_Stride;
+   Xuint32 hdmio_height;
+   Xuint32 hdmio_resolution;
+   Xuint32 time;
+   Xuint32 sec;
+   Xuint32 min;
+   Xuint32 hr;
+   Xuint32 exposer;
+   Xuint32 brightness;
+   Xuint32 pixelvalue;
+   Xuint32 video_address;
+   Xuint32 fifoData;
+   Xuint8 lockData;
+   Xuint8 fifoEmptyh;
+   Xuint8 fifoFullh;
+   Xuint16 cpuGridCont;
+   Xuint16 fRgbCoordRL;
+   Xuint16 fRgbCoordRH;
+   Xuint16 fRgbCoordGL;
+   Xuint16 fRgbCoordGH;
+   Xuint16 fRgbCoordBL;
+   Xuint16 fRgbCoordBH;
+};
+typedef struct struct_hdmi_display_start hdmi_display_start;
+hdmi_display_start pvideo;
 #endif // __SYSTEM_CONFIG_HEADER_H__

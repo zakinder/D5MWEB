@@ -27,31 +27,6 @@ port (
     kls            : in coefficient);
 end entity;
 architecture arch of sobel is
-component buffer_controller is
-generic (
-    img_width     : integer := 4096;
-    adwr_width    : integer := 15;
-    p_data_width  : integer := 11;
-    addr_width    : integer := 11);
-port (
-    aclk          : in std_logic;
-    i_enable      : in std_logic;
-    i_data        : in std_logic_vector(p_data_width downto 0);
-    i_wadd        : in std_logic_vector(adwr_width downto 0);
-    i_radd        : in std_logic_vector(adwr_width downto 0);
-    en_datao      : out std_logic;
-    taps0x        : out std_logic_vector(p_data_width downto 0);
-    taps1x        : out std_logic_vector(p_data_width downto 0);
-    taps2x        : out std_logic_vector(p_data_width downto 0));
-end component buffer_controller;
-component squareRootTop is
-port ( 
-    clk            : in std_logic;
-    ivalid         : in std_logic;
-    idata          : in std_logic_vector(31 downto 0);
-    ovalid         : out std_logic;
-    odata          : out std_logic_vector(31 downto 0));
-end component squareRootTop;
 ---------------------------------------------------------------------------------
     --GX
     --[-1 +0 +1]
@@ -133,7 +108,6 @@ end component squareRootTop;
     signal valid1R          : std_logic;
     signal valid2R          : std_logic;
     signal validO           : std_logic;
-    
     signal rMax             : std_logic_vector(i_data_width-1 downto 0);
     signal rMin             : std_logic_vector(i_data_width-1 downto 0);
     signal gMax             : std_logic_vector(i_data_width-1 downto 0);

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Sat Apr 27 19:21:36 2019
+| Date         : Sat Apr 27 22:47:55 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_utilization -file zynq_soc_VFP_0_utilization_synth.rpt -pb zynq_soc_VFP_0_utilization_synth.pb
 | Design       : zynq_soc_VFP_0
@@ -30,8 +30,8 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                |  8923 |     0 |     53200 | 16.77 |
-|   LUT as Logic             |  8794 |     0 |     53200 | 16.53 |
+| Slice LUTs*                |  8940 |     0 |     53200 | 16.80 |
+|   LUT as Logic             |  8811 |     0 |     53200 | 16.56 |
 |   LUT as Memory            |   129 |     0 |     17400 |  0.74 |
 |     LUT as Distributed RAM |     0 |     0 |           |       |
 |     LUT as Shift Register  |   129 |     0 |           |       |
@@ -154,10 +154,10 @@ Table of Contents
 | FDRE     | 11090 |        Flop & Latch |
 | LUT6     |  2958 |                 LUT |
 | LUT3     |  2471 |                 LUT |
-| LUT4     |  2376 |                 LUT |
-| LUT2     |  2134 |                 LUT |
-| CARRY4   |  1568 |          CarryLogic |
-| LUT1     |   804 |                 LUT |
+| LUT4     |  2440 |                 LUT |
+| LUT2     |  2078 |                 LUT |
+| CARRY4   |  1574 |          CarryLogic |
+| LUT1     |   821 |                 LUT |
 | LUT5     |   602 |                 LUT |
 | FDCE     |   579 |        Flop & Latch |
 | MUXF7    |   138 |               MuxFx |

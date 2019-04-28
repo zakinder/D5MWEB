@@ -23,20 +23,6 @@ port (
     taps2x      : out std_logic_vector(p_data_width downto 0));
 end entity;
 architecture arch of buffer_controller is
-component tap_buffer
-generic (
-    img_width    : integer := 4096;
-    p_data_width : integer := 11;
-    addr_width   : integer := 11);
-port (
-    write_clk    : in std_logic;
-    write_enb    : in std_logic;
-    w_address    : in std_logic_vector(addr_width downto 0);
-    idata        : in std_logic_vector(p_data_width downto 0);
-    read_clk     : in std_logic;
-    r_address    : in std_logic_vector(addr_width downto 0);
-    odata        : out std_logic_vector(p_data_width downto 0));
-end component;
     signal wrchx0_io   : std_logic :='0';
     signal wrchx1_io   : std_logic :='0';
     signal wrchx2_io   : std_logic :='0';
