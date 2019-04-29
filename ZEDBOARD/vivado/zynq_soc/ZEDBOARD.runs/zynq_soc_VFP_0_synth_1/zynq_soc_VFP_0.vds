@@ -2,8 +2,8 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Sat Apr 27 22:42:57 2019
-# Process ID: 9716
+# Start of session at: Sun Apr 28 22:11:55 2019
+# Process ID: 14072
 # Current directory: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_VFP_0_synth_1
 # Command line: vivado.exe -log zynq_soc_VFP_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_VFP_0.tcl
 # Log file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_VFP_0_synth_1/zynq_soc_VFP_0.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020-clg484'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020-clg484'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16956 
+INFO: Helper process launched with PID 4600 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 379.375 ; gain = 83.258
+Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 379.289 ; gain = 83.539
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'zynq_soc_VFP_0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/synth/zynq_soc_VFP_0.vhd:114]
 INFO: [Synth 8-3491] module 'VFP_v1_0' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:8' bound to instance 'U0' of component 'VFP_v1_0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/synth/zynq_soc_VFP_0.vhd:245]
@@ -62,7 +62,7 @@ WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [z:
 INFO: [Synth 8-256] done synthesizing module 'raw2rgb' (4#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/raw2rgb.vhd:14]
 INFO: [Synth 8-3491] module 'frameProcess' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:8' bound to instance 'frameProcess_inst' of component 'frameProcess' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:156]
 INFO: [Synth 8-638] synthesizing module 'frameProcess' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:33]
-INFO: [Synth 8-3491] module 'colorCorrection' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:9' bound to instance 'colorCorrection_inst' of component 'colorCorrection' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:96]
+INFO: [Synth 8-3491] module 'colorCorrection' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:9' bound to instance 'colorCorrection_inst' of component 'colorCorrection' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:94]
 INFO: [Synth 8-638] synthesizing module 'colorCorrection' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:19]
 WARNING: [Synth 8-3936] Found unconnected internal register 'cc_reg[ccProdSf][k1]' and it is trimmed from '28' to '23' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:76]
 WARNING: [Synth 8-3936] Found unconnected internal register 'cc_reg[ccProdSf][k4]' and it is trimmed from '28' to '23' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:76]
@@ -74,9 +74,9 @@ WARNING: [Synth 8-3936] Found unconnected internal register 'cc_reg[ccProdSf][k3
 WARNING: [Synth 8-3936] Found unconnected internal register 'cc_reg[ccProdSf][k6]' and it is trimmed from '28' to '23' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:76]
 WARNING: [Synth 8-3936] Found unconnected internal register 'cc_reg[ccProdSf][k9]' and it is trimmed from '28' to '23' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:76]
 INFO: [Synth 8-256] done synthesizing module 'colorCorrection' (5#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:19]
-INFO: [Synth 8-3491] module 'sobel' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:10' bound to instance 'sobel_inst' of component 'sobel' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:105]
-INFO: [Synth 8-638] synthesizing module 'sobel' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:29]
-INFO: [Synth 8-3491] module 'buffer_controller' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:8' bound to instance 'mod6_1_1_inst' of component 'buffer_controller' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:183]
+INFO: [Synth 8-3491] module 'sobelFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:10' bound to instance 'sobelFilter_inst' of component 'sobelFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'sobelFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:28]
+INFO: [Synth 8-3491] module 'buffer_controller' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:8' bound to instance 'mod6_1_1_inst' of component 'buffer_controller' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:126]
 INFO: [Synth 8-638] synthesizing module 'buffer_controller' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:25]
 INFO: [Synth 8-3491] module 'tap_buffer' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:6' bound to instance 'int_line_d0' of component 'tap_buffer' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:113]
 INFO: [Synth 8-638] synthesizing module 'tap_buffer__parameterized2' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:20]
@@ -88,72 +88,75 @@ INFO: [Synth 8-3491] module 'tap_buffer' declared at 'z:/ZEDBOARD/vivado/zynq_so
 INFO: [Synth 8-3491] module 'tap_buffer' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:6' bound to instance 'int_line_d2' of component 'tap_buffer' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:139]
 INFO: [Synth 8-3491] module 'tap_buffer' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:6' bound to instance 'int_line_d3' of component 'tap_buffer' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:152]
 INFO: [Synth 8-256] done synthesizing module 'buffer_controller' (6#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:25]
-INFO: [Synth 8-3491] module 'squareRootTop' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/squareRootTop.vhd:9' bound to instance 'mod6_1_2_inst' of component 'squareRootTop' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:345]
+INFO: [Synth 8-3491] module 'squareRootTop' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/squareRootTop.vhd:9' bound to instance 'mod6_1_2_inst' of component 'squareRootTop' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:280]
 INFO: [Synth 8-638] synthesizing module 'squareRootTop' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/squareRootTop.vhd:17]
 INFO: [Synth 8-3491] module 'squareRoot' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/squareRoot/synth/squareRoot.vhd:59' bound to instance 'squareRoot_inst' of component 'squareRoot' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/squareRootTop.vhd:35]
 INFO: [Synth 8-638] synthesizing module 'squareRoot' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/squareRoot/synth/squareRoot.vhd:69]
 INFO: [Synth 8-3491] module 'floating_point_v7_1_4' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/squareRoot/hdl/floating_point_v7_1_vh_rfs.vhd:91604' bound to instance 'U0' of component 'floating_point_v7_1_4' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/squareRoot/synth/squareRoot.vhd:191]
 INFO: [Synth 8-256] done synthesizing module 'squareRoot' (20#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/squareRoot/synth/squareRoot.vhd:69]
 INFO: [Synth 8-256] done synthesizing module 'squareRootTop' (21#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/squareRootTop.vhd:17]
-WARNING: [Synth 8-6014] Unused sequential element rgb1s_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:205]
-WARNING: [Synth 8-6014] Unused sequential element rgb1s_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:205]
-WARNING: [Synth 8-6014] Unused sequential element rgb1s_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:205]
-WARNING: [Synth 8-6014] Unused sequential element rgb1s_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:205]
-WARNING: [Synth 8-6014] Unused sequential element rgb2s_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:206]
-WARNING: [Synth 8-6014] Unused sequential element rgb2s_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:206]
-WARNING: [Synth 8-6014] Unused sequential element rgb2s_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:206]
-WARNING: [Synth 8-6014] Unused sequential element rgb2s_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:206]
-WARNING: [Synth 8-6014] Unused sequential element rgb1Int_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:207]
-WARNING: [Synth 8-6014] Unused sequential element rgb2Int_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:211]
-WARNING: [Synth 8-6014] Unused sequential element rgb3Int_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:212]
-WARNING: [Synth 8-6014] Unused sequential element rgb3Int_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:212]
-WARNING: [Synth 8-6014] Unused sequential element rgb3Int_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:212]
-WARNING: [Synth 8-6014] Unused sequential element rgb3Int_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:212]
-WARNING: [Synth 8-6014] Unused sequential element rgb4Int_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:213]
-WARNING: [Synth 8-6014] Unused sequential element rgb4Int_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:213]
-WARNING: [Synth 8-6014] Unused sequential element rgb4Int_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:213]
-WARNING: [Synth 8-6014] Unused sequential element rgb4Int_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:213]
-WARNING: [Synth 8-6014] Unused sequential element rgb1b_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element rgb2b_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:215]
-WARNING: [Synth 8-6014] Unused sequential element rgb3b_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:216]
-WARNING: [Synth 8-6014] Unused sequential element rgb3b_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:216]
-WARNING: [Synth 8-6014] Unused sequential element rgb3b_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:216]
-WARNING: [Synth 8-6014] Unused sequential element rgb3b_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:216]
-WARNING: [Synth 8-6014] Unused sequential element rgb4b_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:217]
-WARNING: [Synth 8-6014] Unused sequential element rgb4b_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:217]
-WARNING: [Synth 8-6014] Unused sequential element rgb4b_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:217]
-WARNING: [Synth 8-6014] Unused sequential element rgb4b_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:217]
-WARNING: [Synth 8-6014] Unused sequential element rMax_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:381]
-WARNING: [Synth 8-6014] Unused sequential element rMin_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:382]
-WARNING: [Synth 8-6014] Unused sequential element gMax_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:383]
-WARNING: [Synth 8-6014] Unused sequential element gMin_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:384]
-WARNING: [Synth 8-6014] Unused sequential element bMax_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:385]
-WARNING: [Synth 8-6014] Unused sequential element bMin_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:386]
-WARNING: [Synth 8-6014] Unused sequential element dGrid_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:387]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac1Y_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:281]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac1Y_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:281]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac1Y_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:281]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:257]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:257]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:257]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac2Y_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:289]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac2Y_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:289]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac2Y_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:289]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac2X_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:265]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac2X_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:265]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac2X_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:265]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac3Y_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:297]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac3Y_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:297]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac3Y_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:297]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:273]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:273]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:273]
-INFO: [Synth 8-4471] merging register 'oRgb_reg[green][7:0]' into 'oRgb_reg[red][7:0]' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:354]
-INFO: [Synth 8-4471] merging register 'oRgb_reg[blue][7:0]' into 'oRgb_reg[red][7:0]' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:354]
-WARNING: [Synth 8-6014] Unused sequential element oRgb_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:354]
-WARNING: [Synth 8-6014] Unused sequential element oRgb_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:354]
-INFO: [Synth 8-256] done synthesizing module 'sobel' (22#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:29]
-INFO: [Synth 8-3491] module 'sharpFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:8' bound to instance 'sharpFilter_inst' of component 'sharpFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:123]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac1Y_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:215]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac1Y_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:215]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac1Y_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:215]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:191]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:191]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:191]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac2Y_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:223]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac2Y_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:223]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac2Y_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:223]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac2X_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:199]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac2X_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:199]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac2X_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:199]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac3Y_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:231]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac3Y_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:231]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac3Y_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:231]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m1]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:207]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m2]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:207]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m3]' and it is trimmed from '18' to '17' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:207]
+INFO: [Synth 8-4471] merging register 'oRgb_reg[green][7:0]' into 'oRgb_reg[red][7:0]' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:290]
+INFO: [Synth 8-4471] merging register 'oRgb_reg[blue][7:0]' into 'oRgb_reg[red][7:0]' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:290]
+WARNING: [Synth 8-6014] Unused sequential element oRgb_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:290]
+WARNING: [Synth 8-6014] Unused sequential element oRgb_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:290]
+INFO: [Synth 8-256] done synthesizing module 'sobelFilter' (22#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:28]
+INFO: [Synth 8-3491] module 'edgeObjects' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:10' bound to instance 'edgeObjects_inst' of component 'edgeObjects' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:120]
+INFO: [Synth 8-638] synthesizing module 'edgeObjects' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:23]
+WARNING: [Synth 8-6014] Unused sequential element rgb1s_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:44]
+WARNING: [Synth 8-6014] Unused sequential element rgb1s_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:44]
+WARNING: [Synth 8-6014] Unused sequential element rgb1s_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:44]
+WARNING: [Synth 8-6014] Unused sequential element rgb1s_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:44]
+WARNING: [Synth 8-6014] Unused sequential element rgb2s_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:45]
+WARNING: [Synth 8-6014] Unused sequential element rgb2s_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:45]
+WARNING: [Synth 8-6014] Unused sequential element rgb2s_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:45]
+WARNING: [Synth 8-6014] Unused sequential element rgb2s_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:45]
+WARNING: [Synth 8-6014] Unused sequential element rgb1b_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:50]
+WARNING: [Synth 8-6014] Unused sequential element rgb2b_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:51]
+WARNING: [Synth 8-6014] Unused sequential element rgb3b_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:52]
+WARNING: [Synth 8-6014] Unused sequential element rgb3b_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:52]
+WARNING: [Synth 8-6014] Unused sequential element rgb3b_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:52]
+WARNING: [Synth 8-6014] Unused sequential element rgb3b_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:52]
+WARNING: [Synth 8-6014] Unused sequential element rgb4b_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:53]
+WARNING: [Synth 8-6014] Unused sequential element rgb4b_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:53]
+WARNING: [Synth 8-6014] Unused sequential element rgb4b_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:53]
+WARNING: [Synth 8-6014] Unused sequential element rgb4b_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:53]
+WARNING: [Synth 8-6014] Unused sequential element rgb1Int_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:58]
+WARNING: [Synth 8-6014] Unused sequential element rgb2Int_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:62]
+WARNING: [Synth 8-6014] Unused sequential element rgb3Int_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:63]
+WARNING: [Synth 8-6014] Unused sequential element rgb3Int_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:63]
+WARNING: [Synth 8-6014] Unused sequential element rgb3Int_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:63]
+WARNING: [Synth 8-6014] Unused sequential element rgb3Int_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:63]
+WARNING: [Synth 8-6014] Unused sequential element rgb4Int_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:64]
+WARNING: [Synth 8-6014] Unused sequential element rgb4Int_reg[red] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:64]
+WARNING: [Synth 8-6014] Unused sequential element rgb4Int_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:64]
+WARNING: [Synth 8-6014] Unused sequential element rgb4Int_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:64]
+WARNING: [Synth 8-6014] Unused sequential element rMax_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:75]
+WARNING: [Synth 8-6014] Unused sequential element rMin_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:76]
+WARNING: [Synth 8-6014] Unused sequential element gMax_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:77]
+WARNING: [Synth 8-6014] Unused sequential element gMin_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:78]
+WARNING: [Synth 8-6014] Unused sequential element bMax_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:79]
+WARNING: [Synth 8-6014] Unused sequential element bMin_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:80]
+WARNING: [Synth 8-6014] Unused sequential element dGrid_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:81]
+INFO: [Synth 8-256] done synthesizing module 'edgeObjects' (23#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/edgeObjects.vhd:23]
+INFO: [Synth 8-3491] module 'sharpFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:8' bound to instance 'sharpFilter_inst' of component 'sharpFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:132]
 INFO: [Synth 8-638] synthesizing module 'sharpFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:22]
 INFO: [Synth 8-3491] module 'buffer_controller' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:8' bound to instance 'RGB_inst' of component 'buffer_controller' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:55]
 INFO: [Synth 8-638] synthesizing module 'buffer_controller__parameterized1' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:25]
@@ -162,11 +165,11 @@ INFO: [Synth 8-638] synthesizing module 'tap_buffer__parameterized4' [z:/ZEDBOAR
 WARNING: [Synth 8-6014] Unused sequential element w1s_address_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:34]
 WARNING: [Synth 8-6014] Unused sequential element w2s_address_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:35]
 WARNING: [Synth 8-6014] Unused sequential element w3s_address_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:36]
-INFO: [Synth 8-256] done synthesizing module 'tap_buffer__parameterized4' (22#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'tap_buffer__parameterized4' (23#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:20]
 INFO: [Synth 8-3491] module 'tap_buffer' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:6' bound to instance 'int_line_d1' of component 'tap_buffer' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:126]
 INFO: [Synth 8-3491] module 'tap_buffer' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:6' bound to instance 'int_line_d2' of component 'tap_buffer' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:139]
 INFO: [Synth 8-3491] module 'tap_buffer' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/tap_buffer.vhd:6' bound to instance 'int_line_d3' of component 'tap_buffer' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:152]
-INFO: [Synth 8-256] done synthesizing module 'buffer_controller__parameterized1' (22#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:25]
+INFO: [Synth 8-256] done synthesizing module 'buffer_controller__parameterized1' (23#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:25]
 INFO: [Synth 8-3491] module 'sharpMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:8' bound to instance 'MAC_R_inst' of component 'sharpMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:71]
 INFO: [Synth 8-638] synthesizing module 'sharpMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:19]
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m1]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:96]
@@ -178,16 +181,16 @@ WARNING: [Synth 8-3936] Found unconnected internal register 'mac2X_reg[m3]' and 
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m1]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:112]
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m2]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:112]
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m3]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:112]
-INFO: [Synth 8-256] done synthesizing module 'sharpMac' (23#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'sharpMac' (24#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:19]
 INFO: [Synth 8-3491] module 'sharpMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:8' bound to instance 'MAC_G_inst' of component 'sharpMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:81]
 INFO: [Synth 8-3491] module 'sharpMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpMac.vhd:8' bound to instance 'MAC_B_inst' of component 'sharpMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:91]
 WARNING: [Synth 8-6014] Unused sequential element rgb1x_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:103]
 WARNING: [Synth 8-6014] Unused sequential element rgb2x_reg[valid] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:104]
-INFO: [Synth 8-256] done synthesizing module 'sharpFilter' (24#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:22]
-INFO: [Synth 8-3491] module 'blurFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:8' bound to instance 'blurFilter1x_inst' of component 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:136]
-INFO: [Synth 8-638] synthesizing module 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:20]
-INFO: [Synth 8-3491] module 'buffer_controller' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:8' bound to instance 'RGB_inst' of component 'buffer_controller' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:49]
-INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_R_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:65]
+INFO: [Synth 8-256] done synthesizing module 'sharpFilter' (25#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sharpFilter.vhd:22]
+INFO: [Synth 8-3491] module 'blurFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:8' bound to instance 'blurFilter1x_inst' of component 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:145]
+INFO: [Synth 8-638] synthesizing module 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:22]
+INFO: [Synth 8-3491] module 'buffer_controller' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:8' bound to instance 'RGB_inst' of component 'buffer_controller' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:56]
+INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_R_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:72]
 INFO: [Synth 8-638] synthesizing module 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:17]
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m3]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:70]
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac1X_reg[m2]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:70]
@@ -198,17 +201,23 @@ WARNING: [Synth 8-3936] Found unconnected internal register 'mac2X_reg[m1]' and 
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m3]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:86]
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m2]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:86]
 WARNING: [Synth 8-3936] Found unconnected internal register 'mac3X_reg[m1]' and it is trimmed from '17' to '12' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:86]
-INFO: [Synth 8-256] done synthesizing module 'blurMac' (25#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:17]
-INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_G_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:73]
-INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_B_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:81]
-INFO: [Synth 8-256] done synthesizing module 'blurFilter' (26#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:20]
-INFO: [Synth 8-3491] module 'blurFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:8' bound to instance 'blurFilter2x_inst' of component 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:151]
-INFO: [Synth 8-3491] module 'blurFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:8' bound to instance 'blurFilter3x_inst' of component 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:166]
-INFO: [Synth 8-3491] module 'blurFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:8' bound to instance 'blurFilter4x_inst' of component 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:181]
-INFO: [Synth 8-3491] module 'detect' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/detect.vhd:8' bound to instance 'detect_inst' of component 'detect' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:196]
+INFO: [Synth 8-256] done synthesizing module 'blurMac' (26#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:17]
+INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_G_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:80]
+INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_B_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:88]
+INFO: [Synth 8-256] done synthesizing module 'blurFilter' (27#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:22]
+INFO: [Synth 8-3491] module 'blurFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:8' bound to instance 'blurFilter2x_inst' of component 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:158]
+INFO: [Synth 8-638] synthesizing module 'blurFilter__parameterized1' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:22]
+INFO: [Synth 8-3491] module 'buffer_controller' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/buffer_controller.vhd:8' bound to instance 'RGB_inst' of component 'buffer_controller' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:56]
+INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_R_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:72]
+INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_G_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:80]
+INFO: [Synth 8-3491] module 'blurMac' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurMac.vhd:8' bound to instance 'MAC_B_inst' of component 'blurMac' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:88]
+INFO: [Synth 8-256] done synthesizing module 'blurFilter__parameterized1' (27#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:22]
+INFO: [Synth 8-3491] module 'blurFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:8' bound to instance 'blurFilter3x_inst' of component 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:171]
+INFO: [Synth 8-3491] module 'blurFilter' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/blurFilter.vhd:8' bound to instance 'blurFilter4x_inst' of component 'blurFilter' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:184]
+INFO: [Synth 8-3491] module 'detect' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/detect.vhd:8' bound to instance 'detect_inst' of component 'detect' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:197]
 INFO: [Synth 8-638] synthesizing module 'detect' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/detect.vhd:22]
-INFO: [Synth 8-256] done synthesizing module 'detect' (27#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/detect.vhd:22]
-INFO: [Synth 8-3491] module 'pointOfInterest' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/pointOfInterest.vhd:8' bound to instance 'pointOfInterest_inst' of component 'pointOfInterest' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:208]
+INFO: [Synth 8-256] done synthesizing module 'detect' (28#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/detect.vhd:22]
+INFO: [Synth 8-3491] module 'pointOfInterest' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/pointOfInterest.vhd:8' bound to instance 'pointOfInterest_inst' of component 'pointOfInterest' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:209]
 INFO: [Synth 8-638] synthesizing module 'pointOfInterest' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/pointOfInterest.vhd:25]
 INFO: [Synth 8-3491] module 'gridLockFifo' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/gridLockFifo.vhd:8' bound to instance 'gridLockFifo_int' of component 'gridLockFifo' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/pointOfInterest.vhd:165]
 INFO: [Synth 8-638] synthesizing module 'gridLockFifo' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/gridLockFifo.vhd:29]
@@ -216,28 +225,28 @@ WARNING: [Synth 8-6014] Unused sequential element rdConditionBit0_reg was remove
 WARNING: [Synth 8-6014] Unused sequential element rdConditionBit1_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/gridLockFifo.vhd:81]
 WARNING: [Synth 8-6014] Unused sequential element wrConditionBit0_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/gridLockFifo.vhd:89]
 WARNING: [Synth 8-6014] Unused sequential element wrConditionBit1_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/gridLockFifo.vhd:90]
-INFO: [Synth 8-256] done synthesizing module 'gridLockFifo' (28#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/gridLockFifo.vhd:29]
-INFO: [Synth 8-256] done synthesizing module 'pointOfInterest' (29#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/pointOfInterest.vhd:25]
-INFO: [Synth 8-3491] module 'hsv_c' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/hsv.vhd:8' bound to instance 'hsv_inst' of component 'hsv_c' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:224]
+INFO: [Synth 8-256] done synthesizing module 'gridLockFifo' (29#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/gridLockFifo.vhd:29]
+INFO: [Synth 8-256] done synthesizing module 'pointOfInterest' (30#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/pointOfInterest.vhd:25]
+INFO: [Synth 8-3491] module 'hsv_c' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/hsv.vhd:8' bound to instance 'hsv_inst' of component 'hsv_c' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:225]
 INFO: [Synth 8-638] synthesizing module 'hsv_c' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/hsv.vhd:17]
 INFO: [Synth 8-3491] module 'divider' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/divider.vhd:6' bound to instance 'satDivider' of component 'divider' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/hsv.vhd:47]
 INFO: [Synth 8-638] synthesizing module 'divider' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/divider.vhd:14]
 INFO: [Synth 8-3491] module 'div_gen_0' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/divider/synth/div_gen_0.vhd:59' bound to instance 'div_gen_d2' of component 'div_gen_0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/divider.vhd:39]
 INFO: [Synth 8-638] synthesizing module 'div_gen_0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/divider/synth/div_gen_0.vhd:71]
 INFO: [Synth 8-3491] module 'div_gen_v5_1_11' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/divider/hdl/div_gen_v5_1_vh_rfs.vhd:13849' bound to instance 'U0' of component 'div_gen_v5_1_11' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/divider/synth/div_gen_0.vhd:138]
-INFO: [Synth 8-256] done synthesizing module 'div_gen_0' (38#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/divider/synth/div_gen_0.vhd:71]
-INFO: [Synth 8-256] done synthesizing module 'divider' (39#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/divider.vhd:14]
+INFO: [Synth 8-256] done synthesizing module 'div_gen_0' (39#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/divider/synth/div_gen_0.vhd:71]
+INFO: [Synth 8-256] done synthesizing module 'divider' (40#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/divider.vhd:14]
 INFO: [Synth 8-3491] module 'divider' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/divider.vhd:6' bound to instance 'hueDivider' of component 'divider' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/hsv.vhd:54]
 WARNING: [Synth 8-3936] Found unconnected internal register 'hue_reg' and it is trimmed from '16' to '8' bits. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/hsv.vhd:210]
-INFO: [Synth 8-256] done synthesizing module 'hsv_c' (40#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/hsv.vhd:17]
-INFO: [Synth 8-3491] module 'frameTestPattern' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:8' bound to instance 'frameTestPattern_inst' of component 'frameTestPattern' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'hsv_c' (41#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/hsv.vhd:17]
+INFO: [Synth 8-3491] module 'frameTestPattern' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:8' bound to instance 'frameTestPattern_inst' of component 'frameTestPattern' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:233]
 INFO: [Synth 8-638] synthesizing module 'frameTestPattern' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:17]
 INFO: [Synth 8-4471] merging register 'oRgb_reg[green][11:0]' into 'oRgb_reg[red][11:0]' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:53]
 INFO: [Synth 8-4471] merging register 'oRgb_reg[blue][11:0]' into 'oRgb_reg[red][11:0]' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:53]
 WARNING: [Synth 8-6014] Unused sequential element oRgb_reg[green] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:53]
 WARNING: [Synth 8-6014] Unused sequential element oRgb_reg[blue] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:53]
-INFO: [Synth 8-256] done synthesizing module 'frameTestPattern' (41#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'frameProcess' (42#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:33]
+INFO: [Synth 8-256] done synthesizing module 'frameTestPattern' (42#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameTestPattern.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'frameProcess' (43#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/frameProcess.vhd:33]
 INFO: [Synth 8-3491] module 'videoSelect' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/videoSelect.vhd:8' bound to instance 'videoSelect_inst' of component 'videoSelect' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:183]
 INFO: [Synth 8-638] synthesizing module 'videoSelect' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/videoSelect.vhd:22]
 INFO: [Synth 8-3491] module 'rgb_ycbcr' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:87' bound to instance 'mod5_8_inst' of component 'rgb_ycbcr' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/videoSelect.vhd:178]
@@ -249,13 +258,13 @@ WARNING: [Synth 8-6014] Unused sequential element temp_cr_reg was removed.  [z:/
 WARNING: [Synth 8-6014] Unused sequential element y_round_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:300]
 WARNING: [Synth 8-6014] Unused sequential element cb_round_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:310]
 WARNING: [Synth 8-6014] Unused sequential element cr_round_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:315]
-INFO: [Synth 8-256] done synthesizing module 'rgb_ycbcr' (43#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:101]
-INFO: [Synth 8-256] done synthesizing module 'videoSelect' (44#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/videoSelect.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'rgb_ycbcr' (44#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:101]
+INFO: [Synth 8-256] done synthesizing module 'videoSelect' (45#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/videoSelect.vhd:22]
 INFO: [Synth 8-3491] module 'videoProcess_v1_0_rgb_m_axis' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMSaxisRGB.vhd:9' bound to instance 'mAxis_inst' of component 'videoProcess_v1_0_rgb_m_axis' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:199]
 INFO: [Synth 8-638] synthesizing module 'videoProcess_v1_0_rgb_m_axis' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMSaxisRGB.vhd:47]
 INFO: [Synth 8-226] default block is never used [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMSaxisRGB.vhd:80]
 WARNING: [Synth 8-6014] Unused sequential element tx_axis_tready_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMSaxisRGB.vhd:156]
-INFO: [Synth 8-256] done synthesizing module 'videoProcess_v1_0_rgb_m_axis' (45#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMSaxisRGB.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'videoProcess_v1_0_rgb_m_axis' (46#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMSaxisRGB.vhd:47]
 INFO: [Synth 8-3491] module 'videoProcess_v1_0_m_axis_mm2s' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMaxisMM2s.vhd:8' bound to instance 'mm2s_inst' of component 'videoProcess_v1_0_m_axis_mm2s' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:239]
 INFO: [Synth 8-638] synthesizing module 'videoProcess_v1_0_m_axis_mm2s' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMaxisMM2s.vhd:29]
 INFO: [Synth 8-226] default block is never used [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMaxisMM2s.vhd:56]
@@ -265,14 +274,14 @@ INFO: [Synth 8-4471] merging register 'm_axis_mm2s_tdest_reg[0:0]' into 'm_axis_
 INFO: [Synth 8-4471] merging register 'm_axis_mm2s_tstrb_reg[2:0]' into 'm_axis_mm2s_tkeep_reg[2:0]' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMaxisMM2s.vhd:89]
 WARNING: [Synth 8-6014] Unused sequential element m_axis_mm2s_tdest_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMaxisMM2s.vhd:88]
 WARNING: [Synth 8-6014] Unused sequential element m_axis_mm2s_tstrb_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMaxisMM2s.vhd:89]
-INFO: [Synth 8-256] done synthesizing module 'videoProcess_v1_0_m_axis_mm2s' (46#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMaxisMM2s.vhd:29]
+INFO: [Synth 8-256] done synthesizing module 'videoProcess_v1_0_m_axis_mm2s' (47#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpMaxisMM2s.vhd:29]
 INFO: [Synth 8-3491] module 'videoProcess_v1_0_Config' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpConfig.vhd:8' bound to instance 'vfpConfig_inst' of component 'videoProcess_v1_0_Config' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:262]
 INFO: [Synth 8-638] synthesizing module 'videoProcess_v1_0_Config' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpConfig.vhd:38]
 INFO: [Synth 8-226] default block is never used [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpConfig.vhd:185]
 INFO: [Synth 8-226] default block is never used [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpConfig.vhd:694]
 WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpConfig.vhd:183]
 WARNING: [Synth 8-6014] Unused sequential element loc_addr_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpConfig.vhd:693]
-INFO: [Synth 8-256] done synthesizing module 'videoProcess_v1_0_Config' (47#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpConfig.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'videoProcess_v1_0_Config' (48#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpConfig.vhd:38]
 INFO: [Synth 8-3491] module 'mWrRd' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/mWrRd.vhd:8' bound to instance 'mWrRd_inst' of component 'mWrRd' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:294]
 INFO: [Synth 8-638] synthesizing module 'mWrRd' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/mWrRd.vhd:32]
 WARNING: [Synth 8-3848] Net rdRegsOut[cfigReg18] in module/entity mWrRd does not have driver. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/mWrRd.vhd:30]
@@ -285,12 +294,12 @@ WARNING: [Synth 8-3848] Net rdRegsOut[cfigReg24] in module/entity mWrRd does not
 WARNING: [Synth 8-3848] Net rdRegsOut[cfigReg25] in module/entity mWrRd does not have driver. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/mWrRd.vhd:30]
 WARNING: [Synth 8-3848] Net rdRegsOut[cfigReg26] in module/entity mWrRd does not have driver. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/mWrRd.vhd:30]
 WARNING: [Synth 8-3848] Net rdRegsOut[cfigReg27] in module/entity mWrRd does not have driver. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/mWrRd.vhd:30]
-INFO: [Synth 8-256] done synthesizing module 'mWrRd' (48#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/mWrRd.vhd:32]
+INFO: [Synth 8-256] done synthesizing module 'mWrRd' (49#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/mWrRd.vhd:32]
 INFO: [Synth 8-3491] module 'digiClk' declared at 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/digiClk.vhd:10' bound to instance 'digiClk_inst' of component 'digiClk' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:320]
 INFO: [Synth 8-638] synthesizing module 'digiClk' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/digiClk.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'digiClk' (49#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/digiClk.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'VFP_v1_0' (50#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:84]
-INFO: [Synth 8-256] done synthesizing module 'zynq_soc_VFP_0' (51#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/synth/zynq_soc_VFP_0.vhd:114]
+INFO: [Synth 8-256] done synthesizing module 'digiClk' (50#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/digiClk.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'VFP_v1_0' (51#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/hdl/vfpTop.vhd:84]
+INFO: [Synth 8-256] done synthesizing module 'zynq_soc_VFP_0' (52#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/synth/zynq_soc_VFP_0.vhd:114]
 WARNING: [Synth 8-3331] design mWrRd has unconnected port rdRegsOut[cfigReg18][31]
 WARNING: [Synth 8-3331] design mWrRd has unconnected port rdRegsOut[cfigReg18][30]
 WARNING: [Synth 8-3331] design mWrRd has unconnected port rdRegsOut[cfigReg18][29]
@@ -393,7 +402,7 @@ WARNING: [Synth 8-3331] design mWrRd has unconnected port rdRegsOut[cfigReg21][2
 WARNING: [Synth 8-3331] design mWrRd has unconnected port rdRegsOut[cfigReg21][28]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 589.691 ; gain = 293.574
+Finished RTL Elaboration : Time (s): cpu = 00:00:42 ; elapsed = 00:00:51 . Memory (MB): peak = 589.609 ; gain = 293.859
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -403,7 +412,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 589.691 ; gain = 293.574
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:44 ; elapsed = 00:00:54 . Memory (MB): peak = 589.609 ; gain = 293.859
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 2029 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -419,25 +428,25 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.756 . Memory (MB): peak = 876.820 ; gain = 8.953
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.679 . Memory (MB): peak = 877.676 ; gain = 9.957
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:01:22 ; elapsed = 00:01:30 . Memory (MB): peak = 876.820 ; gain = 580.703
+Finished Constraint Validation : Time (s): cpu = 00:01:23 ; elapsed = 00:01:41 . Memory (MB): peak = 877.676 ; gain = 581.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:22 ; elapsed = 00:01:30 . Memory (MB): peak = 876.820 ; gain = 580.703
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:23 ; elapsed = 00:01:42 . Memory (MB): peak = 877.676 ; gain = 581.926
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U0/frameProcess_inst/hsv_inst/hueDivider/div_gen_d2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for U0/frameProcess_inst/hsv_inst/satDivider/div_gen_d2. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:22 ; elapsed = 00:01:30 . Memory (MB): peak = 876.820 ; gain = 580.703
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:23 ; elapsed = 00:01:42 . Memory (MB): peak = 877.676 ; gain = 581.926
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element pDataWrAddress_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/d5m_raw_data.vhd:59]
 WARNING: [Synth 8-6014] Unused sequential element cordx_reg was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/d5m_raw_data.vhd:95]
@@ -455,7 +464,7 @@ WARNING: [Synth 8-6014] Unused sequential element cc_reg[ccProdSf][k9] was remov
 INFO: [Synth 8-5546] ROM "exp_all_one_ip" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "exp_all_zero_ip" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "chunk_is_zero_ip" won't be mapped to RAM because address size (36) is larger than maximum supported(25)
-WARNING: [Synth 8-6014] Unused sequential element mac1X_reg[m1] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:257]
+WARNING: [Synth 8-6014] Unused sequential element mac1X_reg[m1] was removed.  [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:191]
 INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5545] ROM "wrDone" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "rdDone" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
@@ -490,49 +499,49 @@ WARNING: [Synth 8-327] inferring latch for variable 'preStatus_reg' [z:/ZEDBOARD
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'fifoControlState_reg' using encoding 'one-hot' in module 'pointOfInterest'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:42 ; elapsed = 00:01:53 . Memory (MB): peak = 876.820 ; gain = 580.703
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:43 ; elapsed = 00:02:08 . Memory (MB): peak = 877.676 ; gain = 581.926
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_OVERFLOW'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_UNDERFLOW'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_ACCUM_OVERFLOW'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/Q_MANT_LP_DEL' (floating_point_v7_1_4_delay__parameterized1) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[24].Q_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[1].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[2].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[3].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[4].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[5].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[6].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[7].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[8].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[9].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[10].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[11].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[12].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[13].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[14].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[15].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[16].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[17].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[18].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[19].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[20].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[21].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[22].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[23].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[24].ND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].Q_DEL' (floating_point_v7_1_4_delay__parameterized3) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[12].MA_DEL.MANT_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXTRA_LSB_BIT_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXTRA_LSB_RND1_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_INC_DELAY' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_INC_RND1_DELAY'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/NORMALIZE_DEL' (floating_point_v7_1_4_delay__parameterized3) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/NORMALIZE_RND1_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_IN_DELAY.EXP_IN_DEL' (floating_point_v7_1_4_delay__parameterized21) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_RND2_DELAY.EXP_RND_DEL'
-INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_IN_DELAY.EXP_OFF_OP_DEL' (floating_point_v7_1_4_delay__parameterized21) to 'U0/frameProcess_inst/sobel_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_RND2_DELAY.EXP_OFF_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_UNDERFLOW'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/Q_MANT_LP_DEL' (floating_point_v7_1_4_delay__parameterized1) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[24].Q_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[1].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[2].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[3].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[4].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[5].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[6].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[7].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[8].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[9].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[10].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[11].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[12].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[13].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[14].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[15].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[16].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[17].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[18].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[19].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[20].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[21].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[22].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[23].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].ND_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[24].ND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[0].Q_DEL' (floating_point_v7_1_4_delay__parameterized3) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.MANT_SQRT/RT[12].MA_DEL.MANT_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXTRA_LSB_BIT_DEL' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXTRA_LSB_RND1_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_INC_DELAY' (floating_point_v7_1_4_delay__parameterized0) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_INC_RND1_DELAY'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/NORMALIZE_DEL' (floating_point_v7_1_4_delay__parameterized3) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/NORMALIZE_RND1_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_IN_DELAY.EXP_IN_DEL' (floating_point_v7_1_4_delay__parameterized21) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_RND2_DELAY.EXP_RND_DEL'
+INFO: [Synth 8-223] decloning instance 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_IN_DELAY.EXP_OFF_OP_DEL' (floating_point_v7_1_4_delay__parameterized21) to 'U0/frameProcess_inst/sobelFilter_inst/mod6_1_2_inst/squareRoot_inst/U0/i_synth/SQRT_OP.SPD.OP/i_mant_calc.ROUND/EXP_RND2_DELAY.EXP_OFF_RND_DEL'
 
 Report RTL Partitions: 
 +------+------------------+------------+----------+
 |      |RTL Partition     |Replication |Instances |
 +------+------------------+------------+----------+
-|1     |frameProcess__GB0 |           1|     27568|
+|1     |frameProcess__GB0 |           1|     27522|
 |2     |frameProcess__GB1 |           1|     10431|
 |3     |frameProcess__GB2 |           1|      8339|
 |4     |VFP_v1_0__GC0     |           1|     32322|
@@ -690,9 +699,9 @@ INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM b
 INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM bufferController_inst/int_line_d1/rowbuffer_reg to conserve power
 INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM bufferController_inst/int_line_d2/rowbuffer_reg to conserve power
 INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM bufferController_inst/int_line_d3/rowbuffer_reg to conserve power
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\tpd1_reg[vTap2x][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\tpd1_reg[vTap0x][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\tpd1_reg[vTap1x][8] )
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobelFilter_inst/tpd1_reg[vTap2x][8]' (FDR) to 'frameProcess_insti_0/sobelFilter_inst/tpd1_reg[vTap1x][8]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobelFilter_inst/tpd1_reg[vTap0x][8]' (FDR) to 'frameProcess_insti_0/sobelFilter_inst/tpd1_reg[vTap1x][8]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobelFilter_inst/\tpd1_reg[vTap1x][8] )
 INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/blurFilter1x_inst/RGB_inst/write_s_reg' (FD) to 'frameProcess_insti_0/blurFilter1x_inst/rgb3x_reg[valid]'
 INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/colorCorrection_inst/ccRgb_reg[rgbToSf][red][8]' (FDC) to 'frameProcess_insti_0/colorCorrection_inst/ccRgb_reg[rgbToSf][red][9]'
 INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/colorCorrection_inst/ccRgb_reg[rgbToSf][red][9]' (FDC) to 'frameProcess_insti_0/colorCorrection_inst/ccRgb_reg[rgbToSf][blue][9]'
@@ -768,240 +777,169 @@ INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/blurFilter1x_inst/MA
 INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/blurFilter1x_inst/MAC_R_inst/mac2X_reg[m1][8]' (FD) to 'frameProcess_insti_0/blurFilter1x_inst/MAC_R_inst/mac3X_reg[m1][8]'
 INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/blurFilter1x_inst/MAC_R_inst/mac2X_reg[m2][8]' (FD) to 'frameProcess_insti_0/blurFilter1x_inst/MAC_R_inst/mac3X_reg[m2][8]'
 INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/blurFilter1x_inst/MAC_R_inst/mac2X_reg[m3][8]' (FD) to 'frameProcess_insti_0/blurFilter1x_inst/MAC_R_inst/mac3X_reg[m3][8]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[blue][0]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[blue][0]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[blue][1]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[blue][1]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[blue][2]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[blue][2]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[blue][3]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[blue][3]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[blue][4]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[blue][4]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[blue][5]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[blue][5]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[blue][6]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[blue][6]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[blue][7]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[blue][7]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[green][0]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[green][0]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[green][1]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[green][1]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[green][2]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[green][2]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[green][3]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[green][3]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[green][4]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[green][4]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[green][5]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[green][5]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[green][6]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[green][6]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[green][7]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[green][7]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[red][0]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[red][0]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[red][1]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[red][1]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[red][2]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[red][2]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[red][3]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[red][3]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[red][4]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[red][4]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[red][5]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[red][5]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[red][6]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[red][6]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/sobel_inst/rgb1b_reg[red][7]' (FD) to 'frameProcess_insti_0/sobel_inst/rgb1Int_reg[red][7]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[green][31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[blue][31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb1Int_reg[red][31] )
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/pointOfInterest_inst/pYcont_reg[16]' (FD) to 'frameProcess_insti_0/pointOfInterest_inst/pXcont_reg[31]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/pointOfInterest_inst/pYcont_reg[17]' (FD) to 'frameProcess_insti_0/pointOfInterest_inst/pXcont_reg[31]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/pointOfInterest_inst/pYcont_reg[18]' (FD) to 'frameProcess_insti_0/pointOfInterest_inst/pXcont_reg[31]'
-INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/pointOfInterest_inst/pYcont_reg[19]' (FD) to 'frameProcess_insti_0/pointOfInterest_inst/pXcont_reg[31]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[blue][0]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[blue][0]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[blue][1]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[blue][1]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[blue][2]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[blue][2]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[blue][3]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[blue][3]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[blue][4]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[blue][4]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[blue][5]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[blue][5]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[blue][6]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[blue][6]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[blue][7]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[blue][7]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[green][0]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][0]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[green][1]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][1]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[green][2]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][2]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[green][3]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][3]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[green][4]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][4]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[green][5]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][5]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[green][6]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][6]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[green][7]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][7]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[red][0]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][0]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[red][1]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][1]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[red][2]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][2]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[red][3]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][3]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[red][4]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][4]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[red][5]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][5]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[red][6]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][6]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1b_reg[red][7]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][7]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][8]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][31]'
+INFO: [Synth 8-3886] merging instance 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[green][9]' (FD) to 'frameProcess_insti_0/edgeObjects_inst/rgb1Int_reg[red][31]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/\edgeObjects_inst/rgb1Int_reg[red][31] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/pointOfInterest_inst/\pXcont_reg[31] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/pointOfInterest_inst/\grid1Cord_reg[bot][31] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/blurFilter1x_inst/\MAC_R_inst/mac3X_reg[m3][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/sobel_inst/\rgb2Int_reg[green][26] )
-INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][31]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][30]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][29]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][28]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][27]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][26]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][25]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][24]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][23]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][22]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][21]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][20]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][19]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][18]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][17]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][16]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][15]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][14]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][13]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][12]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][11]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][10]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][9]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[blue][8]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][31]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][30]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][29]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][28]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][27]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][26]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][25]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][24]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][23]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][22]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][21]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][20]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][19]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][18]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][17]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][16]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][15]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][14]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][13]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][12]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][11]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][10]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][9]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[blue][8]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][31]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][30]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][29]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][28]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][27]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][26]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][25]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][24]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][23]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][22]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][21]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][20]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][19]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][18]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][17]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][16]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][15]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][14]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][13]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][12]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][11]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][10]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][9]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[green][8]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][31]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][30]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][29]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][28]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][27]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][26]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][25]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][24]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][23]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][22]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][21]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][20]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][19]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][18]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][17]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][16]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][15]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][14]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][13]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][12]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][11]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][10]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][9]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb2Int_reg[green][8]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[red][31]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[red][30]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[red][29]) is unused and will be removed from module sobel.
-WARNING: [Synth 8-3332] Sequential element (rgb1Int_reg[red][28]) is unused and will be removed from module sobel.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/\edgeObjects_inst/rgb1Int_reg[red][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/pointOfInterest_inst/\grid2Cord_reg[bot][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/blurFilter1x_inst/\MAC_R_inst/mac3X_reg[mac][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/pointOfInterest_inst/\grid3Cord_reg[rht][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_0/pointOfInterest_inst/\grid3Cord_reg[rht][31] )
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[my][34]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[my][33]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[my][32]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (tpd2_reg[vTap1x][8]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (tpd3_reg[vTap1x][8]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (tpd2_reg[vTap0x][8]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (tpd3_reg[vTap0x][8]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (tpd3_reg[vTap2x][8]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[mx][34]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[mx][33]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[mx][32]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[sxy][34]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[sxy][33]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (sobel_reg[sxy][32]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[12]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[13]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[14]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[15]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[16]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[17]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[18]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[19]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[20]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[21]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[22]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[23]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[24]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[25]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[26]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[27]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[28]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[29]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[30]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[31]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (tpd1_reg[vTap1x][8]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (tpd2_reg[vTap2x][8]) is unused and will be removed from module sobelFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[12]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[13]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[14]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[15]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[16]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[17]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[18]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[19]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[20]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[21]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[22]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[23]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[24]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[25]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[26]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[27]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[28]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[29]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[30]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[31]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/o1Data_reg[10]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/o1Data_reg[9]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_G_inst/o1Data_reg[10]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_G_inst/o1Data_reg[9]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/tpd2_reg[vTap2x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/tpd3_reg[vTap2x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/o1Data_reg[10]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/o1Data_reg[9]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/tpd2_reg[vTap0x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/tpd3_reg[vTap0x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_G_inst/tpd2_reg[vTap0x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_G_inst/tpd3_reg[vTap0x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/tpd1_reg[vTap1x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/tpd2_reg[vTap0x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/tpd3_reg[vTap0x][8]) is unused and will be removed from module sharpFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/Data_reg[3]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/Data_reg[2]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/Data_reg[1]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_R_inst/Data_reg[0]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_G_inst/Data_reg[3]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_G_inst/Data_reg[2]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_G_inst/Data_reg[1]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_G_inst/Data_reg[0]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/Data_reg[3]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/Data_reg[2]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/Data_reg[1]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (MAC_B_inst/Data_reg[0]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[12]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[13]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[14]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[15]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[16]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[17]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[18]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[19]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[20]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[21]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[22]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[23]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[24]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[25]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[26]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[27]) is unused and will be removed from module blurFilter.
+WARNING: [Synth 8-3332] Sequential element (rCountAddress_reg[28]) is unused and will be removed from module blurFilter.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter2x_inst/\MAC_R_inst/tpd1_reg[vTap1x][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter3x_inst/\MAC_R_inst/tpd1_reg[vTap1x][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter4x_inst/\MAC_R_inst/tpd1_reg[vTap1x][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter2x_inst/\MAC_R_inst/mac2X_reg[m3][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter3x_inst/\MAC_R_inst/mac2X_reg[m3][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter4x_inst/\MAC_R_inst/mac2X_reg[m3][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter2x_inst/\MAC_R_inst/mac2X_reg[mac][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter3x_inst/\MAC_R_inst/mac2X_reg[mac][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_1/blurFilter4x_inst/\MAC_R_inst/mac2X_reg[mac][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_2/\hsv_inst/hueTop_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (frameProcess_insti_2/\hsv_inst/hueBottom_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0i_3/\videoSelect_inst/mod5_8_inst/cb_g_reg[11] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (U0i_3/vfpConfig_inst/aw_en_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0i_3/vfpConfig_inst/\axi_rresp_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0i_3/vfpConfig_inst/\axi_bresp_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0i_3/\mm2s_inst/m_axis_mm2s_tid_reg[0] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (U0i_3/\mm2s_inst/m_axis_mm2s_tkeep_reg[2] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:09 ; elapsed = 00:03:25 . Memory (MB): peak = 879.332 ; gain = 583.215
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:03:18 ; elapsed = 00:03:51 . Memory (MB): peak = 879.230 ; gain = 583.480
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+------------------+------------+----------+
 |      |RTL Partition     |Replication |Instances |
 +------+------------------+------------+----------+
-|1     |frameProcess__GB0 |           1|     28131|
+|1     |frameProcess__GB0 |           1|     28108|
 |2     |frameProcess__GB1 |           1|      7632|
 |3     |frameProcess__GB2 |           1|      6558|
 |4     |VFP_v1_0__GC0     |           1|      9244|
@@ -1010,20 +948,20 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:36 ; elapsed = 00:03:53 . Memory (MB): peak = 1007.430 ; gain = 711.313
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:50 ; elapsed = 00:04:23 . Memory (MB): peak = 1008.328 ; gain = 712.578
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:37 ; elapsed = 00:03:53 . Memory (MB): peak = 1008.430 ; gain = 712.313
+Finished Timing Optimization : Time (s): cpu = 00:03:50 ; elapsed = 00:04:23 . Memory (MB): peak = 1008.328 ; gain = 712.578
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+------------------+------------+----------+
 |      |RTL Partition     |Replication |Instances |
 +------+------------------+------------+----------+
-|1     |frameProcess__GB0 |           1|     28131|
+|1     |frameProcess__GB0 |           1|     28108|
 |2     |frameProcess__GB1 |           1|      7632|
 |3     |frameProcess__GB2 |           1|      6558|
 |4     |VFP_v1_0__GC0     |           1|      9244|
@@ -1031,8 +969,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:326]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:319]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:260]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:253]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:223]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:222]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:226]
@@ -1040,10 +978,10 @@ INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM bloc
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:227]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:229]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/rgb_ycbcr.vhd:228]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:312]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:312]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:305]
-INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobel.vhd:305]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:246]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:246]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:239]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/sobelFilter.vhd:239]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:51]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:27]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/ff38/src/colorCorrection.vhd:27]
@@ -1076,7 +1014,7 @@ INFO: [Synth 8-4480] The timing for the instance U0/frameProcess_inst/pointOfInt
 INFO: [Synth 8-4480] The timing for the instance U0/frameProcess_inst/pointOfInterest_inst/gridLockFifo_int/Mem_reg_10 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance U0/frameProcess_inst/pointOfInterest_inst/gridLockFifo_int/Mem_reg_11 (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:48 ; elapsed = 00:04:05 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Finished Technology Mapping : Time (s): cpu = 00:04:03 ; elapsed = 00:04:36 . Memory (MB): peak = 1068.445 ; gain = 772.695
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1100,7 +1038,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:51 ; elapsed = 00:04:08 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Finished IO Insertion : Time (s): cpu = 00:04:06 ; elapsed = 00:04:39 . Memory (MB): peak = 1068.445 ; gain = 772.695
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1113,7 +1051,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:51 ; elapsed = 00:04:08 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:06 ; elapsed = 00:04:39 . Memory (MB): peak = 1068.445 ; gain = 772.695
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1125,25 +1063,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:54 ; elapsed = 00:04:11 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:09 ; elapsed = 00:04:42 . Memory (MB): peak = 1068.445 ; gain = 772.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:55 ; elapsed = 00:04:11 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:10 ; elapsed = 00:04:43 . Memory (MB): peak = 1068.445 ; gain = 772.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:55 ; elapsed = 00:04:12 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:10 ; elapsed = 00:04:43 . Memory (MB): peak = 1068.445 ; gain = 772.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:55 ; elapsed = 00:04:12 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:10 ; elapsed = 00:04:43 . Memory (MB): peak = 1068.445 ; gain = 772.695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1164,7 +1102,7 @@ Report Cell Usage:
 |3     |DSP48E1_2  |     9|
 |4     |LUT1       |   821|
 |5     |LUT2       |  2078|
-|6     |LUT3       |  2471|
+|6     |LUT3       |  2448|
 |7     |LUT4       |  2440|
 |8     |LUT5       |   602|
 |9     |LUT6       |  2958|
@@ -1185,11 +1123,11 @@ Report Cell Usage:
 |24    |LDC        |     1|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:55 ; elapsed = 00:04:12 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:10 ; elapsed = 00:04:43 . Memory (MB): peak = 1068.445 ; gain = 772.695
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1814 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:43 ; elapsed = 00:03:40 . Memory (MB): peak = 1068.551 ; gain = 485.305
-Synthesis Optimization Complete : Time (s): cpu = 00:03:56 ; elapsed = 00:04:12 . Memory (MB): peak = 1068.551 ; gain = 772.434
+Synthesis finished with 0 errors, 0 critical warnings and 1669 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:57 ; elapsed = 00:04:08 . Memory (MB): peak = 1068.445 ; gain = 484.629
+Synthesis Optimization Complete : Time (s): cpu = 00:04:11 ; elapsed = 00:04:44 . Memory (MB): peak = 1068.445 ; gain = 772.695
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 3363 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1200,14 +1138,18 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   (MUXCY,XORCY) => CARRY4: 292 instances
   LDC => LDCE: 1 instances
 
-579 Infos, 357 Warnings, 0 Critical Warnings and 0 Errors encountered.
+517 Infos, 357 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:08 ; elapsed = 00:04:25 . Memory (MB): peak = 1068.551 ; gain = 775.063
+synth_design: Time (s): cpu = 00:04:24 ; elapsed = 00:04:57 . Memory (MB): peak = 1068.445 ; gain = 775.824
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_VFP_0_synth_1/zynq_soc_VFP_0.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1068.445 ; gain = 0.000
+write_vhdl: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1068.445 ; gain = 0.000
 INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/zynq_soc_VFP_0.xci
-INFO: [Coretcl 2-1174] Renamed 453 cell refs.
+INFO: [Coretcl 2-1174] Renamed 454 cell refs.
 INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_VFP_0_synth_1/zynq_soc_VFP_0.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.251 . Memory (MB): peak = 1068.551 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Apr 27 22:48:02 2019...
+write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 1068.445 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.270 . Memory (MB): peak = 1068.445 ; gain = 0.000
+write_vhdl: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1068.445 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 28 22:17:40 2019...

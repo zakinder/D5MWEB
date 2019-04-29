@@ -7,6 +7,8 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity blurFilter is
 generic (
+    iMSB          : integer := 11;
+    iLSB          : integer := 4;
     i_data_width  : integer := 8;
     img_width     : integer := 256;
     adwr_width    : integer := 16;
@@ -15,7 +17,7 @@ port (
     clk            : in std_logic;
     rst_l          : in std_logic;
     iRgb           : in channel;
-    oRgb           : out blurchannel);
+    oRgb           : out channel);
 end entity;
 architecture arch of blurFilter is
 ---------------------------------------------------------------------------------
@@ -34,8 +36,13 @@ architecture arch of blurFilter is
     signal rgb1x            : channel;
     signal rgb2x            : channel;
     signal rgb3x            : channel;
+    signal blurRgb          : blurchannel;
 ---------------------------------------------------------------------------------
 begin
+    oRgb.red   <= blurRgb.red(iMSB downto iLSB);
+    oRgb.green <= blurRgb.green(iMSB downto iLSB);
+    oRgb.blue  <= blurRgb.blue(iMSB downto iLSB);
+    oRgb.valid <= blurRgb.valid;
     process(clk)begin
         if rising_edge(clk) then
             if (iRgb.valid = '1') then
@@ -69,7 +76,7 @@ begin
         vTap0x          => vTapRGB0x(23 downto 16),
         vTap1x          => vTapRGB1x(23 downto 16),
         vTap2x          => vTapRGB2x(23 downto 16),
-        DataO           => oRgb.red);
+        DataO           => blurRgb.red);
     MAC_G_inst: blurMac
     port map(
         clk             => clk,
@@ -77,7 +84,7 @@ begin
         vTap0x          => vTapRGB0x(15 downto 8),
         vTap1x          => vTapRGB1x(15 downto 8),
         vTap2x          => vTapRGB2x(15 downto 8),
-        DataO           => oRgb.green);
+        DataO           => blurRgb.green);
     MAC_B_inst: blurMac
     port map(
         clk             => clk,
@@ -85,24 +92,24 @@ begin
         vTap0x          => vTapRGB0x(i_data_width-1 downto 0),
         vTap1x          => vTapRGB1x(i_data_width-1 downto 0),
         vTap2x          => vTapRGB2x(i_data_width-1 downto 0),
-        DataO           => oRgb.blue);
+        DataO           => blurRgb.blue);
     TAP_SIGNED : process (clk) begin
         if rising_edge(clk) then
-            rgb1x        <= iRgb;  
-            rgb2x        <= rgb1x;
-            rgb3x        <= rgb2x;
-            d3RGB        <= rgb3x.red & rgb3x.green & rgb3x.blue;
-            d1en         <= enable;
-            d2en         <= d1en;
-            oRgb.valid   <= d2en;
+            rgb1x         <= iRgb;  
+            rgb2x         <= rgb1x;
+            rgb3x         <= rgb2x;
+            d3RGB         <= rgb3x.red & rgb3x.green & rgb3x.blue;
+            d1en          <= enable;
+            d2en          <= d1en;
+            blurRgb.valid <= d2en;
         if(rgb3x.valid = '1') then
-            vTapRGB0x <=v1TapRGB0x;
-            vTapRGB1x <=v1TapRGB1x;
-            vTapRGB2x <=v1TapRGB2x;
+            vTapRGB0x <= v1TapRGB0x;
+            vTapRGB1x <= v1TapRGB1x;
+            vTapRGB2x <= v1TapRGB2x;
         else
-            vTapRGB0x <=(others => '0');
-            vTapRGB1x <=(others => '0');
-            vTapRGB2x <=(others => '0');
+            vTapRGB0x <= (others => '0');
+            vTapRGB1x <= (others => '0');
+            vTapRGB2x <= (others => '0');
         end if;
         end if;
     end process TAP_SIGNED;

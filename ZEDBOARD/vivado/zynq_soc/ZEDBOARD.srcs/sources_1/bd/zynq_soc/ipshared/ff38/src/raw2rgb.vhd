@@ -17,8 +17,8 @@ architecture arch of raw2rgb is
     signal tpd2          : uTp;
     signal r1Valid       : std_logic :='0';
     signal r2Valid       : std_logic :='0';
-    signal d1TpData      :  rTp;
-    signal d2TpData      :  rTp;
+    signal d1TpData      : rTp;
+    signal d2TpData      : rTp;
 begin
 validSyncP: process(clk) begin
     if rising_edge(clk) then
@@ -32,26 +32,26 @@ validSyncP: process(clk) begin
         oRgbSet.cord  <= d2TpData.cord;
     end if;
 end process validSyncP;
-    process (clk)begin
-        if rising_edge(clk) then
-            if rst_l = '0' then
-                    tpd1.tp3  <=(others => '0');
-                    tpd2.tp3  <=(others => '0');
-                    tpd1.tp2  <=(others => '0');
-                    tpd2.tp2  <=(others => '0');
-                    tpd1.tp1  <=(others => '0');
-                    tpd2.tp1  <=(others => '0');
+syncDataP: process (clk) begin
+    if rising_edge(clk) then
+        if rst_l = '0' then
+            tpd1.tp3  <=(others => '0');
+            tpd2.tp3  <=(others => '0');
+            tpd1.tp2  <=(others => '0');
+            tpd2.tp2  <=(others => '0');
+            tpd1.tp1  <=(others => '0');
+            tpd2.tp1  <=(others => '0');
             else
-                    tpd1.tp1  <=unsigned(iTpData.taps.tp1);
-                    tpd1.tp2  <=unsigned(iTpData.taps.tp2);
-                    tpd1.tp3  <=unsigned(iTpData.taps.tp3);
-                    tpd2.tp1  <=tpd1.tp1;
-                    tpd2.tp2  <=tpd1.tp2;
-                    tpd2.tp3  <=tpd1.tp3;
+            tpd1.tp1  <=unsigned(iTpData.taps.tp1);
+            tpd1.tp2  <=unsigned(iTpData.taps.tp2);
+            tpd1.tp3  <=unsigned(iTpData.taps.tp3);
+            tpd2.tp1  <=tpd1.tp1;
+            tpd2.tp2  <=tpd1.tp2;
+            tpd2.tp3  <=tpd1.tp3;
             end if;
         end if;
-    end process;
-    process (clk)
+end process syncDataP;
+rawToRgbP: process (clk)
     variable loc_addr : std_logic_vector(1 downto 0);
     begin
         if rising_edge(clk) then
@@ -63,7 +63,7 @@ end process validSyncP;
         loc_addr := iTpData.cord.y(0) & iTpData.cord.x(0);
         case loc_addr IS
             when b"11" => 
-                if (iTpData.cord.y(11 downto 0) = x"001" ) then
+                if (iTpData.cord.y(11 downto 0) = x"001") then
                     rgb.red   <= tpd1.tp2;
                     rgb.green <= '0' & (tpd1.tp3 + unsigned(iTpData.taps.tp2));
                     rgb.blue  <= unsigned(iTpData.taps.tp3);
@@ -73,8 +73,8 @@ end process validSyncP;
                     rgb.blue  <= unsigned(iTpData.taps.tp1);
                 end if;
             when b"10" => 
-                if (iTpData.cord.y(11 downto 0) = x"001" ) then
-                    if (iTpData.cord.x(11 downto 0) = x"000" ) then
+                if (iTpData.cord.y(11 downto 0) = x"001") then
+                    if (iTpData.cord.x(11 downto 0) = x"000") then
                         rgb.red    <= tpd2.tp3;
                         rgb.green  <= tpd2.tp2 & '0';
                         rgb.blue   <= tpd1.tp2;
@@ -84,7 +84,7 @@ end process validSyncP;
                         rgb.blue   <= tpd1.tp3;    
                     end if;
                 else
-                    if (iTpData.cord.x(11 downto 0) = x"000" ) then
+                    if (iTpData.cord.x(11 downto 0) = x"000") then
                         rgb.red    <= tpd2.tp1;
                         rgb.green  <= tpd1.tp1 & '0';
                         rgb.blue   <= tpd1.tp2;
@@ -99,7 +99,7 @@ end process validSyncP;
                 rgb.green    <= '0' & (unsigned(iTpData.taps.tp1) + tpd1.tp2);
                 rgb.blue     <= unsigned(iTpData.taps.tp2);    
             when b"00" => 
-                if (iTpData.cord.x(11 downto 0) = x"000" ) then
+                if (iTpData.cord.x(11 downto 0) = x"000") then
                     rgb.red     <= tpd2.tp2;
                     rgb.green   <= tpd2.tp1 & '0';
                     rgb.blue    <= tpd1.tp1;
@@ -115,7 +115,7 @@ end process validSyncP;
         end case;
         end if;
         end if; 
-    end process;
+end process rawToRgbP;
     oRgbSet.red    <= std_logic_vector(rgb.red(11 downto 4));
     oRgbSet.green  <= std_logic_vector(rgb.green(12 downto 5));
     oRgbSet.blue   <= std_logic_vector(rgb.blue(11 downto 4));

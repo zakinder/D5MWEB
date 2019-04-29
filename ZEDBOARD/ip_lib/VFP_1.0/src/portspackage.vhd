@@ -1,4 +1,4 @@
---04112019 [04-11-2019]
+--04282019 [04-28-2019]
 library ieee;
 library work;
 use ieee.std_logic_1164.all;
@@ -232,6 +232,8 @@ port (
 end component sharpFilter;
 component blurFilter is
 generic (
+    iMSB          : integer := 11;
+    iLSB          : integer := 4;
     i_data_width  : integer := 8;
     img_width     : integer := 256;
     adwr_width    : integer := 16;
@@ -240,7 +242,7 @@ port (
     clk            : in std_logic;
     rst_l          : in std_logic;
     iRgb           : in channel;
-    oRgb           : out blurchannel);
+    oRgb           : out channel);
 end component blurFilter;
 component blurMac is
 port (                
@@ -251,7 +253,20 @@ port (
 	vTap2x         : in std_logic_vector(7 downto 0);
     DataO          : out std_logic_vector(11 downto 0));
 end component blurMac;
-component sobel is
+component edgeObjects is
+generic (
+    i_data_width   : integer := 8);
+port (                
+    clk            : in std_logic;
+    rst_l          : in std_logic;
+    iRgb           : in channel;
+    bRgb           : in channel;
+    sRgb           : in channel;
+    edgeValid      : in std_logic;
+    sValid         : in std_logic;
+    oRgbRemix      : out channel);
+end component edgeObjects;
+component sobelFilter is
 generic (
     i_data_width   : integer := 8;
     img_width      : integer := 256;
@@ -261,15 +276,14 @@ port (
     clk            : in std_logic;
     rst_l          : in std_logic;
     iRgb           : in channel;
-    bRgb           : in channel;
-    sRgb           : in channel;
-    oRgb           : out channel;
-    oRgbRemix      : out channel;
-    videoChannel   : in std_logic_vector(31 downto 0);
+    iEdgeType      : in std_logic_vector(31 downto 0);
     endOfFrame     : in std_logic;
     threshold      : in std_logic_vector(15 downto 0);
-    kls            : in coefficient);
-end component sobel;
+    kls            : in coefficient;
+    oRgb           : out channel;
+    sValid         : out std_logic;
+    edgeValid      : out std_logic);
+end component sobelFilter;
 component detect is
 generic (
     i_data_width    : integer := 8);

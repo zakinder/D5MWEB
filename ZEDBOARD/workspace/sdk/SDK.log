@@ -1,14 +1,15 @@
-23:07:05 INFO  : Registering command handlers for SDK TCF services
-23:07:06 INFO  : Launching XSCT server: xsct.bat -interactive Z:\ZEDBOARD\workspace\sdk\temp_xsdb_launch_script.tcl
-23:07:08 INFO  : XSCT server has started successfully.
-23:07:08 INFO  : Successfully done setting XSCT server connection channel  
-23:07:09 INFO  : Successfully done setting SDK workspace  
-23:07:09 INFO  : Processing command line option -hwspec Z:/ZEDBOARD/workspace/sdk/ZEDBOARD.hdf.
-23:07:09 INFO  : Processing command line option -lp Z:/ZEDBOARD/sw_lib.
-23:07:09 INFO  : Adding 'Z:/ZEDBOARD/sw_lib' as a new local repository.
-23:10:09 INFO  : Inferring section assignments and sizes from elf file: Z:\ZEDBOARD\workspace\sdk\vfpWebCamera\Debug\vfpWebCamera.elf
-23:10:21 INFO  : Successfully generated Z:\ZEDBOARD\workspace\sdk\vfpWebCamera\src\lscript.ld.
-23:10:21 INFO  : Applying linker script to all configurations of project vfpWebCamera.
-23:10:21 INFO  : Setting rebuild state to true for all configurations of project vfpWebCamera.
-23:10:58 INFO  : Invoking Bootgen: bootgen -image vfpWebCamera.bif -arch zynq -o Z:\ZEDBOARD\workspace\sdk\vfpWebCamera\bootimage\BOOT.bin -w on
-23:11:00 INFO  : Bootgen command execution is done.
+23:05:25 INFO  : Registering command handlers for SDK TCF services
+23:05:26 INFO  : Launching XSCT server: xsct.bat -interactive Z:\ZEDBOARD\workspace\sdk\temp_xsdb_launch_script.tcl
+23:05:29 INFO  : XSCT server has started successfully.
+23:05:30 INFO  : Successfully done setting XSCT server connection channel  
+23:05:30 INFO  : Successfully done setting SDK workspace  
+23:05:30 INFO  : Processing command line option -hwspec Z:/ZEDBOARD/workspace/sdk/ZEDBOARD.hdf.
+23:05:30 INFO  : Processing command line option -lp Z:/ZEDBOARD/sw_lib.
+23:05:30 INFO  : Adding 'Z:/ZEDBOARD/sw_lib' as a new local repository.
+23:09:05 INFO  : Inferring section assignments and sizes from elf file: Z:\ZEDBOARD\workspace\sdk\vfpWebCamera\Debug\vfpWebCamera.elf
+23:09:14 INFO  : Successfully generated Z:\ZEDBOARD\workspace\sdk\vfpWebCamera\src\lscript.ld.
+23:09:14 INFO  : Applying linker script to all configurations of project vfpWebCamera.
+23:09:14 INFO  : Setting rebuild state to true for all configurations of project vfpWebCamera.
+23:09:58 INFO  : Invoking Bootgen: bootgen -image vfpWebCamera.bif -arch zynq -o Z:\ZEDBOARD\workspace\sdk\vfpWebCamera\bootimage\BOOT.bin -w on
+23:09:58 INFO  : Overwriting existing bif file Z:\ZEDBOARD\workspace\sdk\vfpWebCamera\bootimage\vfpWebCamera.bif
+23:09:59 INFO  : Bootgen command execution is done.

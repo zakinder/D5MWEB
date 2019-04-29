@@ -1,4 +1,4 @@
---02062019 [02-06-2019]
+--04282019 [04-28-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -44,15 +44,13 @@ architecture arch of frameProcess is
     signal hsv              : hsvChannel;
     signal cord             : coord;
     signal syncxy           : coord;
-    signal blur1x           : blurchannel;
-    signal blur2x           : blurchannel;
-    signal blur3x           : blurchannel;
-    signal blur4x           : blurchannel;
     signal cordIn           : coord;
     signal rgbIn            : channel;
     signal rgbSum           : tpRgb;
     signal rgbDetectLock    : std_logic;
     signal rgbPoiLock       : std_logic;
+    signal edgeValid        : std_logic;
+    signal sValid           : std_logic;
 begin
     -----------------------------------------------------
     oFrameData.hsv.red            <= hsv.h;
@@ -102,7 +100,7 @@ begin
         iRgb                => rgbIn,
         als                 => iAls,    
         oRgb                => rgbCorrect);
-    sobel_inst: sobel
+    sobelFilter_inst: sobelFilter
     generic map(
         i_data_width        => i_data_width,
         img_width           => img_width,
@@ -111,15 +109,26 @@ begin
     port map(   
         clk                 => clk,
         rst_l               => rst_l,
-        videoChannel        => iEdgeType,
+        iEdgeType           => iEdgeType,
         endOfFrame          => iRgbSet.pEof,
+        iRgb                => rgbIn,
+        threshold           => iThreshold,
+        kls                 => iKls,
+        oRgb                => soble,
+        sValid              => sValid,
+        edgeValid           => edgeValid);
+    edgeObjects_inst: edgeObjects
+    generic map(
+        i_data_width        => i_data_width)
+    port map(   
+        clk                 => clk,
+        rst_l               => rst_l,
         iRgb                => rgbIn,
         bRgb                => blur1vx,
         sRgb                => sharp,
-        threshold           => iThreshold,
-        kls                 => iKls,
-        oRgbRemix           => rgbRemix,
-        oRgb                => soble);
+        edgeValid           => edgeValid,
+        sValid              => sValid,
+        oRgbRemix           => rgbRemix);
     sharpFilter_inst: sharpFilter
     generic map(
         i_data_width        => i_data_width,
@@ -135,6 +144,8 @@ begin
         oRgb                => sharp);
     blurFilter1x_inst: blurFilter
     generic map(
+        iMSB                => 11,
+        iLSB                => 4,
         i_data_width        => i_data_width,
         img_width           => img_width,
         adwr_width          => 16,
@@ -143,13 +154,11 @@ begin
         clk                 => clk,
         rst_l               => rst_l,
         iRgb                => rgbIn,
-        oRgb                => blur1x);
-        blur1vx.red   <= blur1x.red(11 downto 4);
-        blur1vx.green <= blur1x.green(11 downto 4);
-        blur1vx.blue  <= blur1x.blue(11 downto 4);
-        blur1vx.valid <= blur1x.valid;
+        oRgb                => blur1vx);
     blurFilter2x_inst: blurFilter
     generic map(
+        iMSB                => 10,
+        iLSB                => 3,
         i_data_width        => i_data_width,
         img_width           => img_width,
         adwr_width          => 16,
@@ -158,13 +167,11 @@ begin
         clk                 => clk,
         rst_l               => rst_l,
         iRgb                => blur1vx,
-        oRgb                => blur2x);
-        blur2vx.red       <= blur2x.red(10 downto 3);
-        blur2vx.green     <= blur2x.green(10 downto 3);
-        blur2vx.blue      <= blur2x.blue(10 downto 3);
-        blur2vx.valid     <= blur2x.valid;
+        oRgb                => blur2vx);
     blurFilter3x_inst: blurFilter
     generic map(
+        iMSB                => 10,
+        iLSB                => 3,
         i_data_width        => i_data_width,
         img_width           => img_width,
         adwr_width          => 16,
@@ -173,13 +180,11 @@ begin
         clk                 => clk,
         rst_l               => rst_l,
         iRgb                => blur2vx,
-        oRgb                => blur3x);
-        blur3vx.red       <= blur3x.red(10 downto 3);
-        blur3vx.green     <= blur3x.green(10 downto 3);
-        blur3vx.blue      <= blur3x.blue(10 downto 3);
-        blur3vx.valid     <= blur3x.valid;
+        oRgb                => blur3vx);
     blurFilter4x_inst: blurFilter
     generic map(
+        iMSB                => 10,
+        iLSB                => 3,
         i_data_width        => i_data_width,
         img_width           => img_width,
         adwr_width          => 16,
@@ -188,11 +193,7 @@ begin
         clk                 => clk,
         rst_l               => rst_l,
         iRgb                => blur3vx,
-        oRgb                => blur4x);
-        blur4vx.red   <= blur4x.red(10 downto 3);
-        blur4vx.green <= blur4x.green(10 downto 3);
-        blur4vx.blue  <= blur4x.blue(10 downto 3);
-        blur4vx.valid <= blur4x.valid;
+        oRgb                => blur4vx);
     detect_inst: detect
     generic map(
         i_data_width        => i_data_width)

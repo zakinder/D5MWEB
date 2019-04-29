@@ -1,4 +1,4 @@
---02062019 [02-06-2019]
+--04282019 [04-28-2019]
 library ieee;
 library work;
 use ieee.std_logic_1164.all;
@@ -52,6 +52,8 @@ package constantspackage is
     constant blurMacKernel_7           : unsigned(i_data_width-1 downto 0) :=x"01";
     constant blurMacKernel_8           : unsigned(i_data_width-1 downto 0) :=x"01";
     constant blurMacKernel_9           : unsigned(i_data_width-1 downto 0) :=x"01";
+    constant white                     : std_logic_vector(7 downto 0)      :=x"FF";
+    constant black                     : std_logic_vector(7 downto 0)      :=x"00";
     -------------------------------------------------------------------------
     constant C_WHOLE_WIDTH            : integer := 3;  
     constant DATA_EXT_WIDTH           : natural := i_data_width + 1;

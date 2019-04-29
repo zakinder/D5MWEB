@@ -61,41 +61,41 @@ WRITEIMAGE1: imageWrite
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
-    output_file        => "soble")
+    output_file        => "blur1x")
     port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
-    iRgb               => soble);
+    iRgb               => blur1x);
 WRITEIMAGE2: imageWrite
     generic map (
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
-    output_file        => "rgbRemix")
+    output_file        => "blur2x")
     port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
-    iRgb               => rgbRemix);
+    iRgb               => blur2x);
 WRITEIMAGE3: imageWrite
     generic map (
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
-    output_file        => "rgbcorrected")
+    output_file        => "blur3x")
     port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
-    iRgb               => rgbcorrect);
+    iRgb               => blur3x);
 WRITEIMAGE4: imageWrite
     generic map (
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
-    output_file        => "hsv")
+    output_file        => "blur4x")
     port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
-    iRgb               => hsv);
+    iRgb               => blur4x);
 WRITEIMAGE5: imageWrite
     generic map (
     i_data_width       => 8,

@@ -1,4 +1,4 @@
---04112019 [04-11-2019]
+--04282019 [04-28-2019]
 library ieee;
 library work;
 use ieee.std_logic_1164.all;
@@ -291,5 +291,25 @@ type mRegs is record
     cfigReg62	  : std_logic_vector(31 downto 0);
     cfigReg63	  : std_logic_vector(31 downto 0);
 end record;
-
+type detap is record
+    vTap0x     : signed(i_data_width downto 0);
+    vTap1x     : signed(i_data_width downto 0);
+    vTap2x     : signed(i_data_width downto 0);
+end record;
+type s_pixel is record
+    m1         : signed (17 downto 0);
+    m2         : signed (17 downto 0);
+    m3         : signed (17 downto 0);
+    mac        : signed (16 downto 0);
+end record;
+type presults is record
+    pax        : signed (16 downto 0);
+    pay        : signed (16 downto 0);
+    mx         : signed (34 downto 0);
+    my         : signed (34 downto 0);
+    sxy        : signed (34 downto 0);
+    sqr        : std_logic_vector (31 downto 0);
+    edgeValid  : std_logic;
+    sbof       : std_logic_vector (31 downto 0);
+end record;
 end package;
