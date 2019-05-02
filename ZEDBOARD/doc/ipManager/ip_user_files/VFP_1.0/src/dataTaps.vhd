@@ -1,4 +1,4 @@
---01062019 [01-06-2019]
+--05012019 [05-01-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -8,13 +8,12 @@ use work.portspackage.all;
 entity dataTaps is
 generic (
     img_width     : integer := 4096;
-    adwr_width    : integer := 15;
-    p_data_width  : integer := 11;
-    addr_width    : integer := 11);
+    dataWidth     : integer := 12;
+    addrWidth     : integer := 12);
 port (
-    aclk        : in std_logic;
-    iRawData    : in rData;
-    oTpData     : out rTp);
+    aclk          : in std_logic;
+    iRawData      : in rData;
+    oTpData       : out rTp);
 end entity;
 architecture arch of dataTaps is
     signal d1RawData    :  rData;
@@ -26,17 +25,26 @@ architecture arch of dataTaps is
     signal write_chs    : integer range 0 to 3;
     signal write_s      : std_logic;
     signal write_p      : std_logic;
-    signal tap0_data    : std_logic_vector(p_data_width downto 0) := (others => lo);
-    signal tap1_data    : std_logic_vector(p_data_width downto 0) := (others => lo);
-    signal tap2_data    : std_logic_vector(p_data_width downto 0) := (others => lo);
-    signal tap3_data    : std_logic_vector(p_data_width downto 0) := (others => lo);
+    signal tap0_data    : std_logic_vector(dataWidth - 1 downto 0) := (others => lo);
+    signal tap1_data    : std_logic_vector(dataWidth - 1 downto 0) := (others => lo);
+    signal tap2_data    : std_logic_vector(dataWidth - 1 downto 0) := (others => lo);
+    signal tap3_data    : std_logic_vector(dataWidth - 1 downto 0) := (others => lo);
+    
 begin
-    process (aclk) begin
-        if (rising_edge(aclk)) then
-            write_s <= iRawData.valid;
-        end if;
-    end process;
-    process (aclk) begin
+
+write_p         <= hi when (write_s = hi and iRawData.valid = lo) else lo;
+wChx0Valid(ch0) <= hi when (write_chs = ch0 and iRawData.valid = hi)  else lo;
+wChx0Valid(ch1) <= hi when (write_chs = ch1 and iRawData.valid = hi)  else lo;
+wChx0Valid(ch2) <= hi when (write_chs = ch2 and iRawData.valid = hi)  else lo;
+wChx0Valid(ch3) <= hi when (write_chs = ch3 and iRawData.valid = hi)  else lo;
+oTpData.valid <= hi when (wChx3Valid(ch0) = hi or wChx3Valid(ch1) = hi or wChx3Valid(ch2) = hi or wChx3Valid(ch3) = hi)  else lo;
+
+pipValidP: process (aclk) begin
+    if (rising_edge(aclk)) then
+        write_s <= iRawData.valid;
+    end if;
+end process pipValidP;
+selChP: process (aclk) begin
     if (rising_edge(aclk) ) then
         if (write_p = hi) then
             if (write_chs = ch3) then
@@ -46,26 +54,21 @@ begin
             end if;
         end if;
     end if;
-    end process;
-    write_p         <= hi when (write_s = hi and iRawData.valid = lo) else lo;
-    wChx0Valid(ch0) <= hi when (write_chs = ch0 and iRawData.valid = hi)  else lo;
-    wChx0Valid(ch1) <= hi when (write_chs = ch1 and iRawData.valid = hi)  else lo;
-    wChx0Valid(ch2) <= hi when (write_chs = ch2 and iRawData.valid = hi)  else lo;
-    wChx0Valid(ch3) <= hi when (write_chs = ch3 and iRawData.valid = hi)  else lo;
-    process (aclk) begin
-        if (rising_edge(aclk) ) then
-            d1RawData     <= iRawData;
-            d2RawData     <= d1RawData;
-            oTpData.pEof  <= d2RawData.pEof;
-            oTpData.pSof  <= d2RawData.pSof;
-            oTpData.cord  <= d2RawData.cord;
-            wChx1Valid    <= wChx0Valid;
-            wChx2Valid    <= wChx1Valid;
-            wChx3Valid    <= wChx2Valid;
-        end if;
-    end process;
-    oTpData.valid <= hi when (wChx3Valid(ch0) = hi or wChx3Valid(ch1) = hi or wChx3Valid(ch2) = hi or wChx3Valid(ch3) = hi)  else lo;
-    tap1_readout: process(aclk) begin
+end process selChP;
+pipValidChP: process (aclk) begin
+    if (rising_edge(aclk) ) then
+        d1RawData     <= iRawData;
+        d2RawData     <= d1RawData;
+        oTpData.pEof  <= d2RawData.pEof;
+        oTpData.pSof  <= d2RawData.pSof;
+        oTpData.cord  <= d2RawData.cord;
+        wChx1Valid    <= wChx0Valid;
+        wChx2Valid    <= wChx1Valid;
+        wChx3Valid    <= wChx2Valid;
+    end if;
+end process pipValidChP;
+
+tap1ReadOutP: process(aclk) begin
     if (rising_edge(aclk) ) then
         if(wChx0Valid(ch0) = hi or wChx1Valid(ch0) = hi or wChx2Valid(ch0) = hi or wChx3Valid(ch0) = hi) then
             oTpData.taps.tp1 <= tap1_data;
@@ -89,57 +92,57 @@ begin
             oTpData.taps.tp3 <= (others => lo);
         end if;
     end if;
-    end process tap1_readout;
-int_line_d0: tap_buffer
+end process tap1ReadOutP;
+lineD0Inst: tap_buffer
 generic map(
     img_width    => img_width,
-    p_data_width => p_data_width,
-    addr_width   => addr_width)
+    dataWidth    => dataWidth,
+    addrWidth    => addrWidth)
 port map(
     write_clk => aclk, 
     write_enb => wChx0Valid(ch0),
-    w_address => iRawData.cord.x(addr_width downto 0),
+    w_address => iRawData.cord.x(addrWidth -1 downto 0),
     idata     => iRawData.data,
     read_clk  => aclk, 
-    r_address => iRawData.cord.x(addr_width downto 0),
+    r_address => iRawData.cord.x(addrWidth -1 downto 0),
     odata     => tap0_data);
-int_line_d1: tap_buffer
+lineD1Inst: tap_buffer
 generic map(
     img_width    => img_width,
-    p_data_width => p_data_width,
-    addr_width   => addr_width)
+    dataWidth    => dataWidth,
+    addrWidth    => addrWidth)
 port map(
     write_clk => aclk, 
     write_enb => wChx0Valid(ch1),
-    w_address => iRawData.cord.x(addr_width downto 0),
+    w_address => iRawData.cord.x(addrWidth -1 downto 0),
     idata     => iRawData.data,
     read_clk  => aclk, 
-    r_address => iRawData.cord.x(addr_width downto 0),
+    r_address => iRawData.cord.x(addrWidth -1 downto 0),
     odata     => tap1_data);    
-int_line_d2: tap_buffer
+lineD2Inst: tap_buffer
 generic map(
     img_width    => img_width,
-    p_data_width => p_data_width,
-    addr_width   => addr_width)
+    dataWidth    => dataWidth,
+    addrWidth    => addrWidth)
 port map(
     write_clk  => aclk, 
     write_enb  => wChx0Valid(ch2),
-    w_address  => iRawData.cord.x(addr_width downto 0),
+    w_address  => iRawData.cord.x(addrWidth -1 downto 0),
     idata      => iRawData.data,
     read_clk   => aclk, 
-    r_address  => iRawData.cord.x(addr_width downto 0),
+    r_address  => iRawData.cord.x(addrWidth -1 downto 0),
     odata      => tap2_data);
-int_line_d3: tap_buffer
+lineD3Inst: tap_buffer
 generic map(
     img_width    => img_width,
-    p_data_width => p_data_width,
-    addr_width   => addr_width)
+    dataWidth    => dataWidth,
+    addrWidth    => addrWidth)
 port map(
-    write_clk => aclk,
-    write_enb => wChx0Valid(ch3),
-    w_address => iRawData.cord.x(addr_width downto 0),
-    idata     => iRawData.data,
+    write_clk  => aclk,
+    write_enb  => wChx0Valid(ch3),
+    w_address  => iRawData.cord.x(addrWidth -1 downto 0),
+    idata      => iRawData.data,
     read_clk   => aclk, 
-    r_address  => iRawData.cord.x(addr_width downto 0),
+    r_address  => iRawData.cord.x(addrWidth -1 downto 0),
     odata      => tap3_data);
 end architecture;

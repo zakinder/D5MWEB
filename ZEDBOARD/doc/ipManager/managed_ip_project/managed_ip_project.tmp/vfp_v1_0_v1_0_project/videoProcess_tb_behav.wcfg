@@ -18,294 +18,205 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1312000000001fs"></ZoomEndTime>
-      <Cursor1Time time="353064690000fs"></Cursor1Time>
+      <ZoomStartTime time="2794970615000fs"></ZoomStartTime>
+      <ZoomEndTime time="4242205877001fs"></ZoomEndTime>
+      <Cursor1Time time="4001000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="136"></ValueColumnWidth>
+      <ValueColumnWidth column_width="132"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="42" />
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/clk" type="logic">
+   <WVObjectSize size="48" />
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rst_l" type="logic">
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/rst_l" type="logic">
       <obj_property name="ElementShortName">rst_l</obj_property>
       <obj_property name="ObjectShortName">rst_l</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet" type="array">
-      <obj_property name="ElementShortName">iRgbSet</obj_property>
-      <obj_property name="ObjectShortName">iRgbSet</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.pEof" type="logic">
-         <obj_property name="ElementShortName">.pEof</obj_property>
-         <obj_property name="ObjectShortName">.pEof</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.pSof" type="logic">
-         <obj_property name="ElementShortName">.pSof</obj_property>
-         <obj_property name="ObjectShortName">.pSof</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.valid" type="logic">
-         <obj_property name="ElementShortName">.valid</obj_property>
-         <obj_property name="ObjectShortName">.valid</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.red" type="array">
-         <obj_property name="ElementShortName">.red[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.red[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.green" type="array">
-         <obj_property name="ElementShortName">.green[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.green[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.blue" type="array">
-         <obj_property name="ElementShortName">.blue[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.blue[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.cord" type="array">
-         <obj_property name="ElementShortName">.cord</obj_property>
-         <obj_property name="ObjectShortName">.cord</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.cord.x" type="array">
-            <obj_property name="ElementShortName">.x[15:0]</obj_property>
-            <obj_property name="ObjectShortName">.x[15:0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-         <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbSet.cord.y" type="array">
-            <obj_property name="ElementShortName">.y[15:0]</obj_property>
-            <obj_property name="ObjectShortName">.y[15:0]</obj_property>
-            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-         </wvobject>
-      </wvobject>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/iCord" type="array">
+      <obj_property name="ElementShortName">iCord</obj_property>
+      <obj_property name="ObjectShortName">iCord</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbCoord" type="array">
-      <obj_property name="ElementShortName">iRgbCoord</obj_property>
-      <obj_property name="ObjectShortName">iRgbCoord</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbCoord.rl" type="array">
-         <obj_property name="ElementShortName">.rl[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.rl[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbCoord.rh" type="array">
-         <obj_property name="ElementShortName">.rh[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.rh[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbCoord.gl" type="array">
-         <obj_property name="ElementShortName">.gl[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.gl[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbCoord.gh" type="array">
-         <obj_property name="ElementShortName">.gh[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.gh[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbCoord.bl" type="array">
-         <obj_property name="ElementShortName">.bl[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.bl[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iRgbCoord.bh" type="array">
-         <obj_property name="ElementShortName">.bh[7:0]</obj_property>
-         <obj_property name="ObjectShortName">.bh[7:0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/endOfFrame" type="logic">
+      <obj_property name="ElementShortName">endOfFrame</obj_property>
+      <obj_property name="ObjectShortName">endOfFrame</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iPoiRegion" type="array">
-      <obj_property name="ElementShortName">iPoiRegion</obj_property>
-      <obj_property name="ObjectShortName">iPoiRegion</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/pRegion" type="array">
+      <obj_property name="ElementShortName">pRegion</obj_property>
+      <obj_property name="ObjectShortName">pRegion</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iKls" type="array">
-      <obj_property name="ElementShortName">iKls</obj_property>
-      <obj_property name="ObjectShortName">iKls</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/iRgb" type="array">
+      <obj_property name="ElementShortName">iRgb</obj_property>
+      <obj_property name="ObjectShortName">iRgb</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iAls" type="array">
-      <obj_property name="ElementShortName">iAls</obj_property>
-      <obj_property name="ObjectShortName">iAls</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/oRgb" type="array">
+      <obj_property name="ElementShortName">oRgb</obj_property>
+      <obj_property name="ObjectShortName">oRgb</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iEdgeType" type="array">
-      <obj_property name="ElementShortName">iEdgeType[31:0]</obj_property>
-      <obj_property name="ObjectShortName">iEdgeType[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/gridLockDatao" type="array">
+      <obj_property name="ElementShortName">gridLockDatao[31:0]</obj_property>
+      <obj_property name="ObjectShortName">gridLockDatao[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/iThreshold" type="array">
-      <obj_property name="ElementShortName">iThreshold[15:0]</obj_property>
-      <obj_property name="ObjectShortName">iThreshold[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/fifoStatus" type="array">
+      <obj_property name="ElementShortName">fifoStatus[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fifoStatus[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/oFrameData" type="array">
-      <obj_property name="ElementShortName">oFrameData</obj_property>
-      <obj_property name="ObjectShortName">oFrameData</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/oGridLocation" type="logic">
+      <obj_property name="ElementShortName">oGridLocation</obj_property>
+      <obj_property name="ObjectShortName">oGridLocation</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/oFifoStatus" type="array">
-      <obj_property name="ElementShortName">oFifoStatus[31:0]</obj_property>
-      <obj_property name="ObjectShortName">oFifoStatus[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/fifoControlState" type="other">
+      <obj_property name="ElementShortName">fifoControlState</obj_property>
+      <obj_property name="ObjectShortName">fifoControlState</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/oGridLockData" type="array">
-      <obj_property name="ElementShortName">oGridLockData[31:0]</obj_property>
-      <obj_property name="ObjectShortName">oGridLockData[31:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/rgb" type="array">
+      <obj_property name="ElementShortName">rgb</obj_property>
+      <obj_property name="ObjectShortName">rgb</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/sharp" type="array">
-      <obj_property name="ElementShortName">sharp</obj_property>
-      <obj_property name="ObjectShortName">sharp</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/frameSize" type="array">
+      <obj_property name="ElementShortName">frameSize</obj_property>
+      <obj_property name="ObjectShortName">frameSize</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rgbCorrect" type="array">
-      <obj_property name="ElementShortName">rgbCorrect</obj_property>
-      <obj_property name="ObjectShortName">rgbCorrect</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/initCord" type="array">
+      <obj_property name="ElementShortName">initCord</obj_property>
+      <obj_property name="ObjectShortName">initCord</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/soble" type="array">
-      <obj_property name="ElementShortName">soble</obj_property>
-      <obj_property name="ObjectShortName">soble</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/newCord" type="array">
+      <obj_property name="ElementShortName">newCord</obj_property>
+      <obj_property name="ObjectShortName">newCord</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rgbRemix" type="array">
-      <obj_property name="ElementShortName">rgbRemix</obj_property>
-      <obj_property name="ObjectShortName">rgbRemix</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/grid1Cord" type="array">
+      <obj_property name="ElementShortName">grid1Cord</obj_property>
+      <obj_property name="ObjectShortName">grid1Cord</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rgbPoi" type="array">
-      <obj_property name="ElementShortName">rgbPoi</obj_property>
-      <obj_property name="ObjectShortName">rgbPoi</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/grid2Cord" type="array">
+      <obj_property name="ElementShortName">grid2Cord</obj_property>
+      <obj_property name="ObjectShortName">grid2Cord</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/blur1vx" type="array">
-      <obj_property name="ElementShortName">blur1vx</obj_property>
-      <obj_property name="ObjectShortName">blur1vx</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/grid3Cord" type="array">
+      <obj_property name="ElementShortName">grid3Cord</obj_property>
+      <obj_property name="ObjectShortName">grid3Cord</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/blur2vx" type="array">
-      <obj_property name="ElementShortName">blur2vx</obj_property>
-      <obj_property name="ObjectShortName">blur2vx</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/grid4Cord" type="array">
+      <obj_property name="ElementShortName">grid4Cord</obj_property>
+      <obj_property name="ObjectShortName">grid4Cord</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/blur3vx" type="array">
-      <obj_property name="ElementShortName">blur3vx</obj_property>
-      <obj_property name="ObjectShortName">blur3vx</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/pXcont" type="other">
+      <obj_property name="ElementShortName">pXcont</obj_property>
+      <obj_property name="ObjectShortName">pXcont</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/blur4vx" type="array">
-      <obj_property name="ElementShortName">blur4vx</obj_property>
-      <obj_property name="ObjectShortName">blur4vx</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/pYcont" type="other">
+      <obj_property name="ElementShortName">pYcont</obj_property>
+      <obj_property name="ObjectShortName">pYcont</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rgbDetect" type="array">
-      <obj_property name="ElementShortName">rgbDetect</obj_property>
-      <obj_property name="ObjectShortName">rgbDetect</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/wrAddrsGlCtr" type="other">
+      <obj_property name="ElementShortName">wrAddrsGlCtr</obj_property>
+      <obj_property name="ObjectShortName">wrAddrsGlCtr</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/hsv" type="array">
-      <obj_property name="ElementShortName">hsv</obj_property>
-      <obj_property name="ObjectShortName">hsv</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/point_Interest" type="other">
+      <obj_property name="ElementShortName">point_Interest</obj_property>
+      <obj_property name="ObjectShortName">point_Interest</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/cord" type="array">
-      <obj_property name="ElementShortName">cord</obj_property>
-      <obj_property name="ObjectShortName">cord</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/GlEnable" type="logic">
+      <obj_property name="ElementShortName">GlEnable</obj_property>
+      <obj_property name="ObjectShortName">GlEnable</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/syncxy" type="array">
-      <obj_property name="ElementShortName">syncxy</obj_property>
-      <obj_property name="ObjectShortName">syncxy</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/rdData" type="array">
+      <obj_property name="ElementShortName">rdData[23:0]</obj_property>
+      <obj_property name="ObjectShortName">rdData[23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/blur1x" type="array">
-      <obj_property name="ElementShortName">blur1x</obj_property>
-      <obj_property name="ObjectShortName">blur1x</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/wrDataIn" type="array">
+      <obj_property name="ElementShortName">wrDataIn[23:0]</obj_property>
+      <obj_property name="ObjectShortName">wrDataIn[23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/blur2x" type="array">
-      <obj_property name="ElementShortName">blur2x</obj_property>
-      <obj_property name="ObjectShortName">blur2x</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/clearData" type="logic">
+      <obj_property name="ElementShortName">clearData</obj_property>
+      <obj_property name="ObjectShortName">clearData</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/blur3x" type="array">
-      <obj_property name="ElementShortName">blur3x</obj_property>
-      <obj_property name="ObjectShortName">blur3x</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/wrEn" type="logic">
+      <obj_property name="ElementShortName">wrEn</obj_property>
+      <obj_property name="ObjectShortName">wrEn</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/blur4x" type="array">
-      <obj_property name="ElementShortName">blur4x</obj_property>
-      <obj_property name="ObjectShortName">blur4x</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/wrLstEn" type="logic">
+      <obj_property name="ElementShortName">wrLstEn</obj_property>
+      <obj_property name="ObjectShortName">wrLstEn</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/cordIn" type="array">
-      <obj_property name="ElementShortName">cordIn</obj_property>
-      <obj_property name="ObjectShortName">cordIn</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/emptyO" type="logic">
+      <obj_property name="ElementShortName">emptyO</obj_property>
+      <obj_property name="ObjectShortName">emptyO</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rgbIn" type="array">
-      <obj_property name="ElementShortName">rgbIn</obj_property>
-      <obj_property name="ObjectShortName">rgbIn</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/wrDone" type="logic">
+      <obj_property name="ElementShortName">wrDone</obj_property>
+      <obj_property name="ObjectShortName">wrDone</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rgbSum" type="array">
-      <obj_property name="ElementShortName">rgbSum</obj_property>
-      <obj_property name="ObjectShortName">rgbSum</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/rdDone" type="logic">
+      <obj_property name="ElementShortName">rdDone</obj_property>
+      <obj_property name="ObjectShortName">rdDone</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rgbDetectLock" type="logic">
-      <obj_property name="ElementShortName">rgbDetectLock</obj_property>
-      <obj_property name="ObjectShortName">rgbDetectLock</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/fullO" type="logic">
+      <obj_property name="ElementShortName">fullO</obj_property>
+      <obj_property name="ObjectShortName">fullO</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/rgbPoiLock" type="logic">
-      <obj_property name="ElementShortName">rgbPoiLock</obj_property>
-      <obj_property name="ObjectShortName">rgbPoiLock</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/clrStatus" type="logic">
+      <obj_property name="ElementShortName">clrStatus</obj_property>
+      <obj_property name="ObjectShortName">clrStatus</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/edgeValid" type="logic">
-      <obj_property name="ElementShortName">edgeValid</obj_property>
-      <obj_property name="ObjectShortName">edgeValid</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/wrAddress" type="array">
+      <obj_property name="ElementShortName">wrAddress[13:0]</obj_property>
+      <obj_property name="ObjectShortName">wrAddress[13:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/sValid" type="logic">
-      <obj_property name="ElementShortName">sValid</obj_property>
-      <obj_property name="ObjectShortName">sValid</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/wrAddr" type="array">
+      <obj_property name="ElementShortName">wrAddr[13:0]</obj_property>
+      <obj_property name="ObjectShortName">wrAddr[13:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/i_data_width" type="other">
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/gridEn" type="logic">
+      <obj_property name="ElementShortName">gridEn</obj_property>
+      <obj_property name="ObjectShortName">gridEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/fifoIsFull" type="logic">
+      <obj_property name="ElementShortName">fifoIsFull</obj_property>
+      <obj_property name="ObjectShortName">fifoIsFull</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/fifoIsEmpty" type="logic">
+      <obj_property name="ElementShortName">fifoIsEmpty</obj_property>
+      <obj_property name="ObjectShortName">fifoIsEmpty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/gridContMax" type="array">
+      <obj_property name="ElementShortName">gridContMax[15:0]</obj_property>
+      <obj_property name="ObjectShortName">gridContMax[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/pInterestWidth" type="other">
+      <obj_property name="ElementShortName">pInterestWidth</obj_property>
+      <obj_property name="ObjectShortName">pInterestWidth</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/pInterestHight" type="other">
+      <obj_property name="ElementShortName">pInterestHight</obj_property>
+      <obj_property name="ObjectShortName">pInterestHight</obj_property>
+   </wvobject>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/i_data_width" type="other">
       <obj_property name="ElementShortName">i_data_width</obj_property>
       <obj_property name="ObjectShortName">i_data_width</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/s_data_width" type="other">
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/s_data_width" type="other">
       <obj_property name="ElementShortName">s_data_width</obj_property>
       <obj_property name="ObjectShortName">s_data_width</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/b_data_width" type="other">
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/b_data_width" type="other">
       <obj_property name="ElementShortName">b_data_width</obj_property>
       <obj_property name="ObjectShortName">b_data_width</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/img_width" type="other">
-      <obj_property name="ElementShortName">img_width</obj_property>
-      <obj_property name="ObjectShortName">img_width</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/FIFO_ADDR_WIDTH" type="other">
+      <obj_property name="ElementShortName">FIFO_ADDR_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">FIFO_ADDR_WIDTH</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/adwr_width" type="other">
-      <obj_property name="ElementShortName">adwr_width</obj_property>
-      <obj_property name="ObjectShortName">adwr_width</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/FIFO_DATA_WIDTH" type="other">
+      <obj_property name="ElementShortName">FIFO_DATA_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">FIFO_DATA_WIDTH</obj_property>
    </wvobject>
-   <wvobject fp_name="/videoProcess_tb/frameprocess_enabled/frameProcess_test/mod5_inst/addr_width" type="other">
-      <obj_property name="ElementShortName">addr_width</obj_property>
-      <obj_property name="ObjectShortName">addr_width</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/videoProcess_tb/pointofinterest_enabled/pointOfInterest_inst/FIFO_DEPTH" type="other">
+      <obj_property name="ElementShortName">FIFO_DEPTH</obj_property>
+      <obj_property name="ObjectShortName">FIFO_DEPTH</obj_property>
    </wvobject>
 </wave_config>

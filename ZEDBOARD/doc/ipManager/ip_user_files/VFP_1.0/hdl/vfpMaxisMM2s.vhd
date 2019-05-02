@@ -1,4 +1,4 @@
---01062019 [01-06-2019]
+--05012019 [05-01-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -6,9 +6,9 @@ use work.constantspackage.all;
 use work.vpfRecords.all;
 use work.portspackage.all;
 entity videoProcess_v1_0_m_axis_mm2s is
-    generic (
+generic (
     s_data_width	       : integer := 16);
-	port (
+port (
     aclk                   : in std_logic;
     aresetn                : in std_logic;
     rgb_s_axis_tready      : out std_logic;
@@ -39,14 +39,14 @@ architecture arch_imp of videoProcess_v1_0_m_axis_mm2s is
     signal maxis_mmss_tvalid        : std_logic:= lo;
     signal mm2s_tready              : std_logic:= lo;
 begin
-    process(aclk) begin
-        if rising_edge(aclk) then
-            axis_tvalid <= rgb_s_axis_tvalid;
-            mm2s_tready <= m_axis_mm2s_tready;
-            axis_tuser  <= rgb_s_axis_tuser;
-            axis_tdata  <= rgb_s_axis_tdata(15 downto 8) & rgb_s_axis_tdata(7 downto 0);
-        end if;
-    end process;
+process(aclk) begin
+    if rising_edge(aclk) then
+        axis_tvalid <= rgb_s_axis_tvalid;
+        mm2s_tready <= m_axis_mm2s_tready;
+        axis_tuser  <= rgb_s_axis_tuser;
+        axis_tdata  <= rgb_s_axis_tdata(15 downto 8) & rgb_s_axis_tdata(7 downto 0);
+    end if;
+end process;
 process (aclk) begin
     if (rising_edge (aclk)) then
         if (aresetn = lo) then
@@ -81,21 +81,21 @@ process (aclk) begin
         end if;
     end if;
 end process;
-    process(aclk) begin
-        if rising_edge(aclk) then
-            m_axis_mm2s_tkeep      <= (others => hi);
-            m_axis_mm2s_tid        <= "0";
-            m_axis_mm2s_tdest      <= "0";
-            m_axis_mm2s_tstrb      <= (others => hi);
-            m_axis_mm2s_tdata      <= maxis_mm2s_tdata;
-            m_axis_mm2s_tlast      <= axis_tlast;
-            m_axis_mm2s_tuser      <= maxis_mm2s_tuser;
-            m_axis_mm2s_tvalid     <= maxis_mm2s_tvalid or maxis_mmss_tvalid;
-        end if;
-    end process;
-    process(aclk) begin
-        if rising_edge(aclk) then
-            maxis_mmss_tvalid  <= maxis_mm2s_tvalid;
-        end if;
-    end process;    
+process(aclk) begin
+    if rising_edge(aclk) then
+        m_axis_mm2s_tkeep      <= (others => hi);
+        m_axis_mm2s_tid        <= "0";
+        m_axis_mm2s_tdest      <= "0";
+        m_axis_mm2s_tstrb      <= (others => hi);
+        m_axis_mm2s_tdata      <= maxis_mm2s_tdata;
+        m_axis_mm2s_tlast      <= axis_tlast;
+        m_axis_mm2s_tuser      <= maxis_mm2s_tuser;
+        m_axis_mm2s_tvalid     <= maxis_mm2s_tvalid or maxis_mmss_tvalid;
+    end if;
+end process;
+process(aclk) begin
+    if rising_edge(aclk) then
+        maxis_mmss_tvalid  <= maxis_mm2s_tvalid;
+    end if;
+end process;    
 end arch_imp;

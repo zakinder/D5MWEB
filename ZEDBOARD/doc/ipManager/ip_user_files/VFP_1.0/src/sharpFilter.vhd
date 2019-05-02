@@ -9,8 +9,8 @@ entity sharpFilter is
 generic (
     i_data_width  : integer := 8;
     img_width     : integer := 256;
-    adwr_width    : integer := 16;
-    addr_width    : integer := 11);
+    adwrWidth     : integer := 16;
+    addrWidth     : integer := 12);
 port (
     clk           : in std_logic;
     rst_l         : in std_logic;
@@ -34,7 +34,6 @@ architecture arch of sharpFilter is
     signal d4en             : std_logic;
     signal d5en             : std_logic;
     signal d6en             : std_logic;
-
     signal rCountAddress    : integer;
     signal rAddress         : std_logic_vector(15 downto 0);
     signal rgb1x            : channel;
@@ -42,7 +41,7 @@ architecture arch of sharpFilter is
     signal d2RGB            : std_logic_vector(23 downto 0) := (others => '0');
 ---------------------------------------------------------------------------------
 begin
-    process(clk)begin
+    tapValidAdressP: process(clk)begin
         if rising_edge(clk) then
             if (iRgb.valid = '1') then
                 rCountAddress  <= rCountAddress + 1;
@@ -50,14 +49,14 @@ begin
                 rCountAddress  <= 0;
             end if;
         end if;
-    end process;
+    end process tapValidAdressP;
     rAddress  <= std_logic_vector(to_unsigned(rCountAddress, 16));
     RGB_inst: buffer_controller
     generic map(
         img_width       => img_width,
-        adwr_width      => 15,
-        p_data_width    => 23,
-        addr_width      => 11)
+        adwrWidth       => adwrWidth,
+        dataWidth       => 24,
+        addrWidth       => addrWidth)
     port map(
         aclk            => clk,
         i_enable        => iRgb.valid,

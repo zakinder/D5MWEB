@@ -24,13 +24,13 @@ generic (
     conf_data_width             : integer := 32;
     conf_addr_width             : integer := 4;
     img_width                   : integer := 4096;
-    p_data_width                : integer := 11);
+    dataWidth                   : integer := 12);
 port (
     -- d5m input
     pixclk                      : in std_logic;
     ifval                       : in std_logic;
     ilval                       : in std_logic;
-    idata                       : in std_logic_vector(p_data_width downto 0);
+    idata                       : in std_logic_vector(dataWidth - 1 downto 0);
     --tx channel                
     rgb_m_axis_aclk             : in std_logic;
     rgb_m_axis_aresetn          : in std_logic;
@@ -87,12 +87,12 @@ generic (
     pixclk_freq                 : real    := 90.00e6;
     img_width                   : integer := 112;
     line_hight                  : integer := 122;
-    p_data_width                : integer := 11);
+    dataWidth                   : integer := 12);
 port (
     pixclk                      : out std_logic;
     ifval                       : out std_logic;
     ilval                       : out std_logic;
-    idata                       : out std_logic_vector(p_data_width downto 0));
+    idata                       : out std_logic_vector(dataWidth - 1 downto 0));
 end component dut_d5m;
 component dut_configAxis is
 generic (
@@ -145,9 +145,11 @@ port (
 end component imageRead;
 component imageWrite is
 generic (
+    enImageText   : boolean := false;
+    enImageIndex  : boolean := false;
     i_data_width  : integer := 8;
-    test          : string  := "test1"; 
-    input_file    : string  := "input_file"; 
+    test          : string  := "folder";
+    input_file    : string  := "input_image";
     output_file   : string  := "output_image");
 port (                
     pixclk        : in  std_logic;

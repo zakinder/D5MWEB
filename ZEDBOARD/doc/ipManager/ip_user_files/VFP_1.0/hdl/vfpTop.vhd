@@ -1,4 +1,4 @@
---04282019 [04-28-2019]
+--05012019 [05-01-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -7,7 +7,7 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity VFP_v1_0 is
 generic (
-    revision_number             : std_logic_vector(31 downto 0) := x"04282019";
+    revision_number             : std_logic_vector(31 downto 0) := x"05012019";
     C_rgb_m_axis_TDATA_WIDTH    : integer := 16;
     C_rgb_m_axis_START_COUNT    : integer := 32;
     C_rgb_s_axis_TDATA_WIDTH    : integer := 16;
@@ -23,13 +23,13 @@ generic (
     conf_data_width             : integer := 32;
     conf_addr_width             : integer := 4;
     img_width                   : integer := 4096;
-    p_data_width                : integer := 11);
+    dataWidth                   : integer := 12);
 port (
     -- d5m input
     pixclk                      : in std_logic;
     ifval                       : in std_logic;
     ilval                       : in std_logic;
-    idata                       : in std_logic_vector(p_data_width downto 0);
+    idata                       : in std_logic_vector(dataWidth - 1 downto 0);
     --tx channel                
     rgb_m_axis_aclk             : in std_logic;
     rgb_m_axis_aresetn          : in std_logic;
@@ -82,6 +82,8 @@ port (
     vfpconfig_rready            : in std_logic);
 end VFP_v1_0;
 architecture arch_imp of VFP_v1_0 is
+    constant adwrWidth      : integer := 16;
+    constant addrWidth      : integer := 12;
     signal rx_axis_tready   : std_logic;
     signal rx_axis_tvalid   : std_logic;
     signal rx_axis_tuser    : std_logic;
@@ -117,7 +119,7 @@ begin
 ---------------------------------------------------------------------------------
 -- d5mRawData
 ---------------------------------------------------------------------------------
-d5mRawData_inst: d5m_raw_data
+d5mRawDataInst: d5m_raw_data
 generic map(
     img_width            => img_width)
 port map(
@@ -131,12 +133,11 @@ port map(
 ---------------------------------------------------------------------------------
 -- bufferController
 ---------------------------------------------------------------------------------
-bufferController_inst: dataTaps
+bufferControllerInst: dataTaps
 generic map(
     img_width            => img_width,
-    adwr_width           => 15,
-    p_data_width         => p_data_width,
-    addr_width           => 11)
+    dataWidth            => dataWidth,
+    addrWidth            => addrWidth)
 port map(
     aclk                 => m_axis_mm2s_aclk,
     iRawData             => rawData,
@@ -144,7 +145,7 @@ port map(
 ---------------------------------------------------------------------------------
 -- raw2rgb
 ---------------------------------------------------------------------------------
-raw2rgb_inst: raw2rgb
+raw2rgbInst: raw2rgb
 port map(
     clk                  => m_axis_mm2s_aclk,
     rst_l                => m_axis_mm2s_aresetn,
@@ -153,14 +154,14 @@ port map(
 ---------------------------------------------------------------------------------
 -- frameProcess
 ---------------------------------------------------------------------------------
-frameProcess_inst: frameProcess
+frameProcessInst: frameProcess
 generic map(
     i_data_width        => i_data_width,
     s_data_width        => s_data_width,
     b_data_width        => b_data_width,
     img_width           => img_width,
-    adwr_width          => 15,
-    addr_width          => 11)
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
 port map(
     clk                 => m_axis_mm2s_aclk,
     rst_l               => m_axis_mm2s_aresetn,
@@ -180,7 +181,7 @@ port map(
 ---------------------------------------------------------------------------------
 -- videoSelect
 ---------------------------------------------------------------------------------
-videoSelect_inst: videoSelect
+videoSelectInst: videoSelect
 port map(
     clk                 => m_axis_mm2s_aclk,              
     rst_l               => m_axis_mm2s_aresetn,
@@ -196,9 +197,10 @@ port map(
 ---------------------------------------------------------------------------------
 -- videoProcess_v1_0_rgb_m_axis
 ---------------------------------------------------------------------------------
-mAxis_inst: videoProcess_v1_0_rgb_m_axis
+mAxisInst: videoProcess_v1_0_rgb_m_axis
 generic map (
     i_data_width         => i_data_width,
+    b_data_width         => b_data_width,
     s_data_width         => s_data_width)
 port map (
     --stream clock/reset
@@ -236,7 +238,7 @@ port map (
 ---------------------------------------------------------------------------------
 -- videoProcess_v1_0_m_axis_mm2s
 ---------------------------------------------------------------------------------
-mm2s_inst: videoProcess_v1_0_m_axis_mm2s
+mm2sInst: videoProcess_v1_0_m_axis_mm2s
 generic map(
     s_data_width         => s_data_width)
 port map(
@@ -259,7 +261,7 @@ port map(
 ---------------------------------------------------------------------------------
 -- videoProcess_v1_0_Config
 ---------------------------------------------------------------------------------
-vfpConfig_inst : videoProcess_v1_0_Config
+vfpConfigInst: videoProcess_v1_0_Config
 generic map(
     revision_number      => revision_number,
     C_S_AXI_DATA_WIDTH   => conf_data_width,
@@ -291,10 +293,11 @@ port map(
 ---------------------------------------------------------------------------------
 -- mWrRd
 --------------------------------------------------------------------------------- 
-mWrRd_inst: mWrRd
+mWrRdInst: mWrRd
 generic map(
     revision_number      => revision_number,
-    data_width           => C_vfpConfig_DATA_WIDTH)
+    s_data_width         => s_data_width,
+    b_data_width         => b_data_width)
 port map(
     seconds              => seconds,
     minutes              => minutes,
@@ -317,7 +320,7 @@ port map(
 ---------------------------------------------------------------------------------
 -- DigiClk
 --------------------------------------------------------------------------------- 
-digiClk_inst: digiClk
+digiClkInst: digiClk
 port map(
     clk1                 => vfpconfig_aclk,
     seconds              => seconds,

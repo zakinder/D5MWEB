@@ -57,62 +57,74 @@ begin
 -- frameProcess
 ---------------------------------------------------------------------------------
 WRITEIMAGE1: imageWrite
-    generic map (
+generic map (
+    enImageText        => false,
+    enImageIndex       => false,
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
     output_file        => "blur1x")
-    port map (                  
+port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
     iRgb               => blur1x);
 WRITEIMAGE2: imageWrite
-    generic map (
+generic map (
+    enImageText        => false,
+    enImageIndex       => false,
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
     output_file        => "blur2x")
-    port map (                  
+port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
     iRgb               => blur2x);
 WRITEIMAGE3: imageWrite
-    generic map (
+generic map (
+    enImageText        => false,
+    enImageIndex       => false,
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
     output_file        => "blur3x")
-    port map (                  
+port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
     iRgb               => blur3x);
 WRITEIMAGE4: imageWrite
-    generic map (
+generic map (
+    enImageText        => false,
+    enImageIndex       => false,
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
     output_file        => "blur4x")
-    port map (                  
+port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
     iRgb               => blur4x);
 WRITEIMAGE5: imageWrite
-    generic map (
+generic map (
+    enImageText        => false,
+    enImageIndex       => false,
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
     output_file        => "sharp")
-    port map (                  
+port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
     iRgb               => sharp);
 WRITEIMAGE6: imageWrite
-    generic map (
+generic map (
+    enImageText        => false,
+    enImageIndex       => false,
     i_data_width       => 8,
     input_file         => readbmp,
     test               => "images",
     output_file        => "ycbcr")
-    port map (                  
+port map (                  
     pixclk             => clk,
     enableWrite        => enableFrame,
     iRgb               => ycbcr);
@@ -130,10 +142,10 @@ port map(
     cr                   => ycbcr.blue,
     oValid               => ycbcr.valid);
 IMAGE2_imageRead: imageRead
-    generic map (
+generic map (
     i_data_width       => 8,
     input_file         => readbmp)
-    port map (                  
+port map (                  
     clk                => clk,
     oRgb               => rgbio,
     oCord              => txCord,
@@ -150,8 +162,8 @@ generic map(
     s_data_width        => s_data_width,
     b_data_width        => b_data_width,
     img_width           => img_width,
-    adwr_width          => 15,
-    addr_width          => 11)
+    adwrWidth           => 16,
+    addrWidth           => 12)
 port map(
     clk                 => clk,
     rst_l               => resetn,

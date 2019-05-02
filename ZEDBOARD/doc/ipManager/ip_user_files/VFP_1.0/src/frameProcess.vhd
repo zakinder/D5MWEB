@@ -1,4 +1,4 @@
---04282019 [04-28-2019]
+--05012019 [05-01-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -11,8 +11,8 @@ generic (
     s_data_width      : integer := 16;
     b_data_width      : integer := 32;
     img_width         : integer := 256;
-    adwr_width        : integer := 16;
-    addr_width        : integer := 11);
+    adwrWidth         : integer := 16;
+    addrWidth         : integer := 12);
 port (
     clk               : in std_logic;
     rst_l             : in std_logic;
@@ -85,157 +85,157 @@ begin
     cordIn.x                      <= iRgbSet.cord.x;
     cordIn.y                      <= iRgbSet.cord.y;
     -----------------------------------------------------
-    process (clk) begin
+pipCoordP: process (clk) begin
     if rising_edge(clk) then
         syncxy          <= cordIn;
         cord            <= syncxy;
     end if;
-    end process;
-    colorCorrection_inst: colorCorrection
-    generic map(
-        i_data_width        => i_data_width)
-    port map(           
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => rgbIn,
-        als                 => iAls,    
-        oRgb                => rgbCorrect);
-    sobelFilter_inst: sobelFilter
-    generic map(
-        i_data_width        => i_data_width,
-        img_width           => img_width,
-        adwr_width          => adwr_width,
-        addr_width          => addr_width)
-    port map(   
-        clk                 => clk,
-        rst_l               => rst_l,
-        iEdgeType           => iEdgeType,
-        endOfFrame          => iRgbSet.pEof,
-        iRgb                => rgbIn,
-        threshold           => iThreshold,
-        kls                 => iKls,
-        oRgb                => soble,
-        sValid              => sValid,
-        edgeValid           => edgeValid);
-    edgeObjects_inst: edgeObjects
-    generic map(
-        i_data_width        => i_data_width)
-    port map(   
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => rgbIn,
-        bRgb                => blur1vx,
-        sRgb                => sharp,
-        edgeValid           => edgeValid,
-        sValid              => sValid,
-        oRgbRemix           => rgbRemix);
-    sharpFilter_inst: sharpFilter
-    generic map(
-        i_data_width        => i_data_width,
-        img_width           => img_width,
-        adwr_width          => 15,
-        addr_width          => 11)
-    port map(   
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => rgbIn,
-        endOfFrame          => iRgbSet.pEof,
-        kls                 => iKls,
-        oRgb                => sharp);
-    blurFilter1x_inst: blurFilter
-    generic map(
-        iMSB                => 11,
-        iLSB                => 4,
-        i_data_width        => i_data_width,
-        img_width           => img_width,
-        adwr_width          => 16,
-        addr_width          => 11)
-    port map(
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => rgbIn,
-        oRgb                => blur1vx);
-    blurFilter2x_inst: blurFilter
-    generic map(
-        iMSB                => 10,
-        iLSB                => 3,
-        i_data_width        => i_data_width,
-        img_width           => img_width,
-        adwr_width          => 16,
-        addr_width          => 11)
-    port map(
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => blur1vx,
-        oRgb                => blur2vx);
-    blurFilter3x_inst: blurFilter
-    generic map(
-        iMSB                => 10,
-        iLSB                => 3,
-        i_data_width        => i_data_width,
-        img_width           => img_width,
-        adwr_width          => 16,
-        addr_width          => 11)
-    port map(
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => blur2vx,
-        oRgb                => blur3vx);
-    blurFilter4x_inst: blurFilter
-    generic map(
-        iMSB                => 10,
-        iLSB                => 3,
-        i_data_width        => i_data_width,
-        img_width           => img_width,
-        adwr_width          => 16,
-        addr_width          => 11)
-    port map(
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => blur3vx,
-        oRgb                => blur4vx);
-    detect_inst: detect
-    generic map(
-        i_data_width        => i_data_width)
-    port map(
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => rgbIn,
-        rgbCoord            => iRgbCoord,
-        endOfFrame          => iRgbSet.pEof,
-        iCord               => cord,
-        pDetect             => rgbDetectLock,
-        oRgb                => rgbDetect);
-    pointOfInterest_inst: pointOfInterest
-    generic map(
-        i_data_width        => i_data_width,
-        s_data_width        => s_data_width,
-        b_data_width        => b_data_width)
-    port map(
-        clk                 => clk,
-        rst_l               => rst_l,
-        iRgb                => rgbIn,
-        iCord               => cord,
-        endOfFrame          => iRgbSet.pEof,
-        gridLockDatao       => oGridLockData,
-        pRegion             => iPoiRegion,
-        fifoStatus          => oFifoStatus,
-        oGridLocation       => rgbPoiLock,
-        oRgb                => rgbPoi);
-    hsv_inst: hsv_c
-    generic map(
-        i_data_width        => i_data_width)
-    port map(   
-        clk                 => clk,
-        reset               => rst_l,
-        iRgb                => rgbIn,
-        oHsv                => hsv);
-    frameTestPattern_inst: frameTestPattern
-    generic map(
-        s_data_width        => s_data_width)
-    port map(   
-        clk                 => clk,
-        iValid              => rgbIn.valid,
-        iCord               => cord,
-        oRgb                => rgbSum);
+end process pipCoordP;
+colorCorrectionInst: colorCorrection
+generic map(
+    i_data_width        => i_data_width)
+port map(           
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => rgbIn,
+    als                 => iAls,    
+    oRgb                => rgbCorrect);
+sobelFilterInst: sobelFilter
+generic map(
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(   
+    clk                 => clk,
+    rst_l               => rst_l,
+    iEdgeType           => iEdgeType,
+    endOfFrame          => iRgbSet.pEof,
+    iRgb                => rgbIn,
+    threshold           => iThreshold,
+    kls                 => iKls,
+    oRgb                => soble,
+    sValid              => sValid,
+    edgeValid           => edgeValid);
+edgeObjectsInst: edgeObjects
+generic map(
+    i_data_width        => i_data_width)
+port map(   
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => rgbIn,
+    bRgb                => blur1vx,
+    sRgb                => sharp,
+    edgeValid           => edgeValid,
+    sValid              => sValid,
+    oRgbRemix           => rgbRemix);
+sharpFilterInst: sharpFilter
+generic map(
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(   
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => rgbIn,
+    endOfFrame          => iRgbSet.pEof,
+    kls                 => iKls,
+    oRgb                => sharp);
+blurFilter1xInst: blurFilter
+generic map(
+    iMSB                => blurMsb,
+    iLSB                => blurLsb,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => rgbIn,
+    oRgb                => blur1vx);
+blurFilter2xInst: blurFilter
+generic map(
+    iMSB                => blurMsb - 1,
+    iLSB                => blurLsb - 1,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => blur1vx,
+    oRgb                => blur2vx);
+blurFilter3xInst: blurFilter
+generic map(
+    iMSB                => blurMsb - 1,
+    iLSB                => blurLsb - 1,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => blur2vx,
+    oRgb                => blur3vx);
+blurFilter4xInst: blurFilter
+generic map(
+    iMSB                => blurMsb - 1,
+    iLSB                => blurLsb - 1,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => blur3vx,
+    oRgb                => blur4vx);
+detectInst: detect
+generic map(
+    i_data_width        => i_data_width)
+port map(
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => rgbIn,
+    rgbCoord            => iRgbCoord,
+    endOfFrame          => iRgbSet.pEof,
+    iCord               => cord,
+    pDetect             => rgbDetectLock,
+    oRgb                => rgbDetect);
+pointOfInterestInst: pointOfInterest
+generic map(
+    i_data_width        => i_data_width,
+    s_data_width        => s_data_width,
+    b_data_width        => b_data_width)
+port map(
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => rgbIn,
+    iCord               => cord,
+    endOfFrame          => iRgbSet.pEof,
+    gridLockDatao       => oGridLockData,
+    pRegion             => iPoiRegion,
+    fifoStatus          => oFifoStatus,
+    oGridLocation       => rgbPoiLock,
+    oRgb                => rgbPoi);
+hsvInst: hsv_c
+generic map(
+    i_data_width        => i_data_width)
+port map(   
+    clk                 => clk,
+    reset               => rst_l,
+    iRgb                => rgbIn,
+    oHsv                => hsv);
+frameTestPatternInst: frameTestPattern
+generic map(
+    s_data_width        => s_data_width)
+port map(   
+    clk                 => clk,
+    iValid              => rgbIn.valid,
+    iCord               => cord,
+    oRgb                => rgbSum);
 end architecture;

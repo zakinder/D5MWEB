@@ -10,12 +10,12 @@ generic (
     pixclk_freq                 : real    := 90.00e6;
     img_width                   : integer := 112;
     line_hight                  : integer := 122;
-    p_data_width                : integer := 11);
+    dataWidth                   : integer := 12);
 port (
     pixclk                      : out std_logic;
     ifval                       : out std_logic;
     ilval                       : out std_logic;
-    idata                       : out std_logic_vector(p_data_width downto 0));
+    idata                       : out std_logic_vector(dataWidth - 1 downto 0));
 end dut_d5m;
 architecture arch_imp of dut_d5m is
     -------------------------------------------------------------------------
@@ -25,7 +25,7 @@ architecture arch_imp of dut_d5m is
         d5mdata           : integer range 0 to line_hight;
         fvalid            : std_logic;
         lvalid            : std_logic;
-        data              : std_logic_vector(p_data_width downto 0);
+        data              : std_logic_vector(dataWidth - 1 downto 0);
         horizontal_blank  : std_logic;
         vertical_blank    : std_logic;
         valid_image_data  : std_logic;

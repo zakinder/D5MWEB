@@ -14,7 +14,7 @@ end videoProcess_tb;
 architecture behavioral of videoProcess_tb is
     signal resetn                        : std_logic :='0';
     signal clk                           : std_logic;
-    constant DUT_VFP_ENABLED             : boolean := false;
+    constant DUT_VFP_ENABLED             : boolean := true;
     constant DUT_FRAMEPROCESS_ENABLED    : boolean := true;
     constant DUT_POINTOFINTEREST_ENABLED : boolean := true;
 begin
@@ -59,6 +59,8 @@ port map (
     bh                 => open);
 WRITEIMAGE1: imageWrite
 generic map (
+    enImageText        => true,
+    enImageIndex       => false,
     i_data_width       => 8,
     test               => "images",
     input_file         => readbmp,
@@ -128,7 +130,7 @@ VFP_ENABLED : if (DUT_VFP_ENABLED = true) generate
     signal pixclk                : std_logic;
     signal ifval                 : std_logic;
     signal ilval                 : std_logic;
-    signal idata                 : std_logic_vector(p_data_width downto 0);
+    signal idata                 : std_logic_vector(dataWidth - 1 downto 0);
     --tx channel
     signal rgb_m_axis_aclk       : std_logic;
     signal rgb_m_axis_aresetn    : std_logic :='0';
@@ -204,7 +206,7 @@ generic map(
     pixclk_freq                 => pixclk_freq,
     img_width                   => img_width,
     line_hight                  => line_hight,
-    p_data_width                => p_data_width)    
+    dataWidth                   => dataWidth)    
 port map(
     pixclk                      => pixclk,
     ifval                       => ifval,
@@ -256,7 +258,7 @@ generic map(
     conf_data_width             => conf_data_width,
     conf_addr_width             => conf_addr_width,
     img_width                   => img_width,
-    p_data_width                => p_data_width)
+    dataWidth                   => dataWidth)
 port map(
     -- d5m input
     pixclk                      => pixclk,

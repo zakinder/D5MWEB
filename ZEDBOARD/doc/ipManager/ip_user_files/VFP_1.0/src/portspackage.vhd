@@ -1,4 +1,4 @@
---04282019 [04-28-2019]
+--05012019 [05-01-2019]
 library ieee;
 library work;
 use ieee.std_logic_1164.all;
@@ -7,7 +7,7 @@ use work.constantspackage.all;
 use work.vpfRecords.all;
 package portspackage is
 component videoSelect is
-    port (
+port (
     clk               : in std_logic;
     rst_l             : in std_logic;
     videoChannel      : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -23,13 +23,14 @@ end component videoSelect;
 component videoProcess_v1_0_rgb_m_axis is
 generic (
     i_data_width                : integer := 8;
+    b_data_width                : integer := 32;
     s_data_width                : integer := 16);
 port (                          
     --stream clock/reset
     m_axis_mm2s_aclk     : in std_logic;
     m_axis_mm2s_aresetn  : in std_logic;
     --config
-    aBusSelect           : in std_logic_vector(31 downto 0);
+    aBusSelect           : in std_logic_vector(b_data_width-1 downto 0);
     --ycbcr
     color_valid          : in std_logic;
     mpeg444Y             : in std_logic_vector(i_data_width-1 downto 0);
@@ -60,7 +61,7 @@ port (
 end component videoProcess_v1_0_rgb_m_axis;
 component videoProcess_v1_0_m_axis_mm2s is
 generic (
-    s_data_width: integer:= 32);
+    s_data_width                : integer := 16);
 port (
     aclk                        : in std_logic;
     aresetn                     : in std_logic;
@@ -124,19 +125,19 @@ end component videoProcess_v1_0_Config;
 component buffer_controller is
 generic (
     img_width                   : integer := 4096;
-    adwr_width                  : integer := 15;
-    p_data_width                : integer := 11;
-    addr_width                  : integer := 11);
+    adwrWidth                   : integer := 16;
+    dataWidth                   : integer := 12;
+    addrWidth                   : integer := 12);
 port (                          
     aclk                        : in std_logic;
     i_enable                    : in std_logic;
-    i_data                      : in std_logic_vector(p_data_width downto 0);
-    i_wadd                      : in std_logic_vector(adwr_width downto 0);
-    i_radd                      : in std_logic_vector(adwr_width downto 0);
+    i_data                      : in std_logic_vector(dataWidth - 1 downto 0);
+    i_wadd                      : in std_logic_vector(adwrWidth - 1 downto 0);
+    i_radd                      : in std_logic_vector(adwrWidth - 1 downto 0);
     en_datao                    : out std_logic;
-    taps0x                      : out std_logic_vector(p_data_width downto 0);
-    taps1x                      : out std_logic_vector(p_data_width downto 0);
-    taps2x                      : out std_logic_vector(p_data_width downto 0));
+    taps0x                      : out std_logic_vector(dataWidth - 1 downto 0);
+    taps1x                      : out std_logic_vector(dataWidth - 1 downto 0);
+    taps2x                      : out std_logic_vector(dataWidth - 1 downto 0));
 end component buffer_controller;
 component squareRootTop is
 port ( 
@@ -160,9 +161,8 @@ end component sharpMac;
 component dataTaps is
 generic (
     img_width                   : integer := 4096;
-    adwr_width                  : integer := 15;
-    p_data_width                : integer := 11;
-    addr_width                  : integer := 11);
+    dataWidth                : integer := 11;
+    addrWidth                   : integer := 12);
 port (                          
     aclk        : in std_logic;
     iRawData    : in rData;
@@ -188,8 +188,8 @@ generic (
     s_data_width      : integer := 16;
     b_data_width      : integer := 32;
     img_width         : integer := 256;
-    adwr_width        : integer := 16;
-    addr_width        : integer := 11);
+    adwrWidth         : integer := 16;
+    addrWidth         : integer := 12);
 port (              
     clk               : in std_logic;
     rst_l             : in std_logic;
@@ -220,8 +220,8 @@ component sharpFilter is
 generic (
     i_data_width  : integer := 8;
     img_width     : integer := 256;
-    adwr_width    : integer := 16;
-    addr_width    : integer := 11);
+    adwrWidth     : integer := 16;
+    addrWidth     : integer := 12);
 port (                
     clk           : in std_logic;
     rst_l         : in std_logic;
@@ -236,8 +236,8 @@ generic (
     iLSB          : integer := 4;
     i_data_width  : integer := 8;
     img_width     : integer := 256;
-    adwr_width    : integer := 16;
-    addr_width    : integer := 11);
+    adwrWidth     : integer := 16;
+    addrWidth     : integer := 12);
 port (                
     clk            : in std_logic;
     rst_l          : in std_logic;
@@ -270,8 +270,8 @@ component sobelFilter is
 generic (
     i_data_width   : integer := 8;
     img_width      : integer := 256;
-    adwr_width     : integer := 16;
-    addr_width     : integer := 11);
+    adwrWidth      : integer := 16;
+    addrWidth      : integer := 12);
 port (                
     clk            : in std_logic;
     rst_l          : in std_logic;
@@ -336,9 +336,9 @@ port (
     fullO            : out std_logic);
 end component;
 component hsv_c is
-    generic (
+generic (
     i_data_width    : integer := 8);
-    port (  
+port (  
     clk            : in  std_logic;
     reset          : in  std_logic;
     iRgb           : in channel;
@@ -379,38 +379,39 @@ end component colorCorrection;
 component tap_buffer
 generic (
     img_width    : integer := 4096;
-    p_data_width : integer := 11;
-    addr_width   : integer := 11);
+    dataWidth    : integer := 12;
+    addrWidth    : integer := 12);
 port (
     write_clk    : in std_logic;
     write_enb    : in std_logic;
-    w_address    : in std_logic_vector(addr_width downto 0);
-    idata        : in std_logic_vector(p_data_width downto 0);
+    w_address    : in std_logic_vector(addrWidth - 1 downto 0);
+    idata        : in std_logic_vector(dataWidth - 1 downto 0);
     read_clk     : in std_logic;
-    r_address    : in std_logic_vector(addr_width downto 0);
-    odata        : out std_logic_vector(p_data_width downto 0));
+    r_address    : in std_logic_vector(addrWidth - 1 downto 0);
+    odata        : out std_logic_vector(dataWidth - 1 downto 0));
 end component;
 component mWrRd
 generic (
     revision_number  : std_logic_vector(31 downto 0) := x"00000000";
-    data_width       : integer    := 32);
+    s_data_width     : integer    := 16;
+    b_data_width     : integer    := 32);
 port (
     seconds          : in std_logic_vector(5 downto 0);
     minutes          : in std_logic_vector(5 downto 0);
     hours            : in std_logic_vector(4 downto 0);
     rgbCoord         : out region;
-    aBusSelect       : out std_logic_vector(data_width-1 downto 0);
-    threshold        : out std_logic_vector(15 downto 0);
-    videoChannel     : out std_logic_vector(data_width-1 downto 0);
-    dChannel         : out std_logic_vector(data_width-1 downto 0);
-    cChannel         : out std_logic_vector(data_width-1 downto 0);
-    oRgbOsharp       : out std_logic_vector(data_width-1 downto 0);
-    oEdgeType        : out std_logic_vector(data_width-1 downto 0);
+    aBusSelect       : out std_logic_vector(b_data_width-1 downto 0);
+    threshold        : out std_logic_vector(s_data_width-1 downto 0);
+    videoChannel     : out std_logic_vector(b_data_width-1 downto 0);
+    dChannel         : out std_logic_vector(b_data_width-1 downto 0);
+    cChannel         : out std_logic_vector(b_data_width-1 downto 0);
+    oRgbOsharp       : out std_logic_vector(b_data_width-1 downto 0);
+    oEdgeType        : out std_logic_vector(b_data_width-1 downto 0);
     pRegion          : out poi;
     als              : out coefficient;
     kls              : out coefficient;
-    fifoStatus       : in std_logic_vector(data_width-1 downto 0);
-    gridLockDatao    : in std_logic_vector(data_width-1 downto 0);
+    fifoStatus       : in std_logic_vector(b_data_width-1 downto 0);
+    gridLockDatao    : in std_logic_vector(b_data_width-1 downto 0);
     wrRegsIn         : in mRegs;
     rdRegsOut        : out mRegs);
 end component;

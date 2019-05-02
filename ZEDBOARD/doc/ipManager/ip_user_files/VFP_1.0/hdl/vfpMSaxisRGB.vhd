@@ -1,4 +1,4 @@
---01062019 [01-06-2019]
+--05012019 [05-01-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
@@ -9,13 +9,14 @@ use work.portspackage.all;
 entity videoProcess_v1_0_rgb_m_axis is 
     generic (
     i_data_width           : integer := 8;
+    b_data_width           : integer := 32;
     s_data_width           : integer := 16);
     port (
     --stream clock/reset
     m_axis_mm2s_aclk     : in std_logic;
     m_axis_mm2s_aresetn  : in std_logic;
     --config
-    aBusSelect           : in std_logic_vector(31 downto 0);
+    aBusSelect           : in std_logic_vector(b_data_width-1 downto 0);
     --ycbcr
     color_valid          : in std_logic;
     mpeg444Y             : in std_logic_vector(i_data_width-1 downto 0);
@@ -45,7 +46,7 @@ entity videoProcess_v1_0_rgb_m_axis is
     rgb_s_axis_tdata     : in std_logic_vector(s_data_width-1 downto 0));
 end videoProcess_v1_0_rgb_m_axis;
 architecture arch_imp of videoProcess_v1_0_rgb_m_axis is
-    signal configReg4R       : std_logic_vector(31 downto 0):= (others => lo);
+    signal configReg4R       : std_logic_vector(b_data_width-1 downto 0):= (others => lo);
     signal axis_sof          : std_logic;
     signal mpeg42XCR         : std_logic_vector(i_data_width-1 downto 0);
     signal mpeg42XBR         : std_logic :=lo;

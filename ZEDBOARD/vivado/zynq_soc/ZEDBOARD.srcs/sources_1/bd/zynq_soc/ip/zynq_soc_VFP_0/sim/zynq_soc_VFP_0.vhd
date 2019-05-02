@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:user:VFP:1.0
--- IP Revision: 30
+-- IP Revision: 33
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -132,7 +132,7 @@ ARCHITECTURE zynq_soc_VFP_0_arch OF zynq_soc_VFP_0 IS
       conf_data_width : INTEGER;
       conf_addr_width : INTEGER;
       img_width : INTEGER;
-      p_data_width : INTEGER
+      dataWidth : INTEGER
     );
     PORT (
       pixclk : IN STD_LOGIC;
@@ -253,7 +253,7 @@ BEGIN
       conf_data_width => 32,
       conf_addr_width => 4,
       img_width => 4096,
-      p_data_width => 11
+      dataWidth => 12
     )
     PORT MAP (
       pixclk => pixclk,

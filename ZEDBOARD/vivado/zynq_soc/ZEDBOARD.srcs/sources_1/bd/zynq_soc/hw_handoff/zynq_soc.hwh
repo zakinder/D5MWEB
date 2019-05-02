@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Apr 28 22:08:22 2019" VIVADOVERSION="2017.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May  1 23:25:29 2019" VIVADOVERSION="2017.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.4" DEVICE="7z020" NAME="zynq_soc" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -3451,7 +3451,7 @@
         <PARAMETER NAME="conf_data_width" VALUE="32"/>
         <PARAMETER NAME="conf_addr_width" VALUE="4"/>
         <PARAMETER NAME="img_width" VALUE="4096"/>
-        <PARAMETER NAME="p_data_width" VALUE="11"/>
+        <PARAMETER NAME="dataWidth" VALUE="12"/>
         <PARAMETER NAME="Component_Name" VALUE="zynq_soc_VFP_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
         <PARAMETER NAME="C_vfpConfig_BASEADDR" VALUE="0x43C10000"/>

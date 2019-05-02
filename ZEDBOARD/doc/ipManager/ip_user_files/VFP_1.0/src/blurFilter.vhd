@@ -11,8 +11,8 @@ generic (
     iLSB          : integer := 4;
     i_data_width  : integer := 8;
     img_width     : integer := 256;
-    adwr_width    : integer := 16;
-    addr_width    : integer := 11);
+    adwrWidth     : integer := 16;
+    addrWidth     : integer := 12);
 port (
     clk            : in std_logic;
     rst_l          : in std_logic;
@@ -43,65 +43,65 @@ begin
     oRgb.green <= blurRgb.green(iMSB downto iLSB);
     oRgb.blue  <= blurRgb.blue(iMSB downto iLSB);
     oRgb.valid <= blurRgb.valid;
-    process(clk)begin
-        if rising_edge(clk) then
-            if (iRgb.valid = '1') then
-                rCountAddress  <= rCountAddress + 1;
-            else
-                rCountAddress  <= 0;
-            end if;
+tapValidAdressP: process(clk)begin
+    if rising_edge(clk) then
+        if (iRgb.valid = '1') then
+            rCountAddress  <= rCountAddress + 1;
+        else
+            rCountAddress  <= 0;
         end if;
-    end process;
-    rAddress  <= std_logic_vector(to_unsigned(rCountAddress, 16));
-    RGB_inst: buffer_controller
-    generic map(
-        img_width       => img_width,
-        adwr_width      => 15,
-        p_data_width    => 23,
-        addr_width      => 11)
-    port map(
-        aclk            => clk,
-        i_enable        => rgb2x.valid,
-        i_data          => d3RGB,
-        i_wadd          => rAddress,
-        i_radd          => rAddress,
-        en_datao        => enable,
-        taps0x          => v1TapRGB0x,
-        taps1x          => v1TapRGB1x,
-        taps2x          => v1TapRGB2x);
-    MAC_R_inst: blurMac
-    port map(
-        clk             => clk,
-        rst_l           => rst_l,
-        vTap0x          => vTapRGB0x(23 downto 16),
-        vTap1x          => vTapRGB1x(23 downto 16),
-        vTap2x          => vTapRGB2x(23 downto 16),
-        DataO           => blurRgb.red);
-    MAC_G_inst: blurMac
-    port map(
-        clk             => clk,
-        rst_l           => rst_l,
-        vTap0x          => vTapRGB0x(15 downto 8),
-        vTap1x          => vTapRGB1x(15 downto 8),
-        vTap2x          => vTapRGB2x(15 downto 8),
-        DataO           => blurRgb.green);
-    MAC_B_inst: blurMac
-    port map(
-        clk             => clk,
-        rst_l           => rst_l,
-        vTap0x          => vTapRGB0x(i_data_width-1 downto 0),
-        vTap1x          => vTapRGB1x(i_data_width-1 downto 0),
-        vTap2x          => vTapRGB2x(i_data_width-1 downto 0),
-        DataO           => blurRgb.blue);
-    TAP_SIGNED : process (clk) begin
-        if rising_edge(clk) then
-            rgb1x         <= iRgb;  
-            rgb2x         <= rgb1x;
-            rgb3x         <= rgb2x;
-            d3RGB         <= rgb3x.red & rgb3x.green & rgb3x.blue;
-            d1en          <= enable;
-            d2en          <= d1en;
-            blurRgb.valid <= d2en;
+    end if;
+end process tapValidAdressP;
+rAddress  <= std_logic_vector(to_unsigned(rCountAddress, 16));
+RGB_inst: buffer_controller
+generic map(
+    img_width       => img_width,
+    adwrWidth       => adwrWidth,
+    dataWidth       => 24,
+    addrWidth       => addrWidth)
+port map(
+    aclk            => clk,
+    i_enable        => rgb2x.valid,
+    i_data          => d3RGB,
+    i_wadd          => rAddress,
+    i_radd          => rAddress,
+    en_datao        => enable,
+    taps0x          => v1TapRGB0x,
+    taps1x          => v1TapRGB1x,
+    taps2x          => v1TapRGB2x);
+MAC_R_inst: blurMac
+port map(
+    clk             => clk,
+    rst_l           => rst_l,
+    vTap0x          => vTapRGB0x(23 downto 16),
+    vTap1x          => vTapRGB1x(23 downto 16),
+    vTap2x          => vTapRGB2x(23 downto 16),
+    DataO           => blurRgb.red);
+MAC_G_inst: blurMac
+port map(
+    clk             => clk,
+    rst_l           => rst_l,
+    vTap0x          => vTapRGB0x(15 downto 8),
+    vTap1x          => vTapRGB1x(15 downto 8),
+    vTap2x          => vTapRGB2x(15 downto 8),
+    DataO           => blurRgb.green);
+MAC_B_inst: blurMac
+port map(
+    clk             => clk,
+    rst_l           => rst_l,
+    vTap0x          => vTapRGB0x(i_data_width-1 downto 0),
+    vTap1x          => vTapRGB1x(i_data_width-1 downto 0),
+    vTap2x          => vTapRGB2x(i_data_width-1 downto 0),
+    DataO           => blurRgb.blue);
+tapSignedP : process (clk) begin
+    if rising_edge(clk) then
+        rgb1x         <= iRgb;  
+        rgb2x         <= rgb1x;
+        rgb3x         <= rgb2x;
+        d3RGB         <= rgb3x.red & rgb3x.green & rgb3x.blue;
+        d1en          <= enable;
+        d2en          <= d1en;
+        blurRgb.valid <= d2en;
         if(rgb3x.valid = '1') then
             vTapRGB0x <= v1TapRGB0x;
             vTapRGB1x <= v1TapRGB1x;
@@ -111,6 +111,6 @@ begin
             vTapRGB1x <= (others => '0');
             vTapRGB2x <= (others => '0');
         end if;
-        end if;
-    end process TAP_SIGNED;
+    end if;
+end process tapSignedP;
 end architecture;

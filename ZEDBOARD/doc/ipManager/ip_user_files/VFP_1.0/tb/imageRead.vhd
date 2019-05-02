@@ -46,13 +46,11 @@ begin
     pcreate_pixelpositions: process(clk)begin
         if rising_edge(clk) then
             if (ReadyToRead = '1') then
-                
                 if(Xcont < img_width + 3 and Ycont < img_height + 3)then
                     Xcont  <= Xcont + 1;
                 else
                     Xcont  <= 0;
                 end if;
-                
                 if(Xcont < img_width and Ycont < img_height)then
                     xImagecont  <= Xcont;
                     lineValid   <= '1';
@@ -60,7 +58,6 @@ begin
                     xImagecont  <= 0;
                     lineValid   <= '0';
                 end if;
-                
                 if(Xcont = img_width + 1 and Ycont < img_height + 3)then
                     Ycont  <= Ycont + 1;
                 elsif(Xcont = img_width + 2 and Ycont = img_height + 3)then
@@ -68,17 +65,14 @@ begin
                 else
                     Ycont  <= Ycont;
                 end if;
-                
                 if(Ycont < img_height)then
                     yImagecont  <= Ycont;
                 else
                     yImagecont  <= 0;
                 end if;
-                
                 if(xImagecont = img_width - 1 and yImagecont = img_height - 1)then
                     i_count   <= i_count + 1;
                 end if;
-                
                 if (i_count = 0) then
                     rl<=x"64";
                     rh<=x"FD";
@@ -143,29 +137,6 @@ begin
             variable next_vector    : bit_vector (0 downto 0);
             variable actual_len     : natural;
             variable read_byte      : std_logic_vector(7 downto 0);
-            
-            function conv_std_logic_vector(ARG : integer; SIZE : integer) return std_logic_vector is
-            variable result         : std_logic_vector (SIZE - 1 downto 0);
-            variable temp           : integer;
-            begin
-            temp := ARG;
-                for i in 0 to SIZE - 1 loop
-                    if (temp mod 2) = 1 then
-                        result(i) := '1';
-                    else
-                        result(i) := '0';
-                    end if;
-                    if temp > 0 then
-                        temp := temp / 2;
-                    elsif (temp > integer'low) then
-                        temp := (temp - 1) / 2;
-                    else
-                        temp := temp / 2;
-                    end if;
-                end loop; 
-            return result;
-            end;
-            
             begin
             -- READ IN BMP COLOR DATA                   --HEIGHT * WIDTH * 3
             for y in 0 to img_height - 1 loop           --HEIGHT

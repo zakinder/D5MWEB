@@ -11,8 +11,8 @@ entity sobelFilter is
 generic (
     i_data_width   : integer := 8;
     img_width      : integer := 256;
-    adwr_width     : integer := 16;
-    addr_width     : integer := 11);
+    adwrWidth      : integer := 16;
+    addrWidth      : integer := 12);
 port (
     clk            : in std_logic;
     rst_l          : in std_logic;
@@ -126,9 +126,9 @@ rAddress  <= std_logic_vector(to_unsigned(rCountAddress, 16));
 mod6_1_1_inst: buffer_controller
     generic map(
     img_width        => img_width,
-    adwr_width       => 15,
-    p_data_width     => 7,
-    addr_width       => 11)
+    adwrWidth        => adwrWidth,
+    dataWidth        => 8,
+    addrWidth        => addrWidth)
     port map(
     aclk             => clk,
     i_enable         => valid2R,

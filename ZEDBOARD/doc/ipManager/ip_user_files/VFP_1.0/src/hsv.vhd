@@ -9,7 +9,7 @@ entity hsv_c is
 generic (
     i_data_width   : integer := 8);
 port (
-    clk         : in  std_logic;
+    clk            : in  std_logic;
     reset          : in  std_logic;
     iRgb           : in channel;
     oHsv           : out hsvChannel);

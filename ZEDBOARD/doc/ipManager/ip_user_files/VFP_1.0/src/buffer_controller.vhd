@@ -8,19 +8,19 @@ use work.portspackage.all;
 entity buffer_controller is
 generic (
     img_width     : integer := 4096;
-    adwr_width    : integer := 15;
-    p_data_width  : integer := 11;
-    addr_width    : integer := 11);
+    adwrWidth     : integer := 16;
+    dataWidth     : integer := 12;
+    addrWidth     : integer := 12);
 port (
     aclk        : in std_logic;
     i_enable    : in std_logic;
-    i_data      : in std_logic_vector(p_data_width downto 0);
-    i_wadd      : in std_logic_vector(adwr_width downto 0);
-    i_radd      : in std_logic_vector(adwr_width downto 0);
+    i_data      : in std_logic_vector(dataWidth - 1 downto 0);
+    i_wadd      : in std_logic_vector(adwrWidth - 1 downto 0);
+    i_radd      : in std_logic_vector(adwrWidth - 1 downto 0);
 	en_datao    : out std_logic;
-    taps0x      : out std_logic_vector(p_data_width downto 0);
-    taps1x      : out std_logic_vector(p_data_width downto 0);
-    taps2x      : out std_logic_vector(p_data_width downto 0));
+    taps0x      : out std_logic_vector(dataWidth - 1 downto 0);
+    taps1x      : out std_logic_vector(dataWidth - 1 downto 0);
+    taps2x      : out std_logic_vector(dataWidth - 1 downto 0));
 end entity;
 architecture arch of buffer_controller is
     signal wrchx0_io   : std_logic :='0';
@@ -42,10 +42,10 @@ architecture arch of buffer_controller is
     signal write_chs   : integer range 0 to 3;
     signal write_s     : std_logic;
     signal write_p     : std_logic;
-    signal tap0_data   : std_logic_vector(p_data_width downto 0) := (others => '0');
-    signal tap1_data   : std_logic_vector(p_data_width downto 0) := (others => '0');
-    signal tap2_data   : std_logic_vector(p_data_width downto 0) := (others => '0');
-    signal tap3_data   : std_logic_vector(p_data_width downto 0) := (others => '0');
+    signal tap0_data   : std_logic_vector(dataWidth - 1 downto 0) := (others => '0');
+    signal tap1_data   : std_logic_vector(dataWidth - 1 downto 0) := (others => '0');
+    signal tap2_data   : std_logic_vector(dataWidth - 1 downto 0) := (others => '0');
+    signal tap3_data   : std_logic_vector(dataWidth - 1 downto 0) := (others => '0');
 begin
     process (aclk) begin
         if (rising_edge(aclk)) then
@@ -113,53 +113,53 @@ begin
 int_line_d0: tap_buffer
 generic map(
     img_width    => img_width,
-    p_data_width => p_data_width,
-    addr_width   => addr_width)
+    dataWidth    => dataWidth,
+    addrWidth    => addrWidth)
 port map(
     write_clk => aclk, 
     write_enb => wrchx0_io,
-    w_address => i_wadd(addr_width downto 0),
+    w_address => i_wadd(addrWidth - 1 downto 0),
     idata     => i_data,
     read_clk  => aclk, 
-    r_address => i_radd(addr_width downto 0),
+    r_address => i_radd(addrWidth - 1 downto 0),
     odata     => tap0_data);
 int_line_d1: tap_buffer
 generic map(
     img_width    => img_width,
-    p_data_width => p_data_width,
-    addr_width   => addr_width)
+    dataWidth    => dataWidth,
+    addrWidth    => addrWidth)
 port map(
     write_clk => aclk, 
     write_enb => wrchx1_io,
-    w_address => i_wadd(addr_width downto 0),
+    w_address => i_wadd(addrWidth - 1 downto 0),
     idata     => i_data,
     read_clk  => aclk, 
-    r_address => i_radd(addr_width downto 0),
+    r_address => i_radd(addrWidth - 1 downto 0),
     odata     => tap1_data);    
 int_line_d2: tap_buffer
 generic map(
     img_width    => img_width,
-    p_data_width => p_data_width,
-    addr_width   => addr_width)
+    dataWidth    => dataWidth,
+    addrWidth    => addrWidth)
 port map(
     write_clk  => aclk, 
     write_enb  => wrchx2_io,
-    w_address  => i_wadd(addr_width downto 0),
+    w_address  => i_wadd(addrWidth - 1 downto 0),
     idata      => i_data,
     read_clk   => aclk, 
-    r_address  => i_radd(addr_width downto 0),
+    r_address  => i_radd(addrWidth - 1 downto 0),
     odata      => tap2_data);
 int_line_d3: tap_buffer
 generic map(
     img_width    => img_width,
-    p_data_width => p_data_width,
-    addr_width   => addr_width)
+    dataWidth    => dataWidth,
+    addrWidth    => addrWidth)
 port map(
-    write_clk => aclk,
-    write_enb => wrchx3_io,
-    w_address => i_wadd(addr_width downto 0),
-    idata     => i_data,
+    write_clk  => aclk,
+    write_enb  => wrchx3_io,
+    w_address  => i_wadd(addrWidth - 1 downto 0),
+    idata      => i_data,
     read_clk   => aclk, 
-    r_address  => i_radd(addr_width downto 0),
+    r_address  => i_radd(addrWidth - 1 downto 0),
     odata      => tap3_data);
 end architecture;

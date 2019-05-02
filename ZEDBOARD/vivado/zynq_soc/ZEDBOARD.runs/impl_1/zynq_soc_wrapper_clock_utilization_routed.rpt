@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Sun Apr 28 22:32:26 2019
+| Date         : Wed May  1 23:47:30 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file zynq_soc_wrapper_clock_utilization_routed.rpt
 | Design       : zynq_soc_wrapper
@@ -88,11 +88,11 @@ Table of Contents
 4. Local Clock Details
 ----------------------
 
-+----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+-------------------------------------------------------+---------------------------------------------------------+
-| Local Id | Driver Type/Pin | Constraint | Site/BEL          | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                                            | Net                                                     |
-+----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+-------------------------------------------------------+---------------------------------------------------------+
-| 0        | FDRE/Q          | None       | SLICE_X45Y124/AFF | X0Y2         |          18 |               1 |              |       | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/digiClk_inst/clk_reg/Q | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/digiClk_inst/clk_reg_n_0 |
-+----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+-------------------------------------------------------+---------------------------------------------------------+
++----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
+| Local Id | Driver Type/Pin | Constraint | Site/BEL          | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                                           | Net                                                    |
++----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
+| 0        | FDRE/Q          | None       | SLICE_X45Y124/AFF | X0Y2         |          18 |               1 |              |       | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/digiClkInst/clk_reg/Q | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/digiClkInst/clk_reg_n_0 |
++----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
 * Local Clocks in this context represents only clocks driven by non-global buffers
 ** Clock Loads column represents the clock pin loads (pin count)
 *** Non-Clock Loads column represents the non-clock pin loads (pin count)

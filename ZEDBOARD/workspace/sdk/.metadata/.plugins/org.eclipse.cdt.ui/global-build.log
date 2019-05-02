@@ -1,4 +1,4 @@
-23:05:49 **** Build of project fsbl_bsp ****
+23:56:35 **** Build of project fsbl_bsp ****
 make -k all 
 "Running Make include in ps7_cortexa9_0/libsrc/axivdma_v6_3/src"
 make -C ps7_cortexa9_0/libsrc/axivdma_v6_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
@@ -136,11 +136,11 @@ make -C ps7_cortexa9_0/libsrc/xilffs_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm
 "Running Make libs in ps7_cortexa9_0/libsrc/xilrsa_v1_3/src"
 make -C ps7_cortexa9_0/libsrc/xilrsa_v1_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
 'Finished building libraries'
-23:06:49 **** Clean-only build of configuration Debug for project fsbl ****
+23:57:27 **** Clean-only build of configuration Debug for project fsbl ****
 make clean 
 rm -rf  ./src/fsbl_handoff.o ./src/fsbl_hooks.o ./src/image_mover.o ./src/main.o ./src/md5.o ./src/nand.o ./src/nor.o ./src/pcap.o ./src/ps7_init.o ./src/qspi.o ./src/rsa.o ./src/sd.o  ./src/fsbl_handoff.d  ./src/fsbl_hooks.d ./src/image_mover.d ./src/main.d ./src/md5.d ./src/nand.d ./src/nor.d ./src/pcap.d ./src/ps7_init.d ./src/qspi.d ./src/rsa.d ./src/sd.d  fsbl.elf.size  fsbl.elf
 ' '
-23:06:50 **** Build of configuration Debug for project fsbl ****
+23:57:28 **** Build of configuration Debug for project fsbl ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -215,7 +215,12 @@ arm-none-eabi-size fsbl.elf  |tee "fsbl.elf.size"
   80104	  11576	  74344	 166024	  28888	fsbl.elf
 'Finished building: fsbl.elf.size'
 ' '
-23:07:05 **** Build of project vfpWebCamera_bsp ****
+23:57:45 **** Incremental Build of configuration Debug for project fsbl ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+23:57:46 **** Build of project vfpWebCamera_bsp ****
 make -k all 
 "Running Make include in ps7_cortexa9_0/libsrc/axivdma_v6_3/src"
 make -C ps7_cortexa9_0/libsrc/axivdma_v6_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
@@ -359,11 +364,11 @@ make -C ps7_cortexa9_0/libsrc/xilffs_v3_6/src -s libs  "SHELL=CMD" "COMPILER=arm
 make -C ps7_cortexa9_0/libsrc/xilmfs_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles -Wall -Wextra"
 "Compiling XilMFS Library"
 'Finished building libraries'
-23:07:52 **** Clean-only build of configuration Debug for project vfpWebCamera ****
+23:58:33 **** Clean-only build of configuration Debug for project vfpWebCamera ****
 make clean 
 rm -rf  ./src/WEB/webserver/dispatch.o ./src/WEB/webserver/echo.o ./src/WEB/webserver/http_response.o ./src/WEB/webserver/platform_gpio.o ./src/WEB/webserver/web_utils.o ./src/WEB/webserver/webserver.o  ./src/WEB/tftpserver/tftpserver.o ./src/WEB/tftpserver/tftputils.o  ./src/WEB/rx_tx/rxperf.o ./src/WEB/rx_tx/txperf.o ./src/WEB/rx_tx/urxperf.o ./src/WEB/rx_tx/utxperf.o  ./src/WEB/prot_malloc/prot_malloc.o  ./src/WEB/eplatform/platform.o  ./src/WEB/web.o  ./src/D5M/VIDEO_RESOLUTION/video_resolution.o  ./src/D5M/VIDEO_GENERATOR/video_generator.o  ./src/D5M/VIDEO_FRAME_BUFFER/video_frame_buffer.o  ./src/D5M/VIDEO_CHANNEL/channel.o  ./src/D5M/UART/uartio.o ./src/D5M/UART/utilities.o  ./src/D5M/SDCARD/test_sd.o  ./src/D5M/PLATFORM/platform.o  ./src/D5M/MENU_CALLS/menu_calls.o  ./src/D5M/I2C_D5M/i2c_d5m.o  ./src/D5M/HDMI_IIC/zed_iic_axi.o  ./src/D5M/HDMI_DISPLAY/hdmi_display.o ./src/D5M/HDMI_DISPLAY/test.o  ./src/D5M/d5m.o  ./src/main.o  ./src/WEB/webserver/dispatch.d ./src/WEB/webserver/echo.d ./src/WEB/webserver/http_response.d ./src/WEB/webserver/platform_gpio.d ./src/WEB/webserver/web_utils.d ./src/WEB/webserver/webserver.d  ./src/WEB/tftpserver/tftpserver.d ./src/WEB/tftpserver/tftputils.d  ./src/WEB/rx_tx/rxperf.d ./src/WEB/rx_tx/txperf.d ./src/WEB/rx_tx/urxperf.d ./src/WEB/rx_tx/utxperf.d  ./src/WEB/prot_malloc/prot_malloc.d  ./src/WEB/eplatform/platform.d  ./src/WEB/web.d  ./src/D5M/VIDEO_RESOLUTION/video_resolution.d  ./src/D5M/VIDEO_GENERATOR/video_generator.d  ./src/D5M/VIDEO_FRAME_BUFFER/video_frame_buffer.d  ./src/D5M/VIDEO_CHANNEL/channel.d  ./src/D5M/UART/uartio.d ./src/D5M/UART/utilities.d  ./src/D5M/SDCARD/test_sd.d  ./src/D5M/PLATFORM/platform.d  ./src/D5M/MENU_CALLS/menu_calls.d  ./src/D5M/I2C_D5M/i2c_d5m.d  ./src/D5M/HDMI_IIC/zed_iic_axi.d  ./src/D5M/HDMI_DISPLAY/hdmi_display.d ./src/D5M/HDMI_DISPLAY/test.d  ./src/D5M/d5m.d  ./src/main.d  vfpWebCamera.elf.size  vfpWebCamera.elf
 ' '
-23:07:52 **** Build of configuration Debug for project vfpWebCamera ****
+23:58:34 **** Build of configuration Debug for project vfpWebCamera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1100,41 +1105,21 @@ arm-none-eabi-size vfpWebCamera.elf  |tee "vfpWebCamera.elf.size"
  289164	   5052	10541360	10835576	 a55678	vfpWebCamera.elf
 'Finished building: vfpWebCamera.elf.size'
 ' '
-23:08:50 **** Auto Build of configuration Debug for project vfpWebCamera ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-'Building file: ../src/main.c'
-'Invoking: ARM v7 gcc compiler'
-arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../vfpWebCamera_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
-'Finished building: ../src/main.c'
-' '
-'Building target: vfpWebCamera.elf'
-'Invoking: ARM v7 gcc linker'
-arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../vfpWebCamera_bsp/ps7_cortexa9_0/lib -o "vfpWebCamera.elf"  ./src/WEB/webserver/dispatch.o ./src/WEB/webserver/echo.o ./src/WEB/webserver/http_response.o ./src/WEB/webserver/platform_gpio.o ./src/WEB/webserver/web_utils.o ./src/WEB/webserver/webserver.o  ./src/WEB/tftpserver/tftpserver.o ./src/WEB/tftpserver/tftputils.o  ./src/WEB/rx_tx/rxperf.o ./src/WEB/rx_tx/txperf.o ./src/WEB/rx_tx/urxperf.o ./src/WEB/rx_tx/utxperf.o  ./src/WEB/prot_malloc/prot_malloc.o  ./src/WEB/eplatform/platform.o  ./src/WEB/web.o  ./src/D5M/VIDEO_RESOLUTION/video_resolution.o  ./src/D5M/VIDEO_GENERATOR/video_generator.o  ./src/D5M/VIDEO_FRAME_BUFFER/video_frame_buffer.o  ./src/D5M/VIDEO_CHANNEL/channel.o  ./src/D5M/UART/uartio.o ./src/D5M/UART/utilities.o  ./src/D5M/SDCARD/test_sd.o  ./src/D5M/PLATFORM/platform.o  ./src/D5M/MENU_CALLS/menu_calls.o  ./src/D5M/I2C_D5M/i2c_d5m.o  ./src/D5M/HDMI_IIC/zed_iic_axi.o  ./src/D5M/HDMI_DISPLAY/hdmi_display.o ./src/D5M/HDMI_DISPLAY/test.o  ./src/D5M/d5m.o  ./src/main.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
-'Finished building target: vfpWebCamera.elf'
-' '
-'Invoking: ARM v7 Print Size'
-arm-none-eabi-size vfpWebCamera.elf  |tee "vfpWebCamera.elf.size"
-   text	   data	    bss	    dec	    hex	filename
- 289164	   5052	10541360	10835576	 a55678	vfpWebCamera.elf
-'Finished building: vfpWebCamera.elf.size'
-' '
-23:08:58 **** Incremental Build of configuration Debug for project fsbl ****
+00:00:39 **** Incremental Build of configuration Debug for project fsbl ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
-23:08:59 **** Incremental Build of configuration Debug for project vfpWebCamera ****
+00:00:40 **** Incremental Build of configuration Debug for project vfpWebCamera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
-23:09:15 **** Clean-only build of configuration Debug for project vfpWebCamera ****
+00:00:55 **** Clean-only build of configuration Debug for project vfpWebCamera ****
 make clean 
 rm -rf  ./src/WEB/webserver/dispatch.o ./src/WEB/webserver/echo.o ./src/WEB/webserver/http_response.o ./src/WEB/webserver/platform_gpio.o ./src/WEB/webserver/web_utils.o ./src/WEB/webserver/webserver.o  ./src/WEB/tftpserver/tftpserver.o ./src/WEB/tftpserver/tftputils.o  ./src/WEB/rx_tx/rxperf.o ./src/WEB/rx_tx/txperf.o ./src/WEB/rx_tx/urxperf.o ./src/WEB/rx_tx/utxperf.o  ./src/WEB/prot_malloc/prot_malloc.o  ./src/WEB/eplatform/platform.o  ./src/WEB/web.o  ./src/D5M/VIDEO_RESOLUTION/video_resolution.o  ./src/D5M/VIDEO_GENERATOR/video_generator.o  ./src/D5M/VIDEO_FRAME_BUFFER/video_frame_buffer.o  ./src/D5M/VIDEO_CHANNEL/channel.o  ./src/D5M/UART/uartio.o ./src/D5M/UART/utilities.o  ./src/D5M/SDCARD/test_sd.o  ./src/D5M/PLATFORM/platform.o  ./src/D5M/MENU_CALLS/menu_calls.o  ./src/D5M/I2C_D5M/i2c_d5m.o  ./src/D5M/HDMI_IIC/zed_iic_axi.o  ./src/D5M/HDMI_DISPLAY/hdmi_display.o ./src/D5M/HDMI_DISPLAY/test.o  ./src/D5M/d5m.o  ./src/main.o  ./src/WEB/webserver/dispatch.d ./src/WEB/webserver/echo.d ./src/WEB/webserver/http_response.d ./src/WEB/webserver/platform_gpio.d ./src/WEB/webserver/web_utils.d ./src/WEB/webserver/webserver.d  ./src/WEB/tftpserver/tftpserver.d ./src/WEB/tftpserver/tftputils.d  ./src/WEB/rx_tx/rxperf.d ./src/WEB/rx_tx/txperf.d ./src/WEB/rx_tx/urxperf.d ./src/WEB/rx_tx/utxperf.d  ./src/WEB/prot_malloc/prot_malloc.d  ./src/WEB/eplatform/platform.d  ./src/WEB/web.d  ./src/D5M/VIDEO_RESOLUTION/video_resolution.d  ./src/D5M/VIDEO_GENERATOR/video_generator.d  ./src/D5M/VIDEO_FRAME_BUFFER/video_frame_buffer.d  ./src/D5M/VIDEO_CHANNEL/channel.d  ./src/D5M/UART/uartio.d ./src/D5M/UART/utilities.d  ./src/D5M/SDCARD/test_sd.d  ./src/D5M/PLATFORM/platform.d  ./src/D5M/MENU_CALLS/menu_calls.d  ./src/D5M/I2C_D5M/i2c_d5m.d  ./src/D5M/HDMI_IIC/zed_iic_axi.d  ./src/D5M/HDMI_DISPLAY/hdmi_display.d ./src/D5M/HDMI_DISPLAY/test.d  ./src/D5M/d5m.d  ./src/main.d  vfpWebCamera.elf.size  vfpWebCamera.elf
 ' '
-23:09:15 **** Auto Build of configuration Debug for project vfpWebCamera ****
+00:00:56 **** Auto Build of configuration Debug for project vfpWebCamera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
@@ -1871,17 +1856,17 @@ arm-none-eabi-size vfpWebCamera.elf  |tee "vfpWebCamera.elf.size"
  289164	   5052	10541360	10835576	 a55678	vfpWebCamera.elf
 'Finished building: vfpWebCamera.elf.size'
 ' '
-23:09:39 **** Incremental Build of configuration Debug for project fsbl ****
+00:01:23 **** Incremental Build of configuration Debug for project fsbl ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
-23:09:40 **** Incremental Build of configuration Debug for project vfpWebCamera ****
+00:01:24 **** Incremental Build of configuration Debug for project vfpWebCamera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
-23:10:00 **** Auto Build of configuration Debug for project vfpWebCamera ****
+00:01:36 **** Auto Build of configuration Debug for project vfpWebCamera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
