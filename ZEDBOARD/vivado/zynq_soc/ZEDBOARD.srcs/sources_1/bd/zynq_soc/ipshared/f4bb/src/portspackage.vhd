@@ -7,13 +7,17 @@ use work.constantspackage.all;
 use work.vpfRecords.all;
 package portspackage is
 component videoSelect is
-port (
+generic (
+    i_data_width      : integer := 8;
+    b_data_width      : integer := 32;
+    s_data_width      : integer := 16);
+port (  
     clk               : in std_logic;
     rst_l             : in std_logic;
-    videoChannel      : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-    dChannel          : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-    cChannel          : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
-    cRgbOsharp        : in std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
+    videoChannel      : in std_logic_vector(b_data_width-1 downto 0);
+    dChannel          : in std_logic_vector(b_data_width-1 downto 0);
+    cChannel          : in std_logic_vector(b_data_width-1 downto 0);
+    cRgbOsharp        : in std_logic_vector(b_data_width-1 downto 0);
     iFrameData        : in fcolors;
     oEof              : out std_logic;
     oSof              : out std_logic;
@@ -316,19 +320,20 @@ port (
 end component pointOfInterest;
 component gridLockFifo is
 generic (
-    DATA_WIDTH       : integer := 24;
-    ADDR_WIDTH       : integer := 14);
+    FIFO_DEPTH       : integer := 24;
+    FIFO_DATA_WIDTH  : integer := 24;
+    FIFO_ADDR_WIDTH  : integer := 14);
 port (
     clk              : in  std_logic;
     clrStatus        : in  std_logic;
     --READ PORT
     rdEn             : in  std_logic;
-    rdAddress        : in  std_logic_vector (ADDR_WIDTH-1 downto 0);
-    dataO            : out std_logic_vector (DATA_WIDTH-1 downto 0);
+    rdAddress        : in  std_logic_vector (FIFO_ADDR_WIDTH-1 downto 0);
+    dataO            : out std_logic_vector (FIFO_DATA_WIDTH-1 downto 0);
     --WRITE PORT
     wrEn             : in  std_logic;
-    wrAddress        : in  std_logic_vector (ADDR_WIDTH-1 downto 0);
-    dataIn           : in  std_logic_vector (DATA_WIDTH-1 downto 0);
+    wrAddress        : in  std_logic_vector (FIFO_ADDR_WIDTH-1 downto 0);
+    dataIn           : in  std_logic_vector (FIFO_DATA_WIDTH-1 downto 0);
     --STATUS
     wrDone           : out std_logic;
     rdDone           : out std_logic;
@@ -415,4 +420,13 @@ port (
     wrRegsIn         : in mRegs;
     rdRegsOut        : out mRegs);
 end component;
+component pixelCord is
+port (                          
+    clk            : in std_logic;
+    iRgb           : in channel;
+    iPixelEn       : in std_logic;
+    iEof           : in std_logic;
+    iCord          : in cord;
+    oRgb           : out channel);
+end component pixelCord; 
 end package;

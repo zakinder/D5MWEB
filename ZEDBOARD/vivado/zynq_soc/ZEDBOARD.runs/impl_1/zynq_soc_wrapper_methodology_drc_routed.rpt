@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Wed May  1 23:47:18 2019
+| Date         : Thu May  2 22:52:27 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_methodology -file zynq_soc_wrapper_methodology_drc_routed.rpt -rpx zynq_soc_wrapper_methodology_drc_routed.rpx
 | Design       : zynq_soc_wrapper
@@ -696,7 +696,7 @@ Related violations: <none>
 
 TIMING-20#1 Warning
 Non-clocked latch  
-The latch zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/preStatus_reg cannot be properly analyzed as its control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/preStatus_reg/G is not reached by a timing clock
+The latch zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/preStatus_reg cannot be properly analyzed as its control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/preStatus_reg/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-24#1 Warning

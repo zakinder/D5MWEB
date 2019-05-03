@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Wed May  1 23:47:30 2019
+| Date         : Thu May  2 22:52:41 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file zynq_soc_wrapper_clock_utilization_routed.rpt
 | Design       : zynq_soc_wrapper
@@ -55,8 +55,8 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+------------------------------------+---------------------------------------------------------------------------+-----------------------------------------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                              | Driver Pin                                                                | Net                                                                   |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+------------------------------------+---------------------------------------------------------------------------+-----------------------------------------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 6 |       16431 |               0 |        7.000 | clk_fpga_0                         | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0                       |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 5 |        2031 |               0 |        6.735 | clk_out1_zynq_soc_CLK_GEN_148MHZ_0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clkout1_buf/O                              | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1                               |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 6 |       16451 |               0 |        7.000 | clk_fpga_0                         | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0                       |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 6 |        2031 |               0 |        6.735 | clk_out1_zynq_soc_CLK_GEN_148MHZ_0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clkout1_buf/O                              | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1                               |
 | g2        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y17 | n/a          |                 2 |         942 |               0 |       12.999 | clk_fpga_2                         | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/buffer_fclk_clk_2.FCLK_CLK_2_BUFG/O | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2                       |
 | g3        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 1 |          70 |               0 |              |                                    | pixclk_IBUF_BUFG_inst/O                                                   | pixclk_IBUF_BUFG                                                      |
 | g4        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |                 1 |           1 |               0 |       30.000 | clkfbout_zynq_soc_CLK_GEN_148MHZ_0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clkf_buf/O                                 | zynq_soc_i/CLK_GEN_148MHZ/inst/clkfbout_buf_zynq_soc_CLK_GEN_148MHZ_0 |
@@ -88,11 +88,11 @@ Table of Contents
 4. Local Clock Details
 ----------------------
 
-+----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
-| Local Id | Driver Type/Pin | Constraint | Site/BEL          | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                                           | Net                                                    |
-+----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
-| 0        | FDRE/Q          | None       | SLICE_X45Y124/AFF | X0Y2         |          18 |               1 |              |       | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/digiClkInst/clk_reg/Q | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/digiClkInst/clk_reg_n_0 |
-+----------+-----------------+------------+-------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
++----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
+| Local Id | Driver Type/Pin | Constraint | Site/BEL         | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                                           | Net                                                    |
++----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
+| 0        | FDRE/Q          | None       | SLICE_X57Y73/AFF | X1Y1         |          18 |               1 |              |       | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/digiClkInst/clk_reg/Q | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/digiClkInst/clk_reg_n_0 |
++----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+------------------------------------------------------+--------------------------------------------------------+
 * Local Clocks in this context represents only clocks driven by non-global buffers
 ** Clock Loads column represents the clock pin loads (pin count)
 *** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -106,12 +106,12 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
-| X0Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 3299 |  2500 | 1559 |  1000 |    0 |    60 |   10 |    30 |    3 |    60 |
-| X1Y0              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |   21 |    50 | 2798 |  3200 |  801 |   850 |    0 |    60 |   25 |    30 |    0 |    40 |
-| X0Y1              |    4 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 3196 |  1200 | 1172 |   400 |    0 |    20 |    3 |    10 |    8 |    20 |
-| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 5210 |  2600 | 1762 |   850 |    1 |    60 |   21 |    30 |    5 |    40 |
-| X0Y2              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 2021 |  1200 |  717 |   400 |    0 |    20 |    4 |    10 |    0 |    20 |
-| X1Y2              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 2228 |  2600 |  722 |   850 |    0 |    60 |   20 |    30 |    0 |    40 |
+| X0Y0              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 4868 |  2500 | 2374 |  1000 |    1 |    60 |   23 |    30 |    7 |    60 |
+| X1Y0              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |   21 |    50 | 4210 |  3200 | 1092 |   850 |    0 |    60 |   28 |    30 |    0 |    40 |
+| X0Y1              |    2 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 | 3466 |  1200 | 1158 |   400 |    2 |    20 |    0 |    10 |    9 |    20 |
+| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 4240 |  2600 | 1361 |   850 |    0 |    60 |   27 |    30 |    0 |    40 |
+| X0Y2              |    3 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |  987 |  1200 |  326 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
+| X1Y2              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1001 |  2600 |  319 |   850 |    0 |    60 |    5 |    30 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Global Clock column represents track count; while other columns represents cell counts
 
@@ -122,9 +122,9 @@ Table of Contents
 +----+----+----+
 |    | X0 | X1 |
 +----+----+----+
-| Y2 |  3 |  1 |
-| Y1 |  4 |  2 |
-| Y0 |  3 |  4 |
+| Y2 |  3 |  3 |
+| Y1 |  2 |  2 |
+| Y0 |  4 |  4 |
 +----+----+----+
 
 
@@ -134,7 +134,7 @@ Table of Contents
 +-----------+-----------------+-------------------+------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock      | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                             |
 +-----------+-----------------+-------------------+------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------------+
-| g0        | BUFG/O          | n/a               | clk_fpga_0 |       7.000 | {0.000 3.500} |       16338 |        0 |              0 |        0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
+| g0        | BUFG/O          | n/a               | clk_fpga_0 |       7.000 | {0.000 3.500} |       16358 |        0 |              0 |        0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
 +-----------+-----------------+-------------------+------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------------------+
 * Logic Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -145,9 +145,9 @@ Table of Contents
 +----+-------+-------+
 |    | X0    | X1    |
 +----+-------+-------+
-| Y2 |  1124 |  2248 |
-| Y1 |  2076 |  4630 |
-| Y0 |  3525 |  2735 |
+| Y2 |   512 |   360 |
+| Y1 |  2677 |  3536 |
+| Y0 |  5034 |  4239 |
 +----+-------+-------+
 
 
@@ -165,13 +165,13 @@ Table of Contents
 **** GT Loads column represents load cell count of GT types
 
 
-+----+-------+------+
-|    | X0    | X1   |
-+----+-------+------+
-| Y2 |     6 |    0 |
-| Y1 |  1144 |  660 |
-| Y0 |    87 |  134 |
-+----+-------+------+
++----+------+------+
+|    | X0   | X1   |
++----+------+------+
+| Y2 |   26 |  201 |
+| Y1 |  865 |  718 |
+| Y0 |  181 |   40 |
++----+------+------+
 
 
 9. Device Cell Placement Summary for Global Clock g2
@@ -188,13 +188,13 @@ Table of Contents
 **** GT Loads column represents load cell count of GT types
 
 
-+----+------+----+
-|    | X0   | X1 |
-+----+------+----+
-| Y2 |  933 |  0 |
-| Y1 |    9 |  0 |
-| Y0 |    0 |  0 |
-+----+------+----+
++----+------+------+
+|    | X0   | X1   |
++----+------+------+
+| Y2 |  478 |  464 |
+| Y1 |    0 |    0 |
+| Y0 |    0 |    0 |
++----+------+------+
 
 
 10. Device Cell Placement Summary for Global Clock g3
@@ -215,8 +215,8 @@ Table of Contents
 |    | X0  | X1 |
 +----+-----+----+
 | Y2 |   0 |  0 |
-| Y1 |  70 |  0 |
-| Y0 |   0 |  0 |
+| Y1 |   0 |  0 |
+| Y0 |  70 |  0 |
 +----+-----+----+
 
 
@@ -295,8 +295,9 @@ Table of Contents
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                             |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        3525 |               0 | 3212 |    296 |   10 |   3 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
-| g1        | n/a   | BUFG/O          | None       |          87 |               0 |   87 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
+| g0        | n/a   | BUFG/O          | None       |        5034 |               0 | 4621 |    379 |   24 |   7 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
+| g1        | n/a   | BUFG/O          | None       |         181 |               0 |  180 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
+| g3        | n/a   | BUFG/O          | None       |          70 |               0 |   67 |      0 |    3 |   0 |  0 |    0 |   0 |       0 | pixclk_IBUF_BUFG                                |
 | g6        | n/a   | BUFG/O          | None       |           0 |               1 |    0 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out2         |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
@@ -310,8 +311,8 @@ Table of Contents
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                                   |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        2735 |               0 | 2667 |     43 |   25 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0                       |
-| g1        | n/a   | BUFG/O          | None       |         134 |               0 |  131 |      0 |    1 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1                               |
+| g0        | n/a   | BUFG/O          | None       |        4239 |               0 | 4172 |     39 |   28 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0                       |
+| g1        | n/a   | BUFG/O          | None       |          40 |               0 |   38 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1                               |
 | g4        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clkfbout_buf_zynq_soc_CLK_GEN_148MHZ_0 |
 | g5        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |      0 |    0 |   0 |  0 |    1 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK1                       |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-----------------------------------------------------------------------+
@@ -326,10 +327,8 @@ Table of Contents
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                             |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        2076 |               0 | 1982 |     82 |    3 |   8 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
-| g1        | n/a   | BUFG/O          | None       |        1144 |               0 | 1138 |      6 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
-| g2        | n/a   | BUFG/O          | None       |           9 |               0 |    9 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2 |
-| g3        | n/a   | BUFG/O          | None       |          70 |               0 |   67 |      0 |    3 |   0 |  0 |    0 |   0 |       0 | pixclk_IBUF_BUFG                                |
+| g0        | n/a   | BUFG/O          | None       |        2677 |               0 | 2603 |     61 |    2 |   9 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
+| g1        | n/a   | BUFG/O          | None       |         865 |               0 |  863 |      2 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -342,8 +341,8 @@ Table of Contents
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                             |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        4630 |               0 | 4550 |     50 |   22 |   5 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
-| g1        | n/a   | BUFG/O          | None       |         660 |               0 |  660 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
+| g0        | n/a   | BUFG/O          | None       |        3536 |               0 | 3507 |      2 |   27 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
+| g1        | n/a   | BUFG/O          | None       |         718 |               0 |  715 |      3 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -353,13 +352,13 @@ Table of Contents
 18. Clock Region Cell Placement per Global Clock: Region X0Y2
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                             |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        1124 |               0 | 1101 |     18 |    4 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
-| g1        | n/a   | BUFG/O          | None       |           6 |               0 |    6 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
-| g2        | n/a   | BUFG/O          | None       |         933 |               0 |  896 |     37 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2 |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                             |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
+| g0        | n/a   | BUFG/O          | None       |         512 |               0 | 502 |      8 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
+| g1        | n/a   | BUFG/O          | None       |          26 |               0 |  26 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
+| g2        | n/a   | BUFG/O          | None       |         478 |               0 | 459 |     19 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2 |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -368,11 +367,13 @@ Table of Contents
 19. Clock Region Cell Placement per Global Clock: Region X1Y2
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                             |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        2248 |               0 | 2228 |      0 |   20 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
-+-----------+-------+-----------------+------------+-------------+-----------------+------+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                             |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
+| g0        | n/a   | BUFG/O          | None       |         360 |               0 | 355 |      0 |    5 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0 |
+| g1        | n/a   | BUFG/O          | None       |         201 |               0 | 200 |      1 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1         |
+| g2        | n/a   | BUFG/O          | None       |         464 |               0 | 446 |     18 |    0 |   0 |  0 |    0 |   0 |       0 | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2 |
++-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+-------------------------------------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -398,7 +399,7 @@ set_property LOC IOB_X0Y42 [get_ports pixclk]
 #startgroup
 create_pblock {CLKAG_zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2}
 add_cells_to_pblock [get_pblocks  {CLKAG_zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2"}]]]
-resize_pblock [get_pblocks {CLKAG_zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
+resize_pblock [get_pblocks {CLKAG_zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK2}] -add {CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup
 
 # Clock net "zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK0" driven by instance "zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG" located at site "BUFGCTRL_X0Y16"
@@ -412,12 +413,12 @@ resize_pblock [get_pblocks {CLKAG_zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst/FCLK_CLK
 #startgroup
 create_pblock {CLKAG_zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1}
 add_cells_to_pblock [get_pblocks  {CLKAG_zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1"}]]]
-resize_pblock [get_pblocks {CLKAG_zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1}
+resize_pblock [get_pblocks {CLKAG_zynq_soc_i/CLK_GEN_148MHZ/inst/clk_out1}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup
 
 # Clock net "pixclk_IBUF_BUFG" driven by instance "pixclk_IBUF_BUFG_inst" located at site "BUFGCTRL_X0Y2"
 #startgroup
 create_pblock {CLKAG_pixclk_IBUF_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_pixclk_IBUF_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="pixclk_IBUF_BUFG"}]]]
-resize_pblock [get_pblocks {CLKAG_pixclk_IBUF_BUFG}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1}
+resize_pblock [get_pblocks {CLKAG_pixclk_IBUF_BUFG}] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0}
 #endgroup

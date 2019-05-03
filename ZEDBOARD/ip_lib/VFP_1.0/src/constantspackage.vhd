@@ -16,6 +16,25 @@ package constantspackage is
     constant ch2                       : integer   := 2;
     constant ch3                       : integer   := 3;
     -------------------------------------------------------------------------
+    constant soble                     : integer   := 0;
+    constant sobRgb                    : integer   := 1;
+    constant sobPoi                    : integer   := 2;
+    constant hsvPoi                    : integer   := 3;
+    constant sharp                     : integer   := 4;
+    constant blur1x                    : integer   := 5;
+    constant blur2x                    : integer   := 6;
+    constant blur3x                    : integer   := 7;
+    constant blur4x                    : integer   := 8;
+    constant hsv                       : integer   := 9;
+    constant rgb                       : integer   := 10;
+    constant rgbRemix                  : integer   := 11;
+    constant tPatter1                  : integer   := 12;
+    constant tPatter2                  : integer   := 13;
+    constant tPatter3                  : integer   := 14;
+    constant tPatter4                  : integer   := 15;
+    constant tPatter5                  : integer   := 16;
+    constant rgbCorrect                : integer   := 17;
+    -------------------------------------------------------------------------
     -- videoProcess constants
     -------------------------------------------------------------------------
     constant C_S_AXI_DATA_WIDTH        : integer := 32;
@@ -39,6 +58,17 @@ package constantspackage is
     constant rgb_msb                   : integer := 12;
     constant rgb_lsb                   : integer := 5;
     constant XYCOORD                   : integer := 16;
+    -------------------------------------------------------------------------
+    constant initCordValueRht          : integer := 0;
+    constant initCordValueLft          : integer := 65535;
+    constant initCordValueTop          : integer := 65535;
+    constant initCordValueBot          : integer := 0;
+    constant frameSizeLft              : integer := 1;
+    constant frameSizeRht              : integer := 1920;
+    constant frameSizeTop              : integer := 5;
+    constant frameSizeBot              : integer := 1080;
+    constant pInterestWidth            : integer := 127;
+    constant pInterestHight            : integer := 127;
     -------------------------------------------------------------------------
     constant STREAM_TESTPATTERN1       : std_logic_vector(31 downto 0) := x"00000001";
     constant STREAM_TESTPATTERN2       : std_logic_vector(31 downto 0) := x"00000002";

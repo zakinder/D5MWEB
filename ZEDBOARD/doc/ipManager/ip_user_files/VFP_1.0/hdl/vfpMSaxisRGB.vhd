@@ -7,11 +7,11 @@ use work.constantspackage.all;
 use work.vpfRecords.all;
 use work.portspackage.all;
 entity videoProcess_v1_0_rgb_m_axis is 
-    generic (
+generic (
     i_data_width           : integer := 8;
     b_data_width           : integer := 32;
     s_data_width           : integer := 16);
-    port (
+port (
     --stream clock/reset
     m_axis_mm2s_aclk     : in std_logic;
     m_axis_mm2s_aresetn  : in std_logic;

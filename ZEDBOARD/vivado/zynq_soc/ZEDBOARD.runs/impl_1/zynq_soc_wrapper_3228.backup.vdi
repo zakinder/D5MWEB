@@ -1,0 +1,687 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu May  2 22:45:22 2019
+# Process ID: 3228
+# Current directory: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1
+# Command line: vivado.exe -log zynq_soc_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source zynq_soc_wrapper.tcl -notrace
+# Log file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper.vdi
+# Journal file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source zynq_soc_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'z:/ZEDBOARD/ip_lib'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
+add_files: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 335.074 ; gain = 52.168
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.dcp' for cell 'zynq_soc_i/CLK_GEN_148MHZ'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/zynq_soc_DIP_SWITCHES_8BITS_0.dcp' for cell 'zynq_soc_i/DIP_SWITCHES_8BITS'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_LEDS_8BITS_0/zynq_soc_LEDS_8BITS_0.dcp' for cell 'zynq_soc_i/LEDS_8BITS'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_D5M_IIC_0/zynq_soc_D5M_IIC_0.dcp' for cell 'zynq_soc_i/D5M_OUTPUT/D5M_IIC'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VCC_0/zynq_soc_VCC_0.dcp' for cell 'zynq_soc_i/D5M_OUTPUT/VCC'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_GND_0/zynq_soc_GND_0.dcp' for cell 'zynq_soc_i/HDMI_OUTPUT/GND'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_0/zynq_soc_HDMI_0.dcp' for cell 'zynq_soc_i/HDMI_OUTPUT/HDMI'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_IIC_0/zynq_soc_HDMI_IIC_0.dcp' for cell 'zynq_soc_i/HDMI_OUTPUT/HDMI_IIC'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/zynq_soc_VFP_0.dcp' for cell 'zynq_soc_i/PS_VIDEO/D5M/VFP'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_Sine_0_0/zynq_soc_Sine_0_0.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/Sine_0'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_xbar_0/zynq_soc_xbar_0.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_cc_0/zynq_soc_auto_cc_0.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_cc_1/zynq_soc_auto_cc_1.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_pc_0/zynq_soc_auto_pc_0.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/s00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_xbar_1/zynq_soc_xbar_1.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/xbar'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_pc_1/zynq_soc_auto_pc_1.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VDMA1_0/zynq_soc_VDMA1_0.dcp' for cell 'zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/zynq_soc_rst_PS7_150M_0.dcp' for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_150M'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_75M_0/zynq_soc_rst_PS7_75M_0.dcp' for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_75M'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_GND_1/zynq_soc_GND_1.dcp' for cell 'zynq_soc_i/VIDEO_PIPELINE/GND'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_TIMMING_CONTROLELR_0/zynq_soc_TIMMING_CONTROLELR_0.dcp' for cell 'zynq_soc_i/VIDEO_PIPELINE/TIMMING_CONTROLELR'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VCC_1/zynq_soc_VCC_1.dcp' for cell 'zynq_soc_i/VIDEO_PIPELINE/VCC'
+INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0.dcp' for cell 'zynq_soc_i/VIDEO_PIPELINE/VIDEO_OUT'
+INFO: [Netlist 29-17] Analyzing 2025 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.2
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. zynq_soc_i/CLK_GEN_148MHZ/inst/clkin1_ibufg 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'zynq_soc_i/CLK_GEN_148MHZ/clk_in1' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved for implementation tool. [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-3228-BLACKHOLE/dcp7/zynq_soc_CLK_GEN_148MHZ_0.edf:296]
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0_board.xdc] for cell 'zynq_soc_i/CLK_GEN_148MHZ/inst'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0_board.xdc] for cell 'zynq_soc_i/CLK_GEN_148MHZ/inst'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc] for cell 'zynq_soc_i/CLK_GEN_148MHZ/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:20 ; elapsed = 00:00:19 . Memory (MB): peak = 1269.020 ; gain = 529.984
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc] for cell 'zynq_soc_i/CLK_GEN_148MHZ/inst'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/zynq_soc_DIP_SWITCHES_8BITS_0_board.xdc] for cell 'zynq_soc_i/DIP_SWITCHES_8BITS/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/zynq_soc_DIP_SWITCHES_8BITS_0_board.xdc] for cell 'zynq_soc_i/DIP_SWITCHES_8BITS/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/zynq_soc_DIP_SWITCHES_8BITS_0.xdc] for cell 'zynq_soc_i/DIP_SWITCHES_8BITS/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/zynq_soc_DIP_SWITCHES_8BITS_0.xdc] for cell 'zynq_soc_i/DIP_SWITCHES_8BITS/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_LEDS_8BITS_0/zynq_soc_LEDS_8BITS_0_board.xdc] for cell 'zynq_soc_i/LEDS_8BITS/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_LEDS_8BITS_0/zynq_soc_LEDS_8BITS_0_board.xdc] for cell 'zynq_soc_i/LEDS_8BITS/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_LEDS_8BITS_0/zynq_soc_LEDS_8BITS_0.xdc] for cell 'zynq_soc_i/LEDS_8BITS/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_LEDS_8BITS_0/zynq_soc_LEDS_8BITS_0.xdc] for cell 'zynq_soc_i/LEDS_8BITS/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/zynq_soc_rst_PS7_150M_0_board.xdc] for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_150M/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/zynq_soc_rst_PS7_150M_0_board.xdc] for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_150M/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/zynq_soc_rst_PS7_150M_0.xdc] for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_150M/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_150M_0/zynq_soc_rst_PS7_150M_0.xdc] for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_150M/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_75M_0/zynq_soc_rst_PS7_75M_0_board.xdc] for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_75M/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_75M_0/zynq_soc_rst_PS7_75M_0_board.xdc] for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_75M/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_75M_0/zynq_soc_rst_PS7_75M_0.xdc] for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_75M/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_rst_PS7_75M_0/zynq_soc_rst_PS7_75M_0.xdc] for cell 'zynq_soc_i/SYSTEM_RESETS/rst_PS7_75M/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VDMA1_0/zynq_soc_VDMA1_0.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VDMA1_0/zynq_soc_VDMA1_0.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst'
+WARNING: [Vivado 12-2489] -input_jitter contains time 0.389970 which will be rounded to 0.390 to ensure it is an integer multiple of 1 picosecond [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc:24]
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_IIC_0/zynq_soc_HDMI_IIC_0_board.xdc] for cell 'zynq_soc_i/HDMI_OUTPUT/HDMI_IIC/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_IIC_0/zynq_soc_HDMI_IIC_0_board.xdc] for cell 'zynq_soc_i/HDMI_OUTPUT/HDMI_IIC/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_D5M_IIC_0/zynq_soc_D5M_IIC_0_board.xdc] for cell 'zynq_soc_i/D5M_OUTPUT/D5M_IIC/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_D5M_IIC_0/zynq_soc_D5M_IIC_0_board.xdc] for cell 'zynq_soc_i/D5M_OUTPUT/D5M_IIC/U0'
+Parsing XDC File [Z:/ZEDBOARD/constraints/d5m_camera.xdc]
+Finished Parsing XDC File [Z:/ZEDBOARD/constraints/d5m_camera.xdc]
+Parsing XDC File [Z:/ZEDBOARD/constraints/target_pins.xdc]
+Finished Parsing XDC File [Z:/ZEDBOARD/constraints/target_pins.xdc]
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_cc_1/zynq_soc_auto_cc_1.dcp'
+INFO: [Project 1-538] Using original IP XDC constraints instead of the XDC constraints in dcp 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_cc_0/zynq_soc_auto_cc_0.dcp'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_TIMMING_CONTROLELR_0/zynq_soc_TIMMING_CONTROLELR_0_clocks.xdc] for cell 'zynq_soc_i/VIDEO_PIPELINE/TIMMING_CONTROLELR/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_TIMMING_CONTROLELR_0/zynq_soc_TIMMING_CONTROLELR_0_clocks.xdc] for cell 'zynq_soc_i/VIDEO_PIPELINE/TIMMING_CONTROLELR/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0_clocks.xdc] for cell 'zynq_soc_i/VIDEO_PIPELINE/VIDEO_OUT/inst'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0_clocks.xdc] for cell 'zynq_soc_i/VIDEO_PIPELINE/VIDEO_OUT/inst'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VDMA1_0/zynq_soc_VDMA1_0_clocks.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VDMA1_0/zynq_soc_VDMA1_0_clocks.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_cc_1/zynq_soc_auto_cc_1_clocks.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_cc_1/zynq_soc_auto_cc_1_clocks.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst'
+Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_cc_0/zynq_soc_auto_cc_0_clocks.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst'
+Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_auto_cc_0/zynq_soc_auto_cc_0_clocks.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_handshake.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.r_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.b_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.aw_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake/xpm_cdc_single_dest2src_inst'
+Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake/xpm_cdc_single_src2dest_inst'
+Finished Sourcing Tcl File [C:/Xilinx/Vivado/2017.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_single.tcl] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m02_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.ar_handshake/handshake/xpm_cdc_single_src2dest_inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 4 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
+  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 1 instances
+
+link_design: Time (s): cpu = 00:00:54 ; elapsed = 00:00:53 . Memory (MB): peak = 1276.035 ; gain = 940.961
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020-clg484'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020-clg484'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+Command: report_drc (run_mandatory_drcs) for: opt_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 1276.035 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 3 inverter(s) to 7 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 22e1a9c6b
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.035 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 3 cells and removed 938 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
+Phase 2 Constant propagation | Checksum: 1c94a308d
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1276.035 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 513 cells and removed 1414 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 10d53c311
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 1276.035 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 8 cells and removed 6062 cells
+
+Phase 4 BUFG optimization
+INFO: [Opt 31-194] Inserted BUFG pixclk_IBUF_BUFG_inst to drive 70 load(s) on clock net pixclk_IBUF_BUFG
+INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
+Phase 4 BUFG optimization | Checksum: 1c78e2fef
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 1276.035 ; gain = 0.000
+INFO: [Opt 31-389] Phase BUFG optimization created 1 cells and removed 0 cells
+
+Phase 5 Shift Register Optimization
+Phase 5 Shift Register Optimization | Checksum: 145d63078
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 1276.035 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 1 cells and removed 0 cells
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.152 . Memory (MB): peak = 1276.035 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 145d63078
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 1276.035 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 6 BRAM(s) out of a total of 92 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 24 newly gated: 128 Total Ports: 184
+Ending PowerOpt Patch Enables Task | Checksum: 1010d4417
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.401 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 1010d4417
+
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:21 . Memory (MB): peak = 1770.063 ; gain = 494.027
+60 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:01:07 ; elapsed = 00:00:44 . Memory (MB): peak = 1770.063 ; gain = 494.027
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.171 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_opt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Command: report_drc -file zynq_soc_wrapper_drc_opted.rpt
+INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [Coretcl 2-168] The results of DRC are in file Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_drc_opted.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:16 ; elapsed = 00:00:07 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Chipscope 16-241] No debug cores found in the current design.
+Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
+or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020-clg484'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020-clg484'
+Command: report_drc (run_mandatory_drcs) for: incr_eco_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+Command: report_drc (run_mandatory_drcs) for: placer_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_ENARDEN_cooolgate_en_sig_15) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1_ENARDEN_cooolgate_en_sig_16) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10_ENARDEN_cooolgate_en_sig_21) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11_ENARDEN_cooolgate_en_sig_22) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2_ENARDEN_cooolgate_en_sig_17) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3_ENARDEN_cooolgate_en_sig_18) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4_ENARDEN_cooolgate_en_sig_19) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 21 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 4 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.295 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: aa687f70
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.331 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.142 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Place 30-574] Poor placement for routing between an IO pin and BUFG. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	pixclk_IBUF_inst (IBUF.O) is locked to IOB_X0Y42
+	pixclk_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y2
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 23ba58e0
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:15 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 14309bf97
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:25 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 14309bf97
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:25 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 14309bf97
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:26 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 2 Global Placement
+Phase 2 Global Placement | Checksum: 24b0ec4d4
+
+Time (s): cpu = 00:01:58 ; elapsed = 00:01:00 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 24b0ec4d4
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:01 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 2552025b2
+
+Time (s): cpu = 00:02:14 ; elapsed = 00:01:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 1e2c9db31
+
+Time (s): cpu = 00:02:15 ; elapsed = 00:01:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 269d9a5bc
+
+Time (s): cpu = 00:02:15 ; elapsed = 00:01:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.5 Timing Path Optimizer
+Phase 3.5 Timing Path Optimizer | Checksum: 2979ad4e8
+
+Time (s): cpu = 00:02:19 ; elapsed = 00:01:10 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.6 Fast Optimization
+Phase 3.6 Fast Optimization | Checksum: 2991469f7
+
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:12 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.7 Small Shape Detail Placement
+Phase 3.7 Small Shape Detail Placement | Checksum: 1a8165614
+
+Time (s): cpu = 00:02:39 ; elapsed = 00:01:30 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.8 Re-assign LUT pins
+Phase 3.8 Re-assign LUT pins | Checksum: 1848acc37
+
+Time (s): cpu = 00:02:41 ; elapsed = 00:01:32 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.9 Pipeline Register Optimization
+Phase 3.9 Pipeline Register Optimization | Checksum: 1e4e0d2b7
+
+Time (s): cpu = 00:02:41 ; elapsed = 00:01:32 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3.10 Fast Optimization
+Phase 3.10 Fast Optimization | Checksum: 2228bb6f1
+
+Time (s): cpu = 00:02:50 ; elapsed = 00:01:37 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 2228bb6f1
+
+Time (s): cpu = 00:02:50 ; elapsed = 00:01:37 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 188e29643
+
+Phase 4.1.1.1 BUFG Insertion
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 4 CPUs
+INFO: [Place 46-38] Processed net zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/SR[0], BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-38] Processed net zynq_soc_i/PS_VIDEO/D5M/VFP/U0/vfpConfigInst/p_0_in_0, BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-38] Processed net zynq_soc_i/VIDEO_PIPELINE/TIMMING_CONTROLELR/U0/U_VIDEO_CTRL/GEN_HAS_IRQ.irq_i_1_n_0, BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-41] BUFG insertion identified 3 candidate nets, 0 success, 3 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
+Phase 4.1.1.1 BUFG Insertion | Checksum: 188e29643
+
+Time (s): cpu = 00:03:10 ; elapsed = 00:01:46 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.309. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 2594039dd
+
+Time (s): cpu = 00:03:42 ; elapsed = 00:02:04 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 2594039dd
+
+Time (s): cpu = 00:03:42 ; elapsed = 00:02:04 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 2594039dd
+
+Time (s): cpu = 00:03:43 ; elapsed = 00:02:05 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 4.3 Placer Reporting
+Phase 4.3 Placer Reporting | Checksum: 2594039dd
+
+Time (s): cpu = 00:03:43 ; elapsed = 00:02:05 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 4.4 Final Placement Cleanup
+Phase 4.4 Final Placement Cleanup | Checksum: 217238e2e
+
+Time (s): cpu = 00:03:43 ; elapsed = 00:02:06 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 217238e2e
+
+Time (s): cpu = 00:03:44 ; elapsed = 00:02:06 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Ending Placer Task | Checksum: 12805f3e0
+
+Time (s): cpu = 00:03:44 ; elapsed = 00:02:06 . Memory (MB): peak = 1770.063 ; gain = 0.000
+83 Infos, 25 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:03:53 ; elapsed = 00:02:12 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:15 ; elapsed = 00:00:05 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_placed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:20 ; elapsed = 00:00:09 . Memory (MB): peak = 1770.063 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.130 . Memory (MB): peak = 1770.063 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.509 . Memory (MB): peak = 1770.063 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.169 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020-clg484'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020-clg484'
+Running DRC as a precondition to command route_design
+Command: report_drc (run_mandatory_drcs) for: router_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+WARNING: [DRC PLCK-12] Clock Placer Checks: Poor placement for routing between an IO pin and BUFG. 
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+ This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	pixclk_IBUF_inst (IBUF.O) is locked to IOB_X0Y42
+	pixclk_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y2
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 1 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 4 CPUs
+Checksum: PlaceDB: 8be551bd ConstDB: 0 ShapeSum: 9c20a223 RouteDB: 0
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: 181f836a3
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:36 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: 181f836a3
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:37 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 2.2 Fix Topology Constraints
+Phase 2.2 Fix Topology Constraints | Checksum: 181f836a3
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:38 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 2.3 Pre Route Cleanup
+Phase 2.3 Pre Route Cleanup | Checksum: 181f836a3
+
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:38 . Memory (MB): peak = 1770.063 ; gain = 0.000
+ Number of Nodes with overlaps = 0
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: a213e3c1
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:49 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.319  | TNS=0.000  | WHS=-0.329 | THS=-402.178|
+
+
+Phase 2.5 Update Timing for Bus Skew
+
+Phase 2.5.1 Update Timing
+Phase 2.5.1 Update Timing | Checksum: 167b9e9db
+
+Time (s): cpu = 00:01:38 ; elapsed = 00:00:57 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.319  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 2.5 Update Timing for Bus Skew | Checksum: 120a544a9
+
+Time (s): cpu = 00:01:38 ; elapsed = 00:00:57 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 2 Router Initialization | Checksum: 14f85f3f5
+
+Time (s): cpu = 00:01:39 ; elapsed = 00:00:57 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: 2915f048f
+
+Time (s): cpu = 00:01:57 ; elapsed = 00:01:03 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 3727
+ Number of Nodes with overlaps = 754
+ Number of Nodes with overlaps = 199
+ Number of Nodes with overlaps = 36
+ Number of Nodes with overlaps = 11
+ Number of Nodes with overlaps = 6
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.003 | TNS=-0.006 | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: f720c292
+
+Time (s): cpu = 00:03:15 ; elapsed = 00:01:34 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 258
+ Number of Nodes with overlaps = 87
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 10
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.145 | TNS=-0.179 | WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 22ff35062
+
+Time (s): cpu = 00:03:32 ; elapsed = 00:01:42 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 4 Rip-up And Reroute | Checksum: 22ff35062
+
+Time (s): cpu = 00:03:32 ; elapsed = 00:01:43 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+
+Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 2111067ac
+
+Time (s): cpu = 00:03:37 ; elapsed = 00:01:44 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.028  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Delay CleanUp | Checksum: 220f92eb0
+
+Time (s): cpu = 00:03:38 ; elapsed = 00:01:45 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 220f92eb0
+
+Time (s): cpu = 00:03:38 ; elapsed = 00:01:45 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 5 Delay and Skew Optimization | Checksum: 220f92eb0
+
+Time (s): cpu = 00:03:38 ; elapsed = 00:01:45 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 218136948
+
+Time (s): cpu = 00:03:44 ; elapsed = 00:01:47 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.028  | TNS=0.000  | WHS=-0.021 | THS=-0.021 |
+
+Phase 6.1 Hold Fix Iter | Checksum: 1769f2b39
+
+Time (s): cpu = 00:03:44 ; elapsed = 00:01:48 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 6 Post Hold Fix | Checksum: 1af32b812
+
+Time (s): cpu = 00:03:45 ; elapsed = 00:01:48 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 5.85523 %
+  Global Horizontal Routing Utilization  = 7.70199 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 170ad57a1
+
+Time (s): cpu = 00:03:45 ; elapsed = 00:01:48 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 170ad57a1
+
+Time (s): cpu = 00:03:46 ; elapsed = 00:01:48 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 1cead62c2
+
+Time (s): cpu = 00:03:49 ; elapsed = 00:01:52 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Phase 10 Post Router Timing
+
+Phase 10.1 Update Timing
+Phase 10.1 Update Timing | Checksum: 24fc64dfd
+
+Time (s): cpu = 00:03:54 ; elapsed = 00:01:54 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.028  | TNS=0.000  | WHS=0.050  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 24fc64dfd
+
+Time (s): cpu = 00:03:54 ; elapsed = 00:01:54 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:03:54 ; elapsed = 00:01:54 . Memory (MB): peak = 1770.063 ; gain = 0.000
+
+Routing Is Done.
+99 Infos, 26 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:04:07 ; elapsed = 00:02:00 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:19 ; elapsed = 00:00:07 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:24 ; elapsed = 00:00:09 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Command: report_drc -file zynq_soc_wrapper_drc_routed.rpt -pb zynq_soc_wrapper_drc_routed.pb -rpx zynq_soc_wrapper_drc_routed.rpx
+INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [Coretcl 2-168] The results of DRC are in file Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_drc_routed.rpt.
+report_drc completed successfully
+report_drc: Time (s): cpu = 00:00:25 ; elapsed = 00:00:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Command: report_methodology -file zynq_soc_wrapper_methodology_drc_routed.rpt -rpx zynq_soc_wrapper_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 4 threads
+INFO: [Coretcl 2-1520] The results of Report Methodology are in file Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_methodology_drc_routed.rpt.
+report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:58 ; elapsed = 00:00:18 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Command: report_power -file zynq_soc_wrapper_power_routed.rpt -pb zynq_soc_wrapper_power_summary_routed.pb -rpx zynq_soc_wrapper_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
+Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
+107 Infos, 27 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:26 ; elapsed = 00:00:11 . Memory (MB): peak = 1787.570 ; gain = 17.508
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+INFO: [Common 17-206] Exiting Vivado at Thu May  2 22:52:43 2019...

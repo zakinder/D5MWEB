@@ -107,12 +107,6 @@ type blurchannel is record
     green  : std_logic_vector(11 downto 0);
     blue   : std_logic_vector(11 downto 0);
 end record;
-type intersectPoints is record
-    lft  : unsigned(15 downto 0);
-    rht  : unsigned(15 downto 0);
-    top  : unsigned(15 downto 0);
-    bot  : unsigned(15 downto 0);
-end record;
 type intersectPoint is record
     lft  : integer;
     rht  : integer;

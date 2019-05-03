@@ -1617,6 +1617,10 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>src/pixelCord.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/raw2rgb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -1786,6 +1790,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>src/pointOfInterest.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/pixelCord.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1959,10 +1967,6 @@
         <spirit:name>tb/videoProcess_tb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
-      <spirit:file>
-        <spirit:name>z:/zedboard/doc/ipmanager/managed_ip_project/managed_ip_project.tmp/vfp_v1_0_v1_0_project/videoProcess_tb_behav.wcfg</spirit:name>
-        <spirit:fileType>unknown</spirit:fileType>
-      </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
   <spirit:description>VFP IP</spirit:description>
@@ -2134,7 +2138,7 @@
       </xilinx:taxonomies>
       <xilinx:displayName>VFP_v1.0</xilinx:displayName>
       <xilinx:coreRevision>33</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-05-02T06:22:14Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2019-05-03T04:54:37Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="xilinx.com:user:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
       </xilinx:tags>

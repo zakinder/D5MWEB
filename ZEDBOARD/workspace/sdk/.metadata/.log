@@ -1,65 +1,65 @@
-!SESSION 2019-05-01 23:53:21.432 -----------------------------------------------
+!SESSION 2019-05-02 23:07:03.532 -----------------------------------------------
 eclipse.buildId=2017.2
 java.version=1.8.0_112
 java.vendor=Oracle Corporation
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data Z:/ZEDBOARD/workspace/sdk
 
-!ENTRY org.eclipse.ui 2 0 2019-05-01 23:53:53.290
+!ENTRY org.eclipse.ui 2 0 2019-05-02 23:07:36.450
 !MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
-!SUBENTRY 1 org.eclipse.ui 2 0 2019-05-01 23:53:53.290
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-05-02 23:07:36.450
 !MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
 
-!ENTRY org.eclipse.ui 2 0 2019-05-01 23:53:54.309
+!ENTRY org.eclipse.ui 2 0 2019-05-02 23:07:37.541
 !MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
-!SUBENTRY 1 org.eclipse.ui 2 0 2019-05-01 23:53:54.309
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-05-02 23:07:37.541
 !MESSAGE Commands should really have a category: plug-in='com.xilinx.sdk.appwiz', id='com.xilinx.sdk.app.commands.ChangeAtfBuiltReferences', categoryId='com.xilinx.sdk.app.commands.category'
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:05.934
-!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-3
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:47.300
+!MESSAGE XSCT Command: [::hsi::utils::init_repo], Thread: Worker-6
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:05.935
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:47.300
 !MESSAGE XSCT Command: [set sdk::sdk_chan tcfchan#0], Thread: Thread-14
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:06.670
-!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-3
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:48.009
+!MESSAGE XSCT command with result: [::hsi::utils::init_repo], Result: [null, ]. Thread: Worker-6
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:06.671
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:48.010
 !MESSAGE XSCT command with result: [set sdk::sdk_chan tcfchan#0], Result: [null, tcfchan#0]. Thread: Thread-14
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:06.672
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:48.011
 !MESSAGE XSCT Command: [setws Z:/ZEDBOARD/workspace/sdk], Thread: Thread-14
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:06.674
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:48.013
 !MESSAGE XSCT command with result: [setws Z:/ZEDBOARD/workspace/sdk], Result: [null, ]. Thread: Thread-14
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:06.736
-!MESSAGE XSCT Command: [::hsi::utils::openhw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Thread: Worker-6
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:48.066
+!MESSAGE XSCT Command: [::hsi::utils::openhw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:06.881
-!MESSAGE XSCT Command: [::hsi::utils::add_repo "Z:/ZEDBOARD/sw_lib"], Thread: Worker-5
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:48.269
+!MESSAGE XSCT Command: [::hsi::utils::add_repo "Z:/ZEDBOARD/sw_lib"], Thread: Worker-6
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.206
-!MESSAGE XSCT command with result: [::hsi::utils::openhw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-6
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.155
+!MESSAGE XSCT command with result: [::hsi::utils::openhw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Result: [null, ]. Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.207
-!MESSAGE XSCT command with result: [::hsi::utils::add_repo "Z:/ZEDBOARD/sw_lib"], Result: [null, ]. Thread: Worker-5
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.156
+!MESSAGE XSCT command with result: [::hsi::utils::add_repo "Z:/ZEDBOARD/sw_lib"], Result: [null, ]. Thread: Worker-6
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.218
-!MESSAGE XSCT Command: [::hsi::utils::get_design_properties -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Thread: Worker-6
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.169
+!MESSAGE XSCT Command: [::hsi::utils::get_design_properties -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.221
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.174
 !MESSAGE XSCT command with result: [::hsi::utils::get_design_properties -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Result: [null, {"device": "7z020",
 "family": "zynq",
-"timestamp": "Wed May  1 23:25:29 2019",
+"timestamp": "Thu May  2 22:27:17 2019",
 "vivado_version": "2017.2",
 "part": "xc7z020clg484-1",
-}]. Thread: Worker-6
+}]. Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.224
-!MESSAGE XSCT Command: [::hsi::utils::get_all_periphs -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Thread: Worker-6
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.188
+!MESSAGE XSCT Command: [::hsi::utils::get_all_periphs -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.249
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.214
 !MESSAGE XSCT command with result: [::hsi::utils::get_all_periphs -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf], Result: [null, {"CLK_GEN_148MHZ": {"hier_name": "CLK_GEN_148MHZ",
 "type": "clk_wiz",
 "version": "5.4",
@@ -345,12 +345,12 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data Z:/ZEDBOARD/work
 "version": "1.00.a",
 "ip_type": "PERIPHERAL",
 },
-}]. Thread: Worker-6
+}]. Thread: Worker-5
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.395
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.387
 !MESSAGE XSCT Command: [::hsi::utils::get_addr_ranges -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.424
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.420
 !MESSAGE XSCT command with result: [::hsi::utils::get_addr_ranges -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"LEDS_8BITS_S_AXI": {"name": "LEDS_8BITS",
 "base": "0x41200000",
 "high": "0x4120FFFF",
@@ -793,10 +793,10 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data Z:/ZEDBOARD/work
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.467
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.475
 !MESSAGE XSCT Command: [::hsi::utils::get_all_register_data -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf ps7_cortexa9_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.648
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.665
 !MESSAGE XSCT command with result: [::hsi::utils::get_all_register_data -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf ps7_cortexa9_0], Result: [null, {"D5M_OUTPUT_D5M_IIC": {"GIE": {"description": "Global Interrupt Enable Register",
 "address_offset": "0x1c",
 "access": "read-write",
@@ -4325,10 +4325,10 @@ Note: Frame Delay must be less than or equal to Frame Buffers or an undefined re
 "ps7_xadc_0": {},
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.661
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.680
 !MESSAGE XSCT Command: [::hsi::utils::get_all_register_data -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf ps7_cortexa9_1], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-01 23:54:10.831
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:07:51.860
 !MESSAGE XSCT command with result: [::hsi::utils::get_all_register_data -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf ps7_cortexa9_1], Result: [null, {"D5M_OUTPUT_D5M_IIC": {"GIE": {"description": "Global Interrupt Enable Register",
 "address_offset": "0x1c",
 "access": "read-write",
@@ -7857,7 +7857,7 @@ Note: Frame Delay must be less than or equal to Frame Buffers or an undefined re
 "ps7_xadc_0": {},
 }]. Thread: main
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:35.375
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:01.397
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7884,7 +7884,7 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:35.509
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:01.572
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7895,7 +7895,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:35.520
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:01.585
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7906,7 +7906,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:35.908
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:02.041
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7917,7 +7917,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:35.916
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:02.057
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7928,7 +7928,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:36.261
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:02.467
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7939,7 +7939,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:36.272
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:02.482
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7950,7 +7950,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:36.653
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:02.895
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7961,7 +7961,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:36.661
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:02.902
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7972,7 +7972,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:37.035
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:03.318
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7983,7 +7983,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:37.046
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:03.330
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -7994,7 +7994,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:37.401
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:03.761
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8005,7 +8005,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:37.412
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:03.771
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8016,7 +8016,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:37.768
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:04.212
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8027,7 +8027,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:37.775
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:04.222
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8038,7 +8038,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:38.219
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:04.661
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8049,7 +8049,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:38.235
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:04.672
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8060,7 +8060,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:38.640
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:05.092
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8071,7 +8071,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:38.650
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:05.100
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8082,7 +8082,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:39.054
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:05.525
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8093,7 +8093,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:39.066
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:05.536
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8104,7 +8104,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:39.453
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:05.966
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8115,7 +8115,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:39.461
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:05.975
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8126,7 +8126,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:39.834
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:06.407
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8137,7 +8137,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:39.840
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:06.416
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8148,7 +8148,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:40.236
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:06.870
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8159,7 +8159,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:40.242
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:06.884
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8170,7 +8170,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:40.627
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:07.344
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8181,7 +8181,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:40.635
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:07.354
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8192,7 +8192,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:41.007
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:07.779
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8203,7 +8203,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:41.013
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:07.787
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8214,7 +8214,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:41.407
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:08.286
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8225,7 +8225,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:41.417
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:08.295
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8236,7 +8236,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:41.750
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:08.756
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8247,7 +8247,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:41.758
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:08.770
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8258,7 +8258,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:42.756
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:10.153
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8269,7 +8269,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:42.767
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:10.160
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8280,7 +8280,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:43.157
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:10.580
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8291,7 +8291,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:43.163
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:10.590
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8302,7 +8302,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:43.565
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:11.089
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8313,7 +8313,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:43.571
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:11.095
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8324,7 +8324,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:43.954
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:11.543
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8335,7 +8335,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:43.961
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:11.551
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8346,7 +8346,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:44.415
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:12.181
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8357,7 +8357,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:44.427
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:12.191
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8368,7 +8368,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:44.850
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:12.834
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8379,7 +8379,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:44.857
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:12.843
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8390,7 +8390,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:45.223
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:13.274
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8401,7 +8401,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:45.234
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:13.284
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8412,7 +8412,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:45.512
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:13.644
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8423,7 +8423,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:47.425
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:15.592
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8434,7 +8434,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:47.433
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:15.602
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8445,7 +8445,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:47.721
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:15.963
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8456,7 +8456,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:48.121
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:16.388
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8467,7 +8467,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:48.129
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:16.397
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8478,7 +8478,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:48.402
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:16.754
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8489,7 +8489,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:48.482
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:16.854
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8500,7 +8500,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:48.492
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:16.863
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8511,7 +8511,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:48.784
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:17.253
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8522,7 +8522,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:48.945
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:17.401
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8533,7 +8533,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:48.953
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:17.409
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8544,7 +8544,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:49.233
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:17.789
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8555,7 +8555,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:50.771
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:19.415
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8566,7 +8566,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:50.780
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:19.424
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8577,7 +8577,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:51.081
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:19.782
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8588,7 +8588,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:52.594
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:21.314
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8599,7 +8599,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:52.601
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:21.322
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8610,7 +8610,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:52.884
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:21.678
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8621,7 +8621,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:54.942
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:23.708
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8632,7 +8632,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:54.949
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:23.716
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8643,7 +8643,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:55.221
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:24.098
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8654,7 +8654,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:56.517
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:25.455
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8665,7 +8665,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:56.524
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:25.466
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8676,7 +8676,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:56.817
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:25.832
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8687,7 +8687,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:58.621
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:27.592
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8698,7 +8698,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:58.627
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:27.603
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8709,7 +8709,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:56:58.908
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:27.990
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8720,7 +8720,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:01.729
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:30.776
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8731,7 +8731,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:01.738
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:30.782
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8742,7 +8742,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:02.021
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:31.186
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8753,7 +8753,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:03.859
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:32.903
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8764,7 +8764,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:03.865
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:32.911
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8775,7 +8775,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:04.142
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:33.271
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8786,7 +8786,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:04.648
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:33.770
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8797,7 +8797,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:04.649
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:33.771
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8808,7 +8808,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:04.650
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:33.771
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8819,7 +8819,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:04.651
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:33.772
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8830,7 +8830,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:04.654
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:33.775
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8841,7 +8841,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:04.655
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:33.776
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8852,7 +8852,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:04.656
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:33.777
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8863,7 +8863,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:05.720
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:34.833
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8874,7 +8874,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:05.730
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:34.844
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8885,7 +8885,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:06.021
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:35.195
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8896,7 +8896,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:07.051
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:36.164
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8907,7 +8907,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:07.060
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:36.174
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8918,7 +8918,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:07.348
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:36.515
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8929,7 +8929,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:08.388
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:37.450
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8940,7 +8940,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:08.398
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:37.462
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8951,7 +8951,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:08.751
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:37.844
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8962,7 +8962,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.366
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:39.426
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8973,7 +8973,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.376
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:39.438
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8984,7 +8984,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.666
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:39.791
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -8995,7 +8995,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.910
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.024
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9006,7 +9006,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.914
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.026
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9017,7 +9017,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.915
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.028
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9028,7 +9028,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.916
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.029
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9039,7 +9039,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.917
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.030
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9050,7 +9050,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.918
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.031
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9061,7 +9061,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:10.919
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.032
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9072,7 +9072,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:11.264
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.377
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9083,7 +9083,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:11.282
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.384
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9094,7 +9094,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:11.654
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:40.800
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9105,7 +9105,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:18.432
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:47.905
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9116,7 +9116,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:18.438
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:47.916
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9127,7 +9127,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:18.707
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:48.293
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9138,7 +9138,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:20.613
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.206
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9149,7 +9149,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:20.623
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.216
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9160,7 +9160,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:20.896
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.599
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9171,7 +9171,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.138
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.852
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9182,7 +9182,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.141
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.856
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9193,7 +9193,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.143
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.857
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9204,7 +9204,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.143
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.858
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9215,7 +9215,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.144
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.859
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9226,7 +9226,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.145
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.859
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9237,7 +9237,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.145
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:50.860
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9248,7 +9248,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.473
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:51.226
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9259,7 +9259,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.480
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:51.233
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9270,7 +9270,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:21.772
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:51.620
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9281,7 +9281,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:23.598
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:53.507
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9292,7 +9292,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:23.605
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:53.515
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9303,7 +9303,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:23.893
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:53.969
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9314,7 +9314,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:25.548
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:55.950
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9325,7 +9325,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:25.557
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:55.960
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9336,7 +9336,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:26.125
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:56.538
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9347,7 +9347,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:26.257
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:56.856
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9358,7 +9358,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:26.265
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:56.866
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9369,7 +9369,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:26.599
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:57.322
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9380,7 +9380,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:26.627
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:13:57.364
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9405,19 +9405,19 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.cdt.core 1 0 2019-05-01 23:57:29.066
-!MESSAGE Indexed 'fsbl' (11 sources, 58 headers) in 1.82 sec: 1,602 declarations; 7,472 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-02 23:14:00.613
+!MESSAGE Indexed 'fsbl' (11 sources, 58 headers) in 1.84 sec: 1,602 declarations; 7,472 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
 
-!ENTRY org.eclipse.cdt.core 1 0 2019-05-01 23:57:32.181
-!MESSAGE Indexed 'fsbl_bsp' (141 sources, 165 headers) in 3.1 sec: 8,626 declarations; 44,856 references; 71 unresolved inclusions; 8 syntax errors; 64 unresolved names (0.12%)
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-02 23:14:04.110
+!MESSAGE Indexed 'fsbl_bsp' (141 sources, 165 headers) in 3.49 sec: 8,626 declarations; 44,856 references; 71 unresolved inclusions; 8 syntax errors; 64 unresolved names (0.12%)
 
-!ENTRY org.eclipse.cdt.core 1 0 2019-05-01 23:57:33.512
-!MESSAGE Indexed 'vfpWebCamera' (30 sources, 128 headers) in 1.32 sec: 5,963 declarations; 14,288 references; 0 unresolved inclusions; 4 syntax errors; 0 unresolved names (0%)
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-02 23:14:06.433
+!MESSAGE Indexed 'vfpWebCamera' (30 sources, 128 headers) in 2.22 sec: 5,963 declarations; 14,288 references; 0 unresolved inclusions; 4 syntax errors; 0 unresolved names (0%)
 
-!ENTRY org.eclipse.cdt.core 1 0 2019-05-01 23:57:37.527
-!MESSAGE Indexed 'vfpWebCamera_bsp' (206 sources, 289 headers) in 4 sec: 13,135 declarations; 69,667 references; 132 unresolved inclusions; 14 syntax errors; 390 unresolved names (0.47%)
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-02 23:14:11.211
+!MESSAGE Indexed 'vfpWebCamera_bsp' (206 sources, 289 headers) in 4.77 sec: 13,135 declarations; 69,667 references; 132 unresolved inclusions; 14 syntax errors; 390 unresolved names (0.47%)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:46.565
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:23.894
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9440,12 +9440,11 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
 	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
 	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
-	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:487)
-	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:399)
-	at org.eclipse.ui.actions.GlobalBuildAction$1.run(GlobalBuildAction.java:177)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:46.690
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:24.079
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9456,7 +9455,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:46.706
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:24.092
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9467,7 +9466,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:46.987
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:24.382
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9478,7 +9477,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:47.003
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:24.392
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9489,7 +9488,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:47.230
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:24.659
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9500,7 +9499,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:47.237
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:24.668
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9511,7 +9510,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:47.484
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:24.940
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9522,7 +9521,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:47.491
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:24.948
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9533,7 +9532,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:47.743
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:25.237
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9544,7 +9543,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:47.750
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:25.251
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9555,7 +9554,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:47.999
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:25.533
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9566,7 +9565,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:48.008
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:25.540
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9577,7 +9576,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:48.284
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:25.831
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9588,7 +9587,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:48.293
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:25.838
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9599,7 +9598,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:48.569
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:26.126
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9610,7 +9609,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:48.578
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:26.134
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9621,7 +9620,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:48.820
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:26.416
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9632,7 +9631,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:48.820
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:26.426
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9643,7 +9642,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:49.101
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:26.722
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9654,7 +9653,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:49.101
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:26.729
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9665,7 +9664,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:49.460
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:27.239
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9676,7 +9675,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:49.476
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:27.249
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9687,7 +9686,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:50.376
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:28.410
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9698,7 +9697,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:50.382
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:28.421
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9709,7 +9708,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:50.662
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:28.747
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9720,7 +9719,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:50.669
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:28.758
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9731,7 +9730,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:50.933
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:29.217
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9742,7 +9741,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:50.942
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:29.226
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9753,7 +9752,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:51.175
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:29.522
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9764,7 +9763,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:51.175
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:29.532
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9775,7 +9774,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:51.440
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:29.873
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9786,7 +9785,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:51.456
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:29.885
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9797,7 +9796,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:51.737
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:30.190
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9808,7 +9807,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:51.737
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:30.211
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9819,7 +9818,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:52.018
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:30.475
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9830,7 +9829,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:52.034
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:30.481
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9841,7 +9840,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:52.692
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:31.226
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9852,7 +9851,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:52.698
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:31.237
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9863,7 +9862,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:52.930
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:31.529
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9874,7 +9873,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:52.936
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:31.543
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9885,7 +9884,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:53.175
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:31.834
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9896,7 +9895,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:53.185
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:31.845
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9907,7 +9906,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:53.417
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:32.150
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9918,7 +9917,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:53.426
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:32.158
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9929,7 +9928,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:53.659
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:32.439
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9940,7 +9939,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:53.659
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:32.449
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9951,7 +9950,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:54.049
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:32.948
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9962,7 +9961,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:54.065
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:32.957
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9973,7 +9972,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:54.409
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:33.533
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9984,7 +9983,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:54.409
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:33.545
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -9995,7 +9994,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:54.581
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:33.757
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10006,7 +10005,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:56.399
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:35.943
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10017,7 +10016,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:56.399
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:35.951
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10028,7 +10027,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:56.586
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:36.154
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10039,7 +10038,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:56.977
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:36.566
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10050,7 +10049,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:56.993
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:36.575
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10061,7 +10060,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:57.174
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:36.785
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10072,7 +10071,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:57.259
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:36.881
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10083,7 +10082,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:57.265
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:36.888
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10094,7 +10093,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:57.437
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:37.101
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10105,7 +10104,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:57.597
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:37.290
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10116,7 +10115,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:57.608
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:37.299
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10127,7 +10126,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:57.797
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:37.598
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10138,7 +10137,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:59.383
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:39.326
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10149,7 +10148,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:59.383
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:39.339
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10160,7 +10159,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:57:59.602
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:39.551
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10171,7 +10170,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:01.154
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:41.302
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10182,7 +10181,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:01.160
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:41.310
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10193,7 +10192,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:01.316
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:41.545
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10204,7 +10203,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:03.334
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:43.882
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10215,7 +10214,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:03.341
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:43.889
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10226,7 +10225,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:03.507
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:44.070
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10237,7 +10236,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:04.814
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:45.423
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10248,7 +10247,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:04.822
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:45.430
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10259,7 +10258,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:05.000
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:45.619
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10270,7 +10269,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:06.738
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:47.624
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10281,7 +10280,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:06.738
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:47.634
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10292,7 +10291,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:06.910
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:47.848
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10303,7 +10302,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:09.789
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:50.853
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10314,7 +10313,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:09.799
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:50.860
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10325,7 +10324,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:10.365
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:51.675
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10336,7 +10335,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:10.856
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:52.222
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10347,7 +10346,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:10.863
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:52.229
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10358,7 +10357,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:11.044
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:52.436
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10369,7 +10368,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:12.715
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:54.405
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10380,7 +10379,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:12.724
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:54.412
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10391,7 +10390,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:12.892
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:54.586
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10402,7 +10401,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:13.362
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:55.074
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10413,7 +10412,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:13.363
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:55.075
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10424,7 +10423,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:13.363
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:55.076
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10435,7 +10434,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:13.364
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:55.076
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10446,7 +10445,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:13.365
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:55.078
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10457,7 +10456,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:13.367
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:55.079
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10468,7 +10467,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:13.367
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:55.079
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10479,7 +10478,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:14.409
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:56.254
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10490,7 +10489,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:14.409
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:56.261
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10501,7 +10500,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:14.596
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:56.451
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10512,7 +10511,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:15.591
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:57.426
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10523,7 +10522,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:15.597
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:57.433
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10534,7 +10533,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:15.789
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:57.621
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10545,7 +10544,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:16.722
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:58.599
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10556,7 +10555,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:16.737
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:58.608
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10567,7 +10566,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:16.909
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:14:58.774
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10578,7 +10577,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.431
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.414
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10589,7 +10588,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.440
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.422
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10600,7 +10599,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.604
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.588
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10611,7 +10610,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.832
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.939
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10622,7 +10621,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.832
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.941
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10633,7 +10632,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.832
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.943
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10644,7 +10643,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.832
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.943
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10655,7 +10654,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.832
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.944
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10666,7 +10665,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.832
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.945
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10677,7 +10676,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:18.832
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:00.945
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10688,7 +10687,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:19.175
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:01.306
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10699,7 +10698,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:19.175
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:01.313
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10710,7 +10709,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:19.425
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:01.573
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10721,7 +10720,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:26.132
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:08.579
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10732,7 +10731,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:26.140
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:08.586
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10743,7 +10742,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:26.316
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:08.775
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10754,7 +10753,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.104
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:10.699
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10765,7 +10764,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.113
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:10.705
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10776,7 +10775,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.289
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:10.911
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10787,7 +10786,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.520
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.146
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10798,7 +10797,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.521
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.147
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10809,7 +10808,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.522
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.148
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10820,7 +10819,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.522
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.149
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10831,7 +10830,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.523
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.149
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10842,7 +10841,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.523
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.150
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10853,7 +10852,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.524
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.150
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10864,7 +10863,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.851
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.506
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10875,7 +10874,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:28.867
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.515
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10886,7 +10885,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:29.023
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:11.806
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10897,7 +10896,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:30.777
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:13.716
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10908,7 +10907,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:30.783
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:13.724
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10919,7 +10918,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:30.957
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:13.900
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10930,7 +10929,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:32.590
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:15.794
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10941,7 +10940,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:32.596
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:15.801
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10952,7 +10951,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:32.776
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:15.969
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10963,7 +10962,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:33.152
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:16.513
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10974,7 +10973,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:33.158
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:16.522
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10985,7 +10984,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:33.552
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:17.154
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -10996,7 +10995,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:33.800
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:17.465
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -11007,7 +11006,7 @@ java.lang.NullPointerException
 	at java.io.OutputStream.write(OutputStream.java:75)
 	at org.eclipse.cdt.internal.core.ProcessClosure$ReaderThread.run(ProcessClosure.java:57)
 
-!ENTRY org.eclipse.cdt.core 4 0 2019-05-01 23:58:33.862
+!ENTRY org.eclipse.cdt.core 4 0 2019-05-02 23:15:17.519
 !MESSAGE Error
 !STACK 0
 java.lang.NullPointerException
@@ -11028,57 +11027,77 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
 	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
 	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
-	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:487)
-	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:399)
-	at org.eclipse.ui.actions.GlobalBuildAction$1.run(GlobalBuildAction.java:177)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:144)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:235)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:44.441
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:20.169
 !MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:44.457
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:20.182
 !MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:44.457
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:20.182
 !MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:44.457
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:20.186
 !MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "6.3",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:44.457
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:20.187
 !MESSAGE XSCT Command: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:44.457
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:20.188
 !MESSAGE XSCT command with result: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.118
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:23.872
 !MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.127
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:23.883
 !MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.128
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:23.883
 !MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.131
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:23.887
 !MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "6.3",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.246
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:23.887
+!MESSAGE XSCT Command: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:23.890
+!MESSAGE XSCT command with result: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.488
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.497
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.498
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.501
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "6.3",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.633
 !MESSAGE XSCT Command: [::hsi::utils::lg_init Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.249
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.637
 !MESSAGE XSCT command with result: [::hsi::utils::lg_init Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, lg1]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.250
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.638
 !MESSAGE XSCT Command: [::hsi::utils::lg_get_memories -json], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.253
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.641
 !MESSAGE XSCT command with result: [::hsi::utils::lg_get_memories -json], Result: [null, {"ps7_ddr_0": {"base_addr": "0x100000",
 "size": "0x1FF00000",
 },
@@ -11093,150 +11112,237 @@ java.lang.NullPointerException
 },
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.258
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.647
 !MESSAGE XSCT Command: [::hsi::utils::lg_get_sections -json], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:46.268
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:25.662
 !MESSAGE XSCT command with result: [::hsi::utils::lg_get_sections -json], Result: [null, {"code_sections": ".text:0x0::ps7_ddr_0:ps7_qspi_linear_0:ps7_ram_0:ps7_ram_1",
 "data_sections": ".rodata:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .rodata1:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .sdata2:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .sbss2:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .data:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .data1:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .fixup:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .sdata:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .sbss:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1 .bss:0x0::ps7_ddr_0:ps7_ram_0:ps7_ram_1",
 "stack_section": "stack:0x2000::ps7_ddr_0:ps7_ram_0:ps7_ram_1",
 "heap_section": "heap:0x2000::ps7_ddr_0:ps7_ram_0:ps7_ram_1",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.349
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.274
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .text -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.351
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.279
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .text -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.351
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.280
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .rodata -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.353
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.305
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .rodata -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.354
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.306
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .rodata1 -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.356
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.309
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .rodata1 -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.356
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.309
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .sdata2 -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.358
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.313
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .sdata2 -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.359
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.314
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .sbss2 -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.360
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.317
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .sbss2 -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.361
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.318
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .data -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.362
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.323
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .data -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.363
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.324
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .data1 -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.365
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.327
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .data1 -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.365
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.328
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .fixup -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.367
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.332
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .fixup -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.368
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.333
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .sdata -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.370
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.335
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .sdata -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.370
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.336
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .sbss -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.372
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.339
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .sbss -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.372
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.339
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec .bss -mem ps7_ddr_0], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.374
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.342
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec .bss -mem ps7_ddr_0], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.375
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.342
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec heap -mem ps7_ddr_0 -size 8192], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.378
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.345
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec heap -mem ps7_ddr_0 -size 8192], Result: [null, 8192]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.378
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.346
 !MESSAGE XSCT Command: [::hsi::utils::lg_set_section_memory -sec stack -mem ps7_ddr_0 -size 8192], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.380
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.348
 !MESSAGE XSCT command with result: [::hsi::utils::lg_set_section_memory -sec stack -mem ps7_ddr_0 -size 8192], Result: [null, 8192]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.381
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.350
 !MESSAGE XSCT Command: [::hsi::utils::lg_generate Z:/ZEDBOARD/workspace/sdk/vfpWebCamera/src/lscript.ld], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.384
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.354
 !MESSAGE XSCT command with result: [::hsi::utils::lg_generate Z:/ZEDBOARD/workspace/sdk/vfpWebCamera/src/lscript.ld], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.495
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.514
 !MESSAGE XSCT Command: [::hsi::utils::lg_delete], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:00:55.496
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:37:36.516
 !MESSAGE XSCT command with result: [::hsi::utils::lg_delete], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:26.609
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:42:59.391
 !MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:26.612
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:42:59.395
 !MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:26.612
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:42:59.395
 !MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:26.616
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:42:59.399
 !MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "6.3",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:26.617
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:42:59.399
 !MESSAGE XSCT Command: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:26.618
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:42:59.401
 !MESSAGE XSCT command with result: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:27.883
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:02.513
 !MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:27.892
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:02.523
 !MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:27.892
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:02.523
 !MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:27.895
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:02.526
 !MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
 "osname": "standalone",
 "osver": "6.3",
 }]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:27.896
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:02.527
 !MESSAGE XSCT Command: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
 
-!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 00:01:27.898
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:02.529
 !MESSAGE XSCT command with result: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, ]. Thread: main
 
-!ENTRY com.xilinx.sdk.utils 1 0 2019-05-02 00:01:34.183
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:04.586
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:04.595
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:04.596
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:04.599
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "6.3",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:04.599
+!MESSAGE XSCT Command: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:04.601
+!MESSAGE XSCT command with result: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 1 0 2019-05-02 23:43:08.891
 !MESSAGE Updating toolusage
 
-!ENTRY com.xilinx.sdk.utils 1 0 2019-05-02 00:01:42.126
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:23.179
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:23.188
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:23.188
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:23.191
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "6.3",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:23.192
+!MESSAGE XSCT Command: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:23.194
+!MESSAGE XSCT command with result: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:28.282
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:28.291
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:28.291
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:28.294
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "6.3",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:28.295
+!MESSAGE XSCT Command: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:28.296
+!MESSAGE XSCT command with result: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:29.643
+!MESSAGE XSCT Command: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:29.652
+!MESSAGE XSCT command with result: [ ::hsi::utils::set_current_hw_sw Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss ], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:29.653
+!MESSAGE XSCT Command: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:29.655
+!MESSAGE XSCT command with result: [::hsi::utils::get_hw_sw_details -json Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/system.hdf Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, {"procname": "ps7_cortexa9_0",
+"osname": "standalone",
+"osver": "6.3",
+}]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:29.656
+!MESSAGE XSCT Command: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Thread: main
+
+!ENTRY com.xilinx.sdk.utils 0 0 2019-05-02 23:43:29.657
+!MESSAGE XSCT command with result: [::hsi::utils::closesw Z:/ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/system.mss], Result: [null, ]. Thread: main
+
+!ENTRY com.xilinx.sdk.utils 1 0 2019-05-02 23:43:31.926
+!MESSAGE Updating toolusage
+
+!ENTRY com.xilinx.sdk.utils 1 0 2019-05-02 23:43:38.270
 !MESSAGE Executed Webtalk command

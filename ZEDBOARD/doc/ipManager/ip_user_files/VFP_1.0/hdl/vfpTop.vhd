@@ -1,4 +1,4 @@
---05012019 [05-01-2019]
+--05022019 [05-02-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -7,7 +7,7 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity VFP_v1_0 is
 generic (
-    revision_number             : std_logic_vector(31 downto 0) := x"05012019";
+    revision_number             : std_logic_vector(31 downto 0) := x"05022019";
     C_rgb_m_axis_TDATA_WIDTH    : integer := 16;
     C_rgb_m_axis_START_COUNT    : integer := 32;
     C_rgb_s_axis_TDATA_WIDTH    : integer := 16;
@@ -33,10 +33,10 @@ port (
     --tx channel                
     rgb_m_axis_aclk             : in std_logic;
     rgb_m_axis_aresetn          : in std_logic;
+    rgb_m_axis_tready           : in std_logic;
     rgb_m_axis_tvalid           : out std_logic;
     rgb_m_axis_tlast            : out std_logic;
     rgb_m_axis_tuser            : out std_logic;
-    rgb_m_axis_tready           : in std_logic;
     rgb_m_axis_tdata            : out std_logic_vector(C_rgb_m_axis_TDATA_WIDTH-1 downto 0);
     --rx channel                
     rgb_s_axis_aclk             : in std_logic;
@@ -97,10 +97,10 @@ architecture arch_imp of VFP_v1_0 is
     signal cChannel         : std_logic_vector(vfpconfig_wdata'range):= (others => '0');
     signal fifoStatus       : std_logic_vector(vfpconfig_wdata'range);
     signal gridLockDatao    : std_logic_vector(vfpconfig_wdata'range);
+    signal threshold        : std_logic_vector(15 downto 0);
     signal seconds          : std_logic_vector(5 downto 0);
     signal minutes          : std_logic_vector(5 downto 0);
     signal hours            : std_logic_vector(4 downto 0);
-    signal threshold        : std_logic_vector(15 downto 0);
     signal dCord            : coord;
     signal kls              : coefficient;
     signal als              : coefficient;
@@ -111,10 +111,10 @@ architecture arch_imp of VFP_v1_0 is
     signal rawTp            : rTp;
     signal rgbSet           : rRgb;
     signal frameData        : fcolors;
-    signal eof              : std_logic;
-    signal sof              : std_logic;
     signal wrRegs           : mRegs;
     signal rdRegs           : mRegs;
+    signal eof              : std_logic;
+    signal sof              : std_logic;
 begin
 ---------------------------------------------------------------------------------
 -- d5mRawData
@@ -166,23 +166,24 @@ port map(
     clk                 => m_axis_mm2s_aclk,
     rst_l               => m_axis_mm2s_aresetn,
     iRgbSet             => rgbSet,
-    --cpu side in
     iEdgeType           => edgeType,
     iPoiRegion          => pRegion,
     iThreshold          => threshold,
     iKls                => kls,
     iAls                => als,
     iRgbCoord           => rgbCoord,
-    --to cpu
     oFifoStatus         => fifoStatus,
     oGridLockData       => gridLockDatao,
-    --
     oFrameData          => frameData);
 ---------------------------------------------------------------------------------
 -- videoSelect
 ---------------------------------------------------------------------------------
 videoSelectInst: videoSelect
-port map(
+generic map (
+    i_data_width         => i_data_width,
+    b_data_width         => b_data_width,
+    s_data_width         => s_data_width)
+port map (
     clk                 => m_axis_mm2s_aclk,              
     rst_l               => m_axis_mm2s_aresetn,
     videoChannel        => videoChannel,

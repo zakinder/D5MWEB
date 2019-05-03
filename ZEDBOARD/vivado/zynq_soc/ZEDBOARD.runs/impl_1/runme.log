@@ -13,7 +13,7 @@ source zynq_soc_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'z:/ZEDBOARD/ip_lib'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.2/data/ip'.
-add_files: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 334.918 ; gain = 52.176
+add_files: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 335.074 ; gain = 52.168
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.dcp' for cell 'zynq_soc_i/CLK_GEN_148MHZ'
@@ -40,20 +40,20 @@ INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZED
 INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_TIMMING_CONTROLELR_0/zynq_soc_TIMMING_CONTROLELR_0.dcp' for cell 'zynq_soc_i/VIDEO_PIPELINE/TIMMING_CONTROLELR'
 INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VCC_1/zynq_soc_VCC_1.dcp' for cell 'zynq_soc_i/VIDEO_PIPELINE/VCC'
 INFO: [Project 1-454] Reading design checkpoint 'z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0.dcp' for cell 'zynq_soc_i/VIDEO_PIPELINE/VIDEO_OUT'
-INFO: [Netlist 29-17] Analyzing 1980 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 2025 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2017.2
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. zynq_soc_i/CLK_GEN_148MHZ/inst/clkin1_ibufg 
 Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
-WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'zynq_soc_i/CLK_GEN_148MHZ/clk_in1' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved for implementation tool. [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2116-BLACKHOLE/dcp7/zynq_soc_CLK_GEN_148MHZ_0.edf:296]
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'zynq_soc_i/CLK_GEN_148MHZ/clk_in1' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved for implementation tool. [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-3228-BLACKHOLE/dcp7/zynq_soc_CLK_GEN_148MHZ_0.edf:296]
 Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0_board.xdc] for cell 'zynq_soc_i/CLK_GEN_148MHZ/inst'
 Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0_board.xdc] for cell 'zynq_soc_i/CLK_GEN_148MHZ/inst'
 Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc] for cell 'zynq_soc_i/CLK_GEN_148MHZ/inst'
 INFO: [Timing 38-35] Done setting XDC timing constraints. [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc:57]
 INFO: [Timing 38-2] Deriving generated clocks [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc:57]
-get_clocks: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 1268.715 ; gain = 531.090
+get_clocks: Time (s): cpu = 00:00:20 ; elapsed = 00:00:19 . Memory (MB): peak = 1269.020 ; gain = 529.984
 Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc] for cell 'zynq_soc_i/CLK_GEN_148MHZ/inst'
 Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/zynq_soc_DIP_SWITCHES_8BITS_0_board.xdc] for cell 'zynq_soc_i/DIP_SWITCHES_8BITS/U0'
 Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_DIP_SWITCHES_8BITS_0/zynq_soc_DIP_SWITCHES_8BITS_0_board.xdc] for cell 'zynq_soc_i/DIP_SWITCHES_8BITS/U0'
@@ -74,7 +74,7 @@ Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/b
 Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VDMA1_0/zynq_soc_VDMA1_0.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0'
 Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VDMA1_0/zynq_soc_VDMA1_0.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0'
 Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst'
-WARNING: [Vivado 12-2489] -input_jitter contains time 0.389970 which will be rounded to 0.390 to ensure it is an integer multiple of 1 picosecond [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc:27]
+WARNING: [Vivado 12-2489] -input_jitter contains time 0.389970 which will be rounded to 0.390 to ensure it is an integer multiple of 1 picosecond [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc:24]
 Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_PS7_0/zynq_soc_PS7_0.xdc] for cell 'zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7/inst'
 Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_IIC_0/zynq_soc_HDMI_IIC_0_board.xdc] for cell 'zynq_soc_i/HDMI_OUTPUT/HDMI_IIC/U0'
 Finished Parsing XDC File [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_IIC_0/zynq_soc_HDMI_IIC_0_board.xdc] for cell 'zynq_soc_i/HDMI_OUTPUT/HDMI_IIC/U0'
@@ -163,7 +163,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
   RAM32X1D => RAM32X1D (RAMD32, RAMD32): 1 instances
 
-link_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:49 . Memory (MB): peak = 1274.629 ; gain = 939.711
+link_design: Time (s): cpu = 00:00:54 ; elapsed = 00:00:53 . Memory (MB): peak = 1276.035 ; gain = 940.961
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 Command: opt_design
@@ -178,7 +178,7 @@ report_drc (run_mandatory_drcs) completed successfully
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:00.993 . Memory (MB): peak = 1274.629 ; gain = 0.000
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:01 . Memory (MB): peak = 1276.035 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Starting Logic Optimization Task
@@ -186,44 +186,44 @@ Starting Logic Optimization Task
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 3 inverter(s) to 7 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 195774e75
+Phase 1 Retarget | Checksum: 22e1a9c6b
 
-Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 1274.629 ; gain = 0.000
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:04 . Memory (MB): peak = 1276.035 ; gain = 0.000
 INFO: [Opt 31-389] Phase Retarget created 3 cells and removed 938 cells
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
-Phase 2 Constant propagation | Checksum: e8ee9a79
+Phase 2 Constant propagation | Checksum: 1c94a308d
 
-Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 1274.629 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 1276.035 ; gain = 0.000
 INFO: [Opt 31-389] Phase Constant propagation created 513 cells and removed 1414 cells
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: 115207312
+Phase 3 Sweep | Checksum: 10d53c311
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:12 . Memory (MB): peak = 1274.629 ; gain = 0.000
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 1276.035 ; gain = 0.000
 INFO: [Opt 31-389] Phase Sweep created 8 cells and removed 6062 cells
 
 Phase 4 BUFG optimization
 INFO: [Opt 31-194] Inserted BUFG pixclk_IBUF_BUFG_inst to drive 70 load(s) on clock net pixclk_IBUF_BUFG
 INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
-Phase 4 BUFG optimization | Checksum: 12d8265bc
+Phase 4 BUFG optimization | Checksum: 1c78e2fef
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 1274.629 ; gain = 0.000
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 1276.035 ; gain = 0.000
 INFO: [Opt 31-389] Phase BUFG optimization created 1 cells and removed 0 cells
 
 Phase 5 Shift Register Optimization
-Phase 5 Shift Register Optimization | Checksum: 9425e8d9
+Phase 5 Shift Register Optimization | Checksum: 145d63078
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 1274.629 ; gain = 0.000
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 1276.035 ; gain = 0.000
 INFO: [Opt 31-389] Phase Shift Register Optimization created 1 cells and removed 0 cells
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.117 . Memory (MB): peak = 1274.629 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 9425e8d9
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.152 . Memory (MB): peak = 1276.035 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 145d63078
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:15 . Memory (MB): peak = 1274.629 ; gain = 0.000
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:16 . Memory (MB): peak = 1276.035 ; gain = 0.000
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
@@ -239,29 +239,29 @@ Starting PowerOpt Patch Enables Task
 INFO: [Pwropt 34-162] WRITE_MODE attribute of 6 BRAM(s) out of a total of 92 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
 Number of BRAM Ports augmented: 24 newly gated: 128 Total Ports: 184
-Ending PowerOpt Patch Enables Task | Checksum: 11ebc5c22
+Ending PowerOpt Patch Enables Task | Checksum: 1010d4417
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.367 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Ending Power Optimization Task | Checksum: 11ebc5c22
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.401 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 1010d4417
 
-Time (s): cpu = 00:00:32 ; elapsed = 00:00:19 . Memory (MB): peak = 1772.434 ; gain = 497.805
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:21 . Memory (MB): peak = 1770.063 ; gain = 494.027
 60 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:01:00 ; elapsed = 00:00:39 . Memory (MB): peak = 1772.434 ; gain = 497.805
+opt_design: Time (s): cpu = 00:01:07 ; elapsed = 00:00:44 . Memory (MB): peak = 1770.063 ; gain = 494.027
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.129 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.171 . Memory (MB): peak = 1770.063 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_opt.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:13 ; elapsed = 00:00:07 . Memory (MB): peak = 1772.434 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
 Command: report_drc -file zynq_soc_wrapper_drc_opted.rpt
 INFO: [DRC 23-27] Running DRC with 4 threads
 INFO: [Coretcl 2-168] The results of DRC are in file Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_drc_opted.rpt.
 report_drc completed successfully
-report_drc: Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 1772.434 ; gain = 0.000
+report_drc: Time (s): cpu = 00:00:16 ; elapsed = 00:00:07 . Memory (MB): peak = 1770.063 ; gain = 0.000
 INFO: [Chipscope 16-241] No debug cores found in the current design.
 Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
 or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
@@ -277,26 +277,26 @@ Running DRC as a precondition to command place_design
 Command: report_drc (run_mandatory_drcs) for: placer_checks
 INFO: [DRC 23-27] Running DRC with 4 threads
 WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_ENARDEN_cooolgate_en_sig_15) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1_ENARDEN_cooolgate_en_sig_16) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10_ENARDEN_cooolgate_en_sig_21) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11_ENARDEN_cooolgate_en_sig_22) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2_ENARDEN_cooolgate_en_sig_17) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3_ENARDEN_cooolgate_en_sig_18) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4_ENARDEN_cooolgate_en_sig_19) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_ENARDEN_cooolgate_en_sig_15) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1_ENARDEN_cooolgate_en_sig_16) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10_ENARDEN_cooolgate_en_sig_21) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11_ENARDEN_cooolgate_en_sig_22) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2_ENARDEN_cooolgate_en_sig_17) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3_ENARDEN_cooolgate_en_sig_18) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4_ENARDEN_cooolgate_en_sig_19) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 report_drc (run_mandatory_drcs) completed successfully
 INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 21 Warnings
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
@@ -307,13 +307,13 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.271 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 10130f9f4
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.295 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: aa687f70
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.295 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.331 . Memory (MB): peak = 1770.063 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.142 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -322,82 +322,82 @@ WARNING: [Place 30-574] Poor placement for routing between an IO pin and BUFG. T
 	pixclk_IBUF_inst (IBUF.O) is locked to IOB_X0Y42
 	pixclk_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y2
 Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 6f98f569
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 23ba58e0
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:15 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 19c7d7c21
+Phase 1.3 Build Placer Netlist Model | Checksum: 14309bf97
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:20 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:25 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 19c7d7c21
+Phase 1.4 Constrain Clocks/Macros | Checksum: 14309bf97
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:20 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 19c7d7c21
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:25 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 14309bf97
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:20 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:26 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 2 Global Placement
-Phase 2 Global Placement | Checksum: 134a5ee82
+Phase 2 Global Placement | Checksum: 24b0ec4d4
 
-Time (s): cpu = 00:01:43 ; elapsed = 00:00:51 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:01:58 ; elapsed = 00:01:00 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 134a5ee82
+Phase 3.1 Commit Multi Column Macros | Checksum: 24b0ec4d4
 
-Time (s): cpu = 00:01:43 ; elapsed = 00:00:51 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:01 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1a519984f
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 2552025b2
 
-Time (s): cpu = 00:01:54 ; elapsed = 00:00:56 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:14 ; elapsed = 00:01:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 109e9713f
+Phase 3.3 Area Swap Optimization | Checksum: 1e2c9db31
 
-Time (s): cpu = 00:01:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:15 ; elapsed = 00:01:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 1b020deb2
+Phase 3.4 Pipeline Register Optimization | Checksum: 269d9a5bc
 
-Time (s): cpu = 00:01:55 ; elapsed = 00:00:57 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:15 ; elapsed = 00:01:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.5 Timing Path Optimizer
-Phase 3.5 Timing Path Optimizer | Checksum: 1db78cc35
+Phase 3.5 Timing Path Optimizer | Checksum: 2979ad4e8
 
-Time (s): cpu = 00:01:58 ; elapsed = 00:00:58 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:19 ; elapsed = 00:01:10 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.6 Fast Optimization
-Phase 3.6 Fast Optimization | Checksum: 19dd92510
+Phase 3.6 Fast Optimization | Checksum: 2991469f7
 
-Time (s): cpu = 00:02:00 ; elapsed = 00:00:59 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:12 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.7 Small Shape Detail Placement
-Phase 3.7 Small Shape Detail Placement | Checksum: 251ff7b44
+Phase 3.7 Small Shape Detail Placement | Checksum: 1a8165614
 
-Time (s): cpu = 00:02:14 ; elapsed = 00:01:12 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:39 ; elapsed = 00:01:30 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.8 Re-assign LUT pins
-Phase 3.8 Re-assign LUT pins | Checksum: 21e00fdb1
+Phase 3.8 Re-assign LUT pins | Checksum: 1848acc37
 
-Time (s): cpu = 00:02:15 ; elapsed = 00:01:14 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:41 ; elapsed = 00:01:32 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.9 Pipeline Register Optimization
-Phase 3.9 Pipeline Register Optimization | Checksum: 133cd07bf
+Phase 3.9 Pipeline Register Optimization | Checksum: 1e4e0d2b7
 
-Time (s): cpu = 00:02:16 ; elapsed = 00:01:14 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:41 ; elapsed = 00:01:32 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3.10 Fast Optimization
-Phase 3.10 Fast Optimization | Checksum: 1196d2355
+Phase 3.10 Fast Optimization | Checksum: 2228bb6f1
 
-Time (s): cpu = 00:02:24 ; elapsed = 00:01:19 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 1196d2355
+Time (s): cpu = 00:02:50 ; elapsed = 00:01:37 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 2228bb6f1
 
-Time (s): cpu = 00:02:24 ; elapsed = 00:01:19 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:02:50 ; elapsed = 00:01:37 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -405,7 +405,7 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: c0e1071f
+Post Placement Optimization Initialization | Checksum: 188e29643
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 4 CPUs
@@ -413,52 +413,52 @@ INFO: [Place 46-38] Processed net zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessIns
 INFO: [Place 46-38] Processed net zynq_soc_i/PS_VIDEO/D5M/VFP/U0/vfpConfigInst/p_0_in_0, BUFG insertion was skipped due to placement/routing conflicts.
 INFO: [Place 46-38] Processed net zynq_soc_i/VIDEO_PIPELINE/TIMMING_CONTROLELR/U0/U_VIDEO_CTRL/GEN_HAS_IRQ.irq_i_1_n_0, BUFG insertion was skipped due to placement/routing conflicts.
 INFO: [Place 46-41] BUFG insertion identified 3 candidate nets, 0 success, 3 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
-Phase 4.1.1.1 BUFG Insertion | Checksum: c0e1071f
+Phase 4.1.1.1 BUFG Insertion | Checksum: 188e29643
 
-Time (s): cpu = 00:02:41 ; elapsed = 00:01:27 . Memory (MB): peak = 1772.434 ; gain = 0.000
-INFO: [Place 30-746] Post Placement Timing Summary WNS=0.248. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 14bc0abd9
+Time (s): cpu = 00:03:10 ; elapsed = 00:01:46 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.309. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 2594039dd
 
-Time (s): cpu = 00:03:22 ; elapsed = 00:01:58 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 4.1 Post Commit Optimization | Checksum: 14bc0abd9
+Time (s): cpu = 00:03:42 ; elapsed = 00:02:04 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 2594039dd
 
-Time (s): cpu = 00:03:23 ; elapsed = 00:01:59 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:42 ; elapsed = 00:02:04 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 14bc0abd9
+Phase 4.2 Post Placement Cleanup | Checksum: 2594039dd
 
-Time (s): cpu = 00:03:23 ; elapsed = 00:01:59 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:43 ; elapsed = 00:02:05 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 14bc0abd9
+Phase 4.3 Placer Reporting | Checksum: 2594039dd
 
-Time (s): cpu = 00:03:24 ; elapsed = 00:01:59 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:43 ; elapsed = 00:02:05 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 4.4 Final Placement Cleanup
-Phase 4.4 Final Placement Cleanup | Checksum: 139e954f3
+Phase 4.4 Final Placement Cleanup | Checksum: 217238e2e
 
-Time (s): cpu = 00:03:24 ; elapsed = 00:02:00 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 139e954f3
+Time (s): cpu = 00:03:43 ; elapsed = 00:02:06 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 217238e2e
 
-Time (s): cpu = 00:03:24 ; elapsed = 00:02:00 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Ending Placer Task | Checksum: 76aa4734
+Time (s): cpu = 00:03:44 ; elapsed = 00:02:06 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Ending Placer Task | Checksum: 12805f3e0
 
-Time (s): cpu = 00:03:24 ; elapsed = 00:02:00 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:44 ; elapsed = 00:02:06 . Memory (MB): peak = 1770.063 ; gain = 0.000
 83 Infos, 25 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:03:33 ; elapsed = 00:02:06 . Memory (MB): peak = 1772.434 ; gain = 0.000
+place_design: Time (s): cpu = 00:03:53 ; elapsed = 00:02:12 . Memory (MB): peak = 1770.063 ; gain = 0.000
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:15 ; elapsed = 00:00:05 . Memory (MB): peak = 1770.063 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_placed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 1772.434 ; gain = 0.000
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.119 . Memory (MB): peak = 1772.434 ; gain = 0.000
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.454 . Memory (MB): peak = 1772.434 ; gain = 0.000
-report_control_sets: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.154 . Memory (MB): peak = 1772.434 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:20 ; elapsed = 00:00:09 . Memory (MB): peak = 1770.063 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.130 . Memory (MB): peak = 1770.063 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.509 . Memory (MB): peak = 1770.063 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.169 . Memory (MB): peak = 1770.063 ; gain = 0.000
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020-clg484'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020-clg484'
@@ -478,135 +478,135 @@ INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more in
 
 Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 4 CPUs
-Checksum: PlaceDB: 2b8fc7b8 ConstDB: 0 ShapeSum: 4b1a7f7c RouteDB: 0
+Checksum: PlaceDB: 8be551bd ConstDB: 0 ShapeSum: 9c20a223 RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 16a2d713d
+Phase 1 Build RT Design | Checksum: 181f836a3
 
-Time (s): cpu = 00:00:43 ; elapsed = 00:00:31 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:36 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 16a2d713d
+Phase 2.1 Create Timer | Checksum: 181f836a3
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:33 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:37 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 16a2d713d
+Phase 2.2 Fix Topology Constraints | Checksum: 181f836a3
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:33 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:38 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 16a2d713d
+Phase 2.3 Pre Route Cleanup | Checksum: 181f836a3
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:33 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:00:51 ; elapsed = 00:00:38 . Memory (MB): peak = 1770.063 ; gain = 0.000
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: 195e1f236
+Phase 2.4 Update Timing | Checksum: a213e3c1
 
-Time (s): cpu = 00:01:06 ; elapsed = 00:00:43 . Memory (MB): peak = 1772.434 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.250  | TNS=0.000  | WHS=-0.354 | THS=-412.154|
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:49 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.319  | TNS=0.000  | WHS=-0.329 | THS=-402.178|
 
 
 Phase 2.5 Update Timing for Bus Skew
 
 Phase 2.5.1 Update Timing
-Phase 2.5.1 Update Timing | Checksum: 1546e75fe
+Phase 2.5.1 Update Timing | Checksum: 167b9e9db
 
-Time (s): cpu = 00:01:21 ; elapsed = 00:00:48 . Memory (MB): peak = 1772.434 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.250  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:01:38 ; elapsed = 00:00:57 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.319  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 2.5 Update Timing for Bus Skew | Checksum: 11c98266d
+Phase 2.5 Update Timing for Bus Skew | Checksum: 120a544a9
 
-Time (s): cpu = 00:01:22 ; elapsed = 00:00:48 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 2 Router Initialization | Checksum: 1a1658340
+Time (s): cpu = 00:01:38 ; elapsed = 00:00:57 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 2 Router Initialization | Checksum: 14f85f3f5
 
-Time (s): cpu = 00:01:22 ; elapsed = 00:00:49 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:01:39 ; elapsed = 00:00:57 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 1784b01f0
+Phase 3 Initial Routing | Checksum: 2915f048f
 
-Time (s): cpu = 00:01:36 ; elapsed = 00:00:53 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:01:57 ; elapsed = 00:01:03 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 3648
- Number of Nodes with overlaps = 836
- Number of Nodes with overlaps = 178
- Number of Nodes with overlaps = 66
- Number of Nodes with overlaps = 33
- Number of Nodes with overlaps = 2
- Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 3727
+ Number of Nodes with overlaps = 754
+ Number of Nodes with overlaps = 199
+ Number of Nodes with overlaps = 36
+ Number of Nodes with overlaps = 11
+ Number of Nodes with overlaps = 6
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.066 | TNS=-0.066 | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.003 | TNS=-0.006 | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 16d4443bf
+Phase 4.1 Global Iteration 0 | Checksum: f720c292
 
-Time (s): cpu = 00:02:40 ; elapsed = 00:01:19 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:15 ; elapsed = 00:01:34 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 4.2 Global Iteration 1
- Number of Nodes with overlaps = 173
- Number of Nodes with overlaps = 69
- Number of Nodes with overlaps = 28
- Number of Nodes with overlaps = 4
- Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 258
+ Number of Nodes with overlaps = 87
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 10
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 2
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.131  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.145 | TNS=-0.179 | WHS=N/A    | THS=N/A    |
 
-Phase 4.2 Global Iteration 1 | Checksum: 245a99a5d
+Phase 4.2 Global Iteration 1 | Checksum: 22ff35062
 
-Time (s): cpu = 00:02:53 ; elapsed = 00:01:25 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 4 Rip-up And Reroute | Checksum: 245a99a5d
+Time (s): cpu = 00:03:32 ; elapsed = 00:01:42 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 4 Rip-up And Reroute | Checksum: 22ff35062
 
-Time (s): cpu = 00:02:53 ; elapsed = 00:01:26 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:32 ; elapsed = 00:01:43 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 22b5066ab
+Phase 5.1.1 Update Timing | Checksum: 2111067ac
 
-Time (s): cpu = 00:02:58 ; elapsed = 00:01:27 . Memory (MB): peak = 1772.434 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.245  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:03:37 ; elapsed = 00:01:44 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.028  | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 5.1 Delay CleanUp | Checksum: 1a3d0c8d0
+Phase 5.1 Delay CleanUp | Checksum: 220f92eb0
 
-Time (s): cpu = 00:02:58 ; elapsed = 00:01:27 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:38 ; elapsed = 00:01:45 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 1a3d0c8d0
+Phase 5.2 Clock Skew Optimization | Checksum: 220f92eb0
 
-Time (s): cpu = 00:02:58 ; elapsed = 00:01:27 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 5 Delay and Skew Optimization | Checksum: 1a3d0c8d0
+Time (s): cpu = 00:03:38 ; elapsed = 00:01:45 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 5 Delay and Skew Optimization | Checksum: 220f92eb0
 
-Time (s): cpu = 00:02:58 ; elapsed = 00:01:27 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:38 ; elapsed = 00:01:45 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: 197bde7cb
+Phase 6.1.1 Update Timing | Checksum: 218136948
 
-Time (s): cpu = 00:03:03 ; elapsed = 00:01:29 . Memory (MB): peak = 1772.434 ; gain = 0.000
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.245  | TNS=0.000  | WHS=0.009  | THS=0.000  |
+Time (s): cpu = 00:03:44 ; elapsed = 00:01:47 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.028  | TNS=0.000  | WHS=-0.021 | THS=-0.021 |
 
-Phase 6.1 Hold Fix Iter | Checksum: 26040212a
+Phase 6.1 Hold Fix Iter | Checksum: 1769f2b39
 
-Time (s): cpu = 00:03:03 ; elapsed = 00:01:29 . Memory (MB): peak = 1772.434 ; gain = 0.000
-Phase 6 Post Hold Fix | Checksum: 26040212a
+Time (s): cpu = 00:03:44 ; elapsed = 00:01:48 . Memory (MB): peak = 1770.063 ; gain = 0.000
+Phase 6 Post Hold Fix | Checksum: 1af32b812
 
-Time (s): cpu = 00:03:03 ; elapsed = 00:01:30 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:45 ; elapsed = 00:01:48 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 5.88889 %
-  Global Horizontal Routing Utilization  = 7.34009 %
+  Global Vertical Routing Utilization    = 5.85523 %
+  Global Horizontal Routing Utilization  = 7.70199 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -615,57 +615,62 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 21a16e61f
+Phase 7 Route finalize | Checksum: 170ad57a1
 
-Time (s): cpu = 00:03:04 ; elapsed = 00:01:30 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:45 ; elapsed = 00:01:48 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 21a16e61f
+Phase 8 Verifying routed nets | Checksum: 170ad57a1
 
-Time (s): cpu = 00:03:04 ; elapsed = 00:01:30 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:46 ; elapsed = 00:01:48 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 197f87376
+Phase 9 Depositing Routes | Checksum: 1cead62c2
 
-Time (s): cpu = 00:03:07 ; elapsed = 00:01:33 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:49 ; elapsed = 00:01:52 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.245  | TNS=0.000  | WHS=0.009  | THS=0.000  |
+
+Phase 10.1 Update Timing
+Phase 10.1 Update Timing | Checksum: 24fc64dfd
+
+Time (s): cpu = 00:03:54 ; elapsed = 00:01:54 . Memory (MB): peak = 1770.063 ; gain = 0.000
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.028  | TNS=0.000  | WHS=0.050  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 197f87376
+Phase 10 Post Router Timing | Checksum: 24fc64dfd
 
-Time (s): cpu = 00:03:07 ; elapsed = 00:01:33 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:54 ; elapsed = 00:01:54 . Memory (MB): peak = 1770.063 ; gain = 0.000
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:03:07 ; elapsed = 00:01:33 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Time (s): cpu = 00:03:54 ; elapsed = 00:01:54 . Memory (MB): peak = 1770.063 ; gain = 0.000
 
 Routing Is Done.
 99 Infos, 26 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:03:16 ; elapsed = 00:01:39 . Memory (MB): peak = 1772.434 ; gain = 0.000
+route_design: Time (s): cpu = 00:04:07 ; elapsed = 00:02:00 . Memory (MB): peak = 1770.063 ; gain = 0.000
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:16 ; elapsed = 00:00:05 . Memory (MB): peak = 1772.434 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:19 ; elapsed = 00:00:07 . Memory (MB): peak = 1770.063 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_routed.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:20 ; elapsed = 00:00:08 . Memory (MB): peak = 1772.434 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:24 ; elapsed = 00:00:09 . Memory (MB): peak = 1770.063 ; gain = 0.000
 Command: report_drc -file zynq_soc_wrapper_drc_routed.rpt -pb zynq_soc_wrapper_drc_routed.pb -rpx zynq_soc_wrapper_drc_routed.rpx
 INFO: [DRC 23-27] Running DRC with 4 threads
 INFO: [Coretcl 2-168] The results of DRC are in file Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_drc_routed.rpt.
 report_drc completed successfully
-report_drc: Time (s): cpu = 00:00:19 ; elapsed = 00:00:06 . Memory (MB): peak = 1772.434 ; gain = 0.000
+report_drc: Time (s): cpu = 00:00:25 ; elapsed = 00:00:08 . Memory (MB): peak = 1770.063 ; gain = 0.000
 Command: report_methodology -file zynq_soc_wrapper_methodology_drc_routed.rpt -rpx zynq_soc_wrapper_methodology_drc_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 4 threads
 INFO: [Coretcl 2-1520] The results of Report Methodology are in file Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/zynq_soc_wrapper_methodology_drc_routed.rpt.
 report_methodology completed successfully
-report_methodology: Time (s): cpu = 00:00:44 ; elapsed = 00:00:14 . Memory (MB): peak = 1772.434 ; gain = 0.000
+report_methodology: Time (s): cpu = 00:00:58 ; elapsed = 00:00:18 . Memory (MB): peak = 1770.063 ; gain = 0.000
 Command: report_power -file zynq_soc_wrapper_power_routed.rpt -pb zynq_soc_wrapper_power_summary_routed.pb -rpx zynq_soc_wrapper_power_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 Running Vector-less Activity Propagation...
@@ -675,11 +680,11 @@ WARNING: [Power 33-332] Found switching activity that implies high-fanout reset 
 Resolution: To review and fix problems, please run Power Constraints Advisor in the GUI from Tools > Power Constraints Advisor or run report_power with the -advisory option to generate a text report.
 107 Infos, 27 Warnings, 0 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
-report_power: Time (s): cpu = 00:00:22 ; elapsed = 00:00:10 . Memory (MB): peak = 1784.109 ; gain = 11.676
+report_power: Time (s): cpu = 00:00:26 ; elapsed = 00:00:11 . Memory (MB): peak = 1787.570 ; gain = 17.508
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
 WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
-INFO: [Common 17-206] Exiting Vivado at Wed May  1 23:47:33 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu May  2 22:52:43 2019...
 
 *** Running vivado
     with args -log zynq_soc_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source zynq_soc_wrapper.tcl -notrace
@@ -696,30 +701,30 @@ Command: open_checkpoint zynq_soc_wrapper_routed.dcp
 
 Starting open_checkpoint Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 232.270 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 1489 Unisim elements for replacement
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 231.734 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1534 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2017.2
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
-WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'zynq_soc_i/CLK_GEN_148MHZ/clk_in1' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved for implementation tool. [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2116-BLACKHOLE/dcp7/zynq_soc_CLK_GEN_148MHZ_0.edf:296]
-Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-11392-BLACKHOLE/dcp3/zynq_soc_wrapper_board.xdc]
-Finished Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-11392-BLACKHOLE/dcp3/zynq_soc_wrapper_board.xdc]
-Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-11392-BLACKHOLE/dcp3/zynq_soc_wrapper_early.xdc]
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'zynq_soc_i/CLK_GEN_148MHZ/clk_in1' is not directly connected to top level port. 'IBUF_LOW_PWR' is ignored by Vivado but preserved for implementation tool. [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-3228-BLACKHOLE/dcp7/zynq_soc_CLK_GEN_148MHZ_0.edf:296]
+Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2012-BLACKHOLE/dcp3/zynq_soc_wrapper_board.xdc]
+Finished Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2012-BLACKHOLE/dcp3/zynq_soc_wrapper_board.xdc]
+Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2012-BLACKHOLE/dcp3/zynq_soc_wrapper_early.xdc]
 INFO: [Timing 38-35] Done setting XDC timing constraints. [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc:57]
 INFO: [Timing 38-2] Deriving generated clocks [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_CLK_GEN_148MHZ_0/zynq_soc_CLK_GEN_148MHZ_0.xdc:57]
-get_clocks: Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 1181.680 ; gain = 518.449
-Finished Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-11392-BLACKHOLE/dcp3/zynq_soc_wrapper_early.xdc]
-Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-11392-BLACKHOLE/dcp3/zynq_soc_wrapper.xdc]
-Finished Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-11392-BLACKHOLE/dcp3/zynq_soc_wrapper.xdc]
-Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-11392-BLACKHOLE/dcp3/zynq_soc_wrapper_late.xdc]
-Finished Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-11392-BLACKHOLE/dcp3/zynq_soc_wrapper_late.xdc]
+get_clocks: Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1182.406 ; gain = 518.445
+Finished Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2012-BLACKHOLE/dcp3/zynq_soc_wrapper_early.xdc]
+Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2012-BLACKHOLE/dcp3/zynq_soc_wrapper.xdc]
+Finished Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2012-BLACKHOLE/dcp3/zynq_soc_wrapper.xdc]
+Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2012-BLACKHOLE/dcp3/zynq_soc_wrapper_late.xdc]
+Finished Parsing XDC File [Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/.Xil/Vivado-2012-BLACKHOLE/dcp3/zynq_soc_wrapper_late.xdc]
 Reading XDEF placement.
 Reading placer database...
 Reading XDEF routing.
-Read XDEF File: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1187.910 ; gain = 1.223
+Read XDEF File: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1188.520 ; gain = 1.105
 Restored from archive | CPU: 4.000000 secs | Memory: 0.000000 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1187.910 ; gain = 1.223
+Finished XDEF File Restore: Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1188.520 ; gain = 1.105
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 12 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 4 instances
@@ -728,7 +733,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   SRLC32E => SRL16E: 3 instances
 
 INFO: [Project 1-604] Checkpoint was created with Vivado v2017.2 (64-bit) build 1909853
-open_checkpoint: Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 1187.910 ; gain = 963.277
+open_checkpoint: Time (s): cpu = 00:00:44 ; elapsed = 00:00:43 . Memory (MB): peak = 1188.520 ; gain = 964.430
 Command: write_bitstream -force zynq_soc_wrapper.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7z020-clg484'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020-clg484'
@@ -754,13 +759,13 @@ WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frame
 WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k8] input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k8]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k9] input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k9]/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k9] input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k9]/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_b0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_b0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_g0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_g0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_r0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_r0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cr_g0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cr_g0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cr_r0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cr_r0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/y_g0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/y_g0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/y_r0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/y_r0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_b0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_b0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_g0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_g0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_r0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_r0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cr_g0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cr_g0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cr_r0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cr_r0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/y_g0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/y_g0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/y_r0 input zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/y_r0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 WARNING: [DRC DPIR-1] Asynchronous driver check: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k1] input pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k1]/A[10] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 WARNING: [DRC DPIR-1] Asynchronous driver check: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k1] input pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k1]/A[11] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 WARNING: [DRC DPIR-1] Asynchronous driver check: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k1] input pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k1]/A[12] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
@@ -862,35 +867,35 @@ WARNING: [DRC DPIR-1] Asynchronous driver check: DSP zynq_soc_i/PS_VIDEO/D5M/VFP
 WARNING: [DRC DPIR-1] Asynchronous driver check: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k4] input pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k4]/A[18] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 WARNING: [DRC DPIR-1] Asynchronous driver check: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k4] input pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/colorCorrectionInst/cc_reg[ccProdSf][k4]/A[19] is connected to registers with an asynchronous reset. This is preventing the possibility of merging these registers in to the DSP Block since the DSP block registers only possess synchronous reset capability.  It is suggested to recode or change these registers to remove the reset or use a synchronous reset to get the best optimization for performance, power and area.
 INFO: [Common 17-14] Message 'DRC DPIR-1' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_b0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_b0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_g0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_g0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_r0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cb_r0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cr_g0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cr_g0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cr_r0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/cr_r0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/y_g0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/y_g0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/y_r0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/mod5_8_inst/y_r0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_b0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_b0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_g0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_g0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_r0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cb_r0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cr_g0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cr_g0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cr_r0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/cr_r0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/y_g0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/y_g0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/y_r0 multiplier stage zynq_soc_i/PS_VIDEO/D5M/VFP/U0/videoSelectInst/ycbcrInst/y_r0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 WARNING: [DRC PDRC-153] Gated clock check: Net zynq_soc_i/PS_VIDEO/D5M/VFP/U0/vfpConfigInst/emptyHi_reg is a gated clock net sourced by a combinational pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/vfpConfigInst/preStatus_reg_i_1/O, cell zynq_soc_i/PS_VIDEO/D5M/VFP/U0/vfpConfigInst/preStatus_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_ENARDEN_cooolgate_en_sig_15) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1_ENARDEN_cooolgate_en_sig_16) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_1/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10_ENARDEN_cooolgate_en_sig_21) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_10/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11_ENARDEN_cooolgate_en_sig_22) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_11/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2_ENARDEN_cooolgate_en_sig_17) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_2/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3_ENARDEN_cooolgate_en_sig_18) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_3/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4_ENARDEN_cooolgate_en_sig_19) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/Mem_reg_4/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifo_int/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
-WARNING: [DRC RTSTAT-10] No routable loads: 46 net(s) have no routable loads. The problem bus(es) and/or net(s) are zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/VIDEO_PIPELINE/VIDEO_OUT/inst/COUPLER_INST/FIFO_INST/FIFO_INST/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/GEN_SPRT_FOR_MM2S.MM2S_LINEBUFFER_I/GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO/fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/GEN_SPRT_FOR_S2MM.S2MM_LINEBUFFER_I/GEN_S2MM_FLUSH_SOF_LOGIC.GEN_LINEBUFFER_FLUSH_SOF.GEN_SYNC_FIFO_FLUSH_SOF.I_LINEBUFFER_FIFO/fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/GEN_SPRT_FOR_MM2S.MM2S_LINEBUFFER_I/GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO/fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb... and (the first 15 of 46 listed).
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_ENARDEN_cooolgate_en_sig_15) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1_ENARDEN_cooolgate_en_sig_16) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_1/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10_ENARDEN_cooolgate_en_sig_21) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_10/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11_ENARDEN_cooolgate_en_sig_22) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_11/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_6_i_1_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2_ENARDEN_cooolgate_en_sig_17) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_2/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3_ENARDEN_cooolgate_en_sig_18) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_3/WEA[0] (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_0_i_2_n_0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4/ENARDEN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4_ENARDEN_cooolgate_en_sig_19) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/fullHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4 has an input control pin zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/Mem_reg_4/ENBWREN (net: zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/dataO0) which is driven by a register (zynq_soc_i/PS_VIDEO/D5M/VFP/U0/frameProcessInst/pointOfInterestInst/gridLockFifoInt/emptyHi_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC RTSTAT-10] No routable loads: 46 net(s) have no routable loads. The problem bus(es) and/or net(s) are zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/GEN_SPRT_FOR_MM2S.MM2S_LINEBUFFER_I/GEN_LINEBUF_NO_SOF.GEN_LINEBUFFER.GEN_SYNC_FIFO.I_LINEBUFFER_FIFO/fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/VIDEO_PIPELINE/VIDEO_OUT/inst/COUPLER_INST/FIFO_INST/FIFO_INST/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/GEN_SPRT_FOR_S2MM.S2MM_LINEBUFFER_I/GEN_S2MM_FLUSH_SOF_LOGIC.GEN_LINEBUFFER_FLUSH_SOF.GEN_SYNC_FIFO_FLUSH_SOF.I_LINEBUFFER_FIFO/fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER/GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/GEN_SPRT_FOR_S2MM.S2MM_LINEBUFFER_I/GEN_S2MM_FLUSH_SOF_LOGIC.GEN_LINEBUFFER_FLUSH_SOF.GEN_SYNC_FIFO_FLUSH_SOF.I_LINEBUFFER_FIFO/fg_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, zynq_soc_i/PS_VIDEO/PS/V_DMA/VDMA1/U0/I_PRMRY_DATAMOVER/GEN_MM2S_FULL.I_MM2S_FULL_WRAPPER/GEN_INCLUDE_MM2S_SF.I_RD_SF/I_DATA_FIFO/BLK_MEM.I_SYNC_FIFOGEN_FIFO/FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb, zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_afull_fb... and (the first 15 of 46 listed).
 report_drc (run_mandatory_drcs) completed successfully
 INFO: [Vivado 12-3199] DRC finished with 0 Errors, 381 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
@@ -905,8 +910,8 @@ Creating bitstream...
 Writing bitstream ./zynq_soc_wrapper.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-118] WebTalk data collection is enabled (User setting is ON. Install Setting is ON.).
-INFO: [Common 17-186] 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Wed May  1 23:49:11 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2017.2/doc/webtalk_introduction.html.
+INFO: [Common 17-186] 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/impl_1/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Thu May  2 22:54:35 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2017.2/doc/webtalk_introduction.html.
 19 Infos, 156 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:01:08 ; elapsed = 00:00:38 . Memory (MB): peak = 1629.137 ; gain = 441.227
-INFO: [Common 17-206] Exiting Vivado at Wed May  1 23:49:12 2019...
+write_bitstream: Time (s): cpu = 00:01:24 ; elapsed = 00:00:44 . Memory (MB): peak = 1634.434 ; gain = 445.914
+INFO: [Common 17-206] Exiting Vivado at Thu May  2 22:54:36 2019...
