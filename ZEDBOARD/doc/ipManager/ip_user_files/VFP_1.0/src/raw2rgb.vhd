@@ -4,14 +4,14 @@ use ieee.numeric_std.all;
 use work.constantspackage.all;
 use work.vpfRecords.all;
 use work.portspackage.all;
-entity raw2rgb is
+entity RawToRgb is
 port (
     clk            : in std_logic;
     rst_l          : in std_logic;
     iTpData        : in rTp;
     oRgbSet        : out rRgb);
 end entity;
-architecture arch of raw2rgb is
+architecture arch of RawToRgb is
     signal rgb           : rawRgb;
     signal tpd1          : uTp;
     signal tpd2          : uTp;

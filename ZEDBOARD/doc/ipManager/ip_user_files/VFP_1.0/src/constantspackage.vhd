@@ -51,7 +51,7 @@ package constantspackage is
     constant i_precision               : integer := 12;
     constant i_full_range              : boolean := FALSE;
     constant conf_data_width           : integer := 32;
-    constant conf_addr_width           : integer := 4;
+    constant conf_addr_width           : integer := 8;
     -------------------------------------------------------------------------
     constant blurMsb                   : integer := 11;
     constant blurLsb                   : integer := 4;
@@ -86,12 +86,12 @@ package constantspackage is
     constant white                     : std_logic_vector(7 downto 0)      :=x"FF";
     constant black                     : std_logic_vector(7 downto 0)      :=x"00";
     -------------------------------------------------------------------------
-    constant C_WHOLE_WIDTH            : integer := 3;  
-    constant DATA_EXT_WIDTH           : natural := i_data_width + 1;
-    constant FRAC_BITS_TO_KEEP        : natural := 3;  
-    constant MULT_RESULT_WIDTH        : natural := DATA_EXT_WIDTH + C_WHOLE_WIDTH + FRAC_BITS_TO_KEEP;
-    constant ADD_RESULT_WIDTH         : natural := MULT_RESULT_WIDTH + 1;
-    constant ROUND_RESULT_WIDTH       : natural := ADD_RESULT_WIDTH - FRAC_BITS_TO_KEEP;
-    constant ROUND                    : signed(ADD_RESULT_WIDTH-1 downto 0) := to_signed(0, ADD_RESULT_WIDTH-FRAC_BITS_TO_KEEP)&'1' & to_signed(0, FRAC_BITS_TO_KEEP-1);  
+    constant C_WHOLE_WIDTH             : integer := 3;  
+    constant DATA_EXT_WIDTH            : natural := i_data_width + 1;
+    constant FRAC_BITS_TO_KEEP         : natural := 3;  
+    constant MULT_RESULT_WIDTH         : natural := DATA_EXT_WIDTH + C_WHOLE_WIDTH + FRAC_BITS_TO_KEEP;
+    constant ADD_RESULT_WIDTH          : natural := MULT_RESULT_WIDTH + 1;
+    constant ROUND_RESULT_WIDTH        : natural := ADD_RESULT_WIDTH - FRAC_BITS_TO_KEEP;
+    constant ROUND                     : signed(ADD_RESULT_WIDTH-1 downto 0) := to_signed(0, ADD_RESULT_WIDTH-FRAC_BITS_TO_KEEP)&'1' & to_signed(0, FRAC_BITS_TO_KEEP-1);  
     -------------------------------------------------------------------------
 end package;

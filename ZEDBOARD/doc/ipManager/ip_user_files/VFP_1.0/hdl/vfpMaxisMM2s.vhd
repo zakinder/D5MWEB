@@ -7,24 +7,24 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity videoProcess_v1_0_m_axis_mm2s is
 generic (
-    s_data_width	       : integer := 16);
+    s_data_width	                : integer := 16);
 port (
-    aclk                   : in std_logic;
-    aresetn                : in std_logic;
-    rgb_s_axis_tready      : out std_logic;
-    rgb_s_axis_tvalid      : in std_logic;
-    rgb_s_axis_tuser       : in std_logic;
-    rgb_s_axis_tlast       : in std_logic;
-    rgb_s_axis_tdata       : in std_logic_vector(s_data_width-1  downto 0);
-    m_axis_mm2s_tkeep      : out std_logic_vector(2 downto 0);
-    m_axis_mm2s_tstrb      : out std_logic_vector(2 downto 0);
-    m_axis_mm2s_tid        : out std_logic_vector(0 downto 0);
-    m_axis_mm2s_tdest      : out std_logic_vector(0 downto 0);  
-    m_axis_mm2s_tready     : in std_logic;
-    m_axis_mm2s_tvalid     : out std_logic;
-    m_axis_mm2s_tuser      : out std_logic;
-    m_axis_mm2s_tlast      : out std_logic;
-    m_axis_mm2s_tdata      : out std_logic_vector(s_data_width-1 downto 0));
+    aclk                            : in std_logic;
+    aresetn                         : in std_logic;
+    rgb_s_axis_tready               : out std_logic;
+    rgb_s_axis_tvalid               : in std_logic;
+    rgb_s_axis_tuser                : in std_logic;
+    rgb_s_axis_tlast                : in std_logic;
+    rgb_s_axis_tdata                : in std_logic_vector(s_data_width-1  downto 0);
+    m_axis_mm2s_tkeep               : out std_logic_vector(2 downto 0);
+    m_axis_mm2s_tstrb               : out std_logic_vector(2 downto 0);
+    m_axis_mm2s_tid                 : out std_logic_vector(0 downto 0);
+    m_axis_mm2s_tdest               : out std_logic_vector(0 downto 0);  
+    m_axis_mm2s_tready              : in std_logic;
+    m_axis_mm2s_tvalid              : out std_logic;
+    m_axis_mm2s_tuser               : out std_logic;
+    m_axis_mm2s_tlast               : out std_logic;
+    m_axis_mm2s_tdata               : out std_logic_vector(s_data_width-1 downto 0));
 end videoProcess_v1_0_m_axis_mm2s;
 architecture arch_imp of videoProcess_v1_0_m_axis_mm2s is
     type pixel_locations is (video_trans_in_progress,wait_to_go);

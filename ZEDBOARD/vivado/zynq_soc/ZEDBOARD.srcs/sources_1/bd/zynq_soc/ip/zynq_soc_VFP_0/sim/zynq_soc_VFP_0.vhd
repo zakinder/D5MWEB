@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:user:VFP:1.0
--- IP Revision: 33
+-- IP VLNV: zakinder:DisplayIO:VFP:1.0
+-- IP Revision: 2
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -244,14 +244,14 @@ BEGIN
       C_rgb_m_axis_START_COUNT => 32,
       C_m_axis_mm2s_TDATA_WIDTH => 16,
       C_m_axis_mm2s_START_COUNT => 32,
-      revision_number => X"02172019",
+      revision_number => X"05032019",
       i_data_width => 8,
       s_data_width => 16,
       b_data_width => 32,
       i_precision => 12,
       i_full_range => false,
       conf_data_width => 32,
-      conf_addr_width => 4,
+      conf_addr_width => 8,
       img_width => 4096,
       dataWidth => 12
     )

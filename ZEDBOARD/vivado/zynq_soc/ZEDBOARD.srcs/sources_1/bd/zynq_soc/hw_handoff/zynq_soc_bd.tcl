@@ -1081,10 +1081,10 @@ proc create_hier_cell_D5M { parentCell nameHier } {
   create_bd_pin -dir I pixclk
 
   # Create instance: VFP, and set properties
-  set VFP [ create_bd_cell -type ip -vlnv xilinx.com:user:VFP:1.0 VFP ]
+  set VFP [ create_bd_cell -type ip -vlnv zakinder:DisplayIO:VFP:1.0 VFP ]
   set_property -dict [ list \
 CONFIG.img_width {4096} \
-CONFIG.revision_number {0x02172019} \
+CONFIG.revision_number {0x05032019} \
  ] $VFP
 
   # Create interface connections

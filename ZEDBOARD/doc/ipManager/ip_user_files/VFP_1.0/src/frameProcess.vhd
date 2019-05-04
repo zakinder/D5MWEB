@@ -7,28 +7,28 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity frameProcess is
 generic (
-    i_data_width      : integer := 8;
-    s_data_width      : integer := 16;
-    b_data_width      : integer := 32;
-    img_width         : integer := 256;
-    adwrWidth         : integer := 16;
-    addrWidth         : integer := 12);
+    i_data_width            : integer := 8;
+    s_data_width            : integer := 16;
+    b_data_width            : integer := 32;
+    img_width               : integer := 256;
+    adwrWidth               : integer := 16;
+    addrWidth               : integer := 12);
 port (
-    clk               : in std_logic;
-    rst_l             : in std_logic;
-    iRgbSet           : in rRgb;
+    clk                     : in std_logic;
+    rst_l                   : in std_logic;
+    iRgbSet                 : in rRgb;
     --cpu side in
-    iRgbCoord         : in region;
-    iPoiRegion        : in poi;
-    iKls              : in coefficient;
-    iAls              : in coefficient;
-    iEdgeType         : in std_logic_vector(b_data_width-1 downto 0);
-    iThreshold        : in std_logic_vector(s_data_width-1 downto 0); 
+    iRgbCoord               : in region;
+    iPoiRegion              : in poi;
+    iKls                    : in coefficient;
+    iAls                    : in coefficient;
+    iEdgeType               : in std_logic_vector(b_data_width-1 downto 0);
+    iThreshold              : in std_logic_vector(s_data_width-1 downto 0); 
     --out
-    oFrameData        : out fcolors;
+    oFrameData              : out fcolors;
     --to cpu
-    oFifoStatus       : out std_logic_vector(b_data_width-1 downto 0);
-    oGridLockData     : out std_logic_vector(b_data_width-1 downto 0));
+    oFifoStatus             : out std_logic_vector(b_data_width-1 downto 0);
+    oGridLockData           : out std_logic_vector(b_data_width-1 downto 0));
 end entity;
 architecture arch of frameProcess is
     signal sharp            : channel;
@@ -52,7 +52,6 @@ architecture arch of frameProcess is
     signal edgeValid        : std_logic;
     signal sValid           : std_logic;
 begin
-    -----------------------------------------------------
     oFrameData.hsv.red            <= hsv.h;
     oFrameData.hsv.green          <= hsv.s;
     oFrameData.hsv.blue           <= hsv.v;
@@ -77,14 +76,12 @@ begin
     oFrameData.cod                <= syncxy;
     oFrameData.pEof               <= iRgbSet.pEof;
     oFrameData.pSof               <= iRgbSet.pSof;
-    -----------------------------------------------------
     rgbIn.red                     <= iRgbSet.red;
     rgbIn.green                   <= iRgbSet.green;
     rgbIn.blue                    <= iRgbSet.blue;
     rgbIn.valid                   <= iRgbSet.valid;
     cordIn.x                      <= iRgbSet.cord.x;
     cordIn.y                      <= iRgbSet.cord.y;
-    -----------------------------------------------------
 pipCoordP: process (clk) begin
     if rising_edge(clk) then
         syncxy          <= cordIn;

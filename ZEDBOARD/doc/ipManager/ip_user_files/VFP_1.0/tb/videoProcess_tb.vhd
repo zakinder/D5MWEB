@@ -14,7 +14,7 @@ end videoProcess_tb;
 architecture behavioral of videoProcess_tb is
     signal resetn                        : std_logic :='0';
     signal clk                           : std_logic;
-    constant DUT_VFP_ENABLED             : boolean := false;
+    constant DUT_VFP_ENABLED             : boolean := true;
     constant DUT_FRAMEPROCESS_ENABLED    : boolean := false;
     constant DUT_POINTOFINTEREST_ENABLED : boolean := true;
 begin
@@ -229,31 +229,31 @@ port map(
 dut_configAxis_inst : dut_configAxis
 generic map(
     aclk_freq                   => aclk_freq,
-    C_vfpConfig_DATA_WIDTH    => C_vfpConfig_DATA_WIDTH,
-    C_vfpConfig_ADDR_WIDTH    => C_vfpConfig_ADDR_WIDTH)    
+    C_vfpConfig_DATA_WIDTH      => C_vfpConfig_DATA_WIDTH,
+    C_vfpConfig_ADDR_WIDTH      => C_vfpConfig_ADDR_WIDTH)    
 port map(
     --video configuration       
-    vfpconfig_aclk            => vfpconfig_aclk,
-    vfpconfig_aresetn         => vfpconfig_aresetn,
-    vfpconfig_awaddr          => vfpconfig_awaddr,
-    vfpconfig_awprot          => vfpconfig_awprot,
-    vfpconfig_awvalid         => vfpconfig_awvalid,
-    vfpconfig_awready         => vfpconfig_awready,
-    vfpconfig_wdata           => vfpconfig_wdata,
-    vfpconfig_wstrb           => vfpconfig_wstrb,
-    vfpconfig_wvalid          => vfpconfig_wvalid,
-    vfpconfig_wready          => vfpconfig_wready,
-    vfpconfig_bresp           => vfpconfig_bresp,
-    vfpconfig_bvalid          => vfpconfig_bvalid,
-    vfpconfig_bready          => vfpconfig_bready,
-    vfpconfig_araddr          => vfpconfig_araddr,
-    vfpconfig_arprot          => vfpconfig_arprot,
-    vfpconfig_arvalid         => vfpconfig_arvalid,
-    vfpconfig_arready         => vfpconfig_arready,
-    vfpconfig_rdata           => vfpconfig_rdata,
-    vfpconfig_rresp           => vfpconfig_rresp,
-    vfpconfig_rvalid          => vfpconfig_rvalid,
-    vfpconfig_rready          => vfpconfig_rready);  
+    vfpconfig_aclk              => vfpconfig_aclk,
+    vfpconfig_aresetn           => vfpconfig_aresetn,
+    vfpconfig_awaddr            => vfpconfig_awaddr,
+    vfpconfig_awprot            => vfpconfig_awprot,
+    vfpconfig_awvalid           => vfpconfig_awvalid,
+    vfpconfig_awready           => vfpconfig_awready,
+    vfpconfig_wdata             => vfpconfig_wdata,
+    vfpconfig_wstrb             => vfpconfig_wstrb,
+    vfpconfig_wvalid            => vfpconfig_wvalid,
+    vfpconfig_wready            => vfpconfig_wready,
+    vfpconfig_bresp             => vfpconfig_bresp,
+    vfpconfig_bvalid            => vfpconfig_bvalid,
+    vfpconfig_bready            => vfpconfig_bready,
+    vfpconfig_araddr            => vfpconfig_araddr,
+    vfpconfig_arprot            => vfpconfig_arprot,
+    vfpconfig_arvalid           => vfpconfig_arvalid,
+    vfpconfig_arready           => vfpconfig_arready,
+    vfpconfig_rdata             => vfpconfig_rdata,
+    vfpconfig_rresp             => vfpconfig_rresp,
+    vfpconfig_rvalid            => vfpconfig_rvalid,
+    vfpconfig_rready            => vfpconfig_rready);  
 d5m_camera_inst: VFP_v1_0
 generic map(
     revision_number             => revision_number,
@@ -308,26 +308,26 @@ port map(
     m_axis_mm2s_tid             => m_axis_mm2s_tid,
     m_axis_mm2s_tdest           => m_axis_mm2s_tdest,
     --video configuration       
-    vfpconfig_aclk            => vfpconfig_aclk,
-    vfpconfig_aresetn         => vfpconfig_aresetn,
-    vfpconfig_awaddr          => vfpconfig_awaddr,
-    vfpconfig_awprot          => vfpconfig_awprot,
-    vfpconfig_awvalid         => vfpconfig_awvalid,
-    vfpconfig_awready         => vfpconfig_awready,
-    vfpconfig_wdata           => vfpconfig_wdata,
-    vfpconfig_wstrb           => vfpconfig_wstrb,
-    vfpconfig_wvalid          => vfpconfig_wvalid,
-    vfpconfig_wready          => vfpconfig_wready,
-    vfpconfig_bresp           => vfpconfig_bresp,
-    vfpconfig_bvalid          => vfpconfig_bvalid,
-    vfpconfig_bready          => vfpconfig_bready,
-    vfpconfig_araddr          => vfpconfig_araddr,
-    vfpconfig_arprot          => vfpconfig_arprot,
-    vfpconfig_arvalid         => vfpconfig_arvalid,
-    vfpconfig_arready         => vfpconfig_arready,
-    vfpconfig_rdata           => vfpconfig_rdata,
-    vfpconfig_rresp           => vfpconfig_rresp,
-    vfpconfig_rvalid          => vfpconfig_rvalid,
-    vfpconfig_rready          => vfpconfig_rready);
+    vfpconfig_aclk              => vfpconfig_aclk,
+    vfpconfig_aresetn           => vfpconfig_aresetn,
+    vfpconfig_awaddr            => vfpconfig_awaddr,
+    vfpconfig_awprot            => vfpconfig_awprot,
+    vfpconfig_awvalid           => vfpconfig_awvalid,
+    vfpconfig_awready           => vfpconfig_awready,
+    vfpconfig_wdata             => vfpconfig_wdata,
+    vfpconfig_wstrb             => vfpconfig_wstrb,
+    vfpconfig_wvalid            => vfpconfig_wvalid,
+    vfpconfig_wready            => vfpconfig_wready,
+    vfpconfig_bresp             => vfpconfig_bresp,
+    vfpconfig_bvalid            => vfpconfig_bvalid,
+    vfpconfig_bready            => vfpconfig_bready,
+    vfpconfig_araddr            => vfpconfig_araddr,
+    vfpconfig_arprot            => vfpconfig_arprot,
+    vfpconfig_arvalid           => vfpconfig_arvalid,
+    vfpconfig_arready           => vfpconfig_arready,
+    vfpconfig_rdata             => vfpconfig_rdata,
+    vfpconfig_rresp             => vfpconfig_rresp,
+    vfpconfig_rvalid            => vfpconfig_rvalid,
+    vfpconfig_rready            => vfpconfig_rready);
 end generate VFP_ENABLED;
 end behavioral;

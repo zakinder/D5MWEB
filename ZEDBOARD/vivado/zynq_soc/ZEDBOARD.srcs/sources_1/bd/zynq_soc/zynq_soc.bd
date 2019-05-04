@@ -6506,10 +6506,10 @@
     <spirit:componentInstances>
       <spirit:componentInstance>
         <spirit:instanceName>VFP</spirit:instanceName>
-        <spirit:componentRef spirit:library="user" spirit:name="VFP" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:componentRef spirit:library="DisplayIO" spirit:name="VFP" spirit:vendor="zakinder" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">zynq_soc_VFP_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="revision_number">0x02172019</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="revision_number">0x05032019</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="img_width">4096</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>

@@ -8,42 +8,34 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity videoProcess_v1_0_rgb_m_axis is 
 generic (
-    i_data_width           : integer := 8;
-    b_data_width           : integer := 32;
-    s_data_width           : integer := 16);
+    i_data_width             : integer := 8;
+    b_data_width             : integer := 32;
+    s_data_width             : integer := 16);
 port (
     --stream clock/reset
-    m_axis_mm2s_aclk     : in std_logic;
-    m_axis_mm2s_aresetn  : in std_logic;
+    m_axis_mm2s_aclk         : in std_logic;
+    m_axis_mm2s_aresetn      : in std_logic;
     --config
-    aBusSelect           : in std_logic_vector(b_data_width-1 downto 0);
-    --ycbcr
-    color_valid          : in std_logic;
-    mpeg444Y             : in std_logic_vector(i_data_width-1 downto 0);
-    mpeg444CB            : in std_logic_vector(i_data_width-1 downto 0);
-    mpeg444CR            : in std_logic_vector(i_data_width-1 downto 0);
-    --image resolution
-    iEof                 : in std_logic;
-    iSof                 : in std_logic;
-	iCord                : in coord;
+    aBusSelect               : in std_logic_vector(b_data_width-1 downto 0);
+    iStreamData              : in vStreamData;
     --stream to master out
-    rx_axis_tready_o     : in std_logic;
-    rx_axis_tvalid       : out std_logic;
-    rx_axis_tuser        : out std_logic;
-    rx_axis_tlast        : out std_logic;
-    rx_axis_tdata        : out std_logic_vector(s_data_width-1 downto 0);
+    rx_axis_tready_o         : in std_logic;
+    rx_axis_tvalid           : out std_logic;
+    rx_axis_tuser            : out std_logic;
+    rx_axis_tlast            : out std_logic;
+    rx_axis_tdata            : out std_logic_vector(s_data_width-1 downto 0);
     --tx channel
-    rgb_m_axis_tvalid    : out std_logic;
-    rgb_m_axis_tlast     : out std_logic;
-    rgb_m_axis_tuser     : out std_logic;
-    rgb_m_axis_tready    : in std_logic;
-    rgb_m_axis_tdata     : out std_logic_vector(s_data_width-1 downto 0);
+    rgb_m_axis_tvalid        : out std_logic;
+    rgb_m_axis_tlast         : out std_logic;
+    rgb_m_axis_tuser         : out std_logic;
+    rgb_m_axis_tready        : in std_logic;
+    rgb_m_axis_tdata         : out std_logic_vector(s_data_width-1 downto 0);
     --rx channel
-    rgb_s_axis_tready    : out std_logic;
-    rgb_s_axis_tvalid    : in std_logic;
-    rgb_s_axis_tuser     : in std_logic;
-    rgb_s_axis_tlast     : in std_logic;
-    rgb_s_axis_tdata     : in std_logic_vector(s_data_width-1 downto 0));
+    rgb_s_axis_tready        : out std_logic;
+    rgb_s_axis_tvalid        : in std_logic;
+    rgb_s_axis_tuser         : in std_logic;
+    rgb_s_axis_tlast         : in std_logic;
+    rgb_s_axis_tdata         : in std_logic_vector(s_data_width-1 downto 0));
 end videoProcess_v1_0_rgb_m_axis;
 architecture arch_imp of videoProcess_v1_0_rgb_m_axis is
     signal configReg4R       : std_logic_vector(b_data_width-1 downto 0):= (others => lo);
@@ -62,13 +54,13 @@ architecture arch_imp of videoProcess_v1_0_rgb_m_axis is
 begin
 process (m_axis_mm2s_aclk) begin
     if rising_edge(m_axis_mm2s_aclk) then
-            mpeg42XBR  <= not(mpeg42XBR) and color_valid;
+            mpeg42XBR  <= not(mpeg42XBR) and iStreamData.ycbcr.valid;
             mpeg42XXX  <= not(mpeg42XBR);
     end if;
 end process;
 process (m_axis_mm2s_aclk) begin
     if rising_edge(m_axis_mm2s_aclk) then
-            mpeg42XCR   <= mpeg444CR;
+            mpeg42XCR   <= iStreamData.ycbcr.blue;
             configReg4R <= aBusSelect;
     end if;
 end process;
@@ -84,13 +76,13 @@ process (m_axis_mm2s_aclk) begin
             tx_axis_tvalid <= lo;
             tx_axis_tdata  <= (others => lo);    
             axis_sof       <= lo;
-        if (iSof = '1') then
+        if (iStreamData.sof = '1') then
             VIDEO_STATES <= VIDEO_SOF_OFF;
         else
             VIDEO_STATES <= VIDEO_SET_RESET;
         end if;
         when VIDEO_SOF_OFF =>
-        if (color_valid = hi) then
+        if (iStreamData.ycbcr.valid = hi) then
             VIDEO_STATES <= VIDEO_SOF_ON;
             axis_sof     <= hi;
         else
@@ -99,27 +91,27 @@ process (m_axis_mm2s_aclk) begin
         when VIDEO_SOF_ON =>
             axis_sof       <= lo;
 			tx_axis_tvalid <= hi;
-            if(iEof = hi) then
+            if(iStreamData.eof = hi) then
                 pEofs1 <= hi;
             end if;
             if (configReg4R = EXTERNAL_AXIS_STREAM)then
                 if(mpeg42XXX =hi)then
-                    tx_axis_tdata  <= (mpeg444CB & mpeg444Y);
+                    tx_axis_tdata  <= (iStreamData.ycbcr.green & iStreamData.ycbcr.red);
                 else
-                    tx_axis_tdata  <= (mpeg42XCR & mpeg444Y);
+                    tx_axis_tdata  <= (mpeg42XCR & iStreamData.ycbcr.red);
                 end if;
             elsif (configReg4R = STREAM_TESTPATTERN1)then
-                tx_axis_tdata  <= iCord.x;
+                tx_axis_tdata  <= iStreamData.cord.x;
             elsif (configReg4R = STREAM_TESTPATTERN2)then
-                tx_axis_tdata  <= iCord.y;
+                tx_axis_tdata  <= iStreamData.cord.y;
             else
                 if(mpeg42XXX =hi)then
-                    tx_axis_tdata  <= (mpeg444CB & mpeg444Y);
+                    tx_axis_tdata  <= (iStreamData.ycbcr.green & iStreamData.ycbcr.red);
                 else
-                    tx_axis_tdata  <= (mpeg42XCR & mpeg444Y);
+                    tx_axis_tdata  <= (mpeg42XCR & iStreamData.ycbcr.red);
                 end if;
             end if;
-        if (color_valid = hi) then
+        if (iStreamData.ycbcr.valid = hi) then
             tx_axis_tlast  <= lo;
             VIDEO_STATES <= VIDEO_SOF_ON;
         else
@@ -132,7 +124,7 @@ process (m_axis_mm2s_aclk) begin
             if (pEofs1 = hi) then
                 VIDEO_STATES <= VIDEO_SOF_OFF;
 				pEofs1 <= lo;
-            elsif (color_valid = hi) then
+            elsif (iStreamData.ycbcr.valid = hi) then
                 VIDEO_STATES <= VIDEO_SOF_ON;
             else
                 VIDEO_STATES <= VIDEO_END_OF_LINE;

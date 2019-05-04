@@ -46,8 +46,8 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:user:VFP:1.0
--- IP Revision: 33
+-- IP VLNV: zakinder:DisplayIO:VFP:1.0
+-- IP Revision: 2
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -191,9 +191,6 @@ ARCHITECTURE zynq_soc_VFP_0_arch OF zynq_soc_VFP_0 IS
   ATTRIBUTE X_CORE_INFO OF zynq_soc_VFP_0_arch: ARCHITECTURE IS "VFP_v1_0,Vivado 2017.2";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF zynq_soc_VFP_0_arch : ARCHITECTURE IS "zynq_soc_VFP_0,VFP_v1_0,{}";
-  ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF zynq_soc_VFP_0_arch: ARCHITECTURE IS "zynq_soc_VFP_0,VFP_v1_0,{x_ipProduct=Vivado 2017.2,x_ipVendor=xilinx.com,x_ipLibrary=user,x_ipName=VFP,x_ipVersion=1.0,x_ipCoreRevision=33,x_ipLanguage=VHDL,x_ipSimLanguage=MIXED,C_rgb_s_axis_TDATA_WIDTH=16,C_vfpConfig_DATA_WIDTH=32,C_vfpConfig_ADDR_WIDTH=8,C_rgb_m_axis_TDATA_WIDTH=16,C_rgb_m_axis_START_COUNT=32,C_m_axis_mm2s_TDATA_WIDTH=16,C_m_axis_mm2s_START_COUNT=32,revision_number=0x02172019,i_data_width=8,s_data_width=16,b_data_width=32,i_precision=12,i_full_range=FALSE,conf_data_width=32,c" & 
-"onf_addr_width=4,img_width=4096,dataWidth=12}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF rgb_s_axis_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 rgb_s_axis TDATA";
   ATTRIBUTE X_INTERFACE_INFO OF rgb_s_axis_tlast: SIGNAL IS "xilinx.com:interface:axis:1.0 rgb_s_axis TLAST";
@@ -251,14 +248,14 @@ BEGIN
       C_rgb_m_axis_START_COUNT => 32,
       C_m_axis_mm2s_TDATA_WIDTH => 16,
       C_m_axis_mm2s_START_COUNT => 32,
-      revision_number => X"02172019",
+      revision_number => X"05032019",
       i_data_width => 8,
       s_data_width => 16,
       b_data_width => 32,
       i_precision => 12,
       i_full_range => false,
       conf_data_width => 32,
-      conf_addr_width => 4,
+      conf_addr_width => 8,
       img_width => 4096,
       dataWidth => 12
     )

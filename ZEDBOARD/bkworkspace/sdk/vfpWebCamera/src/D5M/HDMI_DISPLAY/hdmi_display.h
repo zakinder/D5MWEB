@@ -1,8 +1,6 @@
 #ifndef __ZED_HDMI_DISPLAY_H__
 #define __ZED_HDMI_DISPLAY_H__
-
 #include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
-
 #define VDMA_BASEADDR XPAR_AXIVDMA_0_BASEADDR
 #define CARRIER_HDMI_OUT_CONFIG_LEN  (40)
 #define VIDEO_BASEADDR0 0x01000000 + 0x01000000

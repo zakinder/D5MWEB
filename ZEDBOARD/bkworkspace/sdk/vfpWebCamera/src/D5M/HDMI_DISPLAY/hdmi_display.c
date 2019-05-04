@@ -1,4 +1,4 @@
-// LAST TESTED : 04/15/2019
+// LAST TESTED : 05/03/2019
 #include "hdmi_display.h"
 #include "../MENU_CALLS/menu_calls.h"
 #include <sleep.h>
@@ -130,16 +130,16 @@ void colorBars_vdma_hdmi(hdmi_display_start *pvideo)
    xil_printf( "Video DMA (Output Side) Initialization ...\n\r" );
    vgen_init( &(pvideo->vtc_hdmio_generator), pvideo->uDeviceId_VTC_HdmioGenerator );
    vgen_config( &(pvideo->vtc_hdmio_generator), pvideo->hdmio_resolution, 1 );
-   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000004);      // reset
-   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000008);      // gen-lock
-   Xil_Out32((VDMA_BASEADDR + 0x05C), pvideo->video_address); // start address
-   Xil_Out32((VDMA_BASEADDR + 0x060), pvideo->video_address); // start address
-   Xil_Out32((VDMA_BASEADDR + 0x064), pvideo->video_address); // start address
-   Xil_Out32((VDMA_BASEADDR + 0x058), pvideo->hdmio_width_Stride);//Frame Delay and Stride
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000004);
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000008);
+   Xil_Out32((VDMA_BASEADDR + 0x05C), pvideo->video_address);
+   Xil_Out32((VDMA_BASEADDR + 0x060), pvideo->video_address);
+   Xil_Out32((VDMA_BASEADDR + 0x064), pvideo->video_address);
+   Xil_Out32((VDMA_BASEADDR + 0x058), pvideo->hdmio_width_Stride);
    Xil_Out32((VDMA_BASEADDR + 0x054), pvideo->hdmio_width_Stride);
-   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000003);      // enable circular mode
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000003);
    Xil_Out32((VDMA_BASEADDR + 0x050), pvideo->hdmio_height);
-   vfb_tx_stop( &(pvideo->vdma_hdmi) );//STOP READING CAM
+   vfb_tx_stop( &(pvideo->vdma_hdmi) );
    colorBars(0);
    //vfb_tx_start( &(pvideo->vdma_hdmi));
    u32 menu_enable  = 0;
@@ -197,16 +197,16 @@ void bars(hdmi_display_start *pvideo)
    xil_printf( "Video DMA (Output Side) Initialization ...\n\r" );
    vgen_init( &(pvideo->vtc_hdmio_generator), pvideo->uDeviceId_VTC_HdmioGenerator );
    vgen_config( &(pvideo->vtc_hdmio_generator), pvideo->hdmio_resolution, 1 );
-   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000004);      // reset
-   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000008);      // gen-lock
-   Xil_Out32((VDMA_BASEADDR + 0x05C), pvideo->video_address); // start address
-   Xil_Out32((VDMA_BASEADDR + 0x060), pvideo->video_address); // start address
-   Xil_Out32((VDMA_BASEADDR + 0x064), pvideo->video_address); // start address
-   Xil_Out32((VDMA_BASEADDR + 0x058), pvideo->hdmio_width_Stride);//Frame Delay and Stride
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000004);                  // RESET
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000008);                  // GEN-LOCK
+   Xil_Out32((VDMA_BASEADDR + 0x05C), pvideo->video_address);       // START ADDRESS
+   Xil_Out32((VDMA_BASEADDR + 0x060), pvideo->video_address);       // START ADDRESS
+   Xil_Out32((VDMA_BASEADDR + 0x064), pvideo->video_address);       // START ADDRESS
+   Xil_Out32((VDMA_BASEADDR + 0x058), pvideo->hdmio_width_Stride);  // FRAME DELAY AND STRIDE
    Xil_Out32((VDMA_BASEADDR + 0x054), pvideo->hdmio_width_Stride);
-   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000003);      // enable circular mode
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000003);                  // ENABLE CIRCULAR MODE
    Xil_Out32((VDMA_BASEADDR + 0x050), pvideo->hdmio_height);
-   vfb_tx_stop( &(pvideo->vdma_hdmi) );//STOP READING CAM
+   vfb_tx_stop( &(pvideo->vdma_hdmi) );                             // STOP READING CAM
    colorBars(0);
    u32 menu_enable  = 0;
    while(D5M_mReadReg(D5M_BASE,r_sec_reg_60) != 5)
@@ -227,11 +227,11 @@ void bars(hdmi_display_start *pvideo)
       }
    }
    sleep(1);
-//   vfb_dump_registers( &(pvideo->vdma_hdmi) );
-//   if ( vfb_check_errors( &(pvideo->vdma_hdmi), 0 ) )
-//   {
-//      vfb_dump_registers( &(pvideo->vdma_hdmi) );
-//   }
+    //vfb_dump_registers( &(pvideo->vdma_hdmi) );
+    //if ( vfb_check_errors( &(pvideo->vdma_hdmi), 0 ) )
+    //{
+    //   vfb_dump_registers( &(pvideo->vdma_hdmi) );
+    //}
    xil_printf("\n\r");
    xil_printf( "Done\n\r" );
    xil_printf("\n\r");
@@ -254,29 +254,45 @@ void d5m_vdma_hdmi(hdmi_display_start *pvideo)
     vfb_tx_init(&(pvideo->vdma_hdmi),&(pvideo->vdmacfg_hdmi_read),pvideo->hdmio_resolution,pvideo->hdmio_resolution,pvideo->video_address,pvideo->uNumFrames_HdmiDisplay);
     vgen_init( &(pvideo->vtc_hdmio_generator),pvideo->uDeviceId_VTC_HdmioGenerator);
     vgen_config( &(pvideo->vtc_hdmio_generator),pvideo->hdmio_resolution,0);
-//    Xil_DCacheDisable();
-//    //SS2M input camera data
-//    Xil_Out32((VDMA_BASEADDR + 0x030), 0x00000004);                 // Reset
-//    Xil_Out32((VDMA_BASEADDR + 0x030), 0x00000008);                 // Genlock
-//    Xil_Out32((VDMA_BASEADDR + 0x0AC), VIDEO_BASEADDR0);            // 1ST FRAME
-////    Xil_Out32((VDMA_BASEADDR + 0x0B0), VIDEO_BASEADDR0);            // 2ND FRAME
-////    Xil_Out32((VDMA_BASEADDR + 0x0B4), VIDEO_BASEADDR0);            // 3RD FRAME
-//    Xil_Out32((VDMA_BASEADDR + 0x0A8), pvideo->hdmio_width_Stride);// Frame Delay and Stride
-//    Xil_Out32((VDMA_BASEADDR + 0x0A4), pvideo->hdmio_width_Stride);// Row
-//    Xil_Out32((VDMA_BASEADDR + 0x030), 0x00000003);                 // Enable circular mode
-//    Xil_Out32((VDMA_BASEADDR + 0x0A0), pvideo->hdmio_height);     // Hight
-//    //MM2S output camera data
-//    Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000004);                 // reset
-//    Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000008);                 // gen-lock
-//    Xil_Out32((VDMA_BASEADDR + 0x05C), VIDEO_BASEADDR0);            // 3RD FRAME
-////    Xil_Out32((VDMA_BASEADDR + 0x060), VIDEO_BASEADDR0);            // 3RD FRAME
-////    Xil_Out32((VDMA_BASEADDR + 0x064), VIDEO_BASEADDR0);            // 3RD FRAME
-//    Xil_Out32((VDMA_BASEADDR + 0x058), pvideo->hdmio_width_Stride);//Frame Delay and Stride
-//    Xil_Out32((VDMA_BASEADDR + 0x054), pvideo->hdmio_width_Stride);// Row
-//    Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000003);                 // enable circular mode
-//    Xil_Out32((VDMA_BASEADDR + 0x050), pvideo->hdmio_height);     // Hight
-//    Xil_DCacheDisable();
-//    printf("Compute Brightness[%i]\n",(unsigned) computeBrightness());
+}
+void manualVdmaConfig(hdmi_display_start *pvideo)
+{
+    int ret;
+    int i;
+    ret = zed_iic_axi_init(&(pvideo->hdmi_out_iic),"HDMI I2C Controller", pvideo->uBaseAddr_IIC_HdmiOut );
+    if(ret != XST_SUCCESS)
+    {
+       xil_printf("Failed to initialize I2C chain\n\r" );
+    }
+    for ( i = 0; i < CARRIER_HDMI_OUT_CONFIG_LEN; i++ )
+    {
+    pvideo->hdmi_out_iic.fpIicWrite(&(pvideo->hdmi_out_iic),carrier_hdmi_out_configs[i][0],carrier_hdmi_out_configs[i][1],&(carrier_hdmi_out_configs[i][2]), 1 );
+    }
+    vgen_init( &(pvideo->vtc_hdmio_generator),pvideo->uDeviceId_VTC_HdmioGenerator);
+    vgen_config( &(pvideo->vtc_hdmio_generator),pvideo->hdmio_resolution,0);
+   Xil_DCacheDisable();
+   //SS2M input camera data
+   Xil_Out32((VDMA_BASEADDR + 0x030), 0x00000004);                 // Reset
+   Xil_Out32((VDMA_BASEADDR + 0x030), 0x00000008);                 // Genlock
+   Xil_Out32((VDMA_BASEADDR + 0x0AC), VIDEO_BASEADDR0);            // 1ST FRAME
+   //Xil_Out32((VDMA_BASEADDR + 0x0B0), VIDEO_BASEADDR0);          // 2ND FRAME
+   //Xil_Out32((VDMA_BASEADDR + 0x0B4), VIDEO_BASEADDR0);           // 3RD FRAME
+   Xil_Out32((VDMA_BASEADDR + 0x0A8), pvideo->hdmio_width_Stride); // Frame Delay and Stride
+   Xil_Out32((VDMA_BASEADDR + 0x0A4), pvideo->hdmio_width_Stride); // Row
+   Xil_Out32((VDMA_BASEADDR + 0x030), 0x00000003);                 // Enable circular mode
+   Xil_Out32((VDMA_BASEADDR + 0x0A0), pvideo->hdmio_height);       // Hight
+   //MM2S output camera data
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000004);                 // reset
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000008);                 // gen-lock
+   Xil_Out32((VDMA_BASEADDR + 0x05C), VIDEO_BASEADDR0);            // 3RD FRAME
+   //Xil_Out32((VDMA_BASEADDR + 0x060), VIDEO_BASEADDR0);          // 3RD FRAME
+   //Xil_Out32((VDMA_BASEADDR + 0x064), VIDEO_BASEADDR0);          // 3RD FRAME
+   Xil_Out32((VDMA_BASEADDR + 0x058), pvideo->hdmio_width_Stride); //Frame Delay and Stride
+   Xil_Out32((VDMA_BASEADDR + 0x054), pvideo->hdmio_width_Stride); // Row
+   Xil_Out32((VDMA_BASEADDR + 0x000), 0x00000003);                 // enable circular mode
+   Xil_Out32((VDMA_BASEADDR + 0x050), pvideo->hdmio_height);       // Hight
+   Xil_DCacheDisable();
+   printf("Compute Brightness[%i]\n",(unsigned) computeBrightness());
 }
 void buffer_vdma_hdmi(hdmi_display_start *pvideo)
 {
@@ -302,7 +318,7 @@ void buffer_vdma_hdmi(hdmi_display_start *pvideo)
     while(menu_enable != 0x20)
    {
  	   menu_enable = uart_prompt_io();
-    	   //buffer();
+      //buffer();
    }
 }
 void clear_colorBars()

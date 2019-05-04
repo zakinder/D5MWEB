@@ -1,14 +1,11 @@
 // LAST TESTED : 04/15/2019
-
 #include "channel.h"
-
 #include <sleep.h>
 #include <stdio.h>
 #include <xbasic_types.h>
 #include <xil_io.h>
 #include <xil_types.h>
 #include <xparameters.h>
-
 #include "../HDMI_DISPLAY/hdmi_display.h"
 #include "../I2C_D5M/i2c_d5m.h"
 #include "../MENU_CALLS/menu_calls.h"

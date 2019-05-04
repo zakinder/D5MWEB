@@ -1,7 +1,7 @@
 --Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
---Date        : Thu May  2 22:26:39 2019
+--Date        : Fri May  3 23:47:23 2019
 --Host        : BLACKHOLE running 64-bit major release  (build 9200)
 --Command     : generate_target zynq_soc.bd
 --Design      : zynq_soc
@@ -7840,7 +7840,7 @@ entity zynq_soc is
     trigger : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of zynq_soc : entity is "zynq_soc,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=zynq_soc,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=47,numReposBlks=24,numNonXlnxBlks=1,numHierBlks=23,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of zynq_soc : entity is "zynq_soc,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=zynq_soc,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=47,numReposBlks=24,numNonXlnxBlks=2,numHierBlks=23,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of zynq_soc : entity is "zynq_soc.hwdef";
 end zynq_soc;

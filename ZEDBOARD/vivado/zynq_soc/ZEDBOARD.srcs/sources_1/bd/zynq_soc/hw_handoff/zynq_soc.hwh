@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May  2 22:27:17 2019" VIVADOVERSION="2017.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri May  3 23:48:01 2019" VIVADOVERSION="2017.2">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.4" DEVICE="7z020" NAME="zynq_soc" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -3429,7 +3429,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE FULLNAME="/PS_VIDEO/D5M/VFP" HWVERSION="1.0" INSTANCE="PS_VIDEO_D5M_VFP" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="VFP" VLNV="xilinx.com:user:VFP:1.0">
+    <MODULE FULLNAME="/PS_VIDEO/D5M/VFP" HWVERSION="1.0" INSTANCE="PS_VIDEO_D5M_VFP" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="VFP" VLNV="zakinder:DisplayIO:VFP:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="vfpConfig" NAME="vfpConfig_reg" RANGE="4096" USAGE="register"/>
@@ -3442,14 +3442,14 @@
         <PARAMETER NAME="C_rgb_m_axis_START_COUNT" VALUE="32"/>
         <PARAMETER NAME="C_m_axis_mm2s_TDATA_WIDTH" VALUE="16"/>
         <PARAMETER NAME="C_m_axis_mm2s_START_COUNT" VALUE="32"/>
-        <PARAMETER NAME="revision_number" VALUE="0x02172019"/>
+        <PARAMETER NAME="revision_number" VALUE="0x05032019"/>
         <PARAMETER NAME="i_data_width" VALUE="8"/>
         <PARAMETER NAME="s_data_width" VALUE="16"/>
         <PARAMETER NAME="b_data_width" VALUE="32"/>
         <PARAMETER NAME="i_precision" VALUE="12"/>
         <PARAMETER NAME="i_full_range" VALUE="FALSE"/>
         <PARAMETER NAME="conf_data_width" VALUE="32"/>
-        <PARAMETER NAME="conf_addr_width" VALUE="4"/>
+        <PARAMETER NAME="conf_addr_width" VALUE="8"/>
         <PARAMETER NAME="img_width" VALUE="4096"/>
         <PARAMETER NAME="dataWidth" VALUE="12"/>
         <PARAMETER NAME="Component_Name" VALUE="zynq_soc_VFP_0"/>
