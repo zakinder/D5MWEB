@@ -1,14 +1,17 @@
 // LAST TESTED : 02/08/2018
+
 #include "i2c_d5m.h"
+
 #include <sleep.h>
 #include <stdio.h>
 #include <xiic_l.h>
 #include <xil_printf.h>
+#include <xil_types.h>
 #include <xparameters.h>
 #include <xstatus.h>
+
 #include "../UART/uartio.h"
-#include "../MENU_CALLS/menu_calls.h"
-#include "../HDMI_DISPLAY/hdmi_display.h"
+#include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 #define SENSOR_ADDRESS 0x5d // 0xBA - write mode, 0xBB read mode
 #define IMG_OUTPUT_CONTROL 7
 #define IMG_GLOBAL_GAIN 0x35

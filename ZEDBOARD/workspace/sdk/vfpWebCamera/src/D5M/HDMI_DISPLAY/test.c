@@ -8,6 +8,7 @@
 #include <xstatus.h>
 #include "hdmi_display.h"
 #include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
+#include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 #ifdef XPAR_INTC_0_DEVICE_ID
 #include "xintc.h"
 #else

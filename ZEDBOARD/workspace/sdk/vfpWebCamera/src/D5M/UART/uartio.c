@@ -1,10 +1,11 @@
-// LAST TESTED : 04/15/2019
+// LAST TESTED : 05/04/2019
 #include "uartio.h"
 #include <stdio.h>
 #include <string.h>
-#include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
-#include "utilities.h"
-u8 uart_per_byte_read(u32 uart_address) {
+#include <xil_types.h>
+#include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
+u8 uart_per_byte_read(u32 uart_address) 
+{
     u8 uart_io;
     if (uart_address == uart_1_baseaddr)
         read(1, (char*) &uart_io, 1);
@@ -109,7 +110,7 @@ int bit_expo(int base_value, int exponent)
         }
     }
     return (nValue);
-}//
+}
 unsigned int uart_prompt_excute()
 {
     int nTemp;
@@ -273,7 +274,8 @@ void menu_print_prompt()
     printf("\r\n>> ");
     uart_Default_Text();
 }
-u32 uartcmd(u32 argA,u32 argB){
+u32 uartcmd(u32 argA,u32 argB)
+{
     printf("Enter to quit\n");
     printf("\r>>");
     u32 uartquit;
@@ -302,7 +304,6 @@ void keyArrowSelect()
 				testValues = 0;   //MINIMUM SET VALUE
 			else
 				testValues -= 1;
-            
 			nMenu_State = menu_select;
 			break;
 		case KEYPRESS_ARROW_UP:  //INCREMENT BY 1
@@ -331,4 +332,86 @@ void keyArrowSelect()
 			break;
 		}
 	}
+}
+void cmds_menu() 
+{
+printf(
+"\n"
+"|--------------------------|\n"
+"|D5M RELEASE V12.16.2018   |\n"
+"|--------------------------|\n"
+"|Hardware test             |\n"
+"|--------------------------|\n"
+"| cmds fifomode            |\n"
+"| cmds readfifo            |\n"
+"| cmds gridpoint           |\n"
+"| cmds exposer             |\n"
+"| cmds readexposer         |\n"
+"| cmds readd5m             |\n"
+"| cmds displaytype         |\n"
+"| cmds printpixel          |\n"
+"| cmds updated5m           |\n"
+"| cmds configd5m           |\n"
+"| cmds videochannel        |\n"
+"| d5m testpattern          |\n"
+"| d5m colorgain            |\n"
+"| xbright                  |\n"
+"| genimage                 |\n"
+"| zoom                     |\n"
+"| colorbars                |\n"
+"| vga                      |\n"
+"| hdmi                     |\n"
+"| fullhdmi                 |\n"
+"| coord                    |\n"
+"| threshold                |\n"
+"| timex                    |\n"
+"|--------------------------|\n");
+menu_print_prompt();
+}
+void master_menu() 
+{
+printf(
+"o-completed , x- in progress\n"
+"|------------------------|\n"
+"|Hardware test           |\n"
+"|------------------------|\n"
+"|000|Chip Version        |\n"
+"|001|Row Start           |\n"
+"|002|Column Start        |\n"
+"|003|Row Size            |\n"
+"|004|Column Size         |\n"
+"|005|Horizontal Blank    |\n"
+"|006|Vertical Blank      |\n"
+"|007|Output Control      |\n"
+"|008|Shutter Width Upper |\n"
+"|009|Shutter Width Lower |\n"
+"|010|Pixel Clock Control |\n"
+"|011|Restart             |\n"
+"|012|Shutter Delay       |\n"
+"|013|Reset               |\n"
+"|016|PLL Control         |\n"
+"|017|PLL Config 1        |\n"
+"|018|PLL Config 2        |\n"
+"|030|Read Mode 1         |\n"
+"|032|Read Mode 2         |\n"
+"|034|Row Address Mode    |\n"
+"|035|Column address mode |\n"
+"|043|Green1 Gain         |\n"
+"|044|Blue Gain           |\n"
+"|045|Red Gain            |\n"
+"|046|Green2 Gain         |\n"
+"|053|Global Gain         |\n"
+"|075|Row black offset    |\n"
+"|160|TestPatternControl  |\n"
+"|161|Test Pattern Green  |\n"
+"|162|Test Pattern Red    |\n"
+"|163|Test Pattern Blue   |\n"
+"|164|TestPatBarWidth     |\n"
+"|255|Chip Version Alt    |\n"
+"|------------------------|\n");
+menu_print_prompt();
+}
+void menu_cls() 
+{
+printf("\033[2J\033[;H");
 }

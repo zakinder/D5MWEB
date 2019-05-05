@@ -1,6 +1,6 @@
 // LAST TESTED : 12/16/2018
 #include "video_resolution.h"
-#include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
+#include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 #include <xil_printf.h>
 vres_timing_t vres_resolutions[NUM_VIDEO_RESOLUTIONS] = {
    // name     vav,  vfp,  vsw,  vbp,  vsp,  hav,  hfp,  hsw,  hbp,  hsp

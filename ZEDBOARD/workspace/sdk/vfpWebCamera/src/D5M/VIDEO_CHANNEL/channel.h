@@ -2,7 +2,7 @@
 #ifndef __CHANNEL_H__
 #define __CHANNEL_H__
 #include <xil_types.h>
-void sobel();
+void sobelWrite();
 void colorFilterFixed();
 void colorFilterA11(u16 Axx);
 void colorFilterA12(u16 Axx);
@@ -14,7 +14,7 @@ void colorFilterA31(u16 Axx);
 void colorFilterA32(u16 Axx);
 void colorFilterA33(u16 Axx);
 void colorFilterKc(u16 Axx);
-void prewitt();
+void prewittWrite();
 void computeBrightness();
 void pRbrightness();
 void selected_channel();
