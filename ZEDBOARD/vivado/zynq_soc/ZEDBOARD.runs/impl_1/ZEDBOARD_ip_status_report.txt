@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Sat May  4 00:12:35 2019
+| Date         : Sun May  5 22:10:53 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_ip_status
 ------------------------------------------------------------------------------------
@@ -10,7 +10,7 @@ IP Status Summary
 
 1. Project IP Status
 --------------------
-Your project uses 22 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+Your project uses 21 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
 
 More information on the Xilinx versioning policy is available at www.xilinx.com.
 
@@ -79,9 +79,9 @@ Project IP Instances
 |                               |            |                     |           | Memory Access      | (Rev.   |               |            |                      |
 |                               |            |                     |           |                    | 1)      |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
-| zynq_soc_VFP_0                | Up-to-date | No changes required | Change    | VFP_v1.0           | 1.0     | 1.0 (Rev. 2)  | Included   | xc7z020clg484-1      |
+| zynq_soc_VFP_0                | Up-to-date | No changes required | Change    | VFP_v1.0           | 1.0     | 1.0 (Rev. 5)  | Included   | xc7z020clg484-1      |
 |                               |            |                     | Log not   |                    | (Rev.   |               |            |                      |
-|                               |            |                     | available |                    | 2)      |               |            |                      |
+|                               |            |                     | available |                    | 5)      |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
 | zynq_soc_VIDEO_OUT_0          | Up-to-date | No changes required |  *(14)    | AXI4-Stream to     | 4.0     | 4.0 (Rev. 6)  | Included   | xc7z020clg484-1      |
 |                               |            |                     |           | Video Out          | (Rev.   |               |            |                      |
@@ -99,11 +99,7 @@ Project IP Instances
 |                               |            |                     |           | Reset              | (Rev.   |               |            |                      |
 |                               |            |                     |           |                    | 11)     |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
-| div_gen_0                     | Up-to-date | No changes required |  *(18)    | Divider Generator  | 5.1     | 5.1 (Rev. 11) | Included   | xc7z020clg484-1      |
-|                               |            |                     |           |                    | (Rev.   |               |            |                      |
-|                               |            |                     |           |                    | 11)     |               |            |                      |
-+-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
-| squareRoot                    | Up-to-date | No changes required |  *(19)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
+| squareRoot                    | Up-to-date | No changes required |  *(18)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
 |                               |            |                     |           |                    | (Rev.   |               |            |                      |
 |                               |            |                     |           |                    | 4)      |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
@@ -124,7 +120,6 @@ Project IP Instances
 *(15) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/axi_interconnect_v2_1/doc/axi_interconnect_v2_1_changelog.txt
 *(16) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
 *(17) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/proc_sys_reset_v5_0/doc/proc_sys_reset_v5_0_changelog.txt
-*(18) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/div_gen_v5_1/doc/div_gen_v5_1_changelog.txt
-*(19) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
+*(18) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
 
 

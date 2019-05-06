@@ -7,12 +7,14 @@
 #include <xil_types.h>
 #include <xilmfs.h>
 #include <xparameters_ps.h>
-#include "../../D5M/HDMI_DISPLAY/hdmi_display.h"
+
 #include "../../D5M/I2C_D5M/i2c_d5m.h"
-#include "../../D5M/MENU_CALLS/menu_calls.h"
+#include "../../D5M/SYSTEM_CONFIG_HEADER/system_config_header.h"
+#include "../../D5M/SYSTEM_CONFIG_HEADER/system_config_defines.h"
+#include "../../D5M/VIDEO_CHANNEL/channel.h"
 #include "platform_gpio.h"
 #include "webserver.h"
-#include "../../D5M/VIDEO_CHANNEL/channel.h"
+
 #define LEDS_TOGGLE XPAR_LEDS_8BITS_BASEADDR
 #define D5MBASE XPAR_PS_VIDEO_D5M_VIDEOPROCESS_CONFIG_AXIS_BASEADDR
 #define out_buf_size 4

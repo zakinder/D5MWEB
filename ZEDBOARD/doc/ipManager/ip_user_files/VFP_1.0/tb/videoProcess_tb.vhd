@@ -14,7 +14,7 @@ end videoProcess_tb;
 architecture behavioral of videoProcess_tb is
     signal resetn                        : std_logic :='0';
     signal clk                           : std_logic;
-    constant DUT_VFP_ENABLED             : boolean := true;
+    constant DUT_VFP_ENABLED             : boolean := false;
     constant DUT_FRAMEPROCESS_ENABLED    : boolean := false;
     constant DUT_POINTOFINTEREST_ENABLED : boolean := true;
 begin
@@ -42,14 +42,16 @@ signal wrAddrsGlCtr     : integer := 0;
 signal enableWrite      : std_logic;
 signal rgbCoord         : region;
 signal rgbDetectLock    : std_logic;
+signal hsv              : hsvChannel;
 begin
-enableWrite <= '1' when rgbCoord.rh = x"f0";
+enableWrite <= '1';
 IMAGE2_imageRead: imageRead
 generic map (
     i_data_width       => 8,
     input_file         => readbmp)
 port map (                  
     clk                => clk,
+    reset              => resetn,
     oRgb               => rgbIn,
     oCord              => txCord,
     endOfFrame         => endOfFrame,
@@ -71,6 +73,18 @@ port map (
     pixclk             => clk,
     enableWrite        => enableWrite,
     iRgb               => rgbPoi);
+hsvInst: hsv_c
+generic map(
+    i_data_width        => 8)
+port map(   
+    clk                 => clk,
+    reset               => resetn,
+    iRgb                => rgbIn,
+    oHsv                => hsv);
+    rgbPoi.red            <= hsv.h;
+    rgbPoi.green          <= hsv.s;
+    rgbPoi.blue           <= hsv.v;
+    rgbPoi.valid          <= hsv.valid;
 -- enableWrite <= not(oFifoStatus(1));
 -- pointOfInterest_inst: pointOfInterest
 -- generic map(
@@ -88,18 +102,22 @@ port map (
     -- fifoStatus         => oFifoStatus,
     -- oGridLocation      => rgbPoiLock,
     -- oRgb               => rgbPoi);
-detectInst: detect
-generic map(
-    i_data_width        => 8)
-port map(
-    clk                 => clk,
-    rst_l               => resetn,
-    iRgb                => rgbIn,
-    rgbCoord            => rgbCoord,
-    endOfFrame          => endOfFrame,
-    iCord               => txCord,
-    pDetect             => rgbDetectLock,
-    oRgb                => rgbPoi);
+--enableWrite <= '1' when rgbCoord.rh = x"f0";
+-- detectInst: detect
+-- generic map(
+    -- i_data_width        => 8)
+-- port map(
+    -- clk                 => clk,
+    -- rst_l               => resetn,
+    -- iRgb                => rgbIn,
+    -- rgbCoord            => rgbCoord,
+    -- endOfFrame          => endOfFrame,
+    -- iCord               => txCord,
+    -- pDetect             => rgbDetectLock,
+    -- oRgb                => rgbPoi);
+    
+    
+    
     oRgbGrid.red            <= oGridLockData(23 downto 16);
     oRgbGrid.green          <= oGridLockData(15 downto 8);
     oRgbGrid.blue           <= oGridLockData(7 downto 0);
@@ -253,7 +271,8 @@ port map(
     vfpconfig_rdata             => vfpconfig_rdata,
     vfpconfig_rresp             => vfpconfig_rresp,
     vfpconfig_rvalid            => vfpconfig_rvalid,
-    vfpconfig_rready            => vfpconfig_rready);  
+    vfpconfig_rready            => vfpconfig_rready);
+    
 d5m_camera_inst: VFP_v1_0
 generic map(
     revision_number             => revision_number,

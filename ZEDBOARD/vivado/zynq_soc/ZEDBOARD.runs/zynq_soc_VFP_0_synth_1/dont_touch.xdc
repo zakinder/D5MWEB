@@ -4,17 +4,11 @@
 # IP: z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/zynq_soc_VFP_0.xci
 # IP: The module: 'zynq_soc_VFP_0' is the root of the design. Do not add the DONT_TOUCH constraint.
 
-# IP: z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/divider/div_gen_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==div_gen_0 || ORIG_REF_NAME==div_gen_0}]
-
 # IP: z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/squareRoot/squareRoot.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==squareRoot || ORIG_REF_NAME==squareRoot}]
 
 # IP: z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/zynq_soc_VFP_0.xci
 # IP: The module: 'zynq_soc_VFP_0' is the root of the design. Do not add the DONT_TOUCH constraint.
-
-# IP: z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/divider/div_gen_0.xci
-#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==div_gen_0 || ORIG_REF_NAME==div_gen_0}]
 
 # IP: z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VFP_0/src/squareRoot/squareRoot.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==squareRoot || ORIG_REF_NAME==squareRoot}]

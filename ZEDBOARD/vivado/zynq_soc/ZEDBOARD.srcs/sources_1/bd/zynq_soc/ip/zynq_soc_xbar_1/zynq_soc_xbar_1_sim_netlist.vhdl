@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
--- Date        : Fri May  3 23:52:20 2019
+-- Date        : Sun May  5 21:50:09 2019
 -- Host        : BLACKHOLE running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_xbar_1/zynq_soc_xbar_1_sim_netlist.vhdl

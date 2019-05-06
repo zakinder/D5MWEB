@@ -9,7 +9,7 @@
 #include "../HDMI_DISPLAY/hdmi_display.h"
 #include "../I2C_D5M/i2c_d5m.h"
 #include "../MENU_CALLS/menu_calls.h"
-#include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
+#include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 void d5mInit(){
     //DEFAULT CONFIGURABLE
     pvideo.uBaseAddr_IIC_HdmiOut        = XPAR_HDMI_OUTPUT_HDMI_IIC_BASEADDR;
@@ -293,9 +293,9 @@ void enableNextRead(u16 eValue)
 void edgeType(u16 edgeTypeValue)
 {
     if (edgeTypeValue == 1) {
-        sobel();
+        sobelWrite();
     }else{
-        prewitt();
+        prewittWrite();
     }
 }
 void selected_channel()
@@ -319,7 +319,7 @@ void selected_channel()
     D5M_mWriteReg(D5M_BASE,w_bl_reg_55,pStream.fRgbCoordBH);//cord
     D5M_mWriteReg(D5M_BASE,w_abusselect_reg_3,pStream.fDbusSelect);
     edgeThreshold(pStream.fThreshold);
-    prewitt();
+    prewittWrite();
     videoFeatureSelect(pStream.fVideoType);
 }
 void colorDetectRange(u16 fRgbCoordRL,u16 fRgbCoordRH,u16 fRgbCoordGL,u16 fRgbCoordGH,u16 fRgbCoordBL,u16 fRgbCoordBH)
@@ -331,7 +331,7 @@ void colorDetectRange(u16 fRgbCoordRL,u16 fRgbCoordRH,u16 fRgbCoordGL,u16 fRgbCo
     D5M_mWriteReg(D5M_BASE,w_bh_reg_54,fRgbCoordBL);//cord
     D5M_mWriteReg(D5M_BASE,w_bl_reg_55,fRgbCoordBH);//cord
 }
-void sobel()
+void sobelWrite()
 {
     D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,psobel.K1);
     D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,psobel.K2);
@@ -398,7 +398,7 @@ void colorFilterFixed()
     colorFilterKc(pcolor.Kc);//writeRead
     colorFilterKc(0x0000);//open
 }
-void prewitt()
+void prewittWrite()
 {
     D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,pprewitt.K1);
     D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,pprewitt.K2);

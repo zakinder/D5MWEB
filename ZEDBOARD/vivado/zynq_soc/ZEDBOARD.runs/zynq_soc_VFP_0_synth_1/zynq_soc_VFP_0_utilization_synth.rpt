@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Fri May  3 23:56:32 2019
+| Date         : Sun May  5 21:53:59 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_utilization -file zynq_soc_VFP_0_utilization_synth.rpt -pb zynq_soc_VFP_0_utilization_synth.pb
 | Design       : zynq_soc_VFP_0
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                |  9091 |     0 |     53200 | 17.09 |
-|   LUT as Logic             |  8962 |     0 |     53200 | 16.85 |
-|   LUT as Memory            |   129 |     0 |     17400 |  0.74 |
+| Slice LUTs*                |  9048 |     0 |     53200 | 17.01 |
+|   LUT as Logic             |  8916 |     0 |     53200 | 16.76 |
+|   LUT as Memory            |   132 |     0 |     17400 |  0.76 |
 |     LUT as Distributed RAM |     0 |     0 |           |       |
-|     LUT as Shift Register  |   129 |     0 |           |       |
-| Slice Registers            | 11853 |     0 |    106400 | 11.14 |
-|   Register as Flip Flop    | 11852 |     0 |    106400 | 11.14 |
+|     LUT as Shift Register  |   132 |     0 |           |       |
+| Slice Registers            | 10149 |     0 |    106400 |  9.54 |
+|   Register as Flip Flop    | 10148 |     0 |    106400 |  9.54 |
 |   Register as Latch        |     1 |     0 |    106400 | <0.01 |
 | F7 Muxes                   |   139 |     0 |     26600 |  0.52 |
 | F8 Muxes                   |    32 |     0 |     13300 |  0.24 |
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 56    |          Yes |           - |          Set |
 | 580   |          Yes |           - |        Reset |
-| 107   |          Yes |         Set |            - |
-| 11110 |          Yes |       Reset |            - |
+| 168   |          Yes |         Set |            - |
+| 9345  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -148,29 +148,28 @@ Table of Contents
 7. Primitives
 -------------
 
-+----------+-------+---------------------+
-| Ref Name |  Used | Functional Category |
-+----------+-------+---------------------+
-| FDRE     | 11110 |        Flop & Latch |
-| LUT6     |  2953 |                 LUT |
-| LUT4     |  2457 |                 LUT |
-| LUT3     |  2444 |                 LUT |
-| LUT2     |  2109 |                 LUT |
-| CARRY4   |  1619 |          CarryLogic |
-| LUT1     |   953 |                 LUT |
-| LUT5     |   599 |                 LUT |
-| FDCE     |   579 |        Flop & Latch |
-| MUXF7    |   139 |               MuxFx |
-| SRL16E   |   117 |  Distributed Memory |
-| FDSE     |   107 |        Flop & Latch |
-| RAMB36E1 |    83 |        Block Memory |
-| FDPE     |    56 |        Flop & Latch |
-| MUXF8    |    32 |               MuxFx |
-| DSP48E1  |    18 |    Block Arithmetic |
-| SRLC32E  |    12 |  Distributed Memory |
-| RAMB18E1 |     4 |        Block Memory |
-| LDCE     |     1 |        Flop & Latch |
-+----------+-------+---------------------+
++----------+------+---------------------+
+| Ref Name | Used | Functional Category |
++----------+------+---------------------+
+| FDRE     | 9345 |        Flop & Latch |
+| LUT6     | 2955 |                 LUT |
+| LUT4     | 2465 |                 LUT |
+| LUT3     | 2375 |                 LUT |
+| LUT2     | 2162 |                 LUT |
+| CARRY4   | 1639 |          CarryLogic |
+| LUT1     |  909 |                 LUT |
+| LUT5     |  629 |                 LUT |
+| FDCE     |  579 |        Flop & Latch |
+| FDSE     |  168 |        Flop & Latch |
+| MUXF7    |  139 |               MuxFx |
+| SRL16E   |  132 |  Distributed Memory |
+| RAMB36E1 |   83 |        Block Memory |
+| FDPE     |   56 |        Flop & Latch |
+| MUXF8    |   32 |               MuxFx |
+| DSP48E1  |   18 |    Block Arithmetic |
+| RAMB18E1 |    4 |        Block Memory |
+| LDCE     |    1 |        Flop & Latch |
++----------+------+---------------------+
 
 
 8. Black Boxes

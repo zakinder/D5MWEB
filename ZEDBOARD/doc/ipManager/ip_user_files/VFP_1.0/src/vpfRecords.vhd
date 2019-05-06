@@ -77,6 +77,13 @@ type ccRgbRecord is record
     rgbSnSum         : rgbSnSumRecord;
     rgbSnSumTr       : rgbSnSumTrRecord;
 end record;
+type rgbToUfRecord is record
+    red              : ufixed(7 downto 0);
+    green            : ufixed(7 downto 0);
+    blue             : ufixed(7 downto 0);
+    valid            : std_logic;
+end record;
+
 type channel is record
     valid            : std_logic;
     red              : std_logic_vector(7 downto 0);

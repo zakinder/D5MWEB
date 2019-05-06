@@ -2,15 +2,15 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Fri May  3 23:51:51 2019
-# Process ID: 1500
+# Start of session at: Sun May  5 21:49:43 2019
+# Process ID: 5180
 # Current directory: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_HDMI_IIC_0_synth_1
 # Command line: vivado.exe -log zynq_soc_HDMI_IIC_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_soc_HDMI_IIC_0.tcl
 # Log file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_HDMI_IIC_0_synth_1/zynq_soc_HDMI_IIC_0.vds
 # Journal file: Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_HDMI_IIC_0_synth_1\vivado.jou
 #-----------------------------------------------------------
 source zynq_soc_HDMI_IIC_0.tcl -notrace
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 383.984 ; gain = 80.461
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 384.309 ; gain = 81.070
 INFO: [Synth 8-638] synthesizing module 'zynq_soc_HDMI_IIC_0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_IIC_0/synth/zynq_soc_HDMI_IIC_0.vhd:91]
 INFO: [Synth 8-638] synthesizing module 'axi_iic' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/6bf4/hdl/axi_iic_v2_0_vh_rfs.vhd:6870]
 INFO: [Synth 8-638] synthesizing module 'iic' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/6bf4/hdl/axi_iic_v2_0_vh_rfs.vhd:6187]
@@ -135,24 +135,24 @@ INFO: [Synth 8-256] done synthesizing module 'SRL_FIFO__parameterized0' (21#1) [
 INFO: [Synth 8-256] done synthesizing module 'iic' (22#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/6bf4/hdl/axi_iic_v2_0_vh_rfs.vhd:6187]
 INFO: [Synth 8-256] done synthesizing module 'axi_iic' (23#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/6bf4/hdl/axi_iic_v2_0_vh_rfs.vhd:6870]
 INFO: [Synth 8-256] done synthesizing module 'zynq_soc_HDMI_IIC_0' (24#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_IIC_0/synth/zynq_soc_HDMI_IIC_0.vhd:91]
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 433.082 ; gain = 129.559
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 433.082 ; gain = 129.559
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 434.406 ; gain = 131.168
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 434.406 ; gain = 131.168
 INFO: [Device 21-403] Loading part xc7z020clg484-1
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 756.480 ; gain = 0.000
-Finished Constraint Validation : Time (s): cpu = 00:00:38 ; elapsed = 00:00:45 . Memory (MB): peak = 756.480 ; gain = 452.957
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:38 ; elapsed = 00:00:45 . Memory (MB): peak = 756.480 ; gain = 452.957
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:45 . Memory (MB): peak = 756.480 ; gain = 452.957
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:41 ; elapsed = 00:00:48 . Memory (MB): peak = 756.480 ; gain = 452.957
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:55 . Memory (MB): peak = 756.480 ; gain = 452.957
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:11 ; elapsed = 00:01:23 . Memory (MB): peak = 756.480 ; gain = 452.957
-Finished Timing Optimization : Time (s): cpu = 00:01:15 ; elapsed = 00:01:27 . Memory (MB): peak = 765.168 ; gain = 461.645
-Finished Technology Mapping : Time (s): cpu = 00:01:16 ; elapsed = 00:01:28 . Memory (MB): peak = 768.297 ; gain = 464.773
-Finished IO Insertion : Time (s): cpu = 00:01:18 ; elapsed = 00:01:30 . Memory (MB): peak = 768.297 ; gain = 464.773
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:18 ; elapsed = 00:01:30 . Memory (MB): peak = 768.297 ; gain = 464.773
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:18 ; elapsed = 00:01:30 . Memory (MB): peak = 768.297 ; gain = 464.773
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:18 ; elapsed = 00:01:30 . Memory (MB): peak = 768.297 ; gain = 464.773
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:18 ; elapsed = 00:01:30 . Memory (MB): peak = 768.297 ; gain = 464.773
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:18 ; elapsed = 00:01:30 . Memory (MB): peak = 768.297 ; gain = 464.773
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 756.902 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 756.902 ; gain = 453.664
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 756.902 ; gain = 453.664
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:43 . Memory (MB): peak = 756.902 ; gain = 453.664
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:46 . Memory (MB): peak = 756.902 ; gain = 453.664
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:52 . Memory (MB): peak = 756.902 ; gain = 453.664
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:01:19 . Memory (MB): peak = 756.902 ; gain = 453.664
+Finished Timing Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:24 . Memory (MB): peak = 765.465 ; gain = 462.227
+Finished Technology Mapping : Time (s): cpu = 00:01:15 ; elapsed = 00:01:25 . Memory (MB): peak = 767.594 ; gain = 464.355
+Finished IO Insertion : Time (s): cpu = 00:01:16 ; elapsed = 00:01:26 . Memory (MB): peak = 767.594 ; gain = 464.355
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:16 ; elapsed = 00:01:26 . Memory (MB): peak = 767.594 ; gain = 464.355
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:17 ; elapsed = 00:01:27 . Memory (MB): peak = 767.594 ; gain = 464.355
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:17 ; elapsed = 00:01:27 . Memory (MB): peak = 767.594 ; gain = 464.355
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:17 ; elapsed = 00:01:27 . Memory (MB): peak = 767.594 ; gain = 464.355
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:17 ; elapsed = 00:01:27 . Memory (MB): peak = 767.594 ; gain = 464.355
 
 Report Cell Usage: 
 +------+--------+------+
@@ -173,5 +173,5 @@ Report Cell Usage:
 |13    |FDRE    |   321|
 |14    |FDSE    |    36|
 +------+--------+------+
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:18 ; elapsed = 00:01:30 . Memory (MB): peak = 768.297 ; gain = 464.773
-synth_design: Time (s): cpu = 00:01:21 ; elapsed = 00:01:35 . Memory (MB): peak = 768.297 ; gain = 472.473
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:17 ; elapsed = 00:01:27 . Memory (MB): peak = 767.594 ; gain = 464.355
+synth_design: Time (s): cpu = 00:01:21 ; elapsed = 00:01:32 . Memory (MB): peak = 768.066 ; gain = 472.027

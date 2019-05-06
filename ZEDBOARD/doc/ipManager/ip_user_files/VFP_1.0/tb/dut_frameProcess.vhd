@@ -147,6 +147,7 @@ generic map (
     input_file         => readbmp)
 port map (                  
     clk                => clk,
+    reset              => resetn,
     oRgb               => rgbio,
     oCord              => txCord,
     endOfFrame         => endOfFrame,

@@ -2,12 +2,13 @@
 #include "menu_calls.h"
 #include <stdio.h>
 #include <xil_io.h>
+#include <xil_types.h>
 #include "../HDMI_DISPLAY/hdmi_display.h"
 #include "../I2C_D5M/i2c_d5m.h"
+#include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
+#include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 #include "../UART/uartio.h"
-#include "../UART/utilities.h"
 #include "../VIDEO_CHANNEL/channel.h"
-#include "../HDMI_DISPLAY/hdmi_display.h"
 //hdmi_display_start pvideo;
 d5m_rreg d5m_rreg_ptr;
 //unused functions
@@ -177,6 +178,66 @@ void menu_calls(ON_OFF) {
         	camera_set_registers();
             cmd_status_substate = enter_value_or_quit("fullhdmi",fullhdmi);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
+        case sobel:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wSobel);
+            cmd_status_substate = enter_value_or_quit("sobel",sobel);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case ycbcr:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wTestPatternV3);
+            cmd_status_substate = enter_value_or_quit("ycbcr",ycbcr);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case prewitt:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wSobel);
+            cmd_status_substate = enter_value_or_quit("prewitt",prewitt);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case colorgain:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wTestPatternV3);
+            cmd_status_substate = enter_value_or_quit("colorgain",colorgain);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case colorcorrection:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wRgbCorrect);
+            cmd_status_substate = enter_value_or_quit("colorcorrection",colorcorrection);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case edgethreshold:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wTestPatternV3);
+            cmd_status_substate = enter_value_or_quit("edgethreshold",edgethreshold);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case version:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wTestPatternV3);
+            cmd_status_substate = enter_value_or_quit("version",version);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case blur1x:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wBlurv1);
+            cmd_status_substate = enter_value_or_quit("blur1x",blur1x);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case blur2x:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wBlurv2);
+            cmd_status_substate = enter_value_or_quit("blur2x",blur2x);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case blur3x:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wBlurv3);
+            cmd_status_substate = enter_value_or_quit("blur3x",blur3x);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case blur4x:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wBlurv4);
+            cmd_status_substate = enter_value_or_quit("blur4x",blur4x);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case blur5x:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(wBlurv4);
+            cmd_status_substate = enter_value_or_quit("blur5x",blur5x);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
         case cmds_gridpoint:
             /*****************************************************************************************************************/
             printf("Enter x,y location point\n");
@@ -228,7 +289,6 @@ void menu_calls(ON_OFF) {
                 }
             }
             cmd_status_substate = enter_value_or_quit("cmds_printpixel",cmds_printpixel);current_state = cmd_status_substate;break;
-            /*****************************************************************************************************************/
             /*****************************************************************************************************************/
         case parttern5: // need to be decoded at terminal for colorgain*** and replace back to parttern5
             /*****************************************************************************************************************/

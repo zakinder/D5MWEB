@@ -7,6 +7,7 @@
 #include <xil_types.h>
 #include <xparameters.h>
 #include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
+#include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 #include "../UART/uartio.h"
 #include "../VIDEO_FRAME_BUFFER/video_frame_buffer.h"
 #include "../VIDEO_GENERATOR/video_generator.h"

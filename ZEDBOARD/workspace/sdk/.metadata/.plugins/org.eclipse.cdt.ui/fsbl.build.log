@@ -1,8 +1,8 @@
-19:48:35 **** Incremental Build of configuration Debug for project fsbl ****
+22:19:19 **** Incremental Build of configuration Debug for project fsbl ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
 
-19:48:36 Build Finished (took 696ms)
+22:19:19 Build Finished (took 458ms)
 

@@ -13,6 +13,7 @@ generic (
     input_file    : string  := "input_image");
 port (
     clk           : in  std_logic;
+    reset         : in  std_logic;
     oRgb          : out channel;
     oCord         : out coord;
     rl            : out std_logic_vector(i_data_width-1 downto 0);
@@ -43,8 +44,18 @@ begin
     oCord.x     <= std_logic_vector(to_unsigned(xImagecont, 16));
     oCord.y     <= std_logic_vector(to_unsigned(yImagecont, 16));
     -------------------------------------------------------------------------
-    pcreate_pixelpositions: process(clk)begin
-        if rising_edge(clk) then
+    pcreate_pixelpositions: process(clk,reset)begin
+        if (reset = lo) then
+            oRgb.red     <= (others => '0');
+            oRgb.green   <= (others => '0');
+            oRgb.blue    <= (others => '0');
+            rl <= x"00";
+            rh <= x"00";
+            gl <= x"00";
+            gh <= x"00";
+            bl <= x"00";
+            bh <= x"00";
+        elsif rising_edge(clk) then
             if (ReadyToRead = '1') then
                 if(Xcont < img_width + 3 and Ycont < img_height + 3)then
                     Xcont  <= Xcont + 1;

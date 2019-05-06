@@ -133,6 +133,7 @@ generic (
     input_file    : string  := "input_image");
 port (                
     clk           : in  std_logic;
+    reset         : in  std_logic;
     oRgb          : out channel;
     oCord         : out coord;
     rl            : out std_logic_vector(i_data_width-1 downto 0);
