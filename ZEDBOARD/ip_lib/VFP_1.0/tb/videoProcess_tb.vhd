@@ -19,20 +19,17 @@ architecture behavioral of videoProcess_tb is
     constant DUT_POINTOFINTEREST_ENABLED : boolean := true;
 begin
     clk_gen(clk, 150.00e6);
-
     process begin
         resetn  <= '0';
     wait for 2 ns;
         resetn  <= '1';
     wait;
     end process;
-
 POINTOFINTEREST_ENABLED : if (DUT_POINTOFINTEREST_ENABLED = true) generate
-signal rgbIn            : channel;
+constant adwrWidth      : integer := 16;
+constant addrWidth      : integer := 12;
 signal txCord           : coord;
 signal pRegion          : poi;
-signal rgbPoi           : channel;
-signal oRgbGrid         : channel;
 signal oGridLockData    : std_logic_vector(b_data_width-1 downto 0);
 signal oFifoStatus      : std_logic_vector(b_data_width-1 downto 0);
 signal rgbPoiLock       : std_logic;
@@ -43,8 +40,41 @@ signal enableWrite      : std_logic;
 signal rgbCoord         : region;
 signal rgbDetectLock    : std_logic;
 signal hsv              : hsvChannel;
+signal rgbIn            : channel;
+signal rgbPoi           : channel;
+signal oRgbGrid         : channel;
+signal blur1vx          : channel;
+signal blur2vx          : channel;
+signal blur3vx          : channel;
+signal blur4vx          : channel;
+signal blur5vx          : channel;
+signal rgbCorrect1      : channel;
+signal rgbCorrect2      : channel;
+signal sharp            : channel;
+signal als              : coefficient;
+signal kls              : coefficient;
 begin
-enableWrite <= '1';
+als.k1                  <= x"0000000D";--  1.375
+als.k2                  <= x"000000FE";-- -0.250
+als.k3                  <= x"000000FF";-- -0.125
+als.k4                  <= x"000000FF";-- -0.125
+als.k5                  <= x"0000000E";--  1.375 green gain by po
+als.k6                  <= x"000000FE";-- -0.250
+als.k7                  <= x"000000FE";-- -0.250
+als.k8                  <= x"000000FF";-- -0.125
+als.k9                  <= x"0000000D";--  1.375
+als.config              <= 1;
+kls.k1                  <= x"00000000";
+kls.k2                  <= x"00000000";
+kls.k3                  <= x"00000000";
+kls.k4                  <= x"00000000";
+kls.k5                  <= x"00000000";
+kls.k6                  <= x"00000000";
+kls.k7                  <= x"00000000";
+kls.k8                  <= x"00000000";
+kls.k9                  <= x"00000000";
+kls.config              <= 0;
+enableWrite             <= hi;
 IMAGE2_imageRead: imageRead
 generic map (
     i_data_width       => 8,
@@ -61,6 +91,116 @@ port map (
     gh                 => rgbCoord.gh,
     bl                 => rgbCoord.bl,
     bh                 => rgbCoord.bh);
+sharpFilterInst: sharpFilter
+generic map(
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(   
+    clk                 => clk,
+    rst_l               => resetn,
+    iRgb                => rgbIn,
+    endOfFrame          => endOfFrame,
+    kls                 => kls,
+    oRgb                => sharp);
+blurFilter1xInst: blurFilter
+generic map(
+    iMSB                => blurMsb,
+    iLSB                => blurLsb,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => resetn,
+    iRgb                => sharp,
+    oRgb                => blur1vx);
+blurFilter2xInst: blurFilter
+generic map(
+    iMSB                => blurMsb - 1,
+    iLSB                => blurLsb - 1,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => resetn,
+    iRgb                => blur1vx,
+    oRgb                => blur2vx);
+blurFilter3xInst: blurFilter
+generic map(
+    iMSB                => blurMsb - 1,
+    iLSB                => blurLsb - 1,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => resetn,
+    iRgb                => blur2vx,
+    oRgb                => blur3vx);
+blurFilter4xInst: blurFilter
+generic map(
+    iMSB                => blurMsb - 1,
+    iLSB                => blurLsb - 1,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => resetn,
+    iRgb                => blur3vx,
+    oRgb                => blur4vx);
+colorCorrection1Inst: colorCorrection
+generic map(
+    i_data_width        => i_data_width)
+port map(           
+    clk                 => clk,
+    rst_l               => resetn,
+    iRgb                => blur4vx,
+    als                 => als,    
+    oRgb                => rgbCorrect1);
+hsvInst: hsv_c
+generic map(
+    i_data_width        => 8)
+port map(   
+    clk                 => clk,
+    reset               => resetn,
+    iRgb                => rgbCorrect1,
+    oHsv                => hsv);
+    ----------------------------------
+    rgbPoi.red            <= hsv.h;
+    rgbPoi.green          <= hsv.s;
+    rgbPoi.blue           <= hsv.v;
+    rgbPoi.valid          <= hsv.valid;
+    ----------------------------------
+blurFilter5xInst: blurFilter
+generic map(
+    iMSB                => blurMsb,
+    iLSB                => blurLsb,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(
+    clk                 => clk,
+    rst_l               => resetn,
+    iRgb                => rgbPoi,
+    oRgb                => blur5vx); 
+colorCorrection2Inst: colorCorrection
+generic map(
+    i_data_width        => i_data_width)
+port map(           
+    clk                 => clk,
+    rst_l               => resetn,
+    iRgb                => blur5vx,
+    als                 => als,    
+    oRgb                => rgbCorrect2);
 WRITEIMAGE1: imageWrite
 generic map (
     enImageText        => true,
@@ -72,19 +212,7 @@ generic map (
 port map (                  
     pixclk             => clk,
     enableWrite        => enableWrite,
-    iRgb               => rgbPoi);
-hsvInst: hsv_c
-generic map(
-    i_data_width        => 8)
-port map(   
-    clk                 => clk,
-    reset               => resetn,
-    iRgb                => rgbIn,
-    oHsv                => hsv);
-    rgbPoi.red            <= hsv.h;
-    rgbPoi.green          <= hsv.s;
-    rgbPoi.blue           <= hsv.v;
-    rgbPoi.valid          <= hsv.valid;
+    iRgb               => rgbCorrect2);
 -- enableWrite <= not(oFifoStatus(1));
 -- pointOfInterest_inst: pointOfInterest
 -- generic map(
@@ -115,9 +243,6 @@ port map(
     -- iCord               => txCord,
     -- pDetect             => rgbDetectLock,
     -- oRgb                => rgbPoi);
-    
-    
-    
     oRgbGrid.red            <= oGridLockData(23 downto 16);
     oRgbGrid.green          <= oGridLockData(15 downto 8);
     oRgbGrid.blue           <= oGridLockData(7 downto 0);
@@ -128,7 +253,6 @@ port map(
     pRegion.fifoReadAddress <= wrAddress;
     pRegion.clearFifoData   <= '0';
     pRegion.cpuAckGoAgain   <= not(oFifoStatus(2)) and endOfFrame;
-    
     GlEnablePointer: process (clk)begin
         if rising_edge(clk) then
             if (oFifoStatus(0) = '1')then
@@ -149,14 +273,12 @@ port map(
         end if;
     end process GlEnablePointer;
 end generate POINTOFINTEREST_ENABLED;
-
 FRAMEPROCESS_ENABLED : if (DUT_FRAMEPROCESS_ENABLED = true) generate
 frameProcess_test : dut_frameProcess
 port map(
     clk          => clk,
     resetn       => resetn);
 end generate FRAMEPROCESS_ENABLED;
-
 VFP_ENABLED : if (DUT_VFP_ENABLED = true) generate
     -- d5m input
     signal pixclk                : std_logic;
@@ -272,7 +394,6 @@ port map(
     vfpconfig_rresp             => vfpconfig_rresp,
     vfpconfig_rvalid            => vfpconfig_rvalid,
     vfpconfig_rready            => vfpconfig_rready);
-    
 d5m_camera_inst: VFP_v1_0
 generic map(
     revision_number             => revision_number,

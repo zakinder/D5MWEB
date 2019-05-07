@@ -2,8 +2,8 @@
 # hsi v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # 
-# Start of session at: Sun May  5 22:10:58 2019
-# Process ID: 5844
+# Start of session at: Mon May  6 23:28:57 2019
+# Process ID: 13192
 # Current directory: Z:/ZEDBOARD/workspace/hsi
 # Command line: hsi.exe -source Z:/ZEDBOARD/scripts/script_hsi.tcl -tclargs --sw_list {{id appname steps OS-Name UART data01_file data01_load data01_offset data02_file data02_load data02_offset} {0 zynq_fsbl FSBL standalone NA NA NA NA NA NA NA} {2 hello_world 0 standalone NA NA NA NA NA NA NA} {3 u-boot 1 petalinux NA NA NA NA NA NA NA}} --lib Z:/ZEDBOARD/sw_lib --vivrun -mode tcl
 # Log file: Z:/ZEDBOARD/workspace/hsi/hsi.log
@@ -255,7 +255,7 @@ Info:(ZQ) Parameter Option Value: Z:/ZEDBOARD/sw_lib
 Info:(ZQ) Parameter Index: 4
 Info:(ZQ) Parameter Option: --vivrun
 Info:(ZQ) HSI...run all...
-INFO: [Hsi 55-1698] elapsed time for repository loading 2 seconds
+INFO: [Hsi 55-1698] elapsed time for repository loading 1 seconds
 Info:(ZQ) generate FSBL: zynq_fsbl os: standalone Uart: NA
 Info:(ZQ) Multiple Processors found.
 Info:(ZQ)  Processor ps7_cortexa9_0 is used.
@@ -357,7 +357,7 @@ ff.c:2610:4: warning: dereferencing type-punned pointer will break strict-aliasi
     ^~
 "Running Make libs in ps7_cortexa9_0/libsrc/xilrsa_v1_3/src"
 'Finished building libraries'
-generate_target: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 129.984 ; gain = 4.098
+generate_target: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 130.840 ; gain = 5.113
 arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c fsbl_hooks.c -o fsbl_hooks.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
 arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c image_mover.c -o image_mover.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
 arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c main.c -o main.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
@@ -371,7 +371,7 @@ arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   
 arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c sd.c -o sd.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
 arm-none-eabi-gcc -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c fsbl_handoff.S -o fsbl_handoff.o -Izynq_fsbl_bsp/ps7_cortexa9_0/include -I.
 arm-none-eabi-gcc -o executable.elf  fsbl_hooks.o  image_mover.o  main.o  md5.o  nand.o  nor.o  pcap.o  ps7_init.o  qspi.o  rsa.o  sd.o  fsbl_handoff.o -MMD -MP       -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec  -lrsa -Wl,--start-group,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lxilffs,-lxil,-lgcc,-lc,--end-group -Wl,--start-group,-lrsa,-lxil,-lgcc,-lc,--end-group  -Wl,--gc-sections -Lzynq_fsbl_bsp/ps7_cortexa9_0/lib -L./ -Tlscript.ld
-generate_app: Time (s): cpu = 00:00:07 ; elapsed = 00:01:10 . Memory (MB): peak = 129.984 ; gain = 4.098
+generate_app: Time (s): cpu = 00:00:09 ; elapsed = 00:01:11 . Memory (MB): peak = 130.840 ; gain = 5.113
 Info:(ZQ) generate app: hello_world os: standalone Uart: NA
 Info:(ZQ) Multiple Processors found.
 Info:(ZQ)  Processor ps7_cortexa9_0 is used.
@@ -464,5 +464,5 @@ VFP_selftest.c:36:6: warning: unused variable 'Index' [-Wunused-variable]
 arm-none-eabi-gcc -MMD -MP     -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c helloworld.c -o helloworld.o -Ihello_world_bsp/ps7_cortexa9_0/include -I.
 arm-none-eabi-gcc -MMD -MP     -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -c platform.c -o platform.o -Ihello_world_bsp/ps7_cortexa9_0/include -I.
 arm-none-eabi-gcc -o executable.elf  helloworld.o  platform.o  -MMD -MP     -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard   -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,--start-group,-lxil,-lgcc,-lc,--end-group  -Wl,--gc-sections -Lhello_world_bsp/ps7_cortexa9_0/lib -Tlscript.ld
-generate_app: Time (s): cpu = 00:00:00 ; elapsed = 00:00:45 . Memory (MB): peak = 129.984 ; gain = 0.000
-INFO: [Common 17-206] Exiting hsi at Sun May  5 22:12:59 2019...
+generate_app: Time (s): cpu = 00:00:00 ; elapsed = 00:00:42 . Memory (MB): peak = 130.840 ; gain = 0.000
+INFO: [Common 17-206] Exiting hsi at Mon May  6 23:30:56 2019...

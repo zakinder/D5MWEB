@@ -1,4 +1,4 @@
-// LAST TESTED : 04/15/2019
+// LAST TESTED : 05/06/2019
 #include "menu_calls.h"
 #include <stdio.h>
 #include <xil_io.h>
@@ -9,12 +9,9 @@
 #include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 #include "../UART/uartio.h"
 #include "../VIDEO_CHANNEL/channel.h"
-//hdmi_display_start pvideo;
 d5m_rreg d5m_rreg_ptr;
 //unused functions
 //sd_card();
-//open cases
-//sobel(), prewitt() colorgains() ycbcrSelect() colorCorrection() edgeThreshold()
 void menu_calls(ON_OFF) {
     int menu_calls_enable = ON_OFF;
     unsigned int uart_io;
@@ -215,12 +212,12 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case blur1x:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wBlurv1);
+        	videoFeatureSelect(wHsl);
             cmd_status_substate = enter_value_or_quit("blur1x",blur1x);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case blur2x:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wBlurv2);
+        	videoFeatureSelect(hsvCcBl);
             cmd_status_substate = enter_value_or_quit("blur2x",blur2x);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case blur3x:

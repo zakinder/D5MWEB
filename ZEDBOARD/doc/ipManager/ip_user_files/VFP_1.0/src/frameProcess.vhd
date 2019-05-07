@@ -32,7 +32,8 @@ port (
 end entity;
 architecture arch of frameProcess is
     signal sharp            : channel;
-    signal rgbCorrect       : channel;
+    signal rgbV1Correct     : channel;
+    signal rgbV2Correct     : channel;
     signal soble            : channel;
     signal rgbRemix         : channel;
     signal rgbPoi           : channel;
@@ -42,6 +43,8 @@ architecture arch of frameProcess is
     signal blur4vx          : channel;
     signal rgbDetect        : channel;
     signal hsv              : hsvChannel;
+    signal hsl              : hsvChannel;
+    signal hsvCcBlur4vx     : hsvChannel;
     signal cord             : coord;
     signal syncxy           : coord;
     signal cordIn           : coord;
@@ -52,10 +55,18 @@ architecture arch of frameProcess is
     signal edgeValid        : std_logic;
     signal sValid           : std_logic;
 begin
+    oFrameData.hsl.red            <= hsl.h;
+    oFrameData.hsl.green          <= hsl.s;
+    oFrameData.hsl.blue           <= hsl.v;
+    oFrameData.hsl.valid          <= hsl.valid;
     oFrameData.hsv.red            <= hsv.h;
     oFrameData.hsv.green          <= hsv.s;
     oFrameData.hsv.blue           <= hsv.v;
     oFrameData.hsv.valid          <= hsv.valid;
+    oFrameData.hsvCcBl.red        <= hsvCcBlur4vx.h;
+    oFrameData.hsvCcBl.green      <= hsvCcBlur4vx.s;
+    oFrameData.hsvCcBl.blue       <= hsvCcBlur4vx.v;
+    oFrameData.hsvCcBl.valid      <= hsvCcBlur4vx.valid;
     oFrameData.rgb.red            <= iRgbSet.red;
     oFrameData.rgb.green          <= iRgbSet.green;
     oFrameData.rgb.blue           <= iRgbSet.blue;
@@ -65,7 +76,7 @@ begin
     oFrameData.blur2x             <= blur2vx;
     oFrameData.blur3x             <= blur3vx;
     oFrameData.blur4x             <= blur4vx;
-    oFrameData.rgbCorrect         <= rgbCorrect;
+    oFrameData.rgbCorrect         <= rgbV1Correct;
     oFrameData.soble              <= soble;
     oFrameData.rgbRemix           <= rgbRemix;
     oFrameData.rgbDetect          <= rgbDetect;
@@ -96,7 +107,7 @@ port map(
     rst_l               => rst_l,
     iRgb                => rgbIn,
     als                 => iAls,    
-    oRgb                => rgbCorrect);
+    oRgb                => rgbV1Correct);
 sobelFilterInst: sobelFilter
 generic map(
     i_data_width        => i_data_width,
@@ -191,6 +202,23 @@ port map(
     rst_l               => rst_l,
     iRgb                => blur3vx,
     oRgb                => blur4vx);
+colorCorrection1Inst: colorCorrection
+generic map(
+    i_data_width        => i_data_width)
+port map(           
+    clk                 => clk,
+    rst_l               => rst_l,
+    iRgb                => blur4vx,
+    als                 => iAls,    
+    oRgb                => rgbV2Correct);
+hsv_blur4xInst: hsv_c
+generic map(
+    i_data_width        => i_data_width)
+port map(   
+    clk                 => clk,
+    reset               => rst_l,
+    iRgb                => rgbV2Correct,
+    oHsv                => hsvCcBlur4vx);
 detectInst: detect
 generic map(
     i_data_width        => i_data_width)
@@ -219,6 +247,14 @@ port map(
     fifoStatus          => oFifoStatus,
     oGridLocation       => rgbPoiLock,
     oRgb                => rgbPoi);
+hslInst: hsl_c
+generic map(
+    i_data_width        => i_data_width)
+port map(   
+    clk                 => clk,
+    reset               => rst_l,
+    iRgb                => rgbIn,
+    oHsl                => hsl);
 hsvInst: hsv_c
 generic map(
     i_data_width        => i_data_width)

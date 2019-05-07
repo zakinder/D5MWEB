@@ -115,9 +115,13 @@ videoOutP: process (clk) begin
             channels.green     <= x"0" & iFrameData.rgbSum.green(7 downto 4);
             channels.blue      <= iFrameData.rgbSum.blue(i_data_width-1 downto 0);
         elsif(vChannelSelect = rgbCorrect)then
-            channels          <= iFrameData.rgbCorrect;
+            channels           <= iFrameData.rgbCorrect;
+        elsif(vChannelSelect = hsl)then
+            channels           <= iFrameData.hsl;
+        elsif(vChannelSelect = hsvCcBl)then
+            channels           <= iFrameData.hsvCcBl;
         else
-            channels          <= iFrameData.rgbCorrect;
+            channels           <= iFrameData.rgbCorrect;
         end if;
     end if;
 end process videoOutP;

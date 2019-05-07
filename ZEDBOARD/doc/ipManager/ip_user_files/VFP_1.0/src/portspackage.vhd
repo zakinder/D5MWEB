@@ -362,6 +362,15 @@ port (
     iRgb                        : in channel;
     oHsv                        : out hsvChannel);
 end component hsv_c;
+component hsl_c is
+generic (
+    i_data_width                : integer := 8);
+port (  
+    clk                         : in  std_logic;
+    reset                       : in  std_logic;
+    iRgb                        : in channel;
+    oHsl                        : out hsvChannel);
+end component hsl_c;
 component divider
 port (
     clk                         :  in std_logic;

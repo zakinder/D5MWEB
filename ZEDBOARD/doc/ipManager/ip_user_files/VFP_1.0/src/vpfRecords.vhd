@@ -210,7 +210,9 @@ type rRgb is record
 end record;
 type fcolors is record
     rgb              : channel;
+    hsl              : channel;
     hsv              : channel;
+    hsvCcBl          : channel;
     sharp            : channel;
     blur1x           : channel;
     blur2x           : channel;

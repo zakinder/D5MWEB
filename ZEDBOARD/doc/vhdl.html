@@ -1,0 +1,717 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>VHDL</title>
+<style>
+body{
+	margin: 0 auto;
+	max-width: 960px;
+	tab-size: 4;
+	font-family: Helvetica, arial;
+	color: #099;
+}
+textarea{width:100%;font-family:Consolas,Courier;}
+.btn{
+margin: 10px 10px;
+padding: 5px 8px;
+font-size: 16px;
+line-height: 1.33;
+border-radius: 3px;
+color: #333;
+border-color: #ccc;
+cursor: pointer;
+text-align: center;
+white-space: nowrap;
+border: 1px solid rgb(194, 194, 194);}
+.btn:hover{background-color:#afd9ee;}
+.show{display:none;}
+input[type="checkbox"] + label {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+}
+.wordwrap{
+    white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+label{cursor:pointer;line-height:1.5em;}
+label:hover{color:#555;text-decoration:underline;}
+form{margin-bottom: 0px;}
+
+.hljs{
+	display: block;
+	overflow-x: auto;
+	padding: 0.5em;
+	-webkit-text-size-adjust: none;
+	background: white;
+}.hljs,.hljs-subst,.hljs-tag .hljs-title,.nginx .hljs-title{color:#000}.hljs-string,.hljs-title,.hljs-constant,.hljs-parent,.hljs-tag .hljs-value,.hljs-rules .hljs-value,.hljs-preprocessor,.hljs-pragma,.haml .hljs-symbol,.ruby .hljs-symbol,.ruby .hljs-symbol .hljs-string,.hljs-template_tag,.django .hljs-variable,.smalltalk .hljs-class,.hljs-addition,.hljs-flow,.hljs-stream,.bash .hljs-variable,.apache .hljs-tag,.apache .hljs-cbracket,.tex .hljs-command,.tex .hljs-special,.erlang_repl .hljs-function_or_atom,.asciidoc .hljs-header,.markdown .hljs-header,.coffeescript .hljs-attribute{color:#800}.smartquote,.hljs-comment,.hljs-annotation,.diff .hljs-header,.hljs-chunk,.asciidoc .hljs-blockquote,.markdown .hljs-blockquote{color:#888}.hljs-number,.hljs-date,.hljs-regexp,.hljs-literal,.hljs-hexcolor,.smalltalk .hljs-symbol,.smalltalk .hljs-char,.go .hljs-constant,.hljs-change,.lasso .hljs-variable,.makefile .hljs-variable,.asciidoc .hljs-bullet,.markdown .hljs-bullet,.asciidoc .hljs-link_url,.markdown .hljs-link_url{color:#080}.hljs-label,.hljs-javadoc,.ruby .hljs-string,.hljs-decorator,.hljs-filter .hljs-argument,.hljs-localvars,.hljs-array,.hljs-attr_selector,.hljs-important,.hljs-pseudo,.hljs-pi,.haml .hljs-bullet,.hljs-doctype,.hljs-deletion,.hljs-envvar,.hljs-shebang,.apache .hljs-sqbracket,.nginx .hljs-built_in,.tex .hljs-formula,.erlang_repl .hljs-reserved,.hljs-prompt,.asciidoc .hljs-link_label,.markdown .hljs-link_label,.vhdl .hljs-attribute,.clojure .hljs-attribute,.asciidoc .hljs-attribute,.lasso .hljs-attribute,.coffeescript .hljs-property,.hljs-phony{color:#88f}.hljs-keyword,.hljs-id,.hljs-title,.hljs-built_in,.css .hljs-tag,.hljs-javadoctag,.hljs-phpdoc,.hljs-dartdoc,.hljs-yardoctag,.smalltalk .hljs-class,.hljs-winutils,.bash .hljs-variable,.apache .hljs-tag,.hljs-type,.hljs-typename,.tex .hljs-command,.asciidoc .hljs-strong,.markdown .hljs-strong,.hljs-request,.hljs-status{font-weight:700}.asciidoc .hljs-emphasis,.markdown .hljs-emphasis{font-style:italic}.nginx .hljs-built_in{font-weight:400}.coffeescript .javascript,.javascript .xml,.lasso .markup,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}
+</style>
+<script>
+!function(e){"undefined"!=typeof exports?e(exports):(window.hljs=e({}),"function"==typeof define&&define.amd&&define([],function(){return window.hljs}))}(function(e){function n(e){return e.replace(/&/gm,"&amp;").replace(/</gm,"&lt;").replace(/>/gm,"&gt;")}function t(e){return e.nodeName.toLowerCase()}function r(e,n){var t=e&&e.exec(n);return t&&0==t.index}function a(e){var n=(e.className+" "+(e.parentNode?e.parentNode.className:"")).split(/\s+/);return n=n.map(function(e){return e.replace(/^lang(uage)?-/,"")}),n.filter(function(e){return N(e)||/no(-?)highlight/.test(e)})[0]}function o(e,n){var t={};for(var r in e)t[r]=e[r];if(n)for(var r in n)t[r]=n[r];return t}function i(e){var n=[];return function r(e,a){for(var o=e.firstChild;o;o=o.nextSibling)3==o.nodeType?a+=o.nodeValue.length:1==o.nodeType&&(n.push({event:"start",offset:a,node:o}),a=r(o,a),t(o).match(/br|hr|img|input/)||n.push({event:"stop",offset:a,node:o}));return a}(e,0),n}function c(e,r,a){function o(){return e.length&&r.length?e[0].offset!=r[0].offset?e[0].offset<r[0].offset?e:r:"start"==r[0].event?e:r:e.length?e:r}function i(e){function r(e){return" "+e.nodeName+'="'+n(e.value)+'"'}l+="<"+t(e)+Array.prototype.map.call(e.attributes,r).join("")+">"}function c(e){l+="</"+t(e)+">"}function u(e){("start"==e.event?i:c)(e.node)}for(var s=0,l="",f=[];e.length||r.length;){var g=o();if(l+=n(a.substr(s,g[0].offset-s)),s=g[0].offset,g==e){f.reverse().forEach(c);do u(g.splice(0,1)[0]),g=o();while(g==e&&g.length&&g[0].offset==s);f.reverse().forEach(i)}else"start"==g[0].event?f.push(g[0].node):f.pop(),u(g.splice(0,1)[0])}return l+n(a.substr(s))}function u(e){function n(e){return e&&e.source||e}function t(t,r){return RegExp(n(t),"m"+(e.cI?"i":"")+(r?"g":""))}function r(a,i){if(!a.compiled){if(a.compiled=!0,a.k=a.k||a.bK,a.k){var c={},u=function(n,t){e.cI&&(t=t.toLowerCase()),t.split(" ").forEach(function(e){var t=e.split("|");c[t[0]]=[n,t[1]?Number(t[1]):1]})};"string"==typeof a.k?u("keyword",a.k):Object.keys(a.k).forEach(function(e){u(e,a.k[e])}),a.k=c}a.lR=t(a.l||/\b[A-Za-z0-9_]+\b/,!0),i&&(a.bK&&(a.b="\\b("+a.bK.split(" ").join("|")+")\\b"),a.b||(a.b=/\B|\b/),a.bR=t(a.b),a.e||a.eW||(a.e=/\B|\b/),a.e&&(a.eR=t(a.e)),a.tE=n(a.e)||"",a.eW&&i.tE&&(a.tE+=(a.e?"|":"")+i.tE)),a.i&&(a.iR=t(a.i)),void 0===a.r&&(a.r=1),a.c||(a.c=[]);var s=[];a.c.forEach(function(e){e.v?e.v.forEach(function(n){s.push(o(e,n))}):s.push("self"==e?a:e)}),a.c=s,a.c.forEach(function(e){r(e,a)}),a.starts&&r(a.starts,i);var l=a.c.map(function(e){return e.bK?"\\.?("+e.b+")\\.?":e.b}).concat([a.tE,a.i]).map(n).filter(Boolean);a.t=l.length?t(l.join("|"),!0):{exec:function(){return null}}}}r(e)}function s(e,t,a,o){function i(e,n){for(var t=0;t<n.c.length;t++)if(r(n.c[t].bR,e))return n.c[t]}function c(e,n){return r(e.eR,n)?e:e.eW?c(e.parent,n):void 0}function f(e,n){return!a&&r(n.iR,e)}function g(e,n){var t=x.cI?n[0].toLowerCase():n[0];return e.k.hasOwnProperty(t)&&e.k[t]}function p(e,n,t,r){var a=r?"":E.classPrefix,o='<span class="'+a,i=t?"":"</span>";return o+=e+'">',o+n+i}function d(){if(!w.k)return n(y);var e="",t=0;w.lR.lastIndex=0;for(var r=w.lR.exec(y);r;){e+=n(y.substr(t,r.index-t));var a=g(w,r);a?(B+=a[1],e+=p(a[0],n(r[0]))):e+=n(r[0]),t=w.lR.lastIndex,r=w.lR.exec(y)}return e+n(y.substr(t))}function h(){if(w.sL&&!R[w.sL])return n(y);var e=w.sL?s(w.sL,y,!0,L[w.sL]):l(y);return w.r>0&&(B+=e.r),"continuous"==w.subLanguageMode&&(L[w.sL]=e.top),p(e.language,e.value,!1,!0)}function v(){return void 0!==w.sL?h():d()}function b(e,t){var r=e.cN?p(e.cN,"",!0):"";e.rB?(M+=r,y=""):e.eB?(M+=n(t)+r,y=""):(M+=r,y=t),w=Object.create(e,{parent:{value:w}})}function m(e,t){if(y+=e,void 0===t)return M+=v(),0;var r=i(t,w);if(r)return M+=v(),b(r,t),r.rB?0:t.length;var a=c(w,t);if(a){var o=w;o.rE||o.eE||(y+=t),M+=v();do w.cN&&(M+="</span>"),B+=w.r,w=w.parent;while(w!=a.parent);return o.eE&&(M+=n(t)),y="",a.starts&&b(a.starts,""),o.rE?0:t.length}if(f(t,w))throw new Error('Illegal lexeme "'+t+'" for mode "'+(w.cN||"<unnamed>")+'"');return y+=t,t.length||1}var x=N(e);if(!x)throw new Error('Unknown language: "'+e+'"');u(x);for(var w=o||x,L={},M="",k=w;k!=x;k=k.parent)k.cN&&(M=p(k.cN,"",!0)+M);var y="",B=0;try{for(var C,j,I=0;;){if(w.t.lastIndex=I,C=w.t.exec(t),!C)break;j=m(t.substr(I,C.index-I),C[0]),I=C.index+j}m(t.substr(I));for(var k=w;k.parent;k=k.parent)k.cN&&(M+="</span>");return{r:B,value:M,language:e,top:w}}catch(A){if(-1!=A.message.indexOf("Illegal"))return{r:0,value:n(t)};throw A}}function l(e,t){t=t||E.languages||Object.keys(R);var r={r:0,value:n(e)},a=r;return t.forEach(function(n){if(N(n)){var t=s(n,e,!1);t.language=n,t.r>a.r&&(a=t),t.r>r.r&&(a=r,r=t)}}),a.language&&(r.second_best=a),r}function f(e){return E.tabReplace&&(e=e.replace(/^((<[^>]+>|\t)+)/gm,function(e,n){return n.replace(/\t/g,E.tabReplace)})),E.useBR&&(e=e.replace(/\n/g,"<br>")),e}function g(e,n,t){var r=n?x[n]:t,a=[e.trim()];return e.match(/(\s|^)hljs(\s|$)/)||a.push("hljs"),r&&a.push(r),a.join(" ").trim()}function p(e){var n=a(e);if(!/no(-?)highlight/.test(n)){var t;E.useBR?(t=document.createElementNS("http://www.w3.org/1999/xhtml","div"),t.innerHTML=e.innerHTML.replace(/\n/g,"").replace(/<br[ \/]*>/g,"\n")):t=e;var r=t.textContent,o=n?s(n,r,!0):l(r),u=i(t);if(u.length){var p=document.createElementNS("http://www.w3.org/1999/xhtml","div");p.innerHTML=o.value,o.value=c(u,i(p),r)}o.value=f(o.value),e.innerHTML=o.value,e.className=g(e.className,n,o.language),e.result={language:o.language,re:o.r},o.second_best&&(e.second_best={language:o.second_best.language,re:o.second_best.r})}}function d(e){E=o(E,e)}function h(){if(!h.called){h.called=!0;var e=document.querySelectorAll("pre code");Array.prototype.forEach.call(e,p)}}function v(){addEventListener("DOMContentLoaded",h,!1),addEventListener("load",h,!1)}function b(n,t){var r=R[n]=t(e);r.aliases&&r.aliases.forEach(function(e){x[e]=n})}function m(){return Object.keys(R)}function N(e){return R[e]||R[x[e]]}var E={classPrefix:"hljs-",tabReplace:null,useBR:!1,languages:void 0},R={},x={};return e.highlight=s,e.highlightAuto=l,e.fixMarkup=f,e.highlightBlock=p,e.configure=d,e.initHighlighting=h,e.initHighlightingOnLoad=v,e.registerLanguage=b,e.listLanguages=m,e.getLanguage=N,e.inherit=o,e.IR="[a-zA-Z][a-zA-Z0-9_]*",e.UIR="[a-zA-Z_][a-zA-Z0-9_]*",e.NR="\\b\\d+(\\.\\d+)?",e.CNR="(\\b0[xX][a-fA-F0-9]+|(\\b\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)",e.BNR="\\b(0b[01]+)",e.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|-|-=|/=|/|:|;|<<|<<=|<=|<|===|==|=|>>>=|>>=|>=|>>>|>>|>|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~",e.BE={b:"\\\\[\\s\\S]",r:0},e.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[e.BE]},e.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[e.BE]},e.PWM={b:/\b(a|an|the|are|I|I'm|isn't|don't|doesn't|won't|but|just|should|pretty|simply|enough|gonna|going|wtf|so|such)\b/},e.CLCM={cN:"comment",b:"//",e:"$",c:[e.PWM]},e.CBCM={cN:"comment",b:"/\\*",e:"\\*/",c:[e.PWM]},e.HCM={cN:"comment",b:"#",e:"$",c:[e.PWM]},e.NM={cN:"number",b:e.NR,r:0},e.CNM={cN:"number",b:e.CNR,r:0},e.BNM={cN:"number",b:e.BNR,r:0},e.CSSNM={cN:"number",b:e.NR+"(%|em|ex|ch|rem|vw|vh|vmin|vmax|cm|mm|in|pt|pc|px|deg|grad|rad|turn|s|ms|Hz|kHz|dpi|dpcm|dppx)?",r:0},e.RM={cN:"regexp",b:/\//,e:/\/[gimuy]*/,i:/\n/,c:[e.BE,{b:/\[/,e:/\]/,r:0,c:[e.BE]}]},e.TM={cN:"title",b:e.IR,r:0},e.UTM={cN:"title",b:e.UIR,r:0},e});hljs.registerLanguage("vhdl",function(e){return{cI:!0,k:{keyword:"abs access after alias all and architecture array assert attribute begin block body buffer bus case component configuration constant context cover disconnect downto default else elsif end entity exit fairness file for force function generate generic group guarded if impure in inertial inout is label library linkage literal loop map mod nand new next nor not null of on open or others out package port postponed procedure process property protected pure range record register reject release rem report restrict restrict_guarantee return rol ror select sequence severity shared signal sla sll sra srl strong subtype then to transport type unaffected units until use variable vmode vprop vunit wait when while with xnor xor resize image pathname",typename:"boolean bit character severity_level integer time delay_length natural positive string bit_vector file_open_kind file_open_status std_ulogic std_ulogic_vector std_logic std_logic_vector unsigned signed boolean_vector integer_vector real_vector time_vector"},i:"{",c:[e.CBCM,{cN:"comment",b:"--",e:"$"},e.QSM,e.CNM,{cN:"literal",b:"'(U|X|0|1|Z|W|L|H|-)'",c:[e.BE]},{cN:"attribute",b:"'[A-Za-z](_?[A-Za-z0-9])*",c:[e.BE]}]}});
+
+function selectText(element) {
+	var doc = document, text = element, range, selection;
+	if (doc.body.createTextRange) { //ms
+		range = doc.body.createTextRange();
+		range.moveToElementText(text);
+		range.select();
+	} else if (window.getSelection) { //all others
+		selection = window.getSelection();
+		range = doc.createRange();
+		range.selectNodeContents(text);
+		selection.removeAllRanges();
+		selection.addRange(range);
+	}
+}
+</script>
+</head>
+<body>
+<textarea id="in" rows="10" wrap="off">----------------------------------------------------------------------------------
+--
+----------------------------------------------------------------------------------
+-- Module    	:
+-- Description	:
+----------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+library std;
+use std.textio.all;
+entity adc_data_ch is
+generic (
+BitLen : natural := 16;
+IsSigned    : natural := 0;
+NameOfFile : string);
+port (
+adc_sample_clk : in std_logic;
+adc_start_Read_H : in std_logic;
+adc_data_Out : out std_logic_vector(BitLen - 1 downto 0));
+end adc_data_ch;
+architecture adc_data_ch of adc_data_ch is
+signal adc_data : std_logic_vector(15 downto 0) := (others => '0');
+file results    : text open READ_MODE is "F:\adc_data_ch_data\adc_data_ch_" & NameOfFile;
+begin
+	rxFile : process (adc_sample_clk) is
+		variable RX_LOC : line;
+		variable dataint : integer;
+	begin
+		if rising_edge(adc_sample_clk) then
+			if adc_start_Read_H = '1' then
+				std.textio.readline(results, RX_LOC);
+				std.textio.read(RX_LOC, dataint);
+				if (IsSigned = 1) then
+					adc_data_Out <= std_logic_vector(signed(conv_std_logic_vector(dataint, BitLen)));
+				else
+					adc_data_Out <= std_logic_vector(unsigned(conv_std_logic_vector(dataint, BitLen)));
+				end if;
+				std.textio.Deallocate(RX_LOC);
+			end if;
+		end if;
+	end process;
+end adc_data_ch;
+end Behavioral;   </textarea><br>
+<form id="keyword">Keyword Case: 
+<label><input type="radio" name="keywordcase" value="UpperCase" checked="checked">UPPERCASE</label> 
+| <label><input type="radio" name="keywordcase" value="LowerCase">lowercase</label> 
+| <label><input type="radio" name="keywordcase" value="DefaultCase">Default</label></form>
+<label><input type="checkbox" id="no_format" onclick="noFormat()">Only highlight, don't format</label><br>
+<label><input type="checkbox" checked="checked" id="new_line">New line after THEN, semicolon ";"</label><br>
+<label><input type="checkbox" id="remove_comments">Remove commments</label>
+ | <label><input type="checkbox" id="remove_lines">Remove blank lines</label>
+ | <label><input type="checkbox" id="remove_report">Remove REPORT</label><br>
+<label><input type="checkbox" id="check_alias">Check ALIAS (every long name is replaced with ALIAS)</label><br>
+<label><input type="checkbox" id="sign_align">Align signs in PORT()</label><br>
+
+
+<label><input type="checkbox" id="use_space">Customise Indentation (tab is \t): </label> <input type="text" id="cust_indent" size="8" onkeyup="indent_decode()" value="    "> (<span id="indent_s">four blankspace</span>)<br>
+<label><input type="checkbox" id="compress">
+Compress VHDL (\r\n, comments will be removed)</label><br>
+<label><input type="checkbox" id="mix_letter">
+Unreadable (mix upper/lower-case letters)</label><br>
+<input type="button" class="btn" onclick="f()" value="start">
+<span class="show" style="display: inline-block;"><input type="button" class="btn " id="selectAll" value="Select All" onclick="selectText(document.getElementById(&#39;vhdl&#39;))"> 
+<label><input type="checkbox" onclick="wordWrap()" id="">Word wrap</label></span><br>
+<pre id="result"><code class="vhdl hljs" id="vhdl"><span class="hljs-comment"></span><span class="hljs-keyword"></span>
+
+</code></pre>
+<script>
+String.prototype.regexIndexOf = function(pattern, startIndex) {
+	startIndex = startIndex || 0;
+	var searchResult = this.substr(startIndex).search(pattern);
+	return (-1 === searchResult) ? -1 : searchResult + startIndex;
+}
+String.prototype.regexLastIndexOf = function(pattern, startIndex) {
+	startIndex = startIndex === undefined ? this.length : startIndex;
+	var searchResult = this.substr(0, startIndex).reverse().regexIndexOf(pattern, 0);
+	return (-1 === searchResult) ? -1 : this.length - ++searchResult;
+}
+String.prototype.reverse = function() {
+		return this.split('').reverse().join('');
+}
+function wordWrap() {
+	var d = document.getElementById("result");
+	if (d.className.length == "") {
+		d.className = "wordwrap";
+	} else {
+		d.className = "";
+	}
+}
+
+function noFormat() {
+	var t = !(document.getElementById("remove_comments").disabled);
+	document.getElementById("remove_comments").disabled = t;
+	document.getElementById("remove_lines").disabled = t;
+	document.getElementById("remove_report").disabled = t;
+	document.getElementById("check_alias").disabled = t;
+	document.getElementById("sign_align").disabled = t;
+	document.getElementById("new_line").disabled = t;
+	document.getElementById("use_space").disabled = t;
+	document.getElementById("compress").disabled = t;
+	document.getElementById("mix_letter").disabled = t;
+	var limit = document.getElementById("keyword").elements.length;
+    for (i=0;i<limit;i++) {
+      document.getElementById("keyword").elements[i].disabled = t;
+    }
+}
+function indent_decode(){
+var cust_indent = document.getElementById("cust_indent").value;
+cust_indent=cust_indent.replace(/\\t/g,"	");
+	var count=[" & one "," & two "," & three "," & four "," & five "," & six "," & seven "," & eight "," & many "];
+	var p=cust_indent.split("");
+	var s="";var a=0;
+	for(var i=0;i<p.length;i++){
+	var c=cust_indent.substr(i,1);
+	if(c==cust_indent.substr(i+1,1)){
+	a++;
+	}else{
+	switch(c){
+	case " ":
+	c="blankspace";
+	break;
+	case "\t":
+	c="tab";	
+	}
+	a=a>8?8:a;
+	s+=count[a]+c;
+	a=0;
+	}
+	}
+	if(s.length<0){
+	switch(c){
+	case " ":
+	c="blankspace";
+	break;
+	case "\t":
+	c="tab";	
+	}
+	a=a>8?8:a;
+	s=count[a]+c;
+	}
+	s=s.replace(/^ & /,"")
+	
+	document.getElementById("indent_s").innerHTML=s;
+}
+function f() {
+	var input = document.getElementById("in").value;
+	var no_format = document.getElementById("no_format").checked;
+	if (no_format) {
+		document.getElementById("vhdl").innerHTML = input;
+		document.querySelector(".show").style.display = "inline-block";
+		hljs.highlightBlock(document.getElementById("vhdl"));
+		return;
+	}
+	var remove_comments = document.getElementById("remove_comments").checked;
+	var remove_lines = document.getElementById("remove_lines").checked;
+	var remove_report = document.getElementById("remove_report").checked;
+	var check_alias = document.getElementById("check_alias").checked;
+	var sign_align = document.getElementById("sign_align").checked;
+	var new_line = document.getElementById("new_line").checked;
+	var use_space = document.getElementById("use_space").checked;
+	var compress = document.getElementById("compress").checked;
+	var cust_indent = document.getElementById("cust_indent").value;
+	var keywordcase = document.getElementById("keyword").elements.namedItem("keywordcase").value;
+	if (compress) {
+		remove_comments = true;
+	}
+	var mix_letter = document.getElementById("mix_letter").checked;
+	indentation = "\t";
+	if (use_space) {
+	cust_indent=cust_indent.replace(/\\t/,"	");
+		indentation = cust_indent;
+	}
+            keyword = ["ABS", "ACCESS", "AFTER", "ALIAS", "ALL", "AND", "ARCHITECTURE", "ARRAY", "ASSERT", "ATTRIBUTE", "BEGIN", "BLOCK", "BODY", "BUFFER", "BUS", "CASE", "COMPONENT", "CONFIGURATION", "CONSTANT", "CONTEXT", "CONV_INTEGER", "CONV_STD_LOGIC_VECTOR", "COVER", "DISCONNECT", "DOWNTO", "DEFAULT", "ELSE", "ELSIF", "END", "ENTITY", "EXIT", "FAIRNESS", "FILE", "FOR", "FORCE", "FUNCTION", "GENERATE", "GENERIC", "GROUP", "GUARDED", "IEEE", "IF", "IMPURE", "IN", "INERTIAL", "INOUT", "IS", "LABEL", "LIBRARY", "LINE", "LINKAGE", "LITERAL", "LOOP", "MAP", "MOD", "NAND", "NEW", "NEXT", "NOR", "NOT", "NULL", "OF", "ON", "OPEN", "OR", "OTHERS", "OUT", "PACKAGE", "PORT", "POSTPONED", "PROCEDURE", "PROCESS", "PROPERTY", "PROTECTED", "PURE", "RANGE", "RECORD", "REGISTER", "REJECT", "RELEASE", "REM", "REPORT", "RESTRICT", "RESTRICT_GUARANTEE", "RESULTS", "RETURN", "ROL", "ROR", "SELECT", "SEQUENCE", "SEVERITY", "SHARED", "STD", "STD_LOGIC_1164", "SIGNAL", "SLA", "SLL", "SRA", "SRL", "STRONG", "SUBTYPE", "STD_LOGIC", "STD_LOGIC_VECTOR", "TEXT", "TEXTIO", "THEN", "TO", "TRANSPORT", "TYPE", "UNAFFECTED", "UNITS", "UNTIL", "UNSIGNED", "USE", "VARIABLE", "VMODE", "VPROP", "VUNIT", "WAIT", "WHEN", "WHILE", "WITH", "WRITE_MODE", "XNOR", "XOR"];
+	var typename = ["BOOLEAN", "BIT", "CHARACTER", "INTEGER", "TIME", "NATURAL", "POSITIVE", "STRING"];
+	input = input.replace(/(?:\r\n|\r|\n)/g, '\r\n');
+	input = input.replace(/ \r\n/g, '\r\n');
+	input = input.replace(/\r\n\r\n\r\n/g, '\r\n');
+	input = input.replace(/[\t ]+/g, ' ');
+	input = input.replace(/\([\t ]+/g, '\(');
+	input = input.replace(/[ ]+;/g, ';');
+	input = input.replace(/:[ ]*(PROCESS|ENTITY)/gi, ':$1');
+	if (remove_lines) {
+		input = input.replace(/(\r\n)*[ \t]*\r\n/g, '\r\n');
+	}
+	var arr = input.split("\r\n");
+	var comments = [],
+		comments_i = 0;
+	var quotes = [],
+		quotes_i = 0;
+	var singleline = [],
+		singleline_i = 0;
+	var align = [],
+		align_max = [],
+		align_i1 = 0,
+		align_i = 0;
+	var l = arr.length;
+	var str = "",
+		str1 = "";
+	var k = [],
+		n = 0,
+		p = 0;
+	var n = 0,
+		j = 0;
+	var tab_n = 1,
+		str_len = 0,
+		port_s = "";
+	var back_tab = false,
+		forward_tab = false,
+		need_semi = false,
+		semi_pos = 0,
+		begin_b = false,
+		port_b = false;
+	for (i = 0; i < l; i++) {
+		n = arr[i].regexIndexOf(/[a-zA-Z0-9\(\&\)%_\+'"|]/);
+		p = arr[i].indexOf("--");
+		if (n < p && n >= 0) {
+			var s = arr[i].substr(p);
+			comments.push(s);
+			arr[i] = arr[i].substr(n, p - n) + "@@comments" + (comments_i++);
+		} else if ((n > p && p >= 0) || (n < 0 && p >= 0)) {
+			comments.push(arr[i].substr(p));
+			arr[i] = "@@comments" + (comments_i++);
+		} else {
+			n = n < 0 ? 0 : n;
+			arr[i] = arr[i].substr(n);
+		}
+	}
+	input = arr.join("\r\n");
+	
+	for (var k = 0; k < keyword.length; k++) {
+		input = input.replace(new RegExp("([^a-zA-Z0-9_]|^)" + keyword[k] + "([^a-zA-Z0-9_]|$)", 'gi'), "$1" + keyword[k] + "$2");
+	}
+	for (var k = 0; k < typename.length; k++) {
+		input = input.replace(new RegExp("([^a-zA-Z0-9_]|^)" + typename[k] + "([^a-zA-Z0-9_]|$)", 'gi'), "$1" + typename[k] + "$2");
+	}
+	if (remove_comments) {
+		input = input.replace(/@@comments[0-9]+/g, '');
+	}
+	arr = input.split("\r\n");
+	for (i = 0; i < l; i++) {
+		k = arr[i].match(/"([^"]+)"/g);
+		if (k != null) {
+			var u = k.length;
+			for (var j = 0; j < u; j++) {
+				arr[i] = arr[i].replace(k[j], "@@quotes" + quotes_i);
+				quotes[quotes_i++] = k[j];
+			}
+		}
+		if (remove_report) {
+			n = arr[i].indexOf("REPORT ");
+			p = arr[i].indexOf(";");
+			if (need_semi){
+				arr[i] = '';
+				if (p >= 0) {
+					need_semi = false;
+				}
+			}
+			if (n >= 0) {
+				arr[i] = '';
+				if (p < 0) {
+					need_semi = true;
+				}
+			}else if(n<0){
+				n = arr[i].indexOf("ASSERT ");
+				if (n >= 0) {
+					arr[i] = '';
+					if (p < 0) {
+						need_semi = true;
+					}
+				}
+			}
+		}
+		
+		if (arr[i].match(/FUNCTION|PROCEDURE/) != null) {
+			arr[i] = arr[i].replace(/;/g, '@@semicolon');
+		}
+		if (port_s) {
+			port_s += arr[i];
+			var k_port = port_s.split("(").length;
+			if (k_port == port_s.split(")").length) {
+				arr[i] = arr[i] + "@@end";
+				port_s = "";
+				port_b = false;
+			}
+		}
+		if ((!port_b && arr[i].regexIndexOf(/(\s|\(|^)(PORT|GENERIC|PROCESS|PROCEDURE)(\s|\(|$)/) >= 0) || arr[i].regexIndexOf(/:[ ]?=[ ]?\(/) >= 0) {
+			arr[i] = arr[i].replace(/(PORT|PROCESS|GENERIC)(\s|\()?\(/, '$1 (');
+			port_b = true;
+			port_s = arr[i];
+			var k_port = port_s.split("(").length;
+			if (k_port == 1) {
+				port_b = false;
+				port_s = "";
+			} else if (k_port == port_s.split(")").length) {
+				port_s = "";
+				port_b = false;
+				arr[i] = arr[i] + "@@singleend";
+			} else {
+				arr[i] = arr[i].replace(/(PORT|PROCESS|GENERIC|PROCEDURE)([a-z0-9A-Z_ ]+)\(([a-zA-Z0-9_\(\) ]+)/, '$1$2(\r\n$3');
+			}
+		}
+		if (!new_line) {
+			if (arr[i].regexIndexOf(/(;|THEN)[ a-z0-9]+[a-z0-9]+/) >= 0) {
+				singleline[singleline_i] = arr[i];
+				arr[i] = "@@singleline" + singleline_i++;
+			}
+		}
+	}
+	input = arr.join("\r\n");
+	input = input.replace(/([a-zA-Z0-9\); ])\);(@@comments[0-9]+)?@@end/g, '$1\r\n);$2@@end');
+	input = input.replace(/[ ]?([&=:\-<>\+|\*])[ ]?/g, ' $1 ');
+	input = input.replace(/[ ]?([,])[ ]?/g, '$1 ');
+	input = input.replace(/[ ]?(['"])(THEN)/g, '$1 $2');
+	input = input.replace(/[ ]?(\?)?[ ]?(<|:|>|\/)?[ ]+(=)?[ ]?/g, ' $1$2$3 ');
+	input = input.replace(/(IF)[ ]?([\(\)])/g, '$1 $2');
+	input = input.replace(/([\(\)])[ ]?(THEN)/gi, '$1 $2');
+	input = input.replace(/(^|[\(\)])[ ]?(AND|OR|XOR|XNOR)[ ]*([\(])/g, '$1 $2 $3');
+	input = input.replace(/ ([\-\*\/=+<>])[ ]*([\-\*\/=+<>]) /g, " $1$2 ");
+	input = input.replace(/\r\n[ \t]+--\r\n/g, "\r\n");
+	input = input.replace(/[ ]+/g, ' ');
+	input = input.replace(/\r\n\r\n\r\n/g, '\r\n');
+	if (remove_lines) {
+		input = input.replace(/(\r\n)*[ \t]*\r\n/g, '\r\n');
+	}
+	var matches = input.match(/'([a-zA-Z]+)\s/g);
+	if (matches != null) {
+		for (var k = 0; k < matches.length; k++) {
+			input = input.replace(matches[k], matches[k].toUpperCase());
+		}
+	}
+	input = input.replace(/(MAP)[ \r\n]+\(/g, '$1(');
+	input = input.replace(/(;|THEN)[ ]?([a-zA-Z])/g, '$1\r\n$2');
+	input = input.replace(/(;|THEN)[ ]?(@@comments[0-9]+)([a-zA-Z])/g, '$1 $2\r\n$3');
+	input = input.replace(/[\r\n ]+RETURN/g, ' RETURN');
+	input = input.replace(/BEGIN[\r\n ]+/g, 'BEGIN\r\n');
+	input = input.replace(/ (PORT|GENERIC) /g, '\r\n$1 ');
+	if (check_alias) {
+		var alias = [],
+			subarr = [],
+			o = 0,
+			p = 0,
+			p2 = 0,
+			l2 = 0,
+			i2 = 0;
+		arr = input.split("ARCHITECTURE ");
+		l = arr.length;
+		for (i = 0; i < l; i++) {
+			subarr = arr[i].split("ALIAS ");
+			l2 = subarr.length;
+			if (l2 > 1) {
+				var o;
+				for (i2 = 1; i2 < l2; i2++) {
+					o = subarr[i2].indexOf(";", n);
+					str = subarr[i2].substring(0, o);
+					alias[p2++] = str.split(" IS ");
+				}
+				i2--;
+				var str2 = subarr[i2].substr(o);
+				for (p = 0; p < p2; p++) {
+					var reg = new RegExp(alias[p][1], 'gi');
+					str2 = str2.replace(reg, alias[p][0]);
+				}
+				subarr[i2] = subarr[i2].substring(0, o) + str2;
+			}
+			arr[i] = subarr.join("ALIAS ");
+		}
+		input = arr.join("ARCHITECTURE ");
+	}
+	arr = input.split("\r\n");
+	l = arr.length;
+	var signAlignPos = "";
+	var if_b = 0,
+		white_space = "",
+		case_b = false,
+		case_n = 0,
+		procfun_b = false,
+		semi_b = false,
+		set_false = false,
+		entity_b = false,
+		then_b = false,
+		conditional_b = false,
+		case_indent = [0, 0, 0, 0, 0, 0, 0];
+	for (i = 0; i < l; i++) {
+		str = arr[i];
+		str_len = str.length;
+		if (str.replace(/[ \-\t]*/, "").length > 0) {
+			var first_word = str.split(" ")[0];
+			if (then_b) {
+				arr[i] = " " + arr[i];
+				if (str.indexOf(" THEN") >= 0) {
+					then_b = false;
+					back_tab = true;
+				}
+			}
+			arr[i] = white_space + arr[i];
+			if (first_word == "ELSIF") {
+				tab_n--;
+				back_tab = true;
+			} else if (str.indexOf("END CASE") == 0) {
+				case_n--;
+				tab_n--;
+				tab_n--;
+			} else if (first_word == "END") {
+				tab_n--;
+				if (str.indexOf("END IF") == 0) {
+					if_b--;
+				}
+			} else if (first_word == "ELSE" && if_b) {
+				tab_n--;
+				back_tab = true;
+			} else if (case_n) {
+				if (first_word == "WHEN") {
+					tab_n = case_indent[case_n - 1];
+					back_tab = true;
+				}
+			} else if (first_word=="BEGIN") {
+				if (begin_b) {
+					tab_n--;
+					back_tab = true;
+					begin_b = false;
+					if (procfun_b) {
+						tab_n++;
+						begin_b = true;
+					}
+				} else {
+					back_tab = true;
+				}
+			} else if (str.indexOf(": PROCESS") >= 0) {
+				back_tab = true;
+				begin_b = true;
+			} else if (str.indexOf(": ENTITY") >= 0) {
+				back_tab = true;
+				entity_b = true;
+			} else if (str.indexOf("PROCEDURE ") >= 0) {
+				back_tab = true;
+				begin_b = true;
+			}
+			
+			if (str.indexOf("PORT MAP") >= 0) {
+				back_tab = true;
+				port_b = true;
+				if (str.indexOf(");") < 0) {
+					align_i1 = align_i;
+					var t = str.indexOf("=>");
+					if (t >= 0) {
+						signAlignPos = "=>";
+					} else {
+						t = arr[i + 1].indexOf("=>");
+						if (t >= 0) {
+							signAlignPos = "=>";
+						}
+					}
+				} else {
+					signAlignPos = "";
+				}
+			} else if (str.indexOf("PORT (") >= 0) {
+				back_tab = true;
+				port_b = true;
+				t = str.indexOf(":");
+				if (str.indexOf(");") < 0) {
+					align_i1 = align_i;
+					if (t >= 0) {
+						signAlignPos = ":";
+					} else {
+						t = arr[i + 1].indexOf(":");
+						if (t >= 0) {
+							signAlignPos = ":";
+						}
+					}
+				} else {
+					signAlignPos = "";
+				}
+			}
+			if (set_false) {
+				procfun_b = false;
+				set_false = false;
+			}
+			if (str.indexOf("(") >= 0) {
+				if (str.indexOf("PROCEDURE") >= 0 || str.indexOf("FUNCTION") >= 0) {
+					procfun_b = true;
+					back_tab = true;
+				}
+				if (str.indexOf("GENERIC") >= 0 || str.indexOf(":= (") >= 0 || str.regexIndexOf(/PROCEDURE[a-zA-Z0-9_ ]+\(/) >= 0) {
+					port_b = true;
+					back_tab = true;
+				}
+			} else if (first_word == "FUNCTION") {
+				back_tab = true;
+				begin_b = true;
+			}
+			if (str.indexOf("@@singleend") >= 0) {
+				back_tab = false;
+				port_b = false;
+			} else if (str.indexOf("@@end") >= 0 && port_b) {
+				port_b = false;
+				tab_n--;
+				if (entity_b) {
+					forward_tab = true;
+				}
+			}
+			if (sign_align) {
+				if (port_b && signAlignPos != "") {
+					if (str.indexOf(signAlignPos) >= 0) {
+						var a1 = arr[i].split(signAlignPos);
+						var l1 = a1[0].length;
+						if (align_i >= 0 && align_i > align_i1) {
+							align_max[align_i] = align_max[align_i - 1];
+						} else {
+							align_max[align_i] = l1;
+						}
+						if (align_i > align_i1 && align_max[align_i] < l1) {
+							for (var k = align_i1; k <= align_i; k++) {
+								align_max[k] = l1;
+							}
+						}
+						align[align_i] = l1;
+						arr[i] = a1[0] + "@@align" + (align_i++) + signAlignPos + a1[1];
+					}
+				}
+			}
+			tab_n = tab_n < 1 ? 1 : tab_n;
+			if (str_len) {
+				arr[i] = (Array(tab_n).join(indentation)) + arr[i]; //indent
+			}
+			if (back_tab) {
+				tab_n++;
+				back_tab = false;
+			}
+			if (forward_tab) {
+				tab_n--;
+				forward_tab = false;
+			}
+			
+			if (conditional_b && str.indexOf(";") >= 0) {
+				//tab_n--;
+				conditional_b = false;
+				white_space = "";
+			} else if (str.indexOf(";") >= 0 && semi_b) {
+				semi_b = false;
+				tab_n--;
+			} else if (!semi_b && str.indexOf(";") < 0 && !port_b) {
+				if (!conditional_b) {
+					if (str.indexOf("WHEN") > 3 && str.indexOf("<=") > 1) {
+						conditional_b = true;
+						white_space = (Array(str.indexOf("= ") + 3).join(" "));
+					} else if (str.indexOf("=>") < 0 && ((str.indexOf("@@quotes") >= 0 && str.indexOf("= @@quotes") < 0) || (str.indexOf("<=") > 0 && str.indexOf("IF") < 0 && str.indexOf("THEN") < 0))) {
+						tab_n++;
+						semi_b = true;
+					}
+				}
+			}
+			
+			if (",ENTITY,RECORD,PACKAGE,FOR,COMPONENT,CONFIGURATION,".indexOf(","+first_word+",") >= 0) {
+				tab_n++;
+			} else if (str.indexOf(": FOR ") >= 0) {
+				tab_n++;
+			} else if (first_word == "CASE") {
+				tab_n++;
+				case_indent[case_n] = tab_n;
+				case_n++;
+			} else if (first_word == "ARCHITECTURE") {
+				tab_n++;
+				begin_b = true;
+			} else if (first_word == "IF") {
+				if_b++;
+				tab_n++;
+				if (str.indexOf(" THEN") < 0) {
+					then_b = true;
+					tab_n--;
+				}
+			}
+			if (procfun_b) {
+				if (str.regexIndexOf(/(\))|(RETURN [A-Za-z0-9 ]+)[\r\n ]+IS/) >= 0) {
+					tab_n--;
+					set_false = true;
+				}
+			}
+		}
+	}
+	
+	input = arr.join("\r\n");
+	
+	if (sign_align) {
+		for (var k = 0; k < align_i; k++) {
+			input = input.replace("@@align" + k, Array((align_max[k] - align[k] + 2)).join(" "));
+		}
+	}
+	for (var k = 0; k < quotes_i; k++) {
+		input = input.replace("@@quotes" + k, quotes[k]);
+	}
+	for (var k = 0; k < singleline_i; k++) {
+		input = input.replace("@@singleline" + k, singleline[k]);
+	}
+	for (var k = 0; k < comments_i; k++) {
+		input = input.replace("@@comments" + k, comments[k]);
+	}
+	input = input.replace(/@@semicolon/g, ";");
+	input = input.replace(/@@[a-z]+/g, "");
+	if(keywordcase == "LowerCase"){
+	for (var k = 0; k < keyword.length; k++) {
+	keyword[k]=keyword[k].toLowerCase();
+	}
+	for (var k = 0; k < typename.length; k++) {
+	typename[k]=typename[k].toLowerCase();
+	}
+	}else if(keywordcase == "DefaultCase"){
+	for (var k = 0; k < keyword.length; k++) {
+	keyword[k]=keyword[k].charAt(0) + keyword[k].slice(1).toLowerCase();
+	}
+	for (var k = 0; k < typename.length; k++) {
+	typename[k]=typename[k].charAt(0) + typename[k].slice(1).toLowerCase();
+	}
+	}
+	if(keywordcase!="UpperCase"){
+	for (var k = 0; k < keyword.length; k++) {
+		input = input.replace(new RegExp("([^a-zA-Z0-9_]|^)" + keyword[k] + "([^a-zA-Z0-9_]|$)", 'gi'), "$1" + keyword[k] + "$2");
+	}
+	for (var k = 0; k < typename.length; k++) {
+		input = input.replace(new RegExp("([^a-zA-Z0-9_]|^)" + typename[k] + "([^a-zA-Z0-9_]|$)", 'gi'), "$1" + typename[k] + "$2");
+	}
+	}
+	if (compress) {
+		input = input.replace(/\r\n/g, '');
+		input = input.replace(/[\t ]+/g, ' ');
+		input = input.replace(/[ ]?([&=:\-<>\+|])[ ]?/g, '$1');
+	}
+	if (mix_letter) {
+		arr = input.split("");
+		for (var k = 0; k < arr.length; k++) {
+			if (arr[k] === arr[k].toUpperCase() && Math.random() > 0.5) {
+				arr[k] = arr[k].toLowerCase();
+			} else if (Math.random() > 0.5) {
+				arr[k] = arr[k].toUpperCase();
+			}
+		}
+		input = arr.join("");
+	}
+	document.getElementById("vhdl").innerHTML = input;
+	document.querySelector(".show").style.display = "inline-block";
+	hljs.highlightBlock(document.getElementById("vhdl"));
+}
+</script>
+
+
+</body></html>

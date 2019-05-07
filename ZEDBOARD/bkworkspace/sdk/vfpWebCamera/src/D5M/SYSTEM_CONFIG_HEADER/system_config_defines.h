@@ -34,6 +34,11 @@
 #define wTestPatternV4              15
 #define wTestPatternV5              16
 #define wRgbCorrect                 17
+#define wHsl                        18
+#define hsvCcBl                     19
+/*****************************************************************************************************************/
+#define fSharp                      0x0004
+/*****************************************************************************************************************/
 #define w_oRgbOsharp_reg_0          0//open
 #define w_oEdgeType_reg_1           4//open
 #define reg_2                       8//open
@@ -157,7 +162,6 @@
 #define uart_Editing_Insert_Lines(Lines) uartPRINTF("\x1B[%dL",Lines)
 #define uart_Editing_Delete_Lines(Lines) uartPRINTF("\x1B[%dM",Lines)
 #define uart_Editing_Delete_Characters(Characters) uartPRINTF("\x1B[%dP",Characters)
-
 /*****************************************************************************************************************/
 #define KEYPRESS_ARROW_UP       240
 #define KEYPRESS_ARROW_DOWN     241
@@ -215,7 +219,6 @@
 #define colorbars               0x976BA59B
 #define genimage                0x44236327
 #define quit_current_state      0x71
-#define fSharp                  0x0004
 /*****************************************************************************************************************/
 #define d5m_testpattern         0x2484DA56
 #define d5m_colorgain           0x4EA1D4C4

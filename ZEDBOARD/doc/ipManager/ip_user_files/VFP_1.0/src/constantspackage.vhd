@@ -34,6 +34,8 @@ package constantspackage is
     constant tPatter4                  : integer   := 15;
     constant tPatter5                  : integer   := 16;
     constant rgbCorrect                : integer   := 17;
+    constant hsl                       : integer   := 18;
+    constant hsvCcBl                   : integer   := 19;
     -------------------------------------------------------------------------
     -- videoProcess constants
     -------------------------------------------------------------------------
