@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date             : Mon May  6 23:26:22 2019
+| Date             : Thu May  9 00:52:04 2019
 | Host             : BLACKHOLE running 64-bit major release  (build 9200)
 | Command          : report_power -file zynq_soc_wrapper_power_routed.rpt -pb zynq_soc_wrapper_power_summary_routed.pb -rpx zynq_soc_wrapper_power_routed.rpx
 | Design           : zynq_soc_wrapper
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 2.376 |
-| Dynamic (W)              | 2.193 |
+| Total On-Chip Power (W)  | 2.378 |
+| Dynamic (W)              | 2.194 |
 | Device Static (W)        | 0.183 |
 | Effective TJA (C/W)      | 11.5  |
 | Max Ambient (C)          | 57.6  |
@@ -50,23 +50,23 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.114 |       10 |       --- |             --- |
-| Slice Logic              |     0.091 |    38901 |       --- |             --- |
-|   LUT as Logic           |     0.075 |    13678 |     53200 |           25.71 |
-|   CARRY4                 |     0.010 |     1892 |     13300 |           14.23 |
-|   Register               |     0.006 |    18195 |    106400 |           17.10 |
+| Slice Logic              |     0.090 |    38925 |       --- |             --- |
+|   LUT as Logic           |     0.074 |    13699 |     53200 |           25.75 |
+|   CARRY4                 |     0.010 |     1889 |     13300 |           14.20 |
+|   Register               |     0.006 |    18196 |    106400 |           17.10 |
 |   LUT as Shift Register  |    <0.001 |      350 |     17400 |            2.01 |
-|   F7/F8 Muxes            |    <0.001 |      327 |     53200 |            0.61 |
+|   F7/F8 Muxes            |    <0.001 |      329 |     53200 |            0.62 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   Others                 |     0.000 |      967 |       --- |             --- |
 |   LUT as Distributed RAM |     0.000 |       18 |     17400 |            0.10 |
-| Signals                  |     0.112 |    29871 |       --- |             --- |
+| Signals                  |     0.114 |    29904 |       --- |             --- |
 | Block RAM                |     0.173 |     87.5 |       140 |           62.50 |
 | MMCM                     |     0.109 |        1 |         4 |           25.00 |
 | DSPs                     |     0.017 |       25 |       220 |           11.36 |
 | I/O                      |     0.042 |       59 |       200 |           29.50 |
 | PS7                      |     1.536 |        1 |       --- |             --- |
 | Static Power             |     0.183 |          |           |                 |
-| Total                    |     2.376 |          |           |                 |
+| Total                    |     2.378 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.518 |       0.494 |      0.024 |
+| Vccint    |       1.000 |     0.520 |       0.495 |      0.024 |
 | Vccaux    |       1.800 |     0.084 |       0.062 |      0.022 |
 | Vcco33    |       3.300 |     0.013 |       0.012 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -158,12 +158,12 @@ Table of Contents
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+
 | Name                                                                                                                                                                                                                                                   | Power (W) |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------+
-| zynq_soc_wrapper                                                                                                                                                                                                                                       |     2.193 |
+| zynq_soc_wrapper                                                                                                                                                                                                                                       |     2.194 |
 |   d5m_iic_scl_iobuf                                                                                                                                                                                                                                    |     0.000 |
 |   d5m_iic_sda_iobuf                                                                                                                                                                                                                                    |     0.000 |
 |   hdmi_iic_scl_iobuf                                                                                                                                                                                                                                   |     0.000 |
 |   hdmi_iic_sda_iobuf                                                                                                                                                                                                                                   |     0.000 |
-|   zynq_soc_i                                                                                                                                                                                                                                           |     2.190 |
+|   zynq_soc_i                                                                                                                                                                                                                                           |     2.191 |
 |     CLK_GEN_148MHZ                                                                                                                                                                                                                                     |     0.110 |
 |       inst                                                                                                                                                                                                                                             |     0.110 |
 |     D5M_OUTPUT                                                                                                                                                                                                                                         |     0.002 |
@@ -262,7 +262,7 @@ Table of Contents
 |                     int_line_d1                                                                                                                                                                                                                        |     0.008 |
 |                     int_line_d2                                                                                                                                                                                                                        |     0.009 |
 |                     int_line_d3                                                                                                                                                                                                                        |     0.008 |
-|                 blurFilter2xInst                                                                                                                                                                                                                       |     0.042 |
+|                 blurFilter2xInst                                                                                                                                                                                                                       |     0.043 |
 |                   MAC_B_inst                                                                                                                                                                                                                           |     0.003 |
 |                   MAC_G_inst                                                                                                                                                                                                                           |     0.003 |
 |                   MAC_R_inst                                                                                                                                                                                                                           |     0.003 |
@@ -294,18 +294,18 @@ Table of Contents
 |                 detectInst                                                                                                                                                                                                                             |     0.003 |
 |                   pixelCordInt                                                                                                                                                                                                                         |     0.003 |
 |                 edgeObjectsInst                                                                                                                                                                                                                        |     0.002 |
-|                 frameTestPatternInst                                                                                                                                                                                                                   |     0.003 |
-|                 hslInst                                                                                                                                                                                                                                |     0.021 |
-|                 hsvInst                                                                                                                                                                                                                                |     0.019 |
-|                 hsv_blur4xInst                                                                                                                                                                                                                         |     0.034 |
+|                 frameTestPatternInst                                                                                                                                                                                                                   |     0.002 |
+|                 hslInst                                                                                                                                                                                                                                |     0.020 |
+|                 hsvInst                                                                                                                                                                                                                                |     0.020 |
+|                 hsv_blur4xInst                                                                                                                                                                                                                         |     0.033 |
 |                 pointOfInterestInst                                                                                                                                                                                                                    |     0.021 |
 |                   gridLockFifoInt                                                                                                                                                                                                                      |     0.016 |
 |                   pixelCordInt                                                                                                                                                                                                                         |     0.004 |
-|                 sharpFilterInst                                                                                                                                                                                                                        |     0.076 |
-|                   MAC_B_inst                                                                                                                                                                                                                           |     0.009 |
-|                   MAC_G_inst                                                                                                                                                                                                                           |     0.009 |
-|                   MAC_R_inst                                                                                                                                                                                                                           |     0.016 |
-|                   RGB_inst                                                                                                                                                                                                                             |     0.040 |
+|                 sharpFilterInst                                                                                                                                                                                                                        |     0.077 |
+|                   MACbInst                                                                                                                                                                                                                             |     0.009 |
+|                   MACgInst                                                                                                                                                                                                                             |     0.009 |
+|                   MACrInst                                                                                                                                                                                                                             |     0.016 |
+|                   RGBInst                                                                                                                                                                                                                              |     0.040 |
 |                     int_line_d0                                                                                                                                                                                                                        |     0.008 |
 |                     int_line_d1                                                                                                                                                                                                                        |     0.012 |
 |                     int_line_d2                                                                                                                                                                                                                        |     0.011 |
@@ -320,7 +320,7 @@ Table of Contents
 |               videoSelectInst                                                                                                                                                                                                                          |     0.001 |
 |                 ycbcrInst                                                                                                                                                                                                                              |    <0.001 |
 |       PS                                                                                                                                                                                                                                               |     1.589 |
-|         TO_PS                                                                                                                                                                                                                                          |     1.559 |
+|         TO_PS                                                                                                                                                                                                                                          |     1.560 |
 |           PS7                                                                                                                                                                                                                                          |     1.540 |
 |             inst                                                                                                                                                                                                                                       |     1.540 |
 |           PS7_axi_periph                                                                                                                                                                                                                               |     0.010 |
@@ -382,7 +382,7 @@ Table of Contents
 |                     RD.r_channel_0                                                                                                                                                                                                                     |     0.001 |
 |                       rd_data_fifo_0                                                                                                                                                                                                                   |    <0.001 |
 |                       transaction_fifo_0                                                                                                                                                                                                               |    <0.001 |
-|                     SI_REG                                                                                                                                                                                                                             |     0.003 |
+|                     SI_REG                                                                                                                                                                                                                             |     0.002 |
 |                       ar_pipe                                                                                                                                                                                                                          |    <0.001 |
 |                       aw_pipe                                                                                                                                                                                                                          |    <0.001 |
 |                       b_pipe                                                                                                                                                                                                                           |    <0.001 |
@@ -655,7 +655,7 @@ Table of Contents
 |                 GEN_S2MM_FULL.I_S2MM_FULL_WRAPPER                                                                                                                                                                                                      |     0.010 |
 |                   GEN_ENABLE_INDET_BTT_SF.I_INDET_BTT                                                                                                                                                                                                  |     0.003 |
 |                     ENABLE_AXIS_SKID.I_INDET_BTT_SKID_BUF                                                                                                                                                                                              |    <0.001 |
-|                     I_DATA_FIFO                                                                                                                                                                                                                        |     0.002 |
+|                     I_DATA_FIFO                                                                                                                                                                                                                        |     0.001 |
 |                       BLK_MEM.I_SYNC_FIFOGEN_FIFO                                                                                                                                                                                                      |     0.001 |
 |                         FAMILY_SUPPORTED.I_SYNC_FIFO_BRAM                                                                                                                                                                                              |     0.001 |
 |                           inst_fifo_gen                                                                                                                                                                                                                |     0.001 |
@@ -763,13 +763,13 @@ Table of Contents
 |             ACTIVE_LOW_EXT.ACT_LO_EXT                                                                                                                                                                                                                  |    <0.001 |
 |           SEQ                                                                                                                                                                                                                                          |    <0.001 |
 |             SEQ_COUNTER                                                                                                                                                                                                                                |    <0.001 |
-|     VIDEO_PIPELINE                                                                                                                                                                                                                                     |     0.023 |
+|     VIDEO_PIPELINE                                                                                                                                                                                                                                     |     0.025 |
 |       GND                                                                                                                                                                                                                                              |     0.000 |
-|       TIMMING_CONTROLELR                                                                                                                                                                                                                               |     0.018 |
-|         U0                                                                                                                                                                                                                                             |     0.018 |
+|       TIMMING_CONTROLELR                                                                                                                                                                                                                               |     0.019 |
+|         U0                                                                                                                                                                                                                                             |     0.019 |
 |           U_TC_TOP                                                                                                                                                                                                                                     |     0.002 |
 |             GEN_GENERATOR.U_TC_GEN                                                                                                                                                                                                                     |     0.002 |
-|           U_VIDEO_CTRL                                                                                                                                                                                                                                 |     0.016 |
+|           U_VIDEO_CTRL                                                                                                                                                                                                                                 |     0.017 |
 |             AXI4_LITE_INTERFACE.AXI_LITE_IPIF_I                                                                                                                                                                                                        |    <0.001 |
 |               I_SLAVE_ATTACHMENT                                                                                                                                                                                                                       |    <0.001 |
 |                 I_DECODER                                                                                                                                                                                                                              |    <0.001 |
@@ -786,7 +786,7 @@ Table of Contents
 |                 inst_fifo_gen                                                                                                                                                                                                                          |     0.004 |
 |                   gconvfifo.rf                                                                                                                                                                                                                         |     0.004 |
 |                     grf.rf                                                                                                                                                                                                                             |     0.004 |
-|                       gntv_or_sync_fifo.gcx.clkx                                                                                                                                                                                                       |    <0.001 |
+|                       gntv_or_sync_fifo.gcx.clkx                                                                                                                                                                                                       |     0.001 |
 |                         gnxpm_cdc.gsync_stage[1].rd_stg_inst                                                                                                                                                                                           |    <0.001 |
 |                         gnxpm_cdc.gsync_stage[1].wr_stg_inst                                                                                                                                                                                           |    <0.001 |
 |                         gnxpm_cdc.gsync_stage[2].rd_stg_inst                                                                                                                                                                                           |    <0.001 |

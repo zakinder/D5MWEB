@@ -35,8 +35,8 @@ void d5mInit(){
     pvideo.fRgbCoordBH       = 0x0096;//96=150
     //DEFAULT ALREADY CONFIG
     pStream.fDbusSelect      = 0x0004;
-    pStream.fThreshold       = 0x0007;
-    pStream.fVideoType       = fSharp;
+    pStream.fThreshold       = 0x0017;
+    pStream.fVideoType       = wSobelRgbDetect;
     pStream.fRgbCoordRL      = 0x001E;//1E=30
     pStream.fRgbCoordRH      = 0x00E6;//E6=230
     pStream.fRgbCoordGL      = 0x001E;//1E=30
@@ -319,7 +319,7 @@ void selected_channel()
     D5M_mWriteReg(D5M_BASE,w_bl_reg_55,pStream.fRgbCoordBH);//cord
     D5M_mWriteReg(D5M_BASE,w_abusselect_reg_3,pStream.fDbusSelect);
     edgeThreshold(pStream.fThreshold);
-    prewittWrite();
+    //prewittWrite();
     videoFeatureSelect(pStream.fVideoType);
 }
 void colorDetectRange(u16 fRgbCoordRL,u16 fRgbCoordRH,u16 fRgbCoordGL,u16 fRgbCoordGH,u16 fRgbCoordBL,u16 fRgbCoordBH)

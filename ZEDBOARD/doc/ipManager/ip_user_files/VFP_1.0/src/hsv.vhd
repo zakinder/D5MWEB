@@ -45,8 +45,10 @@ architecture behavioral of hsv_c is
     signal lumValue2xD   : std_logic_vector(i_data_width-1 downto 0) :=(others => '0');
     --Saturate
     signal satUfTop      : ufixed(17 downto 0) :=(others => '0');
+    signal satUfTopV     : ufixed(17 downto 0) :=(others => '0');
     signal satUfBott     : ufixed(7 downto 0) :=(others => '0');
     signal satValueQuot  : ufixed(17 downto -8) :=(others => '0');
+    signal satValueQuotV : ufixed(17 downto -8) :=(others => '0');
     signal satValue      : ufixed(7 downto 0) :=(others => '0');
     signal satValue1xD   : std_logic_vector(7 downto 0) :=(others => '0');
     --Hue Rsiz
@@ -147,9 +149,10 @@ end process hValueP;
 -------------------------------------------------
 -- SATURATE
 -------------------------------------------------
+satUfTopV      <= (256.0 * rgbDelta);
 satNumniatorUfP: process (clk) begin
     if rising_edge(clk) then 
-        satUfTop      <= 256.0 * rgbDelta;
+        satUfTop      <= satUfTopV;
     end if;
 end process satNumniatorUfP;
 satDominaUfCalP: process (clk) begin
@@ -159,9 +162,10 @@ satDominaUfCalP: process (clk) begin
         end if;
     end if;
 end process satDominaUfCalP;
+satValueQuotV <= (satUfTop / satUfBott);
 satDividerP: process (clk) begin
     if rising_edge(clk) then 
-        satValueQuot <= satUfTop / satUfBott;
+        satValueQuot <= satValueQuotV;
     end if;
 end process satDividerP;
 satDividerResizeP: process (clk) begin

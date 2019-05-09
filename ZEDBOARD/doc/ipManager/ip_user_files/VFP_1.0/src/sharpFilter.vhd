@@ -33,7 +33,6 @@ architecture arch of sharpFilter is
     signal d3en             : std_logic;
     signal d4en             : std_logic;
     signal d5en             : std_logic;
-    signal d6en             : std_logic;
     signal rCountAddress    : integer;
     signal rAddress         : std_logic_vector(15 downto 0);
     signal rgb1x            : channel;
@@ -41,82 +40,82 @@ architecture arch of sharpFilter is
     signal d2RGB            : std_logic_vector(23 downto 0) := (others => '0');
 ---------------------------------------------------------------------------------
 begin
-    tapValidAdressP: process(clk)begin
-        if rising_edge(clk) then
-            if (iRgb.valid = '1') then
-                rCountAddress  <= rCountAddress + 1;
-            else
-                rCountAddress  <= 0;
-            end if;
-        end if;
-    end process tapValidAdressP;
-    rAddress  <= std_logic_vector(to_unsigned(rCountAddress, 16));
-    RGB_inst: buffer_controller
-    generic map(
-        img_width       => img_width,
-        adwrWidth       => adwrWidth,
-        dataWidth       => 24,
-        addrWidth       => addrWidth)
-    port map(
-        aclk            => clk,
-        i_enable        => iRgb.valid,
-        i_data          => d2RGB,
-        i_wadd          => rAddress,
-        i_radd          => rAddress,
-        en_datao        => enable,
-        taps0x          => v1TapRGB0x,
-        taps1x          => v1TapRGB1x,
-        taps2x          => v1TapRGB2x);
-    MAC_R_inst: sharpMac
-    port map(
-        clk             => clk,
-        rst_l           => rst_l,
-        vTap0x          => vTapRGB0x(23 downto 16),
-        vTap1x          => vTapRGB1x(23 downto 16),
-        vTap2x          => vTapRGB2x(23 downto 16),
-        endOfFrame      => endOfFrame,
-        kls             => kls,
-        DataO           => oRgb.red);
-    MAC_G_inst: sharpMac
-    port map(
-        clk             => clk,
-        rst_l           => rst_l,
-        vTap0x          => vTapRGB0x(15 downto 8),
-        vTap1x          => vTapRGB1x(15 downto 8),
-        vTap2x          => vTapRGB2x(15 downto 8),
-        endOfFrame      => endOfFrame,
-        kls             => kls,    
-        DataO           => oRgb.green);
-    MAC_B_inst: sharpMac
-    port map(
-        clk             => clk,
-        rst_l           => rst_l,
-        vTap0x          => vTapRGB0x(i_data_width-1 downto 0),
-        vTap1x          => vTapRGB1x(i_data_width-1 downto 0),
-        vTap2x          => vTapRGB2x(i_data_width-1 downto 0),
-        endOfFrame      => endOfFrame,
-        kls             => kls,   
-        DataO           => oRgb.blue);
-  TAP_SIGNED : process (clk) begin
+tapValidAdressP: process(clk)begin
     if rising_edge(clk) then
-      rgb1x      <= iRgb;  
-      rgb2x      <= rgb1x;
-      d2RGB      <= rgb2x.red & rgb2x.green & rgb2x.blue;
-      d1en       <= enable;
-      d2en       <= d1en;
-      d3en       <= d2en;
-      d4en       <= d3en;
-      d5en       <= d4en;
-      oRgb.valid <= d5en;
-      if(enable = '1') then
-          vTapRGB0x <=v1TapRGB0x;
-          vTapRGB1x <=v1TapRGB1x;
-          vTapRGB2x <=v1TapRGB2x;
-      else
-          vTapRGB0x <=(others => '0');
-          vTapRGB1x <=(others => '0');
-          vTapRGB2x <=(others => '0');
-      end if;
+        if (iRgb.valid = '1') then
+            rCountAddress  <= rCountAddress + 1;
+        else
+            rCountAddress  <= 0;
+        end if;
     end if;
-end process TAP_SIGNED;
+end process tapValidAdressP;
+rAddress  <= std_logic_vector(to_unsigned(rCountAddress, 16));
+RGBInst: buffer_controller
+generic map(
+    img_width       => img_width,
+    adwrWidth       => adwrWidth,
+    dataWidth       => 24,
+    addrWidth       => addrWidth)
+port map(
+    aclk            => clk,
+    i_enable        => iRgb.valid,
+    i_data          => d2RGB,
+    i_wadd          => rAddress,
+    i_radd          => rAddress,
+    en_datao        => enable,
+    taps0x          => v1TapRGB0x,
+    taps1x          => v1TapRGB1x,
+    taps2x          => v1TapRGB2x);
+MACrInst: sharpMac
+port map(
+    clk             => clk,
+    rst_l           => rst_l,
+    vTap0x          => vTapRGB0x(23 downto 16),
+    vTap1x          => vTapRGB1x(23 downto 16),
+    vTap2x          => vTapRGB2x(23 downto 16),
+    endOfFrame      => endOfFrame,
+    kls             => kls,
+    DataO           => oRgb.red);
+MACgInst: sharpMac
+port map(
+    clk             => clk,
+    rst_l           => rst_l,
+    vTap0x          => vTapRGB0x(15 downto 8),
+    vTap1x          => vTapRGB1x(15 downto 8),
+    vTap2x          => vTapRGB2x(15 downto 8),
+    endOfFrame      => endOfFrame,
+    kls             => kls,    
+    DataO           => oRgb.green);
+MACbInst: sharpMac
+port map(
+    clk             => clk,
+    rst_l           => rst_l,
+    vTap0x          => vTapRGB0x(i_data_width-1 downto 0),
+    vTap1x          => vTapRGB1x(i_data_width-1 downto 0),
+    vTap2x          => vTapRGB2x(i_data_width-1 downto 0),
+    endOfFrame      => endOfFrame,
+    kls             => kls,   
+    DataO           => oRgb.blue);
+tapSignedP : process (clk) begin
+    if rising_edge(clk) then
+        rgb1x      <= iRgb;  
+        rgb2x      <= rgb1x;
+        d2RGB      <= rgb2x.red & rgb2x.green & rgb2x.blue;
+        d1en       <= enable;
+        d2en       <= d1en;
+        d3en       <= d2en;
+        d4en       <= d3en;
+        d5en       <= d4en;
+        oRgb.valid <= d5en;
+        if(enable = '1') then
+            vTapRGB0x <=v1TapRGB0x;
+            vTapRGB1x <=v1TapRGB1x;
+            vTapRGB2x <=v1TapRGB2x;
+        else
+            vTapRGB0x <=(others => '0');
+            vTapRGB1x <=(others => '0');
+            vTapRGB2x <=(others => '0');
+        end if;
+  end if;
+end process tapSignedP;
 end arch;

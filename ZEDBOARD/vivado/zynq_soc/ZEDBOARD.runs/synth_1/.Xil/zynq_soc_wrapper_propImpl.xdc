@@ -92,9 +92,33 @@ set_property src_info {type:XDC file:2 line:56 export:INPUT save:INPUT read:READ
 create_generated_clock -name io_hdmio_clk -source [get_pins zynq_soc_i/HDMI_OUTPUT/HDMI/U0/V6_GEN.ODDR_hdmi_clk_o/C] -divide_by 1 -invert [get_ports io_hdmio_clk]
 set_property src_info {type:XDC file:2 line:58 export:INPUT save:INPUT read:READ} [current_design]
 set_false_path -from [get_clocks clk_fpga_2] -to [get_clocks clk_fpga_0]
-set_property src_info {type:XDC file:2 line:59 export:INPUT save:INPUT read:READ} [current_design]
-set_max_delay -from [get_cells -hierarchical *u3Red_reg*] -to [get_pins -hierarchical {*hueTop_reg[*]/D*}] 10.000
 set_property src_info {type:XDC file:2 line:60 export:INPUT save:INPUT read:READ} [current_design]
-set_max_delay -from [get_cells -hierarchical *u3Green_reg*] -to [get_pins -hierarchical {*hueTop_reg[*]/D*}] 10.000
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/uFs3Rgb_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/hueTop_reg[*]/D}] 12.000
 set_property src_info {type:XDC file:2 line:61 export:INPUT save:INPUT read:READ} [current_design]
-set_max_delay -from [get_cells -hierarchical *u3Blue_reg*] -to [get_pins -hierarchical {*hueTop_reg[*]/D*}] 10.000
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/hueTop_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/hueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:62 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/hueBot_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/hueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:63 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/satUfTop_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/satValueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:64 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/satUfBott_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsv_blur4xInst/satValueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:66 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/uFs3Rgb_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/hueTop_reg[*]/D}] 12.000
+set_property src_info {type:XDC file:2 line:67 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/hueTop_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/hueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:68 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/hueBot_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/hueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:69 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/satUfTop_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/satValueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:70 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/satUfBott_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/satValueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:72 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hsvInst/uFs3Rgb_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/hueTop_reg[*]/D}] 12.000
+set_property src_info {type:XDC file:2 line:73 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/hueTop_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/hueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:74 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/hueBot_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/hueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:75 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/satUfTop_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/satValueQuot_reg[*]/D}] 61.000
+set_property src_info {type:XDC file:2 line:76 export:INPUT save:INPUT read:READ} [current_design]
+set_max_delay  -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/satUfBott_reg[*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/hslInst/satValueQuot_reg[*]/D}] 61.000

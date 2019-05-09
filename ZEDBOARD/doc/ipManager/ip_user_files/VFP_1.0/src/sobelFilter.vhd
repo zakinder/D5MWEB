@@ -293,18 +293,18 @@ port map(
 edgeValuesP : process (clk) begin
     if rising_edge(clk) then
     if rst_l = lo then
-        oRgb.red   <= (others => '0');
-        oRgb.green <= (others => '0');
-        oRgb.blue  <= (others => '0');
+        oRgb.red   <= black;
+        oRgb.green <= black;
+        oRgb.blue  <= black;
     else
         if (sobel.edgeValid = hi) then
-            oRgb.red   <= white;
-            oRgb.green <= white;
-            oRgb.blue  <= white;
-        else
             oRgb.red   <= black;
             oRgb.green <= black;
             oRgb.blue  <= black;
+        else
+            oRgb.red   <= white;
+            oRgb.green <= white;
+            oRgb.blue  <= white;
         end if;
     end if;
     end if;

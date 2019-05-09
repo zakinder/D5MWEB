@@ -52,3 +52,5 @@ set_property IOSTANDARD LVCMOS33 [get_ports o_xclkin]
 set_property IOSTANDARD LVCMOS33 [get_ports pixclk]
 
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets pixclk]
+
+

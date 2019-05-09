@@ -6,6 +6,7 @@ use work.fixed_pkg.all;
 use work.float_pkg.all;
 use work.constantspackage.all;
 use work.vpfRecords.all;
+use work.portspackage.all;
 entity squareRootTop is
 port (
     clk            : in std_logic;
@@ -15,14 +16,6 @@ port (
     odata          : out std_logic_vector(31 downto 0));
 end entity;
 architecture arch of squareRootTop is
-component squareRoot is
-port (                
-    aclk                    : in STD_LOGIC;
-    s_axis_a_tvalid         : in STD_LOGIC;
-    s_axis_a_tdata          : in STD_LOGIC_VECTOR (31 downto 0 );
-    m_axis_result_tvalid    : out STD_LOGIC;
-    m_axis_result_tdata     : out STD_LOGIC_VECTOR (31 downto 0));
-end component squareRoot;
     signal idataStd         : std_logic_vector(31 downto 0) := (others => '0');
     signal odataStd         : std_logic_vector(31 downto 0) := (others => '0');
     signal odataFl          : float32;

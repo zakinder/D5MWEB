@@ -13,7 +13,6 @@ port (
     resetn         : in std_logic);
 end dut_frameProcess;
 architecture arch_imp of dut_frameProcess is
-
     constant FIFO_ADDR_WIDTH : integer := 13;
     signal wrAddress         : std_logic_vector (13 downto 0);
     signal wrAddrsGlCtr      : integer := 0;
@@ -51,7 +50,7 @@ architecture arch_imp of dut_frameProcess is
     signal rgbSum            : tpRgb;
     signal rgbSet            : rRgb;
     signal frameData         : fcolors;
-    signal enableFrame       : std_logic := '1';
+    signal enableFrame       : std_logic := hi;
 begin
 ---------------------------------------------------------------------------------
 -- frameProcess
@@ -60,7 +59,7 @@ WRITEIMAGE1: imageWrite
 generic map (
     enImageText        => false,
     enImageIndex       => false,
-    i_data_width       => 8,
+    i_data_width       => i_data_width,
     input_file         => readbmp,
     test               => "images",
     output_file        => "blur1x")
@@ -72,7 +71,7 @@ WRITEIMAGE2: imageWrite
 generic map (
     enImageText        => false,
     enImageIndex       => false,
-    i_data_width       => 8,
+    i_data_width       => i_data_width,
     input_file         => readbmp,
     test               => "images",
     output_file        => "blur2x")
@@ -84,7 +83,7 @@ WRITEIMAGE3: imageWrite
 generic map (
     enImageText        => false,
     enImageIndex       => false,
-    i_data_width       => 8,
+    i_data_width       => i_data_width,
     input_file         => readbmp,
     test               => "images",
     output_file        => "blur3x")
@@ -96,7 +95,7 @@ WRITEIMAGE4: imageWrite
 generic map (
     enImageText        => false,
     enImageIndex       => false,
-    i_data_width       => 8,
+    i_data_width       => i_data_width,
     input_file         => readbmp,
     test               => "images",
     output_file        => "blur4x")
@@ -108,7 +107,7 @@ WRITEIMAGE5: imageWrite
 generic map (
     enImageText        => false,
     enImageIndex       => false,
-    i_data_width       => 8,
+    i_data_width       => i_data_width,
     input_file         => readbmp,
     test               => "images",
     output_file        => "sharp")
@@ -120,7 +119,7 @@ WRITEIMAGE6: imageWrite
 generic map (
     enImageText        => false,
     enImageIndex       => false,
-    i_data_width       => 8,
+    i_data_width       => i_data_width,
     input_file         => readbmp,
     test               => "images",
     output_file        => "ycbcr")
@@ -143,7 +142,7 @@ port map(
     oValid               => ycbcr.valid);
 IMAGE2_imageRead: imageRead
 generic map (
-    i_data_width       => 8,
+    i_data_width       => i_data_width,
     input_file         => readbmp)
 port map (                  
     clk                => clk,

@@ -38,10 +38,10 @@ architecture arch_imp of dut_configAxis is
     constant configRegister1                      : integer := 0;
     constant configRegister2                      : integer := 4;
     constant configRegister3                      : integer := 8;
-    constant aBusSelect                      : integer := 12;
+    constant aBusSelect                           : integer := 12;
     constant configRegister5                      : integer := 16;
-    constant videoChannel                      : integer := 20;
-    constant dChannel                      : integer := 24;
+    constant videoChannel                         : integer := 20;
+    constant dChannel                             : integer := 24;
     constant configRegister8                      : integer := 28;
     constant configRegister9                      : integer := 32;
     constant configRegister10                     : integer := 36;
@@ -181,12 +181,10 @@ architecture arch_imp of dut_configAxis is
     maxi_write(aBusSelect,3,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid); 
     maxi_write(configRegister31,0,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid); 
     maxi_write(configRegister35,1,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid); 
-    
     maxi_write(configRegister8,1,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid); 
     maxi_write(configRegister40,1,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid); 
     maxi_write(configRegister40,0,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid); 
     maxi_write(configRegister32,10,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid); 
-    
     wait for 500 us;
     maxi_write(configRegister37,0,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid);
     maxi_read(configRegister39, vfpconfig_araddr, vfpconfig_arready, vfpconfig_arvalid, vfpconfig_rready, vfpconfig_rvalid);
@@ -198,7 +196,6 @@ architecture arch_imp of dut_configAxis is
     maxi_read(configRegister39, vfpconfig_araddr, vfpconfig_arready, vfpconfig_arvalid, vfpconfig_rready, vfpconfig_rvalid);
     maxi_write(configRegister37,4,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid);
     maxi_read(configRegister39, vfpconfig_araddr, vfpconfig_arready, vfpconfig_arvalid, vfpconfig_rready, vfpconfig_rvalid);
-    
     -- maxi_write(configRegister23,32,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid);
     -- maxi_write(configRegister24,64,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid); 
     -- maxi_write(configRegister25,8,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid);
@@ -210,7 +207,6 @@ architecture arch_imp of dut_configAxis is
     -- maxi_write(configRegister31,32,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid);
     -- maxi_write(configRegister32,64,vfpconfig_awaddr,vfpconfig_wdata,vfpconfig_awvalid,vfpconfig_wvalid,vfpconfig_awready,vfpconfig_wready,vfpconfig_bready,vfpconfig_bvalid);
     -------------------------------------------------------------------------------------------
-
     -- maxi_read(configRegister1, vfpconfig_araddr, vfpconfig_arready, vfpconfig_arvalid, vfpconfig_rready, vfpconfig_rvalid);
     -- maxi_read(configRegister2, vfpconfig_araddr, vfpconfig_arready, vfpconfig_arvalid, vfpconfig_rready, vfpconfig_rvalid);
     -- maxi_read(configRegister1, vfpconfig_araddr, vfpconfig_arready, vfpconfig_arvalid, vfpconfig_rready, vfpconfig_rvalid);

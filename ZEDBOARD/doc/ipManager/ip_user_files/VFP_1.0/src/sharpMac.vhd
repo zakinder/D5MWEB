@@ -39,20 +39,20 @@ architecture arch of sharpMac is
     signal tpd3       : detap;
     signal o1Data     : signed(i_data_width+3 downto 0);
     signal o2Data     : signed(i_data_width+3 downto 0);
-    signal Kernel_1 : signed(7 downto 0) :=x"00";
-    signal Kernel_2 : signed(7 downto 0) :=x"FF";
-    signal Kernel_3 : signed(7 downto 0) :=x"00";
-    signal Kernel_4 : signed(7 downto 0) :=x"FF";
-    signal Kernel_5 : signed(7 downto 0) :=x"05";
-    signal Kernel_6 : signed(7 downto 0) :=x"FF";
-    signal Kernel_7 : signed(7 downto 0) :=x"00";
-    signal Kernel_8 : signed(7 downto 0) :=x"FF";
-    signal Kernel_9 : signed(7 downto 0) :=x"00";
+    signal Kernel_1   : signed(7 downto 0) :=x"00";-- [ 0]
+    signal Kernel_2   : signed(7 downto 0) :=x"FF";-- [-1]
+    signal Kernel_3   : signed(7 downto 0) :=x"00";-- [ 0]
+    signal Kernel_4   : signed(7 downto 0) :=x"FF";-- [-1]
+    signal Kernel_5   : signed(7 downto 0) :=x"05";-- [ 5]
+    signal Kernel_6   : signed(7 downto 0) :=x"FF";-- [-1]
+    signal Kernel_7   : signed(7 downto 0) :=x"00";-- [ 0]
+    signal Kernel_8   : signed(7 downto 0) :=x"FF";-- [-1]
+    signal Kernel_9   : signed(7 downto 0) :=x"00";-- [ 0]
 ---------------------------------------------------------------------------------
 begin
 KUPDATE : process (clk) begin
   if rising_edge(clk) then
-  if (endOfFrame = '1' and kls.config = 2) then
+  if (kls.config = 2) then
       Kernel_1    <= signed(kls.k1(i_data_width-1 downto 0));
       Kernel_2    <= signed(kls.k2(i_data_width-1 downto 0));
       Kernel_3    <= signed(kls.k3(i_data_width-1 downto 0));

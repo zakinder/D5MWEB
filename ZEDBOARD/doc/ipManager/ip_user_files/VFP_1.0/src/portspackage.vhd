@@ -170,6 +170,14 @@ port (
     ovalid                      : out std_logic;
     odata                       : out std_logic_vector(31 downto 0));
 end component squareRootTop;
+component squareRoot is
+port (                
+    aclk                    : in STD_LOGIC;
+    s_axis_a_tvalid         : in STD_LOGIC;
+    s_axis_a_tdata          : in STD_LOGIC_VECTOR (31 downto 0);
+    m_axis_result_tvalid    : out STD_LOGIC;
+    m_axis_result_tdata     : out STD_LOGIC_VECTOR (31 downto 0));
+end component squareRoot;
 component sharpMac is
 port (                
     clk                         : in std_logic;
@@ -250,6 +258,23 @@ port (
     endOfFrame                  : in std_logic;   
     oRgb                        : out channel);
 end component sharpFilter;
+component dither is
+generic (
+    img_width         : integer := 512;
+    img_height        : integer := 512;
+    color_width       : integer := 8;
+    reduced_width     : integer := 4);
+port (                
+    clk               : in  std_logic;
+    enable            : in  std_logic;
+    x                 : in  integer range 0 to img_width-1;
+    din_r             : in  std_logic_vector(color_width-1 downto 0);
+    din_g             : in  std_logic_vector(color_width-1 downto 0);
+    din_b             : in  std_logic_vector(color_width-1 downto 0);
+    dout_r            : out std_logic_vector(color_width-1 downto 0) := (others => '0');
+    dout_g            : out std_logic_vector(color_width-1 downto 0) := (others => '0');
+    dout_b            : out std_logic_vector(color_width-1 downto 0) := (others => '0'));
+end component dither;
 component blurFilter is
 generic (
     iMSB                        : integer := 11;
@@ -371,14 +396,6 @@ port (
     iRgb                        : in channel;
     oHsl                        : out hsvChannel);
 end component hsl_c;
-component divider
-port (
-    clk                         :  in std_logic;
-    dividend                    : in std_logic_vector(15 downto 0);
-    divisor                     : in std_logic_vector(15 downto 0);
-    quotient                    : out std_logic_vector(15 downto 0);
-    remainder                   : out std_logic_vector(15 downto 0));
-end component;
 component rgb_ycbcr is
 generic (
     i_data_width                : integer:= 8;
