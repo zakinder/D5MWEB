@@ -18,12 +18,12 @@ architecture behavioral of videoProcess_tb is
     signal clk                           : std_logic;
     constant DUT_VFP_ENABLED             : boolean := false;
     constant DUT_FRAMEPROCESS_ENABLED    : boolean := false;
-    constant DUT_IMAGES_TESTENABLED      : boolean := false;
+    constant DUT_IMAGES_TESTENABLED      : boolean := true;
     constant DUT_SOBEL_TEST_ENABLED      : boolean := false;
     constant DUT_EMBOSS_TEST_ENABLED     : boolean := false;
     constant DUT_YCBCR_TEST_ENABLED      : boolean := false;
     constant DUT_HSV_TEST_ENABLED        : boolean := false;
-    constant DUT_CC_TEST_ENABLED         : boolean := true;
+    constant DUT_CC_TEST_ENABLED         : boolean := false;
     constant clk_freq                    : real    := 450.00e6;
 begin
     clk_gen(clk,clk_freq);
@@ -47,8 +47,17 @@ CC_TEST_ENABLED : if (DUT_CC_TEST_ENABLED = true) generate
     signal endOfFrame       : std_logic;
     signal als              : coefficient;
     signal alv              : coefficient;
+    signal kSet1            : coeffData;
 begin
-    enableWrite             <= hi;
+enableWrite             <= hi;
+kernel1ReadInst: kernel1Read
+generic map (
+    s_data_width    => s_data_width,
+    input_file      => "kernel1ReadData")
+port map (                  
+    clk               => clk,
+    reset             => resetn,
+    kSet1Out          => kSet1);  
 ImageReadInst: imageRead
 generic map (
     i_data_width       => i_data_width,
@@ -103,15 +112,15 @@ port map(
     -- als.k8              <= std_logic_vector(resize(signed(to_slv(to_sfixed(-0.125,4,-3))), als.k1'length));
     -- als.k9              <= std_logic_vector(resize(signed(to_slv(to_sfixed(1.250,4,-3))), als.k1'length));
     -- als.config          <= 1;
-    alv.k1              <= std_logic_vector(resize(signed(to_slv(to_sfixed(1.375,4,-3))), alv.k1'length));
-    alv.k2              <= std_logic_vector(resize(signed(to_slv(to_sfixed(-0.125,4,-3))), alv.k2'length));
-    alv.k3              <= std_logic_vector(resize(signed(to_slv(to_sfixed(-0.500,4,-3))), alv.k3'length));
-    alv.k4              <= std_logic_vector(resize(signed(to_slv(to_sfixed(-0.250,4,-3))), alv.k4'length));
-    alv.k5              <= std_logic_vector(resize(signed(to_slv(to_sfixed(1.375,4,-3))), alv.k5'length));
-    alv.k6              <= std_logic_vector(resize(signed(to_slv(to_sfixed(-0.500,4,-3))), alv.k6'length));
-    alv.k7              <= std_logic_vector(resize(signed(to_slv(to_sfixed(-0.250,4,-3))), alv.k7'length));
-    alv.k8              <= std_logic_vector(resize(signed(to_slv(to_sfixed(-0.250,4,-3))), alv.k8'length));
-    alv.k9              <= std_logic_vector(resize(signed(to_slv(to_sfixed(1.375,4,-3))), alv.k9'length));
+    alv.k1              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k1,4,-3))), alv.k1'length));
+    alv.k2              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k2,4,-3))), alv.k2'length));
+    alv.k3              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k3,4,-3))), alv.k3'length));
+    alv.k4              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k4,4,-3))), alv.k4'length));
+    alv.k5              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k5,4,-3))), alv.k5'length));
+    alv.k6              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k6,4,-3))), alv.k6'length));
+    alv.k7              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k7,4,-3))), alv.k7'length));
+    alv.k8              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k8,4,-3))), alv.k8'length));
+    alv.k9              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k9,4,-3))), alv.k9'length));
     alv.config          <= 1;
     als.k1              <= std_logic_vector(resize(signed(to_slv(to_sfixed(1.250,4,-3))), als.k1'length));
     als.k2              <= std_logic_vector(resize(signed(to_slv(to_sfixed(-0.125,4,-3))), als.k1'length));
@@ -484,20 +493,50 @@ IMAGES_TEST_ENABLED : if (DUT_IMAGES_TESTENABLED = true) generate
     signal rgbCorrect2      : channel;
     signal sharp            : channel;
     signal als              : coefficient;
+    signal als2             : coefficient;
     signal kls              : coefficient;
+    signal kSet1            : coeffData;
+    signal kSet2            : coeffData;
+    signal ycbcr            : channel;
     --------------------------------------------------------------------------
 begin
+kernel1ReadInst: kernel1Read
+generic map (
+    s_data_width    => s_data_width,
+    input_file      => "kernel1ReadData")
+port map (                  
+    clk               => clk,
+    reset             => resetn,
+    kSet1Out          => kSet1); 
+kernel2ReadInst: kernel1Read
+generic map (
+    s_data_width    => s_data_width,
+    input_file      => "kernel2ReadData")
+port map (                  
+    clk               => clk,
+    reset             => resetn,
+    kSet1Out          => kSet2); 
     --------------------------------------------------------------------------
-    als.k1                  <= x"0000000D";--  1.375
-    als.k2                  <= x"000000FE";-- -0.250
-    als.k3                  <= x"000000FF";-- -0.125
-    als.k4                  <= x"000000FF";-- -0.125
-    als.k5                  <= x"0000000E";--  1.375
-    als.k6                  <= x"000000FE";-- -0.250
-    als.k7                  <= x"000000FE";-- -0.250
-    als.k8                  <= x"000000FF";-- -0.125
-    als.k9                  <= x"0000000D";--  1.375
-    als.config              <= 1;
+    als.k1              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k1,4,-3))), als.k1'length));
+    als.k2              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k2,4,-3))), als.k2'length));
+    als.k3              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k3,4,-3))), als.k3'length));
+    als.k4              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k4,4,-3))), als.k4'length));
+    als.k5              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k5,4,-3))), als.k5'length));
+    als.k6              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k6,4,-3))), als.k6'length));
+    als.k7              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k7,4,-3))), als.k7'length));
+    als.k8              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k8,4,-3))), als.k8'length));
+    als.k9              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet1.k9,4,-3))), als.k9'length));
+    als.config          <= 1;
+    als2.k1              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k1,4,-3))), als2.k1'length));
+    als2.k2              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k2,4,-3))), als2.k2'length));
+    als2.k3              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k3,4,-3))), als2.k3'length));
+    als2.k4              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k4,4,-3))), als2.k4'length));
+    als2.k5              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k5,4,-3))), als2.k5'length));
+    als2.k6              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k6,4,-3))), als2.k6'length));
+    als2.k7              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k7,4,-3))), als2.k7'length));
+    als2.k8              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k8,4,-3))), als2.k8'length));
+    als2.k9              <= std_logic_vector(resize(signed(to_slv(to_sfixed(kSet2.k9,4,-3))), als2.k9'length));
+    als2.config          <= 1;
     kls.k1                  <= x"00000000";-- [ 0]
     kls.k2                  <= x"000000FF";-- [-1]
     kls.k3                  <= x"00000000";-- [ 0]
@@ -597,45 +636,73 @@ generic map(
 port map(           
     clk                 => clk,
     rst_l               => resetn,
-    iRgb                => blur4vx,
+    iRgb                => rgbIn,
     als                 => als,    
     oRgb                => rgbCorrect1);
-hsvInst: hsv_c
-generic map(
-    i_data_width        => i_data_width)
-port map(   
-    clk                 => clk,
-    reset               => resetn,
-    iRgb                => rgbCorrect1,
-    oHsv                => hsv);
-    ----------------------------------
-    rgbPoi.red            <= hsv.h;
-    rgbPoi.green          <= hsv.s;
-    rgbPoi.blue           <= hsv.v;
-    rgbPoi.valid          <= hsv.valid;
-    ----------------------------------
-blurFilter5xInst: blurFilter
-generic map(
-    iMSB                => blurMsb,
-    iLSB                => blurLsb,
-    i_data_width        => i_data_width,
-    img_width           => img_width,
-    adwrWidth           => adwrWidth,
-    addrWidth           => addrWidth)
-port map(
-    clk                 => clk,
-    rst_l               => resetn,
-    iRgb                => rgbPoi,
-    oRgb                => blur5vx); 
 colorCorrection2Inst: colorCorrection
 generic map(
     i_data_width        => i_data_width)
 port map(           
     clk                 => clk,
     rst_l               => resetn,
-    iRgb                => blur5vx,
-    als                 => als,    
+    iRgb                => rgbCorrect1,
+    als                 => als2,    
     oRgb                => rgbCorrect2);
+-- ycbcrInst: rgb_ycbcr
+-- generic map(
+    -- i_data_width         => i_data_width,
+    -- i_precision          => 16,
+    -- i_full_range         => TRUE)
+-- port map(
+    -- clk                  => clk,
+    -- rst_l                => resetn,
+    -- iRgb                 => rgbCorrect2,
+    -- y                    => ycbcr.red,
+    -- cb                   => ycbcr.green,
+    -- cr                   => ycbcr.blue,
+    -- oValid               => ycbcr.valid);
+    --------------------------------
+    -- rgbPoi.red           <= ycbcr.red;
+    -- rgbPoi.green         <= ycbcr.red;
+    -- rgbPoi.blue          <= ycbcr.red;
+    -- rgbPoi.valid         <= ycbcr.valid;
+    ----------------------------------
+hsvInst: hsv_c
+generic map(
+    i_data_width        => i_data_width)
+port map(   
+    clk                 => clk,
+    reset               => resetn,
+    iRgb                => rgbCorrect2,
+    oHsv                => hsv);
+    ----------------------------------
+    rgbPoi.red            <= hsv.h;
+    rgbPoi.green          <= hsv.h;
+    rgbPoi.blue           <= hsv.h;
+    rgbPoi.valid          <= hsv.valid;
+    ----------------------------------
+-- blurFilter5xInst: blurFilter
+-- generic map(
+    -- iMSB                => blurMsb,
+    -- iLSB                => blurLsb,
+    -- i_data_width        => i_data_width,
+    -- img_width           => img_width,
+    -- adwrWidth           => adwrWidth,
+    -- addrWidth           => addrWidth)
+-- port map(
+    -- clk                 => clk,
+    -- rst_l               => resetn,
+    -- iRgb                => rgbPoi,
+    -- oRgb                => blur5vx); 
+-- colorCorrection2Inst: colorCorrection
+-- generic map(
+    -- i_data_width        => i_data_width)
+-- port map(           
+    -- clk                 => clk,
+    -- rst_l               => resetn,
+    -- iRgb                => rgbPoi,
+    -- als                 => als2,    
+    -- oRgb                => rgbCorrect2);
 WRITEIMAGE1: imageWrite
 generic map (
     enImageText        => true,
@@ -647,7 +714,7 @@ generic map (
 port map (                  
     pixclk             => clk,
     enableWrite        => enableWrite,
-    iRgb               => rgbCorrect2);
+    iRgb               => rgbPoi);
 -- enableWrite <= not(oFifoStatus(1));
 -- pointOfInterest_inst: pointOfInterest
 -- generic map(

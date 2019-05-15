@@ -146,6 +146,17 @@ type coefficient is record
     k9               : std_logic_vector(C_S_AXI_DATA_WIDTH-1 downto 0);
     config           : integer;
 end record;
+type coeffData is record
+    k1               : real;
+    k2               : real;
+    k3               : real;
+    k4               : real;
+    k5               : real;
+    k6               : real;
+    k7               : real;
+    k8               : real;
+    k9               : real;
+end record;
 type region is record
     rl               : std_logic_vector(i_data_width-1 downto 0);-- :=x"0A";
     rh               : std_logic_vector(i_data_width-1 downto 0);-- :=x"50";

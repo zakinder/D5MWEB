@@ -157,4 +157,13 @@ port (
     enableWrite                 : in  std_logic;
     iRgb                        : in channel);
 end component imageWrite;
+component kernel1Read is
+generic (
+    s_data_width    : integer := 16;
+    input_file      : string  := "input_image");
+port (                
+    clk             : in std_logic;
+    reset           : in std_logic;
+    kSet1Out        : out  coeffData);
+end component kernel1Read;
 end package;
