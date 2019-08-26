@@ -1,0 +1,89 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/ip/squareRoot/xil_defaultlib/squareRoot.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity squareRoot
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/constantspackage.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/fixed_float_types_c.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/fixed_pkg_c.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/float_pkg_c.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/vpfRecords.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/portspackage.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/AxisExternal.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity AxisExternal
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/CameraRawData.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CameraRawData
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/CameraRawToRgb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity CameraRawToRgb
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/ColorTrim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ColorTrim
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/Filters.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Filters
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/FontRom.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity FontRom
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/FrameMask.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity FrameMask
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/Kernel.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Kernel
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/KernelCore.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity KernelCore
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/LumValue.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity LumValues
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/PixelOnDisplay.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity PixelOnDisplay
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/tbPackage.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/ReadCoeffFile.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ReadCoeffFile
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/SegmentColors.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity SegmentColors
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/SyncFrames.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity SyncFrames
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/TapsController.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity TapsController
+INFO: [VRFC 10-307] analyzing entity tapLine
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/TextGen.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity TextGen
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/VideoStream.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity VideoStream
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/dataTaps.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity dataTaps
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/detect.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity detect
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/digiClk.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity digiClk
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/dutPortsPackage.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/frameProcess.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity frameProcess
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/frameTestPattern.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity frameTestPattern
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/gridLockFifo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity gridLockFifo
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/hsl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity hsl_c
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/hsv.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity hsv_c
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/imageRead.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity imageRead
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/imageWrite.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity imageWrite
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/mWrRd.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mWrRd
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/pixelCord.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity pixelCord
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/pointOfInterest.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity pointOfInterest
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/raw2rgb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity RawToRgb
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/squareRootTop.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity squareRootTop
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/tap_buffer.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tap_buffer
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/vfpConfig.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity videoProcess_v1_0_Config
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/vfpMSaxisRGB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity videoProcess_v1_0_rgb_m_axis
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/vfpMaxisMM2s.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity videoProcess_v1_0_m_axis_mm2s
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/vfpTop.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity VFP_v1_0
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/videoSelect.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity videoSelect
+INFO: [VRFC 10-163] Analyzing VHDL file "Z:/sim/sobelRgb/xsim/srcs/videoProcess_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity videoProcess_tb

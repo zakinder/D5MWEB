@@ -1,0 +1,35 @@
+#-----------------------------------------------------------
+# xsim v2017.2_sdx (64-bit)
+# SW Build 1972098 on Wed Aug 23 11:34:46 MDT 2017
+# IP Build 1971916 on Wed Aug 23 13:11:02 MDT 2017
+# Start of session at: Sun Jun  9 14:00:47 2019
+# Process ID: 3928
+# Current directory: Z:/sim/hsv/xsim
+# Command line: xsim.exe -log simulate.log -mode tcl -source {xsim.dir/videoProcess_tb/xsim_script.tcl}
+# Log file: Z:/sim/hsv/xsim/simulate.log
+# Journal file: Z:/sim/hsv/xsim\xsim.jou
+#-----------------------------------------------------------
+INFO: [Common 17-1460] Use of init.tcl in C:/Xilinx/SDx/2017.2/Vivado/scripts/init.tcl is deprecated. Please use xsim_init.tcl 
+Sourcing tcl script 'C:/Xilinx/SDx/2017.2/Vivado/scripts/init.tcl'
+Loaded SDSoC Platform Tcl Library
+source xsim.dir/videoProcess_tb/xsim_script.tcl
+# xsim {videoProcess_tb} -autoloadwcfg -tclbatch {cmd.tcl} -key {Behavioral:sim_1:Functional:videoProcess_tb}
+Vivado Simulator 2017.1
+Time resolution is 1 ps
+source cmd.tcl
+## set curr_wave [current_wave_config]
+## if { [string length $curr_wave] == 0 } {
+##   if { [llength [get_objects]] > 0} {
+##     add_wave /
+##     set_property needs_save false [current_wave_config]
+##   } else {
+##      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+##   }
+## }
+## run -all
+Failure: simulation ended
+Time: 123216 ns  Iteration: 0  Process: /videoProcess_tb/filters_test_enabled/f_hsv_test_enabled/ImageWritehsvInst/ImageFrameP  File: Z:/sim/hsv/xsim/srcs/imageWrite.vhd
+$finish called at time : 123216 ns
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:01:02 . Memory (MB): peak = 220.027 ; gain = 0.000
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Jun  9 14:01:55 2019...

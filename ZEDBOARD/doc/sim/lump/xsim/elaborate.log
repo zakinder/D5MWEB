@@ -1,0 +1,37 @@
+Vivado Simulator 2017.1
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/SDx/2017.2/Vivado/bin/unwrapped/win64.o/xelab.exe --relax --debug typical --mt auto -L xbip_utils_v3_0_7 -L axi_utils_v2_0_3 -L xbip_pipe_v3_0_3 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_dsp48_addsub_v3_0_3 -L xbip_dsp48_multadd_v3_0_3 -L xbip_bram18k_v3_0_3 -L mult_gen_v12_0_12 -L floating_point_v7_1_4 -L xil_defaultlib -L secureip -L xpm --snapshot videoProcess_tb xil_defaultlib.videoProcess_tb -log elaborate.log 
+Multi-threading is on. Using 6 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling package xil_defaultlib.constantspackage
+Compiling package xil_defaultlib.fixed_float_types
+Compiling package xil_defaultlib.fixed_pkg
+Compiling package ieee.math_real
+Compiling package xil_defaultlib.float_pkg
+Compiling package xil_defaultlib.vpfrecords
+Compiling package xil_defaultlib.portspackage
+Compiling package xil_defaultlib.tbpackage
+Compiling package xil_defaultlib.dutportspackage
+Compiling architecture behavioral of entity xil_defaultlib.ReadCoeffFile [\ReadCoeffFile(input_file="ReadC...]
+Compiling architecture behavioral of entity xil_defaultlib.imageWrite [\imageWrite(test="lump",input_fi...]
+Compiling architecture behavioral of entity xil_defaultlib.imageRead [\imageRead(input_file="400_300")...]
+Compiling architecture behavioral of entity xil_defaultlib.FontRom [fontrom_default]
+Compiling architecture behavioral of entity xil_defaultlib.PixelOnDisplay [\PixelOnDisplay(displaytext="LUM...]
+Compiling architecture behavioral of entity xil_defaultlib.TextGen [\TextGen(img_width=400,img_heigh...]
+Compiling architecture behavioral of entity xil_defaultlib.LumValues [\LumValues(f_lgt=true)\]
+Compiling architecture behavioral of entity xil_defaultlib.LumValues [\LumValues(f_drk=true)\]
+Compiling architecture behavioral of entity xil_defaultlib.LumValues [\LumValues(f_lum=true)\]
+Compiling architecture behavioral of entity xil_defaultlib.SegmentColors [segmentcolors_default]
+Compiling architecture behavioral of entity xil_defaultlib.Kernel [\Kernel(rgblp_frame=true,img_wid...]
+Compiling architecture behavioral of entity xil_defaultlib.Filters [\Filters(f_lum=true,img_width=40...]
+Compiling architecture behavioral of entity xil_defaultlib.videoprocess_tb
+Built simulation snapshot videoProcess_tb

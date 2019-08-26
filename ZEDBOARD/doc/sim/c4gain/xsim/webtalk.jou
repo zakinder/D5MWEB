@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.2_sdx (64-bit)
+# SW Build 1972098 on Wed Aug 23 11:34:46 MDT 2017
+# IP Build 1971916 on Wed Aug 23 13:11:02 MDT 2017
+# Start of session at: Mon Jun 10 23:28:25 2019
+# Process ID: 7552
+# Current directory: Z:/sim/c4gain/xsim
+# Command line: wbtcv.exe -mode batch -source Z:/sim/c4gain/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
+# Log file: Z:/sim/c4gain/xsim/webtalk.log
+# Journal file: Z:/sim/c4gain/xsim\webtalk.jou
+#-----------------------------------------------------------
+source Z:/sim/c4gain/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
