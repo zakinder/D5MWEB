@@ -1,0 +1,39 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Fri Apr 12 18:21:41 2019
+# Process ID: 4348
+# Current directory: Z:/Documents/GitHub/D5MWEB/ipManager/managed_ip_project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8944 Z:\Documents\GitHub\D5MWEB\ipManager\managed_ip_project\managed_ip_project.xpr
+# Log file: Z:/Documents/GitHub/D5MWEB/ipManager/managed_ip_project/vivado.log
+# Journal file: Z:/Documents/GitHub/D5MWEB/ipManager/managed_ip_project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project Z:/Documents/GitHub/D5MWEB/ipManager/managed_ip_project/managed_ip_project.xpr
+ipx::edit_ip_in_project -upgrade true -name VFP_v1_0_v1_0_project -directory Z:/Documents/GitHub/D5MWEB/ipManager/managed_ip_project/managed_ip_project.tmp/VFP_v1_0_v1_0_project z:/Documents/GitHub/D5MWEB/ipManager/ip_user_files/VFP_1.0/component.xml
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+ipx::add_file_group -type misc {} [ipx::current_core]
+ipx::add_file Z:/Documents/GitHub/D5MWEB/ipManager/ip_user_files/VFP_1.0/tb/input.bmp [ipx::get_file_groups xilinx_miscfiles -of_objects [ipx::current_core]]
+set_property type image [ipx::get_files Z:/Documents/GitHub/D5MWEB/ipManager/ip_user_files/VFP_1.0/tb/input.bmp -of_objects [ipx::get_file_groups xilinx_miscfiles -of_objects [ipx::current_core]]]
+set_property name tb/input.bmp [ipx::get_files Z:/Documents/GitHub/D5MWEB/ipManager/ip_user_files/VFP_1.0/tb/input.bmp -of_objects [ipx::get_file_groups xilinx_miscfiles -of_objects [ipx::current_core]]]
+ipx::merge_project_changes files [ipx::current_core]
+ipx::merge_project_changes files [ipx::current_core]
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse Z:/Documents/GitHub/D5MWEB/ipManager/ip_user_files/VFP_1.0/tb/input.bmp
+launch_simulation
+launch_simulation
+source videoProcess_tb.tcl
+create_wave_config
+run 200 us
+run 200 us
+restart
+close_sim
+launch_simulation
+source videoProcess_tb.tcl
+run 200 us
