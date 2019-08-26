@@ -3,6 +3,7 @@
 #define __CHANNEL_H__
 #include <xil_types.h>
 void sobelWrite();
+void yCbCrWrite();
 void colorFilterFixed();
 void colorFilterA11(u16 Axx);
 void colorFilterA12(u16 Axx);

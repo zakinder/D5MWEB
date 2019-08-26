@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="zynq_soc_DIP_SWITCHES_8BITS_0_synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1557386963">
+<GenRun Id="zynq_soc_DIP_SWITCHES_8BITS_0_synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1560726264">
   <File Type="RDS-PROPCONSTRS" Name="zynq_soc_DIP_SWITCHES_8BITS_0_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="zynq_soc_DIP_SWITCHES_8BITS_0.tcl"/>
   <File Type="RDS-RDS" Name="zynq_soc_DIP_SWITCHES_8BITS_0.vds"/>

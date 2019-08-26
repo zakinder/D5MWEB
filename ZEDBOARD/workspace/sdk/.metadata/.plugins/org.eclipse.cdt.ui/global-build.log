@@ -1,19 +1,9 @@
-01:02:54 **** Incremental Build of configuration Debug for project vfpWebCamera ****
+21:08:51 **** Incremental Build of configuration Debug for project vfpWebCamera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '
 make: Nothing to be done for `main-build'.
-01:02:58 **** Incremental Build of configuration Debug for project fsbl ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-01:03:00 **** Incremental Build of configuration Debug for project vfpWebCamera ****
-make pre-build main-build 
-a9-linaro-pre-build-step
-' '
-make: Nothing to be done for `main-build'.
-01:03:08 **** Auto Build of configuration Debug for project vfpWebCamera ****
+21:09:22 **** Auto Build of configuration Debug for project vfpWebCamera ****
 make pre-build main-build 
 a9-linaro-pre-build-step
 ' '

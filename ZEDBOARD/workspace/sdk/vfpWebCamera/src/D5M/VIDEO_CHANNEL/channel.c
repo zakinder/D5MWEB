@@ -47,6 +47,18 @@ void d5mInit(){
     pStream.fFifoFixedValue  = 0x0004;
     pStream.d5mExposer       = 0x0190;//400
     pStream.d5mBrightness    = 0x0078;//120
+
+    pYCbCr.K1 = 0x0101;//  0.257
+    pYCbCr.K2 = 0x01F8;//  0.504
+    pYCbCr.K3 = 0x0062;//  0.098
+    pYCbCr.K4 = 0xFF6C;// -0.148
+    pYCbCr.K5 = 0xFEDD;// -0.291
+    pYCbCr.K6 = 0x01B7;//  0.439
+    pYCbCr.K7 = 0x01B7;//  0.439
+    pYCbCr.K8 = 0xFE90;// -0.368
+    pYCbCr.K9 = 0xFFB9;// -0.071
+    pYCbCr.Kc = 0x0006;// 6
+
     //  GX
     //  [-1 +0 +1]
     //  [-2 +0 +2]
@@ -97,6 +109,7 @@ void d5mInit(){
     pcolor.Kc   = 0x0001;//1 for write and read else read time
     }
 void d5mInitCall(){
+	yCbCrWrite();
     //buffer_vdma_hdmi(&pvideo);
     //colorBars_vdma_hdmi(&pvideo);
     //bars(&pvideo);
@@ -106,6 +119,7 @@ void d5mInitCall(){
     VdmaInit();
     selected_channel();
     pointInterestFixed();
+    yCbCrWrite();
     //d5mtestpattern(0x0004);
     //exposerCompansate();
 }
@@ -331,6 +345,8 @@ void colorDetectRange(u16 fRgbCoordRL,u16 fRgbCoordRH,u16 fRgbCoordGL,u16 fRgbCo
     D5M_mWriteReg(D5M_BASE,w_bh_reg_54,fRgbCoordBL);//cord
     D5M_mWriteReg(D5M_BASE,w_bl_reg_55,fRgbCoordBH);//cord
 }
+
+
 void sobelWrite()
 {
     D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,psobel.K1);
@@ -344,6 +360,21 @@ void sobelWrite()
     D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,psobel.K9);
     D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,psobel.Kc);
 }
+
+void yCbCrWrite()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,0x0101);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,0x01F8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,0x0062);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,0xFF6C);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,0xFE90);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,0xFFB9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,0x6);
+}
+
 void colorFilterA11(u16 Axx)
 {
     D5M_mWriteReg(D5M_BASE,w_a11fl_reg_21,Axx);

@@ -37,14 +37,15 @@
 #define wHsl                        18
 #define hsvCcBl                     19
 /*****************************************************************************************************************/
-#define w_oRgbOsharp_reg_0          0//open
-#define w_oEdgeType_reg_1           4//open
+#define w_oRgbOsharp_reg_0          0//oRgbOsharp
+#define w_oEdgeType_reg_1           4//oEdgeType
 #define reg_2                       8//open
-#define w_abusselect_reg_3          12
-#define w_threshold_reg_4           16
-#define w_videochannel_reg_5        20
-#define w_dchannel_reg_6            24
+#define w_abusselect_reg_3          12//aBusSelect
+#define w_threshold_reg_4           16//threshold
+#define w_videochannel_reg_5        20//videoChannel
+#define w_dchannel_reg_6            24//dChannel
 #define w_cchannel_reg_7            28
+
 #define w_kernel_1_reg_08           32
 #define w_kernel_2_reg_09           36
 #define w_kernel_3_reg_10           40
@@ -55,6 +56,7 @@
 #define w_kernel_8_reg_15           60
 #define w_kernel_9_reg_16           64
 #define w_kernalconfig_reg_17       68
+
 #define w_a11fl_reg_21              84
 #define w_a12fl_reg_22              88
 #define w_a13fl_reg_23              92

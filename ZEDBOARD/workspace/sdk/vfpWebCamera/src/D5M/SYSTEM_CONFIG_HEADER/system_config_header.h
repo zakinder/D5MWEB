@@ -49,8 +49,10 @@ struct kernelStruct
    Xuint16 Kc;
 };
 typedef struct kernelStruct sobelInit;
+typedef struct kernelStruct colorCoefInit;
 sobelInit pprewitt;
 sobelInit psobel;
+colorCoefInit pYCbCr;
 typedef struct kernelStruct colorInit;
 colorInit pcolor;
 struct struct_hdmi_display_start
