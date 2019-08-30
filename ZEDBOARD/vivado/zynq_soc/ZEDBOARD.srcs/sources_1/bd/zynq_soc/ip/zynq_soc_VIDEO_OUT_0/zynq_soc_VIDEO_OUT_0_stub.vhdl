@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
--- Date        : Sun Jun 16 16:08:11 2019
+-- Date        : Thu Aug 29 19:28:11 2019
 -- Host        : BLACKHOLE running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
---               z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0_stub.vhdl
+--               c:/Users/GATE/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0_stub.vhdl
 -- Design      : zynq_soc_VIDEO_OUT_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1

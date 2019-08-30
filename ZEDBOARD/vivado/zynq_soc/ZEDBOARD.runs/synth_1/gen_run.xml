@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1560726267">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1567121013">
   <File Type="RDS-PROPCONSTRS" Name="zynq_soc_wrapper_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="zynq_soc_wrapper.tcl"/>
   <File Type="RDS-RDS" Name="zynq_soc_wrapper.vds"/>

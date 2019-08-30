@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Sun Jun 16 16:36:15 2019
+| Date         : Thu Aug 29 20:01:30 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_methodology -file zynq_soc_wrapper_methodology_drc_routed.rpt -rpx zynq_soc_wrapper_methodology_drc_routed.rpx
 | Design       : zynq_soc_wrapper
@@ -2395,19 +2395,19 @@ Runtime intensive exceptions
 The following constraint contains more than 1000 objects. To preserve runtime and memory performance, it is recommended to include minimum number of objects. Check whether this list can be simplified.
 -to = expands to 1808 design objects. 
 set_max_delay -datapath_only -from [get_clocks -of [get_ports -scoped_to_current_instance s_axi_aclk]] -to [all_registers -clock [get_clocks -of [get_...
-z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_TIMMING_CONTROLELR_0/zynq_soc_TIMMING_CONTROLELR_0_clocks.xdc (Line: 6)
+c:/Users/GATE/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_TIMMING_CONTROLELR_0/zynq_soc_TIMMING_CONTROLELR_0_clocks.xdc (Line: 6)
 Related violations: <none>
 
 XDCB-5#1 Warning
 Runtime inefficient way to find pin objects  
 The option '-to : [get_pins -hierarchical -filter {NAME =~ */COUPLER_INST/FIFO_INST/FIFO_INST/inst_fifo_gen/gconvfifo.rf/grf.rf/*rstblk*/*PRE*}]' of constraint 'set_false_path' uses inefficient query to find pin objects (see constraint position '51' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0_clocks.xdc (Line: 14)
+Current XDC: c:/Users/GATE/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0_clocks.xdc (Line: 14)
 Related violations: <none>
 
 XDCB-5#2 Warning
 Runtime inefficient way to find pin objects  
 The option '-to : [get_pins -hierarchical -filter {NAME =~ */COUPLER_INST/FIFO_INST/FIFO_INST/inst_fifo_gen/gconvfifo.rf/grf.rf/*rstblk*/*PRE*}]' of constraint 'set_false_path' uses inefficient query to find pin objects (see constraint position '52' in the Timing Constraint window in Vivado IDE). To reduce runtime, it is recommended to get the pins through the cell objects. Please refer to Using Constraints Guide (Constraints Efficiency). An example of optimal query is: get_pins -filter {REF_PIN_NAME=~yy*} -of_objects [get_cells -hierarchical xx*].
-Current XDC: z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0_clocks.xdc (Line: 15)
+Current XDC: c:/Users/GATE/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_VIDEO_OUT_0/zynq_soc_VIDEO_OUT_0_clocks.xdc (Line: 15)
 Related violations: <none>
 
 

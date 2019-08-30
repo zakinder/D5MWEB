@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Sun Jun 16 16:36:26 2019
+| Date         : Thu Aug 29 20:01:41 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file zynq_soc_wrapper_timing_summary_routed.rpt -rpx zynq_soc_wrapper_timing_summary_routed.rpx
 | Design       : zynq_soc_wrapper

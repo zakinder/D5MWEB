@@ -1,5 +1,5 @@
-set_property SRC_FILE_INFO {cfile:Z:/ZEDBOARD/constraints/d5m_camera.xdc rfile:../../../../../constraints/d5m_camera.xdc id:1} [current_design]
-set_property SRC_FILE_INFO {cfile:Z:/ZEDBOARD/constraints/target_pins.xdc rfile:../../../../../constraints/target_pins.xdc id:2} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/GATE/Documents/GitHub/D5MWEB/ZEDBOARD/constraints/d5m_camera.xdc rfile:../../../../../constraints/d5m_camera.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/GATE/Documents/GitHub/D5MWEB/ZEDBOARD/constraints/target_pins.xdc rfile:../../../../../constraints/target_pins.xdc id:2} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN Y11 [get_ports {idata[0]}]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]

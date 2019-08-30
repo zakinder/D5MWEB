@@ -1,1 +1,1 @@
-HSI Data used from Z:/ZEDBOARD/vivado/zynq_soc
+HSI Data used from C:/Users/GATE/Documents/GitHub/D5MWEB/ZEDBOARD/vivado/zynq_soc
