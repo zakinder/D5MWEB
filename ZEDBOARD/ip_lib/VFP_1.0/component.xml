@@ -610,7 +610,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a1737541</spirit:value>
+            <spirit:value>a1a892fe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -632,7 +632,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a1737541</spirit:value>
+            <spirit:value>a1a892fe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -689,7 +689,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b3b8eeb7</spirit:value>
+            <spirit:value>a3060f14</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1460,7 +1460,7 @@
       <spirit:modelParameter spirit:dataType="std_logic_vector(31 downto 0)">
         <spirit:name>revision_number</spirit:name>
         <spirit:displayName>Revision Number</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.revision_number" spirit:bitStringLength="32">0x05022019</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.revision_number" spirit:bitStringLength="32">0x09012019</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>i_data_width</spirit:name>
@@ -1533,15 +1533,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlsynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>src/blurFilter.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/blurMac.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/buffer_controller.vhd</spirit:name>
+        <spirit:name>src/Include/constantspackage.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1549,27 +1541,51 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/vpfRecords.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>src/float_and_fixed_pkg/fixed_pkg_c.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/AxisExternal.vhd</spirit:name>
+        <spirit:name>src/Include/vpfRecords.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/CameraRawData.vhd</spirit:name>
+        <spirit:name>src/Include/portspackage.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/CameraRawToRgb.vhd</spirit:name>
+        <spirit:name>src/Control/AxisExternal.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/VideoStream.vhd</spirit:name>
+        <spirit:name>src/Control/CameraRawData.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Control/CameraRawToRgb.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Control/VideoStream.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Control/buffer_controller.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Filters/blurFilter.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Filters/blurMac.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Control/dataTaps.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Filters/colorCorrection.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1577,87 +1593,79 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/constantspackage.vhd</spirit:name>
+        <spirit:name>src/Filters/hsl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/portspackage.vhd</spirit:name>
+        <spirit:name>src/Process/detect.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/colorCorrection.vhd</spirit:name>
+        <spirit:name>src/Process/digiClk.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/dataTaps.vhd</spirit:name>
+        <spirit:name>src/Process/edgeObjects.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/digiClk.vhd</spirit:name>
+        <spirit:name>src/Filters/hsv.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/detect.vhd</spirit:name>
+        <spirit:name>src/Process/frameTestPattern.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/edgeObjects.vhd</spirit:name>
+        <spirit:name>src/Process/gridLockFifo.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/frameProcess.vhd</spirit:name>
+        <spirit:name>src/Control/frameProcess.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/frameTestPattern.vhd</spirit:name>
+        <spirit:name>src/Filters/rgb_ycbcr.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/gridLockFifo.vhd</spirit:name>
+        <spirit:name>src/Filters/sharpFilter.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/hsl.vhd</spirit:name>
+        <spirit:name>src/Process/pixelCord.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/hsv.vhd</spirit:name>
+        <spirit:name>src/Process/pointOfInterest.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/pointOfInterest.vhd</spirit:name>
+        <spirit:name>src/Process/raw2rgb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/pixelCord.vhd</spirit:name>
+        <spirit:name>src/Filters/sharpMac.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/raw2rgb.vhd</spirit:name>
+        <spirit:name>src/Filters/sobelFilter.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/rgb_ycbcr.vhd</spirit:name>
+        <spirit:name>src/Control/mWrRd.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/sharpFilter.vhd</spirit:name>
+        <spirit:name>src/SquareRoot/squareRootTop.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/sharpMac.vhd</spirit:name>
+        <spirit:name>src/Control/tap_buffer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/sobelFilter.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/squareRootTop.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/tap_buffer.vhd</spirit:name>
+        <spirit:name>src/Control/videoSelect.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1671,17 +1679,9 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/videoSelect.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/vfpConfig.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/mWrRd.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/squareRoot/squareRoot.xci</spirit:name>
@@ -1690,7 +1690,7 @@
       <spirit:file>
         <spirit:name>hdl/vfpMaxisMM2s.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_745099c0</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_08857470</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -1717,15 +1717,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_vhdlbehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>src/blurFilter.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/blurMac.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/buffer_controller.vhd</spirit:name>
+        <spirit:name>src/Include/constantspackage.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1733,27 +1725,51 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/vpfRecords.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>src/float_and_fixed_pkg/fixed_pkg_c.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/AxisExternal.vhd</spirit:name>
+        <spirit:name>src/Include/vpfRecords.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/CameraRawData.vhd</spirit:name>
+        <spirit:name>src/Include/portspackage.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/CameraRawToRgb.vhd</spirit:name>
+        <spirit:name>src/Control/AxisExternal.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/VideoStream.vhd</spirit:name>
+        <spirit:name>src/Control/CameraRawData.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Control/CameraRawToRgb.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Control/VideoStream.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Control/buffer_controller.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Filters/blurFilter.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Filters/blurMac.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Control/dataTaps.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Filters/colorCorrection.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1761,87 +1777,79 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/constantspackage.vhd</spirit:name>
+        <spirit:name>src/Filters/hsl.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/portspackage.vhd</spirit:name>
+        <spirit:name>src/Process/detect.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/colorCorrection.vhd</spirit:name>
+        <spirit:name>src/Process/digiClk.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/dataTaps.vhd</spirit:name>
+        <spirit:name>src/Process/edgeObjects.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/digiClk.vhd</spirit:name>
+        <spirit:name>src/Filters/hsv.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/detect.vhd</spirit:name>
+        <spirit:name>src/Process/frameTestPattern.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/edgeObjects.vhd</spirit:name>
+        <spirit:name>src/Process/gridLockFifo.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/frameProcess.vhd</spirit:name>
+        <spirit:name>src/Control/frameProcess.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/frameTestPattern.vhd</spirit:name>
+        <spirit:name>src/Filters/rgb_ycbcr.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/gridLockFifo.vhd</spirit:name>
+        <spirit:name>src/Filters/sharpFilter.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/hsl.vhd</spirit:name>
+        <spirit:name>src/Process/pixelCord.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/hsv.vhd</spirit:name>
+        <spirit:name>src/Process/pointOfInterest.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/pointOfInterest.vhd</spirit:name>
+        <spirit:name>src/Process/raw2rgb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/pixelCord.vhd</spirit:name>
+        <spirit:name>src/Filters/sharpMac.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/raw2rgb.vhd</spirit:name>
+        <spirit:name>src/Filters/sobelFilter.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/rgb_ycbcr.vhd</spirit:name>
+        <spirit:name>src/Control/mWrRd.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/sharpFilter.vhd</spirit:name>
+        <spirit:name>src/SquareRoot/squareRootTop.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/sharpMac.vhd</spirit:name>
+        <spirit:name>src/Control/tap_buffer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/sobelFilter.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/squareRootTop.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/tap_buffer.vhd</spirit:name>
+        <spirit:name>src/Control/videoSelect.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1857,18 +1865,10 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/videoSelect.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>hdl/vfpConfig.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/mWrRd.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/squareRoot/squareRoot.xci</spirit:name>
@@ -1983,10 +1983,6 @@
         <spirit:name>tb/videoProcess_tb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
-      <spirit:file>
-        <spirit:name>z:/zedboard/doc/ipmanager/managed_ip_project/managed_ip_project.tmp/vfp_v1_0_v1_0_project/videoProcess_tb_behav.wcfg</spirit:name>
-        <spirit:fileType>unknown</spirit:fileType>
-      </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
   <spirit:description>VFP IP</spirit:description>
@@ -2100,7 +2096,7 @@
       <spirit:name>revision_number</spirit:name>
       <spirit:displayName>Revision Number</spirit:displayName>
       <spirit:description>IP Revision Status</spirit:description>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.revision_number" spirit:bitStringLength="32">0x05022019</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.revision_number" spirit:bitStringLength="32">0x09012019</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>i_data_width</spirit:name>
@@ -2157,28 +2153,28 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>VFP_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreRevision>11</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:VFP:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2019-05-09T05:14:01Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2019-09-01T23:13:03Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="xilinx.com:user:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="xilinx.com:DISPLAY:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="xilinx.com:DISPLAYIO:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="xilinx.com:Display IO:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="xilinx.com:DisplayIO:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
-        <xilinx:tag xilinx:name="zakinder:DisplayIO:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="zakinder:DisplayIO:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/ip_lib/VFP_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2017.2_sdx</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2017.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="d03a720e"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="cc95fea9"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="4065f0fc"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="08c59595"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="f7353128"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="bde15177"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="d8eb6471"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="6351bf2e"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="969b1f18"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

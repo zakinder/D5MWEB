@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020-clg484'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020-clg484'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16288 
+INFO: Helper process launched with PID 12376 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 375.250 ; gain = 81.930
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 375.695 ; gain = 78.086
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'zynq_soc_HDMI_0' [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_0/synth/zynq_soc_HDMI_0.vhd:76]
 	Parameter C_DATA_WIDTH bound to: 16 - type: integer 
@@ -160,7 +160,7 @@ WARNING: [Synth 8-6014] Unused sequential element hdmi_de_t_reg was removed.  [z
 INFO: [Synth 8-256] done synthesizing module 'hdmi_out' (1#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ipshared/2bef/hdl/vhdl/fmc_imageon_hdmi_out.vhd:30]
 INFO: [Synth 8-256] done synthesizing module 'zynq_soc_HDMI_0' (2#1) [z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.srcs/sources_1/bd/zynq_soc/ip/zynq_soc_HDMI_0/synth/zynq_soc_HDMI_0.vhd:76]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 415.332 ; gain = 122.012
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 415.023 ; gain = 117.414
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -170,7 +170,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 415.332 ; gain = 122.012
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 415.023 ; gain = 117.414
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -184,25 +184,25 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 716.398 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1063.191 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Constraint Validation : Time (s): cpu = 00:00:47 ; elapsed = 00:00:55 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:47 ; elapsed = 00:00:55 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:00:55 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:47 ; elapsed = 00:00:56 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -266,7 +266,7 @@ INFO: [Synth 8-3886] merging instance 'U0/hdmi_video_t_reg[15]' (FD) to 'U0/hdmi
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U0/hdmi_spdif_t_reg )
 INFO: [Synth 8-3332] Sequential element (U0/hdmi_spdif_t_reg) is unused and will be removed from module zynq_soc_HDMI_0.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:00:57 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -278,13 +278,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:14 ; elapsed = 00:01:25 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Timing Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:25 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -296,7 +296,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:56 ; elapsed = 00:01:07 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Technology Mapping : Time (s): cpu = 00:01:14 ; elapsed = 00:01:25 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -340,7 +340,7 @@ INFO: [Synth 8-4163] Replicating register \U0/hdmi_spdif_o_reg  to handle IOB=TR
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:58 ; elapsed = 00:01:09 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished IO Insertion : Time (s): cpu = 00:01:16 ; elapsed = 00:01:27 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -353,7 +353,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:58 ; elapsed = 00:01:09 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:16 ; elapsed = 00:01:27 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -365,25 +365,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:58 ; elapsed = 00:01:09 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:16 ; elapsed = 00:01:27 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:58 ; elapsed = 00:01:09 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:16 ; elapsed = 00:01:27 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:58 ; elapsed = 00:01:09 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:16 ; elapsed = 00:01:27 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:58 ; elapsed = 00:01:09 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:16 ; elapsed = 00:01:27 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -412,11 +412,11 @@ Report Instance Areas:
 |2     |  U0     |hdmi_out |    62|
 +------+---------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:58 ; elapsed = 00:01:09 . Memory (MB): peak = 716.398 ; gain = 423.078
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:16 ; elapsed = 00:01:27 . Memory (MB): peak = 1063.191 ; gain = 765.582
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:53 . Memory (MB): peak = 716.398 ; gain = 122.012
-Synthesis Optimization Complete : Time (s): cpu = 00:00:58 ; elapsed = 00:01:09 . Memory (MB): peak = 716.398 ; gain = 423.078
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:52 . Memory (MB): peak = 1063.191 ; gain = 117.414
+Synthesis Optimization Complete : Time (s): cpu = 00:01:16 ; elapsed = 00:01:27 . Memory (MB): peak = 1063.191 ; gain = 765.582
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -427,7 +427,7 @@ No Unisim elements were transformed.
 
 87 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:13 . Memory (MB): peak = 716.398 ; gain = 423.699
+synth_design: Time (s): cpu = 00:01:19 ; elapsed = 00:01:30 . Memory (MB): peak = 1063.191 ; gain = 767.992
 INFO: [Common 17-600] The following parameters have non-default value.
 general.maxThreads
 INFO: [Common 17-1381] The checkpoint 'Z:/ZEDBOARD/vivado/zynq_soc/ZEDBOARD.runs/zynq_soc_HDMI_0_synth_1/zynq_soc_HDMI_0.dcp' has been generated.

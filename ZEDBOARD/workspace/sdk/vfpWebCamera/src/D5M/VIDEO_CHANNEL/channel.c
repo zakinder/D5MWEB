@@ -109,6 +109,19 @@ void d5mInitCall(){
     //d5mtestpattern(0x0004);
     //exposerCompansate();
 }
+void yCbCrWrite()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,0x0101);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,0x01F8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,0x0062);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,0xFF6C);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,0xFE90);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,0xFFB9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,0x6);
+}
 u16 rColorFilterA11()
 {
     return D5M_mReadReg(D5M_BASE,w_a11fl_reg_21);
