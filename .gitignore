@@ -1,3 +1,13 @@
 /v_log/*
 v_log
 ZEDBOARD/vivado/*
+ZEDBOARD/workspace/hsi/hsi.log
+ZEDBOARD/workspace/hsi/.Xil/
+ZEDBOARD/workspace/hsi/hello_world/
+ZEDBOARD/workspace/hsi/zynq_fsbl/
+ZEDBOARD/workspace/sdk/SDK.log
+ZEDBOARD/workspace/sdk/.metadata/
+ZEDBOARD/workspace/sdk/.Xil/
+ZEDBOARD/workspace/sdk/RemoteSystemsTempFiles/
+ZEDBOARD/workspace/sdk/vfpWebCamera_bsp/
+ZEDBOARD/workspace/sdk/vfpWebCamera/Debug/
