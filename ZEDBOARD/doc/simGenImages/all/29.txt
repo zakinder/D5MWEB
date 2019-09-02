@@ -1,0 +1,12 @@
+CC WITH HSV SKIN COLOR OBS
+    signal kCg1           : std_logic_vector(15 downto 0) := x"055F";--  1375  =  1.375
+    signal kCg2           : std_logic_vector(15 downto 0) := x"FF06";-- -250   = -0.250
+    signal kCg3           : std_logic_vector(15 downto 0) := x"FF06";-- -250   = -0.250
+    
+    signal kCg4           : std_logic_vector(15 downto 0) := x"FE0C";-- -500   = -0.500
+    signal kCg5           : std_logic_vector(15 downto 0) := x"055F";--  1375  =  1.375
+    signal kCg6           : std_logic_vector(15 downto 0) := x"FE0C";-- -500   = -0.500
+    
+    signal kCg7           : std_logic_vector(15 downto 0) := x"FE0C";-- -500   = -0.500
+    signal kCg8           : std_logic_vector(15 downto 0) := x"FE0C";-- -500   = -0.500
+    signal kCg9           : std_logic_vector(15 downto 0) := x"055F";--  1375  =  1.375

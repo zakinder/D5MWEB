@@ -1,0 +1,7 @@
+Running: xsim.dir/videoProcess_tb/xsimk.exe -simmode gui -wdb videoProcess_tb.wdb -simrunnum 0 -socket 51183
+Design successfully loaded
+Design Loading Memory Usage: 31980 KB (Peak: 31980 KB)
+Design Loading CPU Usage: 77 ms
+Simulation completed
+Simulation Memory Usage: 44772 KB (Peak: 44772 KB)
+Simulation CPU Usage: 453342 ms

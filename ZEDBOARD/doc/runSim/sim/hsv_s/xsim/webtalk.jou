@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.2_sdx (64-bit)
+# SW Build 1972098 on Wed Aug 23 11:34:46 MDT 2017
+# IP Build 1971916 on Wed Aug 23 13:11:02 MDT 2017
+# Start of session at: Sun Jun  9 21:23:55 2019
+# Process ID: 15116
+# Current directory: Z:/sim/hsv_s/xsim
+# Command line: wbtcv.exe -mode batch -source Z:/sim/hsv_s/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
+# Log file: Z:/sim/hsv_s/xsim/webtalk.log
+# Journal file: Z:/sim/hsv_s/xsim\webtalk.jou
+#-----------------------------------------------------------
+source Z:/sim/hsv_s/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace

@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Webtalk v2017.2_sdx (64-bit)
+# SW Build 1972098 on Wed Aug 23 11:34:46 MDT 2017
+# IP Build 1971916 on Wed Aug 23 13:11:02 MDT 2017
+# Start of session at: Sun Jun  9 21:14:12 2019
+# Process ID: 5300
+# Current directory: Z:/sim/ycbcr_y/xsim
+# Command line: wbtcv.exe -mode batch -source Z:/sim/ycbcr_y/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
+# Log file: Z:/sim/ycbcr_y/xsim/webtalk.log
+# Journal file: Z:/sim/ycbcr_y/xsim\webtalk.jou
+#-----------------------------------------------------------
+INFO: [Common 17-1460] Use of init.tcl in C:/Xilinx/SDx/2017.2/Vivado/scripts/init.tcl is deprecated. Please use Webtalk_init.tcl 
+Sourcing tcl script 'C:/Xilinx/SDx/2017.2/Vivado/scripts/init.tcl'
+Loaded SDSoC Platform Tcl Library
+source Z:/sim/ycbcr_y/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'Z:/sim/ycbcr_y/xsim/xsim.dir/videoProcess_tb/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sun Jun  9 21:14:14 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/SDx/2017.2/Vivado/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Sun Jun  9 21:14:14 2019...

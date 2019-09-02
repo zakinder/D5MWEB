@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2017.2_sdx (64-bit)
+# SW Build 1972098 on Wed Aug 23 11:34:46 MDT 2017
+# IP Build 1971916 on Wed Aug 23 13:11:02 MDT 2017
+# Start of session at: Sun Jun  9 21:14:16 2019
+# Process ID: 14268
+# Current directory: Z:/sim/ycbcr_y/xsim
+# Command line: xsim.exe -log simulate.log -mode tcl -source {xsim.dir/videoProcess_tb/xsim_script.tcl}
+# Log file: Z:/sim/ycbcr_y/xsim/simulate.log
+# Journal file: Z:/sim/ycbcr_y/xsim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/videoProcess_tb/xsim_script.tcl
+source cmd.tcl

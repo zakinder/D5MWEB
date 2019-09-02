@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# xsim v2017.2_sdx (64-bit)
+# SW Build 1972098 on Wed Aug 23 11:34:46 MDT 2017
+# IP Build 1971916 on Wed Aug 23 13:11:02 MDT 2017
+# Start of session at: Sun Sep  1 20:57:58 2019
+# Process ID: 7216
+# Current directory: C:/Users/GATE/Downloads/D5MWEB-Record/D5MWEB-Record/ZEDBOARD/doc/sim/blur/xsim
+# Command line: xsim.exe -log simulate.log -mode tcl -source {xsim.dir/videoProcess_tb/xsim_script.tcl}
+# Log file: C:/Users/GATE/Downloads/D5MWEB-Record/D5MWEB-Record/ZEDBOARD/doc/sim/blur/xsim/simulate.log
+# Journal file: C:/Users/GATE/Downloads/D5MWEB-Record/D5MWEB-Record/ZEDBOARD/doc/sim/blur/xsim\xsim.jou
+#-----------------------------------------------------------
+INFO: [Common 17-1460] Use of init.tcl in C:/Xilinx/SDx/2017.2/Vivado/scripts/init.tcl is deprecated. Please use xsim_init.tcl 
+Sourcing tcl script 'C:/Xilinx/SDx/2017.2/Vivado/scripts/init.tcl'
+Loaded SDSoC Platform Tcl Library
+source xsim.dir/videoProcess_tb/xsim_script.tcl
+# xsim {videoProcess_tb} -autoloadwcfg -tclbatch {cmd.tcl} -key {Behavioral:sim_1:Functional:videoProcess_tb}
+Vivado Simulator 2017.1
+ERROR: File Z:/sim/readFiles/ReadCoeffData.txt could not be opened
+on HDL file C:/Users/GATE/Downloads/D5MWEB-Record/D5MWEB-Record/ZEDBOARD/doc/sim/blur/xsim/srcs/ReadCoeffFile.vhd line 23
+ERROR: [Simtcl 6-50] Simulation engine failed to start: The Simulation shut down unexpectedly during initialization.
+Please see the Tcl Console or the Messages for details.
+INFO: [Common 17-206] Exiting xsim at Sun Sep  1 20:58:03 2019...
