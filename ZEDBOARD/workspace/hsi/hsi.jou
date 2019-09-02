@@ -2,8 +2,8 @@
 # hsi v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
 # 
-# Start of session at: Mon Sep  2 02:24:05 2019
-# Process ID: 12056
+# Start of session at: Mon Sep  2 19:37:29 2019
+# Process ID: 2824
 # Current directory: Z:/ZEDBOARD/workspace/hsi
 # Command line: hsi.exe -source Z:/ZEDBOARD/scripts/script_hsi.tcl -tclargs --sw_list {{id appname steps OS-Name UART data01_file data01_load data01_offset data02_file data02_load data02_offset} {0 zynq_fsbl FSBL standalone NA NA NA NA NA NA NA} {2 hello_world 0 standalone NA NA NA NA NA NA NA} {3 u-boot 1 petalinux NA NA NA NA NA NA NA}} --lib Z:/ZEDBOARD/sw_lib --vivrun -mode tcl
 # Log file: Z:/ZEDBOARD/workspace/hsi/hsi.log

@@ -280,8 +280,8 @@ port map(
     iValid              => rgbIn.valid,
     iCord               => cord,
     oRgb                => rgbSum);
-RGBTRIM_FRAME_ENABLE: if (RGBTR_FRAME = true) generate
-begin
+--RGBTRIM_FRAME_ENABLE: if (RGBTR_FRAME = true) generate
+--begin
 ColorTrimInst: ColorTrim
 generic map(
     i_data_width       => i_data_width)
@@ -290,9 +290,9 @@ port map(
     reset              => rst_l,
     iRgb               => rgbIn,
     oRgb               => colorTrm);
-end generate RGBTRIM_FRAME_ENABLE;
-RGBLUMP_FRAME_ENABLE: if (RGBLP_FRAME = true) generate
-begin
+--end generate RGBTRIM_FRAME_ENABLE;
+--RGBLUMP_FRAME_ENABLE: if (RGBLP_FRAME = true) generate
+--begin
 SegmentColorsInst: SegmentColors
 port map(   
     clk                => clk,
@@ -300,5 +300,5 @@ port map(
     lumThreshold       => lumThreshold,
     iRgb               => rgbIn,
     oRgb               => colorLmp);
-end generate RGBLUMP_FRAME_ENABLE;
+--end generate RGBLUMP_FRAME_ENABLE;
 end architecture;

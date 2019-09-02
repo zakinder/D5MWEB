@@ -316,9 +316,9 @@ void enableNextRead(u16 eValue)
 void edgeType(u16 edgeTypeValue)
 {
     if (edgeTypeValue == 1) {
-        sobelWrite();
+    	sobelEnable();
     }else{
-        prewittWrite();
+    	prewittEnable();
     }
 }
 void selected_channel()
@@ -367,6 +367,84 @@ void sobelWrite()
     D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,psobel.K9);
     D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,psobel.Kc);
 }
+void prewittWrite()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,pprewitt.K1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,pprewitt.K2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,pprewitt.K3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,pprewitt.K4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,pprewitt.K5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,pprewitt.K6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,pprewitt.K7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,pprewitt.K8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,pprewitt.K9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,pprewitt.Kc);
+}
+void sobelEnable()
+{
+    u32 KernelEnable = 0x01FF;
+    //  GX
+    //  [-1 +0 +1]
+    //  [-2 +0 +2]
+    //  [-1 +0 +1]
+    //  GY
+    //  [+1 +2 +1]
+    //  [+0 +0 +0]
+    //  [-1 -2 -1]
+                          //  GY  GX
+    u16 Kernel_1 = 0x01FF;//  +1  -1
+    u16 Kernel_2 = 0x0200;//  +2  +0
+    u16 Kernel_3 = 0x0101;//  +1  -1
+    u16 Kernel_4 = 0x00FE;//  +0  -2
+    u16 Kernel_5 = 0x0000;//  +0  +0
+    u16 Kernel_6 = 0x0002;//  +0  +2
+    u16 Kernel_7 = 0xFFFF;//  -1  -1
+    u16 Kernel_8 = 0xFE00;//  -2  +0
+    u16 Kernel_9 = 0xFF01;//  -1  +1
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,Kernel_1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,Kernel_2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,Kernel_3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,Kernel_4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,Kernel_5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,Kernel_6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,Kernel_7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,Kernel_8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,Kernel_9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,KernelEnable);
+}
+void prewittEnable()
+{
+    u32 KernelEnable = 0x01FF;
+    //  GX
+    //  [+1 +0 -1]
+    //  [+1 +0 -1]
+    //  [+1 +0 -1]
+    //  GY
+    //  [+1 +1 +1]
+    //  [+0 +0 +0]
+    //  [-1 -1 -1]
+                           //  GY  GX
+    u16 KernelPv1 = 0x01FF;//  +1  -1
+    u16 KernelPv2 = 0x0100;//  +1  +0
+    u16 KernelPv3 = 0x0101;//  +1  -1
+    u16 KernelPv4 = 0x00FF;//  +0  -1
+    u16 KernelPv5 = 0x0000;//  +0  +0
+    u16 KernelPv6 = 0x0001;//  +0  -1
+    u16 KernelPv7 = 0xFFFF;//  -1  -1
+    u16 KernelPv8 = 0xFF00;//  -1  +0
+    u16 KernelPv9 = 0xFF01;//  -1  +1
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,KernelPv1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,KernelPv2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,KernelPv3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,KernelPv4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,KernelPv5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,KernelPv6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,KernelPv7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,KernelPv8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,KernelPv9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,KernelEnable);
+}
+
 void colorFilterA11(u16 Axx)
 {
     D5M_mWriteReg(D5M_BASE,w_a11fl_reg_21,Axx);
@@ -421,19 +499,7 @@ void colorFilterFixed()
     colorFilterKc(pcolor.Kc);//writeRead
     colorFilterKc(0x0000);//open
 }
-void prewittWrite()
-{
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,pprewitt.K1);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,pprewitt.K2);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,pprewitt.K3);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,pprewitt.K4);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,pprewitt.K5);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,pprewitt.K6);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,pprewitt.K7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,pprewitt.K8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,pprewitt.K9);
-    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,pprewitt.Kc);
-}
+
 void computeBrightness() {
     u32 address = VIDEO_BASEADDR0;
     pvideo.brightness = 0;

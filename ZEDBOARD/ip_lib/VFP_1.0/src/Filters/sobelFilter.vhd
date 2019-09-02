@@ -84,35 +84,38 @@ architecture arch of sobelFilter is
     signal valid1R          : std_logic;
     signal valid2R          : std_logic;
     signal validO           : std_logic;
-  --signal configReg        : integer;
+    signal configReg        : integer;
     signal rCountAddress    : integer := 0;
     signal rAddress         : std_logic_vector(15 downto 0);
+    signal sobelThreshold   : unsigned(15 downto 0) :=x"0000";
+    
+    
 begin
---configReg <= to_integer(unsigned(iEdgeType));
---kUpdateP : process (clk) begin
---    if rising_edge(clk) then
---        if (endOfFrame = '1' and kls.config = 1) then
---            Kernel_1_X    <= signed(kls.k1(i_data_width-1 downto 0));
---            Kernel_2_X    <= signed(kls.k2(i_data_width-1 downto 0));
---            Kernel_3_X    <= signed(kls.k3(i_data_width-1 downto 0));
---            Kernel_4_X    <= signed(kls.k4(i_data_width-1 downto 0));
---            Kernel_5_X    <= signed(kls.k5(i_data_width-1 downto 0));
---            Kernel_6_X    <= signed(kls.k6(i_data_width-1 downto 0));
---            Kernel_7_X    <= signed(kls.k7(i_data_width-1 downto 0));
---            Kernel_8_X    <= signed(kls.k8(i_data_width-1 downto 0));
---            Kernel_9_X    <= signed(kls.k9(i_data_width-1 downto 0));
---            Kernel_1_Y    <= signed(kls.k1(15 downto 8));
---            Kernel_2_Y    <= signed(kls.k2(15 downto 8));
---            Kernel_3_Y    <= signed(kls.k3(15 downto 8));
---            Kernel_4_Y    <= signed(kls.k4(15 downto 8));
---            Kernel_5_Y    <= signed(kls.k5(15 downto 8));
---            Kernel_6_Y    <= signed(kls.k6(15 downto 8));
---            Kernel_7_Y    <= signed(kls.k7(15 downto 8));
---            Kernel_8_Y    <= signed(kls.k8(15 downto 8));
---            Kernel_9_Y    <= signed(kls.k9(15 downto 8));
---        end if;
---    end if;
---end process kUpdateP;
+configReg <= to_integer(unsigned(iEdgeType));
+kUpdateP : process (clk) begin
+   if rising_edge(clk) then
+       if (endOfFrame = '1' and kls.config = 1) then
+           Kernel_1_X    <= signed(kls.k1(i_data_width-1 downto 0));
+           Kernel_2_X    <= signed(kls.k2(i_data_width-1 downto 0));
+           Kernel_3_X    <= signed(kls.k3(i_data_width-1 downto 0));
+           Kernel_4_X    <= signed(kls.k4(i_data_width-1 downto 0));
+           Kernel_5_X    <= signed(kls.k5(i_data_width-1 downto 0));
+           Kernel_6_X    <= signed(kls.k6(i_data_width-1 downto 0));
+           Kernel_7_X    <= signed(kls.k7(i_data_width-1 downto 0));
+           Kernel_8_X    <= signed(kls.k8(i_data_width-1 downto 0));
+           Kernel_9_X    <= signed(kls.k9(i_data_width-1 downto 0));
+           Kernel_1_Y    <= signed(kls.k1(15 downto 8));
+           Kernel_2_Y    <= signed(kls.k2(15 downto 8));
+           Kernel_3_Y    <= signed(kls.k3(15 downto 8));
+           Kernel_4_Y    <= signed(kls.k4(15 downto 8));
+           Kernel_5_Y    <= signed(kls.k5(15 downto 8));
+           Kernel_6_Y    <= signed(kls.k6(15 downto 8));
+           Kernel_7_Y    <= signed(kls.k7(15 downto 8));
+           Kernel_8_Y    <= signed(kls.k8(15 downto 8));
+           Kernel_9_Y    <= signed(kls.k9(15 downto 8));
+       end if;
+   end if;
+end process kUpdateP;
 tapValidAdressP:process(clk)begin
         if rising_edge(clk) then
             if (iRgb.valid = '1') then
@@ -285,10 +288,11 @@ port map(
     ovalid     => validO,
     odata      => sobel.sbof);
 ------------------------------------------------------------------------------------------------
-    sobel.edgeValid <= hi when (unsigned(sobel.sbof(15 downto 0)) > unsigned(threshold)) else lo;
-    edgeValid  <= sobel.edgeValid;
-    oRgb.valid <= validO;
-    sValid     <= validO;
+
+    sobelThreshold       <= unsigned(std_logic_vector(sobel.sbof(15 downto 0)));
+    sobel.edgeValid      <= hi when (unsigned(sobel.sbof(15 downto 0)) > unsigned(threshold)) else lo;
+    oRgb.valid           <= validO;
+    sValid               <= validO;
 ------------------------------------------------------------------------------------------------
 edgeValuesP : process (clk) begin
     if rising_edge(clk) then
@@ -296,12 +300,15 @@ edgeValuesP : process (clk) begin
         oRgb.red   <= black;
         oRgb.green <= black;
         oRgb.blue  <= black;
+        edgeValid  <= lo;
     else
-        if (sobel.edgeValid = hi) then
+        if (sobelThreshold > unsigned(threshold)) then
+            edgeValid  <= hi;
             oRgb.red   <= black;
             oRgb.green <= black;
             oRgb.blue  <= black;
         else
+            edgeValid  <= lo;
             oRgb.red   <= white;
             oRgb.green <= white;
             oRgb.blue  <= white;

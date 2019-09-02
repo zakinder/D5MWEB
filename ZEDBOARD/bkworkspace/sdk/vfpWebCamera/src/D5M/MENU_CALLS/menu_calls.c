@@ -463,7 +463,7 @@ void menu_calls(ON_OFF) {
             if (t2Register == clear) {
             	current_state = mainmenu;
                 break;}
-        	edgeThreshold(t2Register);
+            edgeThresholdVal(t2Register);
             /*****************************************************************************************************************/
             printf("Enter ycbcrSelect Value\n");
             menu_print_prompt();

@@ -89,29 +89,56 @@ set  creatProject=Y
 @echo User Input: "%creatProject%"
 if "%creatProject%"=="n" (GOTO EOF)
 @echo Start clear project..."
-@echo ----Change to log folder----
+
 @set vlog_folder=%batchfile_path%v_log
 @set vlog_folderv=%batchfile_path%vivado
+
+@set bkworkspace_folder=%batchfile_path%bkworkspace
+
+REM REMOVE LOG FOLDER
+@echo REMOVE BKWORKSPACE_FOLDER FOLDER
+@if exist %bkworkspace_folder% ( @echo -- REMOVE OLD VLOG FILES AND FOLDER --
+@rd %bkworkspace_folder% /s /q )
+
+
+xcopy "%batchfile_path%\workspace\sdk\fsbl\*.*" "%batchfile_path%\bkworkspace\sdk\fsbl\" >nul /E /K /D /H /Y
+xcopy "%batchfile_path%\workspace\sdk\fsbl_bsp\*.*" "%batchfile_path%\bkworkspace\sdk\fsbl_bsp\" >nul /E /K /D /H /Y
+xcopy "%batchfile_path%\workspace\sdk\vfpWebCamera\*.*" "%batchfile_path%\bkworkspace\sdk\vfpWebCamera\" >nul /E /K /D /H /Y
+xcopy "%batchfile_path%\workspace\sdk\vfpWebCamera_bsp\*.*" "%batchfile_path%\bkworkspace\sdk\vfpWebCamera_bsp\" >nul /E /K /D /H /Y
+
+
 @echo %vlog_folder%
 @if not exist %vlog_folder% ( @mkdir %vlog_folder% )   
 @cd %vlog_folder%
-@echo ----
+
 @echo %vlog_folderv%
 @if not exist %vlog_folderv% ( @mkdir %vlog_folderv% )   
 @cd %vlog_folderv%
-@echo -Start VIVADO scripts ----
+
+
+
+
+
 @if %VIVADO_AVAILABLE%==1 (
   call vivado -source ../scripts/script_main.tcl  -mode batch -notrace -tclargs --clear_all
 ) else (
   call vivado_lab -source ../scripts/script_main.tcl  -mode batch -notrace -tclargs --clear_all --labtools
 )
+
 @cd..
+
+
 REM REMOVE LOG FOLDER
 @echo REMOVE LOG FOLDER
 @if exist %vlog_folder% ( @echo -- REMOVE OLD VLOG FILES AND FOLDER --
-@rd %vlog_folder% /s /q )   
+@rd %vlog_folder% /s /q )
+
+REM REMOVE VIVADO FOLDER
+@echo REMOVE VIVADO FOLDER
 @if exist %vlog_folderv% ( @echo -- REMOVE OLD VLOG FILES AND FOLDER --
-@rd %vlog_folderv% /s /q )  				
+@rd %vlog_folderv% /s /q )  
+
+
 REM DESIGN FINISHED
 @if not defined DO_NOT_CLOSE_SHELL (
   @set DO_NOT_CLOSE_SHELL=0
@@ -119,6 +146,8 @@ REM DESIGN FINISHED
 @if %DO_NOT_CLOSE_SHELL%==1 (
   PAUSE
 )
+
+
 GOTO EOF
 REM ERROR
 :ERROR

@@ -16,6 +16,8 @@ void colorFilterA32(u16 Axx);
 void colorFilterA33(u16 Axx);
 void colorFilterKc(u16 Axx);
 void prewittWrite();
+void sobelEnable();
+void prewittEnable();
 void computeBrightness();
 void pRbrightness();
 void selected_channel();

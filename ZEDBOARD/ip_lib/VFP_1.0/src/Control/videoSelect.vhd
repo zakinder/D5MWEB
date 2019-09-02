@@ -11,28 +11,28 @@ generic (
     b_data_width           : integer := 32;
     s_data_width           : integer := 16);
 port (
-    clk               : in std_logic;
-    rst_l             : in std_logic;
-    videoChannel      : in std_logic_vector(b_data_width-1 downto 0);
-    dChannel          : in std_logic_vector(b_data_width-1 downto 0);
-    cChannel          : in std_logic_vector(b_data_width-1 downto 0);
-    cRgbOsharp        : in std_logic_vector(b_data_width-1 downto 0);
-    iFrameData        : in fcolors;
-    oEof              : out std_logic;
-    oSof              : out std_logic;
-    oCord             : out coord;
-    oRgb              : out channel);
+    clk                    : in std_logic;
+    rst_l                  : in std_logic;
+    videoChannel           : in std_logic_vector(b_data_width-1 downto 0);
+    dChannel               : in std_logic_vector(b_data_width-1 downto 0);
+    cChannel               : in std_logic_vector(b_data_width-1 downto 0);
+    cRgbOsharp             : in std_logic_vector(b_data_width-1 downto 0);
+    iFrameData             : in fcolors;
+    oEof                   : out std_logic;
+    oSof                   : out std_logic;
+    oCord                  : out coord;
+    oRgb                   : out channel);
 end videoSelect;
 architecture Behavioral of videoSelect is
-    signal vChannelSelect     : integer;
-    signal eChannelSelect     : integer;
-    signal ycbcr              : channel;
-    signal channels           : channel;
+    signal vChannelSelect  : integer;
+    signal eChannelSelect  : integer;
+    signal ycbcr           : channel;
+    signal channels        : channel;
 begin
-vChannelSelect    <= to_integer(unsigned(videoChannel));
-eChannelSelect    <= to_integer(unsigned(dChannel));
-oEof              <= iFrameData.pEof;
-oSof              <= iFrameData.pSof;
+    vChannelSelect    <= to_integer(unsigned(videoChannel));
+    eChannelSelect    <= to_integer(unsigned(dChannel));
+    oEof              <= iFrameData.pEof;
+    oSof              <= iFrameData.pSof;
 ---------------------------------------------------------------------------------
 -- oRgb.valid must be 2nd condition else valid value
 ---------------------------------------------------------------------------------
