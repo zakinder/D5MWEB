@@ -1,4 +1,4 @@
-// LAST TESTED : 02/05/2018
+// LAST TESTED : 09/01/2019
 #ifndef __SYSTEM_CONFIG_DEFINES_H__
 #define __SYSTEM_CONFIG_DEFINES_H__
 #include <xaxivdma.h>
@@ -26,7 +26,6 @@
 #define wBlurv3                     7
 #define wBlurv4                     8
 #define wHsv                        9
-#define wRgb                        10
 #define wRgbRemix                   11
 #define wTestPatternV1              12
 #define wTestPatternV2              13
@@ -36,6 +35,28 @@
 #define wRgbCorrect                 17
 #define wHsl                        18
 #define hsvCcBl                     19
+#define selSoble                    0
+#define selSobRgb                   1
+#define selSobPoi                   2
+#define selHsvPoi                   3
+#define selSharp                    4
+#define selBlur1x                   5
+#define selBlur2x                   6
+#define selBlur3x                   7
+#define selBlur4x                   8
+#define selHsv                      9
+#define selRgb                      10
+#define selRgbRemix                 11
+#define selTPatter1                 12
+#define selTPatter2                 13
+#define selTPatter3                 14
+#define selTPatter4                 15
+#define selTPatter5                 16
+#define selRgbCorrect               17
+#define selHsl                      18
+#define selHsvCcBl                  19
+#define selColorTrm                 20
+#define selColorLmp                 21
 /*****************************************************************************************************************/
 #define w_oRgbOsharp_reg_0          0//open
 #define w_oEdgeType_reg_1           4//open

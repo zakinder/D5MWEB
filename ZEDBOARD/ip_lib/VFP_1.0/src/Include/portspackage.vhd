@@ -533,4 +533,33 @@ port (
     vfpconfig_rvalid            : out std_logic;
     vfpconfig_rready            : in std_logic);
 end component;
+component ColorTrim is
+generic (
+    i_data_width  : integer := 8);
+port (  
+    clk            : in  std_logic;
+    reset          : in  std_logic;
+    iRgb           : in channel;
+    oRgb           : out channel);
+end component ColorTrim;
+component SegmentColors is
+port (  
+    clk                         : in  std_logic;
+    reset                       : in  std_logic;
+    lumThreshold                : in  std_logic_vector(7 downto 0);
+    iRgb                        : in channel;
+    oRgb                        : out channel);
+end component SegmentColors;
+component LumValues is
+generic (
+    F_LGT                       : boolean := false;
+    F_DRK                       : boolean := false;
+    F_LUM                       : boolean := false;
+    i_data_width                : integer := 8);
+port (  
+    clk                         : in  std_logic;
+    reset                       : in  std_logic;
+    iRgb                        : in channel;
+    oRgb                        : out channel);
+end component LumValues;
 end package;

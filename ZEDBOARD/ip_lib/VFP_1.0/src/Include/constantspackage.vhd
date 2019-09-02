@@ -16,26 +16,28 @@ package constantspackage is
     constant ch2                       : integer   := 2;
     constant ch3                       : integer   := 3;
     -------------------------------------------------------------------------
-    constant soble                     : integer   := 0;
-    constant sobRgb                    : integer   := 1;
-    constant sobPoi                    : integer   := 2;
-    constant hsvPoi                    : integer   := 3;
-    constant sharp                     : integer   := 4;
-    constant blur1x                    : integer   := 5;
-    constant blur2x                    : integer   := 6;
-    constant blur3x                    : integer   := 7;
-    constant blur4x                    : integer   := 8;
-    constant hsv                       : integer   := 9;
-    constant rgb                       : integer   := 10;
-    constant rgbRemix                  : integer   := 11;
-    constant tPatter1                  : integer   := 12;
-    constant tPatter2                  : integer   := 13;
-    constant tPatter3                  : integer   := 14;
-    constant tPatter4                  : integer   := 15;
-    constant tPatter5                  : integer   := 16;
-    constant rgbCorrect                : integer   := 17;
-    constant hsl                       : integer   := 18;
-    constant hsvCcBl                   : integer   := 19;
+    constant selSoble                  : integer   := 0;
+    constant selSobRgb                 : integer   := 1;
+    constant selSobPoi                 : integer   := 2;
+    constant selHsvPoi                 : integer   := 3;
+    constant selSharp                  : integer   := 4;
+    constant selBlur1x                 : integer   := 5;
+    constant selBlur2x                 : integer   := 6;
+    constant selBlur3x                 : integer   := 7;
+    constant selBlur4x                 : integer   := 8;
+    constant selHsv                    : integer   := 9;
+    constant selRgb                    : integer   := 10;
+    constant selRgbRemix               : integer   := 11;
+    constant selTPatter1               : integer   := 12;
+    constant selTPatter2               : integer   := 13;
+    constant selTPatter3               : integer   := 14;
+    constant selTPatter4               : integer   := 15;
+    constant selTPatter5               : integer   := 16;
+    constant selRgbCorrect             : integer   := 17;
+    constant selHsl                    : integer   := 18;
+    constant selHsvCcBl                : integer   := 19;
+    constant selColorTrm               : integer   := 20;
+    constant selColorLmp               : integer   := 21;
     -------------------------------------------------------------------------
     -- videoProcess constants
     -------------------------------------------------------------------------

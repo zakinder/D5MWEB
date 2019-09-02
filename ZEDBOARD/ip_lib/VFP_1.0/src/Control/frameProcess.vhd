@@ -31,6 +31,8 @@ port (
     oGridLockData           : out std_logic_vector(b_data_width-1 downto 0));
 end entity;
 architecture arch of frameProcess is
+    constant RGBTR_FRAME    : boolean := true;
+    constant RGBLP_FRAME    : boolean := true;
     signal sharp            : channel;
     signal rgbV1Correct     : channel;
     signal rgbV2Correct     : channel;
@@ -54,7 +56,12 @@ architecture arch of frameProcess is
     signal rgbPoiLock       : std_logic;
     signal edgeValid        : std_logic;
     signal sValid           : std_logic;
+    signal colorTrm         : channel;
+    signal colorLmp         : channel;
+    signal iLumTh           : integer := 30;
+    signal lumThreshold     : std_logic_vector(7 downto 0);
 begin
+    lumThreshold                  <= std_logic_vector(to_unsigned(iLumTh,8));
     oFrameData.hsl.red            <= hsl.h;
     oFrameData.hsl.green          <= hsl.s;
     oFrameData.hsl.blue           <= hsl.v;
@@ -81,6 +88,8 @@ begin
     oFrameData.rgbRemix           <= rgbRemix;
     oFrameData.rgbDetect          <= rgbDetect;
     oFrameData.rgbPoi             <= rgbPoi;
+    oFrameData.colorTrm           <= colorTrm;
+    oFrameData.colorLmp           <= colorLmp;
     oFrameData.rgbSum             <= rgbSum;
     oFrameData.rgbDetectLock      <= rgbDetectLock;
     oFrameData.rgbPoiLock         <= rgbPoiLock;
@@ -271,4 +280,25 @@ port map(
     iValid              => rgbIn.valid,
     iCord               => cord,
     oRgb                => rgbSum);
+RGBTRIM_FRAME_ENABLE: if (RGBTR_FRAME = true) generate
+begin
+ColorTrimInst: ColorTrim
+generic map(
+    i_data_width       => i_data_width)
+port map(   
+    clk                => clk,
+    reset              => rst_l,
+    iRgb               => rgbIn,
+    oRgb               => colorTrm);
+end generate RGBTRIM_FRAME_ENABLE;
+RGBLUMP_FRAME_ENABLE: if (RGBLP_FRAME = true) generate
+begin
+SegmentColorsInst: SegmentColors
+port map(   
+    clk                => clk,
+    reset              => rst_l,
+    lumThreshold       => lumThreshold,
+    iRgb               => rgbIn,
+    oRgb               => colorLmp);
+end generate RGBLUMP_FRAME_ENABLE;
 end architecture;

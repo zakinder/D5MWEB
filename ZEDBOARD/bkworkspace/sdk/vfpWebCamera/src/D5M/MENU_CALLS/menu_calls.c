@@ -23,6 +23,11 @@ void menu_calls(ON_OFF) {
     u32 value;
     u32 temp1Register;
     u32 temp2Register;
+    u32 t1Register;
+    u32 t2Register;
+    u32 t3Register;
+    u32 t4Register;
+    u32 t5Register;
     u32 w_rh;
     u32 w_rl;
     u32 w_gh;
@@ -116,43 +121,43 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case rgb:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wRgb);
+        	videoFeatureSelect(selRgb);
             cmd_status_substate = enter_value_or_quit("rgb",rgb);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case sharp:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wSharp);
+        	videoFeatureSelect(selSharp);
             cmd_status_substate = enter_value_or_quit("sharp",sharp);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case blur:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wBlurv1);
+        	videoFeatureSelect(selBlur1x);
             cmd_status_substate = enter_value_or_quit("blur",blur);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case hsv:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wHsv);
+        	videoFeatureSelect(selHsv);
             cmd_status_substate = enter_value_or_quit("hsv",hsv);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
             /*****************************************************************************************************************/
         case parttern1:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wTestPatternV1);
+        	videoFeatureSelect(selTPatter1);
             cmd_status_substate = enter_value_or_quit("parttern1",parttern1);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case parttern2:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wTestPatternV2);
+        	videoFeatureSelect(selTPatter2);
             cmd_status_substate = enter_value_or_quit("parttern2",parttern2);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case parttern3:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wTestPatternV3);
+        	videoFeatureSelect(selTPatter3);
             cmd_status_substate = enter_value_or_quit("parttern3",parttern3);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case parttern4:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wTestPatternV4);
+        	videoFeatureSelect(selTPatter4);
             cmd_status_substate = enter_value_or_quit("parttern4",parttern4);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         //case parttern5:
@@ -177,17 +182,17 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case sobel:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wSobel);
+        	videoFeatureSelect(selSoble);
             cmd_status_substate = enter_value_or_quit("sobel",sobel);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case ycbcr:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wTestPatternV3);
+            ycbcrEnable();
             cmd_status_substate = enter_value_or_quit("ycbcr",ycbcr);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case prewitt:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wSobel);
+        	videoFeatureSelect(selSoble);
             cmd_status_substate = enter_value_or_quit("prewitt",prewitt);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case colorgain:
@@ -197,12 +202,12 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case colorcorrection:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wRgbCorrect);
+        	videoFeatureSelect(selRgbCorrect);
             cmd_status_substate = enter_value_or_quit("colorcorrection",colorcorrection);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case edgethreshold:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(wTestPatternV3);
+        	cmd_status_value    = enter_value_or_quit("null",edgethreshold);edgeThresholdVal(cmd_status_value);
             cmd_status_substate = enter_value_or_quit("edgethreshold",edgethreshold);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case version:
@@ -446,43 +451,48 @@ void menu_calls(ON_OFF) {
             printf("Enter edgeType Value\n");
             printf("1-sobel 2-prewitt\n");
             menu_print_prompt();
-            temp1Register = uart_prompt_io();
-            if (temp1Register == clear) {
+            t1Register = uart_prompt_io();
+            if (t1Register == clear) {
             	current_state = mainmenu;
                 break;}
-        	edgeType(temp1Register);
+        	edgeType(t1Register);
             /*****************************************************************************************************************/
             printf("Enter edgeThreshold Value\n");
             menu_print_prompt();
-            temp1Register = uart_prompt_io();
-            if (temp1Register == clear) {
+            t2Register = uart_prompt_io();
+            if (t2Register == clear) {
             	current_state = mainmenu;
                 break;}
-        	edgeThreshold(temp1Register);
+        	edgeThreshold(t2Register);
             /*****************************************************************************************************************/
             printf("Enter ycbcrSelect Value\n");
             menu_print_prompt();
-            temp1Register = uart_prompt_io();
-            if (temp1Register == clear) {
+            t3Register = uart_prompt_io();
+            if (t3Register == clear) {
             	current_state = mainmenu;
                 break;}
-        	ycbcrSelect(temp1Register);
+        	ycbcrSelect(t3Register);
             /*****************************************************************************************************************/
             printf("Enter color_correction Value\n");
             menu_print_prompt();
-            temp1Register = uart_prompt_io();
-            if (temp1Register == clear) {
+            t4Register = uart_prompt_io();
+            if (t4Register == clear) {
             	current_state = mainmenu;
                 break;}
-        	color_correction(temp1Register);
+        	color_correction(t4Register);
             /*****************************************************************************************************************/
             printf("Enter videoType Value\n");
             menu_print_prompt();
-            temp2Register = uart_prompt_io();
-            if (temp2Register == clear) {
+            t5Register = uart_prompt_io();
+            if (t5Register == clear) {
             	current_state = mainmenu;
                 break;}else{
-            	videoFeatureSelect(temp2Register);
+            	videoFeatureSelect(t5Register);
+                t1Register = 0x00000000;
+                t2Register = 0x00000000;
+                t3Register = 0x00000000;
+                t4Register = 0x00000000;
+                t5Register = 0x00000000;
             	current_state = cmds_videochannel;break;}
             /*****************************************************************************************************************/
         case coord: //new case name: colorDetectRange

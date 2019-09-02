@@ -223,6 +223,8 @@ type fcolors is record
     rgbRemix         : channel;
     rgbDetect        : channel;
     rgbPoi           : channel;
+    colorTrm         : channel;
+    colorLmp         : channel;
     rgbSum           : tpRgb;
     rgbDetectLock    : std_logic;
     rgbPoiLock       : std_logic;
@@ -316,5 +318,17 @@ type presults is record
     sqr              : std_logic_vector (31 downto 0);
     edgeValid        : std_logic;
     sbof             : std_logic_vector (31 downto 0);
+end record;
+type tpToFloatRecord is record
+    red              : float32;
+    green            : float32;
+    blue             : float32;
+    valid            : std_logic;
+end record;
+type rgbToUf2BytesRecord is record
+    red              : ufixed(15 downto 0);
+    green            : ufixed(15 downto 0);
+    blue             : ufixed(15 downto 0);
+    valid            : std_logic;
 end record;
 end package;

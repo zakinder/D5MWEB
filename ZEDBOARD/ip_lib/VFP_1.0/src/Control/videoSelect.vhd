@@ -38,9 +38,9 @@ oSof              <= iFrameData.pSof;
 ---------------------------------------------------------------------------------
 videoOutP: process (clk) begin
     if rising_edge(clk) then
-        if (vChannelSelect = soble) then
+        if (vChannelSelect = selSoble) then
             channels     <= iFrameData.soble;
-        elsif(vChannelSelect = sobRgb)then
+        elsif(vChannelSelect = selSobRgb)then
                 channels.valid <= iFrameData.rgbDetect.valid;
             if (iFrameData.rgbDetectLock = hi) then 
                 channels.red   <= iFrameData.soble.red;
@@ -51,7 +51,7 @@ videoOutP: process (clk) begin
                 channels.green <= iFrameData.rgbDetect.green;
                 channels.blue  <= iFrameData.rgbDetect.blue;
             end if;
-        elsif(vChannelSelect = sobPoi)then
+        elsif(vChannelSelect = selSobPoi)then
                 channels.valid <= iFrameData.rgbPoi.valid;
             if (iFrameData.rgbPoiLock = hi) then 
                 channels.red   <= iFrameData.soble.red;
@@ -62,7 +62,7 @@ videoOutP: process (clk) begin
                 channels.green <= iFrameData.rgbPoi.green;
                 channels.blue  <= iFrameData.rgbPoi.blue;
             end if;
-        elsif(vChannelSelect = hsvPoi)then
+        elsif(vChannelSelect = selHsvPoi)then
                 channels.valid <= iFrameData.rgbPoi.valid;
             if (iFrameData.rgbPoiLock = hi) then 
                 channels.red   <= iFrameData.hsv.red;
@@ -73,53 +73,57 @@ videoOutP: process (clk) begin
                 channels.green <= iFrameData.rgbPoi.green;
                 channels.blue  <= iFrameData.rgbPoi.blue;
             end if;
-        elsif(vChannelSelect = sharp)then
+        elsif(vChannelSelect = selSharp)then
             channels    <= iFrameData.sharp;
-        elsif(vChannelSelect = blur1x)then
+        elsif(vChannelSelect = selBlur1x)then
             channels     <= iFrameData.blur1x;
-        elsif(vChannelSelect = blur2x)then
+        elsif(vChannelSelect = selBlur2x)then
             channels     <= iFrameData.blur2x;
-        elsif(vChannelSelect = blur3x)then
+        elsif(vChannelSelect = selBlur3x)then
             channels     <= iFrameData.blur3x;
-        elsif(vChannelSelect = blur4x)then
+        elsif(vChannelSelect = selBlur4x)then
             channels     <= iFrameData.blur4x;
-        elsif(vChannelSelect = hsv)then
+        elsif(vChannelSelect = selHsv)then
             channels      <= iFrameData.hsv;
-        elsif(vChannelSelect = rgb)then
+        elsif(vChannelSelect = selRgb)then
             channels     <= iFrameData.rgb;
-        elsif(vChannelSelect = rgbRemix)then
+        elsif(vChannelSelect = selRgbRemix)then
             channels     <= iFrameData.rgbRemix;
-        elsif(vChannelSelect = tPatter1)then
+        elsif(vChannelSelect = selTPatter1)then
             channels.valid     <= iFrameData.rgbSum.valid;
             channels.red       <= iFrameData.rgbSum.red(i_data_width-1 downto 0);
             channels.green     <= iFrameData.rgbSum.green(i_data_width-1 downto 0);
             channels.blue      <= iFrameData.rgbSum.blue(i_data_width-1 downto 0);
-        elsif(vChannelSelect = tPatter2)then
+        elsif(vChannelSelect = selTPatter2)then
             channels.valid     <= iFrameData.rgbSum.valid;
             channels.red       <= x"0" & iFrameData.rgbSum.red(3 downto 0);
             channels.green     <= x"0" & iFrameData.rgbSum.green(7 downto 4);
             channels.blue      <= x"0" & iFrameData.rgbSum.blue(11 downto 8);
-        elsif(vChannelSelect = tPatter3)then
+        elsif(vChannelSelect = selTPatter3)then
             channels.valid     <= iFrameData.rgbSum.valid;
             channels.red       <= iFrameData.rgbSum.red(i_data_width-1 downto 0);
             channels.green     <= x"0" & iFrameData.rgbSum.green(7 downto 4);
             channels.blue      <= x"0" & iFrameData.rgbSum.blue(11 downto 8);
-        elsif(vChannelSelect = tPatter4)then
+        elsif(vChannelSelect = selTPatter4)then
             channels.valid     <= iFrameData.rgbSum.valid;
             channels.red       <= x"0" & iFrameData.rgbSum.red(3 downto 0);
             channels.green     <= iFrameData.rgbSum.green(i_data_width-1 downto 0);
             channels.blue      <= x"0" & iFrameData.rgbSum.blue(11 downto 8);
-        elsif(vChannelSelect = tPatter5)then
+        elsif(vChannelSelect = selTPatter5)then
             channels.valid     <= iFrameData.rgbSum.valid;
             channels.red       <= x"0" & iFrameData.rgbSum.red(3 downto 0);
             channels.green     <= x"0" & iFrameData.rgbSum.green(7 downto 4);
             channels.blue      <= iFrameData.rgbSum.blue(i_data_width-1 downto 0);
-        elsif(vChannelSelect = rgbCorrect)then
+        elsif(vChannelSelect = selRgbCorrect)then
             channels           <= iFrameData.rgbCorrect;
-        elsif(vChannelSelect = hsl)then
+        elsif(vChannelSelect = selHsl)then
             channels           <= iFrameData.hsl;
-        elsif(vChannelSelect = hsvCcBl)then
+        elsif(vChannelSelect = selHsvCcBl)then
             channels           <= iFrameData.hsvCcBl;
+        elsif(vChannelSelect = selColorTrm)then
+            channels           <= iFrameData.colorTrm;
+        elsif(vChannelSelect = selColorLmp)then
+            channels           <= iFrameData.colorLmp;
         else
             channels           <= iFrameData.rgbCorrect;
         end if;
