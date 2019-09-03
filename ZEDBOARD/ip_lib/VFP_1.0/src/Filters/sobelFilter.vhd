@@ -280,13 +280,20 @@ SQROOT : process (clk, rst_l) begin
     end if;
 end process SQROOT;
 ------------------------------------------------------------------------------------------------
+-- mod6_1_2_inst: squareRootTop
+-- port map(
+    -- clk        => clk,
+    -- ivalid     => d5en,
+    -- idata      => sobel.sqr,
+    -- ovalid     => validO,
+    -- odata      => sobel.sbof);
 mod6_1_2_inst: squareRootTop
 port map(
-    clk        => clk,
-    ivalid     => d5en,
-    idata      => sobel.sqr,
-    ovalid     => validO,
-    odata      => sobel.sbof);
+    aclk              => clk,
+    sFXtFoTvalid      => d5en,
+    sFXtFoTdata       => sobel.sqr,
+    mFOtFxRtvalid     => validO,
+    mFOtFxRtdata      => sobel.sbof);
 ------------------------------------------------------------------------------------------------
 
     sobelThreshold       <= unsigned(std_logic_vector(sobel.sbof(15 downto 0)));

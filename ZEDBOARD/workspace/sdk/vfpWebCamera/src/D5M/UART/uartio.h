@@ -1,3 +1,6 @@
+// LAST TESTED : 09/01/2019
+#ifndef __UART_H__
+#define __UART_H__
 #include <xbasic_types.h>
 u8 uart_per_byte_read(u32 uart_address);
 u16 uart_two_byte_read(u32 uart_address);
@@ -14,3 +17,4 @@ void keyArrowSelect();
 void cmds_menu();
 void master_menu();
 void menu_cls();
+#endif // __UART_H__

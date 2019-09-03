@@ -1,4 +1,4 @@
-// LAST TESTED : 04/15/2019
+// LAST TESTED : 09/01/2019
 #include "channel.h"
 #include <sleep.h>
 #include <stdio.h>
@@ -161,7 +161,7 @@ u16 rColorFilterA33()
 void d5mInitPrint(){
     printf("Firmware Revision Number %x\n\r",(unsigned)D5M_mReadReg(D5M_BASE,r_revisionnumber_reg_63));
 	printf("Current Time\n\r");
-	printf("%d:%d:%d\n\r",(unsigned) pvideo.hr,(unsigned) pvideo.min,(unsigned) pvideo.sec);
+	//printf("%d:%d:%d\n\r",(unsigned) pvideo.hr,(unsigned) pvideo.min,(unsigned) pvideo.sec);
 	printf("Color Filters Kernels Time\n\r");
     colorFilterKc(pcolor.Kc);//writeRead ColorFilter
     printf("%d:%d:%d\n\r",(unsigned) rColorFilterA11,(unsigned) rColorFilterA12,(unsigned) rColorFilterA13);
@@ -187,7 +187,6 @@ void ycbcrSelect(u16 videoType)
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,videoType);
 }
-
 void ycbcrEnable()
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0000);
@@ -196,7 +195,6 @@ void ycbcrDisable()
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0001);
 }
-
 void color_correction(u16 videoType)
 {
     D5M_mWriteReg(D5M_BASE,w_cchannel_reg_7,videoType);
@@ -444,7 +442,6 @@ void prewittEnable()
     D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,KernelPv9);
     D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,KernelEnable);
 }
-
 void colorFilterA11(u16 Axx)
 {
     D5M_mWriteReg(D5M_BASE,w_a11fl_reg_21,Axx);
@@ -499,7 +496,6 @@ void colorFilterFixed()
     colorFilterKc(pcolor.Kc);//writeRead
     colorFilterKc(0x0000);//open
 }
-
 void computeBrightness() {
     u32 address = VIDEO_BASEADDR0;
     pvideo.brightness = 0;

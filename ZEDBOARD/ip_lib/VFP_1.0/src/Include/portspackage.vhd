@@ -164,11 +164,11 @@ port (
 end component buffer_controller;
 component squareRootTop is
 port ( 
-    clk                         : in std_logic;
-    ivalid                      : in std_logic;
-    idata                       : in std_logic_vector(31 downto 0);
-    ovalid                      : out std_logic;
-    odata                       : out std_logic_vector(31 downto 0));
+    aclk           : in std_logic;
+    sFXtFoTvalid   : in std_logic;
+    sFXtFoTdata    : in std_logic_vector(31 downto 0);
+    mFOtFxRtvalid  : out std_logic;
+    mFOtFxRtdata   : out std_logic_vector(31 downto 0));
 end component squareRootTop;
 component squareRoot is
 port (                
