@@ -14,39 +14,21 @@ clients =
 				xml_map="user_environment";
 				html_map="user_environment";
 				html_format="UserEnvStyle";
-			},
-			{
-				context="software_version_and_target_device";
-				xml_map="software_version_and_target_device";
-				html_map="software_version_and_target_device";
-				html_format="UserEnvStyle";
-			},
-			{
-				context="user_environment";
-				xml_map="user_environment";
-				html_map="user_environment";
-				html_format="UserEnvStyle";
 			}
 		);
      },
 	{ client_name = "sdk"; 
 		rules = (
 			{
-				context="sdk\\\\hardware/1567483318388";
-				xml_map="sdk\\\\hardware/1567483318388";
-				html_map="sdk\\\\hardware/1567483318388";
+				context="sdk\\\\hardware/1567488288420";
+				xml_map="sdk\\\\hardware/1567488288420";
+				html_map="sdk\\\\hardware/1567488288420";
 				html_format="UnisimStatsStyle";
 			},
 			{
-				context="sdk\\\\bsp/1567484316469";
-				xml_map="sdk\\\\bsp/1567484316469";
-				html_map="sdk\\\\bsp/1567484316469";
-				html_format="UnisimStatsStyle";
-			},
-			{
-				context="sdk\\\\bsp/1567484336969";
-				xml_map="sdk\\\\bsp/1567484336969";
-				html_map="sdk\\\\bsp/1567484336969";
+				context="sdk\\\\bsp/1567488872409";
+				xml_map="sdk\\\\bsp/1567488872409";
+				html_map="sdk\\\\bsp/1567488872409";
 				html_format="UnisimStatsStyle";
 			}
 		);

@@ -1,9 +1,7 @@
---04282019 [04-28-2019]
+--09032019 [09-03-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.fixed_pkg.all;
-use work.float_pkg.all;
 use work.constantspackage.all;
 use work.vpfRecords.all;
 use work.portspackage.all;
@@ -65,6 +63,12 @@ architecture arch of sobelFilter is
     signal d1R              : std_logic_vector(i_data_width-1 downto 0);
     signal d2R              : std_logic_vector(i_data_width-1 downto 0);
     signal d3R              : std_logic_vector(i_data_width-1 downto 0);
+    signal d4R              : channel;
+    signal d5R              : channel;
+    signal d6R              : channel;
+    signal d7R              : channel;
+    signal d8R              : channel;
+    signal d9R              : channel;
     signal mac1X            : s_pixel;
     signal mac2X            : s_pixel;
     signal mac3X            : s_pixel;
@@ -88,8 +92,6 @@ architecture arch of sobelFilter is
     signal rCountAddress    : integer := 0;
     signal rAddress         : std_logic_vector(15 downto 0);
     signal sobelThreshold   : unsigned(15 downto 0) :=x"0000";
-    
-    
 begin
 configReg <= to_integer(unsigned(iEdgeType));
 kUpdateP : process (clk) begin
@@ -126,7 +128,7 @@ tapValidAdressP:process(clk)begin
         end if;
 end process tapValidAdressP;
 rAddress  <= std_logic_vector(to_unsigned(rCountAddress, 16));
-mod6_1_1_inst: buffer_controller
+bufferControllerInst: buffer_controller
     generic map(
     img_width        => img_width,
     adwrWidth        => adwrWidth,
@@ -164,9 +166,19 @@ piplTapDataP : process (clk) begin
       d3R            <= d2R;
     end if;
 end process piplTapDataP;
+piplDataP : process (clk) begin
+    if rising_edge(clk) then
+      d4R            <= iRgb;
+      d5R            <= d4R;
+      d6R            <= d5R;
+      d7R            <= d6R;
+      d8R            <= d7R;
+      d9R            <= d8R;
+    end if;
+end process piplDataP;
 tapDelayP : process (clk) begin
     if rising_edge(clk) then
-        if rst_l = lo then
+        if (rst_l = lo) then
             tpd1.vTap0x    <= (others => '0');
             tpd1.vTap1x    <= (others => '0');
             tpd1.vTap2x    <= (others => '0');
@@ -280,14 +292,7 @@ SQROOT : process (clk, rst_l) begin
     end if;
 end process SQROOT;
 ------------------------------------------------------------------------------------------------
--- mod6_1_2_inst: squareRootTop
--- port map(
-    -- clk        => clk,
-    -- ivalid     => d5en,
-    -- idata      => sobel.sqr,
-    -- ovalid     => validO,
-    -- odata      => sobel.sbof);
-mod6_1_2_inst: squareRootTop
+squareRootTopInst: squareRootTop
 port map(
     aclk              => clk,
     sFXtFoTvalid      => d5en,
@@ -295,15 +300,13 @@ port map(
     mFOtFxRtvalid     => validO,
     mFOtFxRtdata      => sobel.sbof);
 ------------------------------------------------------------------------------------------------
-
-    sobelThreshold       <= unsigned(std_logic_vector(sobel.sbof(15 downto 0)));
-    sobel.edgeValid      <= hi when (unsigned(sobel.sbof(15 downto 0)) > unsigned(threshold)) else lo;
-    oRgb.valid           <= validO;
-    sValid               <= validO;
+    sobelThreshold    <= unsigned(std_logic_vector(sobel.sbof(15 downto 0)));
+    oRgb.valid        <= validO;
+    sValid            <= validO;
 ------------------------------------------------------------------------------------------------
 edgeValuesP : process (clk) begin
     if rising_edge(clk) then
-    if rst_l = lo then
+    if (rst_l = lo) then
         oRgb.red   <= black;
         oRgb.green <= black;
         oRgb.blue  <= black;
@@ -316,9 +319,15 @@ edgeValuesP : process (clk) begin
             oRgb.blue  <= black;
         else
             edgeValid  <= lo;
-            oRgb.red   <= white;
-            oRgb.green <= white;
-            oRgb.blue  <= white;
+            if (configReg = 1) then
+                oRgb.red   <= d9R.red;
+                oRgb.green <= d9R.green;
+                oRgb.blue  <= d9R.blue;
+            else
+                oRgb.red   <= white;
+                oRgb.green <= white;
+                oRgb.blue  <= white;
+            end if;
         end if;
     end if;
     end if;

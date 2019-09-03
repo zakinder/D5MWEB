@@ -316,7 +316,6 @@ type presults is record
     my               : signed (34 downto 0);
     sxy              : signed (34 downto 0);
     sqr              : std_logic_vector (31 downto 0);
-    edgeValid        : std_logic;
     sbof             : std_logic_vector (31 downto 0);
 end record;
 type tpToFloatRecord is record

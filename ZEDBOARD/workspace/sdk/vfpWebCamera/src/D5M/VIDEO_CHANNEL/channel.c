@@ -187,11 +187,18 @@ void ycbcrSelect(u16 videoType)
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,videoType);
 }
-void ycbcrEnable()
+
+void edgeColor(u16 edgeColorVal)
+{
+    D5M_mWriteReg(D5M_BASE,w_oEdgeType_reg_1,edgeColorVal);
+}
+
+
+void ycbcr_Enable()
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0000);
 }
-void ycbcrDisable()
+void ycbcr_Disable()
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0001);
 }

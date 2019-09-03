@@ -161,7 +161,7 @@ u16 rColorFilterA33()
 void d5mInitPrint(){
     printf("Firmware Revision Number %x\n\r",(unsigned)D5M_mReadReg(D5M_BASE,r_revisionnumber_reg_63));
 	printf("Current Time\n\r");
-	printf("%d:%d:%d\n\r",(unsigned) pvideo.hr,(unsigned) pvideo.min,(unsigned) pvideo.sec);
+	//printf("%d:%d:%d\n\r",(unsigned) pvideo.hr,(unsigned) pvideo.min,(unsigned) pvideo.sec);
 	printf("Color Filters Kernels Time\n\r");
     colorFilterKc(pcolor.Kc);//writeRead ColorFilter
     printf("%d:%d:%d\n\r",(unsigned) rColorFilterA11,(unsigned) rColorFilterA12,(unsigned) rColorFilterA13);
@@ -187,11 +187,18 @@ void ycbcrSelect(u16 videoType)
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,videoType);
 }
-void ycbcrEnable()
+
+void edgeColor(u16 edgeColorVal)
+{
+    D5M_mWriteReg(D5M_BASE,w_oEdgeType_reg_1,edgeColorVal);
+}
+
+
+void ycbcr_Enable()
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0000);
 }
-void ycbcrDisable()
+void ycbcr_Disable()
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0001);
 }
