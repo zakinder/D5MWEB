@@ -610,7 +610,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2e469d48</spirit:value>
+            <spirit:value>4972de7e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -632,7 +632,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2e469d48</spirit:value>
+            <spirit:value>4972de7e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1581,6 +1581,10 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>src/Process/SyncFrames.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/Control/buffer_controller.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -1782,6 +1786,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>src/Process/SegmentColors.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/Process/SyncFrames.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2193,11 +2201,11 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>VFP_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>20</xilinx:coreRevision>
+      <xilinx:coreRevision>25</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:VFP:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2019-09-03T04:47:35Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2019-09-04T04:20:33Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="xilinx.com:user:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="xilinx.com:DISPLAY:VFP:1.0_ARCHIVE_LOCATION">z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0</xilinx:tag>
@@ -2211,7 +2219,7 @@
       <xilinx:xilinxVersion>2017.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="d03a720e"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="cc95fea9"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9ab68f59"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="22724516"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="f7353128"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="6351bf2e"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="969b1f18"/>

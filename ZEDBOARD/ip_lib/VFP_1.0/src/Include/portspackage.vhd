@@ -562,4 +562,13 @@ port (
     iRgb                        : in channel;
     oRgb                        : out channel);
 end component LumValues;
+component SyncFrames is
+generic (
+    sDelay         : integer := 8);
+port (  
+    clk            : in  std_logic;
+    reset          : in  std_logic;
+    iRgb           : in channel;
+    oRgb           : out channel);
+end component SyncFrames;
 end package;

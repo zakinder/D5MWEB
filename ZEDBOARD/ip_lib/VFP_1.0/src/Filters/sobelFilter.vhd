@@ -63,12 +63,7 @@ architecture arch of sobelFilter is
     signal d1R              : std_logic_vector(i_data_width-1 downto 0);
     signal d2R              : std_logic_vector(i_data_width-1 downto 0);
     signal d3R              : std_logic_vector(i_data_width-1 downto 0);
-    signal d4R              : channel;
-    signal d5R              : channel;
-    signal d6R              : channel;
-    signal d7R              : channel;
-    signal d8R              : channel;
-    signal d9R              : channel;
+    signal dRgb             : channel;
     signal mac1X            : s_pixel;
     signal mac2X            : s_pixel;
     signal mac3X            : s_pixel;
@@ -166,16 +161,6 @@ piplTapDataP : process (clk) begin
       d3R            <= d2R;
     end if;
 end process piplTapDataP;
-piplDataP : process (clk) begin
-    if rising_edge(clk) then
-      d4R            <= iRgb;
-      d5R            <= d4R;
-      d6R            <= d5R;
-      d7R            <= d6R;
-      d8R            <= d7R;
-      d9R            <= d8R;
-    end if;
-end process piplDataP;
 tapDelayP : process (clk) begin
     if rising_edge(clk) then
         if (rst_l = lo) then
@@ -304,6 +289,14 @@ port map(
     oRgb.valid        <= validO;
     sValid            <= validO;
 ------------------------------------------------------------------------------------------------
+SyncFramesinst: SyncFrames
+generic map(
+    sDelay => 30)
+port map(
+    clk        => clk,
+    reset      => rst_l,
+    iRgb       => iRgb,
+    oRgb       => dRgb);
 edgeValuesP : process (clk) begin
     if rising_edge(clk) then
     if (rst_l = lo) then
@@ -320,9 +313,9 @@ edgeValuesP : process (clk) begin
         else
             edgeValid  <= lo;
             if (configReg = 1) then
-                oRgb.red   <= d9R.red;
-                oRgb.green <= d9R.green;
-                oRgb.blue  <= d9R.blue;
+                oRgb.red   <= dRgb.red;
+                oRgb.green <= dRgb.green;
+                oRgb.blue  <= dRgb.blue;
             else
                 oRgb.red   <= white;
                 oRgb.green <= white;

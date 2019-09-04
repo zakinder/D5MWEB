@@ -330,4 +330,9 @@ type rgbToUf2BytesRecord is record
     blue             : ufixed(15 downto 0);
     valid            : std_logic;
 end record;
+type type_RgbChannel is
+record
+    rgb              : channel;
+end record;
+type rgbArray is array(natural range <>) of type_RgbChannel;
 end package;
