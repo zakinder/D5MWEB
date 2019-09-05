@@ -7,6 +7,7 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity sobelFilter is
 generic (
+    pixelDelay     : integer := 8;
     i_data_width   : integer := 8;
     img_width      : integer := 256;
     adwrWidth      : integer := 16;
@@ -63,7 +64,8 @@ architecture arch of sobelFilter is
     signal d1R              : std_logic_vector(i_data_width-1 downto 0);
     signal d2R              : std_logic_vector(i_data_width-1 downto 0);
     signal d3R              : std_logic_vector(i_data_width-1 downto 0);
-    signal dRgb             : channel;
+    signal d1Rgb             : channel;
+    signal d2Rgb             : channel;
     signal mac1X            : s_pixel;
     signal mac2X            : s_pixel;
     signal mac3X            : s_pixel;
@@ -186,6 +188,9 @@ tapDelayP : process (clk) begin
         end if;
     end if;
 end process tapDelayP;
+-----------------------------------------------------------------------------------------------
+-- STAGE 1
+-----------------------------------------------------------------------------------------------
 MAC_X_A : process (clk) begin
     if rising_edge(clk) then
         mac1X.m1    <= lo & (tpd1.vTap0x * Kernel_9_X);
@@ -194,6 +199,9 @@ MAC_X_A : process (clk) begin
         mac1X.mac   <= mac1X.m1(16 downto 0) + mac1X.m2(16 downto 0) + mac1X.m3(16 downto 0);
   end if;
 end process MAC_X_A;
+-----------------------------------------------------------------------------------------------
+-- STAGE 2
+-----------------------------------------------------------------------------------------------
 MAC_X_B : process (clk) begin
     if rising_edge(clk) then
         mac2X.m1    <= lo & (tpd1.vTap1x * Kernel_6_X);
@@ -202,6 +210,9 @@ MAC_X_B : process (clk) begin
         mac2X.mac   <= mac2X.m1(16 downto 0) + mac2X.m2(16 downto 0) + mac2X.m3(16 downto 0);
     end if;
 end process MAC_X_B;
+-----------------------------------------------------------------------------------------------
+-- STAGE 3
+-----------------------------------------------------------------------------------------------
 MAC_X_C : process (clk) begin
     if rising_edge(clk) then
         mac3X.m1    <= lo & (tpd1.vTap2x * Kernel_3_X);
@@ -226,6 +237,9 @@ MAC_Y_B : process (clk) begin
         mac2Y.mac   <= mac2Y.m1(16 downto 0) + mac2Y.m2(16 downto 0) + mac2Y.m3(16 downto 0);
     end if;
 end process MAC_Y_B;
+-----------------------------------------------------------------------------------------------
+-- STAGE 3
+-----------------------------------------------------------------------------------------------
 MAC_Y_C : process (clk) begin
     if rising_edge(clk) then
         mac3Y.m1    <= lo & (tpd1.vTap2x * Kernel_3_Y);
@@ -234,6 +248,9 @@ MAC_Y_C : process (clk) begin
         mac3Y.mac   <= mac3Y.m1(16 downto 0) + mac3Y.m2(16 downto 0) + mac3Y.m3(16 downto 0);
     end if;
 end process MAC_Y_C;
+-----------------------------------------------------------------------------------------------
+-- STAGE 4
+-----------------------------------------------------------------------------------------------
 PA_X : process (clk, rst_l) begin
     if rst_l = lo then
         sobel.pax <= (others => '0');
@@ -241,6 +258,9 @@ PA_X : process (clk, rst_l) begin
         sobel.pax <= mac1X.mac + mac2X.mac + mac3X.mac;
     end if;
 end process PA_X;
+-----------------------------------------------------------------------------------------------
+-- STAGE 4
+-----------------------------------------------------------------------------------------------
 PA_Y : process (clk, rst_l) begin
     if rst_l = lo then
         sobel.pay <= (others => '0');
@@ -248,6 +268,9 @@ PA_Y : process (clk, rst_l) begin
         sobel.pay <= mac1Y.mac + mac2Y.mac + mac3Y.mac;
     end if;
 end process PA_Y;
+-----------------------------------------------------------------------------------------------
+-- STAGE 5
+-----------------------------------------------------------------------------------------------
 GX : process (clk, rst_l) begin
     if rst_l = lo then
         sobel.mx <= (others => '0');
@@ -255,6 +278,9 @@ GX : process (clk, rst_l) begin
         sobel.mx <= lo & (sobel.pax * sobel.pax);
     end if;
 end process GX;
+-----------------------------------------------------------------------------------------------
+-- STAGE 5
+-----------------------------------------------------------------------------------------------
 GY : process (clk, rst_l) begin
     if rst_l = lo then
         sobel.my <= (others => '0');
@@ -262,6 +288,9 @@ GY : process (clk, rst_l) begin
         sobel.my <= lo & (sobel.pay * sobel.pay);
     end if;
 end process GY;
+-----------------------------------------------------------------------------------------------
+-- STAGE 6
+-----------------------------------------------------------------------------------------------
 GS : process (clk, rst_l) begin
     if rst_l = lo then
         sobel.sxy <= (others => '0');
@@ -277,7 +306,7 @@ SQROOT : process (clk, rst_l) begin
     end if;
 end process SQROOT;
 ------------------------------------------------------------------------------------------------
-squareRootTopInst: squareRootTop
+squareRootTopInst: squareRootTop --LATENCY 32
 port map(
     aclk              => clk,
     sFXtFoTvalid      => d5en,
@@ -289,14 +318,22 @@ port map(
     oRgb.valid        <= validO;
     sValid            <= validO;
 ------------------------------------------------------------------------------------------------
-SyncFramesinst: SyncFrames
+SyncFrames32Inst: SyncFrames
 generic map(
-    sDelay => 30)
+    pixelDelay => 31) --LATENCY 32
 port map(
     clk        => clk,
     reset      => rst_l,
     iRgb       => iRgb,
-    oRgb       => dRgb);
+    oRgb       => d1Rgb);
+SyncFrames12Inst: SyncFrames
+generic map(
+    pixelDelay => pixelDelay) --LATENCY 12
+port map(
+    clk        => clk,
+    reset      => rst_l,
+    iRgb       => d1Rgb,
+    oRgb       => d2Rgb);
 edgeValuesP : process (clk) begin
     if rising_edge(clk) then
     if (rst_l = lo) then
@@ -313,9 +350,9 @@ edgeValuesP : process (clk) begin
         else
             edgeValid  <= lo;
             if (configReg = 1) then
-                oRgb.red   <= dRgb.red;
-                oRgb.green <= dRgb.green;
-                oRgb.blue  <= dRgb.blue;
+                oRgb.red   <= d2Rgb.red;
+                oRgb.green <= d2Rgb.green;
+                oRgb.blue  <= d2Rgb.blue;
             else
                 oRgb.red   <= white;
                 oRgb.green <= white;

@@ -6,7 +6,7 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity SyncFrames is
 generic (
-    sDelay         : integer := 8);
+    pixelDelay     : integer := 8);
 port (
     clk            : in  std_logic;
     reset          : in  std_logic;
@@ -16,7 +16,7 @@ end SyncFrames;
 architecture behavioral of SyncFrames is
     signal rgbDelays      : rgbArray(0 to 31);
 begin
-oRgb <= rgbDelays(sDelay).rgb;
+oRgb <= rgbDelays(pixelDelay).rgb;
 process (clk) begin
     if rising_edge(clk) then
         rgbDelays(0).rgb      <= iRgb;

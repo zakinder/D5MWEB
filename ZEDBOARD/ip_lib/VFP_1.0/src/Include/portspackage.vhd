@@ -313,6 +313,7 @@ port (
 end component edgeObjects;
 component sobelFilter is
 generic (
+    pixelDelay                  : integer := 8;
     i_data_width                : integer := 8;
     img_width                   : integer := 256;
     adwrWidth                   : integer := 16;
@@ -564,7 +565,7 @@ port (
 end component LumValues;
 component SyncFrames is
 generic (
-    sDelay         : integer := 8);
+    pixelDelay     : integer := 8);
 port (  
     clk            : in  std_logic;
     reset          : in  std_logic;

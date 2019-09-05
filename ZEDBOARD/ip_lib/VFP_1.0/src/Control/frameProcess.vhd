@@ -36,7 +36,8 @@ architecture arch of frameProcess is
     signal sharp            : channel;
     signal rgbV1Correct     : channel;
     signal rgbV2Correct     : channel;
-    signal soble            : channel;
+    signal soble1v          : channel;
+    signal soble2v          : channel;
     signal rgbRemix         : channel;
     signal rgbPoi           : channel;
     signal blur1vx          : channel;
@@ -55,7 +56,9 @@ architecture arch of frameProcess is
     signal rgbDetectLock    : std_logic;
     signal rgbPoiLock       : std_logic;
     signal edgeValid        : std_logic;
+    signal edge2Valid        : std_logic;
     signal sValid           : std_logic;
+    signal s2Valid           : std_logic;
     signal colorTrm         : channel;
     signal colorLmp         : channel;
     signal iLumTh           : integer := 30;
@@ -82,9 +85,9 @@ begin
     oFrameData.blur1x             <= blur1vx;
     oFrameData.blur2x             <= blur2vx;
     oFrameData.blur3x             <= blur3vx;
-    oFrameData.blur4x             <= blur4vx;
+    oFrameData.blur4x             <= soble2v;
     oFrameData.rgbCorrect         <= rgbV1Correct;
-    oFrameData.soble              <= soble;
+    oFrameData.soble              <= soble1v;
     oFrameData.rgbRemix           <= rgbRemix;
     oFrameData.rgbDetect          <= rgbDetect;
     oFrameData.rgbPoi             <= rgbPoi;
@@ -117,8 +120,9 @@ port map(
     iRgb                => rgbIn,
     als                 => iAls,    
     oRgb                => rgbV1Correct);
-sobelFilterInst: sobelFilter
+sobelFilter1Inst: sobelFilter
 generic map(
+    pixelDelay          => 11,
     i_data_width        => i_data_width,
     img_width           => img_width,
     adwrWidth           => adwrWidth,
@@ -131,9 +135,27 @@ port map(
     iRgb                => rgbIn,
     threshold           => iThreshold,
     kls                 => iKls,
-    oRgb                => soble,
+    oRgb                => soble1v,
     sValid              => sValid,
     edgeValid           => edgeValid);
+sobelFilter2Inst: sobelFilter
+generic map(
+    pixelDelay          => 23,
+    i_data_width        => i_data_width,
+    img_width           => img_width,
+    adwrWidth           => adwrWidth,
+    addrWidth           => addrWidth)
+port map(   
+    clk                 => clk,
+    rst_l               => rst_l,
+    iEdgeType           => iEdgeType,
+    endOfFrame          => iRgbSet.pEof,
+    iRgb                => rgbIn,
+    threshold           => iThreshold,
+    kls                 => iKls,
+    oRgb                => soble2v,
+    sValid              => s2Valid,
+    edgeValid           => edge2Valid);
 edgeObjectsInst: edgeObjects
 generic map(
     i_data_width        => i_data_width)
