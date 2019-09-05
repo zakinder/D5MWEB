@@ -214,6 +214,7 @@ type fcolors is record
     hsv              : channel;
     hsvCcBl          : channel;
     sharp            : channel;
+    sobleSharp       : channel;
     blur1x           : channel;
     blur2x           : channel;
     blur3x           : channel;

@@ -36,8 +36,9 @@ package constantspackage is
     constant selRgbCorrect             : integer   := 17;
     constant selHsl                    : integer   := 18;
     constant selHsvCcBl                : integer   := 19;
-    constant selColorTrm               : integer   := 20;
-    constant selColorLmp               : integer   := 21;
+    constant selsobleSharp             : integer   := 20;
+    constant selColorTrm               : integer   := 21;
+    constant selColorLmp               : integer   := 22;
     -------------------------------------------------------------------------
     -- videoProcess constants
     -------------------------------------------------------------------------

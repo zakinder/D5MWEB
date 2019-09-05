@@ -120,6 +120,8 @@ videoOutP: process (clk) begin
             channels           <= iFrameData.hsl;
         elsif(vChannelSelect = selHsvCcBl)then
             channels           <= iFrameData.hsvCcBl;
+        elsif(vChannelSelect = selsobleSharp)then
+            channels           <= iFrameData.sobleSharp;
         elsif(vChannelSelect = selColorTrm)then
             channels           <= iFrameData.colorTrm;
         elsif(vChannelSelect = selColorLmp)then
