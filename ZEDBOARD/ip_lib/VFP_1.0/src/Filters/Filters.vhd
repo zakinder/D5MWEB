@@ -390,36 +390,42 @@ port map(
     i2Rgb       => rgbImageKernel.blur,
     oRgb        => fRgb.maskSobelBlu);
 end generate MASK_SOB_BLU_FRAME_ENABLE;
+
 INRGB_FRAME_ENABLE: if (F_RGB = true) generate
-begin
-TextGenInrgbInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "INRGB")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.inrgb,
-    oRgb     => fRgb.inrgb);
+    fRgb.inrgb <= rgbImageKernel.inrgb;
 end generate INRGB_FRAME_ENABLE;
+
+-- INRGB_FRAME_ENABLE: if (F_RGB = true) generate
+-- begin
+-- TextGenInrgbInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "INRGB")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.inrgb,
+    -- oRgb     => fRgb.inrgb);
+-- end generate INRGB_FRAME_ENABLE;
 YCBCR_FRAME_ENABLE: if (F_YCC = true) generate
 signal rgbYcbcr   : channel;
 begin
-TextGenYcbcrInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "YCBCR")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.ycbcr,
-    oRgb     => rgbYcbcr);
+-- TextGenYcbcrInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "YCBCR")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.ycbcr,
+    -- oRgb     => rgbYcbcr);
+rgbYcbcr <= rgbImageKernel.ycbcr;
 process (clk) begin
     if rising_edge(clk) then
         if(cYcc = "001")then
@@ -447,110 +453,126 @@ process (clk) begin
 end process;
 end generate YCBCR_FRAME_ENABLE;
 SHARP_FRAME_ENABLE: if (F_SHP = true) generate
-begin
-TextGenSharpInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "SHARP")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.sharp,
-    oRgb     => fRgb.sharp);
+-- begin
+-- TextGenSharpInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "SHARP")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.sharp,
+    -- oRgb     => fRgb.sharp);
+fRgb.sharp <= rgbImageKernel.sharp;
 end generate SHARP_FRAME_ENABLE;
 BLURE_FRAME_ENABLE: if (F_BLU = true) generate
-begin
-TextGenBlurInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "BLUR")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.blur,
-    oRgb     => fRgb.blur);
+-- begin
+-- TextGenBlurInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "BLUR")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.blur,
+    -- oRgb     => fRgb.blur);
+fRgb.blur <= rgbImageKernel.blur;
 end generate BLURE_FRAME_ENABLE;
 EMBOS_FRAME_ENABLE: if (F_EMB = true) generate
-begin
-TextGenEmbossInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "EMBOSS")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.embos,
-    oRgb     => fRgb.embos);
+-- begin
+-- TextGenEmbossInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "EMBOSS")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.embos,
+    -- oRgb     => fRgb.embos);
+fRgb.embos <= rgbImageKernel.embos;
 end generate EMBOS_FRAME_ENABLE;
 SOBEL_FRAME_ENABLE: if (F_SOB = true) generate
-begin
-TextGenSobelInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "SOBEL")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.sobel,
-    oRgb     => fRgb.sobel);
+    fRgb.sobel <= rgbImageKernel.sobel;
 end generate SOBEL_FRAME_ENABLE;
+
+-- SOBEL_FRAME_ENABLE: if (F_SOB = true) generate
+-- begin
+-- TextGenSobelInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "SOBEL")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.sobel,
+    -- oRgb     => fRgb.sobel);
+-- end generate SOBEL_FRAME_ENABLE;
 CGAIN_FRAME_ENABLE: if (F_CGA = true) generate
-begin
-TextGenCgainInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "CGAIN")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.cgain,
-    oRgb     => fRgb.cgain);
+-- begin
+-- TextGenCgainInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "CGAIN")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.cgain,
+    -- oRgb     => fRgb.cgain);
+fRgb.cgain <= rgbImageKernel.cgain;
 end generate CGAIN_FRAME_ENABLE;
 HSL_FRAME_ENABLE: if (F_HSL = true) generate
-begin
-TextGenHslInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "HSL")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.hsl,
-    oRgb     => fRgb.hsl);
+    fRgb.hsl <= rgbImageKernel.hsl;
 end generate HSL_FRAME_ENABLE;
+
+
+-- HSL_FRAME_ENABLE: if (F_HSL = true) generate
+-- begin
+-- TextGenHslInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "HSL")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.hsl,
+    -- oRgb     => fRgb.hsl);
+-- end generate HSL_FRAME_ENABLE;
+
+
 HSV_FRAME_ENABLE: if (F_HSV = true) generate
 signal rgbHsv   : channel;
 begin
-TextGenHsvInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "HSV")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.hsv,
-    oRgb     => rgbHsv);
+-- TextGenHsvInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "HSV")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.hsv,
+    -- oRgb     => rgbHsv);
+rgbHsv <= rgbImageKernel.hsv;
 process (clk) begin
     if rising_edge(clk) then
         if(cHsv = "001")then
@@ -578,34 +600,36 @@ process (clk) begin
 end process;
 end generate HSV_FRAME_ENABLE;
 LUM_FRAME_ENABLE: if (F_LUM = true) generate
-begin
-TextGenHsvInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "LUM")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.colorLmp,
-    oRgb     => fRgb.colorLmp);
+-- begin
+-- TextGenHsvInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "LUM")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.colorLmp,
+    -- oRgb     => fRgb.colorLmp);
+fRgb.colorLmp <= rgbImageKernel.colorLmp;
 end generate LUM_FRAME_ENABLE;
 TRM_FRAME_ENABLE: if (F_TRM = true) generate
-begin
-TextGenTrmInst: TextGen
-generic map (
-    img_width     => img_width,
-    img_height    => img_height,
-    displayText   => "TRM")
-port map(            
-    clk      => clk,
-    rst_l    => rst_l,
-    txCord   => txCord,
-    location => location,
-    iRgb     => rgbImageKernel.colorTrm,
-    oRgb     => fRgb.colorTrm);
+-- begin
+-- TextGenTrmInst: TextGen
+-- generic map (
+    -- img_width     => img_width,
+    -- img_height    => img_height,
+    -- displayText   => "TRM")
+-- port map(            
+    -- clk      => clk,
+    -- rst_l    => rst_l,
+    -- txCord   => txCord,
+    -- location => location,
+    -- iRgb     => rgbImageKernel.colorTrm,
+    -- oRgb     => fRgb.colorTrm);
+fRgb.colorTrm <= rgbImageKernel.colorTrm;
 end generate TRM_FRAME_ENABLE;
 MASK_SOB_CGA_FRAME_DISABLED: if (M_SOB_CGA = false) generate
     fRgb.maskSobelCga  <= init_channel;

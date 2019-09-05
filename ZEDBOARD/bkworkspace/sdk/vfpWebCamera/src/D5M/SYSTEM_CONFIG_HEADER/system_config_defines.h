@@ -1,4 +1,4 @@
-// LAST TESTED : 02/05/2018
+// LAST TESTED : 09/01/2019
 #ifndef __SYSTEM_CONFIG_DEFINES_H__
 #define __SYSTEM_CONFIG_DEFINES_H__
 #include <xaxivdma.h>
@@ -26,7 +26,6 @@
 #define wBlurv3                     7
 #define wBlurv4                     8
 #define wHsv                        9
-#define wRgb                        10
 #define wRgbRemix                   11
 #define wTestPatternV1              12
 #define wTestPatternV2              13
@@ -36,6 +35,28 @@
 #define wRgbCorrect                 17
 #define wHsl                        18
 #define hsvCcBl                     19
+#define selSoble                    0
+#define selSobRgb                   1
+#define selSobPoi                   2
+#define selHsvPoi                   3
+#define selSharp                    4
+#define selBlur1x                   5
+#define selBlur2x                   6
+#define selBlur3x                   7
+#define selBlur4x                   8
+#define selHsv                      9
+#define selRgb                      10
+#define selRgbRemix                 11
+#define selTPatter1                 12
+#define selTPatter2                 13
+#define selTPatter3                 14
+#define selTPatter4                 15
+#define selTPatter5                 16
+#define selRgbCorrect               17
+#define selHsl                      18
+#define selHsvCcBl                  19
+#define selColorTrm                 20
+#define selColorLmp                 21
 /*****************************************************************************************************************/
 #define w_oRgbOsharp_reg_0          0//open
 #define w_oEdgeType_reg_1           4//open
@@ -191,6 +212,30 @@
 #define hsv                     0x2D94
 #define rgb                     0x30F0
 #define sobel                   0x13686E
+#define video1                  0xC5C5BB
+#define video2                  0xC5C5BC
+#define video3                  0xC5C5BD
+#define video4                  0xC5C5BE
+#define video5                  0xC5C5BF
+#define video6                  0xC5C5C0
+#define video7                  0xC5C5C1
+#define video8                  0xC5C5C2
+#define video9                  0xC5C5C3
+#define video10                 0x7B9B94E
+#define video11                 0x7B9B94F
+#define video12                 0x7B9B950
+#define video13                 0x7B9B951
+#define video14                 0x7B9B952
+#define video15                 0x7B9B953
+#define video16                 0x7B9B954
+#define video17                 0x7B9B955
+#define video18                 0x7B9B956
+#define video19                 0x7B9B957
+#define video20                 0x7B9B958
+#define video21                 0x7B9B959
+#define video22                 0x7B9B95A
+#define ycbcrenable             0x511543CD
+#define ycbcrdisable            0x2AC07A9D
 #define ycbcr                   0x1423E0
 #define prewitt                 0x76C5768
 #define colorgain               0x976BB8C4

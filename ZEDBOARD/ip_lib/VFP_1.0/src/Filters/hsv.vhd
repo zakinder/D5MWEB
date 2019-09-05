@@ -18,17 +18,21 @@ port (
 end hsv_c;
 architecture behavioral of hsv_c is
     --RGB Floating
-    signal uFs1Rgb       : rgbToUfRecord := (valid => lo, red => (others => '0'), green => (others => '0'), blue => (others => '0'));
-    signal uFs2Rgb       : rgbToUfRecord := (valid => lo, red => (others => '0'), green => (others => '0'), blue => (others => '0'));
-    signal uFs3Rgb       : rgbToUfRecord := (valid => lo, red => (others => '0'), green => (others => '0'), blue => (others => '0'));
+    signal uFs1Rgb       : rgbToUfRecord;
+    signal uFs2Rgb       : rgbToUfRecord;
+    signal uFs3Rgb       : rgbToUfRecord;
     --RGB Max Min
     signal rgbMax        : ufixed(7 downto 0) :=(others => '0');
     signal rgbMin        : ufixed(7 downto 0) :=(others => '0');
     signal maxValue      : ufixed(7 downto 0) :=(others => '0');
+    signal minValue      : ufixed(7 downto 0) :=(others => '0');
     signal rgbDelta      : ufixed(8 downto 0) :=(others => '0');
     signal maxMinSum     : ufixed(8 downto 0) :=(others => '0');
     --Valid
-    signal rgbSyncValid  : std_logic_vector(7 downto 0)  := x"00";
+    signal valid1xD      : std_logic := '0';
+    signal valid2xD      : std_logic := '0';
+    signal valid3xD      : std_logic := '0';
+    signal valid4xD      : std_logic := '0';
     --HValue
     signal hValue1xD     : std_logic_vector(i_data_width-1 downto 0) :=(others => '0');
     signal hValue2xD     : std_logic_vector(i_data_width-1 downto 0) :=(others => '0');
@@ -56,9 +60,6 @@ architecture behavioral of hsv_c is
     signal hueDeg1x      : ufixed(7 downto 0) :=(others => '0');
     signal hueValue      : unsigned(7 downto 0):= (others => '0');
 begin
------------------------------------------------------------------------------------------------
---Coeff To Ufixed
------------------------------------------------------------------------------------------------
 rgbToUfP: process (clk,reset)begin
     if (reset = lo) then
         uFs1Rgb.red    <= (others => '0');
@@ -116,6 +117,7 @@ end process maxMinUfSumP;
 pipRgbMaxUfD1P: process (clk) begin
     if rising_edge(clk) then 
         maxValue          <= rgbMax;
+        minValue          <= rgbMin;
     end if;
 end process pipRgbMaxUfD1P;
 -------------------------------------------------
@@ -160,7 +162,7 @@ satDominaUfCalP: process (clk) begin
         end if;
     end if;
 end process satDominaUfCalP;
-satValueQuotV <= (satUfTop / satUfBott) when (satUfTop > 0 and satUfBott > 0) ;
+satValueQuotV <= (satUfTop / satUfBott);
 satDividerP: process (clk) begin
     if rising_edge(clk) then 
         satValueQuot <= satValueQuotV;
@@ -200,7 +202,7 @@ hueP: process (clk) begin
         else
             hueTop       <= (uFs3Rgb.red  - uFs3Rgb.blue) * 43;
         end if;
-    else
+    elsif(uFs3Rgb.blue = maxValue)  then
             hueDeg <= to_ufixed (171.0,hueDeg);
         if (uFs3Rgb.red  >= uFs3Rgb.green) then
             hueTop       <= (uFs3Rgb.red  - uFs3Rgb.green) * 43;
@@ -212,14 +214,12 @@ hueP: process (clk) begin
 end process hueP;
 hueDividerP: process (clk) begin
     if rising_edge(clk) then 
-        if (hueTop > 0) and (hueBot > 0) then 
         hueQuot  <= hueTop / hueBot;
-        end if;
     end if;
 end process hueDividerP;
 hueDegreeP: process (clk) begin
     if rising_edge(clk) then 
-        hueDeg1x <= resize(hueDeg,hueDeg1x);
+        hueDeg1x       <= resize(hueDeg,hueDeg1x);
     end if;
 end process hueDegreeP;
 hueDividerResizeP: process (clk) begin
@@ -237,14 +237,10 @@ end process hueValueP;
 -------------------------------------------------
 pipValidP: process (clk) begin
     if rising_edge(clk) then 
-        rgbSyncValid(0)   <= iRgb.valid;
-        rgbSyncValid(1)   <= rgbSyncValid(0);
-        rgbSyncValid(2)   <= rgbSyncValid(1);
-        rgbSyncValid(3)   <= rgbSyncValid(2);
-        rgbSyncValid(4)   <= rgbSyncValid(3);
-        rgbSyncValid(5)   <= rgbSyncValid(4);
-        rgbSyncValid(6)   <= rgbSyncValid(5);
-        rgbSyncValid(7)   <= rgbSyncValid(6);
+        valid1xD   <= uFs3Rgb.valid;
+        valid2xD   <= valid1xD;
+        valid3xD   <= valid2xD;
+        valid4xD   <= valid3xD;
     end if;
 end process pipValidP;
 hsvOut: process (clk) begin
@@ -252,7 +248,7 @@ hsvOut: process (clk) begin
         oHsv.h     <= std_logic_vector(hueValue(i_data_width-1 downto 0));
         oHsv.s     <= satValue1xD;
         oHsv.v     <= hValue4xD;
-        oHsv.valid <= rgbSyncValid(7);
+        oHsv.valid <= valid4xD;
     end if;
 end process hsvOut;
 end behavioral;

@@ -29,7 +29,14 @@ architecture Behavioral of KernelCore is
     signal cc             : ccRecord;
     signal levelValue     : sfixed(9 downto 0) := "0100000000";
     signal rgbSyncValid   : std_logic_vector(15 downto 0)  := x"0000";
+    signal rgbToFl_red    : std_logic_vector(31 downto 0);
+    signal rgbToFl_gre    : std_logic_vector(31 downto 0);
+    signal rgbToFl_blu    : std_logic_vector(31 downto 0);
 begin
+
+
+
+
 -----------------------------------------------------------------------------------------------
 --Coeff To Float
 -----------------------------------------------------------------------------------------------
@@ -47,17 +54,41 @@ begin
 -----------------------------------------------------------------------------------------------
 -- STAGE 1
 -----------------------------------------------------------------------------------------------
-process (clk,rst_l) begin
-    if (rst_l = lo) then
-        cc.rgbToFl.red   <= (others => '0');
-        cc.rgbToFl.green <= (others => '0');
-        cc.rgbToFl.blue  <= (others => '0');
-    elsif rising_edge(clk) then 
-        cc.rgbToFl.red   <= to_float(unsigned(iRgb.red), cc.rgbToFl.red);
-        cc.rgbToFl.green <= to_float(unsigned(iRgb.green), cc.rgbToFl.green);
-        cc.rgbToFl.blue  <= to_float(unsigned(iRgb.blue), cc.rgbToFl.blue);
-    end if;
-end process;
+ByteToFloatTopRedinst: ByteToFloatTop
+    port map (
+      aclk       => clk,
+      rst_l      => rst_l,
+      iValid     => iRgb.valid,
+      iData      => iRgb.red,
+      oValid     => open,
+      oDataFloat => rgbToFl_red);
+ByteToFloatTopGreeninst: ByteToFloatTop
+    port map (
+      aclk       => clk,
+      rst_l      => rst_l,
+      iValid     => iRgb.valid,
+      iData      => iRgb.green,
+      oValid     => open,
+      oDataFloat => rgbToFl_gre);
+ByteToFloatTopBlueinst: ByteToFloatTop
+    port map (
+      aclk       => clk,
+      rst_l      => rst_l,
+      iValid     => iRgb.valid,
+      iData      => iRgb.blue,
+      oValid     => open,
+      oDataFloat => rgbToFl_blu);
+ process (clk,rst_l) begin
+     if (rst_l = lo) then
+         cc.rgbToFl.red   <= (others => '0');
+         cc.rgbToFl.green <= (others => '0');
+         cc.rgbToFl.blue  <= (others => '0');
+     elsif rising_edge(clk) then 
+         cc.rgbToFl.red   <= to_float(rgbToFl_red, cc.rgbToFl.red);
+         cc.rgbToFl.green <= to_float(rgbToFl_gre, cc.rgbToFl.green);
+         cc.rgbToFl.blue  <= to_float(rgbToFl_blu, cc.rgbToFl.blue);
+     end if;
+ end process;
 -----------------------------------------------------------------------------------------------
 -- STAGE 3
 -----------------------------------------------------------------------------------------------

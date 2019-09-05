@@ -80,6 +80,15 @@ port (
     iRgb           : in channel;
     oRgb           : out channel);
 end component SyncFrames;
+component ByteToFloatTop is
+port (  
+    aclk           : in std_logic;
+    rst_l          : in std_logic;
+    iValid         : in std_logic;
+    iData          : in std_logic_vector(7 downto 0);
+    oValid         : out std_logic;
+    oDataFloat     : out std_logic_vector(31 downto 0));
+end component ByteToFloatTop;
 component rgbAssertion is
 port (  
     clk            : in  std_logic;
@@ -342,22 +351,7 @@ port (
     idata        : in std_logic_vector(tpDataWidth - 1 downto 0);
     odata        : out std_logic_vector(tpDataWidth - 1 downto 0));
 end component tapLine;
-component squareRootTop is
-port ( 
-    clk                         : in std_logic;
-    ivalid                      : in std_logic;
-    idata                       : in std_logic_vector(31 downto 0);
-    ovalid                      : out std_logic;
-    odata                       : out std_logic_vector(31 downto 0));
-end component squareRootTop;
-component squareRoot is
-port (                
-    aclk                    : in STD_LOGIC;
-    s_axis_a_tvalid         : in STD_LOGIC;
-    s_axis_a_tdata          : in STD_LOGIC_VECTOR (31 downto 0);
-    m_axis_result_tvalid    : out STD_LOGIC;
-    m_axis_result_tdata     : out STD_LOGIC_VECTOR (31 downto 0));
-end component squareRoot;
+
 component sharpMac is
 port (                
     clk                         : in std_logic;
@@ -809,4 +803,37 @@ port (
     vfpconfig_rvalid            : out std_logic;
     vfpconfig_rready            : in std_logic);
 end component;
+component fixedToFloat is
+port (                
+    aclk                    : in STD_LOGIC;
+    s_axis_a_tvalid         : in STD_LOGIC;
+    s_axis_a_tdata          : in STD_LOGIC_VECTOR (31 downto 0 );
+    m_axis_result_tvalid    : out STD_LOGIC;
+    m_axis_result_tdata     : out STD_LOGIC_VECTOR (31 downto 0));
+end component fixedToFloat;
+component floatToFixed is
+port (                
+    aclk                    : in STD_LOGIC;
+    s_axis_a_tvalid         : in STD_LOGIC;
+    s_axis_a_tdata          : in STD_LOGIC_VECTOR (31 downto 0 );
+    m_axis_result_tvalid    : out STD_LOGIC;
+    m_axis_result_tdata     : out STD_LOGIC_VECTOR (31 downto 0));
+end component floatToFixed;
+component squareRootTop is
+port ( 
+    clk                         : in std_logic;
+    ivalid                      : in std_logic;
+    idata                       : in std_logic_vector(31 downto 0);
+    ovalid                      : out std_logic;
+    odata                       : out std_logic_vector(31 downto 0));
+end component squareRootTop;
+component squareRoot is
+port (                
+    aclk                    : in STD_LOGIC;
+    s_axis_a_tvalid         : in STD_LOGIC;
+    s_axis_a_tdata          : in STD_LOGIC_VECTOR (31 downto 0);
+    m_axis_result_tvalid    : out STD_LOGIC;
+    m_axis_result_tdata     : out STD_LOGIC_VECTOR (31 downto 0));
+end component squareRoot;
+
 end package;

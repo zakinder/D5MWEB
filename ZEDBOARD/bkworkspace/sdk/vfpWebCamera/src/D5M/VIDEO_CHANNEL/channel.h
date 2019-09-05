@@ -1,8 +1,9 @@
-// LAST TESTED : 02/05/2018
+// LAST TESTED : 09/01/2019
 #ifndef __CHANNEL_H__
 #define __CHANNEL_H__
 #include <xil_types.h>
 void sobelWrite();
+void yCbCrWrite();
 void colorFilterFixed();
 void colorFilterA11(u16 Axx);
 void colorFilterA12(u16 Axx);
@@ -15,12 +16,15 @@ void colorFilterA32(u16 Axx);
 void colorFilterA33(u16 Axx);
 void colorFilterKc(u16 Axx);
 void prewittWrite();
+void sobelEnable();
+void prewittEnable();
 void computeBrightness();
 void pRbrightness();
 void selected_channel();
-void edgeThreshold(u16 thresholdValue);
+void edgeThresholdVal(u16 thresholdValue);
 void videoFeatureSelect(u16 videoType);
 void edgeType(u16 edgeTypeValue);
+void edgeColor(u16 edgeColorVal);
 void cpuackgoagain(u16 valueIn);
 void gridlock(u16 valueIn);
 void readGData(u16 edgeTypeValue);
@@ -38,6 +42,8 @@ void framefifoFixed();
 void d5mInit();
 void d5mInitCall();
 void d5mInitPrint();
+void ycbcr_Disable();
+void ycbcr_Enable();
 u16 rColorFilterA11();
 u16 rColorFilterA12();
 u16 rColorFilterA13();

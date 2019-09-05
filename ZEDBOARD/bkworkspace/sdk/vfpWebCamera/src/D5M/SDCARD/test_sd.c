@@ -24,17 +24,21 @@ int sd_card()
 	u32 Status;
 	FRESULT mystat;
     //u32 baseaddr = XPAR_MYPIXFULL_0_S00_AXI_BASEADDR; //  baseaddr = 0x7AA00000; // fixed in Vivado 2016.2!
-	u32 *in_data, *out_data;
+	u32 *in_data;
+  u32 *out_data;
+  u32 DataLength;
+  u32 i;
+  u32 j;
+  u32 NPROC;
+  u32 FIFO_DEPTH;
+  u32 nwords;
 	char *in_txt;
-    char *out_txt = "This is a testing phrase to be stored in a text file!";
-
-	u32 DataLength, i, j, NPROC, FIFO_DEPTH, nwords;
-	static char wel[] = "Write/Read on binary and text files\n";
-
-	char *infile = "droid.bif";
-	char *outfile = "droif.bof";
-	char *infiletxt = "test_in.txt";
-	char *outfiletxt = "test_out.txt";
+  char *out_txt      = "This is a testing phrase to be stored in a text file!";
+	static char wel[]  = "Write/Read on binary and text files\n";
+	char *infile       = "droid.bif";
+	char *outfile      = "droif.bof";
+	char *infiletxt    = "test_in.txt";
+	char *outfiletxt   = "test_out.txt";
 
     xil_printf ("\nSD Test: %s\n\r",wel);
 

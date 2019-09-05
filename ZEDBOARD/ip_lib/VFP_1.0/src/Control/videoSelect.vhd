@@ -155,23 +155,35 @@ videoOutP: process (clk) begin
         end if;
     end if;
 end process videoOutP;
-
-Kernel_Ycbcr_Inst: KernelCore
+ycbcrInst: rgb_ycbcr
 generic map(
-    SHARP_FRAME   => false,
-    BLURE_FRAME   => false,
-    EMBOS_FRAME   => false,
-    YCBCR_FRAME   => true,
-    SOBEL_FRAME   => false,
-    CGAIN_FRAME   => false,
-    img_width     => img_width,
-    i_data_width  => i_data_width)
+    i_data_width         => i_data_width,
+    i_precision          => 12,
+    i_full_range         => FALSE)
 port map(
-    clk            => clk,
-    rst_l          => rst_l,
-    iRgb           => channels,
-    kCoeff         => kCoeffYcbcr,
-    oRgb           => ycbcr);
+    clk                  => clk,
+    rst_l                => rst_l,
+    iRgb                 => channels,
+    y                    => ycbcr.red,
+    cb                   => ycbcr.green,
+    cr                   => ycbcr.blue,
+    oValid               => ycbcr.valid);
+-- Kernel_Ycbcr_Inst: KernelCore
+-- generic map(
+    -- SHARP_FRAME   => false,
+    -- BLURE_FRAME   => false,
+    -- EMBOS_FRAME   => false,
+    -- YCBCR_FRAME   => true,
+    -- SOBEL_FRAME   => false,
+    -- CGAIN_FRAME   => false,
+    -- img_width     => img_width,
+    -- i_data_width  => i_data_width)
+-- port map(
+    -- clk            => clk,
+    -- rst_l          => rst_l,
+    -- iRgb           => channels,
+    -- kCoeff         => kCoeffYcbcr,
+    -- oRgb           => ycbcr);
 channelOutP: process (clk) begin
     if rising_edge(clk) then
         oCord <= iFrameData.cod;

@@ -1,4 +1,4 @@
-// LAST TESTED : 04/15/2019
+// LAST TESTED : 09/01/2019
 #include "channel.h"
 #include <sleep.h>
 #include <stdio.h>
@@ -109,6 +109,19 @@ void d5mInitCall(){
     //d5mtestpattern(0x0004);
     //exposerCompansate();
 }
+void yCbCrWrite()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,0x0101);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,0x01F8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,0x0062);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,0xFF6C);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,0x01B7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,0xFE90);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,0xFFB9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,0x6);
+}
 u16 rColorFilterA11()
 {
     return D5M_mReadReg(D5M_BASE,w_a11fl_reg_21);
@@ -148,7 +161,7 @@ u16 rColorFilterA33()
 void d5mInitPrint(){
     printf("Firmware Revision Number %x\n\r",(unsigned)D5M_mReadReg(D5M_BASE,r_revisionnumber_reg_63));
 	printf("Current Time\n\r");
-	printf("%d:%d:%d\n\r",(unsigned) pvideo.hr,(unsigned) pvideo.min,(unsigned) pvideo.sec);
+	//printf("%d:%d:%d\n\r",(unsigned) pvideo.hr,(unsigned) pvideo.min,(unsigned) pvideo.sec);
 	printf("Color Filters Kernels Time\n\r");
     colorFilterKc(pcolor.Kc);//writeRead ColorFilter
     printf("%d:%d:%d\n\r",(unsigned) rColorFilterA11,(unsigned) rColorFilterA12,(unsigned) rColorFilterA13);
@@ -162,7 +175,7 @@ void d5mInitPrint(){
 	printf("w_kernalconfig_reg_17\n\r");
     printf("%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kernalconfig_reg_17));
 }
-void edgeThreshold(u16 thresholdValue)
+void edgeThresholdVal(u16 thresholdValue)
 {
     D5M_mWriteReg(D5M_BASE,w_threshold_reg_4,thresholdValue);
 }
@@ -173,6 +186,21 @@ void videoFeatureSelect(u16 videoType)
 void ycbcrSelect(u16 videoType)
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,videoType);
+}
+
+void edgeColor(u16 edgeColorVal)
+{
+    D5M_mWriteReg(D5M_BASE,w_oEdgeType_reg_1,edgeColorVal);
+}
+
+
+void ycbcr_Enable()
+{
+    D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0000);
+}
+void ycbcr_Disable()
+{
+    D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0001);
 }
 void color_correction(u16 videoType)
 {
@@ -293,9 +321,9 @@ void enableNextRead(u16 eValue)
 void edgeType(u16 edgeTypeValue)
 {
     if (edgeTypeValue == 1) {
-        sobelWrite();
+    	sobelEnable();
     }else{
-        prewittWrite();
+    	prewittEnable();
     }
 }
 void selected_channel()
@@ -318,7 +346,7 @@ void selected_channel()
     D5M_mWriteReg(D5M_BASE,w_bh_reg_54,pStream.fRgbCoordBL);//cord
     D5M_mWriteReg(D5M_BASE,w_bl_reg_55,pStream.fRgbCoordBH);//cord
     D5M_mWriteReg(D5M_BASE,w_abusselect_reg_3,pStream.fDbusSelect);
-    edgeThreshold(pStream.fThreshold);
+    edgeThresholdVal(pStream.fThreshold);
     //prewittWrite();
     videoFeatureSelect(pStream.fVideoType);
 }
@@ -343,6 +371,83 @@ void sobelWrite()
     D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,psobel.K8);
     D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,psobel.K9);
     D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,psobel.Kc);
+}
+void prewittWrite()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,pprewitt.K1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,pprewitt.K2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,pprewitt.K3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,pprewitt.K4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,pprewitt.K5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,pprewitt.K6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,pprewitt.K7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,pprewitt.K8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,pprewitt.K9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,pprewitt.Kc);
+}
+void sobelEnable()
+{
+    u32 KernelEnable = 0x01FF;
+    //  GX
+    //  [-1 +0 +1]
+    //  [-2 +0 +2]
+    //  [-1 +0 +1]
+    //  GY
+    //  [+1 +2 +1]
+    //  [+0 +0 +0]
+    //  [-1 -2 -1]
+                          //  GY  GX
+    u16 Kernel_1 = 0x01FF;//  +1  -1
+    u16 Kernel_2 = 0x0200;//  +2  +0
+    u16 Kernel_3 = 0x0101;//  +1  -1
+    u16 Kernel_4 = 0x00FE;//  +0  -2
+    u16 Kernel_5 = 0x0000;//  +0  +0
+    u16 Kernel_6 = 0x0002;//  +0  +2
+    u16 Kernel_7 = 0xFFFF;//  -1  -1
+    u16 Kernel_8 = 0xFE00;//  -2  +0
+    u16 Kernel_9 = 0xFF01;//  -1  +1
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,Kernel_1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,Kernel_2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,Kernel_3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,Kernel_4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,Kernel_5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,Kernel_6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,Kernel_7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,Kernel_8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,Kernel_9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,KernelEnable);
+}
+void prewittEnable()
+{
+    u32 KernelEnable = 0x01FF;
+    //  GX
+    //  [+1 +0 -1]
+    //  [+1 +0 -1]
+    //  [+1 +0 -1]
+    //  GY
+    //  [+1 +1 +1]
+    //  [+0 +0 +0]
+    //  [-1 -1 -1]
+                           //  GY  GX
+    u16 KernelPv1 = 0x01FF;//  +1  -1
+    u16 KernelPv2 = 0x0100;//  +1  +0
+    u16 KernelPv3 = 0x0101;//  +1  -1
+    u16 KernelPv4 = 0x00FF;//  +0  -1
+    u16 KernelPv5 = 0x0000;//  +0  +0
+    u16 KernelPv6 = 0x0001;//  +0  -1
+    u16 KernelPv7 = 0xFFFF;//  -1  -1
+    u16 KernelPv8 = 0xFF00;//  -1  +0
+    u16 KernelPv9 = 0xFF01;//  -1  +1
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,KernelPv1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,KernelPv2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,KernelPv3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,KernelPv4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,KernelPv5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,KernelPv6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,KernelPv7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,KernelPv8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,KernelPv9);
+    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,KernelEnable);
 }
 void colorFilterA11(u16 Axx)
 {
@@ -397,19 +502,6 @@ void colorFilterFixed()
     colorFilterA33(pcolor.K9);
     colorFilterKc(pcolor.Kc);//writeRead
     colorFilterKc(0x0000);//open
-}
-void prewittWrite()
-{
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,pprewitt.K1);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,pprewitt.K2);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,pprewitt.K3);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,pprewitt.K4);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,pprewitt.K5);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,pprewitt.K6);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,pprewitt.K7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,pprewitt.K8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,pprewitt.K9);
-    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,pprewitt.Kc);
 }
 void computeBrightness() {
     u32 address = VIDEO_BASEADDR0;

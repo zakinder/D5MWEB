@@ -113,7 +113,7 @@ begin
     cYcc                         <= std_logic_vector(to_unsigned(iYccPerCh,3));--[0-cYcc,1-cYccY,2-cYccB,3-cYccR]
     -------------------------------------------------
     oFrameData.sobel             <= rgbImageFilters.sobel;
-    oFrameData.embos             <= rgbImageFilters.embos;
+    oFrameData.embos             <= rgbIn;
     oFrameData.blur              <= rgbImageFilters.blur;
     oFrameData.sharp             <= rgbImageFilters.sharp;
     oFrameData.cgain             <= rgbImageFilters.cgain;

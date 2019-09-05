@@ -120,8 +120,8 @@ signal ycbcr       : channel;
 signal ycbcrSyn    : channel;
 signal kCoeffYcbcr : kernelCoeff;
 begin
-process (clk,rst_l) begin
-    if (rst_l = lo) then
+-- process (clk,rst_l) begin
+    -- if (rst_l = lo) then
         kCoeffYcbcr.k1   <= x"0101";--  0.257
         kCoeffYcbcr.k2   <= x"01F8";--  0.504
         kCoeffYcbcr.k3   <= x"0062";--  0.098
@@ -132,12 +132,12 @@ process (clk,rst_l) begin
         kCoeffYcbcr.k8   <= x"FE90";-- -0.368
         kCoeffYcbcr.k9   <= x"FFB9";-- -0.071
         kCoeffYcbcr.kSet <= 0;
-    elsif rising_edge(clk) then
-        if (iKcoeff.kSet = 6) then
-            kCoeffYcbcr <= iKcoeff;
-        end if;
-    end if; 
-end process;
+    -- elsif rising_edge(clk) then
+        -- if (iKcoeff.kSet = 6) then
+            -- kCoeffYcbcr <= iKcoeff;
+        -- end if;
+    -- end if; 
+-- end process;
 Kernel_Ycbcr_Inst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -172,8 +172,8 @@ signal kCoeffCgain    : kernelCoeff;
 signal cgain          : channel;
 signal cgainSyn       : channel;
 begin
-process (clk,rst_l) begin
-    if (rst_l = lo) then
+-- process (clk,rst_l) begin
+    -- if (rst_l = lo) then
      kCoeffCgain.k1   <= x"05DC";--  1375  =  1.375
      kCoeffCgain.k2   <= x"FF06";-- -250   = -0.250
      kCoeffCgain.k3   <= x"FF06";-- -500   = -0.500
@@ -184,12 +184,12 @@ process (clk,rst_l) begin
      kCoeffCgain.k8   <= x"FF06";-- -500   = -0.500
      kCoeffCgain.k9   <= x"05DC";--  1375  =  1.375
      kCoeffCgain.kSet <= 0;
-    elsif rising_edge(clk) then
-        if (iKcoeff.kSet = 5) then
-            kCoeffCgain <= iKcoeff;
-        end if;
-    end if;
-end process;
+    -- elsif rising_edge(clk) then
+        -- if (iKcoeff.kSet = 5) then
+            -- kCoeffCgain <= iKcoeff;
+        -- end if;
+    -- end if;
+-- end process;
 Kernel_CGAIN_Inst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -225,8 +225,8 @@ signal oGreen         : channel;
 signal oBlue          : channel;
 signal kCoeffSharp    : kernelCoeff;
 begin
-process (clk,rst_l) begin
-    if (rst_l = lo) then
+-- process (clk,rst_l) begin
+    -- if (rst_l = lo) then
         kCoeffSharp.k1   <= x"0000";--  0
         kCoeffSharp.k2   <= x"FE0C";-- -0.5
         kCoeffSharp.k3   <= x"0000";--  0
@@ -237,12 +237,12 @@ process (clk,rst_l) begin
         kCoeffSharp.k8   <= x"FE0C";-- -0.5
         kCoeffSharp.k9   <= x"0000";--  0
         kCoeffSharp.kSet <= 0;
-    elsif rising_edge(clk) then
-        if (iKcoeff.kSet = 4) then
-            kCoeffSharp <= iKcoeff;
-        end if;
-    end if; 
-end process;
+    -- elsif rising_edge(clk) then
+        -- if (iKcoeff.kSet = 4) then
+            -- kCoeffSharp <= iKcoeff;
+        -- end if;
+    -- end if; 
+-- end process;
 Kernel_Sharp_Red_Inst: KernelCore
 generic map(
     SHARP_FRAME   => SHARP_FRAME,
@@ -302,8 +302,8 @@ signal oGreen         : channel;
 signal oBlue          : channel;
 signal kCoeffBlur     : kernelCoeff;
 begin
-process (clk,rst_l) begin
-    if (rst_l = lo) then
+-- process (clk,rst_l) begin
+    -- if (rst_l = lo) then
         kCoeffBlur.k1   <= x"006F";-- 0.111
         kCoeffBlur.k2   <= x"006F";-- 0.111
         kCoeffBlur.k3   <= x"006F";-- 0.111
@@ -314,12 +314,12 @@ process (clk,rst_l) begin
         kCoeffBlur.k8   <= x"006F";-- 0.111
         kCoeffBlur.k9   <= x"006F";-- 0.111
         kCoeffBlur.kSet <= 0;
-    elsif rising_edge(clk) then
-        if (iKcoeff.kSet = 3) then
-            kCoeffBlur <= iKcoeff;
-        end if;
-    end if; 
-end process;
+    -- elsif rising_edge(clk) then
+        -- if (iKcoeff.kSet = 3) then
+            -- kCoeffBlur <= iKcoeff;
+        -- end if;
+    -- end if; 
+-- end process;
 Kernel_Blur_Red_Inst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -379,8 +379,8 @@ signal oGreen         : channel;
 signal oBlue          : channel;
 signal kCoeffEmbos    : kernelCoeff;
 begin
-process (clk,rst_l) begin
-    if (rst_l = lo) then
+-- process (clk,rst_l) begin
+    -- if (rst_l = lo) then
         kCoeffEmbos.k1   <= x"FC18";-- -1
         kCoeffEmbos.k2   <= x"FC18";-- -1
         kCoeffEmbos.k3   <= x"0000";--  0
@@ -391,12 +391,12 @@ process (clk,rst_l) begin
         kCoeffEmbos.k8   <= x"03E8";--  1
         kCoeffEmbos.k9   <= x"03E8";--  1
         kCoeffEmbos.kSet <= 0;
-    elsif rising_edge(clk) then
-        if (iKcoeff.kSet = 2) then
-            kCoeffEmbos <= iKcoeff;
-        end if;
-    end if; 
-end process;
+    -- elsif rising_edge(clk) then
+        -- if (iKcoeff.kSet = 2) then
+            -- kCoeffEmbos <= iKcoeff;
+        -- end if;
+    -- end if; 
+-- end process;
 Kernel_Blur_Red_Inst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -495,8 +495,8 @@ port map(
 -----------------------------------------------------------------------------------------------
 -- Coeff Init Updates
 -----------------------------------------------------------------------------------------------
-process (clk,rst_l) begin
-    if (rst_l = lo) then
+-- process (clk,rst_l) begin
+    -- if (rst_l = lo) then
         kCoeffX.k1   <= x"FC18";--  [-1]
         kCoeffX.k2   <= x"0000";--  [+0]
         kCoeffX.k3   <= x"03E8";--  [+1]
@@ -517,15 +517,15 @@ process (clk,rst_l) begin
         kCoeffY.k8   <= x"F830";--  [-2]
         kCoeffY.k9   <= x"FC18";--  [-1]
         kCoeffY.kSet <= zero;
-    elsif rising_edge(clk) then
-        if (iKcoeff.kSet = 8) then
-            kCoeffX <= iKcoeff;
-        end if;
-        if (iKcoeff.kSet = 9) then
-            kCoeffY <= iKcoeff;
-        end if;
-    end if; 
-end process;
+    -- elsif rising_edge(clk) then
+        -- if (iKcoeff.kSet = 8) then
+            -- kCoeffX <= iKcoeff;
+        -- end if;
+        -- if (iKcoeff.kSet = 9) then
+            -- kCoeffY <= iKcoeff;
+        -- end if;
+    -- end if; 
+-- end process;
 -----------------------------------------------------------------------------------------------
 -- Sobel KernelCore For X Domain
 -----------------------------------------------------------------------------------------------
