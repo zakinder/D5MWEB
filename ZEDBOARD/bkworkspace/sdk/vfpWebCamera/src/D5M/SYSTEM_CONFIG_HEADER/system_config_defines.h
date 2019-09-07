@@ -35,28 +35,179 @@
 #define wRgbCorrect                 17
 #define wHsl                        18
 #define hsvCcBl                     19
-#define selSoble                    0
 #define selSobRgb                   1
 #define selSobPoi                   2
 #define selHsvPoi                   3
-#define selSharp                    4
-#define selBlur1x                   5
+#define selCgain                    0
+#define selSharp                    1
+#define selBlur                     2
+#define selHsl                      3
+#define selHsv                      4
+#define selRgb                      5
+#define selSoble                    6
+#define selEmboss                   7
+#define selRgbRemix                 46
+#define selRgbDetect                47
+#define selRgbPoi                   48
+#define selYcbcr                    49
 #define selBlur2x                   6
 #define selBlur3x                   7
 #define selBlur4x                   8
-#define selHsv                      9
-#define selRgb                      10
-#define selRgbRemix                 11
 #define selTPatter1                 12
 #define selTPatter2                 13
 #define selTPatter3                 14
 #define selTPatter4                 15
 #define selTPatter5                 16
 #define selRgbCorrect               17
-#define selHsl                      18
 #define selHsvCcBl                  19
 #define selColorTrm                 20
 #define selColorLmp                 21
+/*****************************************************************************************************************/
+/****************************************************************
+YCBCR
+*****************************************************************/
+#define kCoefVals_kCoeffYcbcr_k1   0x0101//--  0.257
+#define kCoefVals_kCoeffYcbcr_k2   0x01F8//--  0.504
+#define kCoefVals_kCoeffYcbcr_k3   0x0062//--  0.098
+#define kCoefVals_kCoeffYcbcr_k4   0xFF6C//-- -0.148
+#define kCoefVals_kCoeffYcbcr_k5   0xFEDD//-- -0.291
+#define kCoefVals_kCoeffYcbcr_k6   0x01B7//--  0.439
+#define kCoefVals_kCoeffYcbcr_k7   0x01B7//--  0.439
+#define kCoefVals_kCoeffYcbcr_k8   0xFE90//-- -0.368
+#define kCoefVals_kCoeffYcbcr_k9   0xFFB9//-- -0.071
+#define kCoefVals_kCoeffYcbcr_kSet 1
+/****************************************************************
+CGAIN_1
+*****************************************************************/
+#define kCoefVals_kCoef1Cgain_k1   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef1Cgain_k2   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef1Cgain_k3   0xFF06//-- -500   = -0.500
+#define kCoefVals_kCoef1Cgain_k4   0xFF06//-- -500   = -0.500
+#define kCoefVals_kCoef1Cgain_k5   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef1Cgain_k6   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef1Cgain_k7   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef1Cgain_k8   0xFF06//-- -500   = -0.500
+#define kCoefVals_kCoef1Cgain_k9   0x05DC//--  1375  =  1.375
+/****************************************************************
+CGAIN_2
+*****************************************************************/
+#define kCoefVals_kCoef2Cgain_k1   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef2Cgain_k2   0xFF06//-- -250   = -0.148
+#define kCoefVals_kCoef2Cgain_k3   0xFF6C//-- -500   = -0.500
+#define kCoefVals_kCoef2Cgain_k4   0xFF6C//-- -500   = -0.148
+#define kCoefVals_kCoef2Cgain_k5   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef2Cgain_k6   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef2Cgain_k7   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef2Cgain_k8   0xFF6C//-- -500   = -0.148
+#define kCoefVals_kCoef2Cgain_k9   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoeffCgain_kSet 2
+/****************************************************************
+SHARP
+*****************************************************************/
+#define kCoefVals_kCoeffSharp_k1   0x0000//--  0
+#define kCoefVals_kCoeffSharp_k2   0xFE0C//-- -0.5
+#define kCoefVals_kCoeffSharp_k3   0x0000//--  0
+#define kCoefVals_kCoeffSharp_k4   0xFE0C//-- -0.5
+#define kCoefVals_kCoeffSharp_k5   0x0BB8//--  3
+#define kCoefVals_kCoeffSharp_k6   0xFE0C//-- -0.5
+#define kCoefVals_kCoeffSharp_k7   0x0000//--  0
+#define kCoefVals_kCoeffSharp_k8   0xFE0C//-- -0.5
+#define kCoefVals_kCoeffSharp_k9   0x0000//--  0
+#define kCoefVals_kCoeffSharp_kSet 3
+/****************************************************************
+BLURE
+*****************************************************************/
+#define kCoefVals_kCoeffBlure_k1   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_k2   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_k3   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_k4   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_k5   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_k6   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_k7   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_k8   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_k9   0x006F//-- 0.111
+#define kCoefVals_kCoeffBlure_kSet 4
+/****************************************************************
+SOBEL_X
+*****************************************************************/
+    //  GX
+    //  [-1 +0 +1]
+    //  [-2 +0 +2]
+    //  [-1 +0 +1]
+#define kCoefVals_kCoefXSobel_k1   0xFC18//--  [-1]
+#define kCoefVals_kCoefXSobel_k2   0x0000//--  [+0]
+#define kCoefVals_kCoefXSobel_k3   0x03E8//--  [+1]
+#define kCoefVals_kCoefXSobel_k4   0xF830//--  [-2]
+#define kCoefVals_kCoefXSobel_k5   0x0000//--  [+0]
+#define kCoefVals_kCoefXSobel_k6   0x07D0//--  [+2]
+#define kCoefVals_kCoefXSobel_k7   0xFC18//--  [-1]
+#define kCoefVals_kCoefXSobel_k8   0x0000//--  [+0]
+#define kCoefVals_kCoefXSobel_k9   0x03E8//--  [+1]
+#define kCoefVals_kCoefXSobel_kSet 5
+/****************************************************************
+SOBEL_Y
+*****************************************************************/
+    //  GY
+    //  [+1 +2 +1]
+    //  [+0 +0 +0]
+    //  [-1 -2 -1]
+#define kCoefVals_kCoefYSobel_k1   0x03E8//--  [+1]
+#define kCoefVals_kCoefYSobel_k2   0x07D0//--  [+2]
+#define kCoefVals_kCoefYSobel_k3   0x03E8//--  [+1]
+#define kCoefVals_kCoefYSobel_k4   0x0000//--  [-2]
+#define kCoefVals_kCoefYSobel_k5   0x0000//--  [+0]
+#define kCoefVals_kCoefYSobel_k6   0x0000//--  [+2]
+#define kCoefVals_kCoefYSobel_k7   0xFC18//--  [-1]
+#define kCoefVals_kCoefYSobel_k8   0xF830//--  [-2]
+#define kCoefVals_kCoefYSobel_k9   0xFC18//--  [-1]
+#define kCoefVals_kCoefYSobel_kSet 6
+/****************************************************************
+EMBOS
+*****************************************************************/
+#define kCoefVals_kCoeffEmbos_k1   0xFC18//-- -1
+#define kCoefVals_kCoeffEmbos_k2   0xFC18//-- -1
+#define kCoefVals_kCoeffEmbos_k3   0x0000//--  0
+#define kCoefVals_kCoeffEmbos_k4   0xFC18//-- -1
+#define kCoefVals_kCoeffEmbos_k5   0x0000//--  0
+#define kCoefVals_kCoeffEmbos_k6   0x03E8//--  1
+#define kCoefVals_kCoeffEmbos_k7   0x0000//--  0
+#define kCoefVals_kCoeffEmbos_k8   0x03E8//--  1
+#define kCoefVals_kCoeffEmbos_k9   0x03E8//--  1
+#define kCoefVals_kCoeffEmbos_kSet 7
+/****************************************************************
+PREWIT_X
+*****************************************************************/
+//  GX
+//  [+1 +0 -1]
+//  [+1 +0 -1]
+//  [+1 +0 -1]
+#define kCoefVals_kCoefXPrewit_k1   0x03E8//--  [+1]
+#define kCoefVals_kCoefXPrewit_k2   0x0000//--  [+0]
+#define kCoefVals_kCoefXPrewit_k3   0xFC18//--  [-1]
+#define kCoefVals_kCoefXPrewit_k4   0x03E8//--  [+1]
+#define kCoefVals_kCoefXPrewit_k5   0x0000//--  [+0]
+#define kCoefVals_kCoefXPrewit_k6   0xFC18//--  [-1]
+#define kCoefVals_kCoefXPrewit_k7   0x03E8//--  [+1]
+#define kCoefVals_kCoefXPrewit_k8   0x0000//--  [+0]
+#define kCoefVals_kCoefXPrewit_k9   0xFC18//--  [-1]
+#define kCoefVals_kCoefXPrewit_kSet 5
+/****************************************************************
+PREWIT_Y
+*****************************************************************/
+//  GY
+//  [+1 +1 +1]
+//  [+0 +0 +0]
+//  [-1 -1 -1]
+#define kCoefVals_kCoefYPrewit_k1   0x03E8//--  [+1]
+#define kCoefVals_kCoefYPrewit_k2   0x03E8//--  [+1]
+#define kCoefVals_kCoefYPrewit_k3   0x03E8//--  [+1]
+#define kCoefVals_kCoefYPrewit_k4   0x0000//--  [+0]
+#define kCoefVals_kCoefYPrewit_k5   0x0000//--  [+0]
+#define kCoefVals_kCoefYPrewit_k6   0x0000//--  [+0]
+#define kCoefVals_kCoefYPrewit_k7   0xFC18//--  [-1]
+#define kCoefVals_kCoefYPrewit_k8   0xFC18//--  [-1]
+#define kCoefVals_kCoefYPrewit_k9   0xFC18//--  [-1]
+#define kCoefVals_kCoefYPrewit_kSet 6
 /*****************************************************************************************************************/
 #define w_oRgbOsharp_reg_0          0//open
 #define w_oEdgeType_reg_1           4//open
@@ -66,6 +217,9 @@
 #define w_videochannel_reg_5        20
 #define w_dchannel_reg_6            24
 #define w_cchannel_reg_7            28
+/****************************************************************
+KERNEL
+*****************************************************************/
 #define w_kernel_1_reg_08           32
 #define w_kernel_2_reg_09           36
 #define w_kernel_3_reg_10           40
@@ -76,6 +230,10 @@
 #define w_kernel_8_reg_15           60
 #define w_kernel_9_reg_16           64
 #define w_kernalconfig_reg_17       68
+#define w_kSet_reg_17               68
+/****************************************************************
+UNSED KERNEL
+*****************************************************************/
 #define w_a11fl_reg_21              84
 #define w_a12fl_reg_22              88
 #define w_a13fl_reg_23              92
@@ -208,10 +366,28 @@
 #define vga                     0x327F
 #define xbright                 0xA8B548
 #define blur                    0x1AE04
+#define emboss                  0xAC6E0D
 #define sharp                   0x134D38
 #define hsv                     0x2D94
+#define hsl                     0x2D8A
 #define rgb                     0x30F0
+#define rgbpoi                  0xBF59FF
 #define sobel                   0x13686E
+#define prewit                  0xBE08B2
+#define prewitt                 0x76C5768
+#define cgain                   0x10D7F4
+/************************************/
+#define wcgain1                 0x7C03B49
+#define wcgain2                 0x7C03B4A
+#define wcgain3                 0x7C03B4A
+#define wsobel                  0xC8FCCE
+#define wprewit                 0x7D5D472
+#define wsharp                  0xC8E198
+#define wemboss                 0x7C439CD
+#define wblur                   0x13D674
+/************************************/
+#define rgbdetect               0xEB640CB6
+#define video0                  0xC5C5BA
 #define video1                  0xC5C5BB
 #define video2                  0xC5C5BC
 #define video3                  0xC5C5BD
@@ -237,7 +413,7 @@
 #define ycbcrenable             0x511543CD
 #define ycbcrdisable            0x2AC07A9D
 #define ycbcr                   0x1423E0
-#define prewitt                 0x76C5768
+#define rgbremix                0x4ABF54CE
 #define colorgain               0x976BB8C4
 #define colorcorrection         0x74636572
 #define edgethreshold           0x6C6F6873
@@ -256,7 +432,6 @@
 #define parttern5               0x494E6161
 #define fullhdmi                0x447C467B
 #define zoom                    0x20CAF
-#define emboss                  0xAC6E0D
 #define threshold               0xF8E00808
 #define coord                   0x10FCFC
 #define colorbars               0x976BA59B

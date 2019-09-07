@@ -1,0 +1,289 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a><q-m>--05012019 [05-01-2019]</q-m>
+<a name="2"><q-n>     2  </q-n></a><q-w>library</q-w> ieee;
+<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
+<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
+<a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
+<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
+<a name="7"><q-n>     7  </q-n></a><q-w>use</q-w> work.portspackage.<q-w>all</q-w>;
+<a name="8"><q-n>     8  </q-n></a><q-w>entity</q-w> frameProcess <q-w>is</q-w>
+<a name="9"><q-n>     9  </q-n></a><q-w>generic</q-w> (
+<a name="10"><q-n>     10  </q-n></a>    i_data_width            : <q-t>integer</q-w> := 8;
+<a name="11"><q-n>     11  </q-n></a>    s_data_width            : <q-t>integer</q-w> := 16;
+<a name="12"><q-n>     12  </q-n></a>    b_data_width            : <q-t>integer</q-w> := 32;
+<a name="13"><q-n>     13  </q-n></a>    img_width               : <q-t>integer</q-w> := 256;
+<a name="14"><q-n>     14  </q-n></a>    adwrWidth               : <q-t>integer</q-w> := 16;
+<a name="15"><q-n>     15  </q-n></a>    addrWidth               : <q-t>integer</q-w> := 12);
+<a name="16"><q-n>     16  </q-n></a><q-w>port</q-w> (
+<a name="17"><q-n>     17  </q-n></a>    clk                     : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="18"><q-n>     18  </q-n></a>    rst_l                   : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="19"><q-n>     19  </q-n></a>    iRgbSet                 : <q-a>in</q-w> rRgb;
+<a name="20"><q-n>     20  </q-n></a>    <q-m>--cpu side in</q-m>
+<a name="21"><q-n>     21  </q-n></a>    iRgbCoord               : <q-a>in</q-w> region;
+<a name="22"><q-n>     22  </q-n></a>    iPoiRegion              : <q-a>in</q-w> poi;
+<a name="23"><q-n>     23  </q-n></a>    iKls                    : <q-a>in</q-w> coefficient;
+<a name="24"><q-n>     24  </q-n></a>    iAls                    : <q-a>in</q-w> coefficient;
+<a name="25"><q-n>     25  </q-n></a>    iEdgeType               : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
+<a name="26"><q-n>     26  </q-n></a>    iThreshold              : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(s_data_width-1 <q-w>downto</q-w> 0); 
+<a name="27"><q-n>     27  </q-n></a>    <q-m>--out</q-m>
+<a name="28"><q-n>     28  </q-n></a>    oFrameData              : <q-a>out</q-w> fcolors;
+<a name="29"><q-n>     29  </q-n></a>    <q-m>--to cpu</q-m>
+<a name="30"><q-n>     30  </q-n></a>    oFifoStatus             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
+<a name="31"><q-n>     31  </q-n></a>    oGridLockData           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0));
+<a name="32"><q-n>     32  </q-n></a><q-w>end</q-w> <q-w>entity</q-w>;
+<a name="33"><q-n>     33  </q-n></a><q-w>architecture</q-w> arch <q-w>of</q-w> frameProcess <q-w>is</q-w>
+<a name="34"><q-n>     34  </q-n></a>    <q-w>signal</q-w> sharp            : channel;
+<a name="35"><q-n>     35  </q-n></a>    <q-w>signal</q-w> rgbV1Correct     : channel;
+<a name="36"><q-n>     36  </q-n></a>    <q-w>signal</q-w> rgbV2Correct     : channel;
+<a name="37"><q-n>     37  </q-n></a>    <q-w>signal</q-w> soble            : channel;
+<a name="38"><q-n>     38  </q-n></a>    <q-w>signal</q-w> rgbRemix         : channel;
+<a name="39"><q-n>     39  </q-n></a>    <q-w>signal</q-w> rgbPoi           : channel;
+<a name="40"><q-n>     40  </q-n></a>    <q-w>signal</q-w> blur1vx          : channel;
+<a name="41"><q-n>     41  </q-n></a>    <q-w>signal</q-w> blur2vx          : channel;
+<a name="42"><q-n>     42  </q-n></a>    <q-w>signal</q-w> blur3vx          : channel;
+<a name="43"><q-n>     43  </q-n></a>    <q-w>signal</q-w> blur4vx          : channel;
+<a name="44"><q-n>     44  </q-n></a>    <q-w>signal</q-w> rgbDetect        : channel;
+<a name="45"><q-n>     45  </q-n></a>    <q-w>signal</q-w> hsv              : hsvChannel;
+<a name="46"><q-n>     46  </q-n></a>    <q-w>signal</q-w> hsl              : hsvChannel;
+<a name="47"><q-n>     47  </q-n></a>    <q-w>signal</q-w> hsvCcBlur4vx     : hsvChannel;
+<a name="48"><q-n>     48  </q-n></a>    <q-w>signal</q-w> cord             : coord;
+<a name="49"><q-n>     49  </q-n></a>    <q-w>signal</q-w> syncxy           : coord;
+<a name="50"><q-n>     50  </q-n></a>    <q-w>signal</q-w> cordIn           : coord;
+<a name="51"><q-n>     51  </q-n></a>    <q-w>signal</q-w> rgbIn            : channel;
+<a name="52"><q-n>     52  </q-n></a>    <q-w>signal</q-w> rgbSum           : tpRgb;
+<a name="53"><q-n>     53  </q-n></a>    <q-w>signal</q-w> rgbDetectLock    : <q-t>std_logic</q-w>;
+<a name="54"><q-n>     54  </q-n></a>    <q-w>signal</q-w> rgbPoiLock       : <q-t>std_logic</q-w>;
+<a name="55"><q-n>     55  </q-n></a>    <q-w>signal</q-w> edgeValid        : <q-t>std_logic</q-w>;
+<a name="56"><q-n>     56  </q-n></a>    <q-w>signal</q-w> sValid           : <q-t>std_logic</q-w>;
+<a name="57"><q-n>     57  </q-n></a><q-w>begin</q-w>
+<a name="58"><q-n>     58  </q-n></a>    oFrameData.hsl.red            &lt;= hsl.h;
+<a name="59"><q-n>     59  </q-n></a>    oFrameData.hsl.green          &lt;= hsl.s;
+<a name="60"><q-n>     60  </q-n></a>    oFrameData.hsl.blue           &lt;= hsl.v;
+<a name="61"><q-n>     61  </q-n></a>    oFrameData.hsl.valid          &lt;= hsl.valid;
+<a name="62"><q-n>     62  </q-n></a>    oFrameData.hsv.red            &lt;= hsv.h;
+<a name="63"><q-n>     63  </q-n></a>    oFrameData.hsv.green          &lt;= hsv.s;
+<a name="64"><q-n>     64  </q-n></a>    oFrameData.hsv.blue           &lt;= hsv.v;
+<a name="65"><q-n>     65  </q-n></a>    oFrameData.hsv.valid          &lt;= hsv.valid;
+<a name="66"><q-n>     66  </q-n></a>    oFrameData.hsvCcBl.red        &lt;= hsvCcBlur4vx.h;
+<a name="67"><q-n>     67  </q-n></a>    oFrameData.hsvCcBl.green      &lt;= hsvCcBlur4vx.s;
+<a name="68"><q-n>     68  </q-n></a>    oFrameData.hsvCcBl.blue       &lt;= hsvCcBlur4vx.v;
+<a name="69"><q-n>     69  </q-n></a>    oFrameData.hsvCcBl.valid      &lt;= hsvCcBlur4vx.valid;
+<a name="70"><q-n>     70  </q-n></a>    oFrameData.rgb.red            &lt;= iRgbSet.red;
+<a name="71"><q-n>     71  </q-n></a>    oFrameData.rgb.green          &lt;= iRgbSet.green;
+<a name="72"><q-n>     72  </q-n></a>    oFrameData.rgb.blue           &lt;= iRgbSet.blue;
+<a name="73"><q-n>     73  </q-n></a>    oFrameData.rgb.valid          &lt;= iRgbSet.valid;
+<a name="74"><q-n>     74  </q-n></a>    oFrameData.sharp              &lt;= sharp;
+<a name="75"><q-n>     75  </q-n></a>    oFrameData.blur1x             &lt;= blur1vx;
+<a name="76"><q-n>     76  </q-n></a>    oFrameData.blur2x             &lt;= blur2vx;
+<a name="77"><q-n>     77  </q-n></a>    oFrameData.blur3x             &lt;= blur3vx;
+<a name="78"><q-n>     78  </q-n></a>    oFrameData.blur4x             &lt;= blur4vx;
+<a name="79"><q-n>     79  </q-n></a>    oFrameData.rgbCorrect         &lt;= rgbV1Correct;
+<a name="80"><q-n>     80  </q-n></a>    oFrameData.soble              &lt;= soble;
+<a name="81"><q-n>     81  </q-n></a>    oFrameData.rgbRemix           &lt;= rgbRemix;
+<a name="82"><q-n>     82  </q-n></a>    oFrameData.rgbDetect          &lt;= rgbDetect;
+<a name="83"><q-n>     83  </q-n></a>    oFrameData.rgbPoi             &lt;= rgbPoi;
+<a name="84"><q-n>     84  </q-n></a>    oFrameData.rgbSum             &lt;= rgbSum;
+<a name="85"><q-n>     85  </q-n></a>    oFrameData.rgbDetectLock      &lt;= rgbDetectLock;
+<a name="86"><q-n>     86  </q-n></a>    oFrameData.rgbPoiLock         &lt;= rgbPoiLock;
+<a name="87"><q-n>     87  </q-n></a>    oFrameData.cod                &lt;= syncxy;
+<a name="88"><q-n>     88  </q-n></a>    oFrameData.pEof               &lt;= iRgbSet.pEof;
+<a name="89"><q-n>     89  </q-n></a>    oFrameData.pSof               &lt;= iRgbSet.pSof;
+<a name="90"><q-n>     90  </q-n></a>    rgbIn.red                     &lt;= iRgbSet.red;
+<a name="91"><q-n>     91  </q-n></a>    rgbIn.green                   &lt;= iRgbSet.green;
+<a name="92"><q-n>     92  </q-n></a>    rgbIn.blue                    &lt;= iRgbSet.blue;
+<a name="93"><q-n>     93  </q-n></a>    rgbIn.valid                   &lt;= iRgbSet.valid;
+<a name="94"><q-n>     94  </q-n></a>    cordIn.x                      &lt;= iRgbSet.cord.x;
+<a name="95"><q-n>     95  </q-n></a>    cordIn.y                      &lt;= iRgbSet.cord.y;
+<a name="96"><q-n>     96  </q-n></a>pipCoordP: <q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="97"><q-n>     97  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="98"><q-n>     98  </q-n></a>        syncxy          &lt;= cordIn;
+<a name="99"><q-n>     99  </q-n></a>        cord            &lt;= syncxy;
+<a name="100"><q-n>     100  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="101"><q-n>     101  </q-n></a><q-w>end</q-w> <q-w>process</q-w> pipCoordP;
+<a name="102"><q-n>     102  </q-n></a>colorCorrectionInst: colorCorrection
+<a name="103"><q-n>     103  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="104"><q-n>     104  </q-n></a>    i_data_width        =&gt; i_data_width)
+<a name="105"><q-n>     105  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(           
+<a name="106"><q-n>     106  </q-n></a>    clk                 =&gt; clk,
+<a name="107"><q-n>     107  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="108"><q-n>     108  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="109"><q-n>     109  </q-n></a>    als                 =&gt; iAls,    
+<a name="110"><q-n>     110  </q-n></a>    oRgb                =&gt; rgbV1Correct);
+<a name="111"><q-n>     111  </q-n></a>sobelFilterInst: sobelFilter
+<a name="112"><q-n>     112  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="113"><q-n>     113  </q-n></a>    i_data_width        =&gt; i_data_width,
+<a name="114"><q-n>     114  </q-n></a>    img_width           =&gt; img_width,
+<a name="115"><q-n>     115  </q-n></a>    adwrWidth           =&gt; adwrWidth,
+<a name="116"><q-n>     116  </q-n></a>    addrWidth           =&gt; addrWidth)
+<a name="117"><q-n>     117  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(   
+<a name="118"><q-n>     118  </q-n></a>    clk                 =&gt; clk,
+<a name="119"><q-n>     119  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="120"><q-n>     120  </q-n></a>    iEdgeType           =&gt; iEdgeType,
+<a name="121"><q-n>     121  </q-n></a>    endOfFrame          =&gt; iRgbSet.pEof,
+<a name="122"><q-n>     122  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="123"><q-n>     123  </q-n></a>    threshold           =&gt; iThreshold,
+<a name="124"><q-n>     124  </q-n></a>    kls                 =&gt; iKls,
+<a name="125"><q-n>     125  </q-n></a>    oRgb                =&gt; soble,
+<a name="126"><q-n>     126  </q-n></a>    sValid              =&gt; sValid,
+<a name="127"><q-n>     127  </q-n></a>    edgeValid           =&gt; edgeValid);
+<a name="128"><q-n>     128  </q-n></a>edgeObjectsInst: edgeObjects
+<a name="129"><q-n>     129  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="130"><q-n>     130  </q-n></a>    i_data_width        =&gt; i_data_width)
+<a name="131"><q-n>     131  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(   
+<a name="132"><q-n>     132  </q-n></a>    clk                 =&gt; clk,
+<a name="133"><q-n>     133  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="134"><q-n>     134  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="135"><q-n>     135  </q-n></a>    bRgb                =&gt; blur1vx,
+<a name="136"><q-n>     136  </q-n></a>    sRgb                =&gt; sharp,
+<a name="137"><q-n>     137  </q-n></a>    edgeValid           =&gt; edgeValid,
+<a name="138"><q-n>     138  </q-n></a>    sValid              =&gt; sValid,
+<a name="139"><q-n>     139  </q-n></a>    oRgbRemix           =&gt; rgbRemix);
+<a name="140"><q-n>     140  </q-n></a>sharpFilterInst: sharpFilter
+<a name="141"><q-n>     141  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="142"><q-n>     142  </q-n></a>    i_data_width        =&gt; i_data_width,
+<a name="143"><q-n>     143  </q-n></a>    img_width           =&gt; img_width,
+<a name="144"><q-n>     144  </q-n></a>    adwrWidth           =&gt; adwrWidth,
+<a name="145"><q-n>     145  </q-n></a>    addrWidth           =&gt; addrWidth)
+<a name="146"><q-n>     146  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(   
+<a name="147"><q-n>     147  </q-n></a>    clk                 =&gt; clk,
+<a name="148"><q-n>     148  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="149"><q-n>     149  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="150"><q-n>     150  </q-n></a>    endOfFrame          =&gt; iRgbSet.pEof,
+<a name="151"><q-n>     151  </q-n></a>    kls                 =&gt; iKls,
+<a name="152"><q-n>     152  </q-n></a>    oRgb                =&gt; sharp);
+<a name="153"><q-n>     153  </q-n></a>blurFilter1xInst: blurFilter
+<a name="154"><q-n>     154  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="155"><q-n>     155  </q-n></a>    iMSB                =&gt; blurMsb,
+<a name="156"><q-n>     156  </q-n></a>    iLSB                =&gt; blurLsb,
+<a name="157"><q-n>     157  </q-n></a>    i_data_width        =&gt; i_data_width,
+<a name="158"><q-n>     158  </q-n></a>    img_width           =&gt; img_width,
+<a name="159"><q-n>     159  </q-n></a>    adwrWidth           =&gt; adwrWidth,
+<a name="160"><q-n>     160  </q-n></a>    addrWidth           =&gt; addrWidth)
+<a name="161"><q-n>     161  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="162"><q-n>     162  </q-n></a>    clk                 =&gt; clk,
+<a name="163"><q-n>     163  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="164"><q-n>     164  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="165"><q-n>     165  </q-n></a>    oRgb                =&gt; blur1vx);
+<a name="166"><q-n>     166  </q-n></a>blurFilter2xInst: blurFilter
+<a name="167"><q-n>     167  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="168"><q-n>     168  </q-n></a>    iMSB                =&gt; blurMsb - 1,
+<a name="169"><q-n>     169  </q-n></a>    iLSB                =&gt; blurLsb - 1,
+<a name="170"><q-n>     170  </q-n></a>    i_data_width        =&gt; i_data_width,
+<a name="171"><q-n>     171  </q-n></a>    img_width           =&gt; img_width,
+<a name="172"><q-n>     172  </q-n></a>    adwrWidth           =&gt; adwrWidth,
+<a name="173"><q-n>     173  </q-n></a>    addrWidth           =&gt; addrWidth)
+<a name="174"><q-n>     174  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="175"><q-n>     175  </q-n></a>    clk                 =&gt; clk,
+<a name="176"><q-n>     176  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="177"><q-n>     177  </q-n></a>    iRgb                =&gt; blur1vx,
+<a name="178"><q-n>     178  </q-n></a>    oRgb                =&gt; blur2vx);
+<a name="179"><q-n>     179  </q-n></a>blurFilter3xInst: blurFilter
+<a name="180"><q-n>     180  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="181"><q-n>     181  </q-n></a>    iMSB                =&gt; blurMsb - 1,
+<a name="182"><q-n>     182  </q-n></a>    iLSB                =&gt; blurLsb - 1,
+<a name="183"><q-n>     183  </q-n></a>    i_data_width        =&gt; i_data_width,
+<a name="184"><q-n>     184  </q-n></a>    img_width           =&gt; img_width,
+<a name="185"><q-n>     185  </q-n></a>    adwrWidth           =&gt; adwrWidth,
+<a name="186"><q-n>     186  </q-n></a>    addrWidth           =&gt; addrWidth)
+<a name="187"><q-n>     187  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="188"><q-n>     188  </q-n></a>    clk                 =&gt; clk,
+<a name="189"><q-n>     189  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="190"><q-n>     190  </q-n></a>    iRgb                =&gt; blur2vx,
+<a name="191"><q-n>     191  </q-n></a>    oRgb                =&gt; blur3vx);
+<a name="192"><q-n>     192  </q-n></a>blurFilter4xInst: blurFilter
+<a name="193"><q-n>     193  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="194"><q-n>     194  </q-n></a>    iMSB                =&gt; blurMsb - 1,
+<a name="195"><q-n>     195  </q-n></a>    iLSB                =&gt; blurLsb - 1,
+<a name="196"><q-n>     196  </q-n></a>    i_data_width        =&gt; i_data_width,
+<a name="197"><q-n>     197  </q-n></a>    img_width           =&gt; img_width,
+<a name="198"><q-n>     198  </q-n></a>    adwrWidth           =&gt; adwrWidth,
+<a name="199"><q-n>     199  </q-n></a>    addrWidth           =&gt; addrWidth)
+<a name="200"><q-n>     200  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="201"><q-n>     201  </q-n></a>    clk                 =&gt; clk,
+<a name="202"><q-n>     202  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="203"><q-n>     203  </q-n></a>    iRgb                =&gt; blur3vx,
+<a name="204"><q-n>     204  </q-n></a>    oRgb                =&gt; blur4vx);
+<a name="205"><q-n>     205  </q-n></a>colorCorrection1Inst: colorCorrection
+<a name="206"><q-n>     206  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="207"><q-n>     207  </q-n></a>    i_data_width        =&gt; i_data_width)
+<a name="208"><q-n>     208  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(           
+<a name="209"><q-n>     209  </q-n></a>    clk                 =&gt; clk,
+<a name="210"><q-n>     210  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="211"><q-n>     211  </q-n></a>    iRgb                =&gt; blur4vx,
+<a name="212"><q-n>     212  </q-n></a>    als                 =&gt; iAls,    
+<a name="213"><q-n>     213  </q-n></a>    oRgb                =&gt; rgbV2Correct);
+<a name="214"><q-n>     214  </q-n></a>hsv_blur4xInst: hsv_c
+<a name="215"><q-n>     215  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="216"><q-n>     216  </q-n></a>    i_data_width        =&gt; i_data_width)
+<a name="217"><q-n>     217  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(   
+<a name="218"><q-n>     218  </q-n></a>    clk                 =&gt; clk,
+<a name="219"><q-n>     219  </q-n></a>    reset               =&gt; rst_l,
+<a name="220"><q-n>     220  </q-n></a>    iRgb                =&gt; rgbV2Correct,
+<a name="221"><q-n>     221  </q-n></a>    oHsv                =&gt; hsvCcBlur4vx);
+<a name="222"><q-n>     222  </q-n></a>detectInst: detect
+<a name="223"><q-n>     223  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="224"><q-n>     224  </q-n></a>    i_data_width        =&gt; i_data_width)
+<a name="225"><q-n>     225  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="226"><q-n>     226  </q-n></a>    clk                 =&gt; clk,
+<a name="227"><q-n>     227  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="228"><q-n>     228  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="229"><q-n>     229  </q-n></a>    rgbCoord            =&gt; iRgbCoord,
+<a name="230"><q-n>     230  </q-n></a>    endOfFrame          =&gt; iRgbSet.pEof,
+<a name="231"><q-n>     231  </q-n></a>    iCord               =&gt; cord,
+<a name="232"><q-n>     232  </q-n></a>    pDetect             =&gt; rgbDetectLock,
+<a name="233"><q-n>     233  </q-n></a>    oRgb                =&gt; rgbDetect);
+<a name="234"><q-n>     234  </q-n></a>pointOfInterestInst: pointOfInterest
+<a name="235"><q-n>     235  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="236"><q-n>     236  </q-n></a>    i_data_width        =&gt; i_data_width,
+<a name="237"><q-n>     237  </q-n></a>    s_data_width        =&gt; s_data_width,
+<a name="238"><q-n>     238  </q-n></a>    b_data_width        =&gt; b_data_width)
+<a name="239"><q-n>     239  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="240"><q-n>     240  </q-n></a>    clk                 =&gt; clk,
+<a name="241"><q-n>     241  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="242"><q-n>     242  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="243"><q-n>     243  </q-n></a>    iCord               =&gt; cord,
+<a name="244"><q-n>     244  </q-n></a>    endOfFrame          =&gt; iRgbSet.pEof,
+<a name="245"><q-n>     245  </q-n></a>    gridLockDatao       =&gt; oGridLockData,
+<a name="246"><q-n>     246  </q-n></a>    pRegion             =&gt; iPoiRegion,
+<a name="247"><q-n>     247  </q-n></a>    fifoStatus          =&gt; oFifoStatus,
+<a name="248"><q-n>     248  </q-n></a>    oGridLocation       =&gt; rgbPoiLock,
+<a name="249"><q-n>     249  </q-n></a>    oRgb                =&gt; rgbPoi);
+<a name="250"><q-n>     250  </q-n></a>hslInst: hsl_c
+<a name="251"><q-n>     251  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="252"><q-n>     252  </q-n></a>    i_data_width        =&gt; i_data_width)
+<a name="253"><q-n>     253  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(   
+<a name="254"><q-n>     254  </q-n></a>    clk                 =&gt; clk,
+<a name="255"><q-n>     255  </q-n></a>    reset               =&gt; rst_l,
+<a name="256"><q-n>     256  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="257"><q-n>     257  </q-n></a>    oHsl                =&gt; hsl);
+<a name="258"><q-n>     258  </q-n></a>hsvInst: hsv_c
+<a name="259"><q-n>     259  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="260"><q-n>     260  </q-n></a>    i_data_width        =&gt; i_data_width)
+<a name="261"><q-n>     261  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(   
+<a name="262"><q-n>     262  </q-n></a>    clk                 =&gt; clk,
+<a name="263"><q-n>     263  </q-n></a>    reset               =&gt; rst_l,
+<a name="264"><q-n>     264  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="265"><q-n>     265  </q-n></a>    oHsv                =&gt; hsv);
+<a name="266"><q-n>     266  </q-n></a><q-m>-- frameTestPatternInst: frameTestPattern</q-m>
+<a name="267"><q-n>     267  </q-n></a><q-m>-- generic map(</q-m>
+<a name="268"><q-n>     268  </q-n></a>    <q-m>-- s_data_width        =&gt; s_data_width)</q-m>
+<a name="269"><q-n>     269  </q-n></a><q-m>-- port map(   </q-m>
+<a name="270"><q-n>     270  </q-n></a>    <q-m>-- clk                 =&gt; clk,</q-m>
+<a name="271"><q-n>     271  </q-n></a>    <q-m>-- iValid              =&gt; rgbIn.valid,</q-m>
+<a name="272"><q-n>     272  </q-n></a>    <q-m>-- iCord               =&gt; cord,</q-m>
+<a name="273"><q-n>     273  </q-n></a>    <q-m>-- oRgb                =&gt; rgbSum);</q-m>
+<a name="274"><q-n>     274  </q-n></a><q-w>end</q-w> <q-w>architecture</q-w>;</pre>
+</tt>
+
+  
+</body>
+</html>

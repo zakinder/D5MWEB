@@ -1,0 +1,231 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a>
+<a name="2"><q-n>     2  </q-n></a><q-w>library</q-w> ieee;
+<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
+<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
+<a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
+<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
+<a name="7"><q-n>     7  </q-n></a>
+<a name="8"><q-n>     8  </q-n></a><q-w>entity</q-w> pixelCord <q-w>is</q-w>
+<a name="9"><q-n>     9  </q-n></a><q-w>port</q-w> (
+<a name="10"><q-n>     10  </q-n></a>    clk            : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="11"><q-n>     11  </q-n></a>    iRed           : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(7 <q-w>downto</q-w> 0);
+<a name="12"><q-n>     12  </q-n></a>    iGreen         : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(7 <q-w>downto</q-w> 0);
+<a name="13"><q-n>     13  </q-n></a>    iBlue          : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(7 <q-w>downto</q-w> 0);
+<a name="14"><q-n>     14  </q-n></a>    iValid         : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="15"><q-n>     15  </q-n></a>    iPixelEn       : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="16"><q-n>     16  </q-n></a>    iEof           : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="17"><q-n>     17  </q-n></a>    iX             : <q-a>in</q-w> <q-t>integer</q-w>;
+<a name="18"><q-n>     18  </q-n></a>    iY             : <q-a>in</q-w> <q-t>integer</q-w>;
+<a name="19"><q-n>     19  </q-n></a>    oRed           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(7 <q-w>downto</q-w> 0);
+<a name="20"><q-n>     20  </q-n></a>    oGreen         : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(7 <q-w>downto</q-w> 0);
+<a name="21"><q-n>     21  </q-n></a>    oBlue          : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(7 <q-w>downto</q-w> 0);
+<a name="22"><q-n>     22  </q-n></a>    oValid         : <q-a>out</q-w> <q-t>std_logic</q-w>);
+<a name="23"><q-n>     23  </q-n></a><q-w>end</q-w> <q-w>entity</q-w>;
+<a name="24"><q-n>     24  </q-n></a><q-w>architecture</q-w> rtl <q-w>of</q-w> pixelCord <q-w>is</q-w>
+<a name="25"><q-n>     25  </q-n></a>    <q-w>signal</q-w> iCord           : cord;
+<a name="26"><q-n>     26  </q-n></a>    <q-w>signal</q-w> oRgb            : channel;
+<a name="27"><q-n>     27  </q-n></a>    <q-w>signal</q-w> iRgb            : channel;
+<a name="28"><q-n>     28  </q-n></a>    <q-w>signal</q-w> frameSize       : intersectPoint;
+<a name="29"><q-n>     29  </q-n></a>    <q-w>signal</q-w> initCord        : intersectPoint;
+<a name="30"><q-n>     30  </q-n></a>    <q-w>signal</q-w> newCord         : intersectPoint;
+<a name="31"><q-n>     31  </q-n></a>    <q-w>signal</q-w> grid1Cord       : intersectPoint;
+<a name="32"><q-n>     32  </q-n></a>    <q-w>signal</q-w> grid2Cord       : intersectPoint;
+<a name="33"><q-n>     33  </q-n></a>    <q-w>signal</q-w> grid3Cord       : intersectPoint;
+<a name="34"><q-n>     34  </q-n></a>    <q-w>signal</q-w> grid4Cord       : intersectPoint;
+<a name="35"><q-n>     35  </q-n></a>    <q-w>signal</q-w> rgb             : channel;
+<a name="36"><q-n>     36  </q-n></a><q-w>begin</q-w>
+<a name="37"><q-n>     37  </q-n></a>    iCord.x         &lt;= iX;
+<a name="38"><q-n>     38  </q-n></a>    iCord.y         &lt;= iY;
+<a name="39"><q-n>     39  </q-n></a>    
+<a name="40"><q-n>     40  </q-n></a>    iRgb.red         &lt;= iRed;
+<a name="41"><q-n>     41  </q-n></a>    iRgb.green       &lt;= iGreen;
+<a name="42"><q-n>     42  </q-n></a>    iRgb.blue        &lt;= iBlue;
+<a name="43"><q-n>     43  </q-n></a>    iRgb.valid       &lt;= iValid;
+<a name="44"><q-n>     44  </q-n></a>    
+<a name="45"><q-n>     45  </q-n></a>    oRed             &lt;= oRgb.red;
+<a name="46"><q-n>     46  </q-n></a>    oGreen           &lt;= oRgb.green;
+<a name="47"><q-n>     47  </q-n></a>    oBlue            &lt;= oRgb.blue;
+<a name="48"><q-n>     48  </q-n></a>    oValid           &lt;= oRgb.valid;
+<a name="49"><q-n>     49  </q-n></a>    
+<a name="50"><q-n>     50  </q-n></a>    
+<a name="51"><q-n>     51  </q-n></a>    initCord.rht   &lt;= initCordValueRht;
+<a name="52"><q-n>     52  </q-n></a>    initCord.lft   &lt;= initCordValueLft;
+<a name="53"><q-n>     53  </q-n></a>    initCord.top   &lt;= initCordValueTop;
+<a name="54"><q-n>     54  </q-n></a>    initCord.bot   &lt;= initCordValueBot;
+<a name="55"><q-n>     55  </q-n></a>    frameSize.lft  &lt;= frameSizeLft;
+<a name="56"><q-n>     56  </q-n></a>    frameSize.rht  &lt;= frameSizeRht;
+<a name="57"><q-n>     57  </q-n></a>    frameSize.top  &lt;= frameSizeTop;
+<a name="58"><q-n>     58  </q-n></a>    frameSize.bot  &lt;= frameSizeBot;
+<a name="59"><q-n>     59  </q-n></a>dataOutP: <q-w>process</q-w> (clk)<q-w>begin</q-w>
+<a name="60"><q-n>     60  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="61"><q-n>     61  </q-n></a>        oRgb.valid  &lt;= iRgb.valid;
+<a name="62"><q-n>     62  </q-n></a>        oRgb.red    &lt;= rgb.red;
+<a name="63"><q-n>     63  </q-n></a>        oRgb.green  &lt;= rgb.green;
+<a name="64"><q-n>     64  </q-n></a>        oRgb.blue   &lt;= rgb.blue;
+<a name="65"><q-n>     65  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="66"><q-n>     66  </q-n></a><q-w>end</q-w> <q-w>process</q-w> dataOutP;
+<a name="67"><q-n>     67  </q-n></a>pixelCordP: <q-w>process</q-w> (clk)<q-w>begin</q-w>
+<a name="68"><q-n>     68  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="69"><q-n>     69  </q-n></a>        <q-w>if</q-w> (iRgb.valid = hi) <q-w>then</q-w>
+<a name="70"><q-n>     70  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="71"><q-n>     71  </q-n></a>            <q-w>if</q-w> (iPixelEn = hi) <q-w>then</q-w> 
+<a name="72"><q-n>     72  </q-n></a>                <q-m>------------------------------------</q-m>
+<a name="73"><q-n>     73  </q-n></a>                <q-m>--Left Coordinates</q-m>
+<a name="74"><q-n>     74  </q-n></a>                <q-m>------------------------------------</q-m>
+<a name="75"><q-n>     75  </q-n></a>                <q-w>if</q-w> (iCord.x &lt;= newCord.lft) <q-w>then</q-w>
+<a name="76"><q-n>     76  </q-n></a>                    <q-w>if</q-w> ( iCord.x &gt;= frameSize.lft) <q-w>then</q-w> 
+<a name="77"><q-n>     77  </q-n></a>                        newCord.lft &lt;= iCord.x - 1;
+<a name="78"><q-n>     78  </q-n></a>                    <q-w>end</q-w> <q-w>if</q-w>;   
+<a name="79"><q-n>     79  </q-n></a>                <q-w>end</q-w> <q-w>if</q-w>;
+<a name="80"><q-n>     80  </q-n></a>                <q-m>------------------------------------</q-m>
+<a name="81"><q-n>     81  </q-n></a>                <q-m>--Right Coordinates</q-m>
+<a name="82"><q-n>     82  </q-n></a>                <q-m>------------------------------------</q-m>
+<a name="83"><q-n>     83  </q-n></a>                <q-w>if</q-w> (iCord.x &gt;= newCord.rht) <q-w>then</q-w>
+<a name="84"><q-n>     84  </q-n></a>                    <q-w>if</q-w> ( iCord.x &lt;= frameSize.rht) <q-w>then</q-w> 
+<a name="85"><q-n>     85  </q-n></a>                        newCord.rht &lt;= iCord.x + 1;
+<a name="86"><q-n>     86  </q-n></a>                    <q-w>end</q-w> <q-w>if</q-w>;   
+<a name="87"><q-n>     87  </q-n></a>                <q-w>end</q-w> <q-w>if</q-w>;
+<a name="88"><q-n>     88  </q-n></a>                <q-m>------------------------------------</q-m>
+<a name="89"><q-n>     89  </q-n></a>                <q-m>--Top Coordinates</q-m>
+<a name="90"><q-n>     90  </q-n></a>                <q-m>------------------------------------</q-m>
+<a name="91"><q-n>     91  </q-n></a>                <q-w>if</q-w> (iCord.y &lt;= newCord.top) <q-w>then</q-w>
+<a name="92"><q-n>     92  </q-n></a>                    <q-w>if</q-w> ( iCord.y &gt;= frameSize.top) <q-w>then</q-w> 
+<a name="93"><q-n>     93  </q-n></a>                        newCord.top &lt;= iCord.y - 1;
+<a name="94"><q-n>     94  </q-n></a>                    <q-w>end</q-w> <q-w>if</q-w>;   
+<a name="95"><q-n>     95  </q-n></a>                <q-w>end</q-w> <q-w>if</q-w>;
+<a name="96"><q-n>     96  </q-n></a>                <q-m>------------------------------------</q-m>
+<a name="97"><q-n>     97  </q-n></a>                <q-m>--Bottom Coordinates</q-m>
+<a name="98"><q-n>     98  </q-n></a>                <q-m>------------------------------------</q-m>
+<a name="99"><q-n>     99  </q-n></a>                <q-w>if</q-w> (iCord.y &gt;= newCord.bot) <q-w>then</q-w>
+<a name="100"><q-n>     100  </q-n></a>                    <q-w>if</q-w> ( iCord.y &lt;= frameSize.bot) <q-w>then</q-w> 
+<a name="101"><q-n>     101  </q-n></a>                        newCord.bot &lt;= iCord.y + 1;
+<a name="102"><q-n>     102  </q-n></a>                    <q-w>end</q-w> <q-w>if</q-w>;   
+<a name="103"><q-n>     103  </q-n></a>                <q-w>end</q-w> <q-w>if</q-w>;
+<a name="104"><q-n>     104  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;<q-m>--iPixelEn</q-m>
+<a name="105"><q-n>     105  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="106"><q-n>     106  </q-n></a>            <q-m>-- 4TH FRAME</q-m>
+<a name="107"><q-n>     107  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="108"><q-n>     108  </q-n></a>            <q-w>if</q-w> ((iCord.y = grid4Cord.bot) <q-w>and</q-w> ((iCord.x &gt;= grid4Cord.lft) <q-w>and</q-w> (iCord.x &lt;= grid4Cord.rht)))<q-w>then</q-w>
+<a name="109"><q-n>     109  </q-n></a>                rgb.red        &lt;= white;
+<a name="110"><q-n>     110  </q-n></a>                rgb.green      &lt;= black;
+<a name="111"><q-n>     111  </q-n></a>                rgb.blue       &lt;= black;
+<a name="112"><q-n>     112  </q-n></a>            <q-w>elsif</q-w> ((iCord.y = grid4Cord.top) <q-w>and</q-w> ((iCord.x &gt;= grid4Cord.lft) <q-w>and</q-w> (iCord.x &lt;= grid4Cord.rht)))<q-w>then</q-w>
+<a name="113"><q-n>     113  </q-n></a>                rgb.red        &lt;= white;
+<a name="114"><q-n>     114  </q-n></a>                rgb.green      &lt;= black;
+<a name="115"><q-n>     115  </q-n></a>                rgb.blue       &lt;= black;
+<a name="116"><q-n>     116  </q-n></a>            <q-w>elsif</q-w> ((iCord.x = grid4Cord.lft) <q-w>and</q-w> ((iCord.y &gt;= grid4Cord.top) <q-w>and</q-w> (iCord.y &lt;= grid4Cord.bot)))<q-w>then</q-w>
+<a name="117"><q-n>     117  </q-n></a>                rgb.red        &lt;= white;
+<a name="118"><q-n>     118  </q-n></a>                rgb.green      &lt;= black;
+<a name="119"><q-n>     119  </q-n></a>                rgb.blue       &lt;= black;
+<a name="120"><q-n>     120  </q-n></a>            <q-w>elsif</q-w> ((iCord.x = grid4Cord.rht) <q-w>and</q-w> ((iCord.y &gt;= grid4Cord.top) <q-w>and</q-w> (iCord.y &lt;= grid4Cord.bot)))<q-w>then</q-w>
+<a name="121"><q-n>     121  </q-n></a>                rgb.red        &lt;= white;
+<a name="122"><q-n>     122  </q-n></a>                rgb.green      &lt;= black;
+<a name="123"><q-n>     123  </q-n></a>                rgb.blue       &lt;= black;
+<a name="124"><q-n>     124  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="125"><q-n>     125  </q-n></a>           <q-m>-- 3RD FRAME</q-m>
+<a name="126"><q-n>     126  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="127"><q-n>     127  </q-n></a>            <q-w>elsif</q-w> ((iCord.y = grid3Cord.bot) <q-w>and</q-w> ((iCord.x &gt;= grid3Cord.lft) <q-w>and</q-w> (iCord.x &lt;= grid3Cord.rht)))<q-w>then</q-w>
+<a name="128"><q-n>     128  </q-n></a>                rgb.red        &lt;= black;
+<a name="129"><q-n>     129  </q-n></a>                rgb.green      &lt;= white;
+<a name="130"><q-n>     130  </q-n></a>                rgb.blue       &lt;= black;
+<a name="131"><q-n>     131  </q-n></a>            <q-w>elsif</q-w> ((iCord.y = grid3Cord.top) <q-w>and</q-w> ((iCord.x &gt;= grid3Cord.lft) <q-w>and</q-w> (iCord.x &lt;= grid3Cord.rht)))<q-w>then</q-w>
+<a name="132"><q-n>     132  </q-n></a>                rgb.red        &lt;= black;
+<a name="133"><q-n>     133  </q-n></a>                rgb.green      &lt;= white;
+<a name="134"><q-n>     134  </q-n></a>                rgb.blue       &lt;= black;
+<a name="135"><q-n>     135  </q-n></a>            <q-w>elsif</q-w> ((iCord.x = grid3Cord.lft) <q-w>and</q-w> ((iCord.y &gt;= grid3Cord.top) <q-w>and</q-w> (iCord.y &lt;= grid3Cord.bot)))<q-w>then</q-w>
+<a name="136"><q-n>     136  </q-n></a>                rgb.red        &lt;= black;
+<a name="137"><q-n>     137  </q-n></a>                rgb.green      &lt;= white;
+<a name="138"><q-n>     138  </q-n></a>                rgb.blue       &lt;= black;
+<a name="139"><q-n>     139  </q-n></a>            <q-w>elsif</q-w> ((iCord.x = grid3Cord.rht) <q-w>and</q-w> ((iCord.y &gt;= grid3Cord.top) <q-w>and</q-w> (iCord.y &lt;= grid3Cord.bot)))<q-w>then</q-w>
+<a name="140"><q-n>     140  </q-n></a>                rgb.red        &lt;= black;
+<a name="141"><q-n>     141  </q-n></a>                rgb.green      &lt;= white;
+<a name="142"><q-n>     142  </q-n></a>                rgb.blue       &lt;= black;
+<a name="143"><q-n>     143  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="144"><q-n>     144  </q-n></a>            <q-m>-- 2ND FRAME</q-m>
+<a name="145"><q-n>     145  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="146"><q-n>     146  </q-n></a>            <q-w>elsif</q-w> ((iCord.y = grid2Cord.bot) <q-w>and</q-w> ((iCord.x &gt;= grid2Cord.lft) <q-w>and</q-w> (iCord.x &lt;= grid3Cord.rht)))<q-w>then</q-w>
+<a name="147"><q-n>     147  </q-n></a>                rgb.red        &lt;= black;
+<a name="148"><q-n>     148  </q-n></a>                rgb.green      &lt;= black;
+<a name="149"><q-n>     149  </q-n></a>                rgb.blue       &lt;= white;
+<a name="150"><q-n>     150  </q-n></a>            <q-w>elsif</q-w> ((iCord.y = grid2Cord.top) <q-w>and</q-w> ((iCord.x &gt;= grid2Cord.lft) <q-w>and</q-w> (iCord.x &lt;= grid3Cord.rht)))<q-w>then</q-w>
+<a name="151"><q-n>     151  </q-n></a>                rgb.red        &lt;= black;
+<a name="152"><q-n>     152  </q-n></a>                rgb.green      &lt;= black;
+<a name="153"><q-n>     153  </q-n></a>                rgb.blue       &lt;= white;
+<a name="154"><q-n>     154  </q-n></a>            <q-w>elsif</q-w> ((iCord.x = grid2Cord.lft) <q-w>and</q-w> ((iCord.y &gt;= grid2Cord.top) <q-w>and</q-w> (iCord.y &lt;= grid2Cord.bot)))<q-w>then</q-w>
+<a name="155"><q-n>     155  </q-n></a>                rgb.red        &lt;= black;
+<a name="156"><q-n>     156  </q-n></a>                rgb.green      &lt;= black;
+<a name="157"><q-n>     157  </q-n></a>                rgb.blue       &lt;= white;
+<a name="158"><q-n>     158  </q-n></a>            <q-w>elsif</q-w> ((iCord.x = grid3Cord.rht) <q-w>and</q-w> ((iCord.y &gt;= grid2Cord.top) <q-w>and</q-w> (iCord.y &lt;= grid2Cord.bot)))<q-w>then</q-w>
+<a name="159"><q-n>     159  </q-n></a>                rgb.red        &lt;= black;
+<a name="160"><q-n>     160  </q-n></a>                rgb.green      &lt;= black;
+<a name="161"><q-n>     161  </q-n></a>                rgb.blue       &lt;= white;
+<a name="162"><q-n>     162  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="163"><q-n>     163  </q-n></a>            <q-m>-- 1ST FRAME</q-m>
+<a name="164"><q-n>     164  </q-n></a>            <q-m>------------------------------------</q-m>
+<a name="165"><q-n>     165  </q-n></a>            <q-w>elsif</q-w> ((iCord.y = grid1Cord.bot) <q-w>and</q-w> ((iCord.x &gt;= grid1Cord.lft) <q-w>and</q-w> (iCord.x &lt;= grid1Cord.rht)))<q-w>then</q-w>
+<a name="166"><q-n>     166  </q-n></a>                rgb.red        &lt;= x<q-l>"80"</q-l>;
+<a name="167"><q-n>     167  </q-n></a>                rgb.green      &lt;= black;
+<a name="168"><q-n>     168  </q-n></a>                rgb.blue       &lt;= x<q-l>"80"</q-l>;
+<a name="169"><q-n>     169  </q-n></a>            <q-w>elsif</q-w> ((iCord.y = grid1Cord.top) <q-w>and</q-w> ((iCord.x &gt;= grid1Cord.lft) <q-w>and</q-w> (iCord.x &lt;= grid1Cord.rht)))<q-w>then</q-w>
+<a name="170"><q-n>     170  </q-n></a>                rgb.red        &lt;= x<q-l>"80"</q-l>;
+<a name="171"><q-n>     171  </q-n></a>                rgb.green      &lt;= black;
+<a name="172"><q-n>     172  </q-n></a>                rgb.blue       &lt;= x<q-l>"80"</q-l>;
+<a name="173"><q-n>     173  </q-n></a>            <q-w>elsif</q-w> ((iCord.x = grid1Cord.lft) <q-w>and</q-w> ((iCord.y &gt;= grid1Cord.top) <q-w>and</q-w> (iCord.y &lt;= grid1Cord.bot)))<q-w>then</q-w>
+<a name="174"><q-n>     174  </q-n></a>                rgb.red        &lt;= x<q-l>"80"</q-l>;
+<a name="175"><q-n>     175  </q-n></a>                rgb.green      &lt;= black;
+<a name="176"><q-n>     176  </q-n></a>                rgb.blue       &lt;= x<q-l>"80"</q-l>;
+<a name="177"><q-n>     177  </q-n></a>            <q-w>elsif</q-w> ((iCord.x = grid1Cord.rht) <q-w>and</q-w> ((iCord.y &gt;= grid1Cord.top) <q-w>and</q-w> (iCord.y &lt;= grid1Cord.bot)))<q-w>then</q-w>
+<a name="178"><q-n>     178  </q-n></a>                rgb.red        &lt;= x<q-l>"80"</q-l>;
+<a name="179"><q-n>     179  </q-n></a>                rgb.green      &lt;= black;
+<a name="180"><q-n>     180  </q-n></a>                rgb.blue       &lt;= x<q-l>"80"</q-l>;
+<a name="181"><q-n>     181  </q-n></a>            <q-w>else</q-w>
+<a name="182"><q-n>     182  </q-n></a>                rgb.red        &lt;= iRgb.red;
+<a name="183"><q-n>     183  </q-n></a>                rgb.green      &lt;= iRgb.green;
+<a name="184"><q-n>     184  </q-n></a>                rgb.blue       &lt;= iRgb.blue;
+<a name="185"><q-n>     185  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="186"><q-n>     186  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;<q-m>--iRgb.valid</q-m>
+<a name="187"><q-n>     187  </q-n></a>        <q-w>if</q-w> (iEof = hi)<q-w>then</q-w>
+<a name="188"><q-n>     188  </q-n></a>            <q-m>--RESET COORDINATES TO DEFAULT</q-m>
+<a name="189"><q-n>     189  </q-n></a>            newCord.lft       &lt;= initCord.lft;
+<a name="190"><q-n>     190  </q-n></a>            newCord.rht       &lt;= initCord.rht;
+<a name="191"><q-n>     191  </q-n></a>            newCord.top       &lt;= initCord.top;
+<a name="192"><q-n>     192  </q-n></a>            newCord.bot       &lt;= initCord.bot;
+<a name="193"><q-n>     193  </q-n></a>            <q-m>-- 1ST FRAME</q-m>
+<a name="194"><q-n>     194  </q-n></a>            grid1Cord.lft     &lt;= newCord.lft;
+<a name="195"><q-n>     195  </q-n></a>            grid1Cord.rht     &lt;= newCord.rht;
+<a name="196"><q-n>     196  </q-n></a>            grid1Cord.top     &lt;= newCord.top;
+<a name="197"><q-n>     197  </q-n></a>            grid1Cord.bot     &lt;= newCord.bot;
+<a name="198"><q-n>     198  </q-n></a>            <q-m>-- 2ND FRAME</q-m>
+<a name="199"><q-n>     199  </q-n></a>            grid2Cord.lft     &lt;= grid1Cord.lft;
+<a name="200"><q-n>     200  </q-n></a>            grid2Cord.rht     &lt;= grid1Cord.rht;
+<a name="201"><q-n>     201  </q-n></a>            grid2Cord.top     &lt;= grid1Cord.top;
+<a name="202"><q-n>     202  </q-n></a>            grid2Cord.bot     &lt;= grid1Cord.bot;
+<a name="203"><q-n>     203  </q-n></a>            <q-m>-- 3RD FRAME</q-m>
+<a name="204"><q-n>     204  </q-n></a>            grid3Cord.lft     &lt;= grid2Cord.lft;
+<a name="205"><q-n>     205  </q-n></a>            grid3Cord.rht     &lt;= grid2Cord.rht;
+<a name="206"><q-n>     206  </q-n></a>            grid3Cord.top     &lt;= grid2Cord.top;
+<a name="207"><q-n>     207  </q-n></a>            grid3Cord.bot     &lt;= grid2Cord.bot;
+<a name="208"><q-n>     208  </q-n></a>            <q-m>-- 4TH FRAME</q-m>
+<a name="209"><q-n>     209  </q-n></a>            grid4Cord.lft     &lt;= grid3Cord.lft;
+<a name="210"><q-n>     210  </q-n></a>            grid4Cord.rht     &lt;= grid3Cord.rht;
+<a name="211"><q-n>     211  </q-n></a>            grid4Cord.top     &lt;= grid3Cord.top;
+<a name="212"><q-n>     212  </q-n></a>            grid4Cord.bot     &lt;= grid3Cord.bot;
+<a name="213"><q-n>     213  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;<q-m>--iEof</q-m>
+<a name="214"><q-n>     214  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="215"><q-n>     215  </q-n></a><q-w>end</q-w> <q-w>process</q-w> pixelCordP;
+<a name="216"><q-n>     216  </q-n></a><q-w>end</q-w> <q-w>architecture</q-w>;</pre>
+</tt>
+
+  
+</body>
+</html>

@@ -2,55 +2,37 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.fixed_pkg.all;
-use work.float_pkg.all;
 use work.constantspackage.all;
 use work.vpfrecords.all;
 use work.portspackage.all;
 entity KernelCore is
 generic (
-    SHARP_FRAME   : boolean := false;
-    BLURE_FRAME   : boolean := false;
-    EMBOS_FRAME   : boolean := false;
-    YCBCR_FRAME   : boolean := false;
-    SOBEL_FRAME   : boolean := false;
-    CGAIN_FRAME   : boolean := false;
-    img_width     : integer := 4096;
-    i_data_width  : integer := 8);
+    SHARP_FRAME      : boolean := false;
+    BLURE_FRAME      : boolean := false;
+    EMBOS_FRAME      : boolean := false;
+    YCBCR_FRAME      : boolean := false;
+    SOBEL_FRAME      : boolean := false;
+    CGAIN_FRAME      : boolean := false;
+    img_width        : integer := 4096;
+    i_data_width     : integer := 8);
 port (
     clk              : in std_logic;
     rst_l            : in std_logic;
     iRgb             : in channel;
-    kCoeff           : in kernelCoeff;
+    kCoeff           : in kernelCoeDWord;
     oRgb             : out channel);
 end KernelCore;
 architecture Behavioral of KernelCore is
-    signal fract          : float32;
-    signal rgbLevel       : float32;
-    signal cc             : ccRecord;
-    signal levelValue     : sfixed(9 downto 0) := "0100000000";
-    signal rgbSyncValid   : std_logic_vector(15 downto 0)  := x"0000";
-    signal rgbToFl_red    : std_logic_vector(31 downto 0);
-    signal rgbToFl_gre    : std_logic_vector(31 downto 0);
-    signal rgbToFl_blu    : std_logic_vector(31 downto 0);
+    signal cc               : ccRecord;
+    signal rgbSyncValid     : std_logic_vector(15 downto 0)  := x"0000";
+    signal rgbToFl_red      : std_logic_vector(31 downto 0);
+    signal rgbToFl_gre      : std_logic_vector(31 downto 0);
+    signal rgbToFl_blu      : std_logic_vector(31 downto 0);
+    signal fractLevel       : std_logic_vector(31 downto 0);
+    signal kCoeffDWord      : kernelCoeDWord;
+    signal FractLevelProd   : kernelCoeDWord;
+    signal kCoeffProd       : kCoeffFloat;
 begin
-
-
-
-
------------------------------------------------------------------------------------------------
---Coeff To Float
------------------------------------------------------------------------------------------------
-    rgbLevel       <= to_float ((levelValue), rgbLevel);
-    fract          <= to_float ((0.001), fract);
-    cc.flCoef.k1   <= to_float((signed(kCoeff.k1)),cc.flCoef.k1);
-    cc.flCoef.k2   <= to_float((signed(kCoeff.k2)),cc.flCoef.k2);
-    cc.flCoef.k3   <= to_float((signed(kCoeff.k3)),cc.flCoef.k3);
-    cc.flCoef.k4   <= to_float((signed(kCoeff.k4)),cc.flCoef.k4);
-    cc.flCoef.k5   <= to_float((signed(kCoeff.k5)),cc.flCoef.k5);
-    cc.flCoef.k6   <= to_float((signed(kCoeff.k6)),cc.flCoef.k6);
-    cc.flCoef.k7   <= to_float((signed(kCoeff.k7)),cc.flCoef.k7);
-    cc.flCoef.k8   <= to_float((signed(kCoeff.k8)),cc.flCoef.k8);
-    cc.flCoef.k9   <= to_float((signed(kCoeff.k9)),cc.flCoef.k9);
 -----------------------------------------------------------------------------------------------
 -- STAGE 1
 -----------------------------------------------------------------------------------------------
@@ -78,47 +60,125 @@ ByteToFloatTopBlueinst: ByteToFloatTop
       iData      => iRgb.blue,
       oValid     => open,
       oDataFloat => rgbToFl_blu);
- process (clk,rst_l) begin
-     if (rst_l = lo) then
-         cc.rgbToFl.red   <= (others => '0');
-         cc.rgbToFl.green <= (others => '0');
-         cc.rgbToFl.blue  <= (others => '0');
-     elsif rising_edge(clk) then 
-         cc.rgbToFl.red   <= to_float(rgbToFl_red, cc.rgbToFl.red);
-         cc.rgbToFl.green <= to_float(rgbToFl_gre, cc.rgbToFl.green);
-         cc.rgbToFl.blue  <= to_float(rgbToFl_blu, cc.rgbToFl.blue);
-     end if;
- end process;
+-----------------------------------------------------------------------------------------------
+-- STAGE 2
+-----------------------------------------------------------------------------------------------
+FloatMultiplyK1Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k1,
+      iBdata     => cc.tpsd3.vTap2x,
+      oRdata     => FractLevelProd.k1);
+FloatMultiplyK2Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k2,
+      iBdata     => cc.tpsd2.vTap2x,
+      oRdata     => FractLevelProd.k2);
+FloatMultiplyK3Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k3,
+      iBdata     => cc.tpsd1.vTap2x,
+      oRdata     => FractLevelProd.k3);
+FloatMultiplyK4Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k4,
+      iBdata     => cc.tpsd3.vTap1x,
+      oRdata     => FractLevelProd.k4);
+FloatMultiplyK5Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k5,
+      iBdata     => cc.tpsd2.vTap1x,
+      oRdata     => FractLevelProd.k5);
+FloatMultiplyK6Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k6,
+      iBdata     => cc.tpsd1.vTap1x,
+      oRdata     => FractLevelProd.k6);
+FloatMultiplyK7Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k7,
+      iBdata     => cc.tpsd3.vTap0x,
+      oRdata     => FractLevelProd.k7);
+FloatMultiplyK8Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k8,
+      iBdata     => cc.tpsd2.vTap0x,
+      oRdata     => FractLevelProd.k8);
+FloatMultiplyK9Inst: FloatMultiplyTop
+    port map (
+      clk        => clk,
+      iAdata     => kCoeff.k9,
+      iBdata     => cc.tpsd1.vTap0x,
+      oRdata     => FractLevelProd.k9);
 -----------------------------------------------------------------------------------------------
 -- STAGE 3
 -----------------------------------------------------------------------------------------------
-process (clk) begin 
-    if rising_edge(clk) then 
-        cc.flProd.k1 <= (cc.flCoefFract.k1 * cc.tpd3.vTap2x);
-        cc.flProd.k2 <= (cc.flCoefFract.k2 * cc.tpd2.vTap2x);
-        cc.flProd.k3 <= (cc.flCoefFract.k3 * cc.tpd1.vTap2x);
-        cc.flProd.k4 <= (cc.flCoefFract.k4 * cc.tpd3.vTap1x);
-        cc.flProd.k5 <= (cc.flCoefFract.k5 * cc.tpd2.vTap1x);
-        cc.flProd.k6 <= (cc.flCoefFract.k6 * cc.tpd1.vTap1x);
-        cc.flProd.k7 <= (cc.flCoefFract.k7 * cc.tpd3.vTap0x);
-        cc.flProd.k8 <= (cc.flCoefFract.k8 * cc.tpd2.vTap0x);
-        cc.flProd.k9 <= (cc.flCoefFract.k9 * cc.tpd1.vTap0x);
-    end if;
-end process;
+FloatToFixedv1TopK1Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k1,
+      oData      => kCoeffProd.k1);   
+FloatToFixedv1TopK2Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k2,
+      oData      => kCoeffProd.k2);  
+FloatToFixedv1TopK3Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k3,
+      oData      => kCoeffProd.k3);  
+FloatToFixedv1TopK4Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k4,
+      oData      => kCoeffProd.k4);   
+FloatToFixedv1TopK5Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k5,
+      oData      => kCoeffProd.k5);  
+FloatToFixedv1TopK6Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k6,
+      oData      => kCoeffProd.k6); 
+FloatToFixedv1TopK7Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k7,
+      oData      => kCoeffProd.k7);   
+FloatToFixedv1TopK8Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k8,
+      oData      => kCoeffProd.k8);  
+FloatToFixedv1TopK9Inst: FloatToFixedv1Top
+    port map (
+      aclk       => clk,
+      iData      => FractLevelProd.k9,
+      oData      => kCoeffProd.k9);  
 -----------------------------------------------------------------------------------------------
 -- STAGE 4
 -----------------------------------------------------------------------------------------------
 process (clk) begin
-    if rising_edge(clk) then
-        cc.flCoefFract.k1 <= (cc.flCoef.k1 * fract * rgbLevel);
-        cc.flCoefFract.k2 <= (cc.flCoef.k2 * fract * rgbLevel);
-        cc.flCoefFract.k3 <= (cc.flCoef.k3 * fract * rgbLevel);
-        cc.flCoefFract.k4 <= (cc.flCoef.k4 * fract * rgbLevel);
-        cc.flCoefFract.k5 <= (cc.flCoef.k5 * fract * rgbLevel);
-        cc.flCoefFract.k6 <= (cc.flCoef.k6 * fract * rgbLevel);
-        cc.flCoefFract.k7 <= (cc.flCoef.k7 * fract * rgbLevel);
-        cc.flCoefFract.k8 <= (cc.flCoef.k8 * fract * rgbLevel);
-        cc.flCoefFract.k9 <= (cc.flCoef.k9 * fract * rgbLevel);
+    if rising_edge(clk) then 
+        cc.fxToSnFxProd.k1 <= to_sfixed((kCoeffProd.k1), cc.fxToSnFxProd.k1);
+        cc.fxToSnFxProd.k2 <= to_sfixed((kCoeffProd.k2), cc.fxToSnFxProd.k2);
+        cc.fxToSnFxProd.k3 <= to_sfixed((kCoeffProd.k3), cc.fxToSnFxProd.k3);
+        cc.fxToSnFxProd.k4 <= to_sfixed((kCoeffProd.k4), cc.fxToSnFxProd.k4);
+        cc.fxToSnFxProd.k5 <= to_sfixed((kCoeffProd.k5), cc.fxToSnFxProd.k5);
+        cc.fxToSnFxProd.k6 <= to_sfixed((kCoeffProd.k6), cc.fxToSnFxProd.k6);
+        cc.fxToSnFxProd.k7 <= to_sfixed((kCoeffProd.k7), cc.fxToSnFxProd.k7);
+        cc.fxToSnFxProd.k8 <= to_sfixed((kCoeffProd.k8), cc.fxToSnFxProd.k8);
+        cc.fxToSnFxProd.k9 <= to_sfixed((kCoeffProd.k9), cc.fxToSnFxProd.k9);
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
@@ -126,35 +186,19 @@ end process;
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then 
-        cc.flToSnFxProd.k1 <= to_sfixed((cc.flProd.k1), cc.flToSnFxProd.k1);
-        cc.flToSnFxProd.k2 <= to_sfixed((cc.flProd.k2), cc.flToSnFxProd.k2);
-        cc.flToSnFxProd.k3 <= to_sfixed((cc.flProd.k3), cc.flToSnFxProd.k3);
-        cc.flToSnFxProd.k4 <= to_sfixed((cc.flProd.k4), cc.flToSnFxProd.k4);
-        cc.flToSnFxProd.k5 <= to_sfixed((cc.flProd.k5), cc.flToSnFxProd.k5);
-        cc.flToSnFxProd.k6 <= to_sfixed((cc.flProd.k6), cc.flToSnFxProd.k6);
-        cc.flToSnFxProd.k7 <= to_sfixed((cc.flProd.k7), cc.flToSnFxProd.k7);
-        cc.flToSnFxProd.k8 <= to_sfixed((cc.flProd.k8), cc.flToSnFxProd.k8);
-        cc.flToSnFxProd.k9 <= to_sfixed((cc.flProd.k9), cc.flToSnFxProd.k9);
+        cc.snFxToSnProd.k1 <= to_signed(cc.fxToSnFxProd.k1(19 downto 0), 20);
+        cc.snFxToSnProd.k2 <= to_signed(cc.fxToSnFxProd.k2(19 downto 0), 20);
+        cc.snFxToSnProd.k3 <= to_signed(cc.fxToSnFxProd.k3(19 downto 0), 20);
+        cc.snFxToSnProd.k4 <= to_signed(cc.fxToSnFxProd.k4(19 downto 0), 20);
+        cc.snFxToSnProd.k5 <= to_signed(cc.fxToSnFxProd.k5(19 downto 0), 20);
+        cc.snFxToSnProd.k6 <= to_signed(cc.fxToSnFxProd.k6(19 downto 0), 20);
+        cc.snFxToSnProd.k7 <= to_signed(cc.fxToSnFxProd.k7(19 downto 0), 20);
+        cc.snFxToSnProd.k8 <= to_signed(cc.fxToSnFxProd.k8(19 downto 0), 20);
+        cc.snFxToSnProd.k9 <= to_signed(cc.fxToSnFxProd.k9(19 downto 0), 20);
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
 -- STAGE 6
------------------------------------------------------------------------------------------------
-process (clk) begin
-    if rising_edge(clk) then 
-        cc.snFxToSnProd.k1 <= to_signed(cc.flToSnFxProd.k1(19 downto 0), 20);
-        cc.snFxToSnProd.k2 <= to_signed(cc.flToSnFxProd.k2(19 downto 0), 20);
-        cc.snFxToSnProd.k3 <= to_signed(cc.flToSnFxProd.k3(19 downto 0), 20);
-        cc.snFxToSnProd.k4 <= to_signed(cc.flToSnFxProd.k4(19 downto 0), 20);
-        cc.snFxToSnProd.k5 <= to_signed(cc.flToSnFxProd.k5(19 downto 0), 20);
-        cc.snFxToSnProd.k6 <= to_signed(cc.flToSnFxProd.k6(19 downto 0), 20);
-        cc.snFxToSnProd.k7 <= to_signed(cc.flToSnFxProd.k7(19 downto 0), 20);
-        cc.snFxToSnProd.k8 <= to_signed(cc.flToSnFxProd.k8(19 downto 0), 20);
-        cc.snFxToSnProd.k9 <= to_signed(cc.flToSnFxProd.k9(19 downto 0), 20);
-    end if;
-end process;
------------------------------------------------------------------------------------------------
--- STAGE 7
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then 
@@ -170,7 +214,7 @@ process (clk) begin
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
--- STAGE 8
+-- STAGE 7
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then
@@ -186,7 +230,7 @@ process (clk) begin
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
--- STAGE 9
+-- STAGE 8
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then 
@@ -195,6 +239,10 @@ process (clk) begin
         cc.snToTrimSum.blue   <= cc.snSum.blue(cc.snSum.blue'left downto FRAC_BITS_TO_KEEP);
     end if;
 end process;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: SHARP BLURE EMBOS SOBEL
+-----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
 COLOR_DELAYED_ENABLED: if ((SHARP_FRAME = TRUE) or (BLURE_FRAME = TRUE) 
                         or (EMBOS_FRAME = TRUE) or (SOBEL_FRAME = TRUE)) generate
@@ -206,21 +254,21 @@ begin
 process (clk) begin
     if rising_edge(clk) then
         --Red
-        cc.tpd1.vTap0x <= cc.rgbToFl.red;
-        cc.tpd2.vTap0x <= cc.tpd1.vTap0x;
-        cc.tpd3.vTap0x <= cc.tpd2.vTap0x;
+        cc.tpsd1.vTap0x <= rgbToFl_red;
+        cc.tpsd2.vTap0x <= cc.tpsd1.vTap0x;
+        cc.tpsd3.vTap0x <= cc.tpsd2.vTap0x;
         --Green
-        cc.tpd1.vTap1x <= cc.rgbToFl.green;
-        cc.tpd2.vTap1x <= cc.tpd1.vTap1x;
-        cc.tpd3.vTap1x <= cc.tpd2.vTap1x;
+        cc.tpsd1.vTap1x <= rgbToFl_gre;
+        cc.tpsd2.vTap1x <= cc.tpsd1.vTap1x;
+        cc.tpsd3.vTap1x <= cc.tpsd2.vTap1x;
         --Blue
-        cc.tpd1.vTap2x <= cc.rgbToFl.blue;
-        cc.tpd2.vTap2x <= cc.tpd1.vTap2x;
-        cc.tpd3.vTap2x <= cc.tpd2.vTap2x;
+        cc.tpsd1.vTap2x <= rgbToFl_blu;
+        cc.tpsd2.vTap2x <= cc.tpsd1.vTap2x;
+        cc.tpsd3.vTap2x <= cc.tpsd2.vTap2x;
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
--- STAGE 10
+-- STAGE 9
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then 
@@ -235,7 +283,7 @@ process (clk) begin
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
--- STAGE 11
+-- STAGE 10
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then
@@ -247,6 +295,11 @@ process (clk) begin
 end process;
 -----------------------------------------------------------------------------------------------
 end generate COLOR_DELAYED_ENABLED;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: YCBCR
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 YCBCR_FRAME_ENABLED: if (YCBCR_FRAME = true) generate
     constant fullRange    : boolean := true;
     signal yCbCrRgb       : uChannel := (valid => lo, red => blackUn, green => blackUn, blue => blackUn);
@@ -260,19 +313,19 @@ begin
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then
-        cc.tpd1.vTap0x <= cc.rgbToFl.blue;
-        cc.tpd2.vTap0x <= cc.rgbToFl.green;
-        cc.tpd3.vTap0x <= cc.rgbToFl.red;
-        cc.tpd1.vTap1x <= cc.rgbToFl.blue;
-        cc.tpd2.vTap1x <= cc.rgbToFl.green;
-        cc.tpd3.vTap1x <= cc.rgbToFl.red;
-        cc.tpd1.vTap2x <= cc.rgbToFl.blue;
-        cc.tpd2.vTap2x <= cc.rgbToFl.green;
-        cc.tpd3.vTap2x <= cc.rgbToFl.red;
+        cc.tpsd1.vTap0x <= rgbToFl_blu;
+        cc.tpsd2.vTap0x <= rgbToFl_gre;
+        cc.tpsd3.vTap0x <= rgbToFl_red;
+        cc.tpsd1.vTap1x <= rgbToFl_blu;
+        cc.tpsd2.vTap1x <= rgbToFl_gre;
+        cc.tpsd3.vTap1x <= rgbToFl_red;
+        cc.tpsd1.vTap2x <= rgbToFl_blu;
+        cc.tpsd2.vTap2x <= rgbToFl_gre;
+        cc.tpsd3.vTap2x <= rgbToFl_red;
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
--- STAGE 10
+-- STAGE 9
 -----------------------------------------------------------------------------------------------
 process (clk)
     variable yRound      : unsigned(i_data_width-1 downto 0);
@@ -311,7 +364,7 @@ process (clk)
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
--- STAGE 11
+-- STAGE 10
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then
@@ -323,30 +376,32 @@ process (clk) begin
 end process;
 -----------------------------------------------------------------------------------------------
 end generate YCBCR_FRAME_ENABLED;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: CGAIN
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 CGAIN_FRAME_ENABLED: if (CGAIN_FRAME = true) generate
     signal cGain : channel := (valid => lo, red => black, green => black, blue => black);
-    signal tpd1  : tapsFl;
-    signal tpd2  : tapsFl;
-    signal tpd3  : tapsFl;
 begin
 -----------------------------------------------------------------------------------------------
 -- STAGE 2
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then
-        cc.tpd1.vTap0x <= cc.rgbToFl.blue;
-        cc.tpd2.vTap0x <= cc.rgbToFl.green;
-        cc.tpd3.vTap0x <= cc.rgbToFl.red;
-        cc.tpd1.vTap1x <= cc.rgbToFl.blue;
-        cc.tpd2.vTap1x <= cc.rgbToFl.green;
-        cc.tpd3.vTap1x <= cc.rgbToFl.red;
-        cc.tpd1.vTap2x <= cc.rgbToFl.blue;
-        cc.tpd2.vTap2x <= cc.rgbToFl.green;
-        cc.tpd3.vTap2x <= cc.rgbToFl.red;
+        cc.tpsd1.vTap0x <= rgbToFl_blu;
+        cc.tpsd2.vTap0x <= rgbToFl_gre;
+        cc.tpsd3.vTap0x <= rgbToFl_red;
+        cc.tpsd1.vTap1x <= rgbToFl_blu;
+        cc.tpsd2.vTap1x <= rgbToFl_gre;
+        cc.tpsd3.vTap1x <= rgbToFl_red;
+        cc.tpsd1.vTap2x <= rgbToFl_blu;
+        cc.tpsd2.vTap2x <= rgbToFl_gre;
+        cc.tpsd3.vTap2x <= rgbToFl_red;
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
--- STAGE 10
+-- STAGE 9
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then
@@ -374,7 +429,7 @@ process (clk) begin
     end if;
 end process;
 -----------------------------------------------------------------------------------------------
--- STAGE 11
+-- STAGE 10
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then
@@ -387,7 +442,9 @@ end process;
 -----------------------------------------------------------------------------------------------
 end generate CGAIN_FRAME_ENABLED;
 -----------------------------------------------------------------------------------------------
--- VALID DELAYS
+-----------------------------------------------------------------------------------------------
+--VALID DELAYS
+-----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then

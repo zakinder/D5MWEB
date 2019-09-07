@@ -1,0 +1,16 @@
+-html
+-htmldir
+../coverage_reports/questa_html_coverage_reports/SystemCoverage
+-source
+-details
+-assert
+-directive
+-cvg
+-code
+bcefst
+-verbose
+-threshL
+50
+-threshH
+90
+SystemCoverage.ucdb

@@ -49,12 +49,14 @@ generic (
     F_BLU_TO_SHP          : boolean := false;
     img_width             : integer := 4096;
     img_height            : integer := 4096;
+    s_data_width          : integer := 16;
     i_data_width          : integer := 8);
 port (                          
     clk                   : in std_logic;
     rst_l                 : in std_logic;
     txCord                : in coord;
     lumThreshold          : in  std_logic_vector(7 downto 0);
+    iThreshold            : in std_logic_vector(s_data_width-1 downto 0); 
     iRgb                  : in channel;
     cHsv                  : in std_logic_vector(2 downto 0);
     cYcc                  : in std_logic_vector(2 downto 0);
@@ -80,15 +82,7 @@ port (
     iRgb           : in channel;
     oRgb           : out channel);
 end component SyncFrames;
-component ByteToFloatTop is
-port (  
-    aclk           : in std_logic;
-    rst_l          : in std_logic;
-    iValid         : in std_logic;
-    iData          : in std_logic_vector(7 downto 0);
-    oValid         : out std_logic;
-    oDataFloat     : out std_logic_vector(31 downto 0));
-end component ByteToFloatTop;
+
 component rgbAssertion is
 port (  
     clk            : in  std_logic;
@@ -113,11 +107,13 @@ generic (
     HSL_FRAME          : boolean := false;
     img_width          : integer := 4096;
     img_height         : integer := 4096;
+    s_data_width       : integer := 16;
     i_data_width       : integer := 8);
 port (                          
     clk                : in std_logic;
     rst_l              : in std_logic;
     lumThreshold       : in  std_logic_vector(7 downto 0);
+    iThreshold         : in std_logic_vector(s_data_width-1 downto 0); 
     txCord             : in coord;
     iRgb               : in channel;
     iKcoeff            : in kernelCoeff;
@@ -684,7 +680,7 @@ port (
     clk              : in std_logic;
     rst_l            : in std_logic;
     iRgb             : in channel;
-    kCoeff           : in kernelCoeff;
+    kCoeff           : in kernelCoeDWord;
     oRgb             : out channel);
 end component KernelCore; 
 component tap_buffer
@@ -835,5 +831,78 @@ port (
     m_axis_result_tvalid    : out STD_LOGIC;
     m_axis_result_tdata     : out STD_LOGIC_VECTOR (31 downto 0));
 end component squareRoot;
+component ByteToFloat is
+port (                
+    aclk                 : IN STD_LOGIC;
+    s_axis_a_tvalid      : IN STD_LOGIC;
+    s_axis_a_tdata       : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    m_axis_result_tvalid : OUT STD_LOGIC;
+    m_axis_result_tdata  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+end component ByteToFloat;
+component ByteToFloatTop is
+port (  
+    aclk           : in std_logic;
+    rst_l          : in std_logic;
+    iValid         : in std_logic;
+    iData          : in std_logic_vector(7 downto 0);
+    oValid         : out std_logic;
+    oDataFloat     : out std_logic_vector(31 downto 0));
+end component ByteToFloatTop;
+
+component WordToFloat is
+port (                
+    aclk                 : IN STD_LOGIC;
+    s_axis_a_tvalid      : IN STD_LOGIC;
+    s_axis_a_tdata       : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    m_axis_result_tvalid : OUT STD_LOGIC;
+    m_axis_result_tdata  : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+end component WordToFloat;
+component WordToFloatTop is
+port (                
+    aclk           : in std_logic;
+    rst_l          : in std_logic;
+    iValid         : in std_logic;
+    iData          : in std_logic_vector(15 downto 0);
+    oValid         : out std_logic;
+    oDataFloat     : out std_logic_vector(31 downto 0));
+end component WordToFloatTop;
+component FloatMultiply is
+port (                
+    aclk                    : IN STD_LOGIC;
+    s_axis_a_tvalid         : IN STD_LOGIC;
+    s_axis_a_tdata          : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s_axis_b_tvalid         : IN STD_LOGIC;
+    s_axis_b_tdata          : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m_axis_result_tvalid    : OUT STD_LOGIC;
+    m_axis_result_tdata     : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+end component FloatMultiply;
+component FloatMultiplyTop is
+port (                
+    clk            : in std_logic;
+    iAdata         : in std_logic_vector(31 downto 0);
+    iBdata         : in std_logic_vector(31 downto 0);
+    oRdata         : out std_logic_vector(31 downto 0));
+end component FloatMultiplyTop;
+component FloatToFixedv1 is
+port (                
+    aclk                    : IN STD_LOGIC;
+    s_axis_a_tvalid         : IN STD_LOGIC;
+    s_axis_a_tdata          : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    m_axis_result_tvalid    : OUT STD_LOGIC;
+    m_axis_result_tdata     : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+end component FloatToFixedv1;
+component FloatToFixedv1Top is
+port (                
+    aclk           : in std_logic;
+    iData          : in std_logic_vector(31 downto 0);
+    oData          : out std_logic_vector(27 downto 0));
+end component FloatToFixedv1Top;
+component CoefMult is
+port (                
+    clk            : in std_logic;
+    rst_l          : in std_logic;
+    iKcoeff        : in kernelCoeff;
+    oCoeffProd     : out kCoefFiltFloat);
+end component CoefMult;
 
 end package;

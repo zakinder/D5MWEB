@@ -16,6 +16,14 @@ package constantspackage is
     constant ch2                       : integer   := 2;
     constant ch3                       : integer   := 3;
     -------------------------------------------------------------------------
+    constant kCoefYcbcrIndex           : integer   := 1;
+    constant kCoefCgainIndex           : integer   := 2;
+    constant kCoefSharpIndex           : integer   := 3;
+    constant kCoefBlureIndex           : integer   := 4;
+    constant kCoefSobeXIndex           : integer   := 5;
+    constant kCoefSobeYIndex           : integer   := 6;
+    constant kCoefEmbosIndex           : integer   := 7;
+    -------------------------------------------------------------------------
     constant soble                     : integer   := 0;
     constant sobRgb                    : integer   := 1;
     constant sobPoi                    : integer   := 2;

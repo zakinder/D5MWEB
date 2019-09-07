@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.fixed_pkg.all;
-use work.float_pkg.all;
+--use work.float_pkg.all;
 use work.constantspackage.all;
 use work.vpfrecords.all;
 use work.portspackage.all;
@@ -49,6 +49,7 @@ generic (
     F_BLU_TO_SHP          : boolean := false;
     img_width             : integer := 4096;
     img_height            : integer := 4096;
+    s_data_width          : integer := 16;
     i_data_width          : integer := 8);
 port (
     clk                : in std_logic;
@@ -56,6 +57,7 @@ port (
     txCord             : in coord;
     iRgb               : in channel;
     lumThreshold       : in  std_logic_vector(7 downto 0);
+    iThreshold         : in std_logic_vector(s_data_width-1 downto 0); 
     cHsv               : in std_logic_vector(2 downto 0);
     cYcc               : in std_logic_vector(2 downto 0);
     iKcoeff            : in kernelCoeff;
@@ -86,12 +88,14 @@ generic map(
     HSL_FRAME           => F_HSL,
     img_width           => img_width,
     img_height          => img_height,
+    s_data_width        => s_data_width,
     i_data_width        => i_data_width)
 port map(
     clk                 => clk,
     rst_l               => rst_l,
     txCord              => txCord,
     lumThreshold        => lumThreshold,
+    iThreshold          => iThreshold,
     iRgb                => iRgb,
     iKcoeff             => iKcoeff,
     oEdgeValid          => sEdgeValid,
@@ -114,12 +118,14 @@ generic map(
     HSL_FRAME           => F_CGA_TO_HSL,
     img_width           => img_width,
     img_height          => img_height,
+    s_data_width        => s_data_width,
     i_data_width        => i_data_width)
 port map(
     clk                 => clk,
     rst_l               => rst_l,
     txCord              => txCord,
     lumThreshold        => lumThreshold,
+    iThreshold          => iThreshold,
     iRgb                => rgbImageKernel.cgain,
     iKcoeff             => iKcoeff,
     oEdgeValid          => sEdgeValid,
@@ -149,12 +155,14 @@ generic map(
     HSL_FRAME           => F_SHP_TO_HSL,
     img_width           => img_width,
     img_height          => img_height,
+    s_data_width        => s_data_width,
     i_data_width        => i_data_width)
 port map(
     clk                 => clk,
     rst_l               => rst_l,
     txCord              => txCord,
     lumThreshold        => lumThreshold,
+    iThreshold          => iThreshold,
     iRgb                => rgbImageKernel.sharp,
     iKcoeff             => iKcoeff,
     oEdgeValid          => sEdgeValid,
@@ -184,12 +192,14 @@ generic map(
     HSL_FRAME           => F_BLU_TO_HSL,
     img_width           => img_width,
     img_height          => img_height,
+    s_data_width        => s_data_width,
     i_data_width        => i_data_width)
 port map(
     clk                 => clk,
     rst_l               => rst_l,
     txCord              => txCord,
     lumThreshold        => lumThreshold,
+    iThreshold          => iThreshold,
     iRgb                => rgbImageKernel.sharp,
     iKcoeff             => iKcoeff,
     oEdgeValid          => sEdgeValid,
@@ -390,11 +400,9 @@ port map(
     i2Rgb       => rgbImageKernel.blur,
     oRgb        => fRgb.maskSobelBlu);
 end generate MASK_SOB_BLU_FRAME_ENABLE;
-
 INRGB_FRAME_ENABLE: if (F_RGB = true) generate
     fRgb.inrgb <= rgbImageKernel.inrgb;
 end generate INRGB_FRAME_ENABLE;
-
 -- INRGB_FRAME_ENABLE: if (F_RGB = true) generate
 -- begin
 -- TextGenInrgbInst: TextGen
@@ -503,7 +511,6 @@ end generate EMBOS_FRAME_ENABLE;
 SOBEL_FRAME_ENABLE: if (F_SOB = true) generate
     fRgb.sobel <= rgbImageKernel.sobel;
 end generate SOBEL_FRAME_ENABLE;
-
 -- SOBEL_FRAME_ENABLE: if (F_SOB = true) generate
 -- begin
 -- TextGenSobelInst: TextGen
@@ -538,8 +545,6 @@ end generate CGAIN_FRAME_ENABLE;
 HSL_FRAME_ENABLE: if (F_HSL = true) generate
     fRgb.hsl <= rgbImageKernel.hsl;
 end generate HSL_FRAME_ENABLE;
-
-
 -- HSL_FRAME_ENABLE: if (F_HSL = true) generate
 -- begin
 -- TextGenHslInst: TextGen
@@ -555,8 +560,6 @@ end generate HSL_FRAME_ENABLE;
     -- iRgb     => rgbImageKernel.hsl,
     -- oRgb     => fRgb.hsl);
 -- end generate HSL_FRAME_ENABLE;
-
-
 HSV_FRAME_ENABLE: if (F_HSV = true) generate
 signal rgbHsv   : channel;
 begin

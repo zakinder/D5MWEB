@@ -1,0 +1,5 @@
+var g_db_data = [
+{dummy:0},
+{name:'axi4_cg',f:1,type:6,id:41,tb:'544',h:'28',m:'516',hp:'5.14%',cov:['35.81%','R'],g:'100.00%',gp:['35.81%','R'],lnk:'__HDL_srcfile_1.htm#2304',hdlPath:'/top/axi4s_vif',parent:'39'},
+{name:'axi4_cg',f:1,type:6,id:1994,tb:'544',h:'28',m:'516',hp:'5.14%',cov:['35.81%','R'],g:'100.00%',gp:['35.81%','R'],lnk:'__HDL_srcfile_1.htm#2304',hdlPath:'work.axi4s_if',parent:'2'}];
+processConsCovergroupsData(g_db_data);

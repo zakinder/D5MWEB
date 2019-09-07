@@ -21,8 +21,8 @@ port (
     iRgb          : in channel);
 end imageWrite;
 architecture Behavioral of imageWrite is
-    constant outPutPath1a  : string := "Z:/sim";
-    constant outPutPath1b  : string := "Z:/sim/imagesLogs";
+    constant outPutPath1a  : string := "K:/ZEDBOARD/doc/sim";
+    constant outPutPath1b  : string := "K:/ZEDBOARD/doc/sim/imagesLogs";
     constant outPutPath2   : string := "Z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0/tb";
     constant backSlash     : string := "\";
     constant wrBmp         : string := outPutPath1a&backSlash&test&backSlash&output_file&".bmp";

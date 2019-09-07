@@ -73,7 +73,37 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
             //                                                  videoFeatureSelect
             /*****************************************************************************************************************/
+        case video0://SOBLE
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selCgain);
+            cmd_status_substate = enter_value_or_quit("video2",video2);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
         case video1://SOBLE
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selSharp);
+            cmd_status_substate = enter_value_or_quit("video2",video2);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video2://RGB RANGE DETECT TO SOBLE
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selBlur);
+            cmd_status_substate = enter_value_or_quit("video3",video3);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video3://POI RANGE TO SOBLE
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selHsl);
+            cmd_status_substate = enter_value_or_quit("video4",video4);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video4://BLUR 1X
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selHsv);
+            cmd_status_substate = enter_value_or_quit("video5",video5);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video5://BLUR 2X
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selRgb);
+            cmd_status_substate = enter_value_or_quit("video6",video6);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video6://SOBLE
             /*****************************************************************************************************************/
             printf("Enter edgeThreshold Value\n");
             menu_print_prompt();
@@ -92,34 +122,9 @@ void menu_calls(ON_OFF) {
         	videoFeatureSelect(selSoble);
             cmd_status_substate = enter_value_or_quit("video1",video1);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
-        case video2://SOBLE
-            /*****************************************************************************************************************/
-        	videoFeatureSelect(selSobRgb);
-            cmd_status_substate = enter_value_or_quit("video2",video2);current_state = cmd_status_substate;break;
-            /*****************************************************************************************************************/
-        case video3://RGB RANGE DETECT TO SOBLE
-            /*****************************************************************************************************************/
-        	videoFeatureSelect(selSobPoi);
-            cmd_status_substate = enter_value_or_quit("video3",video3);current_state = cmd_status_substate;break;
-            /*****************************************************************************************************************/
-        case video4://POI RANGE TO SOBLE
-            /*****************************************************************************************************************/
-        	videoFeatureSelect(selHsvPoi);
-            cmd_status_substate = enter_value_or_quit("video4",video4);current_state = cmd_status_substate;break;
-            /*****************************************************************************************************************/
-        case video5://BLUR 1X
-            /*****************************************************************************************************************/
-        	videoFeatureSelect(selBlur1x);
-            cmd_status_substate = enter_value_or_quit("video5",video5);current_state = cmd_status_substate;break;
-            /*****************************************************************************************************************/
-        case video6://BLUR 2X
-            /*****************************************************************************************************************/
-        	videoFeatureSelect(selBlur2x);
-            cmd_status_substate = enter_value_or_quit("video6",video6);current_state = cmd_status_substate;break;
-            /*****************************************************************************************************************/
         case video7://BLUR 3X
             /*****************************************************************************************************************/
-        	videoFeatureSelect(selBlur3x);
+        	videoFeatureSelect(selEmboss);
             cmd_status_substate = enter_value_or_quit("video7",video7);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case video8://BLUR 4X
@@ -192,7 +197,6 @@ void menu_calls(ON_OFF) {
         	videoFeatureSelect(selColorLmp);
             cmd_status_substate = enter_value_or_quit("video21",video21);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
-
         case ycbcrenable:
             /*****************************************************************************************************************/
             ycbcr_Enable();
@@ -205,7 +209,58 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
             /*****************************************************************************************************************/
             /*****************************************************************************************************************/
+            // WRITE KERNEL COEFs
             /*****************************************************************************************************************/
+        case wsobel:
+            /*****************************************************************************************************************/
+            SobelCoefsUpdate();
+        	videoFeatureSelect(selSoble);
+            cmd_status_substate = enter_value_or_quit("wsobel",wsobel);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case wprewit:
+            /*****************************************************************************************************************/
+            PrewitCoefsUpdate();
+        	videoFeatureSelect(selSoble);
+            cmd_status_substate = enter_value_or_quit("wprewit",wprewit);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case wsharp:
+            /*****************************************************************************************************************/
+            SharpCoef();
+        	videoFeatureSelect(selSharp);
+            cmd_status_substate = enter_value_or_quit("wsharp",wsharp);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case wemboss:
+            /*****************************************************************************************************************/
+            EmbosCoef();
+        	videoFeatureSelect(selSharp);
+            cmd_status_substate = enter_value_or_quit("wemboss",wemboss);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case wblur:
+            /*****************************************************************************************************************/
+            BlureCoef();
+        	videoFeatureSelect(selSharp);//Note:selBlur
+            cmd_status_substate = enter_value_or_quit("wblur",wblur);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case wcgain1:
+            /*****************************************************************************************************************/
+        	Cgain1Coef();
+        	videoFeatureSelect(selCgain);
+            cmd_status_substate = enter_value_or_quit("wcgain1",wcgain1);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case wcgain2:
+            /*****************************************************************************************************************/
+        	Cgain2Coef();
+        	videoFeatureSelect(selCgain);
+            cmd_status_substate = enter_value_or_quit("wcgain2",wcgain2);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case wcgain3:
+            /*****************************************************************************************************************/
+        	Cgain3Coef();
+        	videoFeatureSelect(selCgain);
+            cmd_status_substate = enter_value_or_quit("wcgain3",wcgain3);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+            /*****************************************************************************************************************/
+            // CHECK FILTER
             /*****************************************************************************************************************/
         case sobel:
             /*****************************************************************************************************************/
@@ -224,13 +279,48 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case blur:
             /*****************************************************************************************************************/
-        	videoFeatureSelect(selBlur1x);
+        	videoFeatureSelect(selBlur);
             cmd_status_substate = enter_value_or_quit("blur",blur);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case emboss:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selEmboss);
+            cmd_status_substate = enter_value_or_quit("emboss",emboss);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case hsv:
             /*****************************************************************************************************************/
         	videoFeatureSelect(selHsv);
             cmd_status_substate = enter_value_or_quit("hsv",hsv);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case hsl:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selHsl);
+            cmd_status_substate = enter_value_or_quit("hsl",hsl);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case rgbremix:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selRgbRemix);
+            cmd_status_substate = enter_value_or_quit("rgbremix",rgbremix);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case rgbdetect:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selRgbDetect);
+            cmd_status_substate = enter_value_or_quit("rgbdetect",rgbdetect);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case rgbpoi:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selRgbPoi);
+            cmd_status_substate = enter_value_or_quit("rgbpoi",rgbpoi);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case ycbcr:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selYcbcr);
+            cmd_status_substate = enter_value_or_quit("hsl",hsl);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case cgain:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selCgain);
+            cmd_status_substate = enter_value_or_quit("cgain",cgain);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
             /*****************************************************************************************************************/
         case parttern1:
@@ -359,11 +449,6 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         	camera_set_registers();
             cmd_status_substate = enter_value_or_quit("fullhdmi",fullhdmi);current_state = cmd_status_substate;break;
-            /*****************************************************************************************************************/
-        case ycbcr:
-            /*****************************************************************************************************************/
-            ycbcr_Enable();
-            cmd_status_substate = enter_value_or_quit("ycbcr",ycbcr);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case edgethreshold:
             /*****************************************************************************************************************/
@@ -656,14 +741,13 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case threshold:
             /*****************************************************************************************************************/
-        	th_set = 0x00000000;
-        	cmd_status_value = 0x00000000;
-            printf("Current State : threshold\n");
-            cmd_status_value = enter_value_or_quit("null",threshold);
-            th_set  = (((cmd_status_value & 0x000000ff)<<16) | 0x0000E61E);
-            D5M_mWriteReg(D5M_BASE,w_threshold_reg_4,th_set);
-            printf("th_set1[%x]\n",(unsigned) th_set);
-            printf("th_set2[%x]\n",(unsigned) ((th_set & 0xffff0000)>>16));
+            printf("Enter edgeThreshold Value\n");
+            menu_print_prompt();
+            t2Register = uart_prompt_io();
+            if (t2Register == clear) {
+            	current_state = mainmenu;
+                break;}
+            edgeThresholdVal(t2Register);
             cmd_status_substate = enter_value_or_quit("threshold",threshold);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case timex:

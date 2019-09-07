@@ -19,11 +19,13 @@ generic (
     HSL_FRAME          : boolean := false;
     img_width          : integer := 4096;
     img_height         : integer := 4096;
+    s_data_width       : integer := 16;
     i_data_width       : integer := 8);
 port (
     clk                : in std_logic;
     rst_l              : in std_logic;
-    lumThreshold       : in  std_logic_vector(7 downto 0);
+    lumThreshold       : in  std_logic_vector(i_data_width-1 downto 0);
+    iThreshold         : in std_logic_vector(s_data_width-1 downto 0); 
     txCord             : in coord;
     iRgb               : in channel;
     iKcoeff            : in kernelCoeff;
@@ -31,12 +33,29 @@ port (
     oRgb               : out colors);
 end Kernel;
 architecture Behavioral of Kernel is
-    signal rgbSyncValid  : std_logic_vector(15 downto 0)  := x"0000";
-    signal rgbMac1    : channel := (valid => lo, red => black, green => black, blue => black);
-    signal rgbMac2    : channel := (valid => lo, red => black, green => black, blue => black);
-    signal rgbMac3    : channel := (valid => lo, red => black, green => black, blue => black);
+    signal rgbSyncValid    : std_logic_vector(15 downto 0)  := x"0000";
+    signal rgbMac1         : channel := (valid => lo, red => black, green => black, blue => black);
+    signal rgbMac2         : channel := (valid => lo, red => black, green => black, blue => black);
+    signal rgbMac3         : channel := (valid => lo, red => black, green => black, blue => black);
     constant init_channel  : channel := (valid => lo, red => black, green => black, blue => black);
+    signal kCoProd         : kCoefFiltFloat;
 begin
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--CoefMult
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+CoefMultInst: CoefMult
+port map (
+    clk            => clk,
+    rst_l          => rst_l,
+    iKcoeff        => iKcoeff,
+    oCoeffProd     => kCoProd);
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--rgbSync
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 process (clk) begin
     if rising_edge(clk) then
         rgbSyncValid(0)  <= iRgb.valid;
@@ -57,6 +76,11 @@ process (clk) begin
         rgbSyncValid(15) <= rgbSyncValid(14);
     end if; 
 end process;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--TapsController
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 TPDATAWIDTH3_ENABLED: if ((SHARP_FRAME = TRUE) or (BLURE_FRAME = TRUE) or (EMBOS_FRAME = TRUE)) generate
     signal tp0        : std_logic_vector(23 downto 0) := (others => '0');
     signal tp1        : std_logic_vector(23 downto 0) := (others => '0');
@@ -115,29 +139,23 @@ process (clk,rst_l) begin
     end if; 
 end process;
 end generate TPDATAWIDTH3_ENABLED;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: YCBCR
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 YCBCR_FRAME_ENABLE: if (YCBCR_FRAME = true) generate
 signal ycbcr       : channel;
 signal ycbcrSyn    : channel;
-signal kCoeffYcbcr : kernelCoeff;
+signal kCoeffYcbcr : kernelCoeDWord;
 begin
--- process (clk,rst_l) begin
-    -- if (rst_l = lo) then
-        kCoeffYcbcr.k1   <= x"0101";--  0.257
-        kCoeffYcbcr.k2   <= x"01F8";--  0.504
-        kCoeffYcbcr.k3   <= x"0062";--  0.098
-        kCoeffYcbcr.k4   <= x"FF6C";-- -0.148
-        kCoeffYcbcr.k5   <= x"FEDD";-- -0.291
-        kCoeffYcbcr.k6   <= x"01B7";--  0.439
-        kCoeffYcbcr.k7   <= x"01B7";--  0.439
-        kCoeffYcbcr.k8   <= x"FE90";-- -0.368
-        kCoeffYcbcr.k9   <= x"FFB9";-- -0.071
-        kCoeffYcbcr.kSet <= 0;
-    -- elsif rising_edge(clk) then
-        -- if (iKcoeff.kSet = 6) then
-            -- kCoeffYcbcr <= iKcoeff;
-        -- end if;
-    -- end if; 
--- end process;
+process (clk) begin
+    if (rising_edge (clk)) then
+        if (kCoProd.kCoeffYcbcr.kSet = 1) then
+            kCoeffYcbcr <= kCoProd.kCoeffYcbcr;
+        end if;
+    end if; 
+end process;
 Kernel_Ycbcr_Inst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -167,29 +185,23 @@ port map(
     iRgb     => ycbcrSyn,
     oRgb     => oRgb.ycbcr);
 end generate YCBCR_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: CGAIN
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 CGAIN_FRAME_ENABLE: if (CGAIN_FRAME = true) generate
-signal kCoeffCgain    : kernelCoeff;
 signal cgain          : channel;
 signal cgainSyn       : channel;
+signal kCoeffCgain    : kernelCoeDWord;
 begin
--- process (clk,rst_l) begin
-    -- if (rst_l = lo) then
-     kCoeffCgain.k1   <= x"05DC";--  1375  =  1.375
-     kCoeffCgain.k2   <= x"FF06";-- -250   = -0.250
-     kCoeffCgain.k3   <= x"FF06";-- -500   = -0.500
-     kCoeffCgain.k4   <= x"FF06";-- -500   = -0.500
-     kCoeffCgain.k5   <= x"05DC";--  1375  =  1.375
-     kCoeffCgain.k6   <= x"FF06";-- -250   = -0.250
-     kCoeffCgain.k7   <= x"FF06";-- -250   = -0.250
-     kCoeffCgain.k8   <= x"FF06";-- -500   = -0.500
-     kCoeffCgain.k9   <= x"05DC";--  1375  =  1.375
-     kCoeffCgain.kSet <= 0;
-    -- elsif rising_edge(clk) then
-        -- if (iKcoeff.kSet = 5) then
-            -- kCoeffCgain <= iKcoeff;
-        -- end if;
-    -- end if;
--- end process;
+kCoeffCgainP:process (clk) begin
+    if (rising_edge (clk)) then
+        if (kCoProd.kCoeffCgain.kSet = 2) then
+            kCoeffCgain <= kCoProd.kCoeffCgain;
+        end if;
+    end if; 
+end process kCoeffCgainP;
 Kernel_CGAIN_Inst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -219,30 +231,24 @@ port map(
     iRgb     => cgainSyn,
     oRgb     => oRgb.cgain);
 end generate CGAIN_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: SHARP
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 SHARP_FRAME_ENABLE: if (SHARP_FRAME = true) generate
 signal oRed           : channel;
 signal oGreen         : channel;
 signal oBlue          : channel;
-signal kCoeffSharp    : kernelCoeff;
+signal kCoeffSharp    : kernelCoeDWord;
 begin
--- process (clk,rst_l) begin
-    -- if (rst_l = lo) then
-        kCoeffSharp.k1   <= x"0000";--  0
-        kCoeffSharp.k2   <= x"FE0C";-- -0.5
-        kCoeffSharp.k3   <= x"0000";--  0
-        kCoeffSharp.k4   <= x"FE0C";-- -0.5
-        kCoeffSharp.k5   <= x"0BB8";--  3
-        kCoeffSharp.k6   <= x"FE0C";-- -0.5
-        kCoeffSharp.k7   <= x"0000";--  0
-        kCoeffSharp.k8   <= x"FE0C";-- -0.5
-        kCoeffSharp.k9   <= x"0000";--  0
-        kCoeffSharp.kSet <= 0;
-    -- elsif rising_edge(clk) then
-        -- if (iKcoeff.kSet = 4) then
-            -- kCoeffSharp <= iKcoeff;
-        -- end if;
-    -- end if; 
--- end process;
+process (clk) begin
+    if (rising_edge (clk)) then
+        if (kCoProd.kCoeffSharp.kSet = 3) then
+            kCoeffSharp <= kCoProd.kCoeffSharp;
+        end if;
+    end if; 
+end process;
 Kernel_Sharp_Red_Inst: KernelCore
 generic map(
     SHARP_FRAME   => SHARP_FRAME,
@@ -296,30 +302,24 @@ port map(
     oRgb.sharp.blue   <=  oBlue.red;
     oRgb.sharp.valid  <=  rgbSyncValid(9);
 end generate SHARP_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: BLURE
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 BLURE_FRAME_ENABLE: if (BLURE_FRAME = true) generate
 signal oRed           : channel;
 signal oGreen         : channel;
 signal oBlue          : channel;
-signal kCoeffBlur     : kernelCoeff;
+signal kCoeffBlure    : kernelCoeDWord;
 begin
--- process (clk,rst_l) begin
-    -- if (rst_l = lo) then
-        kCoeffBlur.k1   <= x"006F";-- 0.111
-        kCoeffBlur.k2   <= x"006F";-- 0.111
-        kCoeffBlur.k3   <= x"006F";-- 0.111
-        kCoeffBlur.k4   <= x"006F";-- 0.111
-        kCoeffBlur.k5   <= x"006F";-- 0.111
-        kCoeffBlur.k6   <= x"006F";-- 0.111
-        kCoeffBlur.k7   <= x"006F";-- 0.111
-        kCoeffBlur.k8   <= x"006F";-- 0.111
-        kCoeffBlur.k9   <= x"006F";-- 0.111
-        kCoeffBlur.kSet <= 0;
-    -- elsif rising_edge(clk) then
-        -- if (iKcoeff.kSet = 3) then
-            -- kCoeffBlur <= iKcoeff;
-        -- end if;
-    -- end if; 
--- end process;
+process (clk) begin
+    if (rising_edge (clk)) then
+        if (kCoProd.kCoeffBlure.kSet = 4) then
+            kCoeffBlure <= kCoProd.kCoeffBlure;
+        end if;
+    end if; 
+end process;
 Kernel_Blur_Red_Inst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -334,7 +334,7 @@ port map(
     clk            => clk,
     rst_l          => rst_l,
     iRgb           => rgbMac1,
-    kCoeff         => kCoeffBlur,
+    kCoeff         => kCoeffBlure,
     oRgb           => oRed);
 Kernel_Blur_Green_Inst: KernelCore
 generic map(
@@ -350,7 +350,7 @@ port map(
     clk            => clk,
     rst_l          => rst_l,
     iRgb           => rgbMac2,
-    kCoeff         => kCoeffBlur,
+    kCoeff         => kCoeffBlure,
     oRgb           => oGreen);
 Kernel_Blur_Blue_Inst: KernelCore
 generic map(
@@ -366,37 +366,31 @@ port map(
     clk            => clk,
     rst_l          => rst_l,
     iRgb           => rgbMac3,
-    kCoeff         => kCoeffBlur,
+    kCoeff         => kCoeffBlure,
     oRgb           => oBlue);
     oRgb.blur.red    <=  oRed.red;
     oRgb.blur.green  <=  oGreen.red;
     oRgb.blur.blue   <=  oBlue.red;
     oRgb.blur.valid  <=  rgbSyncValid(14);
 end generate BLURE_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: EMBOS
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 EMBOS_FRAME_ENABLE: if (EMBOS_FRAME = true) generate
 signal oRed           : channel;
 signal oGreen         : channel;
 signal oBlue          : channel;
-signal kCoeffEmbos    : kernelCoeff;
+signal kCoeffEmbos    : kernelCoeDWord;
 begin
--- process (clk,rst_l) begin
-    -- if (rst_l = lo) then
-        kCoeffEmbos.k1   <= x"FC18";-- -1
-        kCoeffEmbos.k2   <= x"FC18";-- -1
-        kCoeffEmbos.k3   <= x"0000";--  0
-        kCoeffEmbos.k4   <= x"FC18";-- -1
-        kCoeffEmbos.k5   <= x"0000";--  0
-        kCoeffEmbos.k6   <= x"03E8";--  1
-        kCoeffEmbos.k7   <= x"0000";--  0
-        kCoeffEmbos.k8   <= x"03E8";--  1
-        kCoeffEmbos.k9   <= x"03E8";--  1
-        kCoeffEmbos.kSet <= 0;
-    -- elsif rising_edge(clk) then
-        -- if (iKcoeff.kSet = 2) then
-            -- kCoeffEmbos <= iKcoeff;
-        -- end if;
-    -- end if; 
--- end process;
+process (clk) begin
+    if (rising_edge (clk)) then
+        if (kCoProd.kCoeffEmbos.kSet = 7) then
+            kCoeffEmbos <= kCoProd.kCoeffEmbos;
+        end if;
+    end if; 
+end process;
 Kernel_Blur_Red_Inst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -450,24 +444,29 @@ port map(
     oRgb.embos.blue   <=  oBlue.red;
     oRgb.embos.valid  <=  rgbSyncValid(11);
 end generate EMBOS_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: SOBEL
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 SOBEL_FRAME_ENABLE: if (SOBEL_FRAME = true) generate
 -----------------------------------------------------------------------------------------------
 signal osobelX        : channel;
 signal osobelY        : channel;
 signal sobel          : channel;
-signal kCoeffX        : kernelCoeff;
-signal kCoeffY        : kernelCoeff;
+signal kCoefXSobel    : kernelCoeDWord;
+signal kCoefYSobel    : kernelCoeDWord;
 signal mx             : unsigned(15 downto 0)         := (others => '0');
 signal my             : unsigned(15 downto 0)         := (others => '0');
 signal sxy            : unsigned(15 downto 0)         := (others => '0');
 signal sqr            : std_logic_vector(31 downto 0) := (others => '0');
 signal sbof           : std_logic_vector(31 downto 0) := (others => '0');
-signal sobelThreshold : std_logic_vector(15 downto 0) :=x"006E"; --006E
+signal sobelThreshSet : std_logic_vector(15 downto 0) :=x"006E"; --006E
+signal sobelThreshold : unsigned(15 downto 0)         :=x"0000";
 signal tp0            : std_logic_vector(7 downto 0)  := (others => '0');
 signal tp1            : std_logic_vector(7 downto 0)  := (others => '0');
 signal tp2            : std_logic_vector(7 downto 0)  := (others => '0');
 signal tpValid        : std_logic := lo;
-signal edgeValid      : std_logic := lo;
 signal ovalid         : std_logic := lo;
 begin
 -----------------------------------------------------------------------------------------------
@@ -495,40 +494,20 @@ port map(
 -----------------------------------------------------------------------------------------------
 -- Coeff Init Updates
 -----------------------------------------------------------------------------------------------
--- process (clk,rst_l) begin
-    -- if (rst_l = lo) then
-        kCoeffX.k1   <= x"FC18";--  [-1]
-        kCoeffX.k2   <= x"0000";--  [+0]
-        kCoeffX.k3   <= x"03E8";--  [+1]
-        kCoeffX.k4   <= x"F830";--  [-2]
-        kCoeffX.k5   <= x"0000";--  [+0]
-        kCoeffX.k6   <= x"07D0";--  [+2]
-        kCoeffX.k7   <= x"FC18";--  [-1]
-        kCoeffX.k8   <= x"0000";--  [+0]
-        kCoeffX.k9   <= x"03E8";--  [+1]
-        kCoeffX.kSet <= zero;
-        kCoeffY.k1   <= x"03E8";--  [+1]
-        kCoeffY.k2   <= x"07D0";--  [+2]
-        kCoeffY.k3   <= x"03E8";--  [+1]
-        kCoeffY.k4   <= x"0000";--  [-2]
-        kCoeffY.k5   <= x"0000";--  [+0]
-        kCoeffY.k6   <= x"0000";--  [+2]
-        kCoeffY.k7   <= x"FC18";--  [-1]
-        kCoeffY.k8   <= x"F830";--  [-2]
-        kCoeffY.k9   <= x"FC18";--  [-1]
-        kCoeffY.kSet <= zero;
-    -- elsif rising_edge(clk) then
-        -- if (iKcoeff.kSet = 8) then
-            -- kCoeffX <= iKcoeff;
-        -- end if;
-        -- if (iKcoeff.kSet = 9) then
-            -- kCoeffY <= iKcoeff;
-        -- end if;
-    -- end if; 
--- end process;
------------------------------------------------------------------------------------------------
--- Sobel KernelCore For X Domain
------------------------------------------------------------------------------------------------
+process (clk) begin
+    if (rising_edge (clk)) then
+        if (kCoProd.kCoefXSobel.kSet = 5) then
+            kCoefXSobel <= kCoProd.kCoefXSobel;
+        end if;
+    end if; 
+end process;
+process (clk) begin
+    if (rising_edge (clk)) then
+        if (kCoProd.kCoefYSobel.kSet = 6) then
+            kCoefYSobel <= kCoProd.kCoefYSobel;
+        end if;
+    end if; 
+end process;
 KernelSobelXInst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -543,11 +522,8 @@ port map(
     clk            => clk,
     rst_l          => rst_l,
     iRgb           => sobel,
-    kCoeff         => kCoeffX,
+    kCoeff         => kCoefXSobel,
     oRgb           => osobelX);
------------------------------------------------------------------------------------------------
--- Sobel KernelCore For Y Domain
------------------------------------------------------------------------------------------------
 KernelSobelYInst: KernelCore
 generic map(
     SHARP_FRAME   => false,
@@ -562,36 +538,24 @@ port map(
     clk            => clk,
     rst_l          => rst_l,
     iRgb           => sobel,
-    kCoeff         => kCoeffY,
+    kCoeff         => kCoefYSobel,
     oRgb           => osobelY);
------------------------------------------------------------------------------------------------
--- Domains XY
------------------------------------------------------------------------------------------------
-process (clk) begin
+sobelDomainsValueP:process (clk) begin
     if rising_edge(clk) then
         mx  <= (unsigned(osobelX.red) * unsigned(osobelX.red));
         my  <= (unsigned(osobelY.red) * unsigned(osobelY.red));
     end if;
-end process;
------------------------------------------------------------------------------------------------
--- Domains XY
------------------------------------------------------------------------------------------------
-process (clk) begin
+end process sobelDomainsValueP;
+sumValueP:process (clk) begin
     if rising_edge(clk) then
         sxy <= (mx + my);
     end if;
-end process;
------------------------------------------------------------------------------------------------
--- Domains XY
------------------------------------------------------------------------------------------------
-process (clk) begin
+end process sumValueP;
+squareRootValueP:process (clk) begin
     if rising_edge(clk) then
         sqr <= std_logic_vector(resize(unsigned(sxy), sqr'length));
     end if;
-end process;
------------------------------------------------------------------------------------------------
--- Square Root
------------------------------------------------------------------------------------------------
+end process squareRootValueP;
 squareRootTopInst: squareRootTop
 port map(
     clk        => clk,
@@ -599,31 +563,39 @@ port map(
     idata      => sqr,
     ovalid     => ovalid,
     odata      => sbof);
-edgeValid  <= hi when (unsigned(sbof(15 downto 0)) > unsigned(sobelThreshold)) else lo;
-oEdgeValid <= edgeValid;
------------------------------------------------------------------------------------------------
--- Sobel oRgb
------------------------------------------------------------------------------------------------
-process (clk) begin
+    sobelThreshold <= unsigned(std_logic_vector(sbof(15 downto 0)));
+    sobelThreshSet <= iThreshold;
+sobelOutP:process (clk) begin
     if rising_edge(clk) then
-        if (edgeValid = hi) then
+        if (sobelThreshold > unsigned(sobelThreshSet)) then
+            oEdgeValid       <= hi;
             oRgb.sobel.red   <= black;
             oRgb.sobel.green <= black;
             oRgb.sobel.blue  <= black;
         else
+            oEdgeValid       <= lo;
             oRgb.sobel.red   <= white;
             oRgb.sobel.green <= white;
             oRgb.sobel.blue  <= white;
         end if;
             oRgb.sobel.valid <= rgbSyncValid(15);
     end if;
-end process;
------------------------------------------------------------------------------------------------
+end process sobelOutP;
 end generate SOBEL_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: RGB
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 INRGB_FRAME_ENABLE: if (INRGB_FRAME = true) generate
 begin
     oRgb.inrgb <= iRgb;
 end generate INRGB_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: HSV
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 HSV_FRAME_ENABLE: if (HSV_FRAME = true) generate
     signal hsvColor    : hsvChannel;
 begin
@@ -640,6 +612,11 @@ port map(
     oRgb.hsv.blue      <= hsvColor.v;
     oRgb.hsv.valid     <= hsvColor.valid;
 end generate HSV_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: HSL
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 HSL_FRAME_ENABLE: if (HSL_FRAME = true) generate
 signal hslColor    : hslChannel;
 begin
@@ -656,6 +633,11 @@ port map(
     oRgb.hsl.blue      <= hslColor.l;
     oRgb.hsl.valid     <= hslColor.valid;
 end generate HSL_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: RGBTRIM
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 RGBTRIM_FRAME_ENABLE: if (RGBTR_FRAME = true) generate
 begin
 ColorTrimInst: ColorTrim
@@ -667,6 +649,11 @@ port map(
     iRgb               => iRgb,
     oRgb               => oRgb.colorTrm);
 end generate RGBTRIM_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FILTERS: RGBLUMP
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 RGBLUMP_FRAME_ENABLE: if (RGBLP_FRAME = true) generate
 begin
 SegmentColorsInst: SegmentColors
@@ -677,6 +664,11 @@ port map(
     iRgb               => iRgb,
     oRgb               => oRgb.colorLmp);
 end generate RGBLUMP_FRAME_ENABLE;
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+--FRAMES_DISABLED
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 RGBLUMP_FRAME_DISABLED: if (RGBLP_FRAME = false) generate
     oRgb.colorLmp   <= init_channel;
 end generate RGBLUMP_FRAME_DISABLED;

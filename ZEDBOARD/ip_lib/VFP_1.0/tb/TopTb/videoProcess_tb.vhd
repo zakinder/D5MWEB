@@ -46,7 +46,7 @@ architecture behavioral of videoProcess_tb is
     constant F_CGA_GAIN_BLU              : boolean := false;
     -------------------------------------------------
     constant F_TES                       : boolean := false;
-    constant F_LUM                       : boolean := true;
+    constant F_LUM                       : boolean := false;
     constant F_TRM                       : boolean := false;
     constant F_RGB                       : boolean := false;
     constant F_SHP                       : boolean := false;
@@ -54,7 +54,7 @@ architecture behavioral of videoProcess_tb is
     constant F_EMB                       : boolean := false;
     constant F_YCC                       : boolean := false;
     constant F_SOB                       : boolean := false;
-    constant F_CGA                       : boolean := false;
+    constant F_CGA                       : boolean := true;
     constant F_HSV                       : boolean := false;
     constant F_HSL                       : boolean := false;
     -------------------------------------------------

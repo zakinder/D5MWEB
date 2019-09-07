@@ -1,4 +1,4 @@
-puts "Info:(ZQ) This block design file has been exported with Reference-Design Scripts from zynq Electronic GmbH for Board Part:em.avnet.com:zed:part0:1.4 with FPGA xc7z020clg484-1 at 2019-09-04T21:04:56."
+puts "Info:(ZQ) This block design file has been exported with Reference-Design Scripts from zynq Electronic GmbH for Board Part:em.avnet.com:zed:part0:1.4 with FPGA xc7z020clg484-1 at 2019-09-07T02:43:41."
 
 ################################################################
 # This is a generated script based on design: zynq_soc

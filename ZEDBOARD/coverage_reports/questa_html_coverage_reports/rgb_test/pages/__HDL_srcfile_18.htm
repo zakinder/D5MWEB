@@ -1,0 +1,67 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a><q-m>--02072019 [02-07-2019]</q-m>
+<a name="2"><q-n>     2  </q-n></a><q-w>library</q-w> ieee;
+<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
+<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> ieee.std_logic_arith.<q-w>all</q-w>;
+<a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> ieee.std_logic_unsigned.<q-w>all</q-w>;
+<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
+<a name="7"><q-n>     7  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
+<a name="8"><q-n>     8  </q-n></a><q-m>--source clock 142.857132 instead 150 = half p 71428566 else if 75= 37500000*2</q-m>
+<a name="9"><q-n>     9  </q-n></a><q-m>--source clock 100Mhz = half p 50000000 but to sec in per ms 50000</q-m>
+<a name="10"><q-n>     10  </q-n></a><q-w>entity</q-w> digiClk <q-w>is</q-w>
+<a name="11"><q-n>     11  </q-n></a>    <q-w>port</q-w> (
+<a name="12"><q-n>     12  </q-n></a>    clk1    : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="13"><q-n>     13  </q-n></a>    seconds : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(5 <q-w>downto</q-w> 0);
+<a name="14"><q-n>     14  </q-n></a>    minutes : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(5 <q-w>downto</q-w> 0);
+<a name="15"><q-n>     15  </q-n></a>    hours   : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(4 <q-w>downto</q-w> 0));
+<a name="16"><q-n>     16  </q-n></a><q-w>end</q-w> digiClk;
+<a name="17"><q-n>     17  </q-n></a><q-w>architecture</q-w> Behavioral <q-w>of</q-w> digiClk <q-w>is</q-w>
+<a name="18"><q-n>     18  </q-n></a><q-w>constant</q-w> HALFPERIOD     : <q-t>integer</q-w>   := 71428566;<q-m>--@142.8MHz= 1/2sec for HARDWARE</q-m>
+<a name="19"><q-n>     19  </q-n></a><q-w>constant</q-w> TESTHALFPERIOD : <q-t>integer</q-w>   := 50000;<q-m>--@100MHz= 1/2ms</q-m>
+<a name="20"><q-n>     20  </q-n></a><q-w>signal</q-w> sec,min,hour     : <q-t>integer</q-w> <q-w>range</q-w> 0 <q-w>to</q-w> 60 :=0;
+<a name="21"><q-n>     21  </q-n></a><q-w>signal</q-w> count            : <q-t>integer</q-w>   := 1;
+<a name="22"><q-n>     22  </q-n></a><q-w>signal</q-w> clk              : <q-t>std_logic</q-w> :='0';
+<a name="23"><q-n>     23  </q-n></a><q-w>begin</q-w>
+<a name="24"><q-n>     24  </q-n></a>    seconds &lt;= conv_std_logic_vector(sec,6);
+<a name="25"><q-n>     25  </q-n></a>    minutes &lt;= conv_std_logic_vector(min,6);
+<a name="26"><q-n>     26  </q-n></a>    hours   &lt;= conv_std_logic_vector(hour,5);
+<a name="27"><q-n>     27  </q-n></a><q-w>process</q-w>(clk1)<q-w>begin</q-w>
+<a name="28"><q-n>     28  </q-n></a>    <q-w>if</q-w>(clk1'<q-a>event</q-w> <q-w>and</q-w> clk1='1') <q-w>then</q-w>
+<a name="29"><q-n>     29  </q-n></a>        count &lt;=count + 1;
+<a name="30"><q-n>     30  </q-n></a>        <q-w>if</q-w>(count = HALFPERIOD) <q-w>then</q-w>
+<a name="31"><q-n>     31  </q-n></a>            clk     &lt;= <q-w>not</q-w> clk;
+<a name="32"><q-n>     32  </q-n></a>            count   &lt;=1;
+<a name="33"><q-n>     33  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="34"><q-n>     34  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="35"><q-n>     35  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="36"><q-n>     36  </q-n></a><q-w>process</q-w>(clk)<q-w>begin</q-w>
+<a name="37"><q-n>     37  </q-n></a>    <q-w>if</q-w>(clk'<q-a>event</q-w> <q-w>and</q-w> clk='1') <q-w>then</q-w>
+<a name="38"><q-n>     38  </q-n></a>        sec &lt;= sec+ 1;
+<a name="39"><q-n>     39  </q-n></a>        <q-w>if</q-w>(sec = 59) <q-w>then</q-w>
+<a name="40"><q-n>     40  </q-n></a>            sec&lt;=0;
+<a name="41"><q-n>     41  </q-n></a>            min &lt;= min + 1;
+<a name="42"><q-n>     42  </q-n></a>            <q-w>if</q-w>(min = 59) <q-w>then</q-w>
+<a name="43"><q-n>     43  </q-n></a>                hour &lt;= hour + 1;
+<a name="44"><q-n>     44  </q-n></a>                min &lt;= 0;
+<a name="45"><q-n>     45  </q-n></a>                <q-w>if</q-w>(hour = 23) <q-w>then</q-w>
+<a name="46"><q-n>     46  </q-n></a>                    hour &lt;= 0;
+<a name="47"><q-n>     47  </q-n></a>                <q-w>end</q-w> <q-w>if</q-w>;
+<a name="48"><q-n>     48  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="49"><q-n>     49  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="50"><q-n>     50  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="51"><q-n>     51  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="52"><q-n>     52  </q-n></a><q-w>end</q-w> Behavioral;</pre>
+</tt>
+
+  
+</body>
+</html>

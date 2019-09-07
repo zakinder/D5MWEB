@@ -1,0 +1,15 @@
+##############modelsim###################
+work
+*.mpf
+*.mti
+*.wlf
+*.vstf
+*.ucdb 
+*.wlf 
+*.log 
+*.opt 
+*.contrib 
+*.noncontrib 
+*.rank
+wlf*
+*.ini

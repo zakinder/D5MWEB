@@ -67,34 +67,34 @@ architecture arch of frameProcess is
     constant F_TRM          : boolean := true;
     constant F_RGB          : boolean := true;
     constant F_SHP          : boolean := true;
-    constant F_BLU          : boolean := true;
+    constant F_BLU          : boolean := false;
     constant F_EMB          : boolean := true;
-    constant F_YCC          : boolean := true;
+    constant F_YCC          : boolean := false;
     constant F_SOB          : boolean := true;
     constant F_CGA          : boolean := true;
     constant F_HSV          : boolean := true;
     constant F_HSL          : boolean := true;
     -------------------------------------------------
-    constant F_CGA_TO_CGA   : boolean := true;
-    constant F_CGA_TO_HSL   : boolean := true;
-    constant F_CGA_TO_HSV   : boolean := true;
-    constant F_CGA_TO_YCC   : boolean := true;
-    constant F_CGA_TO_SHP   : boolean := true;
-    constant F_CGA_TO_BLU   : boolean := true;
+    constant F_CGA_TO_CGA   : boolean := false;
+    constant F_CGA_TO_HSL   : boolean := false;
+    constant F_CGA_TO_HSV   : boolean := false;
+    constant F_CGA_TO_YCC   : boolean := false;
+    constant F_CGA_TO_SHP   : boolean := false;
+    constant F_CGA_TO_BLU   : boolean := false;
     -------------------------------------------------
-    constant F_SHP_TO_SHP   : boolean := true;
-    constant F_SHP_TO_HSL   : boolean := true;
-    constant F_SHP_TO_HSV   : boolean := true;
-    constant F_SHP_TO_YCC   : boolean := true;
-    constant F_SHP_TO_CGA   : boolean := true;
-    constant F_SHP_TO_BLU   : boolean := true;
+    constant F_SHP_TO_SHP   : boolean := false;
+    constant F_SHP_TO_HSL   : boolean := false;
+    constant F_SHP_TO_HSV   : boolean := false;
+    constant F_SHP_TO_YCC   : boolean := false;
+    constant F_SHP_TO_CGA   : boolean := false;
+    constant F_SHP_TO_BLU   : boolean := false;
     -------------------------------------------------
-    constant F_BLU_TO_BLU   : boolean := true;
-    constant F_BLU_TO_HSL   : boolean := true;
-    constant F_BLU_TO_HSV   : boolean := true;
-    constant F_BLU_TO_YCC   : boolean := true;
-    constant F_BLU_TO_CGA   : boolean := true;
-    constant F_BLU_TO_SHP   : boolean := true;
+    constant F_BLU_TO_BLU   : boolean := false;
+    constant F_BLU_TO_HSL   : boolean := false;
+    constant F_BLU_TO_HSV   : boolean := false;
+    constant F_BLU_TO_YCC   : boolean := false;
+    constant F_BLU_TO_CGA   : boolean := false;
+    constant F_BLU_TO_SHP   : boolean := false;
     -------------------------------------------------
     constant MASK_TRUE      : boolean := true;
     constant MASK_FLSE      : boolean := false;
@@ -104,7 +104,7 @@ architecture arch of frameProcess is
     constant M_SOB_SHP      : boolean := SelFrame(F_SOB,F_SHP,MASK_FLSE);
     constant M_SOB_BLU      : boolean := SelFrame(F_SOB,F_BLU,MASK_FLSE);
     constant M_SOB_YCC      : boolean := SelFrame(F_SOB,F_YCC,MASK_FLSE);
-    constant M_SOB_CGA      : boolean := SelFrame(F_SOB,F_CGA,MASK_TRUE);
+    constant M_SOB_CGA      : boolean := SelFrame(F_SOB,F_CGA,MASK_FLSE);
     constant M_SOB_HSV      : boolean := SelFrame(F_SOB,F_HSV,MASK_FLSE);
     constant M_SOB_HSL      : boolean := SelFrame(F_SOB,F_HSL,MASK_FLSE);
 begin
@@ -113,7 +113,7 @@ begin
     cYcc                         <= std_logic_vector(to_unsigned(iYccPerCh,3));--[0-cYcc,1-cYccY,2-cYccB,3-cYccR]
     -------------------------------------------------
     oFrameData.sobel             <= rgbImageFilters.sobel;
-    oFrameData.embos             <= rgbIn;
+    oFrameData.embos             <= rgbImageFilters.embos;
     oFrameData.blur              <= rgbImageFilters.blur;
     oFrameData.sharp             <= rgbImageFilters.sharp;
     oFrameData.cgain             <= rgbImageFilters.cgain;
@@ -234,12 +234,14 @@ generic map(
     F_BLU_TO_SHP        =>  F_BLU_TO_SHP,
     img_width           =>  img_width,
     img_height          =>  img_width + 100,
+    s_data_width        =>  s_data_width,
     i_data_width        =>  i_data_width)
 port map(
     clk                 => clk,
     rst_l               => rst_l,
     txCord              => cord,
     lumThreshold        => lumThreshold,
+    iThreshold          => iThreshold,
     iRgb                => rgbIn,
     cHsv                => cHsv,
     cYcc                => cYcc,

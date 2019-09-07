@@ -93,19 +93,20 @@ type tapsFl is record
   vTap1x              : float32;
   vTap2x              : float32;
 end record;
+type tps is record
+  vTap0x              : std_logic_vector(31 downto 0);
+  vTap1x              : std_logic_vector(31 downto 0);
+  vTap2x              : std_logic_vector(31 downto 0);
+end record;
 type ccRecord is record
-    rgbToFl          : rgbToFloatRecord;
-    flProd           : ty2fl;
-    flCoef           : ty2fl;
-    flCoefFract      : ty2fl;
-    flToSnFxProd     : ty2std;
+    fxToSnFxProd     : ty2std;
     snFxToSnProd     : ty2snRz;
     snToTrimProd     : ty1sn;
     snSum            : rgbToSnSumRecord;
     snToTrimSum      : rgbToSnSumTrRecord;
-    tpd1             : tapsFl;
-    tpd2             : tapsFl;
-    tpd3             : tapsFl;
+    tpsd1            : tps;
+    tpsd2            : tps;
+    tpsd3            : tps;
     rgbSum           : signed(12 downto 0);
 end record;
 type filtersCoefRecord is record
@@ -173,7 +174,6 @@ type colors is record
     colorLmp       : channel;
 end record;
 type frameColors is record
-
     sobel             : channel;
     embos             : channel;
     blur              : channel;
@@ -219,7 +219,6 @@ type frameColors is record
     bluToShpCga       : channel;
     bluToShpCgaYcc    : channel;
     bluToShpCgaHsv    : channel; 
-    
     cgaBright         : channel;
     cgaDark           : channel;
     cgaBalance        : channel;
@@ -316,6 +315,30 @@ type kernelCoeff is record
     k7               : std_logic_vector(15 downto 0);
     k8               : std_logic_vector(15 downto 0);
     k9               : std_logic_vector(15 downto 0);
+    kSet             : integer;
+end record;
+type kernelCoeDWord  is record
+    k1               : std_logic_vector(31 downto 0);
+    k2               : std_logic_vector(31 downto 0);
+    k3               : std_logic_vector(31 downto 0);
+    k4               : std_logic_vector(31 downto 0);
+    k5               : std_logic_vector(31 downto 0);
+    k6               : std_logic_vector(31 downto 0);
+    k7               : std_logic_vector(31 downto 0);
+    k8               : std_logic_vector(31 downto 0);
+    k9               : std_logic_vector(31 downto 0);
+    kSet             : integer;
+end record;
+type kCoeffFloat    is record 
+    k1               : std_logic_vector(27 downto 0);
+    k2               : std_logic_vector(27 downto 0);
+    k3               : std_logic_vector(27 downto 0);
+    k4               : std_logic_vector(27 downto 0);
+    k5               : std_logic_vector(27 downto 0);
+    k6               : std_logic_vector(27 downto 0);
+    k7               : std_logic_vector(27 downto 0);
+    k8               : std_logic_vector(27 downto 0);
+    k9               : std_logic_vector(27 downto 0);
     kSet             : integer;
 end record;
 type coeffData is record
@@ -576,4 +599,22 @@ record
     rgb              : channel;
 end record;
 type rgbArray is array(natural range <>) of type_RgbChannel;
+type kCoefFilters is record
+    kCoeffYcbcr    : kernelCoeff;
+    kCoeffCgain    : kernelCoeff;
+    kCoeffSharp    : kernelCoeff;
+    kCoeffBlure    : kernelCoeff;
+    kCoeffEmbos    : kernelCoeff;
+    kCoefXSobel    : kernelCoeff;
+    kCoefYSobel    : kernelCoeff;
+end record;
+type kCoefFiltFloat is record
+    kCoeffYcbcr    : kernelCoeDWord;
+    kCoeffCgain    : kernelCoeDWord;
+    kCoeffSharp    : kernelCoeDWord;
+    kCoeffBlure    : kernelCoeDWord;
+    kCoeffEmbos    : kernelCoeDWord;
+    kCoefXSobel    : kernelCoeDWord;
+    kCoefYSobel    : kernelCoeDWord;
+end record;
 end package;
