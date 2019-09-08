@@ -79,27 +79,87 @@ YCBCR
 /****************************************************************
 CGAIN_1
 *****************************************************************/
-#define kCoefVals_kCoef1Cgain_k1   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef1Cgain_k1   0x05DC//--  1500  =  1.500
 #define kCoefVals_kCoef1Cgain_k2   0xFF06//-- -250   = -0.250
-#define kCoefVals_kCoef1Cgain_k3   0xFF06//-- -500   = -0.500
-#define kCoefVals_kCoef1Cgain_k4   0xFF06//-- -500   = -0.500
-#define kCoefVals_kCoef1Cgain_k5   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef1Cgain_k3   0xFE0C//-- -500   = -0.500
+#define kCoefVals_kCoef1Cgain_k4   0xFE0C//-- -500   = -0.500
+#define kCoefVals_kCoef1Cgain_k5   0x05DC//--  1500  =  1.500
 #define kCoefVals_kCoef1Cgain_k6   0xFF06//-- -250   = -0.250
 #define kCoefVals_kCoef1Cgain_k7   0xFF06//-- -250   = -0.250
-#define kCoefVals_kCoef1Cgain_k8   0xFF06//-- -500   = -0.500
-#define kCoefVals_kCoef1Cgain_k9   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef1Cgain_k8   0xFE0C//-- -500   = -0.500
+#define kCoefVals_kCoef1Cgain_k9   0x05DC//--  1500  =  1.500
 /****************************************************************
 CGAIN_2
 *****************************************************************/
-#define kCoefVals_kCoef2Cgain_k1   0x05DC//--  1375  =  1.375
-#define kCoefVals_kCoef2Cgain_k2   0xFF06//-- -250   = -0.148
-#define kCoefVals_kCoef2Cgain_k3   0xFF6C//-- -500   = -0.500
-#define kCoefVals_kCoef2Cgain_k4   0xFF6C//-- -500   = -0.148
-#define kCoefVals_kCoef2Cgain_k5   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef2Cgain_k1   0x05DC//--  1375  =  1.500
+#define kCoefVals_kCoef2Cgain_k2   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef2Cgain_k3   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef2Cgain_k4   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef2Cgain_k5   0x05DC//--  1375  =  1.500
 #define kCoefVals_kCoef2Cgain_k6   0xFF06//-- -250   = -0.250
 #define kCoefVals_kCoef2Cgain_k7   0xFF06//-- -250   = -0.250
-#define kCoefVals_kCoef2Cgain_k8   0xFF6C//-- -500   = -0.148
-#define kCoefVals_kCoef2Cgain_k9   0x05DC//--  1375  =  1.375
+#define kCoefVals_kCoef2Cgain_k8   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef2Cgain_k9   0x05DC//--  1375  =  1.500
+/****************************************************************
+CGAIN_3
+*****************************************************************/
+#define kCoefVals_kCoef3Cgain_k1   0x05DC//--  1375  =  1.500
+#define kCoefVals_kCoef3Cgain_k2   0xFF83//-- -250   = -0.125
+#define kCoefVals_kCoef3Cgain_k3   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef3Cgain_k4   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef3Cgain_k5   0x05DC//--  1375  =  1.500
+#define kCoefVals_kCoef3Cgain_k6   0xFF06//-- -250   = -0.125
+#define kCoefVals_kCoef3Cgain_k7   0xFF83//-- -250   = -0.125
+#define kCoefVals_kCoef3Cgain_k8   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef3Cgain_k9   0x05DC//--  1375  =  1.500
+/****************************************************************
+CGAIN_4
+*****************************************************************/
+#define kCoefVals_kCoef4Cgain_k1   0x04E2//--  1375  =  1.250
+#define kCoefVals_kCoef4Cgain_k2   0xFF83//-- -250   = -0.125
+#define kCoefVals_kCoef4Cgain_k3   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef4Cgain_k4   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef4Cgain_k5   0x04E2//--  1375  =  1.250
+#define kCoefVals_kCoef4Cgain_k6   0xFF06//-- -250   = -0.125
+#define kCoefVals_kCoef4Cgain_k7   0xFF83//-- -250   = -0.125
+#define kCoefVals_kCoef4Cgain_k8   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef4Cgain_k9   0x04E2//--  1375  =  1.250
+/****************************************************************
+CGAIN_5
+*****************************************************************/
+#define kCoefVals_kCoef5Cgain_k1   0x04E2//--  1375  =  1.250
+#define kCoefVals_kCoef5Cgain_k2   0xFF83//-- -250   = -0.125
+#define kCoefVals_kCoef5Cgain_k3   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef5Cgain_k4   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef5Cgain_k5   0x04E2//--  1375  =  1.250
+#define kCoefVals_kCoef5Cgain_k6   0xFF06//-- -250   = -0.125
+#define kCoefVals_kCoef5Cgain_k7   0xFF83//-- -250   = -0.125
+#define kCoefVals_kCoef5Cgain_k8   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef5Cgain_k9   0x04E2//--  1375  =  1.250
+/****************************************************************
+CGAIN_6
+*****************************************************************/
+#define kCoefVals_kCoef6Cgain_k1   0x055F//--  1375  =  1.375
+#define kCoefVals_kCoef6Cgain_k2   0xFF83//-- -250   = -0.125
+#define kCoefVals_kCoef6Cgain_k3   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef6Cgain_k4   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef6Cgain_k5   0x055F//--  1375  =  1.375
+#define kCoefVals_kCoef6Cgain_k6   0xFF06//-- -250   = -0.125
+#define kCoefVals_kCoef6Cgain_k7   0xFF83//-- -250   = -0.125
+#define kCoefVals_kCoef6Cgain_k8   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef6Cgain_k9   0x055F//--  1375  =  1.375
+/****************************************************************
+CGAIN_7
+*****************************************************************/
+#define kCoefVals_kCoef7Cgain_k1   0x055F//--  1375  =  1.375
+#define kCoefVals_kCoef7Cgain_k2   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef7Cgain_k3   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef7Cgain_k4   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef7Cgain_k5   0x055F//--  1375  =  1.375
+#define kCoefVals_kCoef7Cgain_k6   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef7Cgain_k7   0xFF83//-- -250   = -0.250
+#define kCoefVals_kCoef7Cgain_k8   0xFF83//-- -500   = -0.125
+#define kCoefVals_kCoef7Cgain_k9   0x055F//--  1375  =  1.375
 #define kCoefVals_kCoeffCgain_kSet 2
 /****************************************************************
 SHARP
@@ -379,7 +439,11 @@ UNSED KERNEL
 /************************************/
 #define wcgain1                 0x7C03B49
 #define wcgain2                 0x7C03B4A
-#define wcgain3                 0x7C03B4A
+#define wcgain3                 0x7C03B4B
+#define wcgain4                 0x7C03B4C
+#define wcgain5                 0x7C03B4D
+#define wcgain6                 0x7C03B4E
+#define wcgain7                 0x7C03B4F
 #define wsobel                  0xC8FCCE
 #define wprewit                 0x7D5D472
 #define wsharp                  0xC8E198

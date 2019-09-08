@@ -15,8 +15,8 @@ src/nor.o src/nor.o: ../src/nor.c ../src/fsbl.h \
  ../../fsbl_bsp/ps7_cortexa9_0/include/xil_io.h \
  ../../fsbl_bsp/ps7_cortexa9_0/include/xstatus.h \
  ../../fsbl_bsp/ps7_cortexa9_0/include/xil_assert.h ../src/fsbl_debug.h \
- K:\ZEDBOARD\workspace\sdk\ZEDBOARD_hw_platform_0/ps7_init.h ../src/nor.h \
- ../../fsbl_bsp/ps7_cortexa9_0/include/xstatus.h
+ C:\Users\GATE\Documents\GitHub\RECORD\D5MWEB\ZEDBOARD\workspace\sdk\ZEDBOARD_hw_platform_0/ps7_init.h \
+ ../src/nor.h ../../fsbl_bsp/ps7_cortexa9_0/include/xstatus.h
 
 ../src/fsbl.h:
 
@@ -56,7 +56,7 @@ src/nor.o src/nor.o: ../src/nor.c ../src/fsbl.h \
 
 ../src/fsbl_debug.h:
 
-K:\ZEDBOARD\workspace\sdk\ZEDBOARD_hw_platform_0/ps7_init.h:
+C:\Users\GATE\Documents\GitHub\RECORD\D5MWEB\ZEDBOARD\workspace\sdk\ZEDBOARD_hw_platform_0/ps7_init.h:
 
 ../src/nor.h:
 

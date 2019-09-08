@@ -80,9 +80,9 @@ set_max_delay -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/CameraRawToRgbInst
 set_max_delay -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/CameraRawToRgbInst/RawToRgbInst/oRgbSet_reg[pEof]__0/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/detectInst/pixelCordInt/newCord_reg[rht][*]/CE}] 10.000
 set_max_delay -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/CameraRawToRgbInst/RawToRgbInst/rgb_reg[red][*]/C}] -to [get_pins zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/detectInst/pEnable_reg/D] 10.000
 
-
-
-
+set_max_delay -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSV_FRAME_ENABLE.hsvInst/uFs3Rgb_reg[red][*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSL_FRAME_ENABLE.hslInst/hueTop_reg[*]/D}] 13.000
+set_max_delay -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSV_FRAME_ENABLE.hsvInst/uFs3Rgb_reg[green][*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSL_FRAME_ENABLE.hslInst/hueTop_reg[*]/D}] 13.000
+set_max_delay -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSV_FRAME_ENABLE.hsvInst/uFs3Rgb_reg[blue][*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSL_FRAME_ENABLE.hslInst/hueTop_reg[*]/D}] 13.000
 
 #set_max_delay -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSL_FRAME_ENABLE.hslInst/uFs3Rgb_reg[red][*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSL_FRAME_ENABLE.hslInst/hueTop_reg[*]/D}] 12.000
 #set_max_delay -from [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSL_FRAME_ENABLE.hslInst/uFs3Rgb_reg[blue][*]/C}] -to [get_pins {zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSV_FRAME_ENABLE.hsvInst/hueTop_reg[*]/D}] 12.000

@@ -63,8 +63,8 @@ architecture arch of frameProcess is
     signal sValid           : std_logic;
     -------------------------------------------------
     constant F_TES          : boolean := true;
-    constant F_LUM          : boolean := true;
-    constant F_TRM          : boolean := true;
+    constant F_LUM          : boolean := false;
+    constant F_TRM          : boolean := false;
     constant F_RGB          : boolean := true;
     constant F_SHP          : boolean := true;
     constant F_BLU          : boolean := false;
@@ -100,13 +100,13 @@ architecture arch of frameProcess is
     constant MASK_FLSE      : boolean := false;
     constant M_SOB_LUM      : boolean := SelFrame(F_SOB,F_LUM,MASK_FLSE);
     constant M_SOB_TRM      : boolean := SelFrame(F_SOB,F_TRM,MASK_FLSE);
-    constant M_SOB_RGB      : boolean := SelFrame(F_SOB,F_RGB,MASK_FLSE);
-    constant M_SOB_SHP      : boolean := SelFrame(F_SOB,F_SHP,MASK_FLSE);
+    constant M_SOB_RGB      : boolean := SelFrame(F_SOB,F_RGB,MASK_TRUE);
+    constant M_SOB_SHP      : boolean := SelFrame(F_SOB,F_SHP,MASK_TRUE);
     constant M_SOB_BLU      : boolean := SelFrame(F_SOB,F_BLU,MASK_FLSE);
     constant M_SOB_YCC      : boolean := SelFrame(F_SOB,F_YCC,MASK_FLSE);
-    constant M_SOB_CGA      : boolean := SelFrame(F_SOB,F_CGA,MASK_FLSE);
-    constant M_SOB_HSV      : boolean := SelFrame(F_SOB,F_HSV,MASK_FLSE);
-    constant M_SOB_HSL      : boolean := SelFrame(F_SOB,F_HSL,MASK_FLSE);
+    constant M_SOB_CGA      : boolean := SelFrame(F_SOB,F_CGA,MASK_TRUE);
+    constant M_SOB_HSV      : boolean := SelFrame(F_SOB,F_HSV,MASK_TRUE);
+    constant M_SOB_HSL      : boolean := SelFrame(F_SOB,F_HSL,MASK_TRUE);
 begin
     lumThreshold                 <= std_logic_vector(to_unsigned(iLumTh,8));
     cHsv                         <= std_logic_vector(to_unsigned(iHsvPerCh,3));--[0-cHsv,1-cHsvH,2-cHsvS,3-cHsvV]

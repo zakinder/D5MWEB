@@ -157,7 +157,7 @@ CGAIN_7
 #define kCoefVals_kCoef7Cgain_k4   0xFF83//-- -500   = -0.125
 #define kCoefVals_kCoef7Cgain_k5   0x055F//--  1375  =  1.375
 #define kCoefVals_kCoef7Cgain_k6   0xFF06//-- -250   = -0.250
-#define kCoefVals_kCoef7Cgain_k7   0xFF06//-- -250   = -0.250
+#define kCoefVals_kCoef7Cgain_k7   0xFF83//-- -250   = -0.250
 #define kCoefVals_kCoef7Cgain_k8   0xFF83//-- -500   = -0.125
 #define kCoefVals_kCoef7Cgain_k9   0x055F//--  1375  =  1.375
 #define kCoefVals_kCoeffCgain_kSet 2

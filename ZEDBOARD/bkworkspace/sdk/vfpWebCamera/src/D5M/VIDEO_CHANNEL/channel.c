@@ -1,4 +1,4 @@
-// LAST TESTED : 09/01/2019
+// LAST TESTED : 09/07/2019
 #include "channel.h"
 #include <sleep.h>
 #include <stdio.h>
@@ -430,21 +430,6 @@ void EmbosCoef()
 //CGAIN
 void Cgain1Coef()
 {
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoeffCgain_k1);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoeffCgain_k2);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoeffCgain_k3);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoeffCgain_k4);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoeffCgain_k5);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoeffCgain_k6);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoeffCgain_k7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoeffCgain_k8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoeffCgain_k9);
-    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
-    usleep(1);
-}
-//CGAIN
-void Cgain2Coef()
-{
     D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef1Cgain_k1);
     D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef1Cgain_k2);
     D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef1Cgain_k3);
@@ -457,17 +442,88 @@ void Cgain2Coef()
     D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
     usleep(1);
 }
+//CGAIN
+void Cgain2Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef2Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef2Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef2Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef2Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef2Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef2Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef2Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef2Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef2Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
 void Cgain3Coef()
 {
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoeffYcbcr_k1);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoeffYcbcr_k2);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoeffYcbcr_k3);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoeffYcbcr_k4);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoeffYcbcr_k5);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoeffYcbcr_k6);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoeffYcbcr_k7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoeffYcbcr_k8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoeffYcbcr_k9);
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef3Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef3Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef3Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef3Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef3Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef3Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef3Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef3Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef3Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain4Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef4Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef4Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef4Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef4Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef4Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef4Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef4Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef4Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef4Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain5Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef5Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef5Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef5Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef5Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef5Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef5Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef5Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef5Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef5Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain6Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef6Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef6Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef6Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef6Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef6Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef6Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef6Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef6Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef6Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain7Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef7Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef7Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef7Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef7Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef7Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef7Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef7Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef7Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef7Cgain_k9);
     D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
     usleep(1);
 }
