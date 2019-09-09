@@ -73,4 +73,15 @@ u16 rColorFilterA33();
 void readFifo();
 void enableNextRead(u16 eValue);
 void colorDetectRange(u16 fRgbCoordRL,u16 fRgbCoordRH,u16 fRgbCoordGL,u16 fRgbCoordGH,u16 fRgbCoordBL,u16 fRgbCoordBH);
+void colorHsvPerChHsv();
+void colorHsvPerChH();
+void colorHsvPerChS();
+void colorHsvPerChV();
+void colorYCbCrCh();
+void colorYCbCrPerChY();
+void colorYCbCrPerChCb();
+void colorYCbCrPerChCr();
+void lum_ThresholdValue(u16 lumThresholdValue);
+void colorYCbCrPerCh(u16 PerChValue);
+void colorHsvPerCh(u16 PerChValue);
 #endif // __CHANNEL_H__

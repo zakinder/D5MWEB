@@ -268,6 +268,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => tp2cgain,
@@ -280,6 +281,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => rgbImageKernel.colorTrm,
@@ -292,6 +294,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => rgbImageKernel.hsl,
@@ -304,6 +307,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => rgbImageKernel.hsv,
@@ -316,6 +320,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => rgbImageKernel.ycbcr,
@@ -328,6 +333,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => rgbImageKernel.sharp,
@@ -371,6 +377,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => tp2inrgb,
@@ -383,6 +390,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => rgbImageKernel.colorLmp,
@@ -395,6 +403,7 @@ generic map (
     eBlack       => true)
 port map(            
     clk         => clk,
+    reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
     i2Rgb       => rgbImageKernel.blur,

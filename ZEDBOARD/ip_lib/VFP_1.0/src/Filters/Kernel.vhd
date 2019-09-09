@@ -178,7 +178,7 @@ port map(
     ycbcrSyn.valid   <=  rgbSyncValid(9);
 SyncFramesInst: SyncFrames
 generic map (
-    sDelay   => 6)
+    pixelDelay   => 6)
 port map(            
     clk      => clk,
     reset    => rst_l,
@@ -224,7 +224,7 @@ port map(
     cgainSyn.valid <=  rgbSyncValid(9);
 SyncFramesInst: SyncFrames
 generic map (
-    sDelay   => 6)
+    pixelDelay   => 6)
 port map(            
     clk      => clk,
     reset    => rst_l,

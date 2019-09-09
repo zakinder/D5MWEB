@@ -75,7 +75,7 @@ port (
 end component ColorSpaceLimits;
 component SyncFrames is
 generic (
-    sDelay         : integer := 8);
+    pixelDelay     : integer := 8);
 port (  
     clk            : in  std_logic;
     reset          : in  std_logic;
@@ -446,6 +446,7 @@ generic (
     eBlack         : boolean := false);
 port (                
     clk            : in  std_logic;
+    reset          : in  std_logic;
     iEdgeValid     : in  std_logic;
     i1Rgb          : in channel;
     i2Rgb          : in channel;

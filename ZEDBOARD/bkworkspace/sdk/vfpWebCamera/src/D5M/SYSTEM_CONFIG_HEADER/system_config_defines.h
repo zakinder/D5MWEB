@@ -1,4 +1,4 @@
-// LAST TESTED : 09/01/2019
+// LAST TESTED : 09/08/2019
 #ifndef __SYSTEM_CONFIG_DEFINES_H__
 #define __SYSTEM_CONFIG_DEFINES_H__
 #include <xaxivdma.h>
@@ -46,6 +46,7 @@
 #define selRgb                      5
 #define selSoble                    6
 #define selEmboss                   7
+#define selRgbCorrect               45
 #define selRgbRemix                 46
 #define selRgbDetect                47
 #define selRgbPoi                   48
@@ -58,11 +59,21 @@
 #define selTPatter3                 14
 #define selTPatter4                 15
 #define selTPatter5                 16
-#define selRgbCorrect               17
+
 #define selHsvCcBl                  19
 #define selColorTrm                 20
 #define selColorLmp                 21
+#define selcgainToYcbcr             25
+
 /*****************************************************************************************************************/
+#define hsvPerChHsv                0
+#define hsvPerChH                  1
+#define hsvPerChS                  2
+#define hsvPerChV                  3
+#define YccPerChYCbCr              0
+#define YccPerChY                  1
+#define YccPerChCb                 2
+#define YccPerChCr                 3
 /****************************************************************
 YCBCR
 *****************************************************************/
@@ -305,25 +316,36 @@ UNSED KERNEL
 #define w_a33fl_reg_29              116
 #define w_aconfig_reg_30            120
 #define w_pointinterest_reg_31      124
+#define r_pointinterest_reg_31      124
 #define w_deltaconfig_reg_32        128
 #define w_cpuackgoagain_reg_33      132
 #define w_cpuwgridlock_reg_34       136
 #define w_cpuackoffframe_reg_35     140
 #define w_gridlockaddress_reg_36    144
-#define w_clearfifodata_reg_37      148
-#define r_pointinterest_reg_31      124
 #define r_readaddress_reg_36        144
+#define w_clearfifodata_reg_37      148
 #define r_gridlockdatai_reg_38      152
 #define r_fifofullh_reg_39          156
 #define r_fifoemptyh_reg_40         160
 #define r_fifofullh_reg_41          164
 #define r_cpugridcont_reg_42        168
+#define w_empty_reg_43              172
+#define w_empty_reg_44              176
+#define w_empty_reg_45              180
+#define w_empty_reg_46              184
+#define w_empty_reg_47              188
+#define w_empty_reg_48              192
+#define w_empty_reg_49              196
 #define w_rh_reg_50                 200
 #define w_rl_reg_51                 204
 #define w_gh_reg_52                 208
 #define w_gl_reg_53                 212
 #define w_bh_reg_54                 216
 #define w_bl_reg_55                 220
+#define w_lumTh_reg_56              224
+#define w_hsvPerCh_reg_57           228
+#define w_yccPerCh_reg_58           232
+#define w_empty_reg_59              236
 #define r_sec_reg_60                240
 #define r_min_reg_61                244
 #define r_hour_reg_62               248
@@ -450,6 +472,10 @@ UNSED KERNEL
 #define wemboss                 0x7C439CD
 #define wblur                   0x13D674
 /************************************/
+#define hsvpervalue             0xF43BADEF
+#define yccpervalue             0x5E197EEF
+#define lumvalue                0x4812C2CF
+/************************************/
 #define rgbdetect               0xEB640CB6
 #define video0                  0xC5C5BA
 #define video1                  0xC5C5BB
@@ -474,6 +500,14 @@ UNSED KERNEL
 #define video20                 0x7B9B958
 #define video21                 0x7B9B959
 #define video22                 0x7B9B95A
+#define video23                 0x7B9B95B
+#define video24                 0x7B9B95C
+#define video25                 0x7B9B95D
+#define video45                 0x7B9B971
+#define video46                 0x7B9B972
+#define video47                 0x7B9B973
+#define video48                 0x7B9B974
+#define video49                 0x7B9B975
 #define ycbcrenable             0x511543CD
 #define ycbcrdisable            0x2AC07A9D
 #define ycbcr                   0x1423E0

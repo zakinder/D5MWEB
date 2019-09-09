@@ -68,18 +68,18 @@ architecture arch of frameProcess is
     constant F_RGB          : boolean := true;
     constant F_SHP          : boolean := true;
     constant F_BLU          : boolean := false;
-    constant F_EMB          : boolean := true;
+    constant F_EMB          : boolean := false;
     constant F_YCC          : boolean := false;
     constant F_SOB          : boolean := true;
     constant F_CGA          : boolean := true;
     constant F_HSV          : boolean := true;
     constant F_HSL          : boolean := true;
     -------------------------------------------------
-    constant F_CGA_TO_CGA   : boolean := false;
-    constant F_CGA_TO_HSL   : boolean := false;
-    constant F_CGA_TO_HSV   : boolean := false;
+    constant F_CGA_TO_CGA   : boolean := true;
+    constant F_CGA_TO_HSL   : boolean := true;
+    constant F_CGA_TO_HSV   : boolean := true;
     constant F_CGA_TO_YCC   : boolean := false;
-    constant F_CGA_TO_SHP   : boolean := false;
+    constant F_CGA_TO_SHP   : boolean := true;
     constant F_CGA_TO_BLU   : boolean := false;
     -------------------------------------------------
     constant F_SHP_TO_SHP   : boolean := false;

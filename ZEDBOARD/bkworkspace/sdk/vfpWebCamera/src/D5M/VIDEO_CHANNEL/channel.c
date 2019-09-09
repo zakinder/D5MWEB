@@ -1,4 +1,4 @@
-// LAST TESTED : 09/07/2019
+// LAST TESTED : 09/08/2019
 #include "channel.h"
 #include <sleep.h>
 #include <stdio.h>
@@ -199,6 +199,66 @@ void point_Interest(u16 videoType)
 void pointInterestFixed()
 {
     D5M_mWriteReg(D5M_BASE,w_pointinterest_reg_31,pStream.fPointInterest);
+}
+void colorHsvPerCh(u16 PerChValue)
+{
+    if (PerChValue == 1) {
+    	colorHsvPerChH();
+    }else if (PerChValue == 2){
+    	colorHsvPerChS();
+    }else if (PerChValue == 3){  
+    	colorHsvPerChV();
+    }else{
+    	colorHsvPerChHsv();
+    }
+}
+void colorHsvPerChHsv()
+{
+    D5M_mWriteReg(D5M_BASE,w_hsvPerCh_reg_57,hsvPerChHsv);
+}
+void colorHsvPerChH()
+{
+    D5M_mWriteReg(D5M_BASE,w_hsvPerCh_reg_57,hsvPerChH);
+}
+void colorHsvPerChS()
+{
+    D5M_mWriteReg(D5M_BASE,w_hsvPerCh_reg_57,hsvPerChS);
+}
+void colorHsvPerChV()
+{
+    D5M_mWriteReg(D5M_BASE,w_hsvPerCh_reg_57,hsvPerChV);
+}
+void colorYCbCrPerCh(u16 PerChValue)
+{
+    if (PerChValue == 1) {
+    	colorYCbCrPerChY();
+    }else if (PerChValue == 2){
+    	colorYCbCrPerChCb();
+    }else if (PerChValue == 3){  
+    	colorYCbCrPerChCr();
+    }else{
+    	colorYCbCrCh();
+    }
+}
+void colorYCbCrCh()
+{
+    D5M_mWriteReg(D5M_BASE,w_yccPerCh_reg_58,YccPerChYCbCr);
+}
+void colorYCbCrPerChY()
+{
+    D5M_mWriteReg(D5M_BASE,w_yccPerCh_reg_58,YccPerChY);
+}
+void colorYCbCrPerChCb()
+{
+    D5M_mWriteReg(D5M_BASE,w_yccPerCh_reg_58,YccPerChCb);
+}
+void colorYCbCrPerChCr()
+{
+    D5M_mWriteReg(D5M_BASE,w_yccPerCh_reg_58,YccPerChCr);
+}
+void lum_ThresholdValue(u16 lumThresholdValue)
+{
+    D5M_mWriteReg(D5M_BASE,w_lumTh_reg_56,lumThresholdValue);
 }
 void ReadDataByte(u16 Value)
 {
@@ -424,7 +484,7 @@ void EmbosCoef()
     D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoeffEmbos_k7);
     D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoeffEmbos_k8);
     D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoeffEmbos_k9);
-    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffEmbos_kSet);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffSharp_kSet);
     usleep(1);
 }
 //CGAIN

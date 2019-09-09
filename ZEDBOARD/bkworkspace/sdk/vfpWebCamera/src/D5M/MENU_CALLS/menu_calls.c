@@ -1,4 +1,4 @@
-// LAST TESTED : 09/07/2019
+// LAST TESTED : 09/08/2019
 #include "menu_calls.h"
 #include <stdio.h>
 #include <xil_io.h>
@@ -193,6 +193,35 @@ void menu_calls(ON_OFF) {
         	videoFeatureSelect(selColorLmp);
             cmd_status_substate = enter_value_or_quit("video21",video21);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
+        case video25://COLOR LMP
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selcgainToYcbcr);
+            cmd_status_substate = enter_value_or_quit("video25",video25);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video45:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selRgbCorrect);
+            cmd_status_substate = enter_value_or_quit("video45",video45);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video46:
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selRgbRemix);
+            cmd_status_substate = enter_value_or_quit("video46",video46);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video47://COLOR CORRECTION
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selRgbDetect);
+            cmd_status_substate = enter_value_or_quit("video47",video47);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video48://HSL
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selRgbPoi);
+            cmd_status_substate = enter_value_or_quit("video48",video48);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case video49://HSV
+            /*****************************************************************************************************************/
+        	videoFeatureSelect(selYcbcr);
+            cmd_status_substate = enter_value_or_quit("video49",video49);current_state = cmd_status_substate;break;
         case ycbcrenable:
             /*****************************************************************************************************************/
             ycbcr_Enable();
@@ -462,6 +491,43 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         	camera_set_registers();
             cmd_status_substate = enter_value_or_quit("fullhdmi",fullhdmi);current_state = cmd_status_substate;break;
+        case hsvpervalue:
+            /*****************************************************************************************************************/
+            printf("Enter Hsv Per Value\n");
+            printf("0-Hsv 1-H 2-S 3-V\n");
+            menu_print_prompt();
+            t1Register = uart_prompt_io();
+            if (t1Register == clear) {
+            	current_state = mainmenu;
+                break;}
+        	colorHsvPerCh(t1Register);
+            /*****************************************************************************************************************/
+            cmd_status_substate = enter_value_or_quit("hsvpervalue",hsvpervalue);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case yccpervalue:
+            /*****************************************************************************************************************/
+            printf("Enter YCbCr Per Value\n");
+            printf("0-YCbCr 1-Y 2-Cb 3-Cr\n");
+            menu_print_prompt();
+            t1Register = uart_prompt_io();
+            if (t1Register == clear) {
+            	current_state = mainmenu;
+                break;}
+        	colorYCbCrPerCh(t1Register);
+            /*****************************************************************************************************************/
+            cmd_status_substate = enter_value_or_quit("yccpervalue",yccpervalue);current_state = cmd_status_substate;break;
+            /*****************************************************************************************************************/
+        case lumvalue:
+            /*****************************************************************************************************************/
+            printf("Enter Lum Threshold Value\n");
+            menu_print_prompt();
+            t1Register = uart_prompt_io();
+            if (t1Register == clear) {
+            	current_state = mainmenu;
+                break;}
+        	lum_ThresholdValue(t1Register);
+            /*****************************************************************************************************************/
+            cmd_status_substate = enter_value_or_quit("lumvalue",lumvalue);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case edgethreshold:
             /*****************************************************************************************************************/
