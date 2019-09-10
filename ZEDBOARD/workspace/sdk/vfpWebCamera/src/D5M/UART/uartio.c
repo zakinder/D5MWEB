@@ -41,7 +41,7 @@ u8 keypress_to_uart(u32 uart_address)
 		uart_io -= 48;
 	else if (uart_io >= 97 && uart_io <= 122)
 		uart_io -= 32;
-	return (uart_io);
+    return (uart_io);
 }
 u32 uart_prompt_io()
 {
@@ -283,11 +283,21 @@ u32 uartcmd(u32 argA,u32 argB)
     if (uartquit == cmds_quit || uartquit == 0x00) {return argA;
     } else {return argB;}
 }
-void keyArrowSelect()
+void keyArrow1Select()
 {
 	int nMenu_State = 1;
 	u8 userinput = 0;
 	u16 testValues = 1;
+	unsigned int uK1 = kCoefVals_kCoef1Cgain_k1;
+	unsigned int uK2 = (~kCoefVals_kCoef1Cgain_k2)&0x00FF;
+	unsigned int uK3 = (~kCoefVals_kCoef1Cgain_k3)&0x00FF;
+	unsigned int uK4 = kCoefVals_kCoef1Cgain_k4;
+	unsigned int uK5 = (~kCoefVals_kCoef1Cgain_k5)&0x00FF;
+	unsigned int uK6 = (~kCoefVals_kCoef1Cgain_k6)&0x00FF;
+	unsigned int uK7 = kCoefVals_kCoef1Cgain_k7;
+	unsigned int uK8 = (~kCoefVals_kCoef1Cgain_k8)&0x00FF;
+	unsigned int uK9 = (~kCoefVals_kCoef1Cgain_k9)&0x00FF;
+	int   K1,K2,K3,K4,K5,K6,K7,K8,K9;
 	int menu_Active = TRUE;
 	while (menu_Active == TRUE) {
 		switch (nMenu_State) {
@@ -295,7 +305,49 @@ void keyArrowSelect()
 			menu_Active = FALSE;
 			break;
 		case menu_select:
-			printf("%d\n",(unsigned)testValues);
+            menu_print_prompt();
+            uK1 = kCoefVals_kCoef1Cgain_k1 + testValues;
+            uK2 = (~(kCoefVals_kCoef1Cgain_k2+testValues))&0x00FF;
+            uK3 = (~(kCoefVals_kCoef1Cgain_k3-testValues))&0x00FF;
+            K1 = uK1;
+            K2 = (~uK2);
+            K3 = (~uK3);
+            uK4 = (~(kCoefVals_kCoef1Cgain_k4-testValues))&0x00FF;
+            uK5 = kCoefVals_kCoef1Cgain_k5 + testValues;
+            uK6 = (~(kCoefVals_kCoef1Cgain_k6+testValues))&0x00FF;
+            K4 = (~uK4);
+            K5 = uK5;
+            K6 = (~uK6);
+            uK7 = (~(kCoefVals_kCoef1Cgain_k7+testValues))&0x00FF;
+            uK8 = (~(kCoefVals_kCoef1Cgain_k8-testValues))&0x00FF;
+            uK9 = kCoefVals_kCoef1Cgain_k9 + testValues;
+            K7 = (~uK7);
+            K8 = (~uK8);
+            K9 = uK9;
+            printf("\n"
+            "|-----------------------|\r\n"
+            "|           CG1         |\r\n"
+            "|-----------------------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n",K1,K2,K3,K4,K5,K6,K7,K8,K9);
+			printf(">>>>>>>>>>>>>>>>>>>>>%d",(unsigned)testValues);
+			D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef1Cgain_k1 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef1Cgain_k2 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef1Cgain_k3 - testValues);
+
+		    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef1Cgain_k4 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef1Cgain_k5 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef1Cgain_k6 + testValues);
+
+		    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef1Cgain_k7 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef1Cgain_k8 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef1Cgain_k9 + testValues);
+			D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+			videoFeatureSelect(selCgain);
 			userinput = keypress_to_uart(uart_1_baseaddr);
 			nMenu_State = userinput + 10;
 			break;
@@ -303,28 +355,232 @@ void keyArrowSelect()
 			if (testValues <= 1)
 				testValues = 0;   //MINIMUM SET VALUE
 			else
-				testValues -= 1;
+				testValues -= 10;
 			nMenu_State = menu_select;
 			break;
 		case KEYPRESS_ARROW_UP:  //INCREMENT BY 1
-			if (testValues > 254)
-				testValues = 255;//MAXIMUM SET VALUE
+			if (testValues > 8092)
+				testValues = 8093;//MAXIMUM SET VALUE
 			else
-				testValues += 1;
+				testValues += 10;
 			nMenu_State = menu_select;
 			break;
 		case KEYPRESS_ARROW_LEFT: //INCREMENT BY 2
-			if (testValues > 254)
-				testValues = 255; //MAXIMUM SET VALUE
+			if (testValues > 8092)
+				testValues = 8093; //MAXIMUM SET VALUE
 			else
-				testValues += 2;
+				testValues += 100;
 			nMenu_State = menu_select;
 			break;
 		case KEYPRESS_ARROW_RIGHT: //DECREMENT BY 2
 			if (testValues <= 1)
 				testValues = 1;    //MINIMUM SET VALUE
 			else
-				testValues -= 2;
+				testValues -= 100;
+			nMenu_State = menu_select;
+			break;
+		default:
+			nMenu_State = menu_select;
+			break;
+		}
+	}
+}
+void keyArrow2Select()
+{
+	int nMenu_State = 1;
+	u8 userinput = 0;
+	u16 testValues = 1;
+	unsigned int uK1 = kCoefVals_kCoef2Cgain_k1;
+	unsigned int uK2 = (~kCoefVals_kCoef2Cgain_k2)&0x00FF;
+	unsigned int uK3 = (~kCoefVals_kCoef2Cgain_k3)&0x00FF;
+	unsigned int uK4 = kCoefVals_kCoef2Cgain_k4;
+	unsigned int uK5 = (~kCoefVals_kCoef2Cgain_k5)&0x00FF;
+	unsigned int uK6 = (~kCoefVals_kCoef2Cgain_k6)&0x00FF;
+	unsigned int uK7 = kCoefVals_kCoef2Cgain_k7;
+	unsigned int uK8 = (~kCoefVals_kCoef2Cgain_k8)&0x00FF;
+	unsigned int uK9 = (~kCoefVals_kCoef2Cgain_k9)&0x00FF;
+	int   K1,K2,K3,K4,K5,K6,K7,K8,K9;
+	int menu_Active = TRUE;
+	while (menu_Active == TRUE) {
+		switch (nMenu_State) {
+		case menuCheck: //exit keyArrors 19
+			menu_Active = FALSE;
+			break;
+		case menu_select:
+            menu_print_prompt();
+            uK1 = kCoefVals_kCoef2Cgain_k1 + testValues;
+            uK2 = (~(kCoefVals_kCoef2Cgain_k2+testValues))&0x00FF;
+            uK3 = (~(kCoefVals_kCoef2Cgain_k3-testValues))&0x00FF;
+            K1 = uK1;
+            K2 = (~uK2);
+            K3 = (~uK3);
+            uK4 = (~(kCoefVals_kCoef2Cgain_k4-testValues))&0x00FF;
+            uK5 = kCoefVals_kCoef2Cgain_k5 + testValues;
+            uK6 = (~(kCoefVals_kCoef2Cgain_k6+testValues))&0x00FF;
+            K4 = (~uK4);
+            K5 = uK5;
+            K6 = (~uK6);
+            uK7 = (~(kCoefVals_kCoef2Cgain_k7+testValues))&0x00FF;
+            uK8 = (~(kCoefVals_kCoef2Cgain_k8-testValues))&0x00FF;
+            uK9 = kCoefVals_kCoef2Cgain_k9 + testValues;
+            K7 = (~uK7);
+            K8 = (~uK8);
+            K9 = uK9;
+            printf("\n"
+            "|-----------------------|\r\n"
+            "|           CG1         |\r\n"
+            "|-----------------------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n",K1,K2,K3,K4,K5,K6,K7,K8,K9);
+			printf(">>>>>>>>>>>>>>>>>>>>>%d",(unsigned)testValues);
+			D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef2Cgain_k1 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef2Cgain_k2 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef2Cgain_k3 - testValues);
+
+		    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef2Cgain_k4 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef2Cgain_k5 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef2Cgain_k6 + testValues);
+
+		    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef2Cgain_k7 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef2Cgain_k8 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef2Cgain_k9 + testValues);
+			D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+			videoFeatureSelect(selCgain);
+			userinput = keypress_to_uart(uart_1_baseaddr);
+			nMenu_State = userinput + 10;
+			break;
+		case KEYPRESS_ARROW_DOWN: //DECREMENT BY 1
+			if (testValues <= 1)
+				testValues = 0;   //MINIMUM SET VALUE
+			else
+				testValues -= 10;
+			nMenu_State = menu_select;
+			break;
+		case KEYPRESS_ARROW_UP:  //INCREMENT BY 1
+			if (testValues > 8092)
+				testValues = 8093;//MAXIMUM SET VALUE
+			else
+				testValues += 10;
+			nMenu_State = menu_select;
+			break;
+		case KEYPRESS_ARROW_LEFT: //INCREMENT BY 2
+			if (testValues > 8092)
+				testValues = 8093; //MAXIMUM SET VALUE
+			else
+				testValues += 100;
+			nMenu_State = menu_select;
+			break;
+		case KEYPRESS_ARROW_RIGHT: //DECREMENT BY 2
+			if (testValues <= 1)
+				testValues = 1;    //MINIMUM SET VALUE
+			else
+				testValues -= 100;
+			nMenu_State = menu_select;
+			break;
+		default:
+			nMenu_State = menu_select;
+			break;
+		}
+	}
+}
+void keyArrow3Select()
+{
+	int nMenu_State = 1;
+	u8 userinput = 0;
+	u16 testValues = 1;
+	unsigned int uK1 = kCoefVals_kCoef7Cgain_k1;
+	unsigned int uK2 = (~kCoefVals_kCoef7Cgain_k2)&0x00FF;
+	unsigned int uK3 = (~kCoefVals_kCoef7Cgain_k3)&0x00FF;
+	unsigned int uK4 = kCoefVals_kCoef7Cgain_k4;
+	unsigned int uK5 = (~kCoefVals_kCoef7Cgain_k5)&0x00FF;
+	unsigned int uK6 = (~kCoefVals_kCoef7Cgain_k6)&0x00FF;
+	unsigned int uK7 = kCoefVals_kCoef7Cgain_k7;
+	unsigned int uK8 = (~kCoefVals_kCoef7Cgain_k8)&0x00FF;
+	unsigned int uK9 = (~kCoefVals_kCoef7Cgain_k9)&0x00FF;
+	int   K1,K2,K3,K4,K5,K6,K7,K8,K9;
+	int menu_Active = TRUE;
+	while (menu_Active == TRUE) {
+		switch (nMenu_State) {
+		case menuCheck: //exit keyArrors 19
+			menu_Active = FALSE;
+			break;
+		case menu_select:
+            menu_print_prompt();
+            uK1 = kCoefVals_kCoef7Cgain_k1 + testValues;
+            uK2 = (~(kCoefVals_kCoef7Cgain_k2+testValues))&0x00FF;
+            uK3 = (~(kCoefVals_kCoef7Cgain_k3-testValues))&0x00FF;
+            K1 = uK1;
+            K2 = (~uK2);
+            K3 = (~uK3);
+            uK4 = (~(kCoefVals_kCoef7Cgain_k4-testValues))&0x00FF;
+            uK5 = kCoefVals_kCoef7Cgain_k5 + testValues;
+            uK6 = (~(kCoefVals_kCoef7Cgain_k6+testValues))&0x00FF;
+            K4 = (~uK4);
+            K5 = uK5;
+            K6 = (~uK6);
+            uK7 = (~(kCoefVals_kCoef7Cgain_k7+testValues))&0x00FF;
+            uK8 = (~(kCoefVals_kCoef7Cgain_k8-testValues))&0x00FF;
+            uK9 = kCoefVals_kCoef7Cgain_k9 + testValues;
+            K7 = (~uK7);
+            K8 = (~uK8);
+            K9 = uK9;
+            printf("\n"
+            "|-----------------------|\r\n"
+            "|           CG1         |\r\n"
+            "|-----------------------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n"
+            "|%d   |%d   |%d   |\r\n"
+            "|-------|-------|-------|\r\n",K1,K2,K3,K4,K5,K6,K7,K8,K9);
+			printf(">>>>>>>>>>>>>>>>>>>>>%d",(unsigned)testValues);
+			D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef7Cgain_k1 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef7Cgain_k2 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef7Cgain_k3 - testValues);
+
+		    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef7Cgain_k4 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef7Cgain_k5 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef7Cgain_k6 + testValues);
+
+		    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef7Cgain_k7 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef7Cgain_k8 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef7Cgain_k9 + testValues);
+			D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+			videoFeatureSelect(selCgain);
+			userinput = keypress_to_uart(uart_1_baseaddr);
+			nMenu_State = userinput + 10;
+			break;
+		case KEYPRESS_ARROW_DOWN: //DECREMENT BY 1
+			if (testValues <= 1)
+				testValues = 0;   //MINIMUM SET VALUE
+			else
+				testValues -= 10;
+			nMenu_State = menu_select;
+			break;
+		case KEYPRESS_ARROW_UP:  //INCREMENT BY 1
+			if (testValues > 8092)
+				testValues = 8093;//MAXIMUM SET VALUE
+			else
+				testValues += 10;
+			nMenu_State = menu_select;
+			break;
+		case KEYPRESS_ARROW_LEFT: //INCREMENT BY 2
+			if (testValues > 8092)
+				testValues = 8093; //MAXIMUM SET VALUE
+			else
+				testValues += 100;
+			nMenu_State = menu_select;
+			break;
+		case KEYPRESS_ARROW_RIGHT: //DECREMENT BY 2
+			if (testValues <= 1)
+				testValues = 1;    //MINIMUM SET VALUE
+			else
+				testValues -= 100;
 			nMenu_State = menu_select;
 			break;
 		default:
@@ -403,8 +659,6 @@ menu_print_prompt();
 // "|--------------------------|\n");
 // menu_print_prompt();
 // }
-
-
 void master_menu() 
 {
 printf(
