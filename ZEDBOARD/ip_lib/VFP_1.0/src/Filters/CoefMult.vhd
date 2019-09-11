@@ -96,6 +96,17 @@ begin
         kCoefVals.kCoeffEmbos.k8   <= x"03E8";--  1
         kCoefVals.kCoeffEmbos.k9   <= x"03E8";--  1
         kCoefVals.kCoeffEmbos.kSet <= kCoefEmbosIndex;
+        kCoefVals.kCoef1Cgain.k1   <= x"055F";--  1375  =  1.375
+        kCoefVals.kCoef1Cgain.k2   <= x"FF83";-- -125   = -0.125
+        kCoefVals.kCoef1Cgain.k3   <= x"FF06";-- -250   = -0.250
+        kCoefVals.kCoef1Cgain.k4   <= x"FF06";-- -250   = -0.250
+        kCoefVals.kCoef1Cgain.k5   <= x"055F";--  1375  =  1.375
+        kCoefVals.kCoef1Cgain.k6   <= x"FF83";-- -125   = -0.125
+        kCoefVals.kCoef1Cgain.k7   <= x"FF83";-- -125   = -0.125
+        kCoefVals.kCoef1Cgain.k8   <= x"FF06";-- -250   = -0.250
+        kCoefVals.kCoef1Cgain.k9   <= x"055F";--  1375  =  1.375
+        kCoefVals.kCoef1Cgain.kSet <= kCoefCgai1Index;
+        
 FloatMaxLatP: process(clk) begin
     if (rising_edge (clk)) then
         if (rst_l = lo) then
@@ -194,6 +205,10 @@ kCoefStP: process (clk) begin
                 kCof                        <= iKcoeff;
                 oCoeffProd.kCoeffEmbos      <= kCofFrtProd;
                 oCoeffProd.kCoeffEmbos.kSet <= kCoefEmbosIndex;
+            elsif(iKcoeff.kSet = kCoefVals.kCoef1Cgain.kSet)then
+                kCof                        <= iKcoeff;
+                oCoeffProd.kCoef1Cgain      <= kCofFrtProd;
+                oCoeffProd.kCoef1Cgain.kSet <= kCoefCgai1Index;
             else
                 kCof                        <= iKcoeff;
               --oCoeffProd.kCoeffYcbcr      <= kCofFrtProd;

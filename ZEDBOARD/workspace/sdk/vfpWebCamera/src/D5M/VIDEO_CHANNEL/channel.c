@@ -488,6 +488,21 @@ void EmbosCoef()
     usleep(1);
 }
 //CGAIN
+void CgainCoef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef1Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef1Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef1Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef1Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef1Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef1Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef1Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef1Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef1Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoef2Cgain_kSet);
+    usleep(1);
+}
+//CGAIN
 void Cgain1Coef()
 {
     D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef1Cgain_k1);

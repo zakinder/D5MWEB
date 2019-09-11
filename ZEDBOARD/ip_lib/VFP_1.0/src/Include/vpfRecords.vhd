@@ -602,6 +602,7 @@ type rgbArray is array(natural range <>) of type_RgbChannel;
 type kCoefFilters is record
     kCoeffYcbcr    : kernelCoeff;
     kCoeffCgain    : kernelCoeff;
+    kCoef1Cgain    : kernelCoeff;
     kCoeffSharp    : kernelCoeff;
     kCoeffBlure    : kernelCoeff;
     kCoeffEmbos    : kernelCoeff;
@@ -611,6 +612,7 @@ end record;
 type kCoefFiltFloat is record
     kCoeffYcbcr    : kernelCoeDWord;
     kCoeffCgain    : kernelCoeDWord;
+    kCoef1Cgain    : kernelCoeDWord;
     kCoeffSharp    : kernelCoeDWord;
     kCoeffBlure    : kernelCoeDWord;
     kCoeffEmbos    : kernelCoeDWord;

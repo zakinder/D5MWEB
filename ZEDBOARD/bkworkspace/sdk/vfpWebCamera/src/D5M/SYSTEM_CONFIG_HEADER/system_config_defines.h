@@ -35,9 +35,7 @@
 #define wRgbCorrect                 17
 #define wHsl                        18
 #define hsvCcBl                     19
-#define selSobRgb                   1
-#define selSobPoi                   2
-#define selHsvPoi                   3
+/*****************************************************************************************************************/
 #define selCgain                    0
 #define selSharp                    1
 #define selBlur                     2
@@ -46,26 +44,41 @@
 #define selRgb                      5
 #define selSoble                    6
 #define selEmboss                   7
+#define selMaskSobelLum             8
+#define selMaskSobelTrm             9
+#define selMaskSobelRgb             10
+#define selMaskSobelShp             11
+#define selMaskSobelBlu             13
+#define selMaskSobelYcc             14
+#define selMaskSobelHsv             15
+#define selMaskSobelHsl             16
+#define selMaskSobelCga             17
+#define selColorTrm                 18
+#define selColorLmp                 19
+#define selTPattern                 20
+#define selCgainToCgain             21
+#define selCgainToHsl               22
+#define selCgainToHsv               23
+#define selCgainToYcbcr             24
+#define selCgainToShp               25
+#define selCgainToBlu               26
+#define selShpToCgain               27
+#define selShpToHsl                 28
+#define selShpToHsv                 29
+#define selShpToYcbcr               30
+#define selShpToShp                 31
+#define selShpToBlu                 32
 #define selRgbCorrect               45
 #define selRgbRemix                 46
 #define selRgbDetect                47
 #define selRgbPoi                   48
 #define selYcbcr                    49
-#define selBlur2x                   6
-#define selBlur3x                   7
-#define selBlur4x                   8
-#define selTPatter1                 12
-#define selTPatter2                 13
-#define selTPatter3                 14
-#define selTPatter4                 15
-#define selTPatter5                 16
-
-#define selHsvCcBl                  19
-#define selColorTrm                 20
-#define selColorLmp                 21
-#define selcgainToYcbcr             25
 
 /*****************************************************************************************************************/
+
+
+
+
 #define hsvPerChHsv                0
 #define hsvPerChH                  1
 #define hsvPerChS                  2
@@ -74,6 +87,7 @@
 #define YccPerChY                  1
 #define YccPerChCb                 2
 #define YccPerChCr                 3
+
 /****************************************************************
 YCBCR
 *****************************************************************/
@@ -87,6 +101,19 @@ YCBCR
 #define kCoefVals_kCoeffYcbcr_k8   0xFE90//-- -0.368
 #define kCoefVals_kCoeffYcbcr_k9   0xFFB9//-- -0.071
 #define kCoefVals_kCoeffYcbcr_kSet 1
+/****************************************************************
+CGAIN_1
+*****************************************************************/
+#define CgCf_k1                    0x05DC//--  1500  =  1.500
+#define CgCf_k2                    0xFF06//-- -250   = -0.250
+#define CgCf_k3                    0xFE0C//-- -500   = -0.500
+#define CgCf_k4                    0xFE0C//-- -500   = -0.500
+#define CgCf_k5                    0x05DC//--  1500  =  1.500
+#define CgCf_k6                    0xFF06//-- -250   = -0.250
+#define CgCf_k7                    0xFF06//-- -250   = -0.250
+#define CgCf_k8                    0xFE0C//-- -500   = -0.500
+#define CgCf_k9                    0x05DC//--  1500  =  1.500
+#define CgCf_kc                    0x0002//--
 /****************************************************************
 CGAIN_1
 *****************************************************************/
@@ -168,7 +195,7 @@ CGAIN_7
 #define kCoefVals_kCoef7Cgain_k4   0xFF83//-- -500   = -0.125
 #define kCoefVals_kCoef7Cgain_k5   0x055F//--  1375  =  1.375
 #define kCoefVals_kCoef7Cgain_k6   0xFF06//-- -250   = -0.250
-#define kCoefVals_kCoef7Cgain_k7   0xFF83//-- -250   = -0.250
+#define kCoefVals_kCoef7Cgain_k7   0xFF06//-- -250   = -0.250
 #define kCoefVals_kCoef7Cgain_k8   0xFF83//-- -500   = -0.125
 #define kCoefVals_kCoef7Cgain_k9   0x055F//--  1375  =  1.375
 #define kCoefVals_kCoeffCgain_kSet 2
@@ -471,6 +498,7 @@ UNSED KERNEL
 #define wsharp                  0xC8E198
 #define wemboss                 0x7C439CD
 #define wblur                   0x13D674
+#define keygain                 0x70F0134
 /************************************/
 #define hsvpervalue             0xF43BADEF
 #define yccpervalue             0x5E197EEF
@@ -503,6 +531,13 @@ UNSED KERNEL
 #define video23                 0x7B9B95B
 #define video24                 0x7B9B95C
 #define video25                 0x7B9B95D
+#define video26                 0x7B9B95E
+#define video27                 0x7B9B95F
+#define video28                 0x7B9B960
+#define video29                 0x7B9B961
+#define video30                 0x7B9B962
+#define video31                 0x7B9B963
+#define video32                 0x7B9B964
 #define video45                 0x7B9B971
 #define video46                 0x7B9B972
 #define video47                 0x7B9B973
@@ -534,6 +569,10 @@ UNSED KERNEL
 #define coord                   0x10FCFC
 #define colorbars               0x976BA59B
 #define genimage                0x44236327
+#define keyarrow                0x46956815
+#define keyarrow1               0xC1D610D3
+#define keyarrow2               0xC1D610D4
+#define keyarrow3               0xC1D610D5
 #define quit_current_state      0x71
 /*****************************************************************************************************************/
 #define d5m_testpattern         0x2484DA56

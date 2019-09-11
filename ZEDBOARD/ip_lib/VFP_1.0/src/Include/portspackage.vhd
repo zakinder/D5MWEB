@@ -103,6 +103,7 @@ generic (
     YCBCR_FRAME        : boolean := false;
     SOBEL_FRAME        : boolean := false;
     CGAIN_FRAME        : boolean := false;
+    CCGAIN_FRAME       : boolean := false;
     HSV_FRAME          : boolean := false;
     HSL_FRAME          : boolean := false;
     img_width          : integer := 4096;

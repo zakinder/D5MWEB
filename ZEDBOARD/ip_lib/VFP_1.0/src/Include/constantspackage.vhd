@@ -23,6 +23,7 @@ package constantspackage is
     constant kCoefSobeXIndex           : integer   := 5;
     constant kCoefSobeYIndex           : integer   := 6;
     constant kCoefEmbosIndex           : integer   := 7;
+    constant kCoefCgai1Index           : integer   := 8;
     -------------------------------------------------------------------------
     constant soble                     : integer   := 0;
     constant sobRgb                    : integer   := 1;

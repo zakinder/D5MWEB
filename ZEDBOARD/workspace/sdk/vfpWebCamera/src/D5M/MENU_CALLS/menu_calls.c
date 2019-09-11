@@ -9,6 +9,7 @@
 #include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 #include "../UART/uartio.h"
 #include "../VIDEO_CHANNEL/channel.h"
+#include "../VIDEO_FILTERS/filters.h"
 d5m_rreg d5m_rreg_ptr;
 //unused functions
 //sd_card();
@@ -204,7 +205,8 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case video21:
             /*****************************************************************************************************************/
-            videoFeatureSelect(selCgainToCgain);
+        	CgainCoef();
+        	videoFeatureSelect(selCgainToCgain);
             cmd_status_substate = enter_value_or_quit("video21",video21);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case video22:
@@ -407,6 +409,10 @@ void menu_calls(ON_OFF) {
             videoFeatureSelect(selHsl);
             cmd_status_substate = enter_value_or_quit("hsl",hsl);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
+        case keygain:
+            /*****************************************************************************************************************/
+            keyCgainConfigSelect();
+            cmd_status_substate = enter_value_or_quit("keygain",keygain);current_state = cmd_status_substate;break;
         case rgbremix:
             /*****************************************************************************************************************/
             videoFeatureSelect(selRgbRemix);

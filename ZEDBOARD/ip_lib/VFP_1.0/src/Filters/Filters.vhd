@@ -84,6 +84,7 @@ generic map(
     YCBCR_FRAME         => F_YCC,
     SOBEL_FRAME         => F_SOB,
     CGAIN_FRAME         => F_CGA,
+    CCGAIN_FRAME        => false,
     HSV_FRAME           => F_HSV,
     HSL_FRAME           => F_HSL,
     img_width           => img_width,
@@ -113,7 +114,8 @@ generic map(
     EMBOS_FRAME         => false,
     YCBCR_FRAME         => F_CGA_TO_YCC,
     SOBEL_FRAME         => false,
-    CGAIN_FRAME         => F_CGA_TO_CGA,
+    CGAIN_FRAME         => false,
+    CCGAIN_FRAME        => F_CGA_TO_CGA,
     HSV_FRAME           => F_CGA_TO_HSV,
     HSL_FRAME           => F_CGA_TO_HSL,
     img_width           => img_width,
@@ -151,6 +153,7 @@ generic map(
     YCBCR_FRAME         => F_SHP_TO_YCC,
     SOBEL_FRAME         => false,
     CGAIN_FRAME         => F_SHP_TO_CGA,
+    CCGAIN_FRAME        => false,
     HSV_FRAME           => F_SHP_TO_HSV,
     HSL_FRAME           => F_SHP_TO_HSL,
     img_width           => img_width,
@@ -188,6 +191,7 @@ generic map(
     YCBCR_FRAME         => F_BLU_TO_YCC,
     SOBEL_FRAME         => false,
     CGAIN_FRAME         => F_BLU_TO_CGA,
+    CCGAIN_FRAME        => false,
     HSV_FRAME           => F_BLU_TO_HSV,
     HSL_FRAME           => F_BLU_TO_HSL,
     img_width           => img_width,
@@ -288,7 +292,17 @@ port map(
     oRgb        => fRgb.maskSobelTrm);
 end generate MASK_SOB_TRM_FRAME_ENABLE; 
 MASK_SOB_HSL_FRAME_ENABLE: if (M_SOB_HSL = true) generate
+    signal dSobHsl           : channel;
+    constant sobHslPiDelay   : integer := 18;
 begin
+dSobHsvPiDelayInst: SyncFrames
+generic map(
+    pixelDelay => sobHslPiDelay)
+port map(
+    clk        => clk,
+    reset      => rst_l,
+    iRgb       => rgbImageKernel.hsl,
+    oRgb       => dSobHsl);
 FrameMaskInst: FrameMask
 generic map (
     eBlack       => true)
@@ -297,11 +311,21 @@ port map(
     reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
-    i2Rgb       => rgbImageKernel.hsl,
+    i2Rgb       => dSobHsl,
     oRgb        => fRgb.maskSobelHsl);
 end generate MASK_SOB_HSL_FRAME_ENABLE;  
 MASK_SOB_HSV_FRAME_ENABLE: if (M_SOB_HSV = true) generate
+    signal dSobHsv           : channel;
+    constant sobHsvPiDelay   : integer := 18;
 begin
+dSobHsvPiDelayInst: SyncFrames
+generic map(
+    pixelDelay => sobHsvPiDelay)
+port map(
+    clk        => clk,
+    reset      => rst_l,
+    iRgb       => rgbImageKernel.hsv,
+    oRgb       => dSobHsv);
 FrameMaskInst: FrameMask
 generic map (
     eBlack       => true)
@@ -310,7 +334,7 @@ port map(
     reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
-    i2Rgb       => rgbImageKernel.hsv,
+    i2Rgb       => dSobHsv,
     oRgb        => fRgb.maskSobelHsv);
 end generate MASK_SOB_HSV_FRAME_ENABLE; 
 MASK_SOB_YCC_FRAME_ENABLE: if (M_SOB_YCC = true) generate
@@ -340,12 +364,14 @@ port map(
     oRgb        => fRgb.maskSobelShp);
 end generate MASK_SOB_SHP_FRAME_ENABLE;
 MASK_SOB_RGB_FRAME_ENABLE: if (M_SOB_RGB = true) generate
-    signal tp2inrgb   : channel;
-    signal tp2        : std_logic_vector(23 downto 0) := (others => '0');
-    alias tp2Red      : std_logic_vector(7 downto 0) is tp2(23 downto 16);
-    alias tp2Green    : std_logic_vector(7 downto 0) is tp2(15 downto 8);
-    alias tp2Blue     : std_logic_vector(7 downto 0) is tp2(7 downto 0);
-    signal tpValid    : std_logic  := lo;
+    constant sobRgbPiDelay : integer := 14;
+    signal tp2inrgb        : channel;
+    signal tp2             : std_logic_vector(23 downto 0) := (others => '0');
+    alias tp2Red           : std_logic_vector(7 downto 0) is tp2(23 downto 16);
+    alias tp2Green         : std_logic_vector(7 downto 0) is tp2(15 downto 8);
+    alias tp2Blue          : std_logic_vector(7 downto 0) is tp2(7 downto 0);
+    signal tpValid         : std_logic  := lo;
+    signal d1Rgb           : channel;
 begin
 TapsControllerSobCgaInst: TapsController
 generic map(
@@ -372,6 +398,14 @@ process (clk,rst_l) begin
         tp2inrgb.valid <= tpValid;
     end if; 
 end process;
+sobRgbPiDelayInst: SyncFrames
+generic map(
+    pixelDelay => sobRgbPiDelay)
+port map(
+    clk        => clk,
+    reset      => rst_l,
+    iRgb       => tp2inrgb,
+    oRgb       => d1Rgb);
 FrameMaskInst: FrameMask
 generic map (
     eBlack       => true)
@@ -380,7 +414,7 @@ port map(
     reset       => rst_l,
     iEdgeValid  => sEdgeValid,
     i1Rgb       => rgbImageKernel.sobel,
-    i2Rgb       => tp2inrgb,
+    i2Rgb       => d1Rgb,
     oRgb        => fRgb.maskSobelRgb);
 end generate MASK_SOB_RGB_FRAME_ENABLE;
 MASK_SOB_LUM_FRAME_ENABLE: if (M_SOB_LUM = true) generate

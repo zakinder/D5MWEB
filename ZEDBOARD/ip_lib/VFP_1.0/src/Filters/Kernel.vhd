@@ -15,6 +15,7 @@ generic (
     YCBCR_FRAME        : boolean := false;
     SOBEL_FRAME        : boolean := false;
     CGAIN_FRAME        : boolean := false;
+    CCGAIN_FRAME       : boolean := false;
     HSV_FRAME          : boolean := false;
     HSL_FRAME          : boolean := false;
     img_width          : integer := 4096;
@@ -151,7 +152,7 @@ signal kCoeffYcbcr : kernelCoeDWord;
 begin
 process (clk) begin
     if (rising_edge (clk)) then
-        if (kCoProd.kCoeffYcbcr.kSet = 1) then
+        if (kCoProd.kCoeffYcbcr.kSet = kCoefYcbcrIndex) then
             kCoeffYcbcr <= kCoProd.kCoeffYcbcr;
         end if;
     end if; 
@@ -190,19 +191,23 @@ end generate YCBCR_FRAME_ENABLE;
 --FILTERS: CGAIN
 -----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
-CGAIN_FRAME_ENABLE: if (CGAIN_FRAME = true) generate
-signal cgain          : channel;
-signal cgainSyn       : channel;
-signal kCoeffCgain    : kernelCoeDWord;
+CGAIN_FRAME_ENABLE: if (CGAIN_FRAME = true or CCGAIN_FRAME = true) generate
+signal c1gain          : channel;
+signal cgain1Syn       : channel;
+signal cgain2Syn       : channel;
+signal c2gain          : channel;
+signal kCofC1gain      : kernelCoeDWord;
+signal kCofC2gain      : kernelCoeDWord;
 begin
+CGAIN_FRAME_KSET_ENABLE: if (CGAIN_FRAME = true and CCGAIN_FRAME = false) generate
 kCoeffCgainP:process (clk) begin
     if (rising_edge (clk)) then
-        if (kCoProd.kCoeffCgain.kSet = 2) then
-            kCoeffCgain <= kCoProd.kCoeffCgain;
+        if (kCoProd.kCoeffCgain.kSet = kCoefCgainIndex) then
+            kCofC1gain <= kCoProd.kCoeffCgain;
         end if;
     end if; 
 end process kCoeffCgainP;
-Kernel_CGAIN_Inst: KernelCore
+Kernel1CgainInst: KernelCore
 generic map(
     SHARP_FRAME   => false,
     BLURE_FRAME   => false,
@@ -216,20 +221,58 @@ port map(
     clk            => clk,
     rst_l          => rst_l,
     iRgb           => iRgb,
-    kCoeff         => kCoeffCgain,
-    oRgb           => cgain);
-    cgainSyn.red   <=  cgain.red;
-    cgainSyn.blue  <=  cgain.blue;
-    cgainSyn.green <=  cgain.green;
-    cgainSyn.valid <=  rgbSyncValid(9);
+    kCoeff         => kCofC1gain,
+    oRgb           => c1gain);
+    cgain1Syn.red   <=  c1gain.red;
+    cgain1Syn.blue  <=  c1gain.blue;
+    cgain1Syn.green <=  c1gain.green;
+    cgain1Syn.valid <=  rgbSyncValid(9);
 SyncFramesInst: SyncFrames
 generic map (
     pixelDelay   => 6)
 port map(            
     clk      => clk,
     reset    => rst_l,
-    iRgb     => cgainSyn,
+    iRgb     => cgain1Syn,
     oRgb     => oRgb.cgain);
+end generate CGAIN_FRAME_KSET_ENABLE;
+CCGAIN_FRAME_KSET_ENABLE: if (CGAIN_FRAME = false and CCGAIN_FRAME = true) generate
+kCoeffCcgainP:process (clk) begin
+    if (rising_edge (clk)) then
+        if (kCoProd.kCoef1Cgain.kSet = kCoefCgai1Index) then
+            kCofC2gain <= kCoProd.kCoef1Cgain;
+        end if;
+    end if;
+end process kCoeffCcgainP;
+Kernel2CgainInst: KernelCore
+generic map(
+    SHARP_FRAME   => false,
+    BLURE_FRAME   => false,
+    EMBOS_FRAME   => false,
+    YCBCR_FRAME   => false,
+    SOBEL_FRAME   => false,
+    CGAIN_FRAME   => CGAIN_FRAME,
+    img_width     => img_width,
+    i_data_width  => i_data_width)
+port map(
+    clk            => clk,
+    rst_l          => rst_l,
+    iRgb           => iRgb,
+    kCoeff         => kCofC2gain,
+    oRgb           => c2gain);
+    cgain2Syn.red   <=  c2gain.red;
+    cgain2Syn.blue  <=  c2gain.blue;
+    cgain2Syn.green <=  c2gain.green;
+    cgain2Syn.valid <=  rgbSyncValid(9);
+SyncFramesInst: SyncFrames
+generic map (
+    pixelDelay   => 6)
+port map(            
+    clk      => clk,
+    reset    => rst_l,
+    iRgb     => cgain2Syn,
+    oRgb     => oRgb.cgain);
+end generate CCGAIN_FRAME_KSET_ENABLE;
 end generate CGAIN_FRAME_ENABLE;
 -----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
@@ -244,7 +287,7 @@ signal kCoeffSharp    : kernelCoeDWord;
 begin
 process (clk) begin
     if (rising_edge (clk)) then
-        if (kCoProd.kCoeffSharp.kSet = 3) then
+        if (kCoProd.kCoeffSharp.kSet = kCoefSharpIndex) then
             kCoeffSharp <= kCoProd.kCoeffSharp;
         end if;
     end if; 
@@ -315,7 +358,7 @@ signal kCoeffBlure    : kernelCoeDWord;
 begin
 process (clk) begin
     if (rising_edge (clk)) then
-        if (kCoProd.kCoeffBlure.kSet = 4) then
+        if (kCoProd.kCoeffBlure.kSet = kCoefBlureIndex) then
             kCoeffBlure <= kCoProd.kCoeffBlure;
         end if;
     end if; 
@@ -386,7 +429,7 @@ signal kCoeffEmbos    : kernelCoeDWord;
 begin
 process (clk) begin
     if (rising_edge (clk)) then
-        if (kCoProd.kCoeffEmbos.kSet = 7) then
+        if (kCoProd.kCoeffEmbos.kSet = kCoefEmbosIndex) then
             kCoeffEmbos <= kCoProd.kCoeffEmbos;
         end if;
     end if; 
@@ -496,14 +539,14 @@ port map(
 -----------------------------------------------------------------------------------------------
 process (clk) begin
     if (rising_edge (clk)) then
-        if (kCoProd.kCoefXSobel.kSet = 5) then
+        if (kCoProd.kCoefXSobel.kSet = kCoefSobeXIndex) then
             kCoefXSobel <= kCoProd.kCoefXSobel;
         end if;
     end if; 
 end process;
 process (clk) begin
     if (rising_edge (clk)) then
-        if (kCoProd.kCoefYSobel.kSet = 6) then
+        if (kCoProd.kCoefYSobel.kSet = kCoefSobeYIndex) then
             kCoefYSobel <= kCoProd.kCoefYSobel;
         end if;
     end if; 

@@ -104,6 +104,19 @@ YCBCR
 /****************************************************************
 CGAIN_1
 *****************************************************************/
+#define CgCf_k1                    0x05DC//--  1500  =  1.500
+#define CgCf_k2                    0xFF06//-- -250   = -0.250
+#define CgCf_k3                    0xFE0C//-- -500   = -0.500
+#define CgCf_k4                    0xFE0C//-- -500   = -0.500
+#define CgCf_k5                    0x05DC//--  1500  =  1.500
+#define CgCf_k6                    0xFF06//-- -250   = -0.250
+#define CgCf_k7                    0xFF06//-- -250   = -0.250
+#define CgCf_k8                    0xFE0C//-- -500   = -0.500
+#define CgCf_k9                    0x05DC//--  1500  =  1.500
+#define CgCf_kc                    0x0002//--
+/****************************************************************
+CGAIN_1
+*****************************************************************/
 #define kCoefVals_kCoef1Cgain_k1   0x05DC//--  1500  =  1.500
 #define kCoefVals_kCoef1Cgain_k2   0xFF06//-- -250   = -0.250
 #define kCoefVals_kCoef1Cgain_k3   0xFE0C//-- -500   = -0.500
@@ -186,6 +199,7 @@ CGAIN_7
 #define kCoefVals_kCoef7Cgain_k8   0xFF83//-- -500   = -0.125
 #define kCoefVals_kCoef7Cgain_k9   0x055F//--  1375  =  1.375
 #define kCoefVals_kCoeffCgain_kSet 2
+#define kCoefVals_kCoef2Cgain_kSet 8
 /****************************************************************
 SHARP
 *****************************************************************/
@@ -485,6 +499,7 @@ UNSED KERNEL
 #define wsharp                  0xC8E198
 #define wemboss                 0x7C439CD
 #define wblur                   0x13D674
+#define keygain                 0x70F0134
 /************************************/
 #define hsvpervalue             0xF43BADEF
 #define yccpervalue             0x5E197EEF
