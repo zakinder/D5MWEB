@@ -85,7 +85,7 @@ void KernelConfig(){
 			break;
 		case kernalCoef:
 			CgCoef(&pCgCf);
-            CgCfPrintPrompt(0,&pCgCf,&pUnCgCf);
+            CgCfPrintPrompt(0,&pCgCf,&pInCoef);
             printf("\n\n\n");
 			printf("Enter per k1-k9 or k0 for all\n");
             menu_print_prompt();
@@ -208,7 +208,7 @@ void keyCgainConfigSelect()
             menu_print_prompt();
             CgainConfig(kValues);
             printf("\n\n");
-            CgCfPrintPrompt(kValues,&pCgCf,&pUnCgCf);
+            CgCfPrintPrompt(kValues,&pCgCf,&pInCoef);
 			userinput   = keypress_to_uart(uart_1_baseaddr);
 			keySelect = userinput + 10;
 			break;
@@ -275,44 +275,25 @@ void KeyPrValue()
     printf("ValueRight Value[%d]\n",(unsigned) pKey.ValueRight);
     printf("ValueMax   Value[%d]\n",(unsigned) pKey.ValueMax);
 }
-void CgCfPrintPrompt(u16 kValues,Coef *pCgCf,Coef *pUnCgCf)
+void CgCfPrintPrompt(u16 kValues,Coef *pCgCf,InCoef *pInCoef)
 {
-	pUnCgCf->K1 = pCgCf->K1;
-	pUnCgCf->K2 = (~pCgCf->K2)&0x00FF;
-	pUnCgCf->K3 = (~pCgCf->K3)&0x00FF;
-	pUnCgCf->K4 = pCgCf->K4;
-	pUnCgCf->K5 = (~pCgCf->K5)&0x00FF;
-	pUnCgCf->K6 = (~pCgCf->K6)&0x00FF;
-	pUnCgCf->K7 = pCgCf->K7;
-	pUnCgCf->K8 = (~pCgCf->K8)&0x00FF;
-	pUnCgCf->K9 = (~pCgCf->K9)&0x00FF;
-	int   K1,K2,K3,K4,K5,K6,K7,K8,K9;
-    pUnCgCf->K1 = pCgCf->K1 + kValues;
-    pUnCgCf->K2 = (~(pCgCf->K2+kValues))&0x00FF;
-    pUnCgCf->K3 = (~(pCgCf->K3-kValues))&0x00FF;
-    K1 = pUnCgCf->K1;
-    K2 = (~pUnCgCf->K2);
-    K3 = (~pUnCgCf->K3);
-    pUnCgCf->K4 = (~(pCgCf->K4-kValues))&0x00FF;
-    pUnCgCf->K5 = pCgCf->K5 + kValues;
-    pUnCgCf->K6 = (~(pCgCf->K6+kValues))&0x00FF;
-    K4 = (~pUnCgCf->K4);
-    K5 = pUnCgCf->K5;
-    K6 = (~pUnCgCf->K6);
-    pUnCgCf->K7 = (~(pCgCf->K7+kValues))&0x00FF;
-    pUnCgCf->K8 = (~(pCgCf->K8-kValues))&0x00FF;
-    pUnCgCf->K9 = pCgCf->K9 + kValues;
-    K7 = (~pUnCgCf->K7);
-    K8 = (~pUnCgCf->K8);
-    K9 = pUnCgCf->K9;
+    pInCoef->K1 = (pCgCf->K1 + kValues);
+    pInCoef->K2 = (~((~(pCgCf->K2+kValues))&0x00FF));
+    pInCoef->K3 = (~((~(pCgCf->K3+kValues))&0x00FF));
+    pInCoef->K4 = (~((~(pCgCf->K4+kValues))&0x00FF));
+    pInCoef->K5 = (pCgCf->K5 + kValues);
+    pInCoef->K6 = (~((~(pCgCf->K6+kValues))&0x00FF));
+    pInCoef->K7 = (~((~(pCgCf->K7+kValues))&0x00FF));
+    pInCoef->K8 = (~((~(pCgCf->K8+kValues))&0x00FF));
+    pInCoef->K9 = (pCgCf->K9 + kValues);
     printf("|-----------------------|\r\n");
     printf("|           CG1         |\r\n");
     printf("|-----------------------|\r\n");
-    printf("|%d   |%d   |%d   |\r\n",K1,K2,K3);
+    printf("|%d   |%d   |%d   |\r\n",pInCoef->K1,pInCoef->K2,pInCoef->K3);
     printf("|-----------------------|\r\n");
-    printf("|%d   |%d   |%d   |\r\n",K4,K5,K6);
+    printf("|%d   |%d   |%d   |\r\n",pInCoef->K4,pInCoef->K5,pInCoef->K6);
     printf("|-----------------------|\r\n");
-    printf("|%d   |%d   |%d   |\r\n",K7,K8,K9);
+    printf("|%d   |%d   |%d   |\r\n",pInCoef->K7,pInCoef->K8,pInCoef->K9);
     printf("|-----------------------|\r\n");
     printf("Increment Value = %d\n",(unsigned)kValues);
 }

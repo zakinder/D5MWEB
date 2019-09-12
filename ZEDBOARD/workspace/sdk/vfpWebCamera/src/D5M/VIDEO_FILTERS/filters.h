@@ -16,8 +16,23 @@ struct kStruct
    Xuint16 Kc;
 };
 typedef struct kStruct Coef;
+struct kInStruct
+{
+   Xint16 K1;
+   Xint16 K2;
+   Xint16 K3;
+   Xint16 K4;
+   Xint16 K5;
+   Xint16 K6;
+   Xint16 K7;
+   Xint16 K8;
+   Xint16 K9;
+   Xint16 Kc;
+};
+typedef struct kInStruct InCoef;
 Coef pCgCf;
-Coef pUnCgCf;
+InCoef pInCoef;
+
 struct KeypressStruct
 {
    Xuint16 ValueDown;
@@ -32,7 +47,7 @@ void CgainInit();
 void pKeyInit();
 void CgainConfig(u16 kValues);
 void CgCoef(Coef *pCgCf);
-void CgCfPrintPrompt(u16 kValues,Coef *pCgCf,Coef *pUnCgCf);
+void CgCfPrintPrompt(u16 kValues,Coef *pCgCf,InCoef *pInCoef);
 void KeyPrValue();
 void KernelConfig();
 void keyCgainConfigSelect();
