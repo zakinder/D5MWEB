@@ -458,7 +458,9 @@ UNSED KERNEL
 /*****************************************************************************************************************/
 #define menu_select             1
 #define menuCheck               19
+#define kernalCoef              0
 /*****************************************************************************************************************/
+#define kernelconfig            0x6769666E
 #define clear                   0x10ECC0
 #define mainmenu                0x4773053D
 #define uart_0_baseaddr         0xe0000000
@@ -486,6 +488,7 @@ UNSED KERNEL
 #define prewit                  0xBE08B2
 #define prewitt                 0x76C5768
 #define cgain                   0x10D7F4
+#define menucall                0x47B89810
 /************************************/
 #define wcgain1                 0x7C03B49
 #define wcgain2                 0x7C03B4A

@@ -1,15 +1,11 @@
 // LAST TESTED : 09/10/2019
-
 #include "filters.h"
-
 #include <sleep.h>
 #include <stdio.h>
 #include <xil_types.h>
-
 #include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
 #include "../UART/uartio.h"
 #include "../VIDEO_CHANNEL/channel.h"
-
 void CgainInit(){
     //DEFAULT CONFIGURABLE
     pCgCf.K1   = CgCf_k1;
@@ -31,10 +27,10 @@ void pKeyInit(){
     pKey.ValueLeft   = 10;
     pKey.ValueRight  = 10;
     pKey.ValueMax    = 4095;
-    printf("ValueDown  Value[%d]\n",(unsigned) pKey.ValueDown);
-    printf("ValueUp    Value[%d]\n",(unsigned) pKey.ValueUp);
-    printf("ValueLeft  Value[%d]\n",(unsigned) pKey.ValueLeft);
-    printf("ValueRight Value[%d]\n",(unsigned) pKey.ValueRight);
+    printf("ValueDown  Value[%d]\r\n",(unsigned) pKey.ValueDown);
+    printf("ValueUp    Value[%d]\r\n",(unsigned) pKey.ValueUp);
+    printf("ValueLeft  Value[%d]\r\n",(unsigned) pKey.ValueLeft);
+    printf("ValueRight Value[%d]\r\n",(unsigned) pKey.ValueRight);
     }
 void CgainConfig(u16 kValues) {
     //DEFAULT CONFIGURABLE
@@ -48,6 +44,19 @@ void CgainConfig(u16 kValues) {
     pCgCf.K8   = CgCf_k8 - kValues;
     pCgCf.K9   = CgCf_k9 + kValues;
 	pCgCf.Kc   = CgCf_kc;
+    CgCoef(&pCgCf);
+    }
+void CgainKernelConfig() {
+    pCgCf.K1   = CgCf_k1;
+    pCgCf.K2   = CgCf_k2;
+    pCgCf.K3   = CgCf_k3;
+    pCgCf.K4   = CgCf_k4;
+    pCgCf.K5   = CgCf_k5;
+    pCgCf.K6   = CgCf_k6;
+    pCgCf.K7   = CgCf_k7;
+    pCgCf.K8   = CgCf_k8;
+    pCgCf.K9   = CgCf_k9;
+    pCgCf.Kc   = CgCf_kc;
     CgCoef(&pCgCf);
     }
 void CgCoef(Coef *pCgCf)
@@ -65,9 +74,126 @@ void CgCoef(Coef *pCgCf)
     usleep(1);
     videoFeatureSelect(selCgain);
 }
+void KernelConfig(){
+	int keySelect   = kernalCoef;
+	int menu_Active = TRUE;
+	Xuint16 uKvalue = 0x0000;
+	while (menu_Active == TRUE) {
+		switch (keySelect) {
+		case clear:
+			menu_Active = FALSE;
+			break;
+		case kernalCoef:
+			CgCoef(&pCgCf);
+            CgCfPrintPrompt(0,&pCgCf,&pUnCgCf);
+            printf("\n\n\n");
+			printf("Enter per k1-k9 or k0 for all\n");
+            menu_print_prompt();
+			keySelect = uart_prompt_io();
+            break;
+		case k0:
+            printf("Enter k1 Value\n");
+            menu_print_prompt();
+            pCgCf.K1  = uart_prompt_io();
+            printf("Enter k2 Value\n");
+            menu_print_prompt();
+            pCgCf.K2  = uart_prompt_io();
+            printf("Enter k3 Value\n");
+            menu_print_prompt();
+            pCgCf.K3  = uart_prompt_io();
+            printf("Enter k4 Value\n");
+            menu_print_prompt();
+            pCgCf.K4  = uart_prompt_io();
+            printf("Enter k5 Value\n");
+            menu_print_prompt();
+            pCgCf.K5  = uart_prompt_io();
+            printf("Enter k6 Value\n");
+            menu_print_prompt();
+            pCgCf.K6  = uart_prompt_io();
+            printf("Enter k7 Value\n");
+            menu_print_prompt();
+            pCgCf.K7  = uart_prompt_io();
+            printf("Enter k8 Value\n");
+            menu_print_prompt();
+            pCgCf.K8  = uart_prompt_io();
+            printf("Enter k9 Value\n");
+            menu_print_prompt();
+            pCgCf.K9  = uart_prompt_io();
+            keySelect = kernalCoef;
+            break;
+		case k1:
+            printf("Enter k1 Value\n");
+            menu_print_prompt();
+            pCgCf.K1  = uart_prompt_io();
+            keySelect = kernalCoef;
+            break;
+		case k2:
+            printf("Enter k2 Value\n");
+            menu_print_prompt();
+            uKvalue   = uart_prompt_io();
+            pCgCf.K2  = ((~uKvalue)&0xFFFF)+ 0x1;
+            keySelect = kernalCoef;
+            break;
+		case k3:
+            printf("Enter k3 Value\n");
+            menu_print_prompt();
+            uKvalue   = uart_prompt_io();
+            pCgCf.K3  = ((~uKvalue)&0xFFFF)+ 0x1;
+            keySelect = kernalCoef;
+            break;
+		case k4:
+            printf("Enter k4 Value\n");
+            menu_print_prompt();
+            uKvalue   = uart_prompt_io();
+            pCgCf.K4  = ((~uKvalue)&0xFFFF)+ 0x1;
+            keySelect = kernalCoef;
+            break;
+		case k5:
+            printf("Enter k5 Value\n");
+            menu_print_prompt();
+            pCgCf.K5  = uart_prompt_io();
+            keySelect = kernalCoef;
+            break;
+		case k6:
+            printf("Enter k6 Value\n");
+            menu_print_prompt();
+            uKvalue   = uart_prompt_io();
+            pCgCf.K6  = ((~uKvalue)&0xFFFF)+ 0x1;
+            keySelect = kernalCoef;
+            break;
+		case k7:
+            printf("Enter k7 Value\n");
+            menu_print_prompt();
+            uKvalue   = uart_prompt_io();
+            pCgCf.K7  = ((~uKvalue)&0xFFFF)+ 0x1;
+            keySelect = kernalCoef;
+            break;
+		case k8:
+            printf("Enter k8 Value\n");
+            menu_print_prompt();
+            uKvalue   = uart_prompt_io();
+            pCgCf.K8  = ((~uKvalue)&0xFFFF)+ 0x1;
+            keySelect = kernalCoef;
+            break;
+		case k9:
+            printf("Enter k9 Value\n");
+            menu_print_prompt();
+            pCgCf.K9  = uart_prompt_io();
+            keySelect = kernalCoef;
+            break;
+		case keygain:
+			keyCgainConfigSelect();
+        case menucall:
+        	menu_calls(TRUE);
+            break;
+		default:
+			keySelect  = kernalCoef;
+			break;
+		}
+	}
+}
 void keyCgainConfigSelect()
 {
-
 	int keySelect    = menu_select;
 	u8 userinput     = 0;
 	u16 kValues      = 0;
@@ -81,7 +207,8 @@ void keyCgainConfigSelect()
 		case menu_select:
             menu_print_prompt();
             CgainConfig(kValues);
-            CgCfPrintPrompt(kValues,&pCgCf);
+            printf("\n\n");
+            CgCfPrintPrompt(kValues,&pCgCf,&pUnCgCf);
 			userinput   = keypress_to_uart(uart_1_baseaddr);
 			keySelect = userinput + 10;
 			break;
@@ -113,6 +240,12 @@ void keyCgainConfigSelect()
 				kValues -= pKey.ValueLeft;
 			keySelect  = menu_select;
 			break;
+        case kernelconfig:
+        	KernelConfig();
+            break;
+        case menucall:
+        	menu_calls(TRUE);
+            break;
 		default:
 			keySelect  = menu_select;
 			break;
@@ -142,45 +275,44 @@ void KeyPrValue()
     printf("ValueRight Value[%d]\n",(unsigned) pKey.ValueRight);
     printf("ValueMax   Value[%d]\n",(unsigned) pKey.ValueMax);
 }
-void CgCfPrintPrompt(u16 kValues,Coef *pCgCf)
+void CgCfPrintPrompt(u16 kValues,Coef *pCgCf,Coef *pUnCgCf)
 {
-	unsigned int uK1 = pCgCf->K1;
-	unsigned int uK2 = (~pCgCf->K2)&0x00FF;
-	unsigned int uK3 = (~pCgCf->K3)&0x00FF;
-	unsigned int uK4 = pCgCf->K4;
-	unsigned int uK5 = (~pCgCf->K5)&0x00FF;
-	unsigned int uK6 = (~pCgCf->K6)&0x00FF;
-	unsigned int uK7 = pCgCf->K7;
-	unsigned int uK8 = (~pCgCf->K8)&0x00FF;
-	unsigned int uK9 = (~pCgCf->K9)&0x00FF;
+	pUnCgCf->K1 = pCgCf->K1;
+	pUnCgCf->K2 = (~pCgCf->K2)&0x00FF;
+	pUnCgCf->K3 = (~pCgCf->K3)&0x00FF;
+	pUnCgCf->K4 = pCgCf->K4;
+	pUnCgCf->K5 = (~pCgCf->K5)&0x00FF;
+	pUnCgCf->K6 = (~pCgCf->K6)&0x00FF;
+	pUnCgCf->K7 = pCgCf->K7;
+	pUnCgCf->K8 = (~pCgCf->K8)&0x00FF;
+	pUnCgCf->K9 = (~pCgCf->K9)&0x00FF;
 	int   K1,K2,K3,K4,K5,K6,K7,K8,K9;
-    uK1 = pCgCf->K1 + kValues;
-    uK2 = (~(pCgCf->K2+kValues))&0x00FF;
-    uK3 = (~(pCgCf->K3-kValues))&0x00FF;
-    K1 = uK1;
-    K2 = (~uK2);
-    K3 = (~uK3);
-    uK4 = (~(pCgCf->K4-kValues))&0x00FF;
-    uK5 = pCgCf->K5 + kValues;
-    uK6 = (~(pCgCf->K6+kValues))&0x00FF;
-    K4 = (~uK4);
-    K5 = uK5;
-    K6 = (~uK6);
-    uK7 = (~(pCgCf->K7+kValues))&0x00FF;
-    uK8 = (~(pCgCf->K8-kValues))&0x00FF;
-    uK9 = pCgCf->K9 + kValues;
-    K7 = (~uK7);
-    K8 = (~uK8);
-    K9 = uK9;
-    printf("\n"
-    "|-----------------------|\r\n"
-    "|           CG1         |\r\n"
-    "|-----------------------|\r\n"
-    "|%d   |%d   |%d   |\r\n"
-    "|-------|-------|-------|\r\n"
-    "|%d   |%d   |%d   |\r\n"
-    "|-------|-------|-------|\r\n"
-    "|%d   |%d   |%d   |\r\n"
-    "|-------|-------|-------|\r\n",K1,K2,K3,K4,K5,K6,K7,K8,K9);
-	printf(">>>>>>>>>>>>>>>>>>>>>%d",(unsigned)kValues);
+    pUnCgCf->K1 = pCgCf->K1 + kValues;
+    pUnCgCf->K2 = (~(pCgCf->K2+kValues))&0x00FF;
+    pUnCgCf->K3 = (~(pCgCf->K3-kValues))&0x00FF;
+    K1 = pUnCgCf->K1;
+    K2 = (~pUnCgCf->K2);
+    K3 = (~pUnCgCf->K3);
+    pUnCgCf->K4 = (~(pCgCf->K4-kValues))&0x00FF;
+    pUnCgCf->K5 = pCgCf->K5 + kValues;
+    pUnCgCf->K6 = (~(pCgCf->K6+kValues))&0x00FF;
+    K4 = (~pUnCgCf->K4);
+    K5 = pUnCgCf->K5;
+    K6 = (~pUnCgCf->K6);
+    pUnCgCf->K7 = (~(pCgCf->K7+kValues))&0x00FF;
+    pUnCgCf->K8 = (~(pCgCf->K8-kValues))&0x00FF;
+    pUnCgCf->K9 = pCgCf->K9 + kValues;
+    K7 = (~pUnCgCf->K7);
+    K8 = (~pUnCgCf->K8);
+    K9 = pUnCgCf->K9;
+    printf("|-----------------------|\r\n");
+    printf("|           CG1         |\r\n");
+    printf("|-----------------------|\r\n");
+    printf("|%d   |%d   |%d   |\r\n",K1,K2,K3);
+    printf("|-----------------------|\r\n");
+    printf("|%d   |%d   |%d   |\r\n",K4,K5,K6);
+    printf("|-----------------------|\r\n");
+    printf("|%d   |%d   |%d   |\r\n",K7,K8,K9);
+    printf("|-----------------------|\r\n");
+    printf("Increment Value = %d\n",(unsigned)kValues);
 }

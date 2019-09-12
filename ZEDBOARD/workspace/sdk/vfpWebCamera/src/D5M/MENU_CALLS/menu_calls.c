@@ -81,6 +81,10 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
             keyArrow3Select();
             cmd_status_substate = enter_value_or_quit("keyarrow",keyarrow);current_state = cmd_status_substate;break;
+        case kernelconfig:
+            /*****************************************************************************************************************/
+        	KernelConfig();
+            cmd_status_substate = enter_value_or_quit("kernelconfig",kernelconfig);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
             //                                                  videoFeatureSelect
             /*****************************************************************************************************************/
