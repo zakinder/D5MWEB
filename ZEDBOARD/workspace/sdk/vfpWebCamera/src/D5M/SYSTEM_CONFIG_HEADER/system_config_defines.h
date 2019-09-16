@@ -73,12 +73,7 @@
 #define selRgbDetect                47
 #define selRgbPoi                   48
 #define selYcbcr                    49
-
 /*****************************************************************************************************************/
-
-
-
-
 #define hsvPerChHsv                0
 #define hsvPerChH                  1
 #define hsvPerChS                  2
@@ -87,7 +82,6 @@
 #define YccPerChY                  1
 #define YccPerChCb                 2
 #define YccPerChCr                 3
-
 /****************************************************************
 YCBCR
 *****************************************************************/
@@ -101,19 +95,7 @@ YCBCR
 #define kCoefVals_kCoeffYcbcr_k8   0xFE90//-- -0.368
 #define kCoefVals_kCoeffYcbcr_k9   0xFFB9//-- -0.071
 #define kCoefVals_kCoeffYcbcr_kSet 1
-/****************************************************************
-CGAIN_1
-*****************************************************************/
-#define CgCf_k1                    0x05DC//--  1500  =  1.500
-#define CgCf_k2                    0xFF06//-- -250   = -0.250
-#define CgCf_k3                    0xFE0C//-- -500   = -0.500
-#define CgCf_k4                    0xFE0C//-- -500   = -0.500
-#define CgCf_k5                    0x05DC//--  1500  =  1.500
-#define CgCf_k6                    0xFF06//-- -250   = -0.250
-#define CgCf_k7                    0xFF06//-- -250   = -0.250
-#define CgCf_k8                    0xFE0C//-- -500   = -0.500
-#define CgCf_k9                    0x05DC//--  1500  =  1.500
-#define CgCf_kc                    0x0002//--
+
 /****************************************************************
 CGAIN_1
 *****************************************************************/
@@ -319,15 +301,15 @@ PREWIT_Y
 /****************************************************************
 KERNEL
 *****************************************************************/
-#define w_kernel_1_reg_08           32
-#define w_kernel_2_reg_09           36
-#define w_kernel_3_reg_10           40
-#define w_kernel_4_reg_11           44
-#define w_kernel_5_reg_12           48
-#define w_kernel_6_reg_13           52
-#define w_kernel_7_reg_14           56
-#define w_kernel_8_reg_15           60
-#define w_kernel_9_reg_16           64
+#define w_kernal_1_reg_08           32
+#define w_kernal_2_reg_09           36
+#define w_kernal_3_reg_10           40
+#define w_kernal_4_reg_11           44
+#define w_kernal_5_reg_12           48
+#define w_kernal_6_reg_13           52
+#define w_kernal_7_reg_14           56
+#define w_kernal_8_reg_15           60
+#define w_kernal_9_reg_16           64
 #define w_kernalconfig_reg_17       68
 #define w_kSet_reg_17               68
 /****************************************************************
@@ -460,7 +442,7 @@ UNSED KERNEL
 #define menuCheck               19
 #define kernalCoef              0
 /*****************************************************************************************************************/
-#define kernelconfig            0x6769666E
+#define kernalconfig            0x6769666E
 #define clear                   0x10ECC0
 #define mainmenu                0x4773053D
 #define uart_0_baseaddr         0xe0000000

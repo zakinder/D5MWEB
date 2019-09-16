@@ -25,6 +25,7 @@ void EmbosCoef();
 void YcbcrCoef();
 void SharpCoef();
 void BlureCoef();
+void CgainCoef();
 void Cgain1Coef();
 void Cgain2Coef();
 void Cgain3Coef();

@@ -1,15 +1,21 @@
 // LAST TESTED : 09/08/2019
+
 #include "menu_calls.h"
+
 #include <stdio.h>
 #include <xil_io.h>
 #include <xil_types.h>
+
 #include "../HDMI_DISPLAY/hdmi_display.h"
 #include "../I2C_D5M/i2c_d5m.h"
-#include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
 #include "../SYSTEM_CONFIG_HEADER/system_config_defines.h"
+#include "../SYSTEM_CONFIG_HEADER/system_config_header.h"
 #include "../UART/uartio.h"
 #include "../VIDEO_CHANNEL/channel.h"
+#include "../VIDEO_FILTERS/filters.h"
+
 d5m_rreg d5m_rreg_ptr;
+
 //unused functions
 //sd_card();
 void menu_calls(ON_OFF) {
@@ -80,6 +86,10 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
             keyArrow3Select();
             cmd_status_substate = enter_value_or_quit("keyarrow",keyarrow);current_state = cmd_status_substate;break;
+        case kernalconfig:
+            /*****************************************************************************************************************/
+        	KernelConfig(&pCf);
+            cmd_status_substate = enter_value_or_quit("kernalconfig",kernalconfig);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
             //                                                  videoFeatureSelect
             /*****************************************************************************************************************/
@@ -204,7 +214,8 @@ void menu_calls(ON_OFF) {
             /*****************************************************************************************************************/
         case video21:
             /*****************************************************************************************************************/
-            videoFeatureSelect(selCgainToCgain);
+        	CgainCoef();
+        	videoFeatureSelect(selCgainToCgain);
             cmd_status_substate = enter_value_or_quit("video21",video21);current_state = cmd_status_substate;break;
             /*****************************************************************************************************************/
         case video22:

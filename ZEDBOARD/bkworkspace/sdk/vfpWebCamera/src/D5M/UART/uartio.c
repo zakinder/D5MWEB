@@ -335,17 +335,17 @@ void keyArrow1Select()
             "|%d   |%d   |%d   |\r\n"
             "|-------|-------|-------|\r\n",K1,K2,K3,K4,K5,K6,K7,K8,K9);
 			printf(">>>>>>>>>>>>>>>>>>>>>%d",(unsigned)testValues);
-			D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef1Cgain_k1 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef1Cgain_k2 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef1Cgain_k3 - testValues);
+			D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef1Cgain_k1 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef1Cgain_k2 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef1Cgain_k3 - testValues);
 
-		    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef1Cgain_k4 - testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef1Cgain_k5 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef1Cgain_k6 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef1Cgain_k4 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef1Cgain_k5 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef1Cgain_k6 + testValues);
 
-		    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef1Cgain_k7 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef1Cgain_k8 - testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef1Cgain_k9 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef1Cgain_k7 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef1Cgain_k8 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef1Cgain_k9 + testValues);
 			D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
 			videoFeatureSelect(selCgain);
 			userinput = keypress_to_uart(uart_1_baseaddr);
@@ -437,17 +437,17 @@ void keyArrow2Select()
             "|%d   |%d   |%d   |\r\n"
             "|-------|-------|-------|\r\n",K1,K2,K3,K4,K5,K6,K7,K8,K9);
 			printf(">>>>>>>>>>>>>>>>>>>>>%d",(unsigned)testValues);
-			D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef2Cgain_k1 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef2Cgain_k2 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef2Cgain_k3 - testValues);
+			D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef2Cgain_k1 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef2Cgain_k2 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef2Cgain_k3 - testValues);
 
-		    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef2Cgain_k4 - testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef2Cgain_k5 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef2Cgain_k6 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef2Cgain_k4 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef2Cgain_k5 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef2Cgain_k6 + testValues);
 
-		    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef2Cgain_k7 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef2Cgain_k8 - testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef2Cgain_k9 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef2Cgain_k7 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef2Cgain_k8 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef2Cgain_k9 + testValues);
 			D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
 			videoFeatureSelect(selCgain);
 			userinput = keypress_to_uart(uart_1_baseaddr);
@@ -539,17 +539,17 @@ void keyArrow3Select()
             "|%d   |%d   |%d   |\r\n"
             "|-------|-------|-------|\r\n",K1,K2,K3,K4,K5,K6,K7,K8,K9);
 			printf(">>>>>>>>>>>>>>>>>>>>>%d",(unsigned)testValues);
-			D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,kCoefVals_kCoef7Cgain_k1 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,kCoefVals_kCoef7Cgain_k2 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,kCoefVals_kCoef7Cgain_k3 - testValues);
+			D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef7Cgain_k1 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef7Cgain_k2 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef7Cgain_k3 - testValues);
 
-		    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,kCoefVals_kCoef7Cgain_k4 - testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,kCoefVals_kCoef7Cgain_k5 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,kCoefVals_kCoef7Cgain_k6 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef7Cgain_k4 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef7Cgain_k5 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef7Cgain_k6 + testValues);
 
-		    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,kCoefVals_kCoef7Cgain_k7 + testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,kCoefVals_kCoef7Cgain_k8 - testValues);
-		    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,kCoefVals_kCoef7Cgain_k9 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef7Cgain_k7 + testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef7Cgain_k8 - testValues);
+		    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef7Cgain_k9 + testValues);
 			D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
 			videoFeatureSelect(selCgain);
 			userinput = keypress_to_uart(uart_1_baseaddr);
