@@ -1,1 +1,1 @@
-HSI Data used from K:/ZEDBOARD/vivado/zynq_soc
+HSI Data used from Z:/ZEDBOARD/vivado/zynq_soc

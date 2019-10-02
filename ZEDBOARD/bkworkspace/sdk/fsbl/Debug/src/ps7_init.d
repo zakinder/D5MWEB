@@ -1,6 +1,6 @@
 src/ps7_init.o src/ps7_init.o: \
- K:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/ps7_init.c \
- K:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/ps7_init.h \
+ Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/ps7_init.c \
+ Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/ps7_init.h \
  ../../fsbl_bsp/ps7_cortexa9_0/include/xil_io.h \
  ../../fsbl_bsp/ps7_cortexa9_0/include/xil_types.h \
  ../../fsbl_bsp/ps7_cortexa9_0/include/xil_printf.h \
@@ -10,7 +10,7 @@ src/ps7_init.o src/ps7_init.o: \
  ../../fsbl_bsp/ps7_cortexa9_0/include/xreg_cortexa9.h \
  ../../fsbl_bsp/ps7_cortexa9_0/include/xpseudo_asm_gcc.h
 
-K:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/ps7_init.h:
+Z:/ZEDBOARD/workspace/sdk/ZEDBOARD_hw_platform_0/ps7_init.h:
 
 ../../fsbl_bsp/ps7_cortexa9_0/include/xil_io.h:
 
