@@ -1,4 +1,3 @@
---05022019 [05-02-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -40,6 +39,9 @@ architecture arch_imp of VideoStream is
     signal frameData     : fcolors;
     signal kls           : coefficient;
     signal als           : coefficient;
+    signal oLumTh        : integer;
+    signal oHsvPerCh     : integer;
+    signal oYccPerCh     : integer;
 begin
 frameProcessInst: frameProcess
 generic map(
@@ -58,6 +60,9 @@ port map(
     iThreshold           => threshold,
     iKls                 => kls,
     iAls                 => als,
+    iLumTh               => oLumTh,
+    iHsvPerCh            => oHsvPerCh,
+    iYccPerCh            => oYccPerCh,
     iRgbCoord            => rgbCoord,
     oFifoStatus          => fifoStatus,
     oGridLockData        => gridLockDatao,
@@ -88,12 +93,16 @@ port map(
     pRegion              => pRegion,
     als                  => als,
     kls                  => kls,
+    oLumTh               => oLumTh,
+    oHsvPerCh            => oHsvPerCh,
+    oYccPerCh            => oYccPerCh,
     fifoStatus           => fifoStatus,
     gridLockDatao        => gridLockDatao,
     wrRegsIn             => iWrRegs,
     rdRegsOut            => oRdRegs);
 videoSelectInst: videoSelect
 generic map (
+    img_width            => img_width,
     i_data_width         => i_data_width,
     b_data_width         => b_data_width,
     s_data_width         => s_data_width)

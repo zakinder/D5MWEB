@@ -24,7 +24,7 @@ Xuint8 carrier_hdmi_out_configs[CARRIER_HDMI_OUT_CONFIG_LEN][3] =
                                    //    R0x16[3:2] = Input Video Style = 10 (style 1)
                                    //    R0x16[  1] = DDR Input Edge = 0 (falling edge)
                                    //    R0x16[  0] = Output Color Space = 0 (RGB)
-#if 0
+#if 1
     // HDTV YCbCr (16to235) to RGB (0to255)
     {ADV7511_ADDR>>1, 0x18, 0xE7}, // Color Space Conversion
                                    //    R0x18[  7] = CSC enable = 1 (CSC enabled)

@@ -1,4 +1,4 @@
---09012019 [09-01-2019]
+--05062019 [05-06-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -7,7 +7,7 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity VFP_v1_0 is
 generic (
-    revision_number           : std_logic_vector(31 downto 0) := x"09012019";
+    revision_number           : std_logic_vector(31 downto 0) := x"09072019";
     C_rgb_m_axis_TDATA_WIDTH  : integer := 16;
     C_rgb_m_axis_START_COUNT  : integer := 32;
     C_rgb_s_axis_TDATA_WIDTH  : integer := 16;

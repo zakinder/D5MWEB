@@ -1,4 +1,3 @@
---05012019 [05-01-2019]
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -22,6 +21,9 @@ port (
     iPoiRegion              : in poi;
     iKls                    : in coefficient;
     iAls                    : in coefficient;
+    iLumTh                  : in integer;
+    iHsvPerCh               : in integer;
+    iYccPerCh               : in integer;
     iEdgeType               : in std_logic_vector(b_data_width-1 downto 0);
     iThreshold              : in std_logic_vector(s_data_width-1 downto 0); 
     --out
@@ -31,220 +33,221 @@ port (
     oGridLockData           : out std_logic_vector(b_data_width-1 downto 0));
 end entity;
 architecture arch of frameProcess is
-    constant RGBTR_FRAME    : boolean := true;
-    constant RGBLP_FRAME    : boolean := true;
-    constant pixelDelay     : integer := 13;
-    signal sharp            : channel;
+    signal txCord           : coord;
     signal rgbV1Correct     : channel;
     signal rgbV2Correct     : channel;
-    signal soble1v          : channel;
-    signal sobleSharp       : channel;
+    signal rgbIn            : channel;
     signal rgbRemix         : channel;
     signal rgbPoi           : channel;
-    signal blur1vx          : channel;
-    signal blur2vx          : channel;
-    signal blur3vx          : channel;
-    signal blur4vx          : channel;
     signal rgbDetect        : channel;
     signal hsv              : hsvChannel;
-    signal hsl              : hsvChannel;
+    signal hsl              : hslChannel;
     signal hsvCcBlur4vx     : hsvChannel;
     signal cord             : coord;
     signal syncxy           : coord;
     signal cordIn           : coord;
-    signal rgbIn            : channel;
     signal rgbSum           : tpRgb;
+    signal rgbImageKernelv1 : colors;
+    signal rgbImageKernelv2 : colors;
+    signal rgbImageKernelv3 : colors;
+    signal rgbImageKernelv4 : colors;
+    signal rgbImageKernelv5 : colors;
+    signal iKcoeff          : kernelCoeff;
+    signal rgbImageFilters  : frameColors;
+    signal lumThreshold     : std_logic_vector(7 downto 0);
+    signal cHsv             : std_logic_vector(2 downto 0);
+    signal cYcc             : std_logic_vector(2 downto 0);
+    signal edgeValid        : std_logic;
     signal rgbDetectLock    : std_logic;
     signal rgbPoiLock       : std_logic;
-    signal edgeValid        : std_logic;
     signal sValid           : std_logic;
-    signal colorTrm         : channel;
-    signal colorLmp         : channel;
-    signal iLumTh           : integer := 30;
-    signal lumThreshold     : std_logic_vector(7 downto 0);
+    -------------------------------------------------
+    constant F_TES          : boolean := true;
+    constant F_LUM          : boolean := false;
+    constant F_TRM          : boolean := false;
+    constant F_RGB          : boolean := true;
+    constant F_SHP          : boolean := true;
+    constant F_BLU          : boolean := false;
+    constant F_EMB          : boolean := false;
+    constant F_YCC          : boolean := false;
+    constant F_SOB          : boolean := true;
+    constant F_CGA          : boolean := true;
+    constant F_HSV          : boolean := true;
+    constant F_HSL          : boolean := true;
+    -------------------------------------------------
+    constant F_CGA_TO_CGA   : boolean := false;
+    constant F_CGA_TO_HSL   : boolean := true;
+    constant F_CGA_TO_HSV   : boolean := true;
+    constant F_CGA_TO_YCC   : boolean := false;
+    constant F_CGA_TO_SHP   : boolean := true;
+    constant F_CGA_TO_BLU   : boolean := false;
+    -------------------------------------------------
+    constant F_SHP_TO_SHP   : boolean := false;
+    constant F_SHP_TO_HSL   : boolean := false;
+    constant F_SHP_TO_HSV   : boolean := false;
+    constant F_SHP_TO_YCC   : boolean := false;
+    constant F_SHP_TO_CGA   : boolean := false;
+    constant F_SHP_TO_BLU   : boolean := false;
+    -------------------------------------------------
+    constant F_BLU_TO_BLU   : boolean := false;
+    constant F_BLU_TO_HSL   : boolean := false;
+    constant F_BLU_TO_HSV   : boolean := false;
+    constant F_BLU_TO_YCC   : boolean := false;
+    constant F_BLU_TO_CGA   : boolean := false;
+    constant F_BLU_TO_SHP   : boolean := false;
+    -------------------------------------------------
+    constant MASK_TRUE      : boolean := true;
+    constant MASK_FLSE      : boolean := false;
+    constant M_SOB_LUM      : boolean := SelFrame(F_SOB,F_LUM,MASK_FLSE);
+    constant M_SOB_TRM      : boolean := SelFrame(F_SOB,F_TRM,MASK_FLSE);
+    constant M_SOB_RGB      : boolean := SelFrame(F_SOB,F_RGB,MASK_TRUE);
+    constant M_SOB_SHP      : boolean := SelFrame(F_SOB,F_SHP,MASK_TRUE);
+    constant M_SOB_BLU      : boolean := SelFrame(F_SOB,F_BLU,MASK_FLSE);
+    constant M_SOB_YCC      : boolean := SelFrame(F_SOB,F_YCC,MASK_FLSE);
+    constant M_SOB_CGA      : boolean := SelFrame(F_SOB,F_CGA,MASK_TRUE);
+    constant M_SOB_HSV      : boolean := SelFrame(F_SOB,F_HSV,MASK_TRUE);
+    constant M_SOB_HSL      : boolean := SelFrame(F_SOB,F_HSL,MASK_TRUE);
 begin
-    lumThreshold                  <= std_logic_vector(to_unsigned(iLumTh,8));
-    oFrameData.hsl.red            <= hsl.h;
-    oFrameData.hsl.green          <= hsl.s;
-    oFrameData.hsl.blue           <= hsl.v;
-    oFrameData.hsl.valid          <= hsl.valid;
-    oFrameData.hsv.red            <= hsv.h;
-    oFrameData.hsv.green          <= hsv.s;
-    oFrameData.hsv.blue           <= hsv.v;
-    oFrameData.hsv.valid          <= hsv.valid;
-    oFrameData.hsvCcBl.red        <= hsvCcBlur4vx.h;
-    oFrameData.hsvCcBl.green      <= hsvCcBlur4vx.s;
-    oFrameData.hsvCcBl.blue       <= hsvCcBlur4vx.v;
-    oFrameData.hsvCcBl.valid      <= hsvCcBlur4vx.valid;
-    oFrameData.rgb.red            <= iRgbSet.red;
-    oFrameData.rgb.green          <= iRgbSet.green;
-    oFrameData.rgb.blue           <= iRgbSet.blue;
-    oFrameData.rgb.valid          <= iRgbSet.valid;
-    oFrameData.sharp              <= sharp;
-    oFrameData.sobleSharp         <= sobleSharp;
-    oFrameData.blur1x             <= blur1vx;
-    oFrameData.blur2x             <= blur2vx;
-    oFrameData.blur3x             <= blur3vx;
-    oFrameData.blur4x             <= blur4vx;
-    oFrameData.rgbCorrect         <= rgbV1Correct;
-    oFrameData.soble              <= soble1v;
-    oFrameData.rgbRemix           <= rgbRemix;
-    oFrameData.rgbDetect          <= rgbDetect;
-    oFrameData.rgbPoi             <= rgbPoi;
-    oFrameData.colorTrm           <= colorTrm;
-    oFrameData.colorLmp           <= colorLmp;
-    oFrameData.rgbSum             <= rgbSum;
-    oFrameData.rgbDetectLock      <= rgbDetectLock;
-    oFrameData.rgbPoiLock         <= rgbPoiLock;
-    oFrameData.cod                <= syncxy;
-    oFrameData.pEof               <= iRgbSet.pEof;
-    oFrameData.pSof               <= iRgbSet.pSof;
-    rgbIn.red                     <= iRgbSet.red;
-    rgbIn.green                   <= iRgbSet.green;
-    rgbIn.blue                    <= iRgbSet.blue;
-    rgbIn.valid                   <= iRgbSet.valid;
-    cordIn.x                      <= iRgbSet.cord.x;
-    cordIn.y                      <= iRgbSet.cord.y;
+    lumThreshold                 <= std_logic_vector(to_unsigned(iLumTh,8));
+    cHsv                         <= std_logic_vector(to_unsigned(iHsvPerCh,3));--[0-cHsv,1-cHsvH,2-cHsvS,3-cHsvV]
+    cYcc                         <= std_logic_vector(to_unsigned(iYccPerCh,3));--[0-cYcc,1-cYccY,2-cYccB,3-cYccR]
+    -------------------------------------------------
+    oFrameData.sobel             <= rgbImageFilters.sobel;
+    oFrameData.embos             <= rgbImageFilters.embos;
+    oFrameData.blur              <= rgbImageFilters.blur;
+    oFrameData.sharp             <= rgbImageFilters.sharp;
+    oFrameData.cgain             <= rgbImageFilters.cgain;
+    oFrameData.ycbcr             <= rgbImageFilters.ycbcr;
+    oFrameData.hsl               <= rgbImageFilters.hsl;
+    oFrameData.hsv               <= rgbImageFilters.hsv;
+    oFrameData.inrgb             <= rgbImageFilters.inrgb;
+    oFrameData.maskSobelLum      <= rgbImageFilters.maskSobelLum;
+    oFrameData.maskSobelTrm      <= rgbImageFilters.maskSobelTrm;
+    oFrameData.maskSobelRgb      <= rgbImageFilters.maskSobelRgb;
+    oFrameData.maskSobelShp      <= rgbImageFilters.maskSobelShp;
+    oFrameData.maskSobelBlu      <= rgbImageFilters.maskSobelBlu;
+    oFrameData.maskSobelYcc      <= rgbImageFilters.maskSobelYcc;
+    oFrameData.maskSobelHsv      <= rgbImageFilters.maskSobelHsv;
+    oFrameData.maskSobelHsl      <= rgbImageFilters.maskSobelHsl;
+    oFrameData.maskSobelCga      <= rgbImageFilters.maskSobelCga;
+    oFrameData.colorTrm          <= rgbImageFilters.colorTrm;
+    oFrameData.colorLmp          <= rgbImageFilters.colorLmp;
+    oFrameData.tPattern          <= rgbImageFilters.tPattern;
+    oFrameData.cgainToCgain      <= rgbImageFilters.cgainToCgain;
+    oFrameData.cgainToHsl        <= rgbImageFilters.cgainToHsl;
+    oFrameData.cgainToHsv        <= rgbImageFilters.cgainToHsv;
+    oFrameData.cgainToYcbcr      <= rgbImageFilters.cgainToYcbcr;
+    oFrameData.cgainToShp        <= rgbImageFilters.cgainToShp;
+    oFrameData.cgainToBlu        <= rgbImageFilters.cgainToBlu;
+    oFrameData.shpToCgain        <= rgbImageFilters.shpToCgain;
+    oFrameData.shpToHsl          <= rgbImageFilters.shpToHsl;
+    oFrameData.shpToHsv          <= rgbImageFilters.shpToHsv;
+    oFrameData.shpToYcbcr        <= rgbImageFilters.shpToYcbcr;
+    oFrameData.shpToShp          <= rgbImageFilters.shpToShp;
+    oFrameData.shpToBlu          <= rgbImageFilters.shpToBlu;
+    oFrameData.bluToBlu          <= rgbImageFilters.bluToBlu;
+    oFrameData.bluToCga          <= rgbImageFilters.bluToCga;
+    oFrameData.bluToShp          <= rgbImageFilters.bluToShp;
+    oFrameData.bluToYcc          <= rgbImageFilters.bluToYcc;
+    oFrameData.bluToHsv          <= rgbImageFilters.bluToHsv;
+    oFrameData.bluToHsl          <= rgbImageFilters.bluToHsl;
+    oFrameData.bluToCgaShp       <= rgbImageFilters.bluToCgaShp;
+    oFrameData.bluToCgaShpYcc    <= rgbImageFilters.bluToCgaShpYcc;
+    oFrameData.bluToCgaShpHsv    <= rgbImageFilters.bluToCgaShpHsv;
+    oFrameData.bluToShpCga       <= rgbImageFilters.bluToShpCga;
+    oFrameData.bluToShpCgaYcc    <= rgbImageFilters.bluToShpCgaYcc;
+    oFrameData.bluToShpCgaHsv    <= rgbImageFilters.bluToShpCgaHsv;
+    oFrameData.rgbRemix          <= rgbRemix;
+    oFrameData.rgbDetect         <= rgbDetect;
+    oFrameData.rgbPoi            <= rgbPoi;
+    oFrameData.rgbSum            <= rgbSum;
+    oFrameData.rgbDetectLock     <= rgbDetectLock;
+    oFrameData.rgbPoiLock        <= rgbPoiLock;
+    oFrameData.cod               <= syncxy;
+    oFrameData.pEof              <= iRgbSet.pEof;
+    oFrameData.pSof              <= iRgbSet.pSof;
+    rgbIn.red                    <= iRgbSet.red;
+    rgbIn.green                  <= iRgbSet.green;
+    rgbIn.blue                   <= iRgbSet.blue;
+    rgbIn.valid                  <= iRgbSet.valid;
+    cordIn.x                     <= iRgbSet.cord.x;
+    cordIn.y                     <= iRgbSet.cord.y;
+    -------------------------------------------------
 pipCoordP: process (clk) begin
     if rising_edge(clk) then
         syncxy          <= cordIn;
         cord            <= syncxy;
     end if;
 end process pipCoordP;
-colorCorrectionInst: colorCorrection
+    -------------------------------------------------
+    iKcoeff.k1   <= iKls.k1(15 downto 0);
+    iKcoeff.k2   <= iKls.k2(15 downto 0); 
+    iKcoeff.k3   <= iKls.k3(15 downto 0); 
+    iKcoeff.k4   <= iKls.k4(15 downto 0); 
+    iKcoeff.k5   <= iKls.k5(15 downto 0); 
+    iKcoeff.k6   <= iKls.k6(15 downto 0); 
+    iKcoeff.k7   <= iKls.k7(15 downto 0); 
+    iKcoeff.k8   <= iKls.k8(15 downto 0); 
+    iKcoeff.k9   <= iKls.k9(15 downto 0); 
+    iKcoeff.kSet <= iKls.config;
+    -------------------------------------------------
+FiltersInst: Filters
 generic map(
-    i_data_width        => i_data_width)
-port map(           
+    F_TES               =>  F_TES,
+    F_LUM               =>  F_LUM,
+    F_TRM               =>  F_TRM,
+    F_RGB               =>  F_RGB,
+    F_SHP               =>  F_SHP,
+    F_BLU               =>  F_BLU,
+    F_EMB               =>  F_EMB,
+    F_YCC               =>  F_YCC,
+    F_SOB               =>  F_SOB,
+    F_CGA               =>  F_CGA,
+    F_HSV               =>  F_HSV,
+    F_HSL               =>  F_HSL,
+    M_SOB_LUM           =>  M_SOB_LUM,
+    M_SOB_TRM           =>  M_SOB_TRM,
+    M_SOB_RGB           =>  M_SOB_RGB,
+    M_SOB_SHP           =>  M_SOB_SHP,
+    M_SOB_BLU           =>  M_SOB_BLU,
+    M_SOB_YCC           =>  M_SOB_YCC,
+    M_SOB_CGA           =>  M_SOB_CGA,
+    M_SOB_HSV           =>  M_SOB_HSV,
+    M_SOB_HSL           =>  M_SOB_HSL,
+    F_CGA_TO_CGA        =>  F_CGA_TO_CGA,
+    F_CGA_TO_HSL        =>  F_CGA_TO_HSL,
+    F_CGA_TO_HSV        =>  F_CGA_TO_HSV,
+    F_CGA_TO_YCC        =>  F_CGA_TO_YCC,
+    F_CGA_TO_SHP        =>  F_CGA_TO_SHP,
+    F_CGA_TO_BLU        =>  F_CGA_TO_BLU,
+    F_SHP_TO_SHP        =>  F_SHP_TO_SHP,
+    F_SHP_TO_HSL        =>  F_SHP_TO_HSL,
+    F_SHP_TO_HSV        =>  F_SHP_TO_HSV,
+    F_SHP_TO_YCC        =>  F_SHP_TO_YCC,
+    F_SHP_TO_CGA        =>  F_SHP_TO_CGA,
+    F_SHP_TO_BLU        =>  F_SHP_TO_BLU,
+    F_BLU_TO_BLU        =>  F_BLU_TO_BLU,
+    F_BLU_TO_HSL        =>  F_BLU_TO_HSL,
+    F_BLU_TO_HSV        =>  F_BLU_TO_HSV,
+    F_BLU_TO_YCC        =>  F_BLU_TO_YCC,
+    F_BLU_TO_CGA        =>  F_BLU_TO_CGA,
+    F_BLU_TO_SHP        =>  F_BLU_TO_SHP,
+    img_width           =>  img_width,
+    img_height          =>  img_width + 100,
+    s_data_width        =>  s_data_width,
+    i_data_width        =>  i_data_width)
+port map(
     clk                 => clk,
     rst_l               => rst_l,
+    txCord              => cord,
+    lumThreshold        => lumThreshold,
+    iThreshold          => iThreshold,
     iRgb                => rgbIn,
-    als                 => iAls,    
-    oRgb                => rgbV1Correct);
-sobelFilter1Inst: sobelFilter
-generic map(
-    pixelDelay          => pixelDelay,
-    i_data_width        => i_data_width,
-    img_width           => img_width,
-    adwrWidth           => adwrWidth,
-    addrWidth           => addrWidth)
-port map(   
-    clk                 => clk,
-    rst_l               => rst_l,
-    iEdgeType           => iEdgeType,
-    endOfFrame          => iRgbSet.pEof,
-    iRgb                => rgbIn,
-    threshold           => iThreshold,
-    kls                 => iKls,
-    oRgb                => soble1v,
-    sValid              => sValid,
-    edgeValid           => edgeValid);
-sobleSharpFilterInst: sharpFilter
-generic map(
-    i_data_width        => i_data_width,
-    img_width           => img_width,
-    adwrWidth           => adwrWidth,
-    addrWidth           => addrWidth)
-port map(   
-    clk                 => clk,
-    rst_l               => rst_l,
-    iRgb                => soble1v,
-    endOfFrame          => iRgbSet.pEof,
-    kls                 => iKls,
-    oRgb                => sobleSharp);
-edgeObjectsInst: edgeObjects
-generic map(
-    i_data_width        => i_data_width)
-port map(   
-    clk                 => clk,
-    rst_l               => rst_l,
-    iRgb                => rgbIn,
-    bRgb                => blur1vx,
-    sRgb                => sharp,
+    cHsv                => cHsv,
+    cYcc                => cYcc,
+    iKcoeff             => iKcoeff,
     edgeValid           => edgeValid,
-    sValid              => sValid,
-    oRgbRemix           => rgbRemix);
-sharpFilterInst: sharpFilter
-generic map(
-    i_data_width        => i_data_width,
-    img_width           => img_width,
-    adwrWidth           => adwrWidth,
-    addrWidth           => addrWidth)
-port map(   
-    clk                 => clk,
-    rst_l               => rst_l,
-    iRgb                => rgbIn,
-    endOfFrame          => iRgbSet.pEof,
-    kls                 => iKls,
-    oRgb                => sharp);
-blurFilter1xInst: blurFilter
-generic map(
-    iMSB                => blurMsb,
-    iLSB                => blurLsb,
-    i_data_width        => i_data_width,
-    img_width           => img_width,
-    adwrWidth           => adwrWidth,
-    addrWidth           => addrWidth)
-port map(
-    clk                 => clk,
-    rst_l               => rst_l,
-    iRgb                => rgbIn,
-    oRgb                => blur1vx);
-blurFilter2xInst: blurFilter
-generic map(
-    iMSB                => blurMsb - 1,
-    iLSB                => blurLsb - 1,
-    i_data_width        => i_data_width,
-    img_width           => img_width,
-    adwrWidth           => adwrWidth,
-    addrWidth           => addrWidth)
-port map(
-    clk                 => clk,
-    rst_l               => rst_l,
-    iRgb                => blur1vx,
-    oRgb                => blur2vx);
-blurFilter3xInst: blurFilter
-generic map(
-    iMSB                => blurMsb - 1,
-    iLSB                => blurLsb - 1,
-    i_data_width        => i_data_width,
-    img_width           => img_width,
-    adwrWidth           => adwrWidth,
-    addrWidth           => addrWidth)
-port map(
-    clk                 => clk,
-    rst_l               => rst_l,
-    iRgb                => blur2vx,
-    oRgb                => blur3vx);
-blurFilter4xInst: blurFilter
-generic map(
-    iMSB                => blurMsb - 1,
-    iLSB                => blurLsb - 1,
-    i_data_width        => i_data_width,
-    img_width           => img_width,
-    adwrWidth           => adwrWidth,
-    addrWidth           => addrWidth)
-port map(
-    clk                 => clk,
-    rst_l               => rst_l,
-    iRgb                => blur3vx,
-    oRgb                => blur4vx);
-colorCorrection1Inst: colorCorrection
-generic map(
-    i_data_width        => i_data_width)
-port map(           
-    clk                 => clk,
-    rst_l               => rst_l,
-    iRgb                => blur4vx,
-    als                 => iAls,    
-    oRgb                => rgbV2Correct);
-hsv_blur4xInst: hsv_c
-generic map(
-    i_data_width        => i_data_width)
-port map(   
-    clk                 => clk,
-    reset               => rst_l,
-    iRgb                => rgbV2Correct,
-    oHsv                => hsvCcBlur4vx);
+    oRgb                => rgbImageFilters);
 detectInst: detect
 generic map(
     i_data_width        => i_data_width)
@@ -273,22 +276,6 @@ port map(
     fifoStatus          => oFifoStatus,
     oGridLocation       => rgbPoiLock,
     oRgb                => rgbPoi);
-hslInst: hsl_c
-generic map(
-    i_data_width        => i_data_width)
-port map(   
-    clk                 => clk,
-    reset               => rst_l,
-    iRgb                => rgbIn,
-    oHsl                => hsl);
-hsvInst: hsv_c
-generic map(
-    i_data_width        => i_data_width)
-port map(   
-    clk                 => clk,
-    reset               => rst_l,
-    iRgb                => rgbIn,
-    oHsv                => hsv);
 frameTestPatternInst: frameTestPattern
 generic map(
     s_data_width        => s_data_width)
@@ -297,25 +284,4 @@ port map(
     iValid              => rgbIn.valid,
     iCord               => cord,
     oRgb                => rgbSum);
---RGBTRIM_FRAME_ENABLE: if (RGBTR_FRAME = true) generate
---begin
-ColorTrimInst: ColorTrim
-generic map(
-    i_data_width       => i_data_width)
-port map(   
-    clk                => clk,
-    reset              => rst_l,
-    iRgb               => rgbIn,
-    oRgb               => colorTrm);
---end generate RGBTRIM_FRAME_ENABLE;
---RGBLUMP_FRAME_ENABLE: if (RGBLP_FRAME = true) generate
---begin
-SegmentColorsInst: SegmentColors
-port map(   
-    clk                => clk,
-    reset              => rst_l,
-    lumThreshold       => lumThreshold,
-    iRgb               => rgbIn,
-    oRgb               => colorLmp);
---end generate RGBLUMP_FRAME_ENABLE;
 end architecture;

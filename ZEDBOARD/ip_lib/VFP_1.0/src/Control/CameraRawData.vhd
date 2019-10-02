@@ -1,4 +1,12 @@
---01062019 [01-06-2019]
+----------------------------------------------------------------
+--Last Modfied  : 01062019 [01-06-2019]
+--Module        : CameraRawData
+----------------------------------------------------------------
+--The CameraRawData component takes a stream of camera data in 
+--pixel format. This stream must be presented to the inputs of 
+--CameraRawData module idata(raw input data), ilval(line valid), 
+--ifval(frame valid) and pixclk(source clock).
+----------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

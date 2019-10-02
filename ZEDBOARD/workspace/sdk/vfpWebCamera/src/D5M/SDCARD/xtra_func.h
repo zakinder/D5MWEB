@@ -1,9 +1,7 @@
-
 #include <xparameters.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 int load_sd_to_memory (char *filename, u8* dataPtr, u32 *DataLength, u32 filetype)
 /* Loads a binary file (e.g. bitstream or data file) onto memory
  * INPUTS
@@ -29,24 +27,17 @@ int load_sd_to_memory (char *filename, u8* dataPtr, u32 *DataLength, u32 filetyp
     u32 filesize;
 	FILINFO *fno;
 	FRESULT myres;
-
 	fno = (FILINFO *) calloc (1, sizeof (FILINFO));
-
 	xil_printf ("(load_sd_to_memory): Loading '%s' to memory\n", filename);
-
 	// Reading file from SD Drive:
 	myres = f_open(&test, filename, FA_READ);  // Opening file to read it // created with write_cfgmem (this works!)
 	if (myres != FR_OK) { xil_printf("f_open: Error!\n"); return XST_FAILURE; };
-
 	myres = f_stat (filename, fno);
 	if (myres != FR_OK) { xil_printf("f_stat: Error!: %d\n", myres); return XST_FAILURE; }
-
 	filesize = fno->fsize; // (bytes). For 'dynpix' project, it is 59272 bytes;
 	xil_printf ("(load_sd_to_memory) : File Size: %d bytes\n", filesize);
-
 	myres = f_lseek (&test,0); // seek file r/w pointer
 	if (myres != FR_OK) { xil_printf("f_lseek: Error!\n"); return XST_FAILURE; };
-
 	if (filetype == 1) { // binary file
 		myres = f_read (&test, (void*) (dataPtr), filesize, &NumBytesRead);
 		if (NumBytesRead != filesize) { xil_printf ("Error!. Number of Bytes Read: %d != DataLength\n", NumBytesRead); return XST_FAILURE; }
@@ -57,17 +48,12 @@ int load_sd_to_memory (char *filename, u8* dataPtr, u32 *DataLength, u32 filetyp
 	}
 	else
 		{ xil_printf ("Error: 'filetype' is incorrect!"); return XST_FAILURE; }
-
 	myres = f_close (&test); // Closing "filename"
 	if (myres == FR_OK) xil_printf ("Close File: Success!\n\r"); else xil_printf ("Close file: Error!\n\r");
-
 	*DataLength = filesize;
-
 	return XST_SUCCESS;
 }
 /*******/
-
-
 int write_data_to_sd(char *filename, u8* dataPtr, u32 DataLength, u32 filetype)
 /* Writes data on a binary file
  * INPUTS
@@ -95,23 +81,16 @@ int write_data_to_sd(char *filename, u8* dataPtr, u32 DataLength, u32 filetype)
     UINT NumBytesWritten;
 	FILINFO *fno;
 	FRESULT myres;
-
 	fno = (FILINFO *) calloc (1, sizeof (FILINFO));
-
 	xil_printf ("(write_data_to_sd): Writing memory data to '%s'\n", filename);
-
 	// Reading file from SD Drive:
 	myres = f_open(&test, filename, FA_CREATE_ALWAYS | FA_WRITE | FA_READ);  // Opening file to read it
 	if (myres != FR_OK) { xil_printf("f_open: Error!\n"); return XST_FAILURE; };
-
 	myres = f_stat (filename, fno);
 	if (myres != FR_OK) { xil_printf("f_stat: Error!: %d\n", myres); return XST_FAILURE; }
-
 	xil_printf ("(write_data_to_sd) : File Size: %d bytes\n", DataLength);
-
 	myres = f_lseek (&test,0);
 	if (myres != FR_OK) { xil_printf("f_lseek: Error!\n"); return XST_FAILURE; };
-
 	if (filetype == 1) { // binary file
 		myres = f_write (&test, (void*) dataPtr, DataLength, &NumBytesWritten);
 		if (myres == FR_OK) xil_printf ("f_write: Success!\n\r"); else xil_printf ("f_write: Failure\n\r");
@@ -122,12 +101,8 @@ int write_data_to_sd(char *filename, u8* dataPtr, u32 DataLength, u32 filetype)
 	}
 	else
 		{ xil_printf ("Error: 'filetype' is incorrect!"); return XST_FAILURE; }
-
 	myres = f_close (&test); // Closing "filename"
 	if (myres == FR_OK) xil_printf ("Close File: Success!\n\r"); else xil_printf ("Close file: Error!\n\r");
-
 	return XST_SUCCESS;
 }
 /*******/
-
-

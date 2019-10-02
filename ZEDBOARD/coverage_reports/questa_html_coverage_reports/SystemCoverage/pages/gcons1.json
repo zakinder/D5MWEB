@@ -1,0 +1,8 @@
+var g_db_data = [
+{dummy:0},
+{name:'axi4_cg',f:1,type:6,id:46,tb:'544',h:'28',m:'516',hp:'5.14%',cov:['35.81%','R'],g:'100.00%',gp:['35.81%','R'],lnk:'__HDL_srcfile_1.htm#2304',hdlPath:'/top/axi4s_vif',parent:'44'},
+{name:'template_cg',f:1,type:6,id:1920,tb:'1096',h:'11',m:'1085',hp:'1.00%',cov:['31.76%','R'],g:'100.00%',gp:['31.76%','R'],opts:[[],['merge_instance','auto(true)']],lnk:'__HDL_srcfile_1.htm#1252',hdlPath:'/socTest_pkg/template_monitor_predict',parent:'1919'},
+{name:'aL_cg',f:1,type:6,id:1953,tb:'128',h:'2',m:'126',hp:'1.56%',cov:['1.56%','R'],g:'100.00%',gp:['1.56%','R'],opts:[[],['merge_instance','auto(true)']],lnk:'__HDL_srcfile_1.htm#1787',hdlPath:'/socTest_pkg/axiLite_fc_subscriber',parent:'1952'},
+{name:'rgb_cg',f:1,type:6,id:1957,tb:'454',h:'454',m:'0',hp:'100.00%',cov:['100.00%','G'],g:'100.00%',gp:['100.00%','G'],opts:[[],['merge_instance','auto(true)']],lnk:'__HDL_srcfile_1.htm#1808',hdlPath:'/socTest_pkg/rgb_fc_subscriber',parent:'1956'},
+{name:'axi4_cg',f:1,type:6,id:2017,tb:'544',h:'28',m:'516',hp:'5.14%',cov:['35.81%','R'],g:'100.00%',gp:['35.81%','R'],lnk:'__HDL_srcfile_1.htm#2304',hdlPath:'work.axi4s_if',parent:'7'}];
+processConsCovergroupsData(g_db_data);

@@ -14,6 +14,9 @@ port (
     seconds          : in std_logic_vector(5 downto 0);
     minutes          : in std_logic_vector(5 downto 0);
     hours            : in std_logic_vector(4 downto 0);
+    oLumTh           : out integer;
+    oHsvPerCh        : out integer;
+    oYccPerCh        : out integer;
     rgbCoord         : out region;
     aBusSelect       : out std_logic_vector(b_data_width-1 downto 0);
     threshold        : out std_logic_vector(s_data_width -1 downto 0);
@@ -73,6 +76,9 @@ begin
     rgbCoord.gh             <= wrRegsIn.cfigReg53(7 downto 0);
     rgbCoord.bl             <= wrRegsIn.cfigReg54(7 downto 0);
     rgbCoord.bh             <= wrRegsIn.cfigReg55(7 downto 0);
+    oLumTh                  <= to_integer(unsigned(wrRegsIn.cfigReg56));
+    oHsvPerCh               <= to_integer(unsigned(wrRegsIn.cfigReg57));
+    oYccPerCh               <= to_integer(unsigned(wrRegsIn.cfigReg58));
     rdRegsOut.cfigReg0      <= wrRegsIn.cfigReg0;
     rdRegsOut.cfigReg1      <= wrRegsIn.cfigReg1;
     rdRegsOut.cfigReg2      <= wrRegsIn.cfigReg2;

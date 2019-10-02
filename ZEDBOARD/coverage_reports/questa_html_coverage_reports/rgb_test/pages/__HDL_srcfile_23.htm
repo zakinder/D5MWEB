@@ -1,0 +1,178 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a><q-m>--05022019 [05-02-2019]</q-m>
+<a name="2"><q-n>     2  </q-n></a><q-w>library</q-w> ieee;
+<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
+<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
+<a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
+<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
+<a name="7"><q-n>     7  </q-n></a><q-w>use</q-w> work.portspackage.<q-w>all</q-w>;
+<a name="8"><q-n>     8  </q-n></a><q-w>entity</q-w> AxisExternal <q-w>is</q-w>
+<a name="9"><q-n>     9  </q-n></a><q-w>generic</q-w> (
+<a name="10"><q-n>     10  </q-n></a>    revision_number             : <q-t>std_logic_vector</q-w>(31 <q-w>downto</q-w> 0) := x<q-l>"05022019"</q-l>;
+<a name="11"><q-n>     11  </q-n></a>    C_rgb_m_axis_TDATA_WIDTH    : <q-t>integer</q-w> := 16;
+<a name="12"><q-n>     12  </q-n></a>    C_rgb_s_axis_TDATA_WIDTH    : <q-t>integer</q-w> := 16;
+<a name="13"><q-n>     13  </q-n></a>    C_m_axis_mm2s_TDATA_WIDTH   : <q-t>integer</q-w> := 16;
+<a name="14"><q-n>     14  </q-n></a>    C_vfpConfig_DATA_WIDTH      : <q-t>integer</q-w> := 32;
+<a name="15"><q-n>     15  </q-n></a>    C_vfpConfig_ADDR_WIDTH      : <q-t>integer</q-w> := 8;
+<a name="16"><q-n>     16  </q-n></a>    conf_data_width             : <q-t>integer</q-w> := 32;
+<a name="17"><q-n>     17  </q-n></a>    conf_addr_width             : <q-t>integer</q-w> := 8;
+<a name="18"><q-n>     18  </q-n></a>    i_data_width                : <q-t>integer</q-w> := 8;
+<a name="19"><q-n>     19  </q-n></a>    s_data_width                : <q-t>integer</q-w> := 16;
+<a name="20"><q-n>     20  </q-n></a>    b_data_width                : <q-t>integer</q-w> := 32);
+<a name="21"><q-n>     21  </q-n></a><q-w>port</q-w> (
+<a name="22"><q-n>     22  </q-n></a>    iBusSelect                  : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
+<a name="23"><q-n>     23  </q-n></a>    iStreamData                 : <q-a>in</q-w> vStreamData;
+<a name="24"><q-n>     24  </q-n></a>    oWrRegs                     : <q-a>out</q-w> mRegs;
+<a name="25"><q-n>     25  </q-n></a>    iRdRegs                     : <q-a>in</q-w> mRegs;
+<a name="26"><q-n>     26  </q-n></a>    <q-m>--tx channel                </q-m>
+<a name="27"><q-n>     27  </q-n></a>    rgb_m_axis_aclk             : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="28"><q-n>     28  </q-n></a>    rgb_m_axis_aresetn          : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="29"><q-n>     29  </q-n></a>    rgb_m_axis_tready           : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="30"><q-n>     30  </q-n></a>    rgb_m_axis_tvalid           : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="31"><q-n>     31  </q-n></a>    rgb_m_axis_tlast            : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="32"><q-n>     32  </q-n></a>    rgb_m_axis_tuser            : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="33"><q-n>     33  </q-n></a>    rgb_m_axis_tdata            : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(C_rgb_m_axis_TDATA_WIDTH-1 <q-w>downto</q-w> 0);
+<a name="34"><q-n>     34  </q-n></a>    <q-m>--rx channel                </q-m>
+<a name="35"><q-n>     35  </q-n></a>    rgb_s_axis_aclk             : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="36"><q-n>     36  </q-n></a>    rgb_s_axis_aresetn          : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="37"><q-n>     37  </q-n></a>    rgb_s_axis_tready           : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="38"><q-n>     38  </q-n></a>    rgb_s_axis_tvalid           : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="39"><q-n>     39  </q-n></a>    rgb_s_axis_tuser            : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="40"><q-n>     40  </q-n></a>    rgb_s_axis_tlast            : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="41"><q-n>     41  </q-n></a>    rgb_s_axis_tdata            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(C_rgb_s_axis_TDATA_WIDTH-1 <q-w>downto</q-w> 0);
+<a name="42"><q-n>     42  </q-n></a>    <q-m>--destination channel       </q-m>
+<a name="43"><q-n>     43  </q-n></a>    m_axis_mm2s_aclk            : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="44"><q-n>     44  </q-n></a>    m_axis_mm2s_aresetn         : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="45"><q-n>     45  </q-n></a>    m_axis_mm2s_tready          : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="46"><q-n>     46  </q-n></a>    m_axis_mm2s_tvalid          : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="47"><q-n>     47  </q-n></a>    m_axis_mm2s_tuser           : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="48"><q-n>     48  </q-n></a>    m_axis_mm2s_tlast           : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="49"><q-n>     49  </q-n></a>    m_axis_mm2s_tdata           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(C_m_axis_mm2s_TDATA_WIDTH-1 <q-w>downto</q-w> 0);
+<a name="50"><q-n>     50  </q-n></a>    m_axis_mm2s_tkeep           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
+<a name="51"><q-n>     51  </q-n></a>    m_axis_mm2s_tstrb           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
+<a name="52"><q-n>     52  </q-n></a>    m_axis_mm2s_tid             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(0 <q-w>downto</q-w> 0);
+<a name="53"><q-n>     53  </q-n></a>    m_axis_mm2s_tdest           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(0 <q-w>downto</q-w> 0);
+<a name="54"><q-n>     54  </q-n></a>    <q-m>--video configuration       </q-m>
+<a name="55"><q-n>     55  </q-n></a>    vfpconfig_aclk              : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="56"><q-n>     56  </q-n></a>    vfpconfig_aresetn           : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="57"><q-n>     57  </q-n></a>    vfpconfig_awaddr            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(C_vfpConfig_ADDR_WIDTH-1 <q-w>downto</q-w> 0);
+<a name="58"><q-n>     58  </q-n></a>    vfpconfig_awprot            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
+<a name="59"><q-n>     59  </q-n></a>    vfpconfig_awvalid           : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="60"><q-n>     60  </q-n></a>    vfpconfig_awready           : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="61"><q-n>     61  </q-n></a>    vfpconfig_wdata             : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(C_vfpConfig_DATA_WIDTH-1 <q-w>downto</q-w> 0);
+<a name="62"><q-n>     62  </q-n></a>    vfpconfig_wstrb             : <q-a>in</q-w> <q-t>std_logic_vector</q-w>((C_vfpConfig_DATA_WIDTH/8)-1 <q-w>downto</q-w> 0);
+<a name="63"><q-n>     63  </q-n></a>    vfpconfig_wvalid            : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="64"><q-n>     64  </q-n></a>    vfpconfig_wready            : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="65"><q-n>     65  </q-n></a>    vfpconfig_bresp             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(1 <q-w>downto</q-w> 0);
+<a name="66"><q-n>     66  </q-n></a>    vfpconfig_bvalid            : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="67"><q-n>     67  </q-n></a>    vfpconfig_bready            : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="68"><q-n>     68  </q-n></a>    vfpconfig_araddr            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(C_vfpConfig_ADDR_WIDTH-1 <q-w>downto</q-w> 0);
+<a name="69"><q-n>     69  </q-n></a>    vfpconfig_arprot            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
+<a name="70"><q-n>     70  </q-n></a>    vfpconfig_arvalid           : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="71"><q-n>     71  </q-n></a>    vfpconfig_arready           : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="72"><q-n>     72  </q-n></a>    vfpconfig_rdata             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(C_vfpConfig_DATA_WIDTH-1 <q-w>downto</q-w> 0);
+<a name="73"><q-n>     73  </q-n></a>    vfpconfig_rresp             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(1 <q-w>downto</q-w> 0);
+<a name="74"><q-n>     74  </q-n></a>    vfpconfig_rvalid            : <q-a>out</q-w> <q-t>std_logic</q-w>;
+<a name="75"><q-n>     75  </q-n></a>    vfpconfig_rready            : <q-a>in</q-w> <q-t>std_logic</q-w>);
+<a name="76"><q-n>     76  </q-n></a><q-w>end</q-w> AxisExternal;
+<a name="77"><q-n>     77  </q-n></a><q-w>architecture</q-w> arch_imp <q-w>of</q-w> AxisExternal <q-w>is</q-w>
+<a name="78"><q-n>     78  </q-n></a>    <q-w>signal</q-w> rx_axis_tready       : <q-t>std_logic</q-w>;
+<a name="79"><q-n>     79  </q-n></a>    <q-w>signal</q-w> rx_axis_tvalid       : <q-t>std_logic</q-w>;
+<a name="80"><q-n>     80  </q-n></a>    <q-w>signal</q-w> rx_axis_tuser        : <q-t>std_logic</q-w>;
+<a name="81"><q-n>     81  </q-n></a>    <q-w>signal</q-w> rx_axis_tlast        : <q-t>std_logic</q-w>;
+<a name="82"><q-n>     82  </q-n></a>    <q-w>signal</q-w> rx_axis_tdata        : <q-t>std_logic_vector</q-w>(m_axis_mm2s_tdata'<q-w>range</q-w>);
+<a name="83"><q-n>     83  </q-n></a><q-w>begin</q-w>
+<a name="84"><q-n>     84  </q-n></a>mAxisInst: videoProcess_v1_0_rgb_m_axis
+<a name="85"><q-n>     85  </q-n></a><q-w>generic</q-w> <q-w>map</q-w> (
+<a name="86"><q-n>     86  </q-n></a>    i_data_width         =&gt; i_data_width,
+<a name="87"><q-n>     87  </q-n></a>    b_data_width         =&gt; b_data_width,
+<a name="88"><q-n>     88  </q-n></a>    s_data_width         =&gt; s_data_width)
+<a name="89"><q-n>     89  </q-n></a><q-w>port</q-w> <q-w>map</q-w> (
+<a name="90"><q-n>     90  </q-n></a>    <q-m>--stream clock/reset</q-m>
+<a name="91"><q-n>     91  </q-n></a>    m_axis_mm2s_aclk     =&gt;  rgb_s_axis_aclk,
+<a name="92"><q-n>     92  </q-n></a>    m_axis_mm2s_aresetn  =&gt;  rgb_s_axis_aresetn,
+<a name="93"><q-n>     93  </q-n></a>    <q-m>--config</q-m>
+<a name="94"><q-n>     94  </q-n></a>    aBusSelect           =&gt;  iBusSelect,
+<a name="95"><q-n>     95  </q-n></a>    iStreamData          =&gt;  iStreamData,
+<a name="96"><q-n>     96  </q-n></a>    <q-m>--stream to master</q-m>
+<a name="97"><q-n>     97  </q-n></a>    rx_axis_tready_o     =&gt;  rx_axis_tready,
+<a name="98"><q-n>     98  </q-n></a>    rx_axis_tvalid       =&gt;  rx_axis_tvalid,
+<a name="99"><q-n>     99  </q-n></a>    rx_axis_tuser        =&gt;  rx_axis_tuser,
+<a name="100"><q-n>     100  </q-n></a>    rx_axis_tlast        =&gt;  rx_axis_tlast,
+<a name="101"><q-n>     101  </q-n></a>    rx_axis_tdata        =&gt;  rx_axis_tdata,
+<a name="102"><q-n>     102  </q-n></a>    <q-m>--tx channel</q-m>
+<a name="103"><q-n>     103  </q-n></a>    rgb_m_axis_tvalid    =&gt;  rgb_m_axis_tvalid,
+<a name="104"><q-n>     104  </q-n></a>    rgb_m_axis_tlast     =&gt;  rgb_m_axis_tlast,
+<a name="105"><q-n>     105  </q-n></a>    rgb_m_axis_tuser     =&gt;  rgb_m_axis_tuser,
+<a name="106"><q-n>     106  </q-n></a>    rgb_m_axis_tready    =&gt;  rgb_m_axis_tready,
+<a name="107"><q-n>     107  </q-n></a>    rgb_m_axis_tdata     =&gt;  rgb_m_axis_tdata,
+<a name="108"><q-n>     108  </q-n></a>    <q-m>--rx channel</q-m>
+<a name="109"><q-n>     109  </q-n></a>    rgb_s_axis_tready    =&gt;  rgb_s_axis_tready,
+<a name="110"><q-n>     110  </q-n></a>    rgb_s_axis_tvalid    =&gt;  rgb_s_axis_tvalid,
+<a name="111"><q-n>     111  </q-n></a>    rgb_s_axis_tuser     =&gt;  rgb_s_axis_tuser,
+<a name="112"><q-n>     112  </q-n></a>    rgb_s_axis_tlast     =&gt;  rgb_s_axis_tlast,
+<a name="113"><q-n>     113  </q-n></a>    rgb_s_axis_tdata     =&gt;  rgb_s_axis_tdata);
+<a name="114"><q-n>     114  </q-n></a>mm2sInst: videoProcess_v1_0_m_axis_mm2s
+<a name="115"><q-n>     115  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="116"><q-n>     116  </q-n></a>    s_data_width         =&gt; s_data_width)
+<a name="117"><q-n>     117  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="118"><q-n>     118  </q-n></a>    aclk                 =&gt; rgb_m_axis_aclk,
+<a name="119"><q-n>     119  </q-n></a>    aresetn              =&gt; rgb_m_axis_aresetn,
+<a name="120"><q-n>     120  </q-n></a>    rgb_s_axis_tready    =&gt; rx_axis_tready,
+<a name="121"><q-n>     121  </q-n></a>    rgb_s_axis_tvalid    =&gt; rx_axis_tvalid,
+<a name="122"><q-n>     122  </q-n></a>    rgb_s_axis_tuser     =&gt; rx_axis_tuser,
+<a name="123"><q-n>     123  </q-n></a>    rgb_s_axis_tlast     =&gt; rx_axis_tlast,
+<a name="124"><q-n>     124  </q-n></a>    rgb_s_axis_tdata     =&gt; rx_axis_tdata,
+<a name="125"><q-n>     125  </q-n></a>    m_axis_mm2s_tkeep    =&gt; m_axis_mm2s_tkeep,
+<a name="126"><q-n>     126  </q-n></a>    m_axis_mm2s_tstrb    =&gt; m_axis_mm2s_tstrb,
+<a name="127"><q-n>     127  </q-n></a>    m_axis_mm2s_tid      =&gt; m_axis_mm2s_tid,
+<a name="128"><q-n>     128  </q-n></a>    m_axis_mm2s_tdest    =&gt; m_axis_mm2s_tdest,
+<a name="129"><q-n>     129  </q-n></a>    m_axis_mm2s_tready   =&gt; m_axis_mm2s_tready,
+<a name="130"><q-n>     130  </q-n></a>    m_axis_mm2s_tvalid   =&gt; m_axis_mm2s_tvalid,
+<a name="131"><q-n>     131  </q-n></a>    m_axis_mm2s_tuser    =&gt; m_axis_mm2s_tuser,
+<a name="132"><q-n>     132  </q-n></a>    m_axis_mm2s_tlast    =&gt; m_axis_mm2s_tlast,    
+<a name="133"><q-n>     133  </q-n></a>    m_axis_mm2s_tdata    =&gt; m_axis_mm2s_tdata);
+<a name="134"><q-n>     134  </q-n></a>vfpConfigInst: videoProcess_v1_0_Config
+<a name="135"><q-n>     135  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="136"><q-n>     136  </q-n></a>    revision_number      =&gt; revision_number,
+<a name="137"><q-n>     137  </q-n></a>    C_S_AXI_DATA_WIDTH   =&gt; conf_data_width,
+<a name="138"><q-n>     138  </q-n></a>    C_S_AXI_ADDR_WIDTH   =&gt; conf_addr_width)
+<a name="139"><q-n>     139  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="140"><q-n>     140  </q-n></a>    wrRegsOut            =&gt; oWrRegs,
+<a name="141"><q-n>     141  </q-n></a>    rdRegsIn             =&gt; iRdRegs,
+<a name="142"><q-n>     142  </q-n></a>    S_AXI_ACLK           =&gt; vfpconfig_aclk,
+<a name="143"><q-n>     143  </q-n></a>    S_AXI_ARESETN        =&gt; vfpconfig_aresetn,
+<a name="144"><q-n>     144  </q-n></a>    S_AXI_AWADDR         =&gt; vfpconfig_awaddr,
+<a name="145"><q-n>     145  </q-n></a>    S_AXI_AWPROT         =&gt; vfpconfig_awprot,
+<a name="146"><q-n>     146  </q-n></a>    S_AXI_AWVALID        =&gt; vfpconfig_awvalid,
+<a name="147"><q-n>     147  </q-n></a>    S_AXI_AWREADY        =&gt; vfpconfig_awready,
+<a name="148"><q-n>     148  </q-n></a>    S_AXI_WDATA          =&gt; vfpconfig_wdata,
+<a name="149"><q-n>     149  </q-n></a>    S_AXI_WSTRB          =&gt; vfpconfig_wstrb,
+<a name="150"><q-n>     150  </q-n></a>    S_AXI_WVALID         =&gt; vfpconfig_wvalid,
+<a name="151"><q-n>     151  </q-n></a>    S_AXI_WREADY         =&gt; vfpconfig_wready,
+<a name="152"><q-n>     152  </q-n></a>    S_AXI_BRESP          =&gt; vfpconfig_bresp,
+<a name="153"><q-n>     153  </q-n></a>    S_AXI_BVALID         =&gt; vfpconfig_bvalid,
+<a name="154"><q-n>     154  </q-n></a>    S_AXI_BREADY         =&gt; vfpconfig_bready,
+<a name="155"><q-n>     155  </q-n></a>    S_AXI_ARADDR         =&gt; vfpconfig_araddr,
+<a name="156"><q-n>     156  </q-n></a>    S_AXI_ARPROT         =&gt; vfpconfig_arprot,
+<a name="157"><q-n>     157  </q-n></a>    S_AXI_ARVALID        =&gt; vfpconfig_arvalid,
+<a name="158"><q-n>     158  </q-n></a>    S_AXI_ARREADY        =&gt; vfpconfig_arready,
+<a name="159"><q-n>     159  </q-n></a>    S_AXI_RDATA          =&gt; vfpconfig_rdata,
+<a name="160"><q-n>     160  </q-n></a>    S_AXI_RRESP          =&gt; vfpconfig_rresp,
+<a name="161"><q-n>     161  </q-n></a>    S_AXI_RVALID         =&gt; vfpconfig_rvalid,
+<a name="162"><q-n>     162  </q-n></a>    S_AXI_RREADY         =&gt; vfpconfig_rready);
+<a name="163"><q-n>     163  </q-n></a><q-w>end</q-w> arch_imp;</pre>
+</tt>
+
+  
+</body>
+</html>

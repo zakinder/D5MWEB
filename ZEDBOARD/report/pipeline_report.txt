@@ -1,0 +1,68 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
+| Date         : Tue Jun 11 19:55:23 2019
+| Host         : BLACKHOLE running 64-bit major release  (build 9200)
+| Command      : report_pipeline_analysis -file Z:/ZEDBOARD/report/pipeline_report.txt
+| Design       : zynq_soc_wrapper
+| Device       : xc7z020clg484-1
+---------------------------------------------------------------------------------------
+
+Pipeline analysis report
+
+1. Report Description and Glossary
+----------------------------------
+
+Description:
+This report shows a "what-if" analysis of potential Fmax increase as a result of
+hypothetically inserting pipeline stages in the design's feed-forward paths. The
+entry for Added Latency of 0 reflects the current design performance with no
+pipeline stages added.
+
+The -report_loops option shows the slowest path within a sequential feedback loop.
+Sequential loops cannot be pipelined. These are paths starting from and ending at
+the same sequential cell, and may have zero, one, or more sequential cells in the
+feedback path.
+
+Glossary:
+Clock : The timing clock of the paths being analyzed for performance increase through pipelining
+Added Latency : Number of added pipeline stages
+Ideal Fmax : The current Fmax
+Ideal Delay : The current minimum clock period
+Requirement : The required maximum delay based on the timing constraints
+WNS : Requirement minus delay
+Added Pipe Reg : Maximum number of pipeline registers to add to the design for the given Added Latency
+Total Pipe Reg : Total number of pipeline registers to add to the clock group for the given Added Latency
+Pipeline Insertion Startpoint : Cell startpoint of path with longest delay
+Pipeline Insertion Endpoint : Cell endpoint of path with longest delay
+
+2. Maximum improvements by stage insertion
+------------------------------------------
+
+Intra-Clock Summary
++------------------------------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Clock                              | Added Latency | Ideal Fmax (MHz) | Ideal Delay (ns) | Requirement (ns) | WNS (ns)* | Added Pipe Reg | Total Pipe Reg | Pipeline Insertion Startpoint                                                                                                                                                                                          | Pipeline Insertion Endpoint                                                                                                                                                                                                                                     |
++------------------------------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clk_fpga_0                         |       0       |       98.91      |      10.110      |       7.000      |   -3.110  |       n/a      |        0       | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSL_FRAME_ENABLE.hslInst/hueTop0__30_carry__2/O[0]                                                                         | zynq_soc_i/PS_VIDEO/D5M/VFP/U0/VideoStreamInst/frameProcessInst/FiltersInst/ImageKernelInst/HSL_FRAME_ENABLE.hslInst/hueTop_reg[14]/D                                                                                                                           |
++------------------------------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clk_out1_zynq_soc_CLK_GEN_148MHZ_0 |       0       |      155.25      |       6.441      |       6.735      |   0.293   |       n/a      |        0       | zynq_soc_i/VIDEO_PIPELINE/TIMMING_CONTROLELR/U0/U_VIDEO_CTRL/AXI4_LITE_INTERFACE.GENR_MUX0/GEN_TREE.GEN_BRANCH[3].GEN_MUX_REG.data_out_reg_reg[3][5]_i_1/O                                                             | zynq_soc_i/VIDEO_PIPELINE/TIMMING_CONTROLELR/U0/U_VIDEO_CTRL/AXI4_LITE_INTERFACE.CORE_MUX0/GEN_TREE.GEN_BRANCH[3].GEN_MUX_REG.data_out_reg_reg[3][5]/D                                                                                                          |
++------------------------------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **async_default**                  |       0       |      166.65      |       6.001      |       7.000      |   0.999   |       n/a      |        0       | zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/S_AXI_AREADY_I_i_1/O                                          | zynq_soc_i/PS_VIDEO/PS/TO_PS/axi_mem_intercon/m00_couplers/auto_pc/inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rst_wr_reg1_reg/PRE |
++------------------------------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **async_default**                  |       0       |      343.68      |       2.910      |       6.735      |   3.825   |       n/a      |        0       | zynq_soc_i/VIDEO_PIPELINE/VIDEO_OUT/inst/COUPLER_INST/FIFO_INST/FIFO_INST/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1/O | zynq_soc_i/VIDEO_PIPELINE/VIDEO_OUT/inst/COUPLER_INST/FIFO_INST/FIFO_INST/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE                                                                                                 |
++------------------------------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clk_fpga_2                         |       0       |      126.28      |       7.919      |      12.999      |   5.080   |       n/a      |        0       | zynq_soc_i/HDMI_OUTPUT/HDMI_IIC/U0/X_IIC/IIC_CONTROL_I/CLKCNT/q_int[0]_i_1/O                                                                                                                                           | zynq_soc_i/HDMI_OUTPUT/HDMI_IIC/U0/X_IIC/IIC_CONTROL_I/CLKCNT/q_int_reg[0]/CE                                                                                                                                                                                   |
++------------------------------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+Inter-Clock Summary
++------------+------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| From Clock | To Clock   | Added Latency | Ideal Fmax (MHz) | Ideal Delay (ns) | Requirement (ns) | WNS (ns)* | Added Pipe Reg | Total Pipe Reg | Pipeline Insertion Startpoint                                                                                                                         | Pipeline Insertion Endpoint                                                                                                                            |
++------------+------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clk_fpga_0 | clk_fpga_2 |       0       |      709.31      |       1.410      |      25.998      |   24.588  |       n/a      |        0       | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/src_hsdata_ff_reg[5]/Q | zynq_soc_i/PS_VIDEO/PS/TO_PS/PS7_axi_periph/m03_couplers/auto_cc/inst/gen_clock_conv.gen_async_lite_conv.w_handshake/handshake/dest_hsdata_ff_reg[5]/D |
++------------+------------+---------------+------------------+------------------+------------------+-----------+----------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+* This is estimated WNS value. For the most accurate timing information please 
+run report_timing.
+

@@ -14,10 +14,6 @@ port (
     clk            : in std_logic;
     rst_l          : in std_logic;
     iRgb           : in channel;
-    bRgb           : in channel;
-    sRgb           : in channel;
-    edgeValid      : in std_logic;
-    sValid         : in std_logic;
     oRgbRemix      : out channel);
 end entity;
 architecture arch of edgeObjects is
@@ -36,93 +32,145 @@ signal rgb1b            : channel;
 signal rgb2b            : channel;
 signal rgb3b            : channel;
 signal rgb4b            : channel;
-signal rgb1s            : channel;
-signal rgb2s            : channel;
+signal rgbMax           : integer;
+signal rgbMin           : integer;
+signal rgbDelta         : integer;
+signal minValue           : integer;
+signal maxValue         : integer;
+signal rgbRInt          : integer;
+
 begin
-piplRgbSharpP : process (clk) begin
-    if rising_edge(clk) then
-      rgb1s          <= sRgb;
-      rgb2s          <= rgb1s;
-    end if;
-end process piplRgbSharpP;
-piplRgbBlurP : process (clk) begin
-    if rising_edge(clk) then
-      rgb1b          <= bRgb;
-      rgb2b          <= rgb1b;
-      rgb3b          <= rgb2b;
-      rgb4b          <= rgb3b;
-    end if;
-end process piplRgbBlurP;
+
+
 piplRgbBlurXP : process (clk) begin
     if rising_edge(clk) then
-      rgb1Int.red    <= to_integer(unsigned(bRgb.red));
-      rgb1Int.green  <= to_integer(unsigned(bRgb.green));
-      rgb1Int.blue   <= to_integer(unsigned(bRgb.blue));
-      rgb1Int.valid  <= bRgb.valid;
-      rgb2Int        <= rgb1Int;
-      rgb3Int        <= rgb2Int;
-      rgb4Int        <= rgb3Int;
+      rgb1Int.red      <= to_integer(unsigned(iRgb.red));
+      rgb1Int.green    <= to_integer(unsigned(iRgb.green));
+      rgb1Int.blue     <= to_integer(unsigned(iRgb.blue));
+      rgb1Int.valid    <= iRgb.valid;
+      rgb2Int          <= rgb1Int;
+      rgb3Int          <= rgb2Int;
+      rgb4Int          <= rgb3Int;
+      rgb1b            <= iRgb;
+      rgb2b            <= rgb1b;
+      rgb3b            <= rgb2b;
     end if;
 end process piplRgbBlurXP;
-oRgbRemix.valid <= sValid;
-------------------------------------------------------------------------------------------------
-rgbRemix : process (clk) begin
-    if rising_edge(clk) then
-    if rst_l = '0' then
-        oRgbRemix.red   <= (others => '0');
-        oRgbRemix.green <= (others => '0');
-        oRgbRemix.blue  <= (others => '0');
-        rMax            <= (others => '0');
-        rMin            <= (others => '1');
-        gMax            <= (others => '0');
-        gMin            <= (others => '1');
-        bMax            <= (others => '0');
-        bMin            <= (others => '1');
-        dGrid           <= lo;
+rgbMaxP: process (clk) begin
+    if rising_edge(clk) then 
+        if ((rgb1Int.red >= rgb1Int.green) and (rgb1Int.red >= rgb1Int.blue)) then
+            rgbMax <= rgb1Int.red;
+        elsif((rgb1Int.green >= rgb1Int.red) and (rgb1Int.green >= rgb1Int.blue))then
+            rgbMax <= rgb1Int.green;
+        else
+            rgbMax <= rgb1Int.blue;
+        end if;
+    end if;
+end process rgbMaxP;
+rgbMinP: process (clk) begin
+    if rising_edge(clk) then 
+        if ((rgb1Int.red <= rgb1Int.green) and (rgb1Int.red <= rgb1Int.blue)) then
+            rgbMin <= rgb1Int.red;
+        elsif((rgb1Int.green <= rgb1Int.red) and (rgb1Int.green <= rgb1Int.blue)) then
+            rgbMin <= rgb1Int.green;
+        else
+            rgbMin <= rgb1Int.blue;
+        end if;
+    end if;
+end process rgbMinP;
+rgbDeltaP: process (clk) begin
+    if rising_edge(clk) then 
+        rgbDelta      <= rgbMax - rgbMin;
+    end if;
+end process rgbDeltaP;
+ipRgbMaxUfD1P: process (clk) begin
+    if rising_edge(clk) then 
+        maxValue          <= rgbMax;
+        minValue          <= rgbMin;
+    end if;
+end process ipRgbMaxUfD1P;
+process (clk) begin
+    if rising_edge(clk) then 
+        if (rgb1Int.red > rgb1Int.green) then
+            rgbRInt        <= (rgb1Int.red - rgb1Int.green);
+        else
+            rgbRInt        <= 0;
+        end if;
+    end if;
+end process;
+hueP: process (clk) begin
+  if rising_edge(clk) then 
+    if((rgb2Int.red = rgbMax) and (rgb2Int.green > 40 and rgb2Int.green < 150) and (rgb2Int.blue > 40 and rgb2Int.blue< 150)) then
+            oRgbRemix.red   <= rgb3b.red;
+            oRgbRemix.green <= rgb3b.green;
+            oRgbRemix.blue  <= rgb3b.blue;
     else
-        if (edgeValid = hi) then
             oRgbRemix.red   <= black;
             oRgbRemix.green <= black;
-            oRgbRemix.blue  <= black;
-        else
-        if((rgb2Int.red > 40 and rgb2Int.red < 150) and (rgb2Int.green > 40 and rgb2Int.green < 150) and (rgb2Int.blue > 40 and rgb2Int.blue< 150)) then
-        --if(rgb2Int.red < 72 and rgb2Int.green < 100) and (rgb2Int.green < rgb2Int.blue) then -- blue is red and vice versa
-            if(rgb2Int.green < rgb2Int.blue) then -- blue is red and vice versa
-                    ---------------------------------------
-                    oRgbRemix.red   <= rgb2b.red;
-                    oRgbRemix.green <= rgb2b.green;
-                    oRgbRemix.blue  <= rgb2b.blue;
-                    ---------------------------------------
-                    dGrid      <= hi;
-                    if(rgb2b.red > rMax) then
-                        rMax   <= rgb2b.red;
-                    end if;
-                    if(rgb2b.red < rMin) then
-                        rMin   <= rgb2b.red;
-                    end if;
-                    if(rgb2b.green > gMax) then
-                        gMax   <= rgb2b.green;
-                    end if;
-                    if(rgb2b.green < gMin) then
-                        gMin   <= rgb2b.green;
-                    end if;
-                    if(rgb2b.red > bMax) then
-                        bMax   <= rgb2b.red;
-                    end if;
-                    if(rgb2b.blue < bMin) then
-                        bMin   <= rgb2b.blue;
-                    end if;
-                    ---------------------------------------
-                else
-                    oRgbRemix.red   <= black;
-                    oRgbRemix.green <= black;
-                    oRgbRemix.blue  <= black;
-                    dGrid           <= lo;
-                end if;
-        end if;
-        end if;
+            oRgbRemix.blue  <= black; 
     end if;
-    end if;
-end process rgbRemix;
+  end if;
+end process hueP;
+oRgbRemix.valid <= iRgb.valid;
+------------------------------------------------------------------------------------------------
+-- rgbRemix : process (clk) begin
+    -- if rising_edge(clk) then
+    -- if rst_l = '0' then
+        -- oRgbRemix.red   <= (others => '0');
+        -- oRgbRemix.green <= (others => '0');
+        -- oRgbRemix.blue  <= (others => '0');
+        -- rMax            <= (others => '0');
+        -- rMin            <= (others => '1');
+        -- gMax            <= (others => '0');
+        -- gMin            <= (others => '1');
+        -- bMax            <= (others => '0');
+        -- bMin            <= (others => '1');
+        -- dGrid           <= lo;
+    -- else
+        -- if (iRgb.valid = hi) then
+        -- if((rgb2Int.red > 40 and rgb2Int.red < 150) and (rgb2Int.green > 40 and rgb2Int.green < 150) and (rgb2Int.blue > 40 and rgb2Int.blue< 150)) then
+        -----if(rgb2Int.red < 72 and rgb2Int.green < 100) and (rgb2Int.green < rgb2Int.blue) then -- blue is red and vice versa
+            -- if(rgb2Int.green < rgb2Int.blue) then -- blue is red and vice versa
+                    -------------------------------------
+                    -- oRgbRemix.red   <= rgb2b.red;
+                    -- oRgbRemix.green <= rgb2b.green;
+                    -- oRgbRemix.blue  <= rgb2b.blue;
+                    -------------------------------------
+                    -- dGrid      <= hi;
+                    -- if(rgb2b.red > rMax) then
+                        -- rMax   <= rgb2b.red;
+                    -- end if;
+                    -- if(rgb2b.red < rMin) then
+                        -- rMin   <= rgb2b.red;
+                    -- end if;
+                    -- if(rgb2b.green > gMax) then
+                        -- gMax   <= rgb2b.green;
+                    -- end if;
+                    -- if(rgb2b.green < gMin) then
+                        -- gMin   <= rgb2b.green;
+                    -- end if;
+                    -- if(rgb2b.red > bMax) then
+                        -- bMax   <= rgb2b.red;
+                    -- end if;
+                    -- if(rgb2b.blue < bMin) then
+                        -- bMin   <= rgb2b.blue;
+                    -- end if;
+                    -------------------------------------
+                -- else
+                    -- oRgbRemix.red   <= black;
+                    -- oRgbRemix.green <= black;
+                    -- oRgbRemix.blue  <= black;
+                    -- dGrid           <= lo;
+                -- end if;
+        -- else
+            -- oRgbRemix.red   <= black;
+            -- oRgbRemix.green <= black;
+            -- oRgbRemix.blue  <= black;
+        -- end if;
+
+        -- end if;
+    -- end if;
+    -- end if;
+-- end process rgbRemix;
 ------------------------------------------------------------------------------------------------
 end architecture;

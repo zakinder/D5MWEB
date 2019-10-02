@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-| Date         : Wed Sep  4 23:43:38 2019
+| Date         : Tue Oct  1 05:07:49 2019
 | Host         : BLACKHOLE running 64-bit major release  (build 9200)
 | Command      : report_ip_status
 ------------------------------------------------------------------------------------
@@ -10,7 +10,7 @@ IP Status Summary
 
 1. Project IP Status
 --------------------
-Your project uses 23 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+Your project uses 27 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
 
 More information on the Xilinx versioning policy is available at www.xilinx.com.
 
@@ -79,9 +79,9 @@ Project IP Instances
 |                               |            |                     |           | Memory Access      | (Rev.   |               |            |                      |
 |                               |            |                     |           |                    | 1)      |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
-| zynq_soc_VFP_0                | Up-to-date | No changes required | Change    | VFP_v1.0           | 1.0     | 1.0 (Rev. 27) | Included   | xc7z020clg484-1      |
+| zynq_soc_VFP_0                | Up-to-date | No changes required | Change    | VFP_v1.0           | 1.0     | 1.0 (Rev. 33) | Included   | xc7z020clg484-1      |
 |                               |            |                     | Log not   |                    | (Rev.   |               |            |                      |
-|                               |            |                     | available |                    | 27)     |               |            |                      |
+|                               |            |                     | available |                    | 33)     |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
 | zynq_soc_VIDEO_OUT_0          | Up-to-date | No changes required |  *(14)    | AXI4-Stream to     | 4.0     | 4.0 (Rev. 6)  | Included   | xc7z020clg484-1      |
 |                               |            |                     |           | Video Out          | (Rev.   |               |            |                      |
@@ -99,15 +99,31 @@ Project IP Instances
 |                               |            |                     |           | Reset              | (Rev.   |               |            |                      |
 |                               |            |                     |           |                    | 11)     |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
-| fixedToFloat                  | Up-to-date | No changes required |  *(18)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
+| ByteToFloat                   | Up-to-date | No changes required |  *(18)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
 |                               |            |                     |           |                    | (Rev.   |               |            |                      |
 |                               |            |                     |           |                    | 4)      |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
-| floatToFixed                  | Up-to-date | No changes required |  *(19)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
+| FloatMultiply                 | Up-to-date | No changes required |  *(19)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
 |                               |            |                     |           |                    | (Rev.   |               |            |                      |
 |                               |            |                     |           |                    | 4)      |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
-| squareRoot                    | Up-to-date | No changes required |  *(20)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
+| FloatToFixedv1                | Up-to-date | No changes required |  *(20)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
+|                               |            |                     |           |                    | (Rev.   |               |            |                      |
+|                               |            |                     |           |                    | 4)      |               |            |                      |
++-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| WordToFloat                   | Up-to-date | No changes required |  *(21)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
+|                               |            |                     |           |                    | (Rev.   |               |            |                      |
+|                               |            |                     |           |                    | 4)      |               |            |                      |
++-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| fixedToFloat                  | Up-to-date | No changes required |  *(22)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
+|                               |            |                     |           |                    | (Rev.   |               |            |                      |
+|                               |            |                     |           |                    | 4)      |               |            |                      |
++-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| floatToFixed                  | Up-to-date | No changes required |  *(23)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
+|                               |            |                     |           |                    | (Rev.   |               |            |                      |
+|                               |            |                     |           |                    | 4)      |               |            |                      |
++-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| squareRoot                    | Up-to-date | No changes required |  *(24)    | Floating-point     | 7.1     | 7.1 (Rev. 4)  | Included   | xc7z020clg484-1      |
 |                               |            |                     |           |                    | (Rev.   |               |            |                      |
 |                               |            |                     |           |                    | 4)      |               |            |                      |
 +-------------------------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
@@ -131,5 +147,9 @@ Project IP Instances
 *(18) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
 *(19) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
 *(20) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
+*(21) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
+*(22) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
+*(23) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
+*(24) c:/Xilinx/Vivado/2017.2/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
 
 

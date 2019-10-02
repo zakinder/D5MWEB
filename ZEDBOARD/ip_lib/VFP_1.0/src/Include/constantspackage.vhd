@@ -16,29 +16,36 @@ package constantspackage is
     constant ch2                       : integer   := 2;
     constant ch3                       : integer   := 3;
     -------------------------------------------------------------------------
-    constant selSoble                  : integer   := 0;
-    constant selSobRgb                 : integer   := 1;
-    constant selSobPoi                 : integer   := 2;
-    constant selHsvPoi                 : integer   := 3;
-    constant selSharp                  : integer   := 4;
-    constant selBlur1x                 : integer   := 5;
-    constant selBlur2x                 : integer   := 6;
-    constant selBlur3x                 : integer   := 7;
-    constant selBlur4x                 : integer   := 8;
-    constant selHsv                    : integer   := 9;
-    constant selRgb                    : integer   := 10;
-    constant selRgbRemix               : integer   := 11;
-    constant selTPatter1               : integer   := 12;
-    constant selTPatter2               : integer   := 13;
-    constant selTPatter3               : integer   := 14;
-    constant selTPatter4               : integer   := 15;
-    constant selTPatter5               : integer   := 16;
-    constant selRgbCorrect             : integer   := 17;
-    constant selHsl                    : integer   := 18;
-    constant selHsvCcBl                : integer   := 19;
-    constant selsobleSharp             : integer   := 20;
-    constant selColorTrm               : integer   := 21;
-    constant selColorLmp               : integer   := 22;
+    constant kCoefYcbcrIndex           : integer   := 1;
+    constant kCoefCgainIndex           : integer   := 2;
+    constant kCoefSharpIndex           : integer   := 3;
+    constant kCoefBlureIndex           : integer   := 4;
+    constant kCoefSobeXIndex           : integer   := 5;
+    constant kCoefSobeYIndex           : integer   := 6;
+    constant kCoefEmbosIndex           : integer   := 7;
+    constant kCoefCgai1Index           : integer   := 8;
+    -------------------------------------------------------------------------
+    constant soble                     : integer   := 0;
+    constant sobRgb                    : integer   := 1;
+    constant sobPoi                    : integer   := 2;
+    constant hsvPoi                    : integer   := 3;
+    constant sharp                     : integer   := 4;
+    constant blur1x                    : integer   := 5;
+    constant blur2x                    : integer   := 6;
+    constant blur3x                    : integer   := 7;
+    constant blur4x                    : integer   := 8;
+    constant hsv                       : integer   := 9;
+    constant rgb                       : integer   := 10;
+    constant rgbRemix                  : integer   := 11;
+    constant tPatter1                  : integer   := 12;
+    constant tPatter2                  : integer   := 13;
+    constant tPatter3                  : integer   := 14;
+    constant tPatter4                  : integer   := 15;
+    constant tPatter5                  : integer   := 16;
+    constant rgbCorrect                : integer   := 17;
+    constant hsl                       : integer   := 18;
+    constant hsvCcBl                   : integer   := 19;
+    constant ycbcr                     : integer   := 0;
     -------------------------------------------------------------------------
     -- videoProcess constants
     -------------------------------------------------------------------------
@@ -88,8 +95,13 @@ package constantspackage is
     constant blurMacKernel_7           : unsigned(i_data_width-1 downto 0) :=x"01";
     constant blurMacKernel_8           : unsigned(i_data_width-1 downto 0) :=x"01";
     constant blurMacKernel_9           : unsigned(i_data_width-1 downto 0) :=x"01";
-    constant white                     : std_logic_vector(7 downto 0)      :=x"FF";
-    constant black                     : std_logic_vector(7 downto 0)      :=x"00";
+    constant white                     : std_logic_vector(i_data_width-1 downto 0) :=x"FF";
+    constant black                     : std_logic_vector(i_data_width-1 downto 0) :=x"00";
+    constant whiteUn                   : unsigned(i_data_width-1 downto 0) :=x"FF";
+    constant blackUn                   : unsigned(i_data_width-1 downto 0) :=x"00";
+    -------------------------------------------------------------------------
+    constant FONT_WIDTH                : integer := 8;
+    constant FONT_HEIGHT               : integer := 16;
     -------------------------------------------------------------------------
     constant C_WHOLE_WIDTH             : integer := 3;  
     constant DATA_EXT_WIDTH            : natural := i_data_width + 1;
@@ -99,4 +111,46 @@ package constantspackage is
     constant ROUND_RESULT_WIDTH        : natural := ADD_RESULT_WIDTH - FRAC_BITS_TO_KEEP;
     constant ROUND                     : signed(ADD_RESULT_WIDTH-1 downto 0) := to_signed(0, ADD_RESULT_WIDTH-FRAC_BITS_TO_KEEP)&'1' & to_signed(0, FRAC_BITS_TO_KEEP-1);  
     -------------------------------------------------------------------------
+    function max(L, R: INTEGER) return INTEGER;
+    function min(L, R: INTEGER) return INTEGER;
+    function SelFrame(L, R: BOOLEAN) return BOOLEAN;
+    function SelFrame(L, R, M: BOOLEAN) return BOOLEAN;
+    -------------------------------------------------------------------------
 end package;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+package body constantspackage is
+    function SelFrame(L, R: BOOLEAN) return BOOLEAN is
+    begin
+    if (L = TRUE) and (R = TRUE) then 
+        return TRUE;
+    else
+        return FALSE;
+    end if;
+    end;
+    function SelFrame(L, R, M: BOOLEAN) return BOOLEAN is
+    begin
+    if (L = TRUE) and (R = TRUE) and (M = TRUE) then 
+        return TRUE;
+    else
+        return FALSE;
+    end if;
+    end;
+    function max(L, R: INTEGER) return INTEGER is
+    begin
+    if L > R then
+        return L;
+    else
+        return R;
+    end if;
+    end;
+    function min(L, R: INTEGER) return INTEGER is
+    begin
+    if L < R then
+        return L;
+    else
+        return R;
+    end if;
+    end;
+end package body;

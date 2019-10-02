@@ -1,4 +1,4 @@
-puts "Info:(ZQ) This block design file has been exported with Reference-Design Scripts from zynq Electronic GmbH for Board Part:em.avnet.com:zed:part0:1.4 with FPGA xc7z020clg484-1 at 2019-09-04T23:03:29."
+puts "Info:(ZQ) This block design file has been exported with Reference-Design Scripts from zynq Electronic GmbH for Board Part:em.avnet.com:zed:part0:1.4 with FPGA xc7z020clg484-1 at 2019-09-10T21:49:41."
 
 ################################################################
 # This is a generated script based on design: zynq_soc
@@ -1085,7 +1085,7 @@ proc create_hier_cell_D5M { parentCell nameHier } {
   set VFP [ create_bd_cell -type ip -vlnv zakinder:DisplayIO:VFP:1.0 VFP ]
   set_property -dict [ list \
 CONFIG.img_width {4096} \
-CONFIG.revision_number {0x09032019} \
+CONFIG.revision_number {0x05032019} \
  ] $VFP
 
   # Create interface connections

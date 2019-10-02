@@ -14,7 +14,7 @@ port (
     clk            : in  std_logic;
     reset          : in  std_logic;
     iRgb           : in channel;
-    oHsl           : out hsvChannel);
+    oHsl           : out hslChannel);
 end hsl_c;
 architecture behavioral of hsl_c is
     --RGB Floating
@@ -243,7 +243,7 @@ hsvOut: process (clk) begin
     if rising_edge(clk) then 
         oHsl.h      <= std_logic_vector(hueValue(i_data_width-1 downto 0));
         oHsl.s      <= satValue1xD;
-        oHsl.v      <= lumValue2xD;
+        oHsl.l      <= lumValue2xD;
         oHsl.valid  <= valid4xD;
     end if;
 end process hsvOut;

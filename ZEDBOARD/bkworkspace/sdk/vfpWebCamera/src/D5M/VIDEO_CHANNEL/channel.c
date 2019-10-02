@@ -1,4 +1,4 @@
-// LAST TESTED : 09/01/2019
+// LAST TESTED : 09/08/2019
 #include "channel.h"
 #include <sleep.h>
 #include <stdio.h>
@@ -109,19 +109,6 @@ void d5mInitCall(){
     //d5mtestpattern(0x0004);
     //exposerCompansate();
 }
-void yCbCrWrite()
-{
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,0x0101);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,0x01F8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,0x0062);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,0xFF6C);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,0x01B7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,0x01B7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,0x01B7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,0xFE90);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,0xFFB9);
-    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,0x6);
-}
 u16 rColorFilterA11()
 {
     return D5M_mReadReg(D5M_BASE,w_a11fl_reg_21);
@@ -169,11 +156,11 @@ void d5mInitPrint(){
     printf("%d:%d:%d\n\r",(unsigned) rColorFilterA31,(unsigned) rColorFilterA32,(unsigned) rColorFilterA33);
     colorFilterKc(0x0000);//open else read time
 	printf("Edge Kernels Time\n\r");
-    printf("%d:%d:%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_1_reg_08),(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_2_reg_09),(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_3_reg_10));
-    printf("%d:%d:%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_4_reg_11),(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_5_reg_12),(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_6_reg_13));
-    printf("%d:%d:%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_7_reg_14),(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_8_reg_15),(unsigned) D5M_mReadReg(D5M_BASE,w_kernel_9_reg_16));
-	printf("w_kernalconfig_reg_17\n\r");
-    printf("%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kernalconfig_reg_17));
+    printf("%d:%d:%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_1_reg_08),(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_2_reg_09),(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_3_reg_10));
+    printf("%d:%d:%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_4_reg_11),(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_5_reg_12),(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_6_reg_13));
+    printf("%d:%d:%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_7_reg_14),(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_8_reg_15),(unsigned) D5M_mReadReg(D5M_BASE,w_kernal_9_reg_16));
+	printf("w_kSet_reg_17\n\r");
+    printf("%d\n\r",(unsigned) D5M_mReadReg(D5M_BASE,w_kSet_reg_17));
 }
 void edgeThresholdVal(u16 thresholdValue)
 {
@@ -187,13 +174,10 @@ void ycbcrSelect(u16 videoType)
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,videoType);
 }
-
 void edgeColor(u16 edgeColorVal)
 {
     D5M_mWriteReg(D5M_BASE,w_oEdgeType_reg_1,edgeColorVal);
 }
-
-
 void ycbcr_Enable()
 {
     D5M_mWriteReg(D5M_BASE,w_dchannel_reg_6,0x0000);
@@ -215,6 +199,66 @@ void point_Interest(u16 videoType)
 void pointInterestFixed()
 {
     D5M_mWriteReg(D5M_BASE,w_pointinterest_reg_31,pStream.fPointInterest);
+}
+void colorHsvPerCh(u16 PerChValue)
+{
+    if (PerChValue == 1) {
+    	colorHsvPerChH();
+    }else if (PerChValue == 2){
+    	colorHsvPerChS();
+    }else if (PerChValue == 3){  
+    	colorHsvPerChV();
+    }else{
+    	colorHsvPerChHsv();
+    }
+}
+void colorHsvPerChHsv()
+{
+    D5M_mWriteReg(D5M_BASE,w_hsvPerCh_reg_57,hsvPerChHsv);
+}
+void colorHsvPerChH()
+{
+    D5M_mWriteReg(D5M_BASE,w_hsvPerCh_reg_57,hsvPerChH);
+}
+void colorHsvPerChS()
+{
+    D5M_mWriteReg(D5M_BASE,w_hsvPerCh_reg_57,hsvPerChS);
+}
+void colorHsvPerChV()
+{
+    D5M_mWriteReg(D5M_BASE,w_hsvPerCh_reg_57,hsvPerChV);
+}
+void colorYCbCrPerCh(u16 PerChValue)
+{
+    if (PerChValue == 1) {
+    	colorYCbCrPerChY();
+    }else if (PerChValue == 2){
+    	colorYCbCrPerChCb();
+    }else if (PerChValue == 3){  
+    	colorYCbCrPerChCr();
+    }else{
+    	colorYCbCrCh();
+    }
+}
+void colorYCbCrCh()
+{
+    D5M_mWriteReg(D5M_BASE,w_yccPerCh_reg_58,YccPerChYCbCr);
+}
+void colorYCbCrPerChY()
+{
+    D5M_mWriteReg(D5M_BASE,w_yccPerCh_reg_58,YccPerChY);
+}
+void colorYCbCrPerChCb()
+{
+    D5M_mWriteReg(D5M_BASE,w_yccPerCh_reg_58,YccPerChCb);
+}
+void colorYCbCrPerChCr()
+{
+    D5M_mWriteReg(D5M_BASE,w_yccPerCh_reg_58,YccPerChCr);
+}
+void lum_ThresholdValue(u16 lumThresholdValue)
+{
+    D5M_mWriteReg(D5M_BASE,w_lumTh_reg_56,lumThresholdValue);
 }
 void ReadDataByte(u16 Value)
 {
@@ -321,9 +365,9 @@ void enableNextRead(u16 eValue)
 void edgeType(u16 edgeTypeValue)
 {
     if (edgeTypeValue == 1) {
-    	sobelEnable();
+    	SobelCoefsUpdate();
     }else{
-    	prewittEnable();
+    	PrewitCoefsUpdate();
     }
 }
 void selected_channel()
@@ -359,63 +403,278 @@ void colorDetectRange(u16 fRgbCoordRL,u16 fRgbCoordRH,u16 fRgbCoordGL,u16 fRgbCo
     D5M_mWriteReg(D5M_BASE,w_bh_reg_54,fRgbCoordBL);//cord
     D5M_mWriteReg(D5M_BASE,w_bl_reg_55,fRgbCoordBH);//cord
 }
+/****************************************************************
+KERNEL COEF UPDATES
+*****************************************************************/
+//SOBEL
+void SobelCoefsUpdate()
+{
+    SobelCoefX();
+    usleep(1);
+    SobelCoefY();
+}
+void SobelCoefX()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoefXSobel_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoefXSobel_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoefXSobel_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoefXSobel_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoefXSobel_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoefXSobel_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoefXSobel_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoefXSobel_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoefXSobel_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoefXSobel_kSet);
+}
+void SobelCoefY()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoefYSobel_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoefYSobel_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoefYSobel_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoefYSobel_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoefYSobel_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoefYSobel_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoefYSobel_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoefYSobel_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoefYSobel_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoefYSobel_kSet);
+}
+//PREWIT
+void PrewitCoefsUpdate()
+{
+    PrewitCoefX();
+    usleep(1);
+    PrewitCoefY();
+}
+void PrewitCoefX()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoefXPrewit_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoefXPrewit_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoefXPrewit_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoefXPrewit_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoefXPrewit_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoefXPrewit_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoefXPrewit_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoefXPrewit_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoefXPrewit_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoefXPrewit_kSet);
+}
+void PrewitCoefY()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoefYPrewit_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoefYPrewit_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoefYPrewit_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoefYPrewit_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoefYPrewit_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoefYPrewit_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoefYPrewit_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoefYPrewit_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoefYPrewit_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoefYPrewit_kSet);
+}
+//EMBOS
+void EmbosCoef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoeffEmbos_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoeffEmbos_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoeffEmbos_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoeffEmbos_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoeffEmbos_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoeffEmbos_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoeffEmbos_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoeffEmbos_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoeffEmbos_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffSharp_kSet);
+    usleep(1);
+}
+//CGAIN
+void CgainCoef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef1Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef1Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef1Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef1Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef1Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef1Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef1Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef1Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef1Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoef2Cgain_kSet);
+    usleep(1);
+}
+//CGAIN
+void Cgain1Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef1Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef1Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef1Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef1Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef1Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef1Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef1Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef1Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef1Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+//CGAIN
+void Cgain2Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef2Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef2Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef2Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef2Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef2Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef2Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef2Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef2Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef2Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain3Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef3Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef3Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef3Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef3Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef3Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef3Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef3Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef3Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef3Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain4Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef4Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef4Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef4Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef4Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef4Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef4Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef4Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef4Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef4Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain5Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef5Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef5Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef5Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef5Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef5Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef5Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef5Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef5Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef5Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain6Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef6Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef6Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef6Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef6Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef6Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef6Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef6Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef6Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef6Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+void Cgain7Coef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoef7Cgain_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoef7Cgain_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoef7Cgain_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoef7Cgain_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoef7Cgain_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoef7Cgain_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoef7Cgain_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoef7Cgain_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoef7Cgain_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffCgain_kSet);
+    usleep(1);
+}
+//YCBCR
+void YcbcrCoef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoeffYcbcr_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoeffYcbcr_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoeffYcbcr_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoeffYcbcr_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoeffYcbcr_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoeffYcbcr_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoeffYcbcr_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoeffYcbcr_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoeffYcbcr_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffYcbcr_kSet);
+    usleep(1);
+}
+//SHARP
+void SharpCoef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoeffSharp_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoeffSharp_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoeffSharp_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoeffSharp_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoeffSharp_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoeffSharp_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoeffSharp_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoeffSharp_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoeffSharp_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffSharp_kSet);
+    usleep(1);
+}
+//BLURE
+void BlureCoef()
+{
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,kCoefVals_kCoeffBlure_k1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,kCoefVals_kCoeffBlure_k2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,kCoefVals_kCoeffBlure_k3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,kCoefVals_kCoeffBlure_k4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,kCoefVals_kCoeffBlure_k5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,kCoefVals_kCoeffBlure_k6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,kCoefVals_kCoeffBlure_k7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,kCoefVals_kCoeffBlure_k8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,kCoefVals_kCoeffBlure_k9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,kCoefVals_kCoeffSharp_kSet);//Note:kCoefVals_kCoeffBlure_kSet
+    usleep(1);
+}
+/****************************************************************
+KERNEL COEF UPDATES END
+*****************************************************************/
 void sobelWrite()
 {
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,psobel.K1);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,psobel.K2);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,psobel.K3);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,psobel.K4);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,psobel.K5);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,psobel.K6);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,psobel.K7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,psobel.K8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,psobel.K9);
-    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,psobel.Kc);
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,psobel.K1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,psobel.K2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,psobel.K3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,psobel.K4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,psobel.K5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,psobel.K6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,psobel.K7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,psobel.K8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,psobel.K9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,psobel.Kc);
 }
 void prewittWrite()
 {
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,pprewitt.K1);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,pprewitt.K2);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,pprewitt.K3);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,pprewitt.K4);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,pprewitt.K5);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,pprewitt.K6);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,pprewitt.K7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,pprewitt.K8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,pprewitt.K9);
-    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,pprewitt.Kc);
-}
-void sobelEnable()
-{
-    u32 KernelEnable = 0x01FF;
-    //  GX
-    //  [-1 +0 +1]
-    //  [-2 +0 +2]
-    //  [-1 +0 +1]
-    //  GY
-    //  [+1 +2 +1]
-    //  [+0 +0 +0]
-    //  [-1 -2 -1]
-                          //  GY  GX
-    u16 Kernel_1 = 0x01FF;//  +1  -1
-    u16 Kernel_2 = 0x0200;//  +2  +0
-    u16 Kernel_3 = 0x0101;//  +1  -1
-    u16 Kernel_4 = 0x00FE;//  +0  -2
-    u16 Kernel_5 = 0x0000;//  +0  +0
-    u16 Kernel_6 = 0x0002;//  +0  +2
-    u16 Kernel_7 = 0xFFFF;//  -1  -1
-    u16 Kernel_8 = 0xFE00;//  -2  +0
-    u16 Kernel_9 = 0xFF01;//  -1  +1
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,Kernel_1);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,Kernel_2);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,Kernel_3);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,Kernel_4);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,Kernel_5);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,Kernel_6);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,Kernel_7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,Kernel_8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,Kernel_9);
-    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,KernelEnable);
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,pprewitt.K1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,pprewitt.K2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,pprewitt.K3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,pprewitt.K4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,pprewitt.K5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,pprewitt.K6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,pprewitt.K7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,pprewitt.K8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,pprewitt.K9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,pprewitt.Kc);
 }
 void prewittEnable()
 {
@@ -438,16 +697,16 @@ void prewittEnable()
     u16 KernelPv7 = 0xFFFF;//  -1  -1
     u16 KernelPv8 = 0xFF00;//  -1  +0
     u16 KernelPv9 = 0xFF01;//  -1  +1
-    D5M_mWriteReg(D5M_BASE,w_kernel_1_reg_08,KernelPv1);
-    D5M_mWriteReg(D5M_BASE,w_kernel_2_reg_09,KernelPv2);
-    D5M_mWriteReg(D5M_BASE,w_kernel_3_reg_10,KernelPv3);
-    D5M_mWriteReg(D5M_BASE,w_kernel_4_reg_11,KernelPv4);
-    D5M_mWriteReg(D5M_BASE,w_kernel_5_reg_12,KernelPv5);
-    D5M_mWriteReg(D5M_BASE,w_kernel_6_reg_13,KernelPv6);
-    D5M_mWriteReg(D5M_BASE,w_kernel_7_reg_14,KernelPv7);
-    D5M_mWriteReg(D5M_BASE,w_kernel_8_reg_15,KernelPv8);
-    D5M_mWriteReg(D5M_BASE,w_kernel_9_reg_16,KernelPv9);
-    D5M_mWriteReg(D5M_BASE,w_kernalconfig_reg_17,KernelEnable);
+    D5M_mWriteReg(D5M_BASE,w_kernal_1_reg_08,KernelPv1);
+    D5M_mWriteReg(D5M_BASE,w_kernal_2_reg_09,KernelPv2);
+    D5M_mWriteReg(D5M_BASE,w_kernal_3_reg_10,KernelPv3);
+    D5M_mWriteReg(D5M_BASE,w_kernal_4_reg_11,KernelPv4);
+    D5M_mWriteReg(D5M_BASE,w_kernal_5_reg_12,KernelPv5);
+    D5M_mWriteReg(D5M_BASE,w_kernal_6_reg_13,KernelPv6);
+    D5M_mWriteReg(D5M_BASE,w_kernal_7_reg_14,KernelPv7);
+    D5M_mWriteReg(D5M_BASE,w_kernal_8_reg_15,KernelPv8);
+    D5M_mWriteReg(D5M_BASE,w_kernal_9_reg_16,KernelPv9);
+    D5M_mWriteReg(D5M_BASE,w_kSet_reg_17,KernelEnable);
 }
 void colorFilterA11(u16 Axx)
 {

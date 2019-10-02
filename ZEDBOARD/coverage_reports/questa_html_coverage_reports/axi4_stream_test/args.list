@@ -1,0 +1,15 @@
+-html
+-htmldir
+../coverage_reports/questa_html_coverage_reports/axi4_stream_test
+-source
+-details
+-assert
+-directive
+-cvg
+-code
+bcefst
+-verbose
+-threshL
+50
+-threshH
+90
