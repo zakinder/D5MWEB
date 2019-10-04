@@ -18,7 +18,7 @@ port (
 end ReadCoeffFile;
 architecture Behavioral of ReadCoeffFile is
 signal Coeffs       : coeffIntegerData;
-constant projFold   : string := "Z:/sim/readFiles";
+constant projFold   : string := "K:/ZEDBOARD/doc/sim/readFiles";
 constant backSlash  : string := "/";
 file test_vector    : text open read_mode is projFold&backSlash&input_file&".txt";
 constant NUM_COL                : integer := 10;

@@ -25,19 +25,19 @@ coverage report -html -htmldir ../coverage_reports/questa_html_coverage_reports/
 coverage report -file ../coverage_reports/template_test.txt -byfile -totals -assert -directive -cvg -codeAll
 # ====================================================================================
 # ------------------------------------------------------------------------------------
-# --------------------------------- TEST axiLite_test
+# --------------------------------- TEST axi_lite_test
 # ------------------------------------------------------------------------------------
 # ====================================================================================
-vsim top_optimized -coverage +UVM_TESTNAME=axiLite_test
+vsim top_optimized -coverage +UVM_TESTNAME=axi_lite_test
 set NoQuitOnFinish 1
 onbreak {resume}
 log /* -r
 run -all
-coverage attribute -name TESTNAME -value axiLite_test
-coverage save axiLite_test.ucdb
-vcover report axiLite_test.ucdb -cvg -details
-coverage report -html -htmldir ../coverage_reports/questa_html_coverage_reports/axiLite_test -source -details -assert -directive -cvg -code bcefst -verbose -threshL 50 -threshH 90
-coverage report -file ../coverage_reports/axiLite_test.txt -byfile -totals -assert -directive -cvg -codeAll
+coverage attribute -name TESTNAME -value axi_lite_test
+coverage save axi_lite_test.ucdb
+vcover report axi_lite_test.ucdb -cvg -details
+coverage report -html -htmldir ../coverage_reports/questa_html_coverage_reports/axi_lite_test -source -details -assert -directive -cvg -code bcefst -verbose -threshL 50 -threshH 90
+coverage report -file ../coverage_reports/axi_lite_test.txt -byfile -totals -assert -directive -cvg -codeAll
 # ====================================================================================
 # ------------------------------------------------------------------------------------
 # --------------------------------- TEST rgb_test
@@ -103,7 +103,7 @@ coverage report -file ../coverage_reports/axi4_stream_test.txt -byfile -totals -
 # --------------------------------- VCOVER MERGE
 # ------------------------------------------------------------------------------------
 # ====================================================================================
-vcover merge  SystemCoverage.ucdb template_test.ucdb axiLite_test.ucdb rgb_test.ucdb rgb_test1.ucdb rgb_test2.ucdb axi4_stream_test.ucdb
+vcover merge  SystemCoverage.ucdb template_test.ucdb axi_lite_test.ucdb rgb_test.ucdb rgb_test1.ucdb rgb_test2.ucdb axi4_stream_test.ucdb
 vcover report SystemCoverage.ucdb -cvg -details
 add testbrowser SystemCoverage.ucdb
 vcover report -html -htmldir ../coverage_reports/questa_html_coverage_reports/SystemCoverage -source -details -assert -directive -cvg -code bcefst -verbose -threshL 50 -threshH 90 SystemCoverage.ucdb

@@ -8,157 +8,69 @@
 <body id="hdl2html">
   <tt>
 <pre>
-<a name="1"><q-n>     1  </q-n></a><q-m>--02092019 [02-17-2019]</q-m>
+<a name="1"><q-n>     1  </q-n></a><q-m>--01062019 [01-06-2019]</q-m>
 <a name="2"><q-n>     2  </q-n></a><q-w>library</q-w> ieee;
 <a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
 <a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
 <a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
 <a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
 <a name="7"><q-n>     7  </q-n></a><q-w>use</q-w> work.portspackage.<q-w>all</q-w>;
-<a name="8"><q-n>     8  </q-n></a><q-w>entity</q-w> videoSelect <q-w>is</q-w>
+<a name="8"><q-n>     8  </q-n></a><q-w>entity</q-w> frameTestPattern <q-w>is</q-w>
 <a name="9"><q-n>     9  </q-n></a><q-w>generic</q-w> (
-<a name="10"><q-n>     10  </q-n></a>    i_data_width           : <q-t>integer</q-w> := 8;
-<a name="11"><q-n>     11  </q-n></a>    b_data_width           : <q-t>integer</q-w> := 32;
-<a name="12"><q-n>     12  </q-n></a>    s_data_width           : <q-t>integer</q-w> := 16);
-<a name="13"><q-n>     13  </q-n></a><q-w>port</q-w> (
-<a name="14"><q-n>     14  </q-n></a>    clk               : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="15"><q-n>     15  </q-n></a>    rst_l             : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="16"><q-n>     16  </q-n></a>    videoChannel      : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
-<a name="17"><q-n>     17  </q-n></a>    dChannel          : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
-<a name="18"><q-n>     18  </q-n></a>    cChannel          : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
-<a name="19"><q-n>     19  </q-n></a>    cRgbOsharp        : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
-<a name="20"><q-n>     20  </q-n></a>    iFrameData        : <q-a>in</q-w> fcolors;
-<a name="21"><q-n>     21  </q-n></a>    oEof              : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="22"><q-n>     22  </q-n></a>    oSof              : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="23"><q-n>     23  </q-n></a>    oCord             : <q-a>out</q-w> coord;
-<a name="24"><q-n>     24  </q-n></a>    oRgb              : <q-a>out</q-w> channel);
-<a name="25"><q-n>     25  </q-n></a><q-w>end</q-w> videoSelect;
-<a name="26"><q-n>     26  </q-n></a><q-w>architecture</q-w> Behavioral <q-w>of</q-w> videoSelect <q-w>is</q-w>
-<a name="27"><q-n>     27  </q-n></a>    <q-w>signal</q-w> vChannelSelect     : <q-t>integer</q-w>;
-<a name="28"><q-n>     28  </q-n></a>    <q-w>signal</q-w> eChannelSelect     : <q-t>integer</q-w>;
-<a name="29"><q-n>     29  </q-n></a>    <q-w>signal</q-w> ycbcr              : channel;
-<a name="30"><q-n>     30  </q-n></a>    <q-w>signal</q-w> channels           : channel;
-<a name="31"><q-n>     31  </q-n></a><q-w>begin</q-w>
-<a name="32"><q-n>     32  </q-n></a>vChannelSelect    &lt;= to_integer(<q-t>unsigned</q-w>(videoChannel));
-<a name="33"><q-n>     33  </q-n></a>eChannelSelect    &lt;= to_integer(<q-t>unsigned</q-w>(dChannel));
-<a name="34"><q-n>     34  </q-n></a>oEof              &lt;= iFrameData.pEof;
-<a name="35"><q-n>     35  </q-n></a>oSof              &lt;= iFrameData.pSof;
-<a name="36"><q-n>     36  </q-n></a><q-m>---------------------------------------------------------------------------------</q-m>
-<a name="37"><q-n>     37  </q-n></a><q-m>-- oRgb.valid must be 2nd condition else valid value</q-m>
-<a name="38"><q-n>     38  </q-n></a><q-m>---------------------------------------------------------------------------------</q-m>
-<a name="39"><q-n>     39  </q-n></a>videoOutP: <q-w>process</q-w> (clk) <q-w>begin</q-w>
-<a name="40"><q-n>     40  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
-<a name="41"><q-n>     41  </q-n></a>        <q-w>if</q-w> (vChannelSelect = soble) <q-w>then</q-w>
-<a name="42"><q-n>     42  </q-n></a>            channels     &lt;= iFrameData.soble;
-<a name="43"><q-n>     43  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = sobRgb)<q-w>then</q-w>
-<a name="44"><q-n>     44  </q-n></a>                channels.valid &lt;= iFrameData.rgbDetect.valid;
-<a name="45"><q-n>     45  </q-n></a>            <q-w>if</q-w> (iFrameData.rgbDetectLock = hi) <q-w>then</q-w> 
-<a name="46"><q-n>     46  </q-n></a>                channels.red   &lt;= iFrameData.soble.red;
-<a name="47"><q-n>     47  </q-n></a>                channels.green &lt;= iFrameData.soble.green;
-<a name="48"><q-n>     48  </q-n></a>                channels.blue  &lt;= iFrameData.soble.blue;
-<a name="49"><q-n>     49  </q-n></a>            <q-w>else</q-w>                   
-<a name="50"><q-n>     50  </q-n></a>                channels.red   &lt;= iFrameData.rgbDetect.red;
-<a name="51"><q-n>     51  </q-n></a>                channels.green &lt;= iFrameData.rgbDetect.green;
-<a name="52"><q-n>     52  </q-n></a>                channels.blue  &lt;= iFrameData.rgbDetect.blue;
-<a name="53"><q-n>     53  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
-<a name="54"><q-n>     54  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = sobPoi)<q-w>then</q-w>
-<a name="55"><q-n>     55  </q-n></a>                channels.valid &lt;= iFrameData.rgbPoi.valid;
-<a name="56"><q-n>     56  </q-n></a>            <q-w>if</q-w> (iFrameData.rgbPoiLock = hi) <q-w>then</q-w> 
-<a name="57"><q-n>     57  </q-n></a>                channels.red   &lt;= iFrameData.soble.red;
-<a name="58"><q-n>     58  </q-n></a>                channels.green &lt;= iFrameData.soble.green;
-<a name="59"><q-n>     59  </q-n></a>                channels.blue  &lt;= iFrameData.soble.blue;
-<a name="60"><q-n>     60  </q-n></a>            <q-w>else</q-w>                   
-<a name="61"><q-n>     61  </q-n></a>                channels.red   &lt;= iFrameData.rgbPoi.red;
-<a name="62"><q-n>     62  </q-n></a>                channels.green &lt;= iFrameData.rgbPoi.green;
-<a name="63"><q-n>     63  </q-n></a>                channels.blue  &lt;= iFrameData.rgbPoi.blue;
-<a name="64"><q-n>     64  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
-<a name="65"><q-n>     65  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = hsvPoi)<q-w>then</q-w>
-<a name="66"><q-n>     66  </q-n></a>                channels.valid &lt;= iFrameData.rgbPoi.valid;
-<a name="67"><q-n>     67  </q-n></a>            <q-w>if</q-w> (iFrameData.rgbPoiLock = hi) <q-w>then</q-w> 
-<a name="68"><q-n>     68  </q-n></a>                channels.red   &lt;= iFrameData.hsv.red;
-<a name="69"><q-n>     69  </q-n></a>                channels.green &lt;= iFrameData.hsv.green;
-<a name="70"><q-n>     70  </q-n></a>                channels.blue  &lt;= iFrameData.hsv.blue;
-<a name="71"><q-n>     71  </q-n></a>            <q-w>else</q-w>                   
-<a name="72"><q-n>     72  </q-n></a>                channels.red   &lt;= iFrameData.rgbPoi.red;
-<a name="73"><q-n>     73  </q-n></a>                channels.green &lt;= iFrameData.rgbPoi.green;
-<a name="74"><q-n>     74  </q-n></a>                channels.blue  &lt;= iFrameData.rgbPoi.blue;
-<a name="75"><q-n>     75  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
-<a name="76"><q-n>     76  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = sharp)<q-w>then</q-w>
-<a name="77"><q-n>     77  </q-n></a>            channels    &lt;= iFrameData.sharp;
-<a name="78"><q-n>     78  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = blur1x)<q-w>then</q-w>
-<a name="79"><q-n>     79  </q-n></a>            channels     &lt;= iFrameData.blur1x;
-<a name="80"><q-n>     80  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = blur2x)<q-w>then</q-w>
-<a name="81"><q-n>     81  </q-n></a>            channels     &lt;= iFrameData.blur2x;
-<a name="82"><q-n>     82  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = blur3x)<q-w>then</q-w>
-<a name="83"><q-n>     83  </q-n></a>            channels     &lt;= iFrameData.blur3x;
-<a name="84"><q-n>     84  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = blur4x)<q-w>then</q-w>
-<a name="85"><q-n>     85  </q-n></a>            channels     &lt;= iFrameData.blur4x;
-<a name="86"><q-n>     86  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = hsv)<q-w>then</q-w>
-<a name="87"><q-n>     87  </q-n></a>            channels      &lt;= iFrameData.hsv;
-<a name="88"><q-n>     88  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = rgb)<q-w>then</q-w>
-<a name="89"><q-n>     89  </q-n></a>            channels     &lt;= iFrameData.rgb;
-<a name="90"><q-n>     90  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = rgbRemix)<q-w>then</q-w>
-<a name="91"><q-n>     91  </q-n></a>            channels     &lt;= iFrameData.rgbRemix;
-<a name="92"><q-n>     92  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = tPatter1)<q-w>then</q-w>
-<a name="93"><q-n>     93  </q-n></a>            channels.valid     &lt;= iFrameData.rgbSum.valid;
-<a name="94"><q-n>     94  </q-n></a>            channels.red       &lt;= iFrameData.rgbSum.red(i_data_width-1 <q-w>downto</q-w> 0);
-<a name="95"><q-n>     95  </q-n></a>            channels.green     &lt;= iFrameData.rgbSum.green(i_data_width-1 <q-w>downto</q-w> 0);
-<a name="96"><q-n>     96  </q-n></a>            channels.blue      &lt;= iFrameData.rgbSum.blue(i_data_width-1 <q-w>downto</q-w> 0);
-<a name="97"><q-n>     97  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = tPatter2)<q-w>then</q-w>
-<a name="98"><q-n>     98  </q-n></a>            channels.valid     &lt;= iFrameData.rgbSum.valid;
-<a name="99"><q-n>     99  </q-n></a>            channels.red       &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.red(3 <q-w>downto</q-w> 0);
-<a name="100"><q-n>     100  </q-n></a>            channels.green     &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.green(7 <q-w>downto</q-w> 4);
-<a name="101"><q-n>     101  </q-n></a>            channels.blue      &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.blue(11 <q-w>downto</q-w> 8);
-<a name="102"><q-n>     102  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = tPatter3)<q-w>then</q-w>
-<a name="103"><q-n>     103  </q-n></a>            channels.valid     &lt;= iFrameData.rgbSum.valid;
-<a name="104"><q-n>     104  </q-n></a>            channels.red       &lt;= iFrameData.rgbSum.red(i_data_width-1 <q-w>downto</q-w> 0);
-<a name="105"><q-n>     105  </q-n></a>            channels.green     &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.green(7 <q-w>downto</q-w> 4);
-<a name="106"><q-n>     106  </q-n></a>            channels.blue      &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.blue(11 <q-w>downto</q-w> 8);
-<a name="107"><q-n>     107  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = tPatter4)<q-w>then</q-w>
-<a name="108"><q-n>     108  </q-n></a>            channels.valid     &lt;= iFrameData.rgbSum.valid;
-<a name="109"><q-n>     109  </q-n></a>            channels.red       &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.red(3 <q-w>downto</q-w> 0);
-<a name="110"><q-n>     110  </q-n></a>            channels.green     &lt;= iFrameData.rgbSum.green(i_data_width-1 <q-w>downto</q-w> 0);
-<a name="111"><q-n>     111  </q-n></a>            channels.blue      &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.blue(11 <q-w>downto</q-w> 8);
-<a name="112"><q-n>     112  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = tPatter5)<q-w>then</q-w>
-<a name="113"><q-n>     113  </q-n></a>            channels.valid     &lt;= iFrameData.rgbSum.valid;
-<a name="114"><q-n>     114  </q-n></a>            channels.red       &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.red(3 <q-w>downto</q-w> 0);
-<a name="115"><q-n>     115  </q-n></a>            channels.green     &lt;= x<q-l>"0"</q-l> &amp; iFrameData.rgbSum.green(7 <q-w>downto</q-w> 4);
-<a name="116"><q-n>     116  </q-n></a>            channels.blue      &lt;= iFrameData.rgbSum.blue(i_data_width-1 <q-w>downto</q-w> 0);
-<a name="117"><q-n>     117  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = rgbCorrect)<q-w>then</q-w>
-<a name="118"><q-n>     118  </q-n></a>            channels           &lt;= iFrameData.rgbCorrect;
-<a name="119"><q-n>     119  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = hsl)<q-w>then</q-w>
-<a name="120"><q-n>     120  </q-n></a>            channels           &lt;= iFrameData.hsl;
-<a name="121"><q-n>     121  </q-n></a>        <q-w>elsif</q-w>(vChannelSelect = hsvCcBl)<q-w>then</q-w>
-<a name="122"><q-n>     122  </q-n></a>            channels           &lt;= iFrameData.hsvCcBl;
-<a name="123"><q-n>     123  </q-n></a>        <q-w>else</q-w>
-<a name="124"><q-n>     124  </q-n></a>            channels           &lt;= iFrameData.rgbCorrect;
-<a name="125"><q-n>     125  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
-<a name="126"><q-n>     126  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
-<a name="127"><q-n>     127  </q-n></a><q-w>end</q-w> <q-w>process</q-w> videoOutP;
-<a name="128"><q-n>     128  </q-n></a>ycbcrInst: rgb_ycbcr
-<a name="129"><q-n>     129  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
-<a name="130"><q-n>     130  </q-n></a>    i_data_width         =&gt; i_data_width,
-<a name="131"><q-n>     131  </q-n></a>    i_precision          =&gt; i_precision,
-<a name="132"><q-n>     132  </q-n></a>    i_full_range         =&gt; FALSE)
-<a name="133"><q-n>     133  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
-<a name="134"><q-n>     134  </q-n></a>    clk                  =&gt; clk,
-<a name="135"><q-n>     135  </q-n></a>    rst_l                =&gt; rst_l,
-<a name="136"><q-n>     136  </q-n></a>    iRgb                 =&gt; channels,
-<a name="137"><q-n>     137  </q-n></a>    y                    =&gt; ycbcr.red,
-<a name="138"><q-n>     138  </q-n></a>    cb                   =&gt; ycbcr.green,
-<a name="139"><q-n>     139  </q-n></a>    cr                   =&gt; ycbcr.blue,
-<a name="140"><q-n>     140  </q-n></a>    oValid               =&gt; ycbcr.valid);
-<a name="141"><q-n>     141  </q-n></a>channelOutP: <q-w>process</q-w> (clk) <q-w>begin</q-w>
-<a name="142"><q-n>     142  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
-<a name="143"><q-n>     143  </q-n></a>        oCord &lt;= iFrameData.cod;
-<a name="144"><q-n>     144  </q-n></a>        <q-w>if</q-w> (eChannelSelect = 0) <q-w>then</q-w>
-<a name="145"><q-n>     145  </q-n></a>            oRgb     &lt;= ycbcr;
-<a name="146"><q-n>     146  </q-n></a>        <q-w>else</q-w>
-<a name="147"><q-n>     147  </q-n></a>            oRgb     &lt;= channels;
-<a name="148"><q-n>     148  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
-<a name="149"><q-n>     149  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
-<a name="150"><q-n>     150  </q-n></a><q-w>end</q-w> <q-w>process</q-w> channelOutP;
-<a name="151"><q-n>     151  </q-n></a><q-w>end</q-w> Behavioral;</pre>
+<a name="10"><q-n>     10  </q-n></a>    s_data_width	       : <q-t>integer</q-w> := 16);
+<a name="11"><q-n>     11  </q-n></a><q-w>port</q-w> (
+<a name="12"><q-n>     12  </q-n></a>    clk                   : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="13"><q-n>     13  </q-n></a>    iValid                : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="14"><q-n>     14  </q-n></a>    iCord                 : <q-a>in</q-w> coord;
+<a name="15"><q-n>     15  </q-n></a>    oRgb                  : <q-a>out</q-w> tpRgb);
+<a name="16"><q-n>     16  </q-n></a><q-w>end</q-w> frameTestPattern;
+<a name="17"><q-n>     17  </q-n></a><q-w>architecture</q-w> arch_imp <q-w>of</q-w> frameTestPattern <q-w>is</q-w>
+<a name="18"><q-n>     18  </q-n></a>    <q-w>signal</q-w> xCounter           : <q-t>integer</q-w>;
+<a name="19"><q-n>     19  </q-n></a>    <q-w>signal</q-w> yCounter           : <q-t>integer</q-w>;
+<a name="20"><q-n>     20  </q-n></a>    <q-w>signal</q-w> rowdist            : <q-t>integer</q-w>;
+<a name="21"><q-n>     21  </q-n></a>    <q-w>signal</q-w> nrowdist           : <q-t>integer</q-w>;
+<a name="22"><q-n>     22  </q-n></a>    <q-w>signal</q-w> coldist            : <q-t>integer</q-w>;
+<a name="23"><q-n>     23  </q-n></a>    <q-w>signal</q-w> ncoldist           : <q-t>integer</q-w>;
+<a name="24"><q-n>     24  </q-n></a>    <q-w>signal</q-w> irgbSum            : <q-t>integer</q-w>;
+<a name="25"><q-n>     25  </q-n></a><q-w>begin</q-w>
+<a name="26"><q-n>     26  </q-n></a>    xCounter    &lt;= to_integer(<q-t>unsigned</q-w>(iCord.x));
+<a name="27"><q-n>     27  </q-n></a>    yCounter    &lt;= to_integer(<q-t>unsigned</q-w>(iCord.y));
+<a name="28"><q-n>     28  </q-n></a>tPattenP: <q-w>Process</q-w> (clk) <q-w>begin</q-w>
+<a name="29"><q-n>     29  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="30"><q-n>     30  </q-n></a>        <q-w>if</q-w> iValid = '1'  <q-w>then</q-w>
+<a name="31"><q-n>     31  </q-n></a>            <q-w>if</q-w> xcounter &gt; 960 <q-w>then</q-w>
+<a name="32"><q-n>     32  </q-n></a>                rowdist &lt;= xcounter - 960;
+<a name="33"><q-n>     33  </q-n></a>            <q-w>else</q-w>
+<a name="34"><q-n>     34  </q-n></a>                rowdist &lt;= 960 - xcounter;
+<a name="35"><q-n>     35  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="36"><q-n>     36  </q-n></a>            <q-w>if</q-w> rowdist &gt; 480 <q-w>then</q-w>
+<a name="37"><q-n>     37  </q-n></a>                nrowdist &lt;= rowdist - 480;
+<a name="38"><q-n>     38  </q-n></a>            <q-w>else</q-w>
+<a name="39"><q-n>     39  </q-n></a>                nrowdist &lt;= 480 - rowdist;
+<a name="40"><q-n>     40  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;	
+<a name="41"><q-n>     41  </q-n></a>            <q-w>if</q-w> ycounter &gt; 540 <q-w>then</q-w>
+<a name="42"><q-n>     42  </q-n></a>                coldist &lt;= ycounter -540;
+<a name="43"><q-n>     43  </q-n></a>            <q-w>else</q-w>
+<a name="44"><q-n>     44  </q-n></a>                coldist &lt;= 540 - ycounter;
+<a name="45"><q-n>     45  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="46"><q-n>     46  </q-n></a>            <q-w>if</q-w> coldist &gt; 270 <q-w>then</q-w>
+<a name="47"><q-n>     47  </q-n></a>                ncoldist &lt;= coldist - 270;
+<a name="48"><q-n>     48  </q-n></a>            <q-w>else</q-w>
+<a name="49"><q-n>     49  </q-n></a>                ncoldist &lt;= 270 - coldist;
+<a name="50"><q-n>     50  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="51"><q-n>     51  </q-n></a>            irgbSum &lt;= nrowdist + ncoldist;
+<a name="52"><q-n>     52  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="53"><q-n>     53  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="54"><q-n>     54  </q-n></a><q-w>end</q-w> <q-w>process</q-w> tPattenP;
+<a name="55"><q-n>     55  </q-n></a>rgbSumP: <q-w>Process</q-w> (clk) <q-w>begin</q-w>
+<a name="56"><q-n>     56  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="57"><q-n>     57  </q-n></a>        oRgb.valid    &lt;= iValid;
+<a name="58"><q-n>     58  </q-n></a>        oRgb.red      &lt;= <q-t>std_logic_vector</q-w>(to_unsigned(irgbSum,12));
+<a name="59"><q-n>     59  </q-n></a>        oRgb.green    &lt;= <q-t>std_logic_vector</q-w>(to_unsigned(irgbSum,12));
+<a name="60"><q-n>     60  </q-n></a>        oRgb.blue     &lt;= <q-t>std_logic_vector</q-w>(to_unsigned(irgbSum,12));
+<a name="61"><q-n>     61  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="62"><q-n>     62  </q-n></a><q-w>end</q-w> <q-w>process</q-w> rgbSumP;
+<a name="63"><q-n>     63  </q-n></a><q-w>end</q-w> arch_imp;</pre>
 </tt>
 
   

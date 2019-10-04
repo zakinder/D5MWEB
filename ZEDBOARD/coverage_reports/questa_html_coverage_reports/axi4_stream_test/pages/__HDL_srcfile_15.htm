@@ -8,55 +8,476 @@
 <body id="hdl2html">
   <tt>
 <pre>
-<a name="1"><q-n>     1  </q-n></a><q-m>--05022019 [05-02-2019]</q-m>
-<a name="2"><q-n>     2  </q-n></a><q-w>library</q-w> ieee;
-<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
-<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
+<a name="1"><q-n>     1  </q-n></a><q-w>library</q-w> ieee;
+<a name="2"><q-n>     2  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
+<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
+<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> work.fixed_pkg.<q-w>all</q-w>;
 <a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
-<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
+<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.vpfrecords.<q-w>all</q-w>;
 <a name="7"><q-n>     7  </q-n></a><q-w>use</q-w> work.portspackage.<q-w>all</q-w>;
-<a name="8"><q-n>     8  </q-n></a><q-w>entity</q-w> detect <q-w>is</q-w>
+<a name="8"><q-n>     8  </q-n></a><q-w>entity</q-w> KernelCore <q-w>is</q-w>
 <a name="9"><q-n>     9  </q-n></a><q-w>generic</q-w> (
-<a name="10"><q-n>     10  </q-n></a>    i_data_width   : <q-t>integer</q-w> := 8);
-<a name="11"><q-n>     11  </q-n></a><q-w>port</q-w> (
-<a name="12"><q-n>     12  </q-n></a>    clk            : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="13"><q-n>     13  </q-n></a>    rst_l          : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="14"><q-n>     14  </q-n></a>    iRgb           : <q-a>in</q-w> channel;
-<a name="15"><q-n>     15  </q-n></a>    oRgb           : <q-a>out</q-w> channel;
-<a name="16"><q-n>     16  </q-n></a>    rgbCoord       : <q-a>in</q-w> region;
-<a name="17"><q-n>     17  </q-n></a>    iCord          : <q-a>in</q-w> coord;
-<a name="18"><q-n>     18  </q-n></a>    endOfFrame     : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="19"><q-n>     19  </q-n></a>    pDetect        : <q-a>out</q-w> <q-t>std_logic</q-w>);
-<a name="20"><q-n>     20  </q-n></a><q-w>end</q-w> <q-w>entity</q-w>;
-<a name="21"><q-n>     21  </q-n></a><q-w>architecture</q-w> arch <q-w>of</q-w> detect <q-w>is</q-w>
-<a name="22"><q-n>     22  </q-n></a>    <q-w>signal</q-w> pEnable         : <q-t>std_logic</q-w>;
-<a name="23"><q-n>     23  </q-n></a>    <q-w>signal</q-w> pCont           : cord;
-<a name="24"><q-n>     24  </q-n></a><q-w>begin</q-w>
-<a name="25"><q-n>     25  </q-n></a>pDetect        &lt;= pEnable;
-<a name="26"><q-n>     26  </q-n></a>pixelRangeP: <q-w>process</q-w> (clk)<q-w>begin</q-w>
-<a name="27"><q-n>     27  </q-n></a><q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
-<a name="28"><q-n>     28  </q-n></a>    <q-w>if</q-w>((iRgb.red&gt;rgbCoord.rl <q-w>and</q-w> iRgb.red&lt;rgbCoord.rh) <q-w>and</q-w> (iRgb.green&gt;rgbCoord.gl <q-w>and</q-w> iRgb.green&lt;rgbCoord.gh) <q-w>and</q-w> (iRgb.blue&gt;rgbCoord.bl <q-w>and</q-w> iRgb.blue&lt;rgbCoord.bh))<q-w>then</q-w>
-<a name="29"><q-n>     29  </q-n></a>        pEnable &lt;= hi;
-<a name="30"><q-n>     30  </q-n></a>    <q-w>else</q-w>
-<a name="31"><q-n>     31  </q-n></a>        pEnable &lt;= lo;
-<a name="32"><q-n>     32  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
-<a name="33"><q-n>     33  </q-n></a><q-w>end</q-w> <q-w>if</q-w>;
-<a name="34"><q-n>     34  </q-n></a><q-w>end</q-w> <q-w>process</q-w> pixelRangeP;
-<a name="35"><q-n>     35  </q-n></a>pipCordP: <q-w>process</q-w> (clk)<q-w>begin</q-w>
-<a name="36"><q-n>     36  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
-<a name="37"><q-n>     37  </q-n></a>        pCont.x      &lt;= to_integer((<q-t>unsigned</q-w>(iCord.x)));
-<a name="38"><q-n>     38  </q-n></a>        pCont.y      &lt;= to_integer((<q-t>unsigned</q-w>(iCord.y)));
-<a name="39"><q-n>     39  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
-<a name="40"><q-n>     40  </q-n></a><q-w>end</q-w> <q-w>process</q-w> pipCordP;
-<a name="41"><q-n>     41  </q-n></a><q-m>--pixelCordInt : pixelCord</q-m>
-<a name="42"><q-n>     42  </q-n></a><q-m>--port map(</q-m>
-<a name="43"><q-n>     43  </q-n></a><q-m>--    clk      =&gt; clk,</q-m>
-<a name="44"><q-n>     44  </q-n></a><q-m>--    iRgb     =&gt; iRgb,</q-m>
-<a name="45"><q-n>     45  </q-n></a><q-m>--    iPixelEn =&gt; pEnable,</q-m>
-<a name="46"><q-n>     46  </q-n></a><q-m>--    iEof     =&gt; endOfFrame,</q-m>
-<a name="47"><q-n>     47  </q-n></a><q-m>--    iCord    =&gt; pCont,</q-m>
-<a name="48"><q-n>     48  </q-n></a><q-m>--    oRgb     =&gt; oRgb);</q-m>
-<a name="49"><q-n>     49  </q-n></a><q-w>end</q-w> <q-w>architecture</q-w>;</pre>
+<a name="10"><q-n>     10  </q-n></a>    SHARP_FRAME      : <q-t>boolean</q-w> := false;
+<a name="11"><q-n>     11  </q-n></a>    BLURE_FRAME      : <q-t>boolean</q-w> := false;
+<a name="12"><q-n>     12  </q-n></a>    EMBOS_FRAME      : <q-t>boolean</q-w> := false;
+<a name="13"><q-n>     13  </q-n></a>    YCBCR_FRAME      : <q-t>boolean</q-w> := false;
+<a name="14"><q-n>     14  </q-n></a>    SOBEL_FRAME      : <q-t>boolean</q-w> := false;
+<a name="15"><q-n>     15  </q-n></a>    CGAIN_FRAME      : <q-t>boolean</q-w> := false;
+<a name="16"><q-n>     16  </q-n></a>    img_width        : <q-t>integer</q-w> := 4096;
+<a name="17"><q-n>     17  </q-n></a>    i_data_width     : <q-t>integer</q-w> := 8);
+<a name="18"><q-n>     18  </q-n></a><q-w>port</q-w> (
+<a name="19"><q-n>     19  </q-n></a>    clk              : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="20"><q-n>     20  </q-n></a>    rst_l            : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="21"><q-n>     21  </q-n></a>    iRgb             : <q-a>in</q-w> channel;
+<a name="22"><q-n>     22  </q-n></a>    kCoeff           : <q-a>in</q-w> kernelCoeDWord;
+<a name="23"><q-n>     23  </q-n></a>    oRgb             : <q-a>out</q-w> channel);
+<a name="24"><q-n>     24  </q-n></a><q-w>end</q-w> KernelCore;
+<a name="25"><q-n>     25  </q-n></a><q-w>architecture</q-w> Behavioral <q-w>of</q-w> KernelCore <q-w>is</q-w>
+<a name="26"><q-n>     26  </q-n></a>    <q-w>signal</q-w> cc               : ccRecord;
+<a name="27"><q-n>     27  </q-n></a>    <q-w>signal</q-w> rgbSyncValid     : <q-t>std_logic_vector</q-w>(15 <q-w>downto</q-w> 0)  := x<q-l>"0000"</q-l>;
+<a name="28"><q-n>     28  </q-n></a>    <q-w>signal</q-w> rgbToFl_red      : <q-t>std_logic_vector</q-w>(31 <q-w>downto</q-w> 0);
+<a name="29"><q-n>     29  </q-n></a>    <q-w>signal</q-w> rgbToFl_gre      : <q-t>std_logic_vector</q-w>(31 <q-w>downto</q-w> 0);
+<a name="30"><q-n>     30  </q-n></a>    <q-w>signal</q-w> rgbToFl_blu      : <q-t>std_logic_vector</q-w>(31 <q-w>downto</q-w> 0);
+<a name="31"><q-n>     31  </q-n></a>    <q-w>signal</q-w> fractLevel       : <q-t>std_logic_vector</q-w>(31 <q-w>downto</q-w> 0);
+<a name="32"><q-n>     32  </q-n></a>    <q-w>signal</q-w> kCoeffDWord      : kernelCoeDWord;
+<a name="33"><q-n>     33  </q-n></a>    <q-w>signal</q-w> FractLevelProd   : kernelCoeDWord;
+<a name="34"><q-n>     34  </q-n></a>    <q-w>signal</q-w> kCoeffProd       : kCoeffFloat;
+<a name="35"><q-n>     35  </q-n></a><q-w>begin</q-w>
+<a name="36"><q-n>     36  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="37"><q-n>     37  </q-n></a><q-m>-- STAGE 1</q-m>
+<a name="38"><q-n>     38  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="39"><q-n>     39  </q-n></a>ByteToFloatTopRedinst: ByteToFloatTop
+<a name="40"><q-n>     40  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="41"><q-n>     41  </q-n></a>      aclk       =&gt; clk,
+<a name="42"><q-n>     42  </q-n></a>      rst_l      =&gt; rst_l,
+<a name="43"><q-n>     43  </q-n></a>      iValid     =&gt; iRgb.valid,
+<a name="44"><q-n>     44  </q-n></a>      iData      =&gt; iRgb.red,
+<a name="45"><q-n>     45  </q-n></a>      oValid     =&gt; <q-w>open</q-w>,
+<a name="46"><q-n>     46  </q-n></a>      oDataFloat =&gt; rgbToFl_red);
+<a name="47"><q-n>     47  </q-n></a>ByteToFloatTopGreeninst: ByteToFloatTop
+<a name="48"><q-n>     48  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="49"><q-n>     49  </q-n></a>      aclk       =&gt; clk,
+<a name="50"><q-n>     50  </q-n></a>      rst_l      =&gt; rst_l,
+<a name="51"><q-n>     51  </q-n></a>      iValid     =&gt; iRgb.valid,
+<a name="52"><q-n>     52  </q-n></a>      iData      =&gt; iRgb.green,
+<a name="53"><q-n>     53  </q-n></a>      oValid     =&gt; <q-w>open</q-w>,
+<a name="54"><q-n>     54  </q-n></a>      oDataFloat =&gt; rgbToFl_gre);
+<a name="55"><q-n>     55  </q-n></a>ByteToFloatTopBlueinst: ByteToFloatTop
+<a name="56"><q-n>     56  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="57"><q-n>     57  </q-n></a>      aclk       =&gt; clk,
+<a name="58"><q-n>     58  </q-n></a>      rst_l      =&gt; rst_l,
+<a name="59"><q-n>     59  </q-n></a>      iValid     =&gt; iRgb.valid,
+<a name="60"><q-n>     60  </q-n></a>      iData      =&gt; iRgb.blue,
+<a name="61"><q-n>     61  </q-n></a>      oValid     =&gt; <q-w>open</q-w>,
+<a name="62"><q-n>     62  </q-n></a>      oDataFloat =&gt; rgbToFl_blu);
+<a name="63"><q-n>     63  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="64"><q-n>     64  </q-n></a><q-m>-- STAGE 2</q-m>
+<a name="65"><q-n>     65  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="66"><q-n>     66  </q-n></a>FloatMultiplyK1Inst: FloatMultiplyTop
+<a name="67"><q-n>     67  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="68"><q-n>     68  </q-n></a>      clk        =&gt; clk,
+<a name="69"><q-n>     69  </q-n></a>      iAdata     =&gt; kCoeff.k1,
+<a name="70"><q-n>     70  </q-n></a>      iBdata     =&gt; cc.tpsd3.vTap2x,
+<a name="71"><q-n>     71  </q-n></a>      oRdata     =&gt; FractLevelProd.k1);
+<a name="72"><q-n>     72  </q-n></a>FloatMultiplyK2Inst: FloatMultiplyTop
+<a name="73"><q-n>     73  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="74"><q-n>     74  </q-n></a>      clk        =&gt; clk,
+<a name="75"><q-n>     75  </q-n></a>      iAdata     =&gt; kCoeff.k2,
+<a name="76"><q-n>     76  </q-n></a>      iBdata     =&gt; cc.tpsd2.vTap2x,
+<a name="77"><q-n>     77  </q-n></a>      oRdata     =&gt; FractLevelProd.k2);
+<a name="78"><q-n>     78  </q-n></a>FloatMultiplyK3Inst: FloatMultiplyTop
+<a name="79"><q-n>     79  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="80"><q-n>     80  </q-n></a>      clk        =&gt; clk,
+<a name="81"><q-n>     81  </q-n></a>      iAdata     =&gt; kCoeff.k3,
+<a name="82"><q-n>     82  </q-n></a>      iBdata     =&gt; cc.tpsd1.vTap2x,
+<a name="83"><q-n>     83  </q-n></a>      oRdata     =&gt; FractLevelProd.k3);
+<a name="84"><q-n>     84  </q-n></a>FloatMultiplyK4Inst: FloatMultiplyTop
+<a name="85"><q-n>     85  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="86"><q-n>     86  </q-n></a>      clk        =&gt; clk,
+<a name="87"><q-n>     87  </q-n></a>      iAdata     =&gt; kCoeff.k4,
+<a name="88"><q-n>     88  </q-n></a>      iBdata     =&gt; cc.tpsd3.vTap1x,
+<a name="89"><q-n>     89  </q-n></a>      oRdata     =&gt; FractLevelProd.k4);
+<a name="90"><q-n>     90  </q-n></a>FloatMultiplyK5Inst: FloatMultiplyTop
+<a name="91"><q-n>     91  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="92"><q-n>     92  </q-n></a>      clk        =&gt; clk,
+<a name="93"><q-n>     93  </q-n></a>      iAdata     =&gt; kCoeff.k5,
+<a name="94"><q-n>     94  </q-n></a>      iBdata     =&gt; cc.tpsd2.vTap1x,
+<a name="95"><q-n>     95  </q-n></a>      oRdata     =&gt; FractLevelProd.k5);
+<a name="96"><q-n>     96  </q-n></a>FloatMultiplyK6Inst: FloatMultiplyTop
+<a name="97"><q-n>     97  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="98"><q-n>     98  </q-n></a>      clk        =&gt; clk,
+<a name="99"><q-n>     99  </q-n></a>      iAdata     =&gt; kCoeff.k6,
+<a name="100"><q-n>     100  </q-n></a>      iBdata     =&gt; cc.tpsd1.vTap1x,
+<a name="101"><q-n>     101  </q-n></a>      oRdata     =&gt; FractLevelProd.k6);
+<a name="102"><q-n>     102  </q-n></a>FloatMultiplyK7Inst: FloatMultiplyTop
+<a name="103"><q-n>     103  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="104"><q-n>     104  </q-n></a>      clk        =&gt; clk,
+<a name="105"><q-n>     105  </q-n></a>      iAdata     =&gt; kCoeff.k7,
+<a name="106"><q-n>     106  </q-n></a>      iBdata     =&gt; cc.tpsd3.vTap0x,
+<a name="107"><q-n>     107  </q-n></a>      oRdata     =&gt; FractLevelProd.k7);
+<a name="108"><q-n>     108  </q-n></a>FloatMultiplyK8Inst: FloatMultiplyTop
+<a name="109"><q-n>     109  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="110"><q-n>     110  </q-n></a>      clk        =&gt; clk,
+<a name="111"><q-n>     111  </q-n></a>      iAdata     =&gt; kCoeff.k8,
+<a name="112"><q-n>     112  </q-n></a>      iBdata     =&gt; cc.tpsd2.vTap0x,
+<a name="113"><q-n>     113  </q-n></a>      oRdata     =&gt; FractLevelProd.k8);
+<a name="114"><q-n>     114  </q-n></a>FloatMultiplyK9Inst: FloatMultiplyTop
+<a name="115"><q-n>     115  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="116"><q-n>     116  </q-n></a>      clk        =&gt; clk,
+<a name="117"><q-n>     117  </q-n></a>      iAdata     =&gt; kCoeff.k9,
+<a name="118"><q-n>     118  </q-n></a>      iBdata     =&gt; cc.tpsd1.vTap0x,
+<a name="119"><q-n>     119  </q-n></a>      oRdata     =&gt; FractLevelProd.k9);
+<a name="120"><q-n>     120  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="121"><q-n>     121  </q-n></a><q-m>-- STAGE 3</q-m>
+<a name="122"><q-n>     122  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="123"><q-n>     123  </q-n></a>FloatToFixedv1TopK1Inst: FloatToFixedv1Top
+<a name="124"><q-n>     124  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="125"><q-n>     125  </q-n></a>      aclk       =&gt; clk,
+<a name="126"><q-n>     126  </q-n></a>      iData      =&gt; FractLevelProd.k1,
+<a name="127"><q-n>     127  </q-n></a>      oData      =&gt; kCoeffProd.k1);   
+<a name="128"><q-n>     128  </q-n></a>FloatToFixedv1TopK2Inst: FloatToFixedv1Top
+<a name="129"><q-n>     129  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="130"><q-n>     130  </q-n></a>      aclk       =&gt; clk,
+<a name="131"><q-n>     131  </q-n></a>      iData      =&gt; FractLevelProd.k2,
+<a name="132"><q-n>     132  </q-n></a>      oData      =&gt; kCoeffProd.k2);  
+<a name="133"><q-n>     133  </q-n></a>FloatToFixedv1TopK3Inst: FloatToFixedv1Top
+<a name="134"><q-n>     134  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="135"><q-n>     135  </q-n></a>      aclk       =&gt; clk,
+<a name="136"><q-n>     136  </q-n></a>      iData      =&gt; FractLevelProd.k3,
+<a name="137"><q-n>     137  </q-n></a>      oData      =&gt; kCoeffProd.k3);  
+<a name="138"><q-n>     138  </q-n></a>FloatToFixedv1TopK4Inst: FloatToFixedv1Top
+<a name="139"><q-n>     139  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="140"><q-n>     140  </q-n></a>      aclk       =&gt; clk,
+<a name="141"><q-n>     141  </q-n></a>      iData      =&gt; FractLevelProd.k4,
+<a name="142"><q-n>     142  </q-n></a>      oData      =&gt; kCoeffProd.k4);   
+<a name="143"><q-n>     143  </q-n></a>FloatToFixedv1TopK5Inst: FloatToFixedv1Top
+<a name="144"><q-n>     144  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="145"><q-n>     145  </q-n></a>      aclk       =&gt; clk,
+<a name="146"><q-n>     146  </q-n></a>      iData      =&gt; FractLevelProd.k5,
+<a name="147"><q-n>     147  </q-n></a>      oData      =&gt; kCoeffProd.k5);  
+<a name="148"><q-n>     148  </q-n></a>FloatToFixedv1TopK6Inst: FloatToFixedv1Top
+<a name="149"><q-n>     149  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="150"><q-n>     150  </q-n></a>      aclk       =&gt; clk,
+<a name="151"><q-n>     151  </q-n></a>      iData      =&gt; FractLevelProd.k6,
+<a name="152"><q-n>     152  </q-n></a>      oData      =&gt; kCoeffProd.k6); 
+<a name="153"><q-n>     153  </q-n></a>FloatToFixedv1TopK7Inst: FloatToFixedv1Top
+<a name="154"><q-n>     154  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="155"><q-n>     155  </q-n></a>      aclk       =&gt; clk,
+<a name="156"><q-n>     156  </q-n></a>      iData      =&gt; FractLevelProd.k7,
+<a name="157"><q-n>     157  </q-n></a>      oData      =&gt; kCoeffProd.k7);   
+<a name="158"><q-n>     158  </q-n></a>FloatToFixedv1TopK8Inst: FloatToFixedv1Top
+<a name="159"><q-n>     159  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="160"><q-n>     160  </q-n></a>      aclk       =&gt; clk,
+<a name="161"><q-n>     161  </q-n></a>      iData      =&gt; FractLevelProd.k8,
+<a name="162"><q-n>     162  </q-n></a>      oData      =&gt; kCoeffProd.k8);  
+<a name="163"><q-n>     163  </q-n></a>FloatToFixedv1TopK9Inst: FloatToFixedv1Top
+<a name="164"><q-n>     164  </q-n></a>    <q-w>port</q-w> <q-w>map</q-w> (
+<a name="165"><q-n>     165  </q-n></a>      aclk       =&gt; clk,
+<a name="166"><q-n>     166  </q-n></a>      iData      =&gt; FractLevelProd.k9,
+<a name="167"><q-n>     167  </q-n></a>      oData      =&gt; kCoeffProd.k9);  
+<a name="168"><q-n>     168  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="169"><q-n>     169  </q-n></a><q-m>-- STAGE 4</q-m>
+<a name="170"><q-n>     170  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="171"><q-n>     171  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="172"><q-n>     172  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w> 
+<a name="173"><q-n>     173  </q-n></a>        cc.fxToSnFxProd.k1 &lt;= to_sfixed((kCoeffProd.k1), cc.fxToSnFxProd.k1);
+<a name="174"><q-n>     174  </q-n></a>        cc.fxToSnFxProd.k2 &lt;= to_sfixed((kCoeffProd.k2), cc.fxToSnFxProd.k2);
+<a name="175"><q-n>     175  </q-n></a>        cc.fxToSnFxProd.k3 &lt;= to_sfixed((kCoeffProd.k3), cc.fxToSnFxProd.k3);
+<a name="176"><q-n>     176  </q-n></a>        cc.fxToSnFxProd.k4 &lt;= to_sfixed((kCoeffProd.k4), cc.fxToSnFxProd.k4);
+<a name="177"><q-n>     177  </q-n></a>        cc.fxToSnFxProd.k5 &lt;= to_sfixed((kCoeffProd.k5), cc.fxToSnFxProd.k5);
+<a name="178"><q-n>     178  </q-n></a>        cc.fxToSnFxProd.k6 &lt;= to_sfixed((kCoeffProd.k6), cc.fxToSnFxProd.k6);
+<a name="179"><q-n>     179  </q-n></a>        cc.fxToSnFxProd.k7 &lt;= to_sfixed((kCoeffProd.k7), cc.fxToSnFxProd.k7);
+<a name="180"><q-n>     180  </q-n></a>        cc.fxToSnFxProd.k8 &lt;= to_sfixed((kCoeffProd.k8), cc.fxToSnFxProd.k8);
+<a name="181"><q-n>     181  </q-n></a>        cc.fxToSnFxProd.k9 &lt;= to_sfixed((kCoeffProd.k9), cc.fxToSnFxProd.k9);
+<a name="182"><q-n>     182  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="183"><q-n>     183  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="184"><q-n>     184  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="185"><q-n>     185  </q-n></a><q-m>-- STAGE 5</q-m>
+<a name="186"><q-n>     186  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="187"><q-n>     187  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="188"><q-n>     188  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w> 
+<a name="189"><q-n>     189  </q-n></a>        cc.snFxToSnProd.k1 &lt;= to_signed(cc.fxToSnFxProd.k1(19 <q-w>downto</q-w> 0), 20);
+<a name="190"><q-n>     190  </q-n></a>        cc.snFxToSnProd.k2 &lt;= to_signed(cc.fxToSnFxProd.k2(19 <q-w>downto</q-w> 0), 20);
+<a name="191"><q-n>     191  </q-n></a>        cc.snFxToSnProd.k3 &lt;= to_signed(cc.fxToSnFxProd.k3(19 <q-w>downto</q-w> 0), 20);
+<a name="192"><q-n>     192  </q-n></a>        cc.snFxToSnProd.k4 &lt;= to_signed(cc.fxToSnFxProd.k4(19 <q-w>downto</q-w> 0), 20);
+<a name="193"><q-n>     193  </q-n></a>        cc.snFxToSnProd.k5 &lt;= to_signed(cc.fxToSnFxProd.k5(19 <q-w>downto</q-w> 0), 20);
+<a name="194"><q-n>     194  </q-n></a>        cc.snFxToSnProd.k6 &lt;= to_signed(cc.fxToSnFxProd.k6(19 <q-w>downto</q-w> 0), 20);
+<a name="195"><q-n>     195  </q-n></a>        cc.snFxToSnProd.k7 &lt;= to_signed(cc.fxToSnFxProd.k7(19 <q-w>downto</q-w> 0), 20);
+<a name="196"><q-n>     196  </q-n></a>        cc.snFxToSnProd.k8 &lt;= to_signed(cc.fxToSnFxProd.k8(19 <q-w>downto</q-w> 0), 20);
+<a name="197"><q-n>     197  </q-n></a>        cc.snFxToSnProd.k9 &lt;= to_signed(cc.fxToSnFxProd.k9(19 <q-w>downto</q-w> 0), 20);
+<a name="198"><q-n>     198  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="199"><q-n>     199  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="200"><q-n>     200  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="201"><q-n>     201  </q-n></a><q-m>-- STAGE 6</q-m>
+<a name="202"><q-n>     202  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="203"><q-n>     203  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="204"><q-n>     204  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w> 
+<a name="205"><q-n>     205  </q-n></a>        cc.snToTrimProd.k1 &lt;= cc.snFxToSnProd.k1(19 <q-w>downto</q-w> 5);
+<a name="206"><q-n>     206  </q-n></a>        cc.snToTrimProd.k2 &lt;= cc.snFxToSnProd.k2(19 <q-w>downto</q-w> 5);
+<a name="207"><q-n>     207  </q-n></a>        cc.snToTrimProd.k3 &lt;= cc.snFxToSnProd.k3(19 <q-w>downto</q-w> 5);
+<a name="208"><q-n>     208  </q-n></a>        cc.snToTrimProd.k4 &lt;= cc.snFxToSnProd.k4(19 <q-w>downto</q-w> 5);
+<a name="209"><q-n>     209  </q-n></a>        cc.snToTrimProd.k5 &lt;= cc.snFxToSnProd.k5(19 <q-w>downto</q-w> 5);
+<a name="210"><q-n>     210  </q-n></a>        cc.snToTrimProd.k6 &lt;= cc.snFxToSnProd.k6(19 <q-w>downto</q-w> 5);
+<a name="211"><q-n>     211  </q-n></a>        cc.snToTrimProd.k7 &lt;= cc.snFxToSnProd.k7(19 <q-w>downto</q-w> 5);
+<a name="212"><q-n>     212  </q-n></a>        cc.snToTrimProd.k8 &lt;= cc.snFxToSnProd.k8(19 <q-w>downto</q-w> 5);
+<a name="213"><q-n>     213  </q-n></a>        cc.snToTrimProd.k9 &lt;= cc.snFxToSnProd.k9(19 <q-w>downto</q-w> 5);
+<a name="214"><q-n>     214  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="215"><q-n>     215  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="216"><q-n>     216  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="217"><q-n>     217  </q-n></a><q-m>-- STAGE 7</q-m>
+<a name="218"><q-n>     218  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="219"><q-n>     219  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="220"><q-n>     220  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="221"><q-n>     221  </q-n></a>        cc.snSum.red   &lt;= resize(cc.snToTrimProd.k1, ADD_RESULT_WIDTH) +
+<a name="222"><q-n>     222  </q-n></a>                          resize(cc.snToTrimProd.k2, ADD_RESULT_WIDTH) +
+<a name="223"><q-n>     223  </q-n></a>                          resize(cc.snToTrimProd.k3, ADD_RESULT_WIDTH) + ROUND;
+<a name="224"><q-n>     224  </q-n></a>        cc.snSum.green &lt;= resize(cc.snToTrimProd.k4, ADD_RESULT_WIDTH) +
+<a name="225"><q-n>     225  </q-n></a>                          resize(cc.snToTrimProd.k5, ADD_RESULT_WIDTH) +
+<a name="226"><q-n>     226  </q-n></a>                          resize(cc.snToTrimProd.k6, ADD_RESULT_WIDTH) + ROUND;
+<a name="227"><q-n>     227  </q-n></a>        cc.snSum.blue  &lt;= resize(cc.snToTrimProd.k7, ADD_RESULT_WIDTH) +
+<a name="228"><q-n>     228  </q-n></a>                          resize(cc.snToTrimProd.k8, ADD_RESULT_WIDTH) +
+<a name="229"><q-n>     229  </q-n></a>                          resize(cc.snToTrimProd.k9, ADD_RESULT_WIDTH) + ROUND;
+<a name="230"><q-n>     230  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="231"><q-n>     231  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="232"><q-n>     232  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="233"><q-n>     233  </q-n></a><q-m>-- STAGE 8</q-m>
+<a name="234"><q-n>     234  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="235"><q-n>     235  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="236"><q-n>     236  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w> 
+<a name="237"><q-n>     237  </q-n></a>        cc.snToTrimSum.red    &lt;= cc.snSum.red(cc.snSum.red'<q-a>left</q-w> <q-w>downto</q-w> FRAC_BITS_TO_KEEP);
+<a name="238"><q-n>     238  </q-n></a>        cc.snToTrimSum.green  &lt;= cc.snSum.green(cc.snSum.green'<q-a>left</q-w> <q-w>downto</q-w> FRAC_BITS_TO_KEEP);
+<a name="239"><q-n>     239  </q-n></a>        cc.snToTrimSum.blue   &lt;= cc.snSum.blue(cc.snSum.blue'<q-a>left</q-w> <q-w>downto</q-w> FRAC_BITS_TO_KEEP);
+<a name="240"><q-n>     240  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="241"><q-n>     241  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="242"><q-n>     242  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="243"><q-n>     243  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="244"><q-n>     244  </q-n></a><q-m>--FILTERS: SHARP BLURE EMBOS SOBEL</q-m>
+<a name="245"><q-n>     245  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="246"><q-n>     246  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="247"><q-n>     247  </q-n></a>COLOR_DELAYED_ENABLED: <q-w>if</q-w> ((SHARP_FRAME = TRUE) <q-w>or</q-w> (BLURE_FRAME = TRUE) 
+<a name="248"><q-n>     248  </q-n></a>                        <q-w>or</q-w> (EMBOS_FRAME = TRUE) <q-w>or</q-w> (SOBEL_FRAME = TRUE)) <q-w>generate</q-w>
+<a name="249"><q-n>     249  </q-n></a><q-w>signal</q-w> cc_rgbSum : <q-t>std_logic_vector</q-w>(i_data_width-1 <q-w>downto</q-w> 0) := black;
+<a name="250"><q-n>     250  </q-n></a><q-w>begin</q-w>
+<a name="251"><q-n>     251  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="252"><q-n>     252  </q-n></a><q-m>-- STAGE 2</q-m>
+<a name="253"><q-n>     253  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="254"><q-n>     254  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="255"><q-n>     255  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="256"><q-n>     256  </q-n></a>        <q-m>--Red</q-m>
+<a name="257"><q-n>     257  </q-n></a>        cc.tpsd1.vTap0x &lt;= rgbToFl_red;
+<a name="258"><q-n>     258  </q-n></a>        cc.tpsd2.vTap0x &lt;= cc.tpsd1.vTap0x;
+<a name="259"><q-n>     259  </q-n></a>        cc.tpsd3.vTap0x &lt;= cc.tpsd2.vTap0x;
+<a name="260"><q-n>     260  </q-n></a>        <q-m>--Green</q-m>
+<a name="261"><q-n>     261  </q-n></a>        cc.tpsd1.vTap1x &lt;= rgbToFl_gre;
+<a name="262"><q-n>     262  </q-n></a>        cc.tpsd2.vTap1x &lt;= cc.tpsd1.vTap1x;
+<a name="263"><q-n>     263  </q-n></a>        cc.tpsd3.vTap1x &lt;= cc.tpsd2.vTap1x;
+<a name="264"><q-n>     264  </q-n></a>        <q-m>--Blue</q-m>
+<a name="265"><q-n>     265  </q-n></a>        cc.tpsd1.vTap2x &lt;= rgbToFl_blu;
+<a name="266"><q-n>     266  </q-n></a>        cc.tpsd2.vTap2x &lt;= cc.tpsd1.vTap2x;
+<a name="267"><q-n>     267  </q-n></a>        cc.tpsd3.vTap2x &lt;= cc.tpsd2.vTap2x;
+<a name="268"><q-n>     268  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="269"><q-n>     269  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="270"><q-n>     270  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="271"><q-n>     271  </q-n></a><q-m>-- STAGE 9</q-m>
+<a name="272"><q-n>     272  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="273"><q-n>     273  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="274"><q-n>     274  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w> 
+<a name="275"><q-n>     275  </q-n></a>        cc.rgbSum  &lt;= (cc.snToTrimSum.red + cc.snToTrimSum.green + cc.snToTrimSum.blue);
+<a name="276"><q-n>     276  </q-n></a>        <q-w>if</q-w> (cc.rgbSum(ROUND_RESULT_WIDTH-1) = hi) <q-w>then</q-w>
+<a name="277"><q-n>     277  </q-n></a>            cc_rgbSum &lt;= black;
+<a name="278"><q-n>     278  </q-n></a>        <q-w>elsif</q-w> (<q-t>unsigned</q-w>(cc.rgbSum(ROUND_RESULT_WIDTH-2 <q-w>downto</q-w> i_data_width)) /= zero) <q-w>then</q-w>
+<a name="279"><q-n>     279  </q-n></a>            cc_rgbSum &lt;= white;
+<a name="280"><q-n>     280  </q-n></a>        <q-w>else</q-w>
+<a name="281"><q-n>     281  </q-n></a>            cc_rgbSum &lt;= <q-t>std_logic_vector</q-w>(cc.rgbSum(i_data_width-1 <q-w>downto</q-w> 0));
+<a name="282"><q-n>     282  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="283"><q-n>     283  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="284"><q-n>     284  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="285"><q-n>     285  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="286"><q-n>     286  </q-n></a><q-m>-- STAGE 10</q-m>
+<a name="287"><q-n>     287  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="288"><q-n>     288  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="289"><q-n>     289  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="290"><q-n>     290  </q-n></a>        oRgb.red    &lt;= cc_rgbSum;
+<a name="291"><q-n>     291  </q-n></a>        oRgb.green  &lt;= cc_rgbSum;
+<a name="292"><q-n>     292  </q-n></a>        oRgb.blue   &lt;= cc_rgbSum;
+<a name="293"><q-n>     293  </q-n></a>        oRgb.valid  &lt;= rgbSyncValid(9);
+<a name="294"><q-n>     294  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="295"><q-n>     295  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="296"><q-n>     296  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="297"><q-n>     297  </q-n></a><q-w>end</q-w> <q-w>generate</q-w> COLOR_DELAYED_ENABLED;
+<a name="298"><q-n>     298  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="299"><q-n>     299  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="300"><q-n>     300  </q-n></a><q-m>--FILTERS: YCBCR</q-m>
+<a name="301"><q-n>     301  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="302"><q-n>     302  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="303"><q-n>     303  </q-n></a>YCBCR_FRAME_ENABLED: <q-w>if</q-w> (YCBCR_FRAME = true) <q-w>generate</q-w>
+<a name="304"><q-n>     304  </q-n></a>    <q-w>constant</q-w> fullRange    : <q-t>boolean</q-w> := true;
+<a name="305"><q-n>     305  </q-n></a>    <q-w>signal</q-w> yCbCrRgb       : uChannel := (valid =&gt; lo, red =&gt; blackUn, green =&gt; blackUn, blue =&gt; blackUn);
+<a name="306"><q-n>     306  </q-n></a>    <q-w>signal</q-w> yCbCr128       : <q-t>unsigned</q-w>(i_data_width-1 <q-w>downto</q-w> 0);
+<a name="307"><q-n>     307  </q-n></a>    <q-w>signal</q-w> yCbCr16        : <q-t>unsigned</q-w>(i_data_width-1 <q-w>downto</q-w> 0);
+<a name="308"><q-n>     308  </q-n></a><q-w>begin</q-w>
+<a name="309"><q-n>     309  </q-n></a>    yCbCr128        &lt;= shift_left(to_unsigned(one,i_data_width), i_data_width - 1);
+<a name="310"><q-n>     310  </q-n></a>    yCbCr16         &lt;= shift_left(to_unsigned(one,i_data_width), i_data_width - 4);
+<a name="311"><q-n>     311  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="312"><q-n>     312  </q-n></a><q-m>-- STAGE 2</q-m>
+<a name="313"><q-n>     313  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="314"><q-n>     314  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="315"><q-n>     315  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="316"><q-n>     316  </q-n></a>        cc.tpsd1.vTap0x &lt;= rgbToFl_blu;
+<a name="317"><q-n>     317  </q-n></a>        cc.tpsd2.vTap0x &lt;= rgbToFl_gre;
+<a name="318"><q-n>     318  </q-n></a>        cc.tpsd3.vTap0x &lt;= rgbToFl_red;
+<a name="319"><q-n>     319  </q-n></a>        cc.tpsd1.vTap1x &lt;= rgbToFl_blu;
+<a name="320"><q-n>     320  </q-n></a>        cc.tpsd2.vTap1x &lt;= rgbToFl_gre;
+<a name="321"><q-n>     321  </q-n></a>        cc.tpsd3.vTap1x &lt;= rgbToFl_red;
+<a name="322"><q-n>     322  </q-n></a>        cc.tpsd1.vTap2x &lt;= rgbToFl_blu;
+<a name="323"><q-n>     323  </q-n></a>        cc.tpsd2.vTap2x &lt;= rgbToFl_gre;
+<a name="324"><q-n>     324  </q-n></a>        cc.tpsd3.vTap2x &lt;= rgbToFl_red;
+<a name="325"><q-n>     325  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="326"><q-n>     326  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="327"><q-n>     327  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="328"><q-n>     328  </q-n></a><q-m>-- STAGE 9</q-m>
+<a name="329"><q-n>     329  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="330"><q-n>     330  </q-n></a><q-w>process</q-w> (clk)
+<a name="331"><q-n>     331  </q-n></a>    <q-w>variable</q-w> yRound      : <q-t>unsigned</q-w>(i_data_width-1 <q-w>downto</q-w> 0);
+<a name="332"><q-n>     332  </q-n></a>    <q-w>variable</q-w> cbRound     : <q-t>unsigned</q-w>(i_data_width-1 <q-w>downto</q-w> 0);
+<a name="333"><q-n>     333  </q-n></a>    <q-w>variable</q-w> crRound     : <q-t>unsigned</q-w>(i_data_width-1 <q-w>downto</q-w> 0);
+<a name="334"><q-n>     334  </q-n></a>    <q-w>begin</q-w>
+<a name="335"><q-n>     335  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="336"><q-n>     336  </q-n></a>        <q-w>if</q-w> (cc.snToTrimSum.red(ROUND_RESULT_WIDTH-1) = hi)  <q-w>then</q-w>
+<a name="337"><q-n>     337  </q-n></a>            <q-w>if</q-w> fullRange <q-w>then</q-w>
+<a name="338"><q-n>     338  </q-n></a>                yRound := yCbCr16 + 1;
+<a name="339"><q-n>     339  </q-n></a>            <q-w>else</q-w>
+<a name="340"><q-n>     340  </q-n></a>                yRound := to_unsigned(1, i_data_width);
+<a name="341"><q-n>     341  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="342"><q-n>     342  </q-n></a>        <q-w>else</q-w>
+<a name="343"><q-n>     343  </q-n></a>            <q-w>if</q-w> fullRange <q-w>then</q-w>
+<a name="344"><q-n>     344  </q-n></a>                yRound := yCbCr16;
+<a name="345"><q-n>     345  </q-n></a>            <q-w>else</q-w>
+<a name="346"><q-n>     346  </q-n></a>                yRound := (<q-w>others</q-w> =&gt; '0');
+<a name="347"><q-n>     347  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="348"><q-n>     348  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="349"><q-n>     349  </q-n></a>        <q-w>if</q-w> (cc.snToTrimSum.green(ROUND_RESULT_WIDTH-1) = hi) <q-w>then</q-w>
+<a name="350"><q-n>     350  </q-n></a>            cbRound := resize(yCbCr128+1, i_data_width);
+<a name="351"><q-n>     351  </q-n></a>        <q-w>else</q-w>
+<a name="352"><q-n>     352  </q-n></a>            cbRound := yCbCr128;
+<a name="353"><q-n>     353  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="354"><q-n>     354  </q-n></a>        <q-w>if</q-w> (cc.snToTrimSum.blue(ROUND_RESULT_WIDTH-1) = hi) <q-w>then</q-w>
+<a name="355"><q-n>     355  </q-n></a>            crRound := resize(yCbCr128+1, i_data_width);
+<a name="356"><q-n>     356  </q-n></a>        <q-w>else</q-w>
+<a name="357"><q-n>     357  </q-n></a>            crRound := yCbCr128;
+<a name="358"><q-n>     358  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="359"><q-n>     359  </q-n></a>        <q-m>---------------------------------------------------------------------------------------</q-m>
+<a name="360"><q-n>     360  </q-n></a>        yCbCrRgb.red   &lt;= (<q-t>unsigned</q-w>(cc.snToTrimSum.red(i_data_width-1 <q-w>downto</q-w> 0))) + yRound;
+<a name="361"><q-n>     361  </q-n></a>        yCbCrRgb.green &lt;= (<q-t>unsigned</q-w>(cc.snToTrimSum.green(i_data_width-1 <q-w>downto</q-w> 0))) + cbRound;
+<a name="362"><q-n>     362  </q-n></a>        yCbCrRgb.blue  &lt;= (<q-t>unsigned</q-w>(cc.snToTrimSum.blue(i_data_width-1 <q-w>downto</q-w> 0))) + crRound;
+<a name="363"><q-n>     363  </q-n></a>        <q-m>---------------------------------------------------------------------------------------</q-m>
+<a name="364"><q-n>     364  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="365"><q-n>     365  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="366"><q-n>     366  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="367"><q-n>     367  </q-n></a><q-m>-- STAGE 10</q-m>
+<a name="368"><q-n>     368  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="369"><q-n>     369  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="370"><q-n>     370  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="371"><q-n>     371  </q-n></a>        oRgb.red     &lt;= <q-t>std_logic_vector</q-w>(yCbCrRgb.red);
+<a name="372"><q-n>     372  </q-n></a>        oRgb.green   &lt;= <q-t>std_logic_vector</q-w>(yCbCrRgb.green);
+<a name="373"><q-n>     373  </q-n></a>        oRgb.blue    &lt;= <q-t>std_logic_vector</q-w>(yCbCrRgb.blue);
+<a name="374"><q-n>     374  </q-n></a>        oRgb.valid   &lt;=  rgbSyncValid(9);
+<a name="375"><q-n>     375  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="376"><q-n>     376  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="377"><q-n>     377  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="378"><q-n>     378  </q-n></a><q-w>end</q-w> <q-w>generate</q-w> YCBCR_FRAME_ENABLED;
+<a name="379"><q-n>     379  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="380"><q-n>     380  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="381"><q-n>     381  </q-n></a><q-m>--FILTERS: CGAIN</q-m>
+<a name="382"><q-n>     382  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="383"><q-n>     383  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="384"><q-n>     384  </q-n></a>CGAIN_FRAME_ENABLED: <q-w>if</q-w> (CGAIN_FRAME = true) <q-w>generate</q-w>
+<a name="385"><q-n>     385  </q-n></a>    <q-w>signal</q-w> cGain : channel := (valid =&gt; lo, red =&gt; black, green =&gt; black, blue =&gt; black);
+<a name="386"><q-n>     386  </q-n></a><q-w>begin</q-w>
+<a name="387"><q-n>     387  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="388"><q-n>     388  </q-n></a><q-m>-- STAGE 2</q-m>
+<a name="389"><q-n>     389  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="390"><q-n>     390  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="391"><q-n>     391  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="392"><q-n>     392  </q-n></a>        cc.tpsd1.vTap0x &lt;= rgbToFl_blu;
+<a name="393"><q-n>     393  </q-n></a>        cc.tpsd2.vTap0x &lt;= rgbToFl_gre;
+<a name="394"><q-n>     394  </q-n></a>        cc.tpsd3.vTap0x &lt;= rgbToFl_red;
+<a name="395"><q-n>     395  </q-n></a>        cc.tpsd1.vTap1x &lt;= rgbToFl_blu;
+<a name="396"><q-n>     396  </q-n></a>        cc.tpsd2.vTap1x &lt;= rgbToFl_gre;
+<a name="397"><q-n>     397  </q-n></a>        cc.tpsd3.vTap1x &lt;= rgbToFl_red;
+<a name="398"><q-n>     398  </q-n></a>        cc.tpsd1.vTap2x &lt;= rgbToFl_blu;
+<a name="399"><q-n>     399  </q-n></a>        cc.tpsd2.vTap2x &lt;= rgbToFl_gre;
+<a name="400"><q-n>     400  </q-n></a>        cc.tpsd3.vTap2x &lt;= rgbToFl_red;
+<a name="401"><q-n>     401  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="402"><q-n>     402  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="403"><q-n>     403  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="404"><q-n>     404  </q-n></a><q-m>-- STAGE 9</q-m>
+<a name="405"><q-n>     405  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="406"><q-n>     406  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="407"><q-n>     407  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="408"><q-n>     408  </q-n></a>        <q-w>if</q-w> (cc.snToTrimSum.red(ROUND_RESULT_WIDTH-1) = hi) <q-w>then</q-w>	
+<a name="409"><q-n>     409  </q-n></a>            cGain.red &lt;= black;
+<a name="410"><q-n>     410  </q-n></a>        <q-w>elsif</q-w> (<q-t>unsigned</q-w>(cc.snToTrimSum.red(ROUND_RESULT_WIDTH-2 <q-w>downto</q-w> i_data_width)) /= zero) <q-w>then</q-w>	
+<a name="411"><q-n>     411  </q-n></a>            cGain.red &lt;= white;
+<a name="412"><q-n>     412  </q-n></a>        <q-w>else</q-w>
+<a name="413"><q-n>     413  </q-n></a>            cGain.red &lt;= <q-t>std_logic_vector</q-w>(cc.snToTrimSum.red(i_data_width-1 <q-w>downto</q-w> 0));
+<a name="414"><q-n>     414  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="415"><q-n>     415  </q-n></a>        <q-w>if</q-w> (cc.snToTrimSum.green(ROUND_RESULT_WIDTH-1) = hi) <q-w>then</q-w>
+<a name="416"><q-n>     416  </q-n></a>            cGain.green &lt;= black;
+<a name="417"><q-n>     417  </q-n></a>        <q-w>elsif</q-w> (<q-t>unsigned</q-w>(cc.snToTrimSum.green(ROUND_RESULT_WIDTH-2 <q-w>downto</q-w> i_data_width)) /= zero) <q-w>then</q-w>
+<a name="418"><q-n>     418  </q-n></a>            cGain.green &lt;= white;
+<a name="419"><q-n>     419  </q-n></a>        <q-w>else</q-w>
+<a name="420"><q-n>     420  </q-n></a>            cGain.green &lt;= <q-t>std_logic_vector</q-w>(cc.snToTrimSum.green(i_data_width-1 <q-w>downto</q-w> 0));
+<a name="421"><q-n>     421  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="422"><q-n>     422  </q-n></a>        <q-w>if</q-w> (cc.snToTrimSum.blue(ROUND_RESULT_WIDTH-1) = hi) <q-w>then</q-w>
+<a name="423"><q-n>     423  </q-n></a>            cGain.blue &lt;= black;
+<a name="424"><q-n>     424  </q-n></a>        <q-w>elsif</q-w> (<q-t>unsigned</q-w>(cc.snToTrimSum.blue(ROUND_RESULT_WIDTH-2 <q-w>downto</q-w> i_data_width)) /= zero) <q-w>then</q-w>
+<a name="425"><q-n>     425  </q-n></a>            cGain.blue &lt;= white;
+<a name="426"><q-n>     426  </q-n></a>        <q-w>else</q-w>
+<a name="427"><q-n>     427  </q-n></a>            cGain.blue &lt;= <q-t>std_logic_vector</q-w>(cc.snToTrimSum.blue(i_data_width-1 <q-w>downto</q-w> 0));
+<a name="428"><q-n>     428  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="429"><q-n>     429  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="430"><q-n>     430  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="431"><q-n>     431  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="432"><q-n>     432  </q-n></a><q-m>-- STAGE 10</q-m>
+<a name="433"><q-n>     433  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="434"><q-n>     434  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="435"><q-n>     435  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="436"><q-n>     436  </q-n></a>        oRgb.red    &lt;= cGain.red;
+<a name="437"><q-n>     437  </q-n></a>        oRgb.green  &lt;= cGain.green;
+<a name="438"><q-n>     438  </q-n></a>        oRgb.blue   &lt;= cGain.blue;
+<a name="439"><q-n>     439  </q-n></a>        oRgb.valid  &lt;=  rgbSyncValid(9);
+<a name="440"><q-n>     440  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="441"><q-n>     441  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="442"><q-n>     442  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="443"><q-n>     443  </q-n></a><q-w>end</q-w> <q-w>generate</q-w> CGAIN_FRAME_ENABLED;
+<a name="444"><q-n>     444  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="445"><q-n>     445  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="446"><q-n>     446  </q-n></a><q-m>--VALID DELAYS</q-m>
+<a name="447"><q-n>     447  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="448"><q-n>     448  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="449"><q-n>     449  </q-n></a><q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="450"><q-n>     450  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="451"><q-n>     451  </q-n></a>        rgbSyncValid(0)  &lt;= iRgb.valid;
+<a name="452"><q-n>     452  </q-n></a>        rgbSyncValid(1)  &lt;= rgbSyncValid(0);
+<a name="453"><q-n>     453  </q-n></a>        rgbSyncValid(2)  &lt;= rgbSyncValid(1);
+<a name="454"><q-n>     454  </q-n></a>        rgbSyncValid(3)  &lt;= rgbSyncValid(2);
+<a name="455"><q-n>     455  </q-n></a>        rgbSyncValid(4)  &lt;= rgbSyncValid(3);
+<a name="456"><q-n>     456  </q-n></a>        rgbSyncValid(5)  &lt;= rgbSyncValid(4);
+<a name="457"><q-n>     457  </q-n></a>        rgbSyncValid(6)  &lt;= rgbSyncValid(5);
+<a name="458"><q-n>     458  </q-n></a>        rgbSyncValid(7)  &lt;= rgbSyncValid(6);
+<a name="459"><q-n>     459  </q-n></a>        rgbSyncValid(8)  &lt;= rgbSyncValid(7);
+<a name="460"><q-n>     460  </q-n></a>        rgbSyncValid(9)  &lt;= rgbSyncValid(8);
+<a name="461"><q-n>     461  </q-n></a>        rgbSyncValid(10) &lt;= rgbSyncValid(9);
+<a name="462"><q-n>     462  </q-n></a>        rgbSyncValid(11) &lt;= rgbSyncValid(10);
+<a name="463"><q-n>     463  </q-n></a>        rgbSyncValid(12) &lt;= rgbSyncValid(11);
+<a name="464"><q-n>     464  </q-n></a>        rgbSyncValid(13) &lt;= rgbSyncValid(12);
+<a name="465"><q-n>     465  </q-n></a>        rgbSyncValid(14) &lt;= rgbSyncValid(13);
+<a name="466"><q-n>     466  </q-n></a>        rgbSyncValid(15) &lt;= rgbSyncValid(14);
+<a name="467"><q-n>     467  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>; 
+<a name="468"><q-n>     468  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
+<a name="469"><q-n>     469  </q-n></a><q-m>-----------------------------------------------------------------------------------------------</q-m>
+<a name="470"><q-n>     470  </q-n></a><q-w>end</q-w> Behavioral;</pre>
 </tt>
 
   

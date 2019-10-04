@@ -8,180 +8,67 @@
 <body id="hdl2html">
   <tt>
 <pre>
-<a name="1"><q-n>     1  </q-n></a><q-m>--05012019 [05-01-2019]</q-m>
-<a name="2"><q-n>     2  </q-n></a><q-w>library</q-w> ieee;
-<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
-<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> ieee.std_logic_arith.<q-w>all</q-w>;
-<a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> ieee.std_logic_unsigned.<q-w>all</q-w>;
-<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
-<a name="7"><q-n>     7  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
-<a name="8"><q-n>     8  </q-n></a><q-w>use</q-w> work.portspackage.<q-w>all</q-w>;
-<a name="9"><q-n>     9  </q-n></a><q-w>entity</q-w> videoProcess_v1_0_rgb_m_axis <q-w>is</q-w> 
-<a name="10"><q-n>     10  </q-n></a><q-w>generic</q-w> (
-<a name="11"><q-n>     11  </q-n></a>    i_data_width             : <q-t>integer</q-w> := 8;
-<a name="12"><q-n>     12  </q-n></a>    b_data_width             : <q-t>integer</q-w> := 32;
-<a name="13"><q-n>     13  </q-n></a>    s_data_width             : <q-t>integer</q-w> := 16);
-<a name="14"><q-n>     14  </q-n></a><q-w>port</q-w> (
-<a name="15"><q-n>     15  </q-n></a>    <q-m>--stream clock/reset</q-m>
-<a name="16"><q-n>     16  </q-n></a>    m_axis_mm2s_aclk         : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="17"><q-n>     17  </q-n></a>    m_axis_mm2s_aresetn      : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="18"><q-n>     18  </q-n></a>    <q-m>--config</q-m>
-<a name="19"><q-n>     19  </q-n></a>    aBusSelect               : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
-<a name="20"><q-n>     20  </q-n></a>    iStreamData              : <q-a>in</q-w> vStreamData;
-<a name="21"><q-n>     21  </q-n></a>    <q-m>--stream to master out</q-m>
-<a name="22"><q-n>     22  </q-n></a>    rx_axis_tready_o         : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="23"><q-n>     23  </q-n></a>    rx_axis_tvalid           : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="24"><q-n>     24  </q-n></a>    rx_axis_tuser            : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="25"><q-n>     25  </q-n></a>    rx_axis_tlast            : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="26"><q-n>     26  </q-n></a>    rx_axis_tdata            : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(s_data_width-1 <q-w>downto</q-w> 0);
-<a name="27"><q-n>     27  </q-n></a>    <q-m>--tx channel</q-m>
-<a name="28"><q-n>     28  </q-n></a>    rgb_m_axis_tvalid        : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="29"><q-n>     29  </q-n></a>    rgb_m_axis_tlast         : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="30"><q-n>     30  </q-n></a>    rgb_m_axis_tuser         : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="31"><q-n>     31  </q-n></a>    rgb_m_axis_tready        : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="32"><q-n>     32  </q-n></a>    rgb_m_axis_tdata         : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(s_data_width-1 <q-w>downto</q-w> 0);
-<a name="33"><q-n>     33  </q-n></a>    <q-m>--rx channel</q-m>
-<a name="34"><q-n>     34  </q-n></a>    rgb_s_axis_tready        : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="35"><q-n>     35  </q-n></a>    rgb_s_axis_tvalid        : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="36"><q-n>     36  </q-n></a>    rgb_s_axis_tuser         : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="37"><q-n>     37  </q-n></a>    rgb_s_axis_tlast         : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="38"><q-n>     38  </q-n></a>    rgb_s_axis_tdata         : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(s_data_width-1 <q-w>downto</q-w> 0));
-<a name="39"><q-n>     39  </q-n></a><q-w>end</q-w> videoProcess_v1_0_rgb_m_axis;
-<a name="40"><q-n>     40  </q-n></a><q-w>architecture</q-w> arch_imp <q-w>of</q-w> videoProcess_v1_0_rgb_m_axis <q-w>is</q-w>
-<a name="41"><q-n>     41  </q-n></a>    <q-w>signal</q-w> configReg4R       : <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0):= (<q-w>others</q-w> =&gt; lo);
-<a name="42"><q-n>     42  </q-n></a>    <q-w>signal</q-w> axis_sof          : <q-t>std_logic</q-w>;
-<a name="43"><q-n>     43  </q-n></a>    <q-w>signal</q-w> mpeg42XCR         : <q-t>std_logic_vector</q-w>(i_data_width-1 <q-w>downto</q-w> 0);
-<a name="44"><q-n>     44  </q-n></a>    <q-w>signal</q-w> mpeg42XBR         : <q-t>std_logic</q-w> :=lo;
-<a name="45"><q-n>     45  </q-n></a>    <q-w>signal</q-w> mpeg42XXX         : <q-t>std_logic</q-w> :=lo;
-<a name="46"><q-n>     46  </q-n></a>    <q-w>signal</q-w> tx_axis_tvalid    : <q-t>std_logic</q-w>;
-<a name="47"><q-n>     47  </q-n></a>    <q-w>signal</q-w> tx_axis_tlast     : <q-t>std_logic</q-w>;
-<a name="48"><q-n>     48  </q-n></a>    <q-w>signal</q-w> tx_axis_tuser     : <q-t>std_logic</q-w>;
-<a name="49"><q-n>     49  </q-n></a>    <q-w>signal</q-w> tx_axis_tready    : <q-t>std_logic</q-w>;
-<a name="50"><q-n>     50  </q-n></a>	<q-w>signal</q-w> pEofs1            : <q-t>std_logic</q-w> :=lo;
-<a name="51"><q-n>     51  </q-n></a>    <q-w>signal</q-w> tx_axis_tdata     : <q-t>std_logic_vector</q-w>(s_data_width-1 <q-w>downto</q-w> 0);
-<a name="52"><q-n>     52  </q-n></a>    <q-w>type</q-w> video_io_state <q-w>is</q-w> (VIDEO_SET_RESET,VIDEO_SOF_OFF,VIDEO_SOF_ON,VIDEO_END_OF_LINE);
-<a name="53"><q-n>     53  </q-n></a>    <q-w>signal</q-w> VIDEO_STATES      : video_io_state; 
-<a name="54"><q-n>     54  </q-n></a><q-w>begin</q-w>
-<a name="55"><q-n>     55  </q-n></a><q-w>process</q-w> (m_axis_mm2s_aclk) <q-w>begin</q-w>
-<a name="56"><q-n>     56  </q-n></a>    <q-w>if</q-w> rising_edge(m_axis_mm2s_aclk) <q-w>then</q-w>
-<a name="57"><q-n>     57  </q-n></a>            mpeg42XBR  &lt;= <q-w>not</q-w>(mpeg42XBR) <q-w>and</q-w> iStreamData.ycbcr.valid;
-<a name="58"><q-n>     58  </q-n></a>            mpeg42XXX  &lt;= <q-w>not</q-w>(mpeg42XBR);
-<a name="59"><q-n>     59  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
-<a name="60"><q-n>     60  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
-<a name="61"><q-n>     61  </q-n></a><q-w>process</q-w> (m_axis_mm2s_aclk) <q-w>begin</q-w>
-<a name="62"><q-n>     62  </q-n></a>    <q-w>if</q-w> rising_edge(m_axis_mm2s_aclk) <q-w>then</q-w>
-<a name="63"><q-n>     63  </q-n></a>            mpeg42XCR   &lt;= iStreamData.ycbcr.blue;
-<a name="64"><q-n>     64  </q-n></a>            configReg4R &lt;= aBusSelect;
-<a name="65"><q-n>     65  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
-<a name="66"><q-n>     66  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
-<a name="67"><q-n>     67  </q-n></a><q-w>process</q-w> (m_axis_mm2s_aclk) <q-w>begin</q-w>
-<a name="68"><q-n>     68  </q-n></a>    <q-w>if</q-w> (rising_edge (m_axis_mm2s_aclk)) <q-w>then</q-w>
-<a name="69"><q-n>     69  </q-n></a>        <q-w>if</q-w> (m_axis_mm2s_aresetn = lo) <q-w>then</q-w>
-<a name="70"><q-n>     70  </q-n></a>            VIDEO_STATES &lt;= VIDEO_SET_RESET;
-<a name="71"><q-n>     71  </q-n></a>        <q-w>else</q-w>
-<a name="72"><q-n>     72  </q-n></a>        tx_axis_tuser &lt;=axis_sof;
-<a name="73"><q-n>     73  </q-n></a>        <q-w>case</q-w> (VIDEO_STATES) <q-w>is</q-w>
-<a name="74"><q-n>     74  </q-n></a>        <q-w>when</q-w> VIDEO_SET_RESET =&gt;
-<a name="75"><q-n>     75  </q-n></a>            tx_axis_tlast  &lt;= lo;
-<a name="76"><q-n>     76  </q-n></a>            tx_axis_tvalid &lt;= lo;
-<a name="77"><q-n>     77  </q-n></a>            tx_axis_tdata  &lt;= (<q-w>others</q-w> =&gt; lo);    
-<a name="78"><q-n>     78  </q-n></a>            axis_sof       &lt;= lo;
-<a name="79"><q-n>     79  </q-n></a>        <q-w>if</q-w> (iStreamData.sof = '1') <q-w>then</q-w>
-<a name="80"><q-n>     80  </q-n></a>            VIDEO_STATES &lt;= VIDEO_SOF_OFF;
-<a name="81"><q-n>     81  </q-n></a>        <q-w>else</q-w>
-<a name="82"><q-n>     82  </q-n></a>            VIDEO_STATES &lt;= VIDEO_SET_RESET;
-<a name="83"><q-n>     83  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
-<a name="84"><q-n>     84  </q-n></a>        <q-w>when</q-w> VIDEO_SOF_OFF =&gt;
-<a name="85"><q-n>     85  </q-n></a>        <q-w>if</q-w> (iStreamData.ycbcr.valid = hi) <q-w>then</q-w>
-<a name="86"><q-n>     86  </q-n></a>            VIDEO_STATES &lt;= VIDEO_SOF_ON;
-<a name="87"><q-n>     87  </q-n></a>            axis_sof     &lt;= hi;
-<a name="88"><q-n>     88  </q-n></a>        <q-w>else</q-w>
-<a name="89"><q-n>     89  </q-n></a>            VIDEO_STATES &lt;= VIDEO_SOF_OFF;
-<a name="90"><q-n>     90  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
-<a name="91"><q-n>     91  </q-n></a>        <q-w>when</q-w> VIDEO_SOF_ON =&gt;
-<a name="92"><q-n>     92  </q-n></a>            axis_sof       &lt;= lo;
-<a name="93"><q-n>     93  </q-n></a>			tx_axis_tvalid &lt;= hi;
-<a name="94"><q-n>     94  </q-n></a>            <q-w>if</q-w>(iStreamData.eof = hi) <q-w>then</q-w>
-<a name="95"><q-n>     95  </q-n></a>                pEofs1 &lt;= hi;
-<a name="96"><q-n>     96  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
-<a name="97"><q-n>     97  </q-n></a>            <q-w>if</q-w> (configReg4R = EXTERNAL_AXIS_STREAM)<q-w>then</q-w>
-<a name="98"><q-n>     98  </q-n></a>                <q-w>if</q-w>(mpeg42XXX =hi)<q-w>then</q-w>
-<a name="99"><q-n>     99  </q-n></a>                    tx_axis_tdata  &lt;= (iStreamData.ycbcr.green &amp; iStreamData.ycbcr.red);
-<a name="100"><q-n>     100  </q-n></a>                <q-w>else</q-w>
-<a name="101"><q-n>     101  </q-n></a>                    tx_axis_tdata  &lt;= (mpeg42XCR &amp; iStreamData.ycbcr.red);
-<a name="102"><q-n>     102  </q-n></a>                <q-w>end</q-w> <q-w>if</q-w>;
-<a name="103"><q-n>     103  </q-n></a>            <q-w>elsif</q-w> (configReg4R = STREAM_TESTPATTERN1)<q-w>then</q-w>
-<a name="104"><q-n>     104  </q-n></a>                tx_axis_tdata  &lt;= iStreamData.cord.x;
-<a name="105"><q-n>     105  </q-n></a>            <q-w>elsif</q-w> (configReg4R = STREAM_TESTPATTERN2)<q-w>then</q-w>
-<a name="106"><q-n>     106  </q-n></a>                tx_axis_tdata  &lt;= iStreamData.cord.y;
-<a name="107"><q-n>     107  </q-n></a>            <q-w>else</q-w>
-<a name="108"><q-n>     108  </q-n></a>                <q-w>if</q-w>(mpeg42XXX =hi)<q-w>then</q-w>
-<a name="109"><q-n>     109  </q-n></a>                    tx_axis_tdata  &lt;= (iStreamData.ycbcr.green &amp; iStreamData.ycbcr.red);
-<a name="110"><q-n>     110  </q-n></a>                <q-w>else</q-w>
-<a name="111"><q-n>     111  </q-n></a>                    tx_axis_tdata  &lt;= (mpeg42XCR &amp; iStreamData.ycbcr.red);
-<a name="112"><q-n>     112  </q-n></a>                <q-w>end</q-w> <q-w>if</q-w>;
-<a name="113"><q-n>     113  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
-<a name="114"><q-n>     114  </q-n></a>        <q-w>if</q-w> (iStreamData.ycbcr.valid = hi) <q-w>then</q-w>
-<a name="115"><q-n>     115  </q-n></a>            tx_axis_tlast  &lt;= lo;
-<a name="116"><q-n>     116  </q-n></a>            VIDEO_STATES &lt;= VIDEO_SOF_ON;
-<a name="117"><q-n>     117  </q-n></a>        <q-w>else</q-w>
-<a name="118"><q-n>     118  </q-n></a>            tx_axis_tlast  &lt;= hi;
-<a name="119"><q-n>     119  </q-n></a>            VIDEO_STATES &lt;= VIDEO_END_OF_LINE;
-<a name="120"><q-n>     120  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
-<a name="121"><q-n>     121  </q-n></a>        <q-w>when</q-w> VIDEO_END_OF_LINE =&gt;
-<a name="122"><q-n>     122  </q-n></a>            tx_axis_tlast  &lt;= lo;
-<a name="123"><q-n>     123  </q-n></a>            tx_axis_tvalid &lt;= lo;
-<a name="124"><q-n>     124  </q-n></a>            <q-w>if</q-w> (pEofs1 = hi) <q-w>then</q-w>
-<a name="125"><q-n>     125  </q-n></a>                VIDEO_STATES &lt;= VIDEO_SOF_OFF;
-<a name="126"><q-n>     126  </q-n></a>				pEofs1 &lt;= lo;
-<a name="127"><q-n>     127  </q-n></a>            <q-w>elsif</q-w> (iStreamData.ycbcr.valid = hi) <q-w>then</q-w>
-<a name="128"><q-n>     128  </q-n></a>                VIDEO_STATES &lt;= VIDEO_SOF_ON;
-<a name="129"><q-n>     129  </q-n></a>            <q-w>else</q-w>
-<a name="130"><q-n>     130  </q-n></a>                VIDEO_STATES &lt;= VIDEO_END_OF_LINE;
-<a name="131"><q-n>     131  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
-<a name="132"><q-n>     132  </q-n></a>        <q-w>when</q-w> <q-w>others</q-w> =&gt;
-<a name="133"><q-n>     133  </q-n></a>            VIDEO_STATES &lt;= VIDEO_SET_RESET;
-<a name="134"><q-n>     134  </q-n></a>        <q-w>end</q-w> <q-w>case</q-w>;
-<a name="135"><q-n>     135  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
-<a name="136"><q-n>     136  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
-<a name="137"><q-n>     137  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
-<a name="138"><q-n>     138  </q-n></a><q-w>process</q-w> (m_axis_mm2s_aclk) <q-w>begin</q-w>
-<a name="139"><q-n>     139  </q-n></a>    <q-w>if</q-w> rising_edge(m_axis_mm2s_aclk) <q-w>then</q-w> 
-<a name="140"><q-n>     140  </q-n></a>        <q-w>if</q-w> m_axis_mm2s_aresetn = lo <q-w>then</q-w>
-<a name="141"><q-n>     141  </q-n></a>                rx_axis_tvalid     &lt;= lo;
-<a name="142"><q-n>     142  </q-n></a>                rx_axis_tuser      &lt;= lo;
-<a name="143"><q-n>     143  </q-n></a>                rx_axis_tlast      &lt;= lo;
-<a name="144"><q-n>     144  </q-n></a>                rx_axis_tdata      &lt;= (<q-w>others</q-w> =&gt; lo);
-<a name="145"><q-n>     145  </q-n></a>                rgb_m_axis_tvalid  &lt;= lo;
-<a name="146"><q-n>     146  </q-n></a>                rgb_m_axis_tuser   &lt;= lo;
-<a name="147"><q-n>     147  </q-n></a>                rgb_m_axis_tlast   &lt;= lo;
-<a name="148"><q-n>     148  </q-n></a>                rgb_m_axis_tdata   &lt;= (<q-w>others</q-w> =&gt; lo);
-<a name="149"><q-n>     149  </q-n></a>                tx_axis_tready     &lt;= lo;
-<a name="150"><q-n>     150  </q-n></a>        <q-w>else</q-w>
-<a name="151"><q-n>     151  </q-n></a>            <q-w>if</q-w> (configReg4R = EXTERNAL_AXIS_STREAM)<q-w>then</q-w>
-<a name="152"><q-n>     152  </q-n></a>                <q-m>--external processed(unused) parallel copy of cpuTX delayed</q-m>
-<a name="153"><q-n>     153  </q-n></a>                rgb_s_axis_tready  &lt;= rx_axis_tready_o;
-<a name="154"><q-n>     154  </q-n></a>                rx_axis_tvalid     &lt;= rgb_s_axis_tvalid;
-<a name="155"><q-n>     155  </q-n></a>                rx_axis_tuser      &lt;= rgb_s_axis_tuser;
-<a name="156"><q-n>     156  </q-n></a>                rx_axis_tlast      &lt;= rgb_s_axis_tlast;
-<a name="157"><q-n>     157  </q-n></a>                rx_axis_tdata      &lt;= rgb_s_axis_tdata;
-<a name="158"><q-n>     158  </q-n></a>            <q-w>else</q-w>
-<a name="159"><q-n>     159  </q-n></a>                <q-m>-- to cpuTX</q-m>
-<a name="160"><q-n>     160  </q-n></a>                rx_axis_tvalid     &lt;= tx_axis_tvalid;
-<a name="161"><q-n>     161  </q-n></a>                rx_axis_tuser      &lt;= tx_axis_tuser;
-<a name="162"><q-n>     162  </q-n></a>                rx_axis_tlast      &lt;= tx_axis_tlast;
-<a name="163"><q-n>     163  </q-n></a>                rx_axis_tdata      &lt;= tx_axis_tdata;
-<a name="164"><q-n>     164  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
-<a name="165"><q-n>     165  </q-n></a>                <q-m>--parallel internal copy of cpuTX</q-m>
-<a name="166"><q-n>     166  </q-n></a>                tx_axis_tready     &lt;= rgb_m_axis_tready;
-<a name="167"><q-n>     167  </q-n></a>                rgb_m_axis_tvalid  &lt;= tx_axis_tvalid;
-<a name="168"><q-n>     168  </q-n></a>                rgb_m_axis_tuser   &lt;= tx_axis_tuser;
-<a name="169"><q-n>     169  </q-n></a>                rgb_m_axis_tlast   &lt;= tx_axis_tlast;
-<a name="170"><q-n>     170  </q-n></a>                rgb_m_axis_tdata   &lt;= tx_axis_tdata;
-<a name="171"><q-n>     171  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
-<a name="172"><q-n>     172  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
-<a name="173"><q-n>     173  </q-n></a><q-w>end</q-w> <q-w>process</q-w>;
-<a name="174"><q-n>     174  </q-n></a><q-w>end</q-w> arch_imp;</pre>
+<a name="1"><q-n>     1  </q-n></a><q-w>library</q-w> ieee;
+<a name="2"><q-n>     2  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
+<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
+<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
+<a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
+<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.portspackage.<q-w>all</q-w>;
+<a name="7"><q-n>     7  </q-n></a><q-w>entity</q-w> FrameMask <q-w>is</q-w>
+<a name="8"><q-n>     8  </q-n></a><q-w>generic</q-w> (
+<a name="9"><q-n>     9  </q-n></a>    eBlack         : <q-t>boolean</q-w> := false);
+<a name="10"><q-n>     10  </q-n></a><q-w>port</q-w> (
+<a name="11"><q-n>     11  </q-n></a>    clk            : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="12"><q-n>     12  </q-n></a>    reset          : <q-a>in</q-w>  <q-t>std_logic</q-w>;
+<a name="13"><q-n>     13  </q-n></a>    iEdgeValid     : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="14"><q-n>     14  </q-n></a>    i1Rgb          : <q-a>in</q-w> channel;
+<a name="15"><q-n>     15  </q-n></a>    i2Rgb          : <q-a>in</q-w> channel;
+<a name="16"><q-n>     16  </q-n></a>    oRgb           : <q-a>out</q-w> channel);
+<a name="17"><q-n>     17  </q-n></a><q-w>end</q-w> FrameMask;
+<a name="18"><q-n>     18  </q-n></a><q-w>architecture</q-w> behavioral <q-w>of</q-w> FrameMask <q-w>is</q-w>
+<a name="19"><q-n>     19  </q-n></a>    <q-w>signal</q-w> d1Rgb     : channel;
+<a name="20"><q-n>     20  </q-n></a><q-w>begin</q-w>
+<a name="21"><q-n>     21  </q-n></a>SyncFrames32Inst: SyncFrames
+<a name="22"><q-n>     22  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="23"><q-n>     23  </q-n></a>    pixelDelay =&gt; 31) <q-m>--LATENCY 32</q-m>
+<a name="24"><q-n>     24  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="25"><q-n>     25  </q-n></a>    clk        =&gt; clk,
+<a name="26"><q-n>     26  </q-n></a>    reset      =&gt; reset,
+<a name="27"><q-n>     27  </q-n></a>    iRgb       =&gt; i2Rgb,
+<a name="28"><q-n>     28  </q-n></a>    oRgb       =&gt; d1Rgb);
+<a name="29"><q-n>     29  </q-n></a>EBLACK_ENABLED: <q-w>if</q-w> (eBlack = true) <q-w>generate</q-w>
+<a name="30"><q-n>     30  </q-n></a>    <q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="31"><q-n>     31  </q-n></a>        <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="32"><q-n>     32  </q-n></a>            <q-w>if</q-w> (iEdgeValid = hi) <q-w>then</q-w>
+<a name="33"><q-n>     33  </q-n></a>                oRgb.red   &lt;= black;
+<a name="34"><q-n>     34  </q-n></a>                oRgb.green &lt;= black;
+<a name="35"><q-n>     35  </q-n></a>                oRgb.blue  &lt;= black;
+<a name="36"><q-n>     36  </q-n></a>            <q-w>else</q-w>
+<a name="37"><q-n>     37  </q-n></a>                oRgb.red   &lt;= d1Rgb.red;
+<a name="38"><q-n>     38  </q-n></a>                oRgb.green &lt;= d1Rgb.green;
+<a name="39"><q-n>     39  </q-n></a>                oRgb.blue  &lt;= d1Rgb.blue;
+<a name="40"><q-n>     40  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="41"><q-n>     41  </q-n></a>                oRgb.valid &lt;= i1Rgb.valid;
+<a name="42"><q-n>     42  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="43"><q-n>     43  </q-n></a>    <q-w>end</q-w> <q-w>process</q-w>;
+<a name="44"><q-n>     44  </q-n></a><q-w>end</q-w> <q-w>generate</q-w> EBLACK_ENABLED;
+<a name="45"><q-n>     45  </q-n></a>EBLACK_DISABLED: <q-w>if</q-w> (eBlack = false) <q-w>generate</q-w>
+<a name="46"><q-n>     46  </q-n></a>    <q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="47"><q-n>     47  </q-n></a>        <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="48"><q-n>     48  </q-n></a>            <q-w>if</q-w> (iEdgeValid = hi) <q-w>then</q-w>
+<a name="49"><q-n>     49  </q-n></a>                oRgb.red   &lt;= i1Rgb.red;
+<a name="50"><q-n>     50  </q-n></a>                oRgb.green &lt;= i1Rgb.green;
+<a name="51"><q-n>     51  </q-n></a>                oRgb.blue  &lt;= i1Rgb.blue;
+<a name="52"><q-n>     52  </q-n></a>            <q-w>else</q-w>
+<a name="53"><q-n>     53  </q-n></a>                oRgb.red   &lt;= d1Rgb.red;
+<a name="54"><q-n>     54  </q-n></a>                oRgb.green &lt;= d1Rgb.green;
+<a name="55"><q-n>     55  </q-n></a>                oRgb.blue  &lt;= d1Rgb.blue;
+<a name="56"><q-n>     56  </q-n></a>            <q-w>end</q-w> <q-w>if</q-w>;
+<a name="57"><q-n>     57  </q-n></a>                oRgb.valid &lt;= i1Rgb.valid;
+<a name="58"><q-n>     58  </q-n></a>        <q-w>end</q-w> <q-w>if</q-w>;
+<a name="59"><q-n>     59  </q-n></a>    <q-w>end</q-w> <q-w>process</q-w>;
+<a name="60"><q-n>     60  </q-n></a><q-w>end</q-w> <q-w>generate</q-w> EBLACK_DISABLED;
+<a name="61"><q-n>     61  </q-n></a><q-w>end</q-w> behavioral;</pre>
 </tt>
 
   

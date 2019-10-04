@@ -8,7 +8,7 @@
 del *.ucdb *.wlf *.log *.htm *.opt *.contrib *.noncontrib *.rank *.vstf
 rd work /s /q
 @REM rd ..\coverage_reports\questa_html_coverage_reports\template_test /s /q
-@REM rd ..\coverage_reports\questa_html_coverage_reports\axiLite_test /s /q
+@REM rd ..\coverage_reports\questa_html_coverage_reports\axi_lite_test /s /q
 @REM rd ..\coverage_reports\questa_html_coverage_reports\rgb_test /s /q
 @REM rd ..\coverage_reports\questa_html_coverage_reports\axi4_stream_test /s /q
 @REM rd ..\coverage_reports\questa_html_coverage_reports\SystemCoverage /s /q
@@ -17,12 +17,12 @@ rd work /s /q
 :WHAT
 @echo ------------------
 @echo 1-rgb_test
-@echo 2-axiLite_test
+@echo 2-axi_lite_test
 @echo 3-template_test
 @echo 4-axi4_stream_test
 @echo 5-runAll
 @echo 11-rgb_test Coverage Report
-@echo 12-axiLite_test Coverage Report
+@echo 12-axi_lite_test Coverage Report
 @echo 13-template_test Coverage Report
 @echo 14-template_test Coverage Report
 @echo 15-AllMerged Coverage Report
@@ -54,8 +54,8 @@ vsim -c -do rgb_test2.tcl
 Powershell.exe -executionpolicy remotesigned -File rgb_test2.ps1
 @GOTO WHAT
 :TEST2
-vsim -c -do axiLite_test.tcl
-Powershell.exe -executionpolicy remotesigned -File axiLite_test.ps1
+vsim -c -do axi_lite_test.tcl
+Powershell.exe -executionpolicy remotesigned -File axi_lite_test.ps1
 @GOTO WHAT
 :TEST3
 vsim -c -do template_test.tcl
@@ -76,7 +76,7 @@ Powershell.exe -executionpolicy remotesigned -File SystemCoverage.ps1
 Powershell.exe -executionpolicy remotesigned -File rgb_test.ps1
 @GOTO WHAT
 :TEST2HTML
-Powershell.exe -executionpolicy remotesigned -File axiLite_test.ps1
+Powershell.exe -executionpolicy remotesigned -File axi_lite_test.ps1
 @GOTO WHAT
 :TEST3HTML
 Powershell.exe -executionpolicy remotesigned -File template_test.ps1
@@ -94,7 +94,7 @@ rd work /s /q
 rd ..\coverage_reports\questa_html_coverage_reports\rgb_test /s /q
 rd ..\coverage_reports\questa_html_coverage_reports\rgb_test1 /s /q
 rd ..\coverage_reports\questa_html_coverage_reports\rgb_test2 /s /q
-rd ..\coverage_reports\questa_html_coverage_reports\axiLite_test /s /q
+rd ..\coverage_reports\questa_html_coverage_reports\axi_lite_test /s /q
 rd ..\coverage_reports\questa_html_coverage_reports\template_test /s /q
 rd ..\coverage_reports\questa_html_coverage_reports\axi4_stream_test /s /q
 rd ..\coverage_reports\questa_html_coverage_reports\SystemCoverage /s /q

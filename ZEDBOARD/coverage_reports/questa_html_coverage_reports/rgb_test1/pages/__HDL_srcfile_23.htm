@@ -8,169 +8,293 @@
 <body id="hdl2html">
   <tt>
 <pre>
-<a name="1"><q-n>     1  </q-n></a><q-m>--05022019 [05-02-2019]</q-m>
-<a name="2"><q-n>     2  </q-n></a><q-w>library</q-w> ieee;
-<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
-<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
-<a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
-<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
-<a name="7"><q-n>     7  </q-n></a><q-w>use</q-w> work.portspackage.<q-w>all</q-w>;
-<a name="8"><q-n>     8  </q-n></a><q-w>entity</q-w> AxisExternal <q-w>is</q-w>
-<a name="9"><q-n>     9  </q-n></a><q-w>generic</q-w> (
-<a name="10"><q-n>     10  </q-n></a>    revision_number             : <q-t>std_logic_vector</q-w>(31 <q-w>downto</q-w> 0) := x<q-l>"05022019"</q-l>;
-<a name="11"><q-n>     11  </q-n></a>    C_rgb_m_axis_TDATA_WIDTH    : <q-t>integer</q-w> := 16;
-<a name="12"><q-n>     12  </q-n></a>    C_rgb_s_axis_TDATA_WIDTH    : <q-t>integer</q-w> := 16;
-<a name="13"><q-n>     13  </q-n></a>    C_m_axis_mm2s_TDATA_WIDTH   : <q-t>integer</q-w> := 16;
-<a name="14"><q-n>     14  </q-n></a>    C_vfpConfig_DATA_WIDTH      : <q-t>integer</q-w> := 32;
-<a name="15"><q-n>     15  </q-n></a>    C_vfpConfig_ADDR_WIDTH      : <q-t>integer</q-w> := 8;
-<a name="16"><q-n>     16  </q-n></a>    conf_data_width             : <q-t>integer</q-w> := 32;
-<a name="17"><q-n>     17  </q-n></a>    conf_addr_width             : <q-t>integer</q-w> := 8;
-<a name="18"><q-n>     18  </q-n></a>    i_data_width                : <q-t>integer</q-w> := 8;
-<a name="19"><q-n>     19  </q-n></a>    s_data_width                : <q-t>integer</q-w> := 16;
-<a name="20"><q-n>     20  </q-n></a>    b_data_width                : <q-t>integer</q-w> := 32);
-<a name="21"><q-n>     21  </q-n></a><q-w>port</q-w> (
-<a name="22"><q-n>     22  </q-n></a>    iBusSelect                  : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
-<a name="23"><q-n>     23  </q-n></a>    iStreamData                 : <q-a>in</q-w> vStreamData;
-<a name="24"><q-n>     24  </q-n></a>    oWrRegs                     : <q-a>out</q-w> mRegs;
-<a name="25"><q-n>     25  </q-n></a>    iRdRegs                     : <q-a>in</q-w> mRegs;
-<a name="26"><q-n>     26  </q-n></a>    <q-m>--tx channel                </q-m>
-<a name="27"><q-n>     27  </q-n></a>    rgb_m_axis_aclk             : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="28"><q-n>     28  </q-n></a>    rgb_m_axis_aresetn          : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="29"><q-n>     29  </q-n></a>    rgb_m_axis_tready           : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="30"><q-n>     30  </q-n></a>    rgb_m_axis_tvalid           : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="31"><q-n>     31  </q-n></a>    rgb_m_axis_tlast            : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="32"><q-n>     32  </q-n></a>    rgb_m_axis_tuser            : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="33"><q-n>     33  </q-n></a>    rgb_m_axis_tdata            : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(C_rgb_m_axis_TDATA_WIDTH-1 <q-w>downto</q-w> 0);
-<a name="34"><q-n>     34  </q-n></a>    <q-m>--rx channel                </q-m>
-<a name="35"><q-n>     35  </q-n></a>    rgb_s_axis_aclk             : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="36"><q-n>     36  </q-n></a>    rgb_s_axis_aresetn          : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="37"><q-n>     37  </q-n></a>    rgb_s_axis_tready           : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="38"><q-n>     38  </q-n></a>    rgb_s_axis_tvalid           : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="39"><q-n>     39  </q-n></a>    rgb_s_axis_tuser            : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="40"><q-n>     40  </q-n></a>    rgb_s_axis_tlast            : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="41"><q-n>     41  </q-n></a>    rgb_s_axis_tdata            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(C_rgb_s_axis_TDATA_WIDTH-1 <q-w>downto</q-w> 0);
-<a name="42"><q-n>     42  </q-n></a>    <q-m>--destination channel       </q-m>
-<a name="43"><q-n>     43  </q-n></a>    m_axis_mm2s_aclk            : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="44"><q-n>     44  </q-n></a>    m_axis_mm2s_aresetn         : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="45"><q-n>     45  </q-n></a>    m_axis_mm2s_tready          : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="46"><q-n>     46  </q-n></a>    m_axis_mm2s_tvalid          : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="47"><q-n>     47  </q-n></a>    m_axis_mm2s_tuser           : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="48"><q-n>     48  </q-n></a>    m_axis_mm2s_tlast           : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="49"><q-n>     49  </q-n></a>    m_axis_mm2s_tdata           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(C_m_axis_mm2s_TDATA_WIDTH-1 <q-w>downto</q-w> 0);
-<a name="50"><q-n>     50  </q-n></a>    m_axis_mm2s_tkeep           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
-<a name="51"><q-n>     51  </q-n></a>    m_axis_mm2s_tstrb           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
-<a name="52"><q-n>     52  </q-n></a>    m_axis_mm2s_tid             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(0 <q-w>downto</q-w> 0);
-<a name="53"><q-n>     53  </q-n></a>    m_axis_mm2s_tdest           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(0 <q-w>downto</q-w> 0);
-<a name="54"><q-n>     54  </q-n></a>    <q-m>--video configuration       </q-m>
-<a name="55"><q-n>     55  </q-n></a>    vfpconfig_aclk              : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="56"><q-n>     56  </q-n></a>    vfpconfig_aresetn           : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="57"><q-n>     57  </q-n></a>    vfpconfig_awaddr            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(C_vfpConfig_ADDR_WIDTH-1 <q-w>downto</q-w> 0);
-<a name="58"><q-n>     58  </q-n></a>    vfpconfig_awprot            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
-<a name="59"><q-n>     59  </q-n></a>    vfpconfig_awvalid           : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="60"><q-n>     60  </q-n></a>    vfpconfig_awready           : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="61"><q-n>     61  </q-n></a>    vfpconfig_wdata             : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(C_vfpConfig_DATA_WIDTH-1 <q-w>downto</q-w> 0);
-<a name="62"><q-n>     62  </q-n></a>    vfpconfig_wstrb             : <q-a>in</q-w> <q-t>std_logic_vector</q-w>((C_vfpConfig_DATA_WIDTH/8)-1 <q-w>downto</q-w> 0);
-<a name="63"><q-n>     63  </q-n></a>    vfpconfig_wvalid            : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="64"><q-n>     64  </q-n></a>    vfpconfig_wready            : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="65"><q-n>     65  </q-n></a>    vfpconfig_bresp             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(1 <q-w>downto</q-w> 0);
-<a name="66"><q-n>     66  </q-n></a>    vfpconfig_bvalid            : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="67"><q-n>     67  </q-n></a>    vfpconfig_bready            : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="68"><q-n>     68  </q-n></a>    vfpconfig_araddr            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(C_vfpConfig_ADDR_WIDTH-1 <q-w>downto</q-w> 0);
-<a name="69"><q-n>     69  </q-n></a>    vfpconfig_arprot            : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
-<a name="70"><q-n>     70  </q-n></a>    vfpconfig_arvalid           : <q-a>in</q-w> <q-t>std_logic</q-w>;
-<a name="71"><q-n>     71  </q-n></a>    vfpconfig_arready           : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="72"><q-n>     72  </q-n></a>    vfpconfig_rdata             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(C_vfpConfig_DATA_WIDTH-1 <q-w>downto</q-w> 0);
-<a name="73"><q-n>     73  </q-n></a>    vfpconfig_rresp             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(1 <q-w>downto</q-w> 0);
-<a name="74"><q-n>     74  </q-n></a>    vfpconfig_rvalid            : <q-a>out</q-w> <q-t>std_logic</q-w>;
-<a name="75"><q-n>     75  </q-n></a>    vfpconfig_rready            : <q-a>in</q-w> <q-t>std_logic</q-w>);
-<a name="76"><q-n>     76  </q-n></a><q-w>end</q-w> AxisExternal;
-<a name="77"><q-n>     77  </q-n></a><q-w>architecture</q-w> arch_imp <q-w>of</q-w> AxisExternal <q-w>is</q-w>
-<a name="78"><q-n>     78  </q-n></a>    <q-w>signal</q-w> rx_axis_tready       : <q-t>std_logic</q-w>;
-<a name="79"><q-n>     79  </q-n></a>    <q-w>signal</q-w> rx_axis_tvalid       : <q-t>std_logic</q-w>;
-<a name="80"><q-n>     80  </q-n></a>    <q-w>signal</q-w> rx_axis_tuser        : <q-t>std_logic</q-w>;
-<a name="81"><q-n>     81  </q-n></a>    <q-w>signal</q-w> rx_axis_tlast        : <q-t>std_logic</q-w>;
-<a name="82"><q-n>     82  </q-n></a>    <q-w>signal</q-w> rx_axis_tdata        : <q-t>std_logic_vector</q-w>(m_axis_mm2s_tdata'<q-w>range</q-w>);
-<a name="83"><q-n>     83  </q-n></a><q-w>begin</q-w>
-<a name="84"><q-n>     84  </q-n></a>mAxisInst: videoProcess_v1_0_rgb_m_axis
-<a name="85"><q-n>     85  </q-n></a><q-w>generic</q-w> <q-w>map</q-w> (
-<a name="86"><q-n>     86  </q-n></a>    i_data_width         =&gt; i_data_width,
-<a name="87"><q-n>     87  </q-n></a>    b_data_width         =&gt; b_data_width,
-<a name="88"><q-n>     88  </q-n></a>    s_data_width         =&gt; s_data_width)
-<a name="89"><q-n>     89  </q-n></a><q-w>port</q-w> <q-w>map</q-w> (
-<a name="90"><q-n>     90  </q-n></a>    <q-m>--stream clock/reset</q-m>
-<a name="91"><q-n>     91  </q-n></a>    m_axis_mm2s_aclk     =&gt;  rgb_s_axis_aclk,
-<a name="92"><q-n>     92  </q-n></a>    m_axis_mm2s_aresetn  =&gt;  rgb_s_axis_aresetn,
-<a name="93"><q-n>     93  </q-n></a>    <q-m>--config</q-m>
-<a name="94"><q-n>     94  </q-n></a>    aBusSelect           =&gt;  iBusSelect,
-<a name="95"><q-n>     95  </q-n></a>    iStreamData          =&gt;  iStreamData,
-<a name="96"><q-n>     96  </q-n></a>    <q-m>--stream to master</q-m>
-<a name="97"><q-n>     97  </q-n></a>    rx_axis_tready_o     =&gt;  rx_axis_tready,
-<a name="98"><q-n>     98  </q-n></a>    rx_axis_tvalid       =&gt;  rx_axis_tvalid,
-<a name="99"><q-n>     99  </q-n></a>    rx_axis_tuser        =&gt;  rx_axis_tuser,
-<a name="100"><q-n>     100  </q-n></a>    rx_axis_tlast        =&gt;  rx_axis_tlast,
-<a name="101"><q-n>     101  </q-n></a>    rx_axis_tdata        =&gt;  rx_axis_tdata,
-<a name="102"><q-n>     102  </q-n></a>    <q-m>--tx channel</q-m>
-<a name="103"><q-n>     103  </q-n></a>    rgb_m_axis_tvalid    =&gt;  rgb_m_axis_tvalid,
-<a name="104"><q-n>     104  </q-n></a>    rgb_m_axis_tlast     =&gt;  rgb_m_axis_tlast,
-<a name="105"><q-n>     105  </q-n></a>    rgb_m_axis_tuser     =&gt;  rgb_m_axis_tuser,
-<a name="106"><q-n>     106  </q-n></a>    rgb_m_axis_tready    =&gt;  rgb_m_axis_tready,
-<a name="107"><q-n>     107  </q-n></a>    rgb_m_axis_tdata     =&gt;  rgb_m_axis_tdata,
-<a name="108"><q-n>     108  </q-n></a>    <q-m>--rx channel</q-m>
-<a name="109"><q-n>     109  </q-n></a>    rgb_s_axis_tready    =&gt;  rgb_s_axis_tready,
-<a name="110"><q-n>     110  </q-n></a>    rgb_s_axis_tvalid    =&gt;  rgb_s_axis_tvalid,
-<a name="111"><q-n>     111  </q-n></a>    rgb_s_axis_tuser     =&gt;  rgb_s_axis_tuser,
-<a name="112"><q-n>     112  </q-n></a>    rgb_s_axis_tlast     =&gt;  rgb_s_axis_tlast,
-<a name="113"><q-n>     113  </q-n></a>    rgb_s_axis_tdata     =&gt;  rgb_s_axis_tdata);
-<a name="114"><q-n>     114  </q-n></a>mm2sInst: videoProcess_v1_0_m_axis_mm2s
-<a name="115"><q-n>     115  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
-<a name="116"><q-n>     116  </q-n></a>    s_data_width         =&gt; s_data_width)
-<a name="117"><q-n>     117  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
-<a name="118"><q-n>     118  </q-n></a>    aclk                 =&gt; rgb_m_axis_aclk,
-<a name="119"><q-n>     119  </q-n></a>    aresetn              =&gt; rgb_m_axis_aresetn,
-<a name="120"><q-n>     120  </q-n></a>    rgb_s_axis_tready    =&gt; rx_axis_tready,
-<a name="121"><q-n>     121  </q-n></a>    rgb_s_axis_tvalid    =&gt; rx_axis_tvalid,
-<a name="122"><q-n>     122  </q-n></a>    rgb_s_axis_tuser     =&gt; rx_axis_tuser,
-<a name="123"><q-n>     123  </q-n></a>    rgb_s_axis_tlast     =&gt; rx_axis_tlast,
-<a name="124"><q-n>     124  </q-n></a>    rgb_s_axis_tdata     =&gt; rx_axis_tdata,
-<a name="125"><q-n>     125  </q-n></a>    m_axis_mm2s_tkeep    =&gt; m_axis_mm2s_tkeep,
-<a name="126"><q-n>     126  </q-n></a>    m_axis_mm2s_tstrb    =&gt; m_axis_mm2s_tstrb,
-<a name="127"><q-n>     127  </q-n></a>    m_axis_mm2s_tid      =&gt; m_axis_mm2s_tid,
-<a name="128"><q-n>     128  </q-n></a>    m_axis_mm2s_tdest    =&gt; m_axis_mm2s_tdest,
-<a name="129"><q-n>     129  </q-n></a>    m_axis_mm2s_tready   =&gt; m_axis_mm2s_tready,
-<a name="130"><q-n>     130  </q-n></a>    m_axis_mm2s_tvalid   =&gt; m_axis_mm2s_tvalid,
-<a name="131"><q-n>     131  </q-n></a>    m_axis_mm2s_tuser    =&gt; m_axis_mm2s_tuser,
-<a name="132"><q-n>     132  </q-n></a>    m_axis_mm2s_tlast    =&gt; m_axis_mm2s_tlast,    
-<a name="133"><q-n>     133  </q-n></a>    m_axis_mm2s_tdata    =&gt; m_axis_mm2s_tdata);
-<a name="134"><q-n>     134  </q-n></a>vfpConfigInst: videoProcess_v1_0_Config
-<a name="135"><q-n>     135  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
-<a name="136"><q-n>     136  </q-n></a>    revision_number      =&gt; revision_number,
-<a name="137"><q-n>     137  </q-n></a>    C_S_AXI_DATA_WIDTH   =&gt; conf_data_width,
-<a name="138"><q-n>     138  </q-n></a>    C_S_AXI_ADDR_WIDTH   =&gt; conf_addr_width)
-<a name="139"><q-n>     139  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
-<a name="140"><q-n>     140  </q-n></a>    wrRegsOut            =&gt; oWrRegs,
-<a name="141"><q-n>     141  </q-n></a>    rdRegsIn             =&gt; iRdRegs,
-<a name="142"><q-n>     142  </q-n></a>    S_AXI_ACLK           =&gt; vfpconfig_aclk,
-<a name="143"><q-n>     143  </q-n></a>    S_AXI_ARESETN        =&gt; vfpconfig_aresetn,
-<a name="144"><q-n>     144  </q-n></a>    S_AXI_AWADDR         =&gt; vfpconfig_awaddr,
-<a name="145"><q-n>     145  </q-n></a>    S_AXI_AWPROT         =&gt; vfpconfig_awprot,
-<a name="146"><q-n>     146  </q-n></a>    S_AXI_AWVALID        =&gt; vfpconfig_awvalid,
-<a name="147"><q-n>     147  </q-n></a>    S_AXI_AWREADY        =&gt; vfpconfig_awready,
-<a name="148"><q-n>     148  </q-n></a>    S_AXI_WDATA          =&gt; vfpconfig_wdata,
-<a name="149"><q-n>     149  </q-n></a>    S_AXI_WSTRB          =&gt; vfpconfig_wstrb,
-<a name="150"><q-n>     150  </q-n></a>    S_AXI_WVALID         =&gt; vfpconfig_wvalid,
-<a name="151"><q-n>     151  </q-n></a>    S_AXI_WREADY         =&gt; vfpconfig_wready,
-<a name="152"><q-n>     152  </q-n></a>    S_AXI_BRESP          =&gt; vfpconfig_bresp,
-<a name="153"><q-n>     153  </q-n></a>    S_AXI_BVALID         =&gt; vfpconfig_bvalid,
-<a name="154"><q-n>     154  </q-n></a>    S_AXI_BREADY         =&gt; vfpconfig_bready,
-<a name="155"><q-n>     155  </q-n></a>    S_AXI_ARADDR         =&gt; vfpconfig_araddr,
-<a name="156"><q-n>     156  </q-n></a>    S_AXI_ARPROT         =&gt; vfpconfig_arprot,
-<a name="157"><q-n>     157  </q-n></a>    S_AXI_ARVALID        =&gt; vfpconfig_arvalid,
-<a name="158"><q-n>     158  </q-n></a>    S_AXI_ARREADY        =&gt; vfpconfig_arready,
-<a name="159"><q-n>     159  </q-n></a>    S_AXI_RDATA          =&gt; vfpconfig_rdata,
-<a name="160"><q-n>     160  </q-n></a>    S_AXI_RRESP          =&gt; vfpconfig_rresp,
-<a name="161"><q-n>     161  </q-n></a>    S_AXI_RVALID         =&gt; vfpconfig_rvalid,
-<a name="162"><q-n>     162  </q-n></a>    S_AXI_RREADY         =&gt; vfpconfig_rready);
-<a name="163"><q-n>     163  </q-n></a><q-w>end</q-w> arch_imp;</pre>
+<a name="1"><q-n>     1  </q-n></a><q-w>library</q-w> ieee;
+<a name="2"><q-n>     2  </q-n></a><q-w>use</q-w> ieee.std_logic_1164.<q-w>all</q-w>;
+<a name="3"><q-n>     3  </q-n></a><q-w>use</q-w> ieee.numeric_std.<q-w>all</q-w>;
+<a name="4"><q-n>     4  </q-n></a><q-w>use</q-w> work.constantspackage.<q-w>all</q-w>;
+<a name="5"><q-n>     5  </q-n></a><q-w>use</q-w> work.vpfRecords.<q-w>all</q-w>;
+<a name="6"><q-n>     6  </q-n></a><q-w>use</q-w> work.portspackage.<q-w>all</q-w>;
+<a name="7"><q-n>     7  </q-n></a><q-w>entity</q-w> frameProcess <q-w>is</q-w>
+<a name="8"><q-n>     8  </q-n></a><q-w>generic</q-w> (
+<a name="9"><q-n>     9  </q-n></a>    i_data_width            : <q-t>integer</q-w> := 8;
+<a name="10"><q-n>     10  </q-n></a>    s_data_width            : <q-t>integer</q-w> := 16;
+<a name="11"><q-n>     11  </q-n></a>    b_data_width            : <q-t>integer</q-w> := 32;
+<a name="12"><q-n>     12  </q-n></a>    img_width               : <q-t>integer</q-w> := 256;
+<a name="13"><q-n>     13  </q-n></a>    adwrWidth               : <q-t>integer</q-w> := 16;
+<a name="14"><q-n>     14  </q-n></a>    addrWidth               : <q-t>integer</q-w> := 12);
+<a name="15"><q-n>     15  </q-n></a><q-w>port</q-w> (
+<a name="16"><q-n>     16  </q-n></a>    clk                     : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="17"><q-n>     17  </q-n></a>    rst_l                   : <q-a>in</q-w> <q-t>std_logic</q-w>;
+<a name="18"><q-n>     18  </q-n></a>    iRgbSet                 : <q-a>in</q-w> rRgb;
+<a name="19"><q-n>     19  </q-n></a>    <q-m>--cpu side in</q-m>
+<a name="20"><q-n>     20  </q-n></a>    iRgbCoord               : <q-a>in</q-w> region;
+<a name="21"><q-n>     21  </q-n></a>    iPoiRegion              : <q-a>in</q-w> poi;
+<a name="22"><q-n>     22  </q-n></a>    iKls                    : <q-a>in</q-w> coefficient;
+<a name="23"><q-n>     23  </q-n></a>    iAls                    : <q-a>in</q-w> coefficient;
+<a name="24"><q-n>     24  </q-n></a>    iLumTh                  : <q-a>in</q-w> <q-t>integer</q-w>;
+<a name="25"><q-n>     25  </q-n></a>    iHsvPerCh               : <q-a>in</q-w> <q-t>integer</q-w>;
+<a name="26"><q-n>     26  </q-n></a>    iYccPerCh               : <q-a>in</q-w> <q-t>integer</q-w>;
+<a name="27"><q-n>     27  </q-n></a>    iEdgeType               : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
+<a name="28"><q-n>     28  </q-n></a>    iThreshold              : <q-a>in</q-w> <q-t>std_logic_vector</q-w>(s_data_width-1 <q-w>downto</q-w> 0); 
+<a name="29"><q-n>     29  </q-n></a>    <q-m>--out</q-m>
+<a name="30"><q-n>     30  </q-n></a>    oFrameData              : <q-a>out</q-w> fcolors;
+<a name="31"><q-n>     31  </q-n></a>    <q-m>--to cpu</q-m>
+<a name="32"><q-n>     32  </q-n></a>    oFifoStatus             : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0);
+<a name="33"><q-n>     33  </q-n></a>    oGridLockData           : <q-a>out</q-w> <q-t>std_logic_vector</q-w>(b_data_width-1 <q-w>downto</q-w> 0));
+<a name="34"><q-n>     34  </q-n></a><q-w>end</q-w> <q-w>entity</q-w>;
+<a name="35"><q-n>     35  </q-n></a><q-w>architecture</q-w> arch <q-w>of</q-w> frameProcess <q-w>is</q-w>
+<a name="36"><q-n>     36  </q-n></a>    <q-w>signal</q-w> txCord           : coord;
+<a name="37"><q-n>     37  </q-n></a>    <q-w>signal</q-w> rgbV1Correct     : channel;
+<a name="38"><q-n>     38  </q-n></a>    <q-w>signal</q-w> rgbV2Correct     : channel;
+<a name="39"><q-n>     39  </q-n></a>    <q-w>signal</q-w> rgbIn            : channel;
+<a name="40"><q-n>     40  </q-n></a>    <q-w>signal</q-w> rgbRemix         : channel;
+<a name="41"><q-n>     41  </q-n></a>    <q-w>signal</q-w> rgbPoi           : channel;
+<a name="42"><q-n>     42  </q-n></a>    <q-w>signal</q-w> rgbDetect        : channel;
+<a name="43"><q-n>     43  </q-n></a>    <q-w>signal</q-w> hsv              : hsvChannel;
+<a name="44"><q-n>     44  </q-n></a>    <q-w>signal</q-w> hsl              : hslChannel;
+<a name="45"><q-n>     45  </q-n></a>    <q-w>signal</q-w> hsvCcBlur4vx     : hsvChannel;
+<a name="46"><q-n>     46  </q-n></a>    <q-w>signal</q-w> cord             : coord;
+<a name="47"><q-n>     47  </q-n></a>    <q-w>signal</q-w> syncxy           : coord;
+<a name="48"><q-n>     48  </q-n></a>    <q-w>signal</q-w> cordIn           : coord;
+<a name="49"><q-n>     49  </q-n></a>    <q-w>signal</q-w> rgbSum           : tpRgb;
+<a name="50"><q-n>     50  </q-n></a>    <q-w>signal</q-w> rgbImageKernelv1 : colors;
+<a name="51"><q-n>     51  </q-n></a>    <q-w>signal</q-w> rgbImageKernelv2 : colors;
+<a name="52"><q-n>     52  </q-n></a>    <q-w>signal</q-w> rgbImageKernelv3 : colors;
+<a name="53"><q-n>     53  </q-n></a>    <q-w>signal</q-w> rgbImageKernelv4 : colors;
+<a name="54"><q-n>     54  </q-n></a>    <q-w>signal</q-w> rgbImageKernelv5 : colors;
+<a name="55"><q-n>     55  </q-n></a>    <q-w>signal</q-w> iKcoeff          : kernelCoeff;
+<a name="56"><q-n>     56  </q-n></a>    <q-w>signal</q-w> rgbImageFilters  : frameColors;
+<a name="57"><q-n>     57  </q-n></a>    <q-w>signal</q-w> lumThreshold     : <q-t>std_logic_vector</q-w>(7 <q-w>downto</q-w> 0);
+<a name="58"><q-n>     58  </q-n></a>    <q-w>signal</q-w> cHsv             : <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
+<a name="59"><q-n>     59  </q-n></a>    <q-w>signal</q-w> cYcc             : <q-t>std_logic_vector</q-w>(2 <q-w>downto</q-w> 0);
+<a name="60"><q-n>     60  </q-n></a>    <q-w>signal</q-w> edgeValid        : <q-t>std_logic</q-w>;
+<a name="61"><q-n>     61  </q-n></a>    <q-w>signal</q-w> rgbDetectLock    : <q-t>std_logic</q-w>;
+<a name="62"><q-n>     62  </q-n></a>    <q-w>signal</q-w> rgbPoiLock       : <q-t>std_logic</q-w>;
+<a name="63"><q-n>     63  </q-n></a>    <q-w>signal</q-w> sValid           : <q-t>std_logic</q-w>;
+<a name="64"><q-n>     64  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="65"><q-n>     65  </q-n></a>    <q-w>constant</q-w> F_TES          : <q-t>boolean</q-w> := true;
+<a name="66"><q-n>     66  </q-n></a>    <q-w>constant</q-w> F_LUM          : <q-t>boolean</q-w> := false;
+<a name="67"><q-n>     67  </q-n></a>    <q-w>constant</q-w> F_TRM          : <q-t>boolean</q-w> := false;
+<a name="68"><q-n>     68  </q-n></a>    <q-w>constant</q-w> F_RGB          : <q-t>boolean</q-w> := true;
+<a name="69"><q-n>     69  </q-n></a>    <q-w>constant</q-w> F_SHP          : <q-t>boolean</q-w> := true;
+<a name="70"><q-n>     70  </q-n></a>    <q-w>constant</q-w> F_BLU          : <q-t>boolean</q-w> := false;
+<a name="71"><q-n>     71  </q-n></a>    <q-w>constant</q-w> F_EMB          : <q-t>boolean</q-w> := false;
+<a name="72"><q-n>     72  </q-n></a>    <q-w>constant</q-w> F_YCC          : <q-t>boolean</q-w> := false;
+<a name="73"><q-n>     73  </q-n></a>    <q-w>constant</q-w> F_SOB          : <q-t>boolean</q-w> := true;
+<a name="74"><q-n>     74  </q-n></a>    <q-w>constant</q-w> F_CGA          : <q-t>boolean</q-w> := true;
+<a name="75"><q-n>     75  </q-n></a>    <q-w>constant</q-w> F_HSV          : <q-t>boolean</q-w> := true;
+<a name="76"><q-n>     76  </q-n></a>    <q-w>constant</q-w> F_HSL          : <q-t>boolean</q-w> := true;
+<a name="77"><q-n>     77  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="78"><q-n>     78  </q-n></a>    <q-w>constant</q-w> F_CGA_TO_CGA   : <q-t>boolean</q-w> := false;
+<a name="79"><q-n>     79  </q-n></a>    <q-w>constant</q-w> F_CGA_TO_HSL   : <q-t>boolean</q-w> := false;
+<a name="80"><q-n>     80  </q-n></a>    <q-w>constant</q-w> F_CGA_TO_HSV   : <q-t>boolean</q-w> := false;
+<a name="81"><q-n>     81  </q-n></a>    <q-w>constant</q-w> F_CGA_TO_YCC   : <q-t>boolean</q-w> := false;
+<a name="82"><q-n>     82  </q-n></a>    <q-w>constant</q-w> F_CGA_TO_SHP   : <q-t>boolean</q-w> := false;
+<a name="83"><q-n>     83  </q-n></a>    <q-w>constant</q-w> F_CGA_TO_BLU   : <q-t>boolean</q-w> := false;
+<a name="84"><q-n>     84  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="85"><q-n>     85  </q-n></a>    <q-w>constant</q-w> F_SHP_TO_SHP   : <q-t>boolean</q-w> := false;
+<a name="86"><q-n>     86  </q-n></a>    <q-w>constant</q-w> F_SHP_TO_HSL   : <q-t>boolean</q-w> := false;
+<a name="87"><q-n>     87  </q-n></a>    <q-w>constant</q-w> F_SHP_TO_HSV   : <q-t>boolean</q-w> := false;
+<a name="88"><q-n>     88  </q-n></a>    <q-w>constant</q-w> F_SHP_TO_YCC   : <q-t>boolean</q-w> := false;
+<a name="89"><q-n>     89  </q-n></a>    <q-w>constant</q-w> F_SHP_TO_CGA   : <q-t>boolean</q-w> := false;
+<a name="90"><q-n>     90  </q-n></a>    <q-w>constant</q-w> F_SHP_TO_BLU   : <q-t>boolean</q-w> := false;
+<a name="91"><q-n>     91  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="92"><q-n>     92  </q-n></a>    <q-w>constant</q-w> F_BLU_TO_BLU   : <q-t>boolean</q-w> := false;
+<a name="93"><q-n>     93  </q-n></a>    <q-w>constant</q-w> F_BLU_TO_HSL   : <q-t>boolean</q-w> := false;
+<a name="94"><q-n>     94  </q-n></a>    <q-w>constant</q-w> F_BLU_TO_HSV   : <q-t>boolean</q-w> := false;
+<a name="95"><q-n>     95  </q-n></a>    <q-w>constant</q-w> F_BLU_TO_YCC   : <q-t>boolean</q-w> := false;
+<a name="96"><q-n>     96  </q-n></a>    <q-w>constant</q-w> F_BLU_TO_CGA   : <q-t>boolean</q-w> := false;
+<a name="97"><q-n>     97  </q-n></a>    <q-w>constant</q-w> F_BLU_TO_SHP   : <q-t>boolean</q-w> := false;
+<a name="98"><q-n>     98  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="99"><q-n>     99  </q-n></a>    <q-w>constant</q-w> MASK_TRUE      : <q-t>boolean</q-w> := true;
+<a name="100"><q-n>     100  </q-n></a>    <q-w>constant</q-w> MASK_FLSE      : <q-t>boolean</q-w> := false;
+<a name="101"><q-n>     101  </q-n></a>    <q-w>constant</q-w> M_SOB_LUM      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_LUM,MASK_FLSE);
+<a name="102"><q-n>     102  </q-n></a>    <q-w>constant</q-w> M_SOB_TRM      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_TRM,MASK_FLSE);
+<a name="103"><q-n>     103  </q-n></a>    <q-w>constant</q-w> M_SOB_RGB      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_RGB,MASK_TRUE);
+<a name="104"><q-n>     104  </q-n></a>    <q-w>constant</q-w> M_SOB_SHP      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_SHP,MASK_TRUE);
+<a name="105"><q-n>     105  </q-n></a>    <q-w>constant</q-w> M_SOB_BLU      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_BLU,MASK_FLSE);
+<a name="106"><q-n>     106  </q-n></a>    <q-w>constant</q-w> M_SOB_YCC      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_YCC,MASK_FLSE);
+<a name="107"><q-n>     107  </q-n></a>    <q-w>constant</q-w> M_SOB_CGA      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_CGA,MASK_TRUE);
+<a name="108"><q-n>     108  </q-n></a>    <q-w>constant</q-w> M_SOB_HSV      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_HSV,MASK_TRUE);
+<a name="109"><q-n>     109  </q-n></a>    <q-w>constant</q-w> M_SOB_HSL      : <q-t>boolean</q-w> := SelFrame(F_SOB,F_HSL,MASK_TRUE);
+<a name="110"><q-n>     110  </q-n></a><q-w>begin</q-w>
+<a name="111"><q-n>     111  </q-n></a>    lumThreshold                 &lt;= <q-t>std_logic_vector</q-w>(to_unsigned(iLumTh,8));
+<a name="112"><q-n>     112  </q-n></a>    cHsv                         &lt;= <q-t>std_logic_vector</q-w>(to_unsigned(iHsvPerCh,3));<q-m>--[0-cHsv,1-cHsvH,2-cHsvS,3-cHsvV]</q-m>
+<a name="113"><q-n>     113  </q-n></a>    cYcc                         &lt;= <q-t>std_logic_vector</q-w>(to_unsigned(iYccPerCh,3));<q-m>--[0-cYcc,1-cYccY,2-cYccB,3-cYccR]</q-m>
+<a name="114"><q-n>     114  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="115"><q-n>     115  </q-n></a>    oFrameData.sobel             &lt;= rgbImageFilters.sobel;
+<a name="116"><q-n>     116  </q-n></a>    oFrameData.embos             &lt;= rgbImageFilters.embos;
+<a name="117"><q-n>     117  </q-n></a>    oFrameData.blur              &lt;= rgbImageFilters.blur;
+<a name="118"><q-n>     118  </q-n></a>    oFrameData.sharp             &lt;= rgbImageFilters.sharp;
+<a name="119"><q-n>     119  </q-n></a>    oFrameData.cgain             &lt;= rgbImageFilters.cgain;
+<a name="120"><q-n>     120  </q-n></a>    oFrameData.ycbcr             &lt;= rgbImageFilters.ycbcr;
+<a name="121"><q-n>     121  </q-n></a>    oFrameData.hsl               &lt;= rgbImageFilters.hsl;
+<a name="122"><q-n>     122  </q-n></a>    oFrameData.hsv               &lt;= rgbImageFilters.hsv;
+<a name="123"><q-n>     123  </q-n></a>    oFrameData.inrgb             &lt;= rgbImageFilters.inrgb;
+<a name="124"><q-n>     124  </q-n></a>    oFrameData.maskSobelLum      &lt;= rgbImageFilters.maskSobelLum;
+<a name="125"><q-n>     125  </q-n></a>    oFrameData.maskSobelTrm      &lt;= rgbImageFilters.maskSobelTrm;
+<a name="126"><q-n>     126  </q-n></a>    oFrameData.maskSobelRgb      &lt;= rgbImageFilters.maskSobelRgb;
+<a name="127"><q-n>     127  </q-n></a>    oFrameData.maskSobelShp      &lt;= rgbImageFilters.maskSobelShp;
+<a name="128"><q-n>     128  </q-n></a>    oFrameData.maskSobelBlu      &lt;= rgbImageFilters.maskSobelBlu;
+<a name="129"><q-n>     129  </q-n></a>    oFrameData.maskSobelYcc      &lt;= rgbImageFilters.maskSobelYcc;
+<a name="130"><q-n>     130  </q-n></a>    oFrameData.maskSobelHsv      &lt;= rgbImageFilters.maskSobelHsv;
+<a name="131"><q-n>     131  </q-n></a>    oFrameData.maskSobelHsl      &lt;= rgbImageFilters.maskSobelHsl;
+<a name="132"><q-n>     132  </q-n></a>    oFrameData.maskSobelCga      &lt;= rgbImageFilters.maskSobelCga;
+<a name="133"><q-n>     133  </q-n></a>    oFrameData.colorTrm          &lt;= rgbImageFilters.colorTrm;
+<a name="134"><q-n>     134  </q-n></a>    oFrameData.colorLmp          &lt;= rgbImageFilters.colorLmp;
+<a name="135"><q-n>     135  </q-n></a>    oFrameData.tPattern          &lt;= rgbImageFilters.tPattern;
+<a name="136"><q-n>     136  </q-n></a>    oFrameData.cgainToCgain      &lt;= rgbImageFilters.cgainToCgain;
+<a name="137"><q-n>     137  </q-n></a>    oFrameData.cgainToHsl        &lt;= rgbImageFilters.cgainToHsl;
+<a name="138"><q-n>     138  </q-n></a>    oFrameData.cgainToHsv        &lt;= rgbImageFilters.cgainToHsv;
+<a name="139"><q-n>     139  </q-n></a>    oFrameData.cgainToYcbcr      &lt;= rgbImageFilters.cgainToYcbcr;
+<a name="140"><q-n>     140  </q-n></a>    oFrameData.cgainToShp        &lt;= rgbImageFilters.cgainToShp;
+<a name="141"><q-n>     141  </q-n></a>    oFrameData.cgainToBlu        &lt;= rgbImageFilters.cgainToBlu;
+<a name="142"><q-n>     142  </q-n></a>    oFrameData.shpToCgain        &lt;= rgbImageFilters.shpToCgain;
+<a name="143"><q-n>     143  </q-n></a>    oFrameData.shpToHsl          &lt;= rgbImageFilters.shpToHsl;
+<a name="144"><q-n>     144  </q-n></a>    oFrameData.shpToHsv          &lt;= rgbImageFilters.shpToHsv;
+<a name="145"><q-n>     145  </q-n></a>    oFrameData.shpToYcbcr        &lt;= rgbImageFilters.shpToYcbcr;
+<a name="146"><q-n>     146  </q-n></a>    oFrameData.shpToShp          &lt;= rgbImageFilters.shpToShp;
+<a name="147"><q-n>     147  </q-n></a>    oFrameData.shpToBlu          &lt;= rgbImageFilters.shpToBlu;
+<a name="148"><q-n>     148  </q-n></a>    oFrameData.bluToBlu          &lt;= rgbImageFilters.bluToBlu;
+<a name="149"><q-n>     149  </q-n></a>    oFrameData.bluToCga          &lt;= rgbImageFilters.bluToCga;
+<a name="150"><q-n>     150  </q-n></a>    oFrameData.bluToShp          &lt;= rgbImageFilters.bluToShp;
+<a name="151"><q-n>     151  </q-n></a>    oFrameData.bluToYcc          &lt;= rgbImageFilters.bluToYcc;
+<a name="152"><q-n>     152  </q-n></a>    oFrameData.bluToHsv          &lt;= rgbImageFilters.bluToHsv;
+<a name="153"><q-n>     153  </q-n></a>    oFrameData.bluToHsl          &lt;= rgbImageFilters.bluToHsl;
+<a name="154"><q-n>     154  </q-n></a>    oFrameData.bluToCgaShp       &lt;= rgbImageFilters.bluToCgaShp;
+<a name="155"><q-n>     155  </q-n></a>    oFrameData.bluToCgaShpYcc    &lt;= rgbImageFilters.bluToCgaShpYcc;
+<a name="156"><q-n>     156  </q-n></a>    oFrameData.bluToCgaShpHsv    &lt;= rgbImageFilters.bluToCgaShpHsv;
+<a name="157"><q-n>     157  </q-n></a>    oFrameData.bluToShpCga       &lt;= rgbImageFilters.bluToShpCga;
+<a name="158"><q-n>     158  </q-n></a>    oFrameData.bluToShpCgaYcc    &lt;= rgbImageFilters.bluToShpCgaYcc;
+<a name="159"><q-n>     159  </q-n></a>    oFrameData.bluToShpCgaHsv    &lt;= rgbImageFilters.bluToShpCgaHsv;
+<a name="160"><q-n>     160  </q-n></a>    oFrameData.rgbRemix          &lt;= rgbRemix;
+<a name="161"><q-n>     161  </q-n></a>    oFrameData.rgbDetect         &lt;= rgbDetect;
+<a name="162"><q-n>     162  </q-n></a>    oFrameData.rgbPoi            &lt;= rgbPoi;
+<a name="163"><q-n>     163  </q-n></a>    oFrameData.rgbSum            &lt;= rgbSum;
+<a name="164"><q-n>     164  </q-n></a>    oFrameData.rgbDetectLock     &lt;= rgbDetectLock;
+<a name="165"><q-n>     165  </q-n></a>    oFrameData.rgbPoiLock        &lt;= rgbPoiLock;
+<a name="166"><q-n>     166  </q-n></a>    oFrameData.cod               &lt;= syncxy;
+<a name="167"><q-n>     167  </q-n></a>    oFrameData.pEof              &lt;= iRgbSet.pEof;
+<a name="168"><q-n>     168  </q-n></a>    oFrameData.pSof              &lt;= iRgbSet.pSof;
+<a name="169"><q-n>     169  </q-n></a>    rgbIn.red                    &lt;= iRgbSet.red;
+<a name="170"><q-n>     170  </q-n></a>    rgbIn.green                  &lt;= iRgbSet.green;
+<a name="171"><q-n>     171  </q-n></a>    rgbIn.blue                   &lt;= iRgbSet.blue;
+<a name="172"><q-n>     172  </q-n></a>    rgbIn.valid                  &lt;= iRgbSet.valid;
+<a name="173"><q-n>     173  </q-n></a>    cordIn.x                     &lt;= iRgbSet.cord.x;
+<a name="174"><q-n>     174  </q-n></a>    cordIn.y                     &lt;= iRgbSet.cord.y;
+<a name="175"><q-n>     175  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="176"><q-n>     176  </q-n></a>pipCoordP: <q-w>process</q-w> (clk) <q-w>begin</q-w>
+<a name="177"><q-n>     177  </q-n></a>    <q-w>if</q-w> rising_edge(clk) <q-w>then</q-w>
+<a name="178"><q-n>     178  </q-n></a>        syncxy          &lt;= cordIn;
+<a name="179"><q-n>     179  </q-n></a>        cord            &lt;= syncxy;
+<a name="180"><q-n>     180  </q-n></a>    <q-w>end</q-w> <q-w>if</q-w>;
+<a name="181"><q-n>     181  </q-n></a><q-w>end</q-w> <q-w>process</q-w> pipCoordP;
+<a name="182"><q-n>     182  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="183"><q-n>     183  </q-n></a>    iKcoeff.k1   &lt;= iKls.k1(15 <q-w>downto</q-w> 0);
+<a name="184"><q-n>     184  </q-n></a>    iKcoeff.k2   &lt;= iKls.k2(15 <q-w>downto</q-w> 0); 
+<a name="185"><q-n>     185  </q-n></a>    iKcoeff.k3   &lt;= iKls.k3(15 <q-w>downto</q-w> 0); 
+<a name="186"><q-n>     186  </q-n></a>    iKcoeff.k4   &lt;= iKls.k4(15 <q-w>downto</q-w> 0); 
+<a name="187"><q-n>     187  </q-n></a>    iKcoeff.k5   &lt;= iKls.k5(15 <q-w>downto</q-w> 0); 
+<a name="188"><q-n>     188  </q-n></a>    iKcoeff.k6   &lt;= iKls.k6(15 <q-w>downto</q-w> 0); 
+<a name="189"><q-n>     189  </q-n></a>    iKcoeff.k7   &lt;= iKls.k7(15 <q-w>downto</q-w> 0); 
+<a name="190"><q-n>     190  </q-n></a>    iKcoeff.k8   &lt;= iKls.k8(15 <q-w>downto</q-w> 0); 
+<a name="191"><q-n>     191  </q-n></a>    iKcoeff.k9   &lt;= iKls.k9(15 <q-w>downto</q-w> 0); 
+<a name="192"><q-n>     192  </q-n></a>    iKcoeff.kSet &lt;= iKls.config;
+<a name="193"><q-n>     193  </q-n></a>    <q-m>-------------------------------------------------</q-m>
+<a name="194"><q-n>     194  </q-n></a>FiltersInst: Filters
+<a name="195"><q-n>     195  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="196"><q-n>     196  </q-n></a>    F_TES               =&gt;  F_TES,
+<a name="197"><q-n>     197  </q-n></a>    F_LUM               =&gt;  F_LUM,
+<a name="198"><q-n>     198  </q-n></a>    F_TRM               =&gt;  F_TRM,
+<a name="199"><q-n>     199  </q-n></a>    F_RGB               =&gt;  F_RGB,
+<a name="200"><q-n>     200  </q-n></a>    F_SHP               =&gt;  F_SHP,
+<a name="201"><q-n>     201  </q-n></a>    F_BLU               =&gt;  F_BLU,
+<a name="202"><q-n>     202  </q-n></a>    F_EMB               =&gt;  F_EMB,
+<a name="203"><q-n>     203  </q-n></a>    F_YCC               =&gt;  F_YCC,
+<a name="204"><q-n>     204  </q-n></a>    F_SOB               =&gt;  F_SOB,
+<a name="205"><q-n>     205  </q-n></a>    F_CGA               =&gt;  F_CGA,
+<a name="206"><q-n>     206  </q-n></a>    F_HSV               =&gt;  F_HSV,
+<a name="207"><q-n>     207  </q-n></a>    F_HSL               =&gt;  F_HSL,
+<a name="208"><q-n>     208  </q-n></a>    M_SOB_LUM           =&gt;  M_SOB_LUM,
+<a name="209"><q-n>     209  </q-n></a>    M_SOB_TRM           =&gt;  M_SOB_TRM,
+<a name="210"><q-n>     210  </q-n></a>    M_SOB_RGB           =&gt;  M_SOB_RGB,
+<a name="211"><q-n>     211  </q-n></a>    M_SOB_SHP           =&gt;  M_SOB_SHP,
+<a name="212"><q-n>     212  </q-n></a>    M_SOB_BLU           =&gt;  M_SOB_BLU,
+<a name="213"><q-n>     213  </q-n></a>    M_SOB_YCC           =&gt;  M_SOB_YCC,
+<a name="214"><q-n>     214  </q-n></a>    M_SOB_CGA           =&gt;  M_SOB_CGA,
+<a name="215"><q-n>     215  </q-n></a>    M_SOB_HSV           =&gt;  M_SOB_HSV,
+<a name="216"><q-n>     216  </q-n></a>    M_SOB_HSL           =&gt;  M_SOB_HSL,
+<a name="217"><q-n>     217  </q-n></a>    F_CGA_TO_CGA        =&gt;  F_CGA_TO_CGA,
+<a name="218"><q-n>     218  </q-n></a>    F_CGA_TO_HSL        =&gt;  F_CGA_TO_HSL,
+<a name="219"><q-n>     219  </q-n></a>    F_CGA_TO_HSV        =&gt;  F_CGA_TO_HSV,
+<a name="220"><q-n>     220  </q-n></a>    F_CGA_TO_YCC        =&gt;  F_CGA_TO_YCC,
+<a name="221"><q-n>     221  </q-n></a>    F_CGA_TO_SHP        =&gt;  F_CGA_TO_SHP,
+<a name="222"><q-n>     222  </q-n></a>    F_CGA_TO_BLU        =&gt;  F_CGA_TO_BLU,
+<a name="223"><q-n>     223  </q-n></a>    F_SHP_TO_SHP        =&gt;  F_SHP_TO_SHP,
+<a name="224"><q-n>     224  </q-n></a>    F_SHP_TO_HSL        =&gt;  F_SHP_TO_HSL,
+<a name="225"><q-n>     225  </q-n></a>    F_SHP_TO_HSV        =&gt;  F_SHP_TO_HSV,
+<a name="226"><q-n>     226  </q-n></a>    F_SHP_TO_YCC        =&gt;  F_SHP_TO_YCC,
+<a name="227"><q-n>     227  </q-n></a>    F_SHP_TO_CGA        =&gt;  F_SHP_TO_CGA,
+<a name="228"><q-n>     228  </q-n></a>    F_SHP_TO_BLU        =&gt;  F_SHP_TO_BLU,
+<a name="229"><q-n>     229  </q-n></a>    F_BLU_TO_BLU        =&gt;  F_BLU_TO_BLU,
+<a name="230"><q-n>     230  </q-n></a>    F_BLU_TO_HSL        =&gt;  F_BLU_TO_HSL,
+<a name="231"><q-n>     231  </q-n></a>    F_BLU_TO_HSV        =&gt;  F_BLU_TO_HSV,
+<a name="232"><q-n>     232  </q-n></a>    F_BLU_TO_YCC        =&gt;  F_BLU_TO_YCC,
+<a name="233"><q-n>     233  </q-n></a>    F_BLU_TO_CGA        =&gt;  F_BLU_TO_CGA,
+<a name="234"><q-n>     234  </q-n></a>    F_BLU_TO_SHP        =&gt;  F_BLU_TO_SHP,
+<a name="235"><q-n>     235  </q-n></a>    img_width           =&gt;  img_width,
+<a name="236"><q-n>     236  </q-n></a>    img_height          =&gt;  img_width + 100,
+<a name="237"><q-n>     237  </q-n></a>    s_data_width        =&gt;  s_data_width,
+<a name="238"><q-n>     238  </q-n></a>    i_data_width        =&gt;  i_data_width)
+<a name="239"><q-n>     239  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="240"><q-n>     240  </q-n></a>    clk                 =&gt; clk,
+<a name="241"><q-n>     241  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="242"><q-n>     242  </q-n></a>    txCord              =&gt; cord,
+<a name="243"><q-n>     243  </q-n></a>    lumThreshold        =&gt; lumThreshold,
+<a name="244"><q-n>     244  </q-n></a>    iThreshold          =&gt; iThreshold,
+<a name="245"><q-n>     245  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="246"><q-n>     246  </q-n></a>    cHsv                =&gt; cHsv,
+<a name="247"><q-n>     247  </q-n></a>    cYcc                =&gt; cYcc,
+<a name="248"><q-n>     248  </q-n></a>    iKcoeff             =&gt; iKcoeff,
+<a name="249"><q-n>     249  </q-n></a>    edgeValid           =&gt; edgeValid,
+<a name="250"><q-n>     250  </q-n></a>    oRgb                =&gt; rgbImageFilters);
+<a name="251"><q-n>     251  </q-n></a>detectInst: detect
+<a name="252"><q-n>     252  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="253"><q-n>     253  </q-n></a>    i_data_width        =&gt; i_data_width)
+<a name="254"><q-n>     254  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="255"><q-n>     255  </q-n></a>    clk                 =&gt; clk,
+<a name="256"><q-n>     256  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="257"><q-n>     257  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="258"><q-n>     258  </q-n></a>    rgbCoord            =&gt; iRgbCoord,
+<a name="259"><q-n>     259  </q-n></a>    endOfFrame          =&gt; iRgbSet.pEof,
+<a name="260"><q-n>     260  </q-n></a>    iCord               =&gt; cord,
+<a name="261"><q-n>     261  </q-n></a>    pDetect             =&gt; rgbDetectLock,
+<a name="262"><q-n>     262  </q-n></a>    oRgb                =&gt; rgbDetect);
+<a name="263"><q-n>     263  </q-n></a>pointOfInterestInst: pointOfInterest
+<a name="264"><q-n>     264  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="265"><q-n>     265  </q-n></a>    i_data_width        =&gt; i_data_width,
+<a name="266"><q-n>     266  </q-n></a>    s_data_width        =&gt; s_data_width,
+<a name="267"><q-n>     267  </q-n></a>    b_data_width        =&gt; b_data_width)
+<a name="268"><q-n>     268  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(
+<a name="269"><q-n>     269  </q-n></a>    clk                 =&gt; clk,
+<a name="270"><q-n>     270  </q-n></a>    rst_l               =&gt; rst_l,
+<a name="271"><q-n>     271  </q-n></a>    iRgb                =&gt; rgbIn,
+<a name="272"><q-n>     272  </q-n></a>    iCord               =&gt; cord,
+<a name="273"><q-n>     273  </q-n></a>    endOfFrame          =&gt; iRgbSet.pEof,
+<a name="274"><q-n>     274  </q-n></a>    gridLockDatao       =&gt; oGridLockData,
+<a name="275"><q-n>     275  </q-n></a>    pRegion             =&gt; iPoiRegion,
+<a name="276"><q-n>     276  </q-n></a>    fifoStatus          =&gt; oFifoStatus,
+<a name="277"><q-n>     277  </q-n></a>    oGridLocation       =&gt; rgbPoiLock,
+<a name="278"><q-n>     278  </q-n></a>    oRgb                =&gt; rgbPoi);
+<a name="279"><q-n>     279  </q-n></a>frameTestPatternInst: frameTestPattern
+<a name="280"><q-n>     280  </q-n></a><q-w>generic</q-w> <q-w>map</q-w>(
+<a name="281"><q-n>     281  </q-n></a>    s_data_width        =&gt; s_data_width)
+<a name="282"><q-n>     282  </q-n></a><q-w>port</q-w> <q-w>map</q-w>(   
+<a name="283"><q-n>     283  </q-n></a>    clk                 =&gt; clk,
+<a name="284"><q-n>     284  </q-n></a>    iValid              =&gt; rgbIn.valid,
+<a name="285"><q-n>     285  </q-n></a>    iCord               =&gt; cord,
+<a name="286"><q-n>     286  </q-n></a>    oRgb                =&gt; rgbSum);
+<a name="287"><q-n>     287  </q-n></a><q-w>end</q-w> <q-w>architecture</q-w>;</pre>
 </tt>
 
   

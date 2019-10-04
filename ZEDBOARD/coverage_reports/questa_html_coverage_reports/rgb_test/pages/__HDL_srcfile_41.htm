@@ -1,0 +1,42 @@
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Questa Coverage Report</title>
+  <link rel="StyleSheet" media="screen" href="../css/hdl2html.css"/>
+</head>
+<body id="hdl2html">
+  <tt>
+<pre>
+<a name="1"><q-n>     1  </q-n></a><q-m>// UVM_SUBSCRIBER : RGB_FC_SUBSCRIBER [RGB]</q-m>
+<a name="2"><q-n>     2  </q-n></a><q-m>//The functional coverage subscriber (fc_sucbscriber) identifies </q-m>
+<a name="3"><q-n>     3  </q-n></a><q-m>//the generated frame_tx. </q-m>
+<a name="4"><q-n>     4  </q-n></a><q-m>//The rgb_transaction sent from the axi4_monitor is sampled by the write function.</q-m>
+<a name="5"><q-n>     5  </q-n></a><q-w>class</q-w> rgb_fc_subscriber <q-w>extends</q-w> uvm_subscriber#(rgb_transaction);
+<a name="6"><q-n>     6  </q-n></a>    `uvm_component_utils(rgb_fc_subscriber)
+<a name="7"><q-n>     7  </q-n></a>    rgb_transaction frame_tx;
+<a name="8"><q-n>     8  </q-n></a>    <q-w>covergroup</q-w> rgb_cg;
+<a name="9"><q-n>     9  </q-n></a>        iRed_cp:            <q-w>coverpoint</q-w> frame_tx.iRed;
+<a name="10"><q-n>     10  </q-n></a>        iGreen_cp:          <q-w>coverpoint</q-w> frame_tx.iGreen;
+<a name="11"><q-n>     11  </q-n></a>        iBlue_cp:           <q-w>coverpoint</q-w> frame_tx.iBlue;
+<a name="12"><q-n>     12  </q-n></a>        iPixelEn_cp:        <q-w>coverpoint</q-w> frame_tx.iPixelEn;
+<a name="13"><q-n>     13  </q-n></a>        iValid_cp:          <q-w>coverpoint</q-w> frame_tx.iValid;
+<a name="14"><q-n>     14  </q-n></a>        iEof_cp:            <q-w>coverpoint</q-w> frame_tx.iEof;
+<a name="15"><q-n>     15  </q-n></a>        iX_cp:              <q-w>coverpoint</q-w> frame_tx.iX;
+<a name="16"><q-n>     16  </q-n></a>        iY_cp:              <q-w>coverpoint</q-w> frame_tx.iY;
+<a name="17"><q-n>     17  </q-n></a>        <q-w>cross</q-w> iRed_cp, iEof_cp;
+<a name="18"><q-n>     18  </q-n></a>    <q-w>endgroup</q-w>: rgb_cg
+<a name="19"><q-n>     19  </q-n></a>    <q-w>function</q-w> <q-w>new</q-w>(<q-w>string</q-w> name, uvm_component parent);
+<a name="20"><q-n>     20  </q-n></a>        <q-w>super</q-w>.<q-w>new</q-w>(name, parent);
+<a name="21"><q-n>     21  </q-n></a>        rgb_cg = <q-w>new</q-w>;
+<a name="22"><q-n>     22  </q-n></a>    <q-w>endfunction</q-w>: <q-w>new</q-w>
+<a name="23"><q-n>     23  </q-n></a>    <q-w>function</q-w> <q-w>void</q-w> write(rgb_transaction t);
+<a name="24"><q-n>     24  </q-n></a>        frame_tx = t;
+<a name="25"><q-n>     25  </q-n></a>        rgb_cg.sample();
+<a name="26"><q-n>     26  </q-n></a>    <q-w>endfunction</q-w>: write
+<a name="27"><q-n>     27  </q-n></a><q-w>endclass</q-w>: rgb_fc_subscriber</pre>
+</tt>
+
+  
+</body>
+</html>

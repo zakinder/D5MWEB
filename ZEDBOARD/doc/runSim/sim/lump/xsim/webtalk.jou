@@ -2,11 +2,11 @@
 # Webtalk v2017.2_sdx (64-bit)
 # SW Build 1972098 on Wed Aug 23 11:34:46 MDT 2017
 # IP Build 1971916 on Wed Aug 23 13:11:02 MDT 2017
-# Start of session at: Sun Jun  9 14:11:49 2019
-# Process ID: 8280
-# Current directory: Z:/sim/lump/xsim
-# Command line: wbtcv.exe -mode batch -source Z:/sim/lump/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
-# Log file: Z:/sim/lump/xsim/webtalk.log
-# Journal file: Z:/sim/lump/xsim\webtalk.jou
+# Start of session at: Mon Sep 30 21:51:05 2019
+# Process ID: 15088
+# Current directory: K:/ZEDBOARD/doc/sim/lump/xsim
+# Command line: wbtcv.exe -mode batch -source K:/ZEDBOARD/doc/sim/lump/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
+# Log file: K:/ZEDBOARD/doc/sim/lump/xsim/webtalk.log
+# Journal file: K:/ZEDBOARD/doc/sim/lump/xsim\webtalk.jou
 #-----------------------------------------------------------
-source Z:/sim/lump/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
+source K:/ZEDBOARD/doc/sim/lump/xsim/xsim.dir/videoProcess_tb/webtalk/xsim_webtalk.tcl -notrace
