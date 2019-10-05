@@ -1,4 +1,4 @@
-%~d1 
+cd ../run
 del *.ucdb *.wlf *.log *.htm *.opt *.contrib *.noncontrib *.rank *.vstf
 rd work /s /q
-vsim -c -do rgb_test2.tcl
+vsim -c -do template_test.tcl

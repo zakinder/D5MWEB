@@ -1,3 +1,4 @@
+
 setlocal
 @set batchfile_name=%~n0
 @set batchfile_drive=%~d0

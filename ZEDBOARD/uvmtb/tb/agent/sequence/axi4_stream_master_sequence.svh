@@ -9,13 +9,15 @@ endclass: axi4_stream_master_sequencer
 // UVM_SEQUENCE : AXI4_STREAM_MASTER_SEQUENCE [AXI4_STREAM]
 class axi4_stream_master_sequence extends uvm_sequence#(axi4_stream_valid_cycle);
 	`uvm_object_utils(axi4_stream_master_sequence)
+
 	rand int delay;
-	rand ax_packet_transaction response;
+	rand axi4_stream_packet_transaction response;
 	rand bit error_response;
     event item_available;
 	constraint delay_c {
 		delay dist {0:=4, [0:9]:=8, [10:30]:=2, [31:100]:=1};
 	}
+    
     function new(string name = "");
         super.new(name);
     endfunction: new

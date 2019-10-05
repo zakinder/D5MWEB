@@ -14,8 +14,8 @@ class axi4_stream_master_agent extends uvm_agent;
         `uvm_error("axi4_stream_master_agent", "axi4_stream_master_cfg not found")
         end
         if (axi4_stream_master_cfg.master_active == UVM_ACTIVE) begin
-            axi_sequencer = axi4_stream_master_sequencer    ::type_id::create(.name("axi_sequencer"),.parent(this));
-            axi4_master_driver = axi4_stream_master_driver  ::type_id::create(.name("axi4_master_driver"),.parent(this));
+            axi_sequencer      = axi4_stream_master_sequencer    ::type_id::create(.name("axi_sequencer"),.parent(this));
+            axi4_master_driver = axi4_stream_master_driver       ::type_id::create(.name("axi4_master_driver"),.parent(this));
         end
         //axi4_monitor = axi4_stream_monitor::type_id::create(.name("axi4_monitor"),.parent(this));
     endfunction: build_phase

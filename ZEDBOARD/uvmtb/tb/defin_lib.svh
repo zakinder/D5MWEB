@@ -68,3 +68,4 @@ typedef enum bit [5:0] {
     AX_ERROR_RESPONSE        = 6'h3E
 } ax_command_encoding;
 `define AX_TYPE_MASK 6'h38
+parameter DATA_BYTES = 16;

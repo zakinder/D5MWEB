@@ -1,1 +1,0 @@
-../uvmtb/dut/template.v

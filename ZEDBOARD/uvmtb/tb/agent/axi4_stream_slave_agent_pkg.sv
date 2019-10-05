@@ -3,7 +3,7 @@ package axi4_stream_slave_agent_pkg;
   import uvm_pkg::*;
   `include "uvm_macros.svh"
   `include "transaction/axi4_stream_valid_cycle.svh"
-  `include "transaction/ax_packet_transaction.svh"
+  `include "transaction/axi4_stream_packet_transaction.svh"
   //`include "sequence/axi4_stream_master_sequence.svh"
   `include "configuration/axi4_stream_config.svh"
   //`include "configuration/axi4_stream_agents_config.svh"

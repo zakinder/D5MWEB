@@ -1,5 +1,5 @@
 // UVM_SEQUENCE_ITEM : AX_PACKET [AXI4_STREAM]
-class ax_packet_transaction extends uvm_sequence_item;
+class axi4_stream_packet_transaction extends uvm_sequence_item;
 parameter AX_TYPE_MASK = 6'h38;
 	// request header fields
 	rand bit [2:0]			cube_ID;				// CUB
@@ -30,7 +30,7 @@ parameter AX_TYPE_MASK = 6'h38;
 	// helper fields
 	rand int				flit_delay;
 	int						timestamp;
-	`uvm_object_utils_begin(ax_packet_transaction)
+	`uvm_object_utils_begin(axi4_stream_packet_transaction)
 		`uvm_field_int(flit_delay, UVM_ALL_ON | UVM_NOPACK | UVM_DEC | UVM_NOCOMPARE | UVM_DEC)
 		`uvm_field_int(cube_ID, UVM_ALL_ON | UVM_NOPACK | UVM_DEC)
 		`uvm_field_int(address, UVM_ALL_ON | UVM_NOPACK | UVM_HEX)
@@ -112,7 +112,7 @@ parameter AX_TYPE_MASK = 6'h38;
 		((command & AX_TYPE_MASK) == AX_FLOW_TYPE) -> tag == 0;
 		((command & AX_TYPE_MASK) == AX_FLOW_TYPE) -> cube_ID == 0;
 	}
-	function new (string name = "ax_packet_transaction");
+	function new (string name = "axi4_stream_packet_transaction");
 		super.new(name);
 	endfunction : new
     function void post_randomize();
@@ -199,7 +199,7 @@ parameter AX_TYPE_MASK = 6'h38;
 					AX_PRET:		packer.pack_field ( {3'h0, 3'h0, 34'h0, 9'h0, duplicate_length[3:0], packet_length[3:0], 1'b0, command[5:0]}, 64);
 					AX_TRET:		packer.pack_field ( {3'h0, 3'h0, 34'h0, 9'h0, duplicate_length[3:0], packet_length[3:0], 1'b0, command[5:0]}, 64);
 					AX_IRTRY:		packer.pack_field ( {3'h0, 3'h0, 34'h0, 9'h0, duplicate_length[3:0], packet_length[3:0], 1'b0, command[5:0]}, 64);
-					default: uvm_report_fatal(get_type_name(), $psprintf("pack function called for a ax_packet_transaction with an illegal FLOW type='h%0h!", command));
+					default: uvm_report_fatal(get_type_name(), $psprintf("pack function called for a axi4_stream_packet_transaction with an illegal FLOW type='h%0h!", command));
 				endcase
 			AX_READ_TYPE:			packer.pack_field ( {cube_ID[2:0], 3'h0, address[33:0], tag[8:0], duplicate_length[3:0], packet_length[3:0], 1'b0, command[5:0]}, 64);
 			AX_MODE_READ_TYPE:		packer.pack_field ( {cube_ID[2:0], 3'h0, 34'h0, tag[8:0], duplicate_length[3:0], packet_length[3:0], 1'b0, command[5:0]}, 64);
@@ -208,7 +208,7 @@ parameter AX_TYPE_MASK = 6'h38;
 			AX_POSTED_MISC_WRITE_TYPE:	packer.pack_field ( {cube_ID[2:0], 3'h0, address[33:0], tag[8:0], duplicate_length[3:0], packet_length[3:0], 1'b0, command[5:0]}, 64);
 			AX_MISC_WRITE_TYPE:	packer.pack_field ( {cube_ID[2:0], 3'h0, address[33:0], tag[8:0], duplicate_length[3:0], packet_length[3:0], 1'b0, command[5:0]}, 64);
 			AX_RESPONSE_TYPE:		packer.pack_field ( {22'h0, source_link_ID[2:0], 6'h0, return_tag[8:0], tag[8:0], duplicate_length[3:0], packet_length[3:0], 1'b0, command[5:0]}, 64);
-			default: uvm_report_fatal(get_type_name(), $psprintf("pack function called for a ax_packet_transaction with an illegal command type='h%0h!", command));
+			default: uvm_report_fatal(get_type_name(), $psprintf("pack function called for a axi4_stream_packet_transaction with an illegal command type='h%0h!", command));
 		endcase
 		// Allow for errors when packet_length != duplicate_length
 		if ((packet_length == duplicate_length) && payload.size() + 1 != packet_length && command != AX_NULL)
@@ -223,7 +223,7 @@ parameter AX_TYPE_MASK = 6'h38;
 					AX_PRET:		packer.pack_field ( {packet_crc[31:0], 5'h0, 3'h0, 5'h0, 3'h0, 8'h0, return_retry_pointer[7:0]}, 64);
 					AX_TRET:		packer.pack_field ( {packet_crc[31:0], return_token_count[4:0], 3'h0, 5'h0, sequence_number[2:0], forward_retry_pointer[7:0], return_retry_pointer[7:0]}, 64);
 					AX_IRTRY:		packer.pack_field ( {packet_crc[31:0], 5'h0, 3'h0, 5'h0, 3'h0, 6'h0, clear_error_abort, start_retry, return_retry_pointer[7:0]}, 64);
-					default: uvm_report_fatal(get_type_name(), $psprintf("pack function (tail) called for a ax_packet_transaction with an illegal FLOW type='h%0h!", command));
+					default: uvm_report_fatal(get_type_name(), $psprintf("pack function (tail) called for a axi4_stream_packet_transaction with an illegal FLOW type='h%0h!", command));
 				endcase
 			AX_READ_TYPE:			packer.pack_field ( {packet_crc[31:0], return_token_count[4:0], source_link_ID[2:0], 5'h0, sequence_number[2:0], forward_retry_pointer[7:0], return_retry_pointer[7:0]}, 64);
 			AX_POSTED_WRITE_TYPE:	packer.pack_field ( {packet_crc[31:0], return_token_count[4:0], source_link_ID[2:0], 5'h0, sequence_number[2:0], forward_retry_pointer[7:0], return_retry_pointer[7:0]}, 64);
@@ -232,7 +232,7 @@ parameter AX_TYPE_MASK = 6'h38;
 			AX_POSTED_MISC_WRITE_TYPE:	packer.pack_field ( {packet_crc[31:0], return_token_count[4:0], source_link_ID[2:0], 5'h0, sequence_number[2:0], forward_retry_pointer[7:0], return_retry_pointer[7:0]}, 64);
 			AX_MISC_WRITE_TYPE:	packer.pack_field ( {packet_crc[31:0], return_token_count[4:0], source_link_ID[2:0], 5'h0, sequence_number[2:0], forward_retry_pointer[7:0], return_retry_pointer[7:0]}, 64);
 			AX_RESPONSE_TYPE:		packer.pack_field ( {packet_crc[31:0], return_token_count[4:0], error_status[6:0], data_invalid, sequence_number[2:0], forward_retry_pointer[7:0], return_retry_pointer[7:0]}, 64);
-			default: uvm_report_fatal(get_type_name(), $psprintf("pack function (tail) called for a ax_packet_transaction with an illegal command type='h%0h!", command));
+			default: uvm_report_fatal(get_type_name(), $psprintf("pack function (tail) called for a axi4_stream_packet_transaction with an illegal command type='h%0h!", command));
 		endcase
 	endfunction : do_pack
 	virtual function void do_unpack(uvm_packer packer);
@@ -280,7 +280,7 @@ parameter AX_TYPE_MASK = 6'h38;
 			crc_error = 1;
 		end
 	endfunction : do_unpack
-	virtual function bit compare_adaptive_packet(ax_packet_transaction rhs, uvm_comparer comparer);
+	virtual function bit compare_adaptive_packet(axi4_stream_packet_transaction rhs, uvm_comparer comparer);
 		string name_string;
 		compare_adaptive_packet &= comparer.compare_field("packet_length", packet_length, rhs.packet_length, 64, UVM_DEC);
 		compare_adaptive_packet &= comparer.compare_field("payload.size()", payload.size(), rhs.payload.size(), 64, UVM_DEC);
@@ -307,4 +307,4 @@ parameter AX_TYPE_MASK = 6'h38;
 		compare_adaptive_packet &= comparer.compare_field("start_retry", start_retry, rhs.start_retry, 64, UVM_DEC);
 		compare_adaptive_packet &= comparer.compare_field("clear_error_abort", clear_error_abort, rhs.clear_error_abort, 64, UVM_DEC);
 	endfunction : compare_adaptive_packet
-endclass: ax_packet_transaction
+endclass: axi4_stream_packet_transaction

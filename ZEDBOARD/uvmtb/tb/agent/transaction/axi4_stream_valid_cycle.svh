@@ -1,6 +1,6 @@
 // UVM_SEQUENCE_ITEM : AXI4_STREAM_VALID_CYCLE [AXI4_STREAM]
 class axi4_stream_valid_cycle  extends uvm_sequence_item;
-    rand bit [15:0]    tdata;
+    rand bit [15:0]        tdata;
     rand bit               tuser;
     rand int unsigned      delay = 0;
     constraint c_packet_delay {

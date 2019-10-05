@@ -1,4 +1,4 @@
-%~d1 
+cd ../run
 del *.ucdb *.wlf *.log *.htm *.opt *.contrib *.noncontrib *.rank *.vstf *.txt transcript
 rd work /s /q
 rd ..\coverage_reports\questa_html_coverage_reports\template_test /s /q
