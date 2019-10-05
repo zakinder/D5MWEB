@@ -1,21 +1,21 @@
 // UVM_ENV : TEMPLATE_ENV
 class axi4_stream_env extends uvm_env;
     axi4_stream_agents_config   axi4_stream_cfg;
-	axi4_stream_config          axi4_stream_slave_cfg;
+    axi4_stream_config          axi4_stream_slave_cfg;
     axi4_stream_config          axi4_stream_master_cfg;
     axi4_stream_config          axi4_stream_monitor_cfg;
     axi4_stream_master_agent    axi4_stream_master_agt;
     axi4_stream_slave_agent     axi4_stream_slave_agt;
-	axi4_stream_monitor 		monitor;
-	axi4_stream_ax_monitor 		axi4_req;
+    axi4_stream_monitor         monitor;
+    axi4_stream_ax_monitor         axi4_req;
     int id;
     `uvm_component_utils_begin(axi4_stream_env)
         `uvm_field_int(id, UVM_DEFAULT)
-		`uvm_field_object(axi4_stream_cfg, UVM_DEFAULT)
-		`uvm_field_object(axi4_stream_master_agt, UVM_DEFAULT)
-		`uvm_field_object(axi4_stream_slave_agt, UVM_DEFAULT)
-		`uvm_field_object(monitor, UVM_DEFAULT)
-		`uvm_field_object(axi4_req, UVM_DEFAULT)
+        `uvm_field_object(axi4_stream_cfg, UVM_DEFAULT)
+        `uvm_field_object(axi4_stream_master_agt, UVM_DEFAULT)
+        `uvm_field_object(axi4_stream_slave_agt, UVM_DEFAULT)
+        `uvm_field_object(monitor, UVM_DEFAULT)
+        `uvm_field_object(axi4_req, UVM_DEFAULT)
     `uvm_component_utils_end
         uvm_analysis_port#(axi4_stream_ax_monitor) item_collected_port;
     function new(string name, uvm_component parent);
@@ -44,12 +44,12 @@ class axi4_stream_env extends uvm_env;
         end
     endfunction: build_phase
     function void connect_phase(uvm_phase phase);
-       // axi4_stream_ax_monitor	 axi4_ax_req_mon;
+       // axi4_stream_ax_monitor     axi4_ax_req_mon;
         super.connect_phase(phase);
         monitor.axi4s_vif    = axi4_stream_cfg.axi4_agent_handler1.axi4s_vif;
         //axi4_req    = axi4_stream_cfg.axi4_agent_handler1.axi4s_vif;
         //monitor.item_collected_port.connect(item_collected_port);
-        //axi4_req.item_collected_port.connect(axi4_ax_req_mon.axi4_port);	
+        //axi4_req.item_collected_port.connect(axi4_ax_req_mon.axi4_port);    
         //axi4_req.item_collected_port.connect(axi4_stream_cfg.axi4_agent_handler1.axi4s_vif);
         //monitor.axi4s_vif    = axi4_stream_master_agt.axi4s_vif;
     endfunction: connect_phase

@@ -14,14 +14,14 @@ parameter set_config par_1 = '{ '{ addr_width: 11, data_width: 8 }, '{ payload_l
 parameter set_config par_2 = '{ '{ addr_width: 11, data_width: 8 }, '{ payload_length: 4 } };
 parameter set_config par_3 = '{ '{ addr_width: 11, data_width: 8 }, '{ payload_length: 3 } };
 typedef enum bit [5:0] {
-	AX_FLOW_TYPE				= 6'h00,
-	AX_WRITE_TYPE				= 6'h08,
-	AX_MISC_WRITE_TYPE			= 6'h10,
-	AX_POSTED_WRITE_TYPE		= 6'h18,
-	AX_POSTED_MISC_WRITE_TYPE	= 6'h20,
-	AX_MODE_READ_TYPE			= 6'h28,
-	AX_READ_TYPE				= 6'h30,
-	AX_RESPONSE_TYPE			= 6'h38
+    AX_FLOW_TYPE                = 6'h00,
+    AX_WRITE_TYPE                = 6'h08,
+    AX_MISC_WRITE_TYPE            = 6'h10,
+    AX_POSTED_WRITE_TYPE        = 6'h18,
+    AX_POSTED_MISC_WRITE_TYPE    = 6'h20,
+    AX_MODE_READ_TYPE            = 6'h28,
+    AX_READ_TYPE                = 6'h30,
+    AX_RESPONSE_TYPE            = 6'h38
 } ax_command_type;
 typedef enum bit [5:0] {
     AX_NULL                = 6'h00,
