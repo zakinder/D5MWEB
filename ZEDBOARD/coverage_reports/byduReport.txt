@@ -13,10 +13,32 @@ Name                 File(Line)           Failure Pass
                                           Count   Count 
 -------------------------------------------------------
 work.axi4_stream_master_agent_pkg::axi4_stream_master_sequence/body/#ublk#13123591#25/immed__28
-                     ../uvmtb/tb/agent/sequence/axi4_stream_master_sequence.svh(28)       0     1
+                     ../uvmtb/tb/env/system_env/../axi4_stream_env/../../agent/sequence/axi4_stream_master_sequence.svh(28)       0     1
 
 =================================================================================
 === Design Unit: work.axi4_stream_master_agent_pkg
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       1         1         0     100.0
+
+=================================================================================
+=== Subprogram: work.axi4_stream_pkg::axi4_stream_test::run_phase
+=================================================================================
+=== Design Unit: work.axi4_stream_pkg
+=================================================================================
+
+Assertion Coverage:
+    Assertions                       1         1         0     100.0
+-------------------------------------------------------
+Name                 File(Line)           Failure Pass 
+                                          Count   Count 
+-------------------------------------------------------
+work.axi4_stream_pkg::axi4_stream_test/run_phase/immed__29
+                     ../uvmtb/tb/env/system_env/../axi4_stream_env/../../test/axi4_stream/axi4_stream_test.sv(29)       0     1
+
+=================================================================================
+=== Design Unit: work.axi4_stream_pkg
 =================================================================================
 
 Assertion Coverage:
@@ -36,7 +58,7 @@ Statement Coverage for Design Unit work.axi4s_if --
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File ../uvmtb/tb/interfaces/axi4s_if.sv
+  File ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv
     1                                                interface axi4s_if(input bit ACLK,ARESET_N);
     2                                                    parameter DATA_BYTES = 16;
     3                                                	logic TVALID;	// Master valid
@@ -167,7 +189,7 @@ Branch Coverage for Design Unit work.axi4s_if
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File ../uvmtb/tb/interfaces/axi4s_if.sv
+  File ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv
 ------------------------------------IF Branch------------------------------------
     114                                      100     Count coming in to IF
     114             1                         99     		if(ARESET_N == 0)
@@ -909,11 +931,11 @@ Name                 File(Line)           Failure Pass
                                           Count   Count 
 -------------------------------------------------------
 work.axi4s_if::chk_valid_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(90)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(90)       0     0
 work.axi4s_if::chk_data_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(137)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(137)       0     0
 work.axi4s_if::chk_user_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(138)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(138)       0     0
 
 =================================================================================
 === Design Unit: work.camerarawdata(arch_imp)
@@ -2371,28 +2393,6 @@ FSM Coverage:
     FSMs                                                       100.0
         States                       0         0         0     100.0
         Transitions                  0         0         0     100.0
-
-=================================================================================
-=== Subprogram: work.env_pkg::axi4_stream_test::run_phase
-=================================================================================
-=== Design Unit: work.env_pkg
-=================================================================================
-
-Assertion Coverage:
-    Assertions                       1         1         0     100.0
--------------------------------------------------------
-Name                 File(Line)           Failure Pass 
-                                          Count   Count 
--------------------------------------------------------
-work.env_pkg::axi4_stream_test/run_phase/immed__29
-                     ../uvmtb/tb/env/../test/axi4_stream_test.sv(29)       0     1
-
-=================================================================================
-=== Design Unit: work.env_pkg
-=================================================================================
-
-Assertion Coverage:
-    Assertions                       1         1         0     100.0
 
 =================================================================================
 === Generate Block: work.filters(behavioral)::BLURE_FRAME_DISABLED
@@ -10529,7 +10529,7 @@ Statement Coverage for Design Unit work.rgb_if --
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File ../uvmtb/tb/interfaces/rgb_if.sv
+  File ../uvmtb/tb/top/system_top/../../interfaces/rgb_if.sv
     2                                                interface rgb_if(input bit clk);
     3                                                    logic [7:0]  iRed;
     4                                                    logic [7:0]  iGreen;
@@ -12026,10 +12026,10 @@ Statement Coverage for Design Unit work.top --
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File ../uvmtb/tb/top.sv
+  File ../uvmtb/tb/top/system_top/top.sv
     12                                               module top;
     13                                                   import uvm_pkg::*;
-    14                                                   import env_pkg::*;
+    14                                                   import system_pkg::*;
     15                                                   reg ACLK;
     16                                                   reg ARESETN;
     17                                                   reg ARESET_N;
@@ -15479,9 +15479,9 @@ Name                 File(Line)           Failure Pass
                                           Count   Count 
 -------------------------------------------------------
 work.axi4_stream_master_agent_pkg::axi4_stream_master_sequence/body/#ublk#13123591#25/immed__28
-                     ../uvmtb/tb/agent/sequence/axi4_stream_master_sequence.svh(28)       0     1
-work.env_pkg::axi4_stream_test/run_phase/immed__29
-                     ../uvmtb/tb/env/../test/axi4_stream_test.sv(29)       0     1
+                     ../uvmtb/tb/env/system_env/../axi4_stream_env/../../agent/sequence/axi4_stream_master_sequence.svh(28)       0     1
+work.axi4_stream_pkg::axi4_stream_test/run_phase/immed__29
+                     ../uvmtb/tb/env/system_env/../axi4_stream_env/../../test/axi4_stream/axi4_stream_test.sv(29)       0     1
 work.fixed_pkg::\=#immed__3971\
                      ../uvmtb/dut/src/float_and_fixed_pkg/fixed_pkg_c.vhd(3971)       6     0
 work.fixed_pkg::cleanvec#immed__2070
@@ -15489,11 +15489,11 @@ work.fixed_pkg::cleanvec#immed__2070
 work.fixed_pkg::cleanvec#immed__2055
                      ../uvmtb/dut/src/float_and_fixed_pkg/fixed_pkg_c.vhd(2055)       0     1
 work.axi4s_if::chk_valid_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(90)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(90)       0     0
 work.axi4s_if::chk_data_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(137)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(137)       0     0
 work.axi4s_if::chk_user_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(138)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(138)       0     0
 
 Total Coverage By Design Unit (filtered view): 33.2%
 

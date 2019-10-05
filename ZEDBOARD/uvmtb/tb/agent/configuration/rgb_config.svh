@@ -5,5 +5,5 @@ class rgb_configuration extends uvm_object;
         super.new(name);
     endfunction: new
     rand int count;
-    constraint c_count    { count > 0; count < 200; }
+    constraint c_count    { count > 0; count < 10; }
 endclass: rgb_configuration

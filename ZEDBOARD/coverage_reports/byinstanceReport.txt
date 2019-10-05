@@ -15,7 +15,7 @@ Statement Coverage for instance /top/axi4s_vif --
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File ../uvmtb/tb/interfaces/axi4s_if.sv
+  File ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv
     1                                                interface axi4s_if(input bit ACLK,ARESET_N);
     2                                                    parameter DATA_BYTES = 16;
     3                                                	logic TVALID;	// Master valid
@@ -146,7 +146,7 @@ Branch Coverage for instance /top/axi4s_vif
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File ../uvmtb/tb/interfaces/axi4s_if.sv
+  File ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv
 ------------------------------------IF Branch------------------------------------
     114                                      100     Count coming in to IF
     114             1                         99     		if(ARESET_N == 0)
@@ -888,11 +888,11 @@ Name                 File(Line)           Failure Pass
                                           Count   Count 
 -------------------------------------------------------
 /top/axi4s_vif/chk_valid_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(90)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(90)       0     0
 /top/axi4s_vif/chk_data_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(137)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(137)       0     0
 /top/axi4s_vif/chk_user_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(138)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(138)       0     0
 
 =================================================================================
 === Instance: /top/rgb_vif
@@ -909,7 +909,7 @@ Statement Coverage for instance /top/rgb_vif --
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File ../uvmtb/tb/interfaces/rgb_if.sv
+  File ../uvmtb/tb/top/system_top/../../interfaces/rgb_if.sv
     2                                                interface rgb_if(input bit clk);
     3                                                    logic [7:0]  iRed;
     4                                                    logic [7:0]  iGreen;
@@ -22722,10 +22722,10 @@ Statement Coverage for instance /top --
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File ../uvmtb/tb/top.sv
+  File ../uvmtb/tb/top/system_top/top.sv
     12                                               module top;
     13                                                   import uvm_pkg::*;
-    14                                                   import env_pkg::*;
+    14                                                   import system_pkg::*;
     15                                                   reg ACLK;
     16                                                   reg ARESETN;
     17                                                   reg ARESET_N;
@@ -22806,7 +22806,7 @@ Name                 File(Line)           Failure Pass
                                           Count   Count 
 -------------------------------------------------------
 /axi4_stream_master_agent_pkg/axi4_stream_master_sequence/body/#ublk#13123591#25/immed__28
-                     ../uvmtb/tb/agent/sequence/axi4_stream_master_sequence.svh(28)       0     1
+                     ../uvmtb/tb/env/system_env/../axi4_stream_env/../../agent/sequence/axi4_stream_master_sequence.svh(28)       0     1
 
 =================================================================================
 === Instance: /axi4_stream_master_agent_pkg
@@ -22816,10 +22816,10 @@ Name                 File(Line)           Failure Pass
 Assertion Coverage:
     Assertions                       1         1         0     100.0
 
-Start of Coverage Data for Class: /env_pkg/axi4_stream_test
+Start of Coverage Data for Class: /axi4_stream_pkg/axi4_stream_test
 =================================================================================
-=== Subprogram: /env_pkg/axi4_stream_test/run_phase
-=== Design Unit: work.env_pkg
+=== Subprogram: /axi4_stream_pkg/axi4_stream_test/run_phase
+=== Design Unit: work.axi4_stream_pkg
 =================================================================================
 
 Assertion Coverage:
@@ -22828,12 +22828,12 @@ Assertion Coverage:
 Name                 File(Line)           Failure Pass 
                                           Count   Count 
 -------------------------------------------------------
-/env_pkg/axi4_stream_test/run_phase/immed__29
-                     ../uvmtb/tb/env/../test/axi4_stream_test.sv(29)       0     1
+/axi4_stream_pkg/axi4_stream_test/run_phase/immed__29
+                     ../uvmtb/tb/env/system_env/../axi4_stream_env/../../test/axi4_stream/axi4_stream_test.sv(29)       0     1
 
 =================================================================================
-=== Instance: /env_pkg
-=== Design Unit: work.env_pkg
+=== Instance: /axi4_stream_pkg
+=== Design Unit: work.axi4_stream_pkg
 =================================================================================
 
 Assertion Coverage:
@@ -23574,15 +23574,15 @@ Name                 File(Line)           Failure Pass
                                           Count   Count 
 -------------------------------------------------------
 /top/axi4s_vif/chk_valid_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(90)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(90)       0     0
 /top/axi4s_vif/chk_data_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(137)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(137)       0     0
 /top/axi4s_vif/chk_user_hold
-                     ../uvmtb/tb/interfaces/axi4s_if.sv(138)       0     0
+                     ../uvmtb/tb/top/system_top/../../interfaces/axi4s_if.sv(138)       0     0
 /axi4_stream_master_agent_pkg/axi4_stream_master_sequence/body/#ublk#13123591#25/immed__28
-                     ../uvmtb/tb/agent/sequence/axi4_stream_master_sequence.svh(28)       0     1
-/env_pkg/axi4_stream_test/run_phase/immed__29
-                     ../uvmtb/tb/env/../test/axi4_stream_test.sv(29)       0     1
+                     ../uvmtb/tb/env/system_env/../axi4_stream_env/../../agent/sequence/axi4_stream_master_sequence.svh(28)       0     1
+/axi4_stream_pkg/axi4_stream_test/run_phase/immed__29
+                     ../uvmtb/tb/env/system_env/../axi4_stream_env/../../test/axi4_stream/axi4_stream_test.sv(29)       0     1
 /fixed_pkg/\=#immed__3971\
                      ../uvmtb/dut/src/float_and_fixed_pkg/fixed_pkg_c.vhd(3971)       6     0
 /fixed_pkg/cleanvec#immed__2070

@@ -1,7 +1,7 @@
 vlib work
 vcom -f dut_vhd.f
 vlog -f dut_vlg.f
-vlog -f tb.f
+vlog -f tb_rgb_test.f
 vopt top -o top_optimized  +acc +cover=sbfec+top(rtl).
 vsim top_optimized -coverage +UVM_TESTNAME=rgb_test1
 set NoQuitOnFinish 1

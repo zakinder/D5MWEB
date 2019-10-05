@@ -1,3 +1,4 @@
+
 // UVM_MONITOR : RGB_MONITOR [RGB]
 class rgb_monitor#(parameter set_config cfg = par_1) extends uvm_monitor;
     `uvm_component_param_utils(rgb_monitor#(cfg))
