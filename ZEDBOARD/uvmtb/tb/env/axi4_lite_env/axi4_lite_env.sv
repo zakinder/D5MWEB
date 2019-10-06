@@ -16,8 +16,6 @@ class axi4_lite_env extends uvm_env;
         if (!uvm_config_db#(virtual axi4l_if)::get(this, "", "axi4l_vif", axi4l_vif))
             `uvm_fatal("NOVIF",{"virtual interface must be set for: ",get_full_name(),".axi4l_vif"});
         aL_agt          = axi_lite_agent::type_id::create("aL_agt", this);
-        if (!uvm_config_db#(virtual axi4l_if)::get(this, "", "axi4l_vif", axi4l_vif))
-            `uvm_fatal("NOVIF",{"virtual interface must be set for: ",get_full_name(),".axi4l_vif"});
         aL_fc_sub       = axi_lite_fc_subscriber::type_id::create("aL_fc_sub", this);
     endfunction: build_phase
     

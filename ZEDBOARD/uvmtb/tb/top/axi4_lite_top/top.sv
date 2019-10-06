@@ -6,14 +6,16 @@ module top;
     import uvm_pkg::*;
     import axi4_lite_pkg::*;
     reg ACLK;
-    reg ARESETN;
+    reg ARESETN  = 1'b1;
     //INTERFACE
     axi4l_if                 axi4l_vif(ACLK,ARESETN);                // AXI_LITE_INTERFACE  
     //MODULE
     vfpConfigAxi4lDut        vfp_dut(axi4l_vif); // [AXI4_LITE]
     initial begin
+        ARESETN  = 1'b1;
+    #500;
         ARESETN  = 1'b0;
-    #1000;
+    #500;
         ARESETN  = 1'b1;
     end
     initial begin

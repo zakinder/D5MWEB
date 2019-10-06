@@ -1,38 +1,49 @@
 // UVM_DRIVER : AXI4_STREAM_MASTER_DRIVER 
-class axi4_stream_master_driver  extends uvm_driver #(axi4_stream_valid_cycle);
+class axi4_stream_master_driver  extends uvm_driver #(axi4_stream_packet_transaction);
     `uvm_component_utils(axi4_stream_master_driver)
-        axi4_stream_config axi4_stream_cfg;
+    
+    axi4_stream_config axi4_stream_cfg;
+    
     virtual interface axi4s_if  axi4s_vif;
+    
     function new(string name, uvm_component parent);
         super.new(name, parent);
     endfunction: new
+    
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
     endfunction : build_phase
+    
     task run_phase(uvm_phase phase);
         super.run_phase(phase);
         forever begin
+        
             if(axi4s_vif.ARESET_N !== 1) begin
                 axi4s_vif.TVALID <= 0;
                 //`uvm_info(get_type_name(),$psprintf("reset"), UVM_HIGH)
                 @(posedge axi4s_vif.ARESET_N);
             //    `uvm_info(get_type_name(),$psprintf("coming out of reset"), UVM_HIGH)
             end
+            
             fork
+            
                 begin //-- Asynchronous reset
                     @(negedge axi4s_vif.ARESET_N);
                 end
+                
                 begin
                     drive_valid_cycles();
                 end
+                
             join_any
             disable fork;
         end
     endtask : run_phase
+    
     task drive_valid_cycles();
         @(posedge axi4s_vif.ACLK);
         forever begin
-            axi4_stream_valid_cycle  vc;
+            axi4_stream_packet_transaction  vc;
             //-- Try next AXI4 item
             seq_item_port.try_next_item(vc);
             if( vc != null) begin
@@ -57,4 +68,5 @@ class axi4_stream_master_driver  extends uvm_driver #(axi4_stream_valid_cycle);
                 @(posedge axi4s_vif.ACLK);
         end
     endtask : drive_valid_cycles
+    
 endclass: axi4_stream_master_driver

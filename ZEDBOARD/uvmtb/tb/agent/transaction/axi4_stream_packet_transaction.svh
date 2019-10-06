@@ -30,7 +30,17 @@ parameter AX_TYPE_MASK = 6'h38;
     // helper fields
     rand int                flit_delay;
     int                        timestamp;
+    rand bit [15:0]        tdata;
+    rand bit               tuser;
+    rand int unsigned      delay = 0;
+    
+    constraint c_packet_delay {
+        delay < 20 ;
+    } 
     `uvm_object_utils_begin(axi4_stream_packet_transaction)
+        `uvm_field_int(tdata, UVM_ALL_ON | UVM_NOPACK | UVM_HEX)
+        `uvm_field_int(tuser, UVM_ALL_ON | UVM_NOPACK | UVM_HEX)
+        `uvm_field_int(delay, UVM_DEFAULT | UVM_DEC| UVM_NOPACK)
         `uvm_field_int(flit_delay, UVM_ALL_ON | UVM_NOPACK | UVM_DEC | UVM_NOCOMPARE | UVM_DEC)
         `uvm_field_int(cube_ID, UVM_ALL_ON | UVM_NOPACK | UVM_DEC)
         `uvm_field_int(address, UVM_ALL_ON | UVM_NOPACK | UVM_HEX)

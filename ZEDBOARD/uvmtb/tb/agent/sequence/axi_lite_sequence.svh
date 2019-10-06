@@ -8,6 +8,7 @@ class axi_lite_sequencer extends uvm_sequencer #(axi_lite_transaction);
         super.new(name, parent);
     endfunction
 endclass: axi_lite_sequencer
+
 // UVM_SEQUENCE : axi_lite_BASE_SEQ [AXI4_LITE]
 virtual class axi_lite_base_seq extends uvm_sequence #(axi_lite_transaction);
     function new (string name="axi_lite_base_seq");
@@ -37,11 +38,11 @@ class axi_lite_random_sequence extends axi_lite_base_seq;
         int num_txn;
         bit typ_txn;
         `uvm_info("SEQ", "executing...", UVM_LOW)
-        num_txn = $urandom_range(5,20);
+        num_txn = $urandom_range(100,200);
         repeat(num_txn) begin    
         `uvm_create(item)
         item.cycles         = $urandom_range(1,5);
-        item.addr           = $urandom();
+        item.addr           = $urandom_range(0,255);
         item.data           = $urandom();
         typ_txn             = $random();
         item.reqWriteRead   = typ_txn ? WRITE : READ; 
@@ -59,28 +60,47 @@ class axi_lite_directed_sequence extends axi_lite_base_seq;
     virtual task body();
         axi_lite_transaction item;
         bit [8:0] addr;
-        
-        `uvm_info("SEQ", "executing...WR->RD->WR->RD", UVM_LOW)
-        for(addr = 0; addr < 256; addr ++) begin
-            `uvm_create(item)
-            item.addr           = {14'h0,addr[7:0]};
-            item.reqWriteRead   = addr[0] ? READ : WRITE;
-            item.cycles         = 0;
-            item.data           = addr;
-            `uvm_send(item);
-        end
+        bit [8:0] data;
 
-        `uvm_info("SEQ", "executing...WR->WR->RD->RD", UVM_LOW)
-        for(addr = 0; addr < 255; addr ++) begin
+
+            
+        data = 0;
+        `uvm_info("SEQ AXI4LITE WRITE DATA TO SLAVE", "EXECUTING: WRITE_ADDRESS -> WRITE_DATA",UVM_LOW)
+        for(addr = 0; addr < 256; addr+=4) begin
+            data++;
             `uvm_create(item)
             item.addr           = {14'h0,addr[7:0]};
-            item.reqWriteRead   = addr[8] ? READ : WRITE;
+            item.reqWriteRead   = WRITE;
             item.cycles         = 5;
-            item.data           = addr;
+            item.data           = data;
             `uvm_send(item);
         end
+        data = 0;
+        `uvm_info("SEQ AXI4LITE READ DATA FROM SLAVE", "EXECUTING: WRITE_ADDRESS -> READ_DATA",UVM_LOW)
+        for(addr = 0; addr < 256; addr+=4) begin
+            data++;
+            `uvm_create(item)
+            item.addr           = {14'h0,addr[7:0]};
+            item.reqWriteRead   = READ;
+            item.cycles         = 5;
+            item.data           = data;
+            `uvm_send(item);
+        end
+        
+        //`uvm_info("SEQ AXI4LITE M_WDATA THEN READ S_DATA", "EXECUTING: WR->RD->WR->RD",UVM_LOW)
+        //for(addr = 0; addr < 256; addr ++) begin
+        //    `uvm_create(item)
+        //    item.addr           = {14'h0,addr[7:0]};
+        //    item.reqWriteRead   = addr[0] ? READ : WRITE;
+        //    item.cycles         = 0;
+        //    item.data           = addr;
+        //    `uvm_send(item);
+        //end
+        
+        
     endtask: body
 endclass: axi_lite_directed_sequence
+
 // UVM_SEQUENCE : axi_lite_USEVAR_SEQ [AXI4_LITE]
 class axi_lite_usevar_sequence extends axi_lite_base_seq;
     `uvm_object_utils(axi_lite_usevar_sequence)

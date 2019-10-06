@@ -14,6 +14,7 @@ class axi4_stream_slave_driver  extends uvm_driver #(axi4_stream_packet_transact
     endfunction : build_phase
     task run_phase(uvm_phase phase);
         super.run_phase(phase);
+        `uvm_info("axi4_stream_slave_driver","driver", UVM_LOW)
         forever begin
             if(axi4s_vif.ARESET_N !== 1) begin
                 axi4s_vif.TVALID <= 0;
