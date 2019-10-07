@@ -8,14 +8,12 @@ class axi_lite_sequencer extends uvm_sequencer #(axi_lite_transaction);
         super.new(name, parent);
     endfunction
 endclass: axi_lite_sequencer
-
 // UVM_SEQUENCE : axi_lite_BASE_SEQ [AXI4_LITE]
 virtual class axi_lite_base_seq extends uvm_sequence #(axi_lite_transaction);
     function new (string name="axi_lite_base_seq");
         super.new(name);
     endfunction
 endclass: axi_lite_base_seq
-
 // UVM_SEQUENCE : axi_lite_NO_ACTIVITY_SEQ [AXI4_LITE]
 class axi_lite_no_activity_sequence extends axi_lite_base_seq;
     `uvm_object_utils(axi_lite_no_activity_sequence)
@@ -26,7 +24,6 @@ class axi_lite_no_activity_sequence extends axi_lite_base_seq;
         `uvm_info("SEQ", "executing", UVM_LOW)
     endtask: body
 endclass: axi_lite_no_activity_sequence
-
 // UVM_SEQUENCE : axi_lite_RANDOM_SEQ [AXI4_LITE]
 class axi_lite_random_sequence extends axi_lite_base_seq;
     `uvm_object_utils(axi_lite_random_sequence)
@@ -50,7 +47,6 @@ class axi_lite_random_sequence extends axi_lite_base_seq;
         end    
     endtask: body
 endclass: axi_lite_random_sequence
-
 // UVM_SEQUENCE : axi_lite_DIRECTED_SEQ [AXI4_LITE]
 class axi_lite_directed_sequence extends axi_lite_base_seq;
     `uvm_object_utils(axi_lite_directed_sequence)
@@ -61,9 +57,6 @@ class axi_lite_directed_sequence extends axi_lite_base_seq;
         axi_lite_transaction item;
         bit [8:0] addr;
         bit [8:0] data;
-
-
-            
         data = 0;
         `uvm_info("SEQ AXI4LITE WRITE DATA TO SLAVE", "EXECUTING: WRITE_ADDRESS -> WRITE_DATA",UVM_LOW)
         for(addr = 0; addr < 256; addr+=4) begin
@@ -86,7 +79,6 @@ class axi_lite_directed_sequence extends axi_lite_base_seq;
             item.data           = data;
             `uvm_send(item);
         end
-        
         //`uvm_info("SEQ AXI4LITE M_WDATA THEN READ S_DATA", "EXECUTING: WR->RD->WR->RD",UVM_LOW)
         //for(addr = 0; addr < 256; addr ++) begin
         //    `uvm_create(item)
@@ -96,11 +88,8 @@ class axi_lite_directed_sequence extends axi_lite_base_seq;
         //    item.data           = addr;
         //    `uvm_send(item);
         //end
-        
-        
     endtask: body
 endclass: axi_lite_directed_sequence
-
 // UVM_SEQUENCE : axi_lite_USEVAR_SEQ [AXI4_LITE]
 class axi_lite_usevar_sequence extends axi_lite_base_seq;
     `uvm_object_utils(axi_lite_usevar_sequence)

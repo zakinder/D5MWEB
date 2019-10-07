@@ -100,10 +100,25 @@ coverage report -html -htmldir ../coverage_reports/questa_html_coverage_reports/
 coverage report -file ../coverage_reports/axi4_stream_test.txt -byfile -totals -assert -directive -cvg -codeAll
 # ====================================================================================
 # ------------------------------------------------------------------------------------
+# --------------------------------- TEST axi4_stream_test
+# ------------------------------------------------------------------------------------
+# ====================================================================================
+vsim top_optimized -coverage +UVM_TESTNAME=d5m_camera_test
+set NoQuitOnFinish 1
+onbreak {resume}
+log /* -r
+run -all
+coverage attribute -name TESTNAME -value d5m_camera_test
+coverage save d5m_camera_test.ucdb
+vcover report d5m_camera_test.ucdb -cvg -details
+coverage report -html -htmldir ../coverage_reports/questa_html_coverage_reports/d5m_camera_test -source -details -assert -directive -cvg -code bcefst -verbose -threshL 50 -threshH 90
+coverage report -file ../coverage_reports/d5m_camera_test.txt -byfile -totals -assert -directive -cvg -codeAll
+# ====================================================================================
+# ------------------------------------------------------------------------------------
 # --------------------------------- VCOVER MERGE
 # ------------------------------------------------------------------------------------
 # ====================================================================================
-vcover merge  SystemCoverage.ucdb template_test.ucdb axi_lite_test.ucdb rgb_test.ucdb rgb_test1.ucdb rgb_test2.ucdb axi4_stream_test.ucdb
+vcover merge  SystemCoverage.ucdb template_test.ucdb axi_lite_test.ucdb rgb_test.ucdb rgb_test1.ucdb rgb_test2.ucdb axi4_stream_test.ucdb d5m_camera_test.ucdb
 vcover report SystemCoverage.ucdb -cvg -details
 add testbrowser SystemCoverage.ucdb
 vcover report -html -htmldir ../coverage_reports/questa_html_coverage_reports/SystemCoverage -source -details -assert -directive -cvg -code bcefst -verbose -threshL 50 -threshH 90 SystemCoverage.ucdb

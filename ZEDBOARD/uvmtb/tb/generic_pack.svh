@@ -16,6 +16,6 @@ package generic_pack;
     parameter b_data_width              = 32;
     parameter i_precision               = 12;
     parameter i_full_range              = `false;
-    parameter img_width                 = 4096;
+    parameter img_width                 = 200;
     parameter dataWidth                 = 12;
 endpackage

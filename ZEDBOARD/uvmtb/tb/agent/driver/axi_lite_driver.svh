@@ -77,7 +77,6 @@ class axi_lite_driver extends uvm_driver #(axi_lite_transaction);
     //------------------------------------------------------------------------------------
     //====================================================================================
     virtual protected task drive_address_phase (axi_lite_transaction aL_txn);
-        //`uvm_info("axi_lite_master_driver", "drive_address_phase",UVM_HIGH)
         case (aL_txn.reqWriteRead)
             WRITE: drive_write_address_channel(aL_txn);
             READ : drive_read_address_channel(aL_txn);

@@ -2,7 +2,7 @@ Coverage Report Totals BY FILES: Number of Files 32
 
     Enabled Coverage            Active      Hits    Misses    Weight % Covered
     ----------------            ------      ----    ------    ------ ---------
-    Stmts                         1957      1115       842         1      56.9
+    Stmts                         1967      1125       842         1      57.1
     Branches                       914       342       572         1      37.4
     Conditions                                                     1      50.2
         UDP Condition Rows           0         0         0         1     100.0
