@@ -23,97 +23,51 @@ class d5m_camera_directed_sequence extends d5m_camera_base_seq;
     virtual task body();
         d5m_camera_transaction item;
         bit [16:0] idata;
-        //----------------------------
-        `uvm_create(item)
-        for(idata = 0; idata < 11; idata++) begin
+        bit [16:0] y_cord;
+        bit [16:0] n_frames;
+        //init d5m clear
+        for(idata = 0; idata <= 10; idata++) begin
+            `uvm_create(item)
             item.idata          = 0;
             item.cycles         = 0;
             item.ilval          = 1'b0;
             item.ifval          = 1'b0;
+            if (idata > 9 )begin //>200
+                item.ifval          = 1'b1;//init default sof valid line high
+            end
             `uvm_send(item);
         end
-        //----------------------------
-        //LINE 1
-        //----------------------------
-        for(idata = 0; idata < 300; idata++) begin
-        `uvm_create(item)
-            item.idata          = idata;
-            item.cycles         = 0;
-            item.ilval          = 1'b1;
-            item.ifval          = 1'b1;
-             if (idata >= 199)begin
-              item.ilval         = 1'b0;
-              item.idata          = 0;
-             end
-            `uvm_send(item);
+        for(n_frames = 0; n_frames <= item.number_frames; n_frames++) begin
+            for(y_cord = 0; y_cord <= item.lval_lines; y_cord++) begin
+                for(idata = 1; idata <= ((item.image_width) + (item.lval_offset)); idata++) begin
+                    `uvm_create(item)
+                    if (y_cord > 0 && y_cord < item.lval_lines) begin
+                        item.cycles         = 0;
+                        item.ifval          = 1'b1;
+                        item.ilval          = 1'b1;// sol[start of line]
+                        item.idata          = idata;
+                        if (idata >= (item.image_width)) begin   
+                            item.ilval      = 1'b0;// eol[end of line]
+                            item.idata      = 0;
+                        end
+                    end else begin
+                        item.cycles         = 0;
+                        item.ilval          = 1'b0;
+                        item.idata          = 0;
+                        if (y_cord == 0) begin
+                            if (idata >= ((item.image_width) + (item.lval_offset)) - 10)begin   
+                                item.ifval      = 1'b1;// sof[start of frame]
+                            end
+                        end
+                        if (y_cord == item.lval_lines) begin
+                            if (idata >= (item.image_width) + 2)begin   
+                                item.ifval      = 1'b0;// eof[end of frame]
+                            end
+                        end
+                    end
+                    `uvm_send(item);
+                end
+            end
         end
-        //----------------------------
-        //LINE 2
-        //----------------------------
-        `uvm_create(item)
-            idata               = 0;
-        for(idata = 0; idata < 300; idata++) begin
-            item.idata          = idata;
-            item.cycles         = 0;
-            item.ilval          = 1'b1;
-            item.ifval          = 1'b1;
-             if (idata >= 199)begin
-              item.ilval         = 1'b0;
-              item.idata          = 0;
-             end
-            `uvm_send(item);
-        end
-        //----------------------------
-        //LINE 3
-        //----------------------------
-        `uvm_create(item)
-            idata               = 0;
-        for(idata = 0; idata < 300; idata++) begin
-            item.idata          = idata;
-            item.cycles         = 0;
-            item.ilval          = 1'b1;
-            item.ifval          = 1'b1;
-             if (idata >= 199)begin
-              item.ilval         = 1'b0;
-              item.idata          = 0;
-             end
-            `uvm_send(item);
-        end
-        //----------------------------
-        //LINE 4
-        //----------------------------
-        `uvm_create(item)
-            idata               = 0;
-        for(idata = 0; idata < 300; idata++) begin
-            item.idata          = idata;
-            item.cycles         = 0;
-            item.ilval          = 1'b1;
-            item.ifval          = 1'b1;
-             if (idata >= 199)begin
-              item.ilval         = 1'b0;
-              item.idata          = 0;
-             end
-            `uvm_send(item);
-        end
-        //----------------------------
-        //LAST LINE
-        //----------------------------
-        `uvm_create(item)
-            idata               = 0;
-        for(idata = 0; idata <= 410; idata++) begin
-            item.idata          = idata;
-            item.cycles         = 0;
-            item.ilval          = 1'b1;
-            item.ifval          = 1'b1;
-             if (idata >= 199)begin
-              item.ilval         = 1'b0;
-              item.idata          = 0;
-             end
-             if (idata  >= 200) begin
-              item.ifval         = 1'b0;
-             end
-            `uvm_send(item);
-        end
-        //----------------------------
     endtask: body
 endclass: d5m_camera_directed_sequence

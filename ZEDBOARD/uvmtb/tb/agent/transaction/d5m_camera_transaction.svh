@@ -4,6 +4,10 @@ class d5m_camera_transaction extends uvm_sequence_item;
     rand bit            ilval;
     rand bit            ifval;
     rand int unsigned   cycles;
+    bit [16:0]          image_width    = 200; 
+    bit [16:0]          lval_offset    = 100; 
+    bit [16:0]          lval_lines     = 6; //5 lines [1-5] [0 sof clear] [6 eof clear]
+    bit [16:0]          number_frames  = 6; //7 frames [0-7]
     constraint c_cycles { 
     cycles == 1; }
     function new (string name = "");
@@ -14,5 +18,9 @@ class d5m_camera_transaction extends uvm_sequence_item;
         `uvm_field_int  (ilval,                         UVM_DEFAULT)
         `uvm_field_int  (ifval,                         UVM_DEFAULT) 
         `uvm_field_int  (cycles,                        UVM_DEFAULT)
+        `uvm_field_int  (lval_offset,                   UVM_DEFAULT)
+        `uvm_field_int  (lval_lines,                    UVM_DEFAULT)
+        `uvm_field_int  (number_frames,                 UVM_DEFAULT)
+        `uvm_field_int  (image_width,                   UVM_DEFAULT)
     `uvm_object_utils_end
 endclass: d5m_camera_transaction
