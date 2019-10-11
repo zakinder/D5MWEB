@@ -7,9 +7,10 @@ module top;
     import d5m_camera_pkg::*;
     reg pixclk;
     reg ACLK;
-    reg reset  = 1'b0;
+    reg reset    = 1'b0;
+    reg ARESETN  = 1'b1;
     //INTERFACE
-    d5m_camera_if                 d5m_camera_vif(ACLK,pixclk,reset);                // AXI_LITE_INTERFACE  
+    d5m_camera_if                 d5m_camera_vif(ACLK,pixclk,reset,ARESETN);                // AXI_LITE_INTERFACE  
     //MODULE
     vfpConfigd5mCameraDut        vfp_dut(d5m_camera_vif); // [d5m_camera]
     
@@ -20,7 +21,13 @@ module top;
     #50;
     reset  = 1'b1;
     end
-    
+    initial begin
+        ARESETN  = 1'b1;
+    #50;
+        ARESETN  = 1'b0;
+    #50;
+        ARESETN  = 1'b1;
+    end
     initial begin
     pixclk = 0;
     #10ns;

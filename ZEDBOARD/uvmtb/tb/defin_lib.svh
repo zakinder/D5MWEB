@@ -17,7 +17,7 @@ typedef struct packed {
 } set_config;
 
 typedef enum { READ, WRITE } axi_lite_txn_e;
-
+typedef enum { AXI4_READ, AXI4_WRITE, D5M_WRITE } d5m_txn_e;
 parameter set_config par_1 = '{ '{ addr_width: 11, data_width: 8 }, '{ payload_length: 2 } };
 parameter set_config par_2 = '{ '{ addr_width: 11, data_width: 8 }, '{ payload_length: 4 } };
 parameter set_config par_3 = '{ '{ addr_width: 11, data_width: 8 }, '{ payload_length: 3 } };

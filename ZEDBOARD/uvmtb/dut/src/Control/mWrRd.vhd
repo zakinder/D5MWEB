@@ -52,6 +52,7 @@ begin
     kls.k8                  <= wrRegsIn.cfigReg15;
     kls.k9                  <= wrRegsIn.cfigReg16;
     kls.config              <= to_integer(unsigned(wrRegsIn.cfigReg17));
+    --cfigReg17,cfigReg18,cfigReg19,cfigReg20
     als.k1                  <= wrRegsIn.cfigReg21;
     als.k2                  <= wrRegsIn.cfigReg22;
     als.k3                  <= wrRegsIn.cfigReg23;
