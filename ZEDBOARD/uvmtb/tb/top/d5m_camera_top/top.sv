@@ -6,22 +6,33 @@ module top;
     import uvm_pkg::*;
     import d5m_camera_pkg::*;
     reg pixclk;
+    reg ACLK;
     reg reset  = 1'b0;
     //INTERFACE
-    d5m_camera_if                 d5m_camera_vif(pixclk,reset);                // AXI_LITE_INTERFACE  
+    d5m_camera_if                 d5m_camera_vif(ACLK,pixclk,reset);                // AXI_LITE_INTERFACE  
     //MODULE
     vfpConfigd5mCameraDut        vfp_dut(d5m_camera_vif); // [d5m_camera]
+    
+    // reset
     initial begin
     #50;
-        reset  = 1'b0;
+    reset  = 1'b0;
     #50;
-        reset  = 1'b1;
+    reset  = 1'b1;
     end
+    
     initial begin
-        pixclk = 0;
+    pixclk = 0;
+    #10ns;
+    forever #10ns pixclk = ! pixclk;
+    end
+    
+    initial begin
+    ACLK = 0;
     #5ns ;
-    forever #5ns pixclk = ! pixclk;
+    forever #5ns ACLK = ! ACLK;
     end
+    
     initial begin
         uvm_config_db   #(virtual d5m_camera_if) ::set(null, "*", "d5m_camera_vif", d5m_camera_vif);
         run_test();

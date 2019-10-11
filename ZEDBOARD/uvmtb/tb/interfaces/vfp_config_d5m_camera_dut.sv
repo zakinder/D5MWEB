@@ -26,7 +26,7 @@ import generic_pack::*;
     .ilval                     (d5m_camera_vif.ilval         ),//(d5m_camera_vif.AWADDR ),
     .idata                     (d5m_camera_vif.idata         ),//(d5m_camera_vif.AWPROT ),
     //tx channel
-    .rgb_m_axis_aclk           (d5m_camera_vif.pixclk        ),
+    .rgb_m_axis_aclk           (d5m_camera_vif.ACLK          ),
     .rgb_m_axis_aresetn        (d5m_camera_vif.reset         ),
     .rgb_m_axis_tready         (                             ),//(axi4l_vif.AWADDR ),
     .rgb_m_axis_tvalid         (                             ),//(axi4l_vif.AWPROT ),
@@ -42,7 +42,7 @@ import generic_pack::*;
     .rgb_s_axis_tuser          (                             ),
     .rgb_s_axis_tdata          (                             ),
     //destination channel                                    
-    .m_axis_mm2s_aclk          (d5m_camera_vif.pixclk        ),
+    .m_axis_mm2s_aclk          (d5m_camera_vif.ACLK          ),
     .m_axis_mm2s_aresetn       (d5m_camera_vif.reset         ),
     .m_axis_mm2s_tready        (                             ),//(axi4l_vif.AWADDR ),
     .m_axis_mm2s_tvalid        (                             ),//(axi4l_vif.AWPROT ),
@@ -54,7 +54,7 @@ import generic_pack::*;
     .m_axis_mm2s_tid           (                             ),//(axi4l_vif.AWREADY),
     .m_axis_mm2s_tdest         (                             ),//(axi4l_vif.WDATA  ),
     //video configuration      
-    .vfpconfig_aclk            (d5m_camera_vif.pixclk        ),
+    .vfpconfig_aclk            (d5m_camera_vif.ACLK          ),
     .vfpconfig_aresetn         (d5m_camera_vif.reset         ),
     .vfpconfig_awaddr          (                             ),
     .vfpconfig_awprot          (                             ),

@@ -7,7 +7,7 @@ class d5m_camera_transaction extends uvm_sequence_item;
     bit [16:0]          image_width    = 200; 
     bit [16:0]          lval_offset    = 100; 
     bit [16:0]          lval_lines     = 6; //5 lines [1-5] [0 sof clear] [6 eof clear]
-    bit [16:0]          number_frames  = 6; //7 frames [0-7]
+    bit [16:0]          number_frames  = 10; //7 frames [0-7]
     constraint c_cycles { 
     cycles == 1; }
     function new (string name = "");

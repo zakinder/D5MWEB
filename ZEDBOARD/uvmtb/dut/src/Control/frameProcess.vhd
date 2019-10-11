@@ -63,15 +63,15 @@ architecture arch of frameProcess is
     signal sValid           : std_logic;
     -------------------------------------------------
     constant F_TES          : boolean := true;
-    constant F_LUM          : boolean := false;
-    constant F_TRM          : boolean := false;
+    constant F_LUM          : boolean := true;
+    constant F_TRM          : boolean := true;
     constant F_RGB          : boolean := true;
-    constant F_SHP          : boolean := true;
+    constant F_SHP          : boolean := false;
     constant F_BLU          : boolean := false;
     constant F_EMB          : boolean := false;
     constant F_YCC          : boolean := false;
-    constant F_SOB          : boolean := true;
-    constant F_CGA          : boolean := true;
+    constant F_SOB          : boolean := false;
+    constant F_CGA          : boolean := false;
     constant F_HSV          : boolean := true;
     constant F_HSL          : boolean := true;
     -------------------------------------------------

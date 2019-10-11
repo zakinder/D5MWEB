@@ -51,7 +51,7 @@ begin
 videoOutP: process (clk) begin
     if rising_edge(clk) then
         if (vChannelSelect = 0) then
-            channels           <= iFrameData.cgain;
+            channels           <= iFrameData.inrgb;
         elsif(vChannelSelect = 1)then
             channels           <= iFrameData.sharp;
         elsif(vChannelSelect = 2)then
@@ -61,7 +61,7 @@ videoOutP: process (clk) begin
         elsif(vChannelSelect = 4)then
             channels           <= iFrameData.hsv;
         elsif(vChannelSelect = 5)then
-            channels           <= iFrameData.inrgb;
+            channels           <= iFrameData.cgain;
         elsif(vChannelSelect = 6)then
             channels           <= iFrameData.sobel;
         elsif(vChannelSelect = 7)then
