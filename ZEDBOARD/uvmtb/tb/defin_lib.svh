@@ -15,7 +15,23 @@ typedef struct packed {
    width_confg1_t w_p1;
    width_confg2_t w_p2;
 } set_config;
-
+typedef struct {
+    bit [7:0] address;
+    bit [15:0] data;
+  } packet_t;
+typedef struct {
+    bit [3:0] high_nibble;
+    bit [3:0] low_nibble;
+    bit [4:0] id;
+  } layer1_t;
+ 
+  typedef struct {
+    bit [3:0] address;
+    bit [3:0] data;
+    bit [4:0] id;
+  } frame_t;
+  
+  
 typedef enum { READ, WRITE } axi_lite_txn_e;
 typedef enum { AXI4_READ, AXI4_WRITE, D5M_WRITE } d5m_txn_e;
 parameter set_config par_1 = '{ '{ addr_width: 11, data_width: 8 }, '{ payload_length: 2 } };

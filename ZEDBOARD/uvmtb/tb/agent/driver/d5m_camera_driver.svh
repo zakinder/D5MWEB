@@ -49,14 +49,7 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
     virtual protected task d5m_frame();
         forever begin
             @(posedge d5m_camera_vif.pixclk);
-            if (d5m_camera_vif.reset == 1'b0) begin
-                @(posedge d5m_camera_vif.reset);
-                @(posedge d5m_camera_vif.pixclk);
-            end
             seq_item_port.get_next_item(req);
-            repeat(req.cycles) begin
-                @(posedge d5m_camera_vif.pixclk);
-            end
             drive_transfer(req);
             seq_item_port.item_done();
         end
@@ -75,12 +68,11 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
     //--------------------------------- DRIVE READ DATA CHANNEL
     //------------------------------------------------------------------------------------
     //====================================================================================
-
     virtual protected task drive_address_phase (d5m_camera_transaction aL_txn);
         case (aL_txn.d5m_txn)
-        AXI4_WRITE : drive_write_address_channel(aL_txn);
-        AXI4_READ  : drive_read_address_channel(aL_txn);
-        D5M_WRITE  : d5m_data_phase(aL_txn);
+            AXI4_WRITE : drive_write_address_channel(aL_txn);
+            AXI4_READ  : drive_read_address_channel(aL_txn);
+            D5M_WRITE  : d5m_data_phase(aL_txn);
         endcase
     endtask: drive_address_phase
     virtual protected task drive_data_phase (d5m_camera_transaction aL_txn);
@@ -88,8 +80,9 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
         bit err;
         rw_data = aL_txn.data;
         case (aL_txn.d5m_txn)
-        AXI4_WRITE : drive_write_data_channel(rw_data, err);
-        AXI4_READ  : drive_read_data_channel(rw_data, err);
+            AXI4_WRITE : drive_write_data_channel(aL_txn);
+            AXI4_READ  : drive_read_data_channel(rw_data, err);
+            D5M_WRITE  : d5m_data_phase(aL_txn);
         endcase    
     endtask: drive_data_phase
     virtual protected task d5m_data_phase (d5m_camera_transaction aL_txn);
@@ -125,20 +118,15 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
         if (axi_lite_ctr == 62) begin
             `uvm_error("axi_lite_master_driver","AWVALID timeout");
         end    
-        @(posedge d5m_camera_vif.ACLK);
-        // d5m_camera_vif.AWADDR  <= 8'h0;
-        // d5m_camera_vif.AWPROT  <= 3'h0;
-        // d5m_camera_vif.AWVALID <= 1'b0;
     endtask: drive_write_address_channel
     //====================================================================================
     //------------------------------------------------------------------------------------
     //--------------------------------- AXI4LITE WRITE DATA
     //------------------------------------------------------------------------------------
     //====================================================================================
-    virtual protected task drive_write_data_channel (bit[31:0] data, output bit error);
+    virtual protected task drive_write_data_channel (d5m_camera_transaction aL_txn);
         int axi_lite_ctr;
-        //`uvm_info("AXI4LITE WRITE WDATA", "WRITE DATA",UVM_LOW)
-        d5m_camera_vif.WDATA  <= data;
+        d5m_camera_vif.WDATA  <= aL_txn.data;
         d5m_camera_vif.WSTRB  <= 4'hf;
         d5m_camera_vif.WVALID <= 1'b1;
         @(posedge d5m_camera_vif.ACLK);

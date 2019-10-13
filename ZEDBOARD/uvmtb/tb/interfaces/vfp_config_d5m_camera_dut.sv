@@ -28,31 +28,31 @@ import generic_pack::*;
     //tx channel
     .rgb_m_axis_aclk           (d5m_camera_vif.ACLK          ),
     .rgb_m_axis_aresetn        (d5m_camera_vif.ARESETN       ),
-    .rgb_m_axis_tready         (                             ),//(d5m_camera_vif.AWADDR ),
-    .rgb_m_axis_tvalid         (                             ),//(d5m_camera_vif.AWPROT ),
-    .rgb_m_axis_tlast          (                             ),//(d5m_camera_vif.AWVALID),
-    .rgb_m_axis_tuser          (                             ),//(d5m_camera_vif.AWREADY),
-    .rgb_m_axis_tdata          (                             ),//(d5m_camera_vif.WDATA  ),
+    .rgb_m_axis_tready         (d5m_camera_vif.rgb_s_axis_tready),//input
+    .rgb_m_axis_tvalid         (d5m_camera_vif.rgb_m_axis_tvalid),//output
+    .rgb_m_axis_tlast          (d5m_camera_vif.rgb_m_axis_tlast),//output
+    .rgb_m_axis_tuser          (d5m_camera_vif.rgb_m_axis_tuser),//output
+    .rgb_m_axis_tdata          (d5m_camera_vif.rgb_m_axis_tdata),//output
     //rx channel               
     .rgb_s_axis_aclk           (d5m_camera_vif.ACLK          ),
     .rgb_s_axis_aresetn        (d5m_camera_vif.ARESETN       ),
-    .rgb_s_axis_tready         (                             ),
-    .rgb_s_axis_tvalid         (                             ),
-    .rgb_s_axis_tlast          (                             ),
-    .rgb_s_axis_tuser          (                             ),
-    .rgb_s_axis_tdata          (                             ),
+    .rgb_s_axis_tready         (d5m_camera_vif.rgb_s_axis_tready),//output
+    .rgb_s_axis_tvalid         (d5m_camera_vif.rgb_m_axis_tvalid),//input
+    .rgb_s_axis_tlast          (d5m_camera_vif.rgb_m_axis_tlast),//input
+    .rgb_s_axis_tuser          (d5m_camera_vif.rgb_m_axis_tuser),//input
+    .rgb_s_axis_tdata          (d5m_camera_vif.rgb_m_axis_tdata),//input
     //destination channel                                    
     .m_axis_mm2s_aclk          (d5m_camera_vif.ACLK          ),
     .m_axis_mm2s_aresetn       (d5m_camera_vif.ARESETN       ),
-    .m_axis_mm2s_tready        (                             ),//(d5m_camera_vif.AWADDR ),
-    .m_axis_mm2s_tvalid        (                             ),//(d5m_camera_vif.AWPROT ),
-    .m_axis_mm2s_tuser         (                             ),//(d5m_camera_vif.AWVALID),
-    .m_axis_mm2s_tlast         (                             ),//(d5m_camera_vif.AWREADY),
-    .m_axis_mm2s_tdata         (                             ),//(d5m_camera_vif.WDATA  ),
-    .m_axis_mm2s_tkeep         (                             ),//(d5m_camera_vif.AWPROT ),
-    .m_axis_mm2s_tstrb         (                             ),//(d5m_camera_vif.AWVALID),
-    .m_axis_mm2s_tid           (                             ),//(d5m_camera_vif.AWREADY),
-    .m_axis_mm2s_tdest         (                             ),//(d5m_camera_vif.WDATA  ),
+    .m_axis_mm2s_tready        (d5m_camera_vif.m_axis_mm2s_tready),//input
+    .m_axis_mm2s_tvalid        (d5m_camera_vif.m_axis_mm2s_tvalid),//output
+    .m_axis_mm2s_tuser         (d5m_camera_vif.m_axis_mm2s_tuser),//output
+    .m_axis_mm2s_tlast         (d5m_camera_vif.m_axis_mm2s_tlast),//output
+    .m_axis_mm2s_tdata         (d5m_camera_vif.m_axis_mm2s_tdata),//output
+    .m_axis_mm2s_tkeep         (d5m_camera_vif.m_axis_mm2s_tkeep),//output
+    .m_axis_mm2s_tstrb         (d5m_camera_vif.m_axis_mm2s_tstrb),//output
+    .m_axis_mm2s_tid           (d5m_camera_vif.m_axis_mm2s_tid),//output
+    .m_axis_mm2s_tdest         (d5m_camera_vif.m_axis_mm2s_tdest),//output
     //video configuration      
     .vfpconfig_aclk            (d5m_camera_vif.ACLK          ),
     .vfpconfig_aresetn         (d5m_camera_vif.ARESETN       ),

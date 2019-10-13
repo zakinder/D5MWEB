@@ -48,6 +48,7 @@ architecture arch_imp of videoProcess_v1_0_rgb_m_axis is
     signal tx_axis_tuser     : std_logic;
     signal tx_axis_tready    : std_logic;
 	signal pEofs1            : std_logic :=lo;
+	signal pEofs2            : std_logic :=lo;
     signal tx_axis_tdata     : std_logic_vector(s_data_width-1 downto 0);
     type video_io_state is (VIDEO_SET_RESET,VIDEO_SOF_OFF,VIDEO_SOF_ON,VIDEO_END_OF_LINE);
     signal VIDEO_STATES      : video_io_state; 
@@ -70,6 +71,8 @@ process (m_axis_mm2s_aclk) begin
             VIDEO_STATES <= VIDEO_SET_RESET;
         else
         tx_axis_tuser <=axis_sof;
+        pEofs1        <= iStreamData.eof;
+        pEofs2        <= pEofs1;
         case (VIDEO_STATES) is
         when VIDEO_SET_RESET =>
             tx_axis_tlast  <= lo;
@@ -91,9 +94,7 @@ process (m_axis_mm2s_aclk) begin
         when VIDEO_SOF_ON =>
             axis_sof       <= lo;
 			tx_axis_tvalid <= hi;
-            if(iStreamData.eof = hi) then
-                pEofs1 <= hi;
-            end if;
+
             if (configReg4R = EXTERNAL_AXIS_STREAM)then
                 if(mpeg42XXX =hi)then
                     tx_axis_tdata  <= (iStreamData.ycbcr.green & iStreamData.ycbcr.red);
@@ -111,17 +112,17 @@ process (m_axis_mm2s_aclk) begin
                     tx_axis_tdata  <= (mpeg42XCR & iStreamData.ycbcr.red);
                 end if;
             end if;
-        if (iStreamData.ycbcr.valid = hi) then
-            tx_axis_tlast  <= lo;
-            VIDEO_STATES <= VIDEO_SOF_ON;
-        else
-            tx_axis_tlast  <= hi;
-            VIDEO_STATES <= VIDEO_END_OF_LINE;
-        end if;
+            if (iStreamData.ycbcr.valid = hi) then
+                tx_axis_tlast  <= lo;
+                VIDEO_STATES <= VIDEO_SOF_ON;
+            else
+                tx_axis_tlast  <= hi;
+                VIDEO_STATES <= VIDEO_END_OF_LINE;
+            end if;
         when VIDEO_END_OF_LINE =>
             tx_axis_tlast  <= lo;
             tx_axis_tvalid <= lo;
-            if (pEofs1 = hi) then
+            if (pEofs2 = hi) then
                 VIDEO_STATES <= VIDEO_SOF_OFF;
 				pEofs1 <= lo;
             elsif (iStreamData.ycbcr.valid = hi) then
