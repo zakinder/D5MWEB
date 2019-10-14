@@ -2,42 +2,38 @@
 class d5m_camera_fc_subscriber extends uvm_subscriber#(d5m_camera_transaction);
     `uvm_component_utils(d5m_camera_fc_subscriber)
     d5m_camera_transaction aL_txn;
-
-  //=================================================
-  // Coverage Group in interface
-  //=================================================
-  covergroup aL_cg;
-        // drive_address : coverpoint aL_txn.addr {
-          // bins low    = {0,16};
-          // bins med    = {17,32};
-          // bins high   = {33,64};
-        // }
-        // drive_data : coverpoint aL_txn.idata {
-          // bins low    = {0,50};
-          // bins med    = {51,150};
-          // bins high   = {151,255};
-        // }
-        // data_out : coverpoint aL_txn.WDATA {
-          // bins low    = {0,50};
-          // bins med    = {51,150};
-          // bins high   = {151,255};
-        // }
-        // data_in : coverpoint aL_txn.RDATA {
-          // bins low    = {0,50};
-          // bins med    = {51,150};
-          // bins high   = {151,255};
-        // }
-        // read_write : coverpoint aL_txn.reqWriteRead {
-          // bins  read  = {0};
-          // bins  write = {1};
-        // }
-        // cross read_write, drive_address;
-        // cross read_write, drive_data;
-        // cross read_write, data_in;
-        // cross read_write, data_out;
-        // cross drive_address, drive_data;
-        // cross drive_address, data_in;
-        // cross data_in, data_out;
+    covergroup aL_cg;
+        drive_idata : coverpoint aL_txn.idata {
+          bins data_0_199      = {0,199};
+          bins data_200_399    = {200,399};
+          bins data_400_799    = {400,799};
+          bins data_800_1599   = {800,1599};
+          bins data_1600_4095  = {1600,4095};
+        }
+        drive_ilval : coverpoint aL_txn.ilval {
+          bins  low  = {0};
+          bins  high = {1};
+        }
+        drive_ifval : coverpoint aL_txn.ifval {
+          bins  low  = {0};
+          bins  high = {1};
+        }
+        drive_addr : coverpoint aL_txn.addr {
+          bins data_0_39      = {0,39};
+          bins data_40_79     = {40,79};
+          bins data_80_119    = {80,119};
+          bins data_120_256   = {120,256};
+        }
+        drive_data : coverpoint aL_txn.data {
+          bins data_0_199      = {0,199};
+          bins data_200_399    = {200,399};
+          bins data_400_799    = {400,799};
+          bins data_800_1599   = {800,1599};
+          bins data_1600_3199  = {1600,3199};
+          bins data_3200_8000  = {3200,8000};
+        }
+        //cross drive_ifval, drive_ilval, drive_idata;
+        //cross drive_addr, drive_data;
     endgroup: aL_cg
     
     

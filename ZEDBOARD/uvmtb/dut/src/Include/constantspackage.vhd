@@ -76,9 +76,9 @@ package constantspackage is
     constant initCordValueTop          : integer := 65535;
     constant initCordValueBot          : integer := 0;
     constant frameSizeLft              : integer := 1;
-    constant frameSizeRht              : integer := 1920;
+    constant frameSizeRht              : integer := 200;
     constant frameSizeTop              : integer := 5;
-    constant frameSizeBot              : integer := 1080;
+    constant frameSizeBot              : integer := 200;
     constant pInterestWidth            : integer := 127;
     constant pInterestHight            : integer := 127;
     -------------------------------------------------------------------------

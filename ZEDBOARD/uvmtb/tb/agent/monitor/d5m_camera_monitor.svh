@@ -56,7 +56,11 @@ class d5m_camera_monitor extends uvm_monitor;
                 // valid_txn = 1;
             // end
             @(posedge d5m_camera_vif.pixclk);
-            //aL_txn.idata = d5m_camera_vif.idata;
+            aL_txn.idata = d5m_camera_vif.idata;
+            aL_txn.ilval = d5m_camera_vif.ilval;
+            aL_txn.ifval = d5m_camera_vif.ifval;
+            aL_txn.addr  = d5m_camera_vif.AWADDR;
+            aL_txn.data  = d5m_camera_vif.WDATA;
             //while (d5m_camera_vif.valid == 'b1) begin
             //@(posedge d5m_camera_vif.pixclk);
             //aL_txn.cycles++;

@@ -2,10 +2,10 @@ class d5m_camera_transaction extends uvm_sequence_item;
     rand bit [11:0]     idata;
     rand bit            ilval;
     rand bit            ifval;
-    int                 image_width    = 1080; 
-    int                 lval_offset    = 100;
-    int                 lval_lines     = 4; //5 lines [1-5] [0 sof clear] [6 eof clear]
-    int                 number_frames  = 4; //7 frames [0-7]
+    int                 image_width    = 200; 
+    int                 lval_offset    = 50;
+    int                 lval_lines     = 200; //lval_lines - 2
+    int                 number_frames  = 3;   //7 frames [0-7]
     rand bit [15:0]     addr;
     rand bit [31:0]     data;
     rand d5m_txn_e      d5m_txn;
