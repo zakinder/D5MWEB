@@ -16,6 +16,7 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
     virtual task run_phase (uvm_phase phase);
         fork
             reset_signals();
+            
             d5m_frame();
         join
     endtask: run_phase
@@ -41,6 +42,7 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
             d5m_camera_vif.RREADY  <=  1'b1;
         end
     endtask: reset_signals
+
     //====================================================================================
     //------------------------------------------------------------------------------------
     //--------------------------------- GET_AND_DRIVE
@@ -59,40 +61,67 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
     //--------------------------------- DRIVE READ DATA CHANNEL
     //------------------------------------------------------------------------------------
     //====================================================================================
-    virtual protected task drive_transfer (d5m_camera_transaction aL_txn);
-        drive_address_phase(aL_txn);
-        drive_data_phase(aL_txn);
+    virtual protected task drive_transfer (d5m_camera_transaction d5m_tx);
+        drive_address_phase(d5m_tx);
+        drive_data_phase(d5m_tx);
+        //read_d5m_phase(d5m_tx);
     endtask: drive_transfer
     //====================================================================================
     //------------------------------------------------------------------------------------
     //--------------------------------- DRIVE READ DATA CHANNEL
     //------------------------------------------------------------------------------------
     //====================================================================================
-    virtual protected task drive_address_phase (d5m_camera_transaction aL_txn);
-        case (aL_txn.d5m_txn)
-            AXI4_WRITE : drive_write_address_channel(aL_txn);
-            AXI4_READ  : drive_read_address_channel(aL_txn);
-            D5M_WRITE  : d5m_data_phase(aL_txn);
+   //virtual protected task read_d5m_phase (d5m_camera_transaction d5m_tx);
+   //    d5m_tx.ired    <= d5m_camera_vif.red;
+   //    d5m_tx.igreen  <= d5m_camera_vif.green;
+   //    d5m_tx.iblue   <= d5m_camera_vif.blue;
+   //    d5m_tx.ivalid  <= d5m_camera_vif.valid;
+   //    d5m_tx.ixCord  <= d5m_camera_vif.xCord;
+   //    d5m_tx.iyCord  <= d5m_camera_vif.yCord;
+   //
+   //endtask: read_d5m_phase
+    virtual protected task drive_address_phase (d5m_camera_transaction d5m_tx);
+        case (d5m_tx.d5m_txn)
+            AXI4_WRITE : drive_write_address_channel(d5m_tx);
+            AXI4_READ  : drive_read_address_channel(d5m_tx);
+            D5M_WRITE  : d5m_data_phase(d5m_tx);
+            IMAGE_READ : read_d5m_phase(d5m_tx);
         endcase
     endtask: drive_address_phase
-    virtual protected task drive_data_phase (d5m_camera_transaction aL_txn);
+    virtual protected task drive_data_phase (d5m_camera_transaction d5m_tx);
         bit[31:0] rw_data;
         bit err;
-        rw_data = aL_txn.data;
-        case (aL_txn.d5m_txn)
-            AXI4_WRITE : drive_write_data_channel(aL_txn);
+        rw_data = d5m_tx.data;
+        case (d5m_tx.d5m_txn)
+            AXI4_WRITE : drive_write_data_channel(d5m_tx);
             AXI4_READ  : drive_read_data_channel(rw_data, err);
-            D5M_WRITE  : d5m_data_phase(aL_txn);
+            D5M_WRITE  : d5m_data_phase(d5m_tx);
+            IMAGE_READ : read_d5m_phase(d5m_tx);
         endcase    
     endtask: drive_data_phase
-    virtual protected task d5m_data_phase (d5m_camera_transaction aL_txn);
+    virtual protected task read_d5m_phase(d5m_camera_transaction d5m_tx);
+            @(posedge d5m_camera_vif.pixclk);
+            d5m_camera_vif.readyToRead  <= 1'b1;
+            d5m_tx.ired                 <= d5m_camera_vif.red;
+            d5m_tx.igreen               <= d5m_camera_vif.green;
+            d5m_tx.iblue                <= d5m_camera_vif.blue;
+            d5m_tx.ivalid               <= d5m_camera_vif.valid;
+            d5m_tx.ixCord               <= d5m_camera_vif.xCord;
+            d5m_tx.iyCord               <= d5m_camera_vif.yCord;
+        forever begin
+            @(posedge d5m_camera_vif.pixclk);
+            if (d5m_camera_vif.endOfFrame) break;
+        end
+
+    endtask: read_d5m_phase
+    virtual protected task d5m_data_phase (d5m_camera_transaction d5m_tx);
         bit[11:0] rw_data;
         bit err;
         bit ifval;
         bit ilval;
-        ifval   = aL_txn.ifval;
-        ilval   = aL_txn.ilval;
-        rw_data = aL_txn.idata;
+        ifval   = d5m_tx.ifval;
+        ilval   = d5m_tx.ilval;
+        rw_data = d5m_tx.idata;
         d5m_write_idata(rw_data,ilval,ifval, err);
     endtask: d5m_data_phase
     virtual protected task d5m_write_idata (bit[11:0] idata,bit ilval,bit ifval, output bit error);
@@ -105,9 +134,9 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
     //--------------------------------- AXI4LITE WRITE ADDRESS
     //------------------------------------------------------------------------------------
     //====================================================================================
-    virtual protected task drive_write_address_channel (d5m_camera_transaction aL_txn);
+    virtual protected task drive_write_address_channel (d5m_camera_transaction d5m_tx);
         int axi_lite_ctr;
-        d5m_camera_vif.AWADDR  <= {8'h0, aL_txn.addr};
+        d5m_camera_vif.AWADDR  <= {8'h0, d5m_tx.addr};
         d5m_camera_vif.AWPROT  <= 3'h0;
         d5m_camera_vif.AWVALID <= 1'b1;
         //wait for write response
@@ -124,9 +153,9 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
     //--------------------------------- AXI4LITE WRITE DATA
     //------------------------------------------------------------------------------------
     //====================================================================================
-    virtual protected task drive_write_data_channel (d5m_camera_transaction aL_txn);
+    virtual protected task drive_write_data_channel (d5m_camera_transaction d5m_tx);
         int axi_lite_ctr;
-        d5m_camera_vif.WDATA  <= aL_txn.data;
+        d5m_camera_vif.WDATA  <= d5m_tx.data;
         d5m_camera_vif.WSTRB  <= 4'hf;
         d5m_camera_vif.WVALID <= 1'b1;
         @(posedge d5m_camera_vif.ACLK);
@@ -167,9 +196,9 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
     //--------------------------------- AXI4LITE WRITE READ ADDRESS
     //------------------------------------------------------------------------------------
     //====================================================================================
-    virtual protected task drive_read_address_channel (d5m_camera_transaction aL_txn);
+    virtual protected task drive_read_address_channel (d5m_camera_transaction d5m_tx);
         int axi_lite_ctr;
-        d5m_camera_vif.ARADDR  <= {8'h0, aL_txn.addr};
+        d5m_camera_vif.ARADDR  <= {8'h0, d5m_tx.addr};
         d5m_camera_vif.ARPROT  <= 3'h0;
         d5m_camera_vif.ARVALID <= 1'b1;
         for(axi_lite_ctr = 0; axi_lite_ctr <= 62; axi_lite_ctr ++) begin

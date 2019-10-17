@@ -877,5 +877,32 @@ port (
     iKcoeff        : in kernelCoeff;
     oCoeffProd     : out kCoefFiltFloat);
 end component CoefMult;
-
+component imageRead is
+generic (
+    i_data_width  : integer := 8;
+    img_width     : integer := 400;
+    img_height    : integer := 300;
+    input_file    : string  := "input_image");
+port (                
+    clk           : in  std_logic;
+    reset         : in  std_logic;
+    readyToRead   : in  std_logic;
+    oRgb          : out channel;
+    oCord         : out coord;
+    endOfFrame    : out std_logic);
+end component imageRead;
+component imageWrite is
+generic (
+    enImageText                 : boolean := false;
+    enImageIndex                : boolean := false;
+    i_data_width                : integer := 8;
+    img_width                   : integer := 400;
+    img_height                  : integer := 300;
+    input_file                  : string  := "input_image";
+    output_file                 : string  := "output_image");
+port (                
+    pixclk                      : in  std_logic;
+    enableWrite                 : in  std_logic;
+    iRgb                        : in channel);
+end component imageWrite;
 end package;

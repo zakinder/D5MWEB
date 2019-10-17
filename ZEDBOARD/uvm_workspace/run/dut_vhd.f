@@ -55,3 +55,6 @@
 ../../uvmtb/dut/hdl/vfpMSaxisRGB.vhd
 
 ../../uvmtb/dut/pixel_Cord.vhd
+../../uvmtb/dut/tb/ImagesReadWrite/imageReadInterface.vhd
+../../uvmtb/dut/tb/ImagesReadWrite/imageRead.vhd
+../../uvmtb/dut/tb/ImagesReadWrite/imageWrite.vhd

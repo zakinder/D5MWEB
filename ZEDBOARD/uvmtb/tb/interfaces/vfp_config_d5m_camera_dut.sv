@@ -1,4 +1,18 @@
 // MODULE : VFPCONFIGDUT
+module imageReadInterfaceDut(d5m_camera_if.ConfigMaster d5m_camera_vif);
+import generic_pack::*;  
+    imageReadInterface imageReadInst (
+    .clk                       (d5m_camera_vif.pixclk),
+    .reset                     (d5m_camera_vif.reset),
+    .readyToRead               (d5m_camera_vif.readyToRead),
+    .valid                     (d5m_camera_vif.valid),
+    .red                       (d5m_camera_vif.red),
+    .green                     (d5m_camera_vif.green),
+    .blue                      (d5m_camera_vif.blue),
+    .xCord                     (d5m_camera_vif.xCord),
+    .yCord                     (d5m_camera_vif.yCord),
+    .endOfFrame                (d5m_camera_vif.endOfFrame));
+endmodule: imageReadInterfaceDut
 module vfpConfigd5mCameraDut(d5m_camera_if.ConfigMaster d5m_camera_vif);
 import generic_pack::*;  
     VFP_v1_0                  #(

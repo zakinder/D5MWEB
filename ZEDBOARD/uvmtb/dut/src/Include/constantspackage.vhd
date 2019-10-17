@@ -115,12 +115,34 @@ package constantspackage is
     function min(L, R: INTEGER) return INTEGER;
     function SelFrame(L, R: BOOLEAN) return BOOLEAN;
     function SelFrame(L, R, M: BOOLEAN) return BOOLEAN;
+    function conv_std_logic_vector(ARG : integer; SIZE : integer) return std_logic_vector;
     -------------------------------------------------------------------------
 end package;
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 package body constantspackage is
+function conv_std_logic_vector(ARG : integer; SIZE : integer) return std_logic_vector is
+    variable result         : std_logic_vector (SIZE - 1 downto 0);
+    variable temp           : integer;
+    begin
+    temp := ARG;
+    for i in 0 to SIZE - 1 loop
+        if (temp mod 2) = 1 then
+            result(i) := '1';
+        else
+            result(i) := '0';
+        end if;
+        if temp > 0 then
+            temp := temp / 2;
+        elsif (temp > integer'low) then
+            temp := (temp - 1) / 2;
+        else
+            temp := temp / 2;
+        end if;
+    end loop; 
+    return result;
+end function;
     function SelFrame(L, R: BOOLEAN) return BOOLEAN is
     begin
     if (L = TRUE) and (R = TRUE) then 

@@ -43,6 +43,7 @@ class d5m_camera_directed_sequence extends d5m_camera_base_seq;
         `uvm_send(item);
         //----------------------------------------------------
         axi_write_config_reg();
+        d5m_read();
         //----------------------------------------------------
         d5m_write_pre_set_ifval();
         number_frames  = item.number_frames;
@@ -60,6 +61,7 @@ class d5m_camera_directed_sequence extends d5m_camera_base_seq;
         d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
         axi_write_channel(pReg_fifoReadAddress,fifo_read_enable);
         axi_multi_writes_to_address(pReg_fifoReadAddress,max_fifo_read_address);
+
         //----------------------------------------------------
     endtask: body
     // -------------------------------------------------------
@@ -285,4 +287,10 @@ class d5m_camera_directed_sequence extends d5m_camera_base_seq;
             item.d5m_txn        = AXI4_WRITE;
             `uvm_send(item);
     endtask: axi_write_aBusSelect_channel
+    virtual protected task d5m_read ();
+            d5m_camera_transaction item;
+            `uvm_create(item)
+            item.d5m_txn        = IMAGE_READ;
+            `uvm_send(item);
+    endtask: d5m_read
 endclass: d5m_camera_directed_sequence

@@ -2,6 +2,7 @@
 `include "../../generic_pack.svh"
 `include "../../interfaces/d5m_camera_if.sv"
 `include "../../interfaces/vfp_config_d5m_camera_dut.sv"
+`include "../../interfaces/rgbAssertion_dut.sv"
 module top;
     import uvm_pkg::*;
     import d5m_camera_pkg::*;
@@ -13,7 +14,8 @@ module top;
     d5m_camera_if                 d5m_camera_vif(ACLK,pixclk,reset,ARESETN);                // AXI_LITE_INTERFACE  
     //MODULE
     vfpConfigd5mCameraDut        vfp_dut(d5m_camera_vif); // [d5m_camera]
-    
+    imageReadInterfaceDut        imageRead_dut(d5m_camera_vif); // [d5m_camera]
+    rgbAssertionDut              rgbAssertion_dut(d5m_camera_vif);                // [TEMPLATE]
     // reset
     initial begin
     #50;
