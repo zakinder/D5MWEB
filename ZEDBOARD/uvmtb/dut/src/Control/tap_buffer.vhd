@@ -6,7 +6,7 @@ use work.constantspackage.all;
 use work.vpfRecords.all;
 entity tap_buffer is
 generic (
-    img_width    : integer := 4095;
+    img_width    : integer := 2751;
     dataWidth    : integer := 12; 
     addrWidth    : integer := 12);
 port (

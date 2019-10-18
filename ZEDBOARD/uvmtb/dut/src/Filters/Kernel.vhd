@@ -18,7 +18,7 @@ generic (
     CCGAIN_FRAME       : boolean := false;
     HSV_FRAME          : boolean := false;
     HSL_FRAME          : boolean := false;
-    img_width          : integer := 4096;
+    img_width          : integer := 2751;
     img_height         : integer := 4096;
     s_data_width       : integer := 16;
     i_data_width       : integer := 8);

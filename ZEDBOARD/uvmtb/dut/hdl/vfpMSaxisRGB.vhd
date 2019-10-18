@@ -49,6 +49,7 @@ architecture arch_imp of videoProcess_v1_0_rgb_m_axis is
     signal tx_axis_tready    : std_logic;
 	signal pEofs1            : std_logic :=lo;
 	signal pEofs2            : std_logic :=lo;
+	signal rgbValid          : std_logic :=lo;
     signal tx_axis_tdata     : std_logic_vector(s_data_width-1 downto 0);
     type video_io_state is (VIDEO_SET_RESET,VIDEO_SOF_OFF,VIDEO_SOF_ON,VIDEO_END_OF_LINE);
     signal VIDEO_STATES      : video_io_state; 
@@ -57,6 +58,7 @@ process (m_axis_mm2s_aclk) begin
     if rising_edge(m_axis_mm2s_aclk) then
             mpeg42XBR  <= not(mpeg42XBR) and iStreamData.ycbcr.valid;
             mpeg42XXX  <= not(mpeg42XBR);
+            rgbValid   <= iStreamData.ycbcr.valid;
     end if;
 end process;
 process (m_axis_mm2s_aclk) begin
@@ -94,24 +96,27 @@ process (m_axis_mm2s_aclk) begin
         when VIDEO_SOF_ON =>
             axis_sof       <= lo;
 			tx_axis_tvalid <= hi;
-
-            if (configReg4R = EXTERNAL_AXIS_STREAM)then
-                if(mpeg42XXX =hi)then
-                    tx_axis_tdata  <= (iStreamData.ycbcr.green & iStreamData.ycbcr.red);
+            if (s_data_width  = 16)then-- initiate response
+                if (configReg4R = EXTERNAL_AXIS_STREAM)then
+                    if(mpeg42XXX =hi)then
+                        tx_axis_tdata  <= (iStreamData.ycbcr.green & iStreamData.ycbcr.red);
+                    else
+                        tx_axis_tdata  <= (mpeg42XCR & iStreamData.ycbcr.red);
+                    end if;
+                elsif (configReg4R = STREAM_TESTPATTERN1)then
+                    tx_axis_tdata  <= iStreamData.cord.x;
+                elsif (configReg4R = STREAM_TESTPATTERN2)then
+                    tx_axis_tdata  <= iStreamData.cord.y;
                 else
-                    tx_axis_tdata  <= (mpeg42XCR & iStreamData.ycbcr.red);
+                    if(mpeg42XXX =hi)then
+                        tx_axis_tdata  <= (iStreamData.ycbcr.green & iStreamData.ycbcr.red);
+                    else
+                        tx_axis_tdata  <= (mpeg42XCR & iStreamData.ycbcr.red);
+                    end if;
                 end if;
-            elsif (configReg4R = STREAM_TESTPATTERN1)then
-                tx_axis_tdata  <= iStreamData.cord.x;
-            elsif (configReg4R = STREAM_TESTPATTERN2)then
-                tx_axis_tdata  <= iStreamData.cord.y;
             else
-                if(mpeg42XXX =hi)then
-                    tx_axis_tdata  <= (iStreamData.ycbcr.green & iStreamData.ycbcr.red);
-                else
-                    tx_axis_tdata  <= (mpeg42XCR & iStreamData.ycbcr.red);
-                end if;
-            end if;
+                    tx_axis_tdata  <= (iStreamData.ycbcr.red & iStreamData.ycbcr.green & iStreamData.ycbcr.blue);
+            end if; 
             if (iStreamData.ycbcr.valid = hi) then
                 tx_axis_tlast  <= lo;
                 VIDEO_STATES <= VIDEO_SOF_ON;

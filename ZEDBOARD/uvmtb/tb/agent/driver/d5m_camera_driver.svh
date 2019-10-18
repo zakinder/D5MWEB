@@ -115,7 +115,7 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
 
     endtask: read_d5m_phase
     virtual protected task d5m_data_phase (d5m_camera_transaction d5m_tx);
-        bit[11:0] rw_data;
+        bit[23:0] rw_data;
         bit err;
         bit ifval;
         bit ilval;
@@ -124,7 +124,7 @@ class d5m_camera_driver extends uvm_driver #(d5m_camera_transaction);
         rw_data = d5m_tx.idata;
         d5m_write_idata(rw_data,ilval,ifval, err);
     endtask: d5m_data_phase
-    virtual protected task d5m_write_idata (bit[11:0] idata,bit ilval,bit ifval, output bit error);
+    virtual protected task d5m_write_idata (bit[23:0] idata,bit ilval,bit ifval, output bit error);
         d5m_camera_vif.idata  <= idata;
         d5m_camera_vif.ifval  <= ifval;
         d5m_camera_vif.ilval  <= ilval;

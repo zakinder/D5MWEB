@@ -51,16 +51,16 @@ class d5m_camera_directed_sequence extends d5m_camera_base_seq;
         lval_offset    = item.lval_offset;
         image_width    = item.image_width;
         //axi_write_channel(aBusSelect,0);
-        d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
+        //d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
         //axi_write_channel(aBusSelect,1);
-        enable_pattern  = 1'b1;
-        d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
+        //enable_pattern  = 1'b1;
+        //d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
         //axi_write_channel(aBusSelect,2);
-        d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
+        //d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
         //axi_write_channel(aBusSelect,3);
-        d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
-        axi_write_channel(pReg_fifoReadAddress,fifo_read_enable);
-        axi_multi_writes_to_address(pReg_fifoReadAddress,max_fifo_read_address);
+        //d5m_write_create_frames(number_frames,lval_lines,lval_offset,image_width,enable_pattern);
+        //axi_write_channel(pReg_fifoReadAddress,fifo_read_enable);
+        //axi_multi_writes_to_address(pReg_fifoReadAddress,max_fifo_read_address);
 
         //----------------------------------------------------
     endtask: body
@@ -84,6 +84,7 @@ class d5m_camera_directed_sequence extends d5m_camera_base_seq;
         bit [7:0] kls_k8                 = 8'h3C;//60  [15]
         bit [7:0] kls_k9                 = 8'h40;//64  [15]
         bit [7:0] kls_config             = 8'h44;//68  [15]
+        bit [7:0] kCoefDisabIndex        = 8'h00;//84  [15]
         bit [7:0] kCoefYcbcrIndex        = 8'h01;//84  [15]
         bit [7:0] kCoefCgainIndex        = 8'h02;//84  [15]
         bit [7:0] kCoefSharpIndex        = 8'h03;//84  [15]
@@ -120,6 +121,13 @@ class d5m_camera_directed_sequence extends d5m_camera_base_seq;
         bit [7:0] oYccPerCh              = 8'hE8;//232 [58]
         bit [31:0] select_ycbcr          = 32'h0;//180
         bit [31:0] select_rgb            = 32'h5;//180
+        bit [31:0] select_sharp          = 32'h1;//180
+        bit [31:0] select_hsv            = 32'h4;//180
+        bit [31:0] select_hsl            = 32'h3;//180
+        bit [31:0] select_rgbCorrect     = 32'h2d;//180
+        bit [31:0] select_rgbRemix       = 32'h2e;//180
+        bit [31:0] select_rgbDetect      = 32'h2f;//180
+        bit [31:0] select_rgbPoi         = 32'h30;//180
         bit [31:0] max_num_video_select  = 32'h32;//180
         axi_write_channel(initAddr,initAddr);
         axi_write_channel_test();
@@ -128,27 +136,28 @@ class d5m_camera_directed_sequence extends d5m_camera_base_seq;
         axi_write_channel(oRgbOsharp,10);
         axi_write_channel(oEdgeType,11);
         axi_write_channel(threshold,13);
-        axi_write_channel(videoChannel,select_rgb);
+        axi_write_channel(videoChannel,select_rgbDetect);
         axi_write_channel(cChannel,15);
-        axi_write_channel(dChannel,select_rgb);
-        axi_write_channel(kls_k1,17);
-        axi_write_channel(kls_k2,5);
-        axi_write_channel(kls_k3,6);
-        axi_write_channel(kls_k4,5);
-        axi_write_channel(kls_k5,6);
-        axi_write_channel(kls_k6,6);
-        axi_write_channel(kls_k7,5);
-        axi_write_channel(kls_k8,6);
-        axi_write_channel(kls_k9,5);
-        axi_write_channel(kls_config,kCoefYcbcrIndex);
-        axi_write_channel(kls_config,kCoefCgainIndex);
-        axi_write_channel(kls_config,kCoefSharpIndex);
-        axi_write_channel(kls_config,kCoefBlureIndex);
-        axi_write_channel(kls_config,kCoefSobeXIndex);
-        axi_write_channel(kls_config,kCoefSobeYIndex);
-        axi_write_channel(kls_config,kCoefEmbosIndex);
-        axi_write_channel(kls_config,kCoefCgai1Index);
-        axi_write_channel(als_k1,6);
+        axi_write_channel(dChannel,select_ycbcr);
+        //axi_write_channel(kls_k1,17);
+        //axi_write_channel(kls_k2,5);
+        //axi_write_channel(kls_k3,6);
+        //axi_write_channel(kls_k4,5);
+        //axi_write_channel(kls_k5,6);
+        //axi_write_channel(kls_k6,6);
+        //axi_write_channel(kls_k7,5);
+        //axi_write_channel(kls_k8,6);
+        //axi_write_channel(kls_k9,5);
+        //axi_write_channel(kls_config,kCoefDisabIndex);
+        //axi_write_channel(kls_config,kCoefYcbcrIndex);
+        //axi_write_channel(kls_config,kCoefCgainIndex);
+        //axi_write_channel(kls_config,kCoefSharpIndex);
+        //axi_write_channel(kls_config,kCoefBlureIndex);
+        //axi_write_channel(kls_config,kCoefSobeXIndex);
+        //axi_write_channel(kls_config,kCoefSobeYIndex);
+        //axi_write_channel(kls_config,kCoefEmbosIndex);
+        //axi_write_channel(kls_config,kCoefCgai1Index);
+        //axi_write_channel(als_k1,6);
         axi_write_channel(als_k2,5);
         axi_write_channel(als_k3,6);
         axi_write_channel(als_k4,5);

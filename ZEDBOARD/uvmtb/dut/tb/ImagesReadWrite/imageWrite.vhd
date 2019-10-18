@@ -18,6 +18,7 @@ generic (
 port (
     pixclk        : in  std_logic;
     enableWrite   : in  std_logic;
+    doneWrite     : out  std_logic;
     iRgb          : in channel);
 end imageWrite;
 architecture Behavioral of imageWrite is
@@ -39,12 +40,14 @@ architecture Behavioral of imageWrite is
     type rgbPixel is array(1 to 3) of std_logic_vector(i_data_width-1 downto 0);
     type rgbFrame is array(0 to img_width -1, 0 to img_height -1) of rgbPixel;
     signal rgbData      : rgbFrame  := (others => (others => (others => (others => '0'))));
-    signal Xcont        : integer   := 0;
-    signal Ycont        : integer   := 0;
-    signal wrImageFile  : std_logic := lo;
-    signal frameEnable  : std_logic := lo;
-    signal rgb          :  channel  := (valid => lo, red => black, green => black, blue => black);
+    signal Xcont           : integer   := 0;
+    signal Ycont           : integer   := 0;
+    signal wrImageFile     : std_logic := lo;
+    signal frameEnable     : std_logic := lo;
+    signal rgb             :  channel  := (valid => lo, red => black, green => black, blue => black);
+    signal imageCompleted  : std_logic := lo;
 begin
+doneWrite <= imageCompleted;
 process (pixclk) begin
     if rising_edge(pixclk) then
         if(enImageText = True) then
@@ -63,7 +66,7 @@ process (pixclk) begin
         end if;
     end if;
 end process;
-frameEnable <= hi when (enableWrite = hi);
+frameEnable <= hi when (enableWrite = hi and imageCompleted = lo);
 readRgbDataP: process(pixclk)begin
     if rising_edge(pixclk) then
         if(frameEnable = hi) then
@@ -144,7 +147,9 @@ ImageFrameP: process
             end if;
         end loop;
     end loop;
-	wait for 2000 ns;
+    wait for 10 ns;
+    imageCompleted <= hi;
+    wait;   
 	--assert false
 	--report "simulation ended"
 	--severity failure;

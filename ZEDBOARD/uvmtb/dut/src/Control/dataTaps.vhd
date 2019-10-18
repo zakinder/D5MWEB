@@ -7,7 +7,7 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity dataTaps is
 generic (
-    img_width     : integer := 4096;
+    img_width     : integer := 2751;
     dataWidth     : integer := 12;
     addrWidth     : integer := 12);
 port (

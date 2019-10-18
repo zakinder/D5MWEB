@@ -7,7 +7,7 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity videoSelect is
 generic (
-    img_width         : integer := 4096;
+    img_width         : integer := 2751;
     i_data_width      : integer := 8;
     b_data_width      : integer := 32;
     s_data_width      : integer := 16);

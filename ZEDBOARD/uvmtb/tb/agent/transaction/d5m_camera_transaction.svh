@@ -1,17 +1,20 @@
 class d5m_camera_transaction extends uvm_sequence_item;
-    rand bit [11:0]     idata;
+    rand bit [23:0]     idata;
     rand bit            ilval;
     rand bit            ifval;
     bit [7:0]           ired;
     bit [7:0]           igreen;
     bit [7:0]           iblue;
+    bit [23:0]          rgb;
     bit                 ivalid;
     bit                 readyToRead;
+    bit                 lvalid;
+    bit                 fvalid;
     bit [11:0]          ixCord;
     bit [11:0]          iyCord;
-    int                 image_width    = 200; 
-    int                 lval_offset    = 50;
-    int                 lval_lines     = 5; //lval_lines - 2
+    int                 image_width    = 50; 
+    int                 lval_offset    = 5;
+    int                 lval_lines     = 5;    //lval_lines - 2
     int                 number_frames  = 1;   //7 frames [0-7]
     rand bit [15:0]     addr;
     rand bit [31:0]     data;
@@ -26,6 +29,9 @@ class d5m_camera_transaction extends uvm_sequence_item;
         `uvm_field_int  (iblue ,                        UVM_DEFAULT);
         `uvm_field_int  (ivalid ,                       UVM_DEFAULT);
         `uvm_field_int  (readyToRead ,                  UVM_DEFAULT);
+        `uvm_field_int  (lvalid ,                       UVM_DEFAULT);
+        `uvm_field_int  (fvalid ,                       UVM_DEFAULT);
+        `uvm_field_int  (rgb ,                          UVM_DEFAULT);
         `uvm_field_int  (ixCord ,                       UVM_DEFAULT);
         `uvm_field_int  (iyCord ,                       UVM_DEFAULT);
         `uvm_field_int  (ilval,                         UVM_DEFAULT);

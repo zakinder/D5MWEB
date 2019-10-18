@@ -114,8 +114,8 @@ FloatMaxLatP: process(clk) begin
         else
             if (upCtr < (FloatMaxLat + one)) then
                 upCtr  <= upCtr + one;
-            else
-                upCtr <= zero;
+            --else
+           --     upCtr <= zero;
             end if;
         end if;
     end if;
@@ -173,7 +173,7 @@ kCoefStP: process (clk) begin
             if (upCtr = FloatMaxLat) then
                 oCoeffProd.kCoeffEmbos <= kCofFrtProd;
                 oCoeffProd.kCoeffEmbos.kSet <= kCoefVals.kCoeffEmbos.kSet;
-                kCoefStates <= kCoefUpdaterState;
+                kCoefStates <= kCoefEmbosState;
             end if;
         when kCoefUpdaterState =>
                 kCoefStates <= kCoefUpdaterState;

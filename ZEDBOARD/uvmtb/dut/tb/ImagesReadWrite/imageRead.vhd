@@ -6,7 +6,6 @@ use ieee.std_logic_textio.all;
 use work.constantspackage.all;
 use work.vpfrecords.all;
 use work.portspackage.all;
---use work.tbpackage.all;
 entity imageRead is
 generic (
     i_data_width  : integer := 8;
@@ -17,6 +16,8 @@ port (
     clk           : in  std_logic;
     reset         : in  std_logic;
     readyToRead   : in  std_logic;
+    fvalid        : out std_logic;
+    lvalid        : out std_logic;
     oRgb          : out channel;
     oCord         : out coord;
     endOfFrame    : out std_logic);
@@ -32,33 +33,45 @@ architecture Behavioral of imageRead is
     type t_color is array(1 to 3) of std_logic_vector(i_data_width-1 downto 0);
     type t_bmp is array(0 to img_width -1, 0 to img_height -1) of t_color;
     signal bmp_read     : t_bmp;
-    signal SetToRead    : std_logic := '0';
-    signal lineValid    : std_logic := '0';
+    signal SetToRead    : std_logic := lo;
+    signal lineValid    : std_logic := lo;
     signal Xcont        : integer := 0;
     signal Ycont        : integer := 0;
     signal xImagecont   : integer := 0;
     signal yImagecont   : integer := 0;
     signal i_count      : integer := 0;
     signal olm          : rgbConstraint;
-begin
-    endOfFrame  <= '1' when (Xcont = img_width - 1 and Ycont = img_height - 1 and SetToRead = '1') else '0';
-    oRgb.valid  <= lineValid when (Xcont < img_width and Ycont < img_height and SetToRead = '1') else '0';
+    signal initFrame    : std_logic := lo;
+    signal startFrame   : std_logic := lo;
+begin 
+    endOfFrame   <= hi when (Xcont = img_width and Ycont = img_height - 1 and SetToRead = hi and i_count = 1);-- else lo;
+    --endOfFrame  <= hi when (Xcont = img_width and Ycont = img_height - 1 and SetToRead = hi) else lo;
+    oRgb.valid  <= lineValid when (Xcont < img_width and Ycont < img_height and SetToRead = hi) else lo;
     oCord.x     <= std_logic_vector(to_unsigned(xImagecont, 16));
     oCord.y     <= std_logic_vector(to_unsigned(yImagecont, 16));
+    initFrame   <= hi when (SetToRead = hi and readyToRead = hi and i_count <= 2) else lo;
     -------------------------------------------------------------------------
     pcreate_pixelpositions: process(clk,reset)begin
         if (reset = lo) then
             oRgb.red     <= (others => '0');
             oRgb.green   <= (others => '0');
             oRgb.blue    <= (others => '0');
-            olm.rl <= 0;
-            olm.rh <= 0;
-            olm.gl <= 0;
-            olm.gh <= 0;
-            olm.bl <= 0;
-            olm.bh <= 0;
+            olm.rl       <= 0;
+            olm.rh       <= 0;
+            olm.gl       <= 0;
+            olm.gh       <= 0;
+            olm.bl       <= 0;
+            olm.bh       <= 0;
+            lvalid       <= lo;
+            fvalid       <= lo;
         elsif rising_edge(clk) then
-            if (SetToRead = '1' and readyToRead = '1') then
+            startFrame <= initFrame;
+            if(Ycont < img_height)then
+                fvalid  <= initFrame;
+            else
+                fvalid  <= lo;
+            end if;
+            if (startFrame = hi) then
                 if(Xcont < img_width + 3 and Ycont < img_height + 3)then
                     Xcont  <= Xcont + 1;
                 else
@@ -66,10 +79,12 @@ begin
                 end if;
                 if(Xcont < img_width and Ycont < img_height)then
                     xImagecont  <= Xcont;
-                    lineValid   <= '1';
+                    lineValid   <= hi;
+                    lvalid      <= hi;
                 else
                     xImagecont  <= 0;
-                    lineValid   <= '0';
+                    lineValid   <= lo;
+                    lvalid      <= lo;
                 end if;
                 if(Xcont = img_width + 1 and Ycont < img_height + 3)then
                     Ycont  <= Ycont + 1;
@@ -162,7 +177,7 @@ begin
                 end loop;
             end loop;
             wait for 10 ns;
-            SetToRead <= '1';
+            SetToRead <= hi;
             wait;        
     end process pfile_actions;
 end Behavioral;

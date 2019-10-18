@@ -10,7 +10,7 @@ generic (
     i_data_width         : integer := 8;
     s_data_width         : integer := 16;
     b_data_width         : integer := 32;
-    img_width            : integer := 256;
+    img_width            : integer := 2751;
     adwrWidth            : integer := 16;
     addrWidth            : integer := 12);
 port (

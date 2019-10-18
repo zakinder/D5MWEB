@@ -410,6 +410,14 @@ type rData is record
     data             : std_logic_vector(11 downto 0);
     cord             : coord;
 end record;
+type r2xData is record
+    pEof             : std_logic;
+    pSof             : std_logic;
+    valid            : std_logic;
+    data             : std_logic_vector(11 downto 0);
+    dita             : std_logic_vector(24 downto 0);
+    cord             : coord;
+end record;
 type rTp is record
     pEof             : std_logic;
     pSof             : std_logic;

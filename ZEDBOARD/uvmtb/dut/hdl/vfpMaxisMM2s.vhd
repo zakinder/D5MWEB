@@ -44,7 +44,12 @@ process(aclk) begin
         axis_tvalid <= rgb_s_axis_tvalid;
         mm2s_tready <= m_axis_mm2s_tready;
         axis_tuser  <= rgb_s_axis_tuser;
-        axis_tdata  <= rgb_s_axis_tdata(15 downto 8) & rgb_s_axis_tdata(7 downto 0);
+        if (s_data_width  = 16)then-- initiate response
+            axis_tdata  <= std_logic_vector(resize(unsigned(rgb_s_axis_tdata(15 downto 8) & rgb_s_axis_tdata(7 downto 0)), axis_tdata'length));
+        else
+            axis_tdata  <= std_logic_vector(resize(unsigned(rgb_s_axis_tdata(23 downto 16) &rgb_s_axis_tdata(15 downto 8) & rgb_s_axis_tdata(7 downto 0)), axis_tdata'length));
+        end if; 
+        --axis_tdata  <= rgb_s_axis_tdata(15 downto 8) & rgb_s_axis_tdata(7 downto 0);
     end if;
 end process;
 process (aclk) begin

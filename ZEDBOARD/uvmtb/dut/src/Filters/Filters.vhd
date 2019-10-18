@@ -47,7 +47,7 @@ generic (
     F_BLU_TO_YCC          : boolean := false;
     F_BLU_TO_CGA          : boolean := false;
     F_BLU_TO_SHP          : boolean := false;
-    img_width             : integer := 4096;
+    img_width             : integer := 2751;
     img_height            : integer := 4096;
     s_data_width          : integer := 16;
     i_data_width          : integer := 8);

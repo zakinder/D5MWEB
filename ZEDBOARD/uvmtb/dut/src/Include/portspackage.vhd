@@ -47,7 +47,7 @@ generic (
     F_BLU_TO_YCC          : boolean := false;
     F_BLU_TO_CGA          : boolean := false;
     F_BLU_TO_SHP          : boolean := false;
-    img_width             : integer := 4096;
+    img_width             : integer := 2751;
     img_height            : integer := 4096;
     s_data_width          : integer := 16;
     i_data_width          : integer := 8);
@@ -82,7 +82,6 @@ port (
     iRgb           : in channel;
     oRgb           : out channel);
 end component SyncFrames;
-
 component rgbAssertion is
 port (  
     clk            : in  std_logic;
@@ -106,7 +105,7 @@ generic (
     CCGAIN_FRAME       : boolean := false;
     HSV_FRAME          : boolean := false;
     HSL_FRAME          : boolean := false;
-    img_width          : integer := 4096;
+    img_width          : integer := 2751;
     img_height         : integer := 4096;
     s_data_width       : integer := 16;
     i_data_width       : integer := 8);
@@ -121,14 +120,12 @@ port (
     oEdgeValid         : out std_logic;
     oRgb               : out colors);
 end component Kernel; 
-
 component FontRom is
 port (  
     clk     : in std_logic;
     addr    : in integer;
     fontRow : out std_logic_vector(FONT_WIDTH-1 downto 0));
 end component FontRom;
-
 component ColorTrim is
 generic (
     i_data_width  : integer := 8);
@@ -149,7 +146,7 @@ port (
 end component ColorAvg;
 component videoSelect is
 generic (
-    img_width                   : integer := 4096;
+    img_width                   : integer := 2751;
     i_data_width                : integer := 8;
     b_data_width                : integer := 32;
     s_data_width                : integer := 16);
@@ -215,19 +212,20 @@ port (
 end component videoProcess_v1_0_m_axis_mm2s;
 component CameraRawData is
 generic (
-    img_width                   : integer:= 0);
+    dataWidth                   : integer := 24;
+    img_width                   : integer := 2751);
 port (
     m_axis_aclk                 : in std_logic;
     m_axis_aresetn              : in std_logic;
     pixclk                      : in std_logic;
     ifval                       : in std_logic;
     ilval                       : in std_logic;
-    idata                       : in std_logic_vector(11 downto 0);
-    oRawData                    : out rData);
+    idata                       : in std_logic_vector(dataWidth-1 downto 0);
+    oRawData                    : out r2xData);
 end component CameraRawData;
 component CameraRawToRgb is
 generic (
-    img_width                   : integer := 8;
+    img_width                   : integer := 2751;
     dataWidth                   : integer := 12;
     addrWidth                   : integer := 12);
 port (
@@ -245,7 +243,7 @@ generic (
     i_data_width                : integer := 8;
     s_data_width                : integer := 16;
     b_data_width                : integer := 32;
-    img_width                   : integer := 256;
+    img_width                   : integer := 2751;
     adwrWidth                   : integer := 16;
     addrWidth                   : integer := 12);
 port (
@@ -289,7 +287,7 @@ port (
 end component videoProcess_v1_0_Config;
 component buffer_controller is
 generic (
-    img_width                   : integer := 4096;
+    img_width                   : integer := 2751;
     adwrWidth                   : integer := 16;
     dataWidth                   : integer := 12;
     addrWidth                   : integer := 12);
@@ -306,7 +304,7 @@ port (
 end component buffer_controller;
 component TapsController is
 generic (
-    img_width     : integer := 4096;
+    img_width     : integer := 2751;
     tpDataWidth   : integer := 8);
 port (                          
     clk         : in std_logic;
@@ -319,7 +317,7 @@ port (
 end component TapsController;
 component tapLine is
 generic (
-    img_width    : integer := 4095;
+    img_width    : integer := 2751;
     tpDataWidth  : integer := 12);
 port (                          
     clk          : in std_logic;
@@ -328,7 +326,6 @@ port (
     idata        : in std_logic_vector(tpDataWidth - 1 downto 0);
     odata        : out std_logic_vector(tpDataWidth - 1 downto 0));
 end component tapLine;
-
 component sharpMac is
 port (                
     clk                         : in std_logic;
@@ -342,7 +339,7 @@ port (
 end component sharpMac;
 component dataTaps is
 generic (
-    img_width                   : integer := 4096;
+    img_width                   : integer := 2751;
     dataWidth                   : integer := 11;
     addrWidth                   : integer := 12);
 port (                          
@@ -350,7 +347,6 @@ port (
     iRawData                    : in rData;
     oTpData                     : out rTp);
 end component dataTaps;
-
 component RawToRgb is 
 port (                          
     clk                         : in std_logic;
@@ -370,7 +366,7 @@ generic (
     i_data_width                : integer := 8;
     s_data_width                : integer := 16;
     b_data_width                : integer := 32;
-    img_width                   : integer := 256;
+    img_width                   : integer := 2751;
     adwrWidth                   : integer := 16;
     addrWidth                   : integer := 12);
 port (              
@@ -402,7 +398,7 @@ end component frameTestPattern;
 component sharpFilter is
 generic (
     i_data_width                : integer := 8;
-    img_width                   : integer := 256;
+    img_width                   : integer := 2751;
     adwrWidth                   : integer := 16;
     addrWidth                   : integer := 12);
 port (                
@@ -426,7 +422,7 @@ port (
 end component FrameMask;
 component dither is
 generic (
-    img_width         : integer := 512;
+    img_width         : integer := 2751;
     img_height        : integer := 512;
     color_width       : integer := 8;
     reduced_width     : integer := 4);
@@ -446,7 +442,7 @@ generic (
     iMSB                        : integer := 11;
     iLSB                        : integer := 4;
     i_data_width                : integer := 8;
-    img_width                   : integer := 256;
+    img_width                   : integer := 2751;
     adwrWidth                   : integer := 16;
     addrWidth                   : integer := 12);
 port (                
@@ -483,7 +479,7 @@ end component edgeObjects;
 component sobelFilter is
 generic (
     i_data_width                : integer := 8;
-    img_width                   : integer := 256;
+    img_width                   : integer := 2751;
     adwrWidth                   : integer := 16;
     addrWidth                   : integer := 12);
 port (                
@@ -612,7 +608,7 @@ port (
 end component rgb_ycbcr;
 component colorCorrection is
 generic (
-    img_width                   : integer := 4096;
+    img_width                   : integer := 2751;
     i_data_width                : integer := 8);
 port (                          
     clk                         : in std_logic;
@@ -629,7 +625,7 @@ generic (
     YCBCR_FRAME           : boolean := false;
     SOBEL_FRAME           : boolean := false;
     CGAIN_FRAME           : boolean := false;
-    img_width             : integer := 4096;
+    img_width             : integer := 2751;
     i_data_width          : integer := 8);
 port (                          
     clk                   : in std_logic;
@@ -647,7 +643,7 @@ generic (
     YCBCR_FRAME           : boolean := false;
     SOBEL_FRAME           : boolean := false;
     CGAIN_FRAME           : boolean := false;
-    img_width             : integer := 4096;
+    img_width             : integer := 2751;
     i_data_width          : integer := 8);
 port (                          
     clk              : in std_logic;
@@ -658,7 +654,7 @@ port (
 end component KernelCore; 
 component tap_buffer
 generic (
-    img_width                   : integer := 4096;
+    img_width                   : integer := 2751;
     dataWidth                   : integer := 12;
     addrWidth                   : integer := 12);
 port (
@@ -821,7 +817,6 @@ port (
     oValid         : out std_logic;
     oDataFloat     : out std_logic_vector(31 downto 0));
 end component ByteToFloatTop;
-
 component WordToFloat is
 port (                
     aclk                 : IN STD_LOGIC;
@@ -887,6 +882,8 @@ port (
     clk           : in  std_logic;
     reset         : in  std_logic;
     readyToRead   : in  std_logic;
+    lvalid        : out std_logic;
+    fvalid        : out std_logic;
     oRgb          : out channel;
     oCord         : out coord;
     endOfFrame    : out std_logic);
@@ -903,6 +900,7 @@ generic (
 port (                
     pixclk                      : in  std_logic;
     enableWrite                 : in  std_logic;
+    doneWrite                   : out  std_logic;
     iRgb                        : in channel);
 end component imageWrite;
 end package;

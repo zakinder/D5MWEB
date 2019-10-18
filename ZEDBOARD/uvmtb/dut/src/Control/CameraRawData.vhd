@@ -15,19 +15,20 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity CameraRawData is
 generic (
-    img_width         : integer := 8);
+    dataWidth         : integer := 12;
+    img_width         : integer := 2751);
 port (
     m_axis_aclk       : in std_logic;
     m_axis_aresetn    : in std_logic;
     pixclk            : in std_logic;
     ifval             : in std_logic;
     ilval             : in std_logic;
-    idata             : in std_logic_vector(11 downto 0);
-    oRawData          : out rData);
+    idata             : in std_logic_vector(dataWidth-1 downto 0);
+    oRawData          : out r2xData);
 end CameraRawData;
 architecture arch_imp of CameraRawData is
     --PIXCLK SIDE
-    signal pData          : std_logic_vector(11 downto 0):= (others => lo);
+    signal pData          : std_logic_vector(dataWidth-1 downto 0):= (others => lo);
     signal pLine          : std_logic :=lo;
     signal pFrame         : std_logic :=lo;
     signal pLineSyn       : std_logic :=lo;
@@ -45,14 +46,15 @@ architecture arch_imp of CameraRawData is
     signal ifvalSync2     : std_logic :=lo;
     signal endOfLine      : std_logic :=lo;
     ----
-    signal rVdata         : std_logic_vector(11 downto 0):= (others => lo);
+    signal rVdata         : std_logic_vector(dataWidth-1 downto 0):= (others => lo);
     signal rLine          : std_logic :=lo;
     type d5mSt is (readLineState,eolState,eofState,sofState);
     signal d5mStates : d5mSt; 
     signal cordx          : integer :=zero;
     signal cordy          : integer :=zero;
-	signal imgWidth       : integer := 3071;
-    type plineRam is array (0 to img_width) of std_logic_vector (11 downto 0);
+	signal calImgWidth    : integer := img_width;--D5M max supported img_width = 2751
+	signal maxImgWidth    : integer := img_width;--D5M max supported img_width = 2751
+    type plineRam is array (0 to maxImgWidth) of std_logic_vector (dataWidth-1 downto 0);
     signal d5mLine        : plineRam := (others => (others => lo));
 begin
 -----------------------------------------------------------------------------------------
@@ -71,9 +73,9 @@ d5mDataSyncP: process(pixclk) begin
             pDataWrAddress <= zero;
         end if;
         if (endOfLine = hi) then
-            imgWidth  <= pDataWrAddress;
+            calImgWidth  <= pDataWrAddress;
         else
-            imgWidth  <= imgWidth;
+            calImgWidth  <= calImgWidth;
         end if;
         if (pFrame = hi and pLine = hi) then
             d5mLine(pDataWrAddress) <= pData;
@@ -115,7 +117,7 @@ readLineP: process (m_axis_aclk) begin
                 d5mStates <= readLineState;
             end if;
         when readLineState =>
-            if (cordx = imgWidth) then
+            if (cordx = calImgWidth) then
                 rLine         <= lo;
                 d5mStates     <= eolState;
                 cordx         <= zero;
@@ -157,9 +159,11 @@ d5mP: process (m_axis_aclk) begin
         oRawData.cord.x <= std_logic_vector(to_unsigned(cordx, 16)); 
         oRawData.cord.y <= std_logic_vector(to_unsigned(cordy, 16)); 
         if (rLine = hi) then
-            oRawData.data <= rVdata;
+            oRawData.data <= rVdata(11 downto 0);
+            oRawData.dita <= std_logic_vector(resize(unsigned(rVdata), oRawData.dita'length));
         else
             oRawData.data <= (others =>lo);
+            oRawData.dita <= (others =>lo);
         end if;
     end if;
 end process d5mP;

@@ -1,9 +1,11 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use IEEE.NUMERIC_STD.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 use std.textio.all;
 use ieee.std_logic_textio.all;
-use work.tbPackage.all;
+use work.constantspackage.all;
+use work.vpfrecords.all;
+use work.portspackage.all;
 entity imageReadWrite is
   generic (
     i_data_width  : integer := 8;
@@ -35,9 +37,7 @@ entity imageReadWrite is
     oValid        : out std_logic);
 end imageReadWrite;
 architecture Behavioral of imageReadWrite is
-
     -------------------------------------------------------------------------
-	
     constant proj_fol  : string := "Z:/ZEDBOARD/doc/ipManager/ip_user_files/VFP_1.0/tb";
     constant bacslash  : string := "\";
     constant readbmp   : string := input_file&".bmp";
@@ -69,8 +69,8 @@ architecture Behavioral of imageReadWrite is
     signal video    : camlink_buffer_bus;
     signal done     : std_logic := '0';
     signal enable   : std_logic := '0';
-    signal running   : std_logic := '0';
-    signal vvvvv   : std_logic := '0';
+    signal running  : std_logic := '0';
+    signal vvvvv    : std_logic := '0';
     signal x_in     : integer := 0;
     signal y_in     : integer := 0;
     signal x1in     : integer := 0;

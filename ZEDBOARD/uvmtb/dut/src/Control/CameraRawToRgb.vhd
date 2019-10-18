@@ -7,7 +7,7 @@ use work.vpfRecords.all;
 use work.portspackage.all;
 entity CameraRawToRgb is
 generic (
-    img_width           : integer := 8;
+    img_width           : integer := 2751;
     dataWidth           : integer := 12;
     addrWidth           : integer := 12);
 port (
@@ -21,10 +21,13 @@ port (
 end CameraRawToRgb;
 architecture arch_imp of CameraRawToRgb is
     signal rawTp            : rTp;
-    signal rawData          : rData;
+    signal raw1xData        : rData;
+    signal raw2xData        : r2xData;
+    signal rgbSet           : rRgb;
 begin
 CameraRawDataInst: CameraRawData
 generic map(
+    dataWidth            => dataWidth,
     img_width            => img_width)
 port map(
     m_axis_aclk          => m_axis_mm2s_aclk,
@@ -33,20 +36,40 @@ port map(
     ifval                => ifval,
     ilval                => ilval,
     idata                => idata,
-    oRawData             => rawData);
+    oRawData             => raw2xData);
+    raw1xData.valid      <= raw2xData.valid;
+    raw1xData.pEof       <= raw2xData.pEof;
+    raw1xData.pSof       <= raw2xData.pSof;
+    raw1xData.cord       <= raw2xData.cord;
+    raw1xData.data       <= raw2xData.data;
 dataTapsInst: dataTaps
 generic map(
     img_width            => img_width,
-    dataWidth            => dataWidth,
+    dataWidth            => 12,
     addrWidth            => addrWidth)
 port map(
     aclk                 => m_axis_mm2s_aclk,
-    iRawData             => rawData,
+    iRawData             => raw1xData,
     oTpData              => rawTp);
 RawToRgbInst: RawToRgb
 port map(
     clk                  => m_axis_mm2s_aclk,
     rst_l                => m_axis_mm2s_aresetn,
     iTpData              => rawTp,
-    oRgbSet              => oRgbSet);
+    oRgbSet              => rgbSet);
+channelOutP: process (m_axis_mm2s_aclk) begin
+    if rising_edge(m_axis_mm2s_aclk) then
+        if (dataWidth = 12) then
+            oRgbSet  <= rgbSet;
+        else
+            oRgbSet.valid  <= raw2xData.valid;
+            oRgbSet.pEof   <= raw2xData.pEof;
+            oRgbSet.pSof   <= raw2xData.pSof;
+            oRgbSet.cord   <= raw2xData.cord;
+            oRgbSet.red    <= std_logic_vector(raw2xData.dita(23 downto 16));
+            oRgbSet.green  <= std_logic_vector(raw2xData.dita(15 downto 8));
+            oRgbSet.blue   <= std_logic_vector(raw2xData.dita(7 downto 0));
+        end if;
+    end if;
+end process channelOutP;
 end arch_imp;
