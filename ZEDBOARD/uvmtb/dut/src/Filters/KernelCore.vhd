@@ -1,3 +1,27 @@
+----------------------------------------------------------------
+--Last Modfied  : 01062019 [01-06-2019]
+--Module        : KernelCore
+--This module read camera input control valids and data signals.
+----------------------------------------------------------------
+--CameraRawData is the first module inside the VFP system which 
+--communicate with D5M camera.It receives the data of 12 bits 
+--per pixel at each clock cycle from the cmos camera when the 
+--frame valid and line valid are asserted high.Pixel clock is 
+--used to synchronize 12-bits input idata on the rising edge 
+--of the clock.Input valids(ilval and ifval) are used to start 
+--loading idata into line data buffer.The d5mLine line buffer 
+--operate on two separate clocks pixclk and m_axis_aclk.It is 
+--used to store and synchronize pixel data across clock pixclk 
+--and m_axis_aclk domain boundaries.When pLine and pFrame are 
+--enabled, the line buffer stores the pData at each triggering 
+--pixclk clock edge.As long as both valids are active high by 
+--the camera, the line buffer stores the pData upto maximum 
+--supported image width maxImgWidth of plineRam.
+--maxImgWidth maximum image width is configured as fixed constant 
+--value of img_width which is 3741.calImgWidth Image width values 
+--varies which is adjusted by the camera valid signals upto 
+--maximum supported value. 
+----------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -297,7 +321,7 @@ end process;
 end generate COLOR_DELAYED_ENABLED;
 -----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
---FILTERS: YCBCR
+--COLOUR SPACE CONVERSION TO YCBCR
 -----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
 YCBCR_FRAME_ENABLED: if (YCBCR_FRAME = true) generate
@@ -436,7 +460,7 @@ process (clk) begin
         oRgb.red    <= cGain.red;
         oRgb.green  <= cGain.green;
         oRgb.blue   <= cGain.blue;
-        oRgb.valid  <=  rgbSyncValid(9);
+        oRgb.valid  <= rgbSyncValid(9);
     end if;
 end process;
 -----------------------------------------------------------------------------------------------

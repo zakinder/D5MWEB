@@ -1,3 +1,14 @@
+----------------------------------------------------------------
+--Last Modfied  : 01062019 [01-06-2019]
+--Module        : RawToRgb
+--This module convert bayer format data into rgb format.
+----------------------------------------------------------------
+--This module ouput 24-bits RGB values for three channels 
+--by buffering the incoming serial data stream of 12 bits.
+--Serial data enters into the module in a certain order as 
+--bayer pattern format consisting of four colors Green1, 
+--Green2, Red, and Blue representing three filter colors.
+----------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

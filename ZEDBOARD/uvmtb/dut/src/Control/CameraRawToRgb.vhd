@@ -1,4 +1,9 @@
---05022019 [05-02-2019]
+----------------------------------------------------------------
+--Last Modfied  : 01062019 [01-06-2019]
+--Module        : RawToRgb
+--This module instantiates the CameraRawData,dataTaps and
+--RawToRgb components.
+----------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
